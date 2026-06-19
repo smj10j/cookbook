@@ -288,11 +288,19 @@ a { color: var(--accent); }
   border-radius: 3px;
   box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.7);
   max-height: 92vh;
-  overflow-y: auto;
+  overflow: hidden;
   transform-origin: left center;
+  display: flex;
+  flex-direction: column;
 }
-.spread.flip-next { animation: flip-next 0.45s cubic-bezier(0.33, 0, 0.25, 1); }
-.spread.flip-prev { animation: flip-prev 0.45s cubic-bezier(0.33, 0, 0.25, 1); }
+/* The scroll container is an inner layer, NOT the animated .spread itself.
+   Animating a transform on an overflow:auto element under perspective +
+   backdrop-filter makes mobile WebKit skip interpolation and snap to the
+   final frame (the "instant page-turn" bug) — keep the two responsibilities
+   on separate elements. */
+.spread-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.spread.flip-next { animation: flip-next 0.5s cubic-bezier(0.33, 0, 0.25, 1); }
+.spread.flip-prev { animation: flip-prev 0.5s cubic-bezier(0.33, 0, 0.25, 1); }
 @keyframes flip-next { from { transform: rotateY(-28deg); opacity: 0.4; } to { transform: none; opacity: 1; } }
 @keyframes flip-prev { from { transform: rotateY(28deg); opacity: 0.4; } to { transform: none; opacity: 1; } }
 

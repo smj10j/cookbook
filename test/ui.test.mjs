@@ -170,6 +170,22 @@ test('reader Share button copies the /r/<slug>/ preview link', async () => {
   assert.ok(copied && copied.endsWith(`/r/${slug}/`), `share link should end with /r/${slug}/ (got ${copied})`);
 });
 
+test('REGRESSION: flip animates a non-scrolling layer (mobile page-turn snap)', async () => {
+  const { $, $$ } = await boot();
+  $$('.card')[0].click();
+  assert.equal($('#reader').hidden, false);
+  // Scrolling must live on an inner wrapper, NOT on the animated #spread element —
+  // animating a transform on the scroll container makes mobile WebKit snap to the
+  // final frame instead of playing the 0.5s page-turn.
+  const scroller = $('#spread .spread-scroll');
+  assert.ok(scroller, 'spread content is wrapped in a .spread-scroll layer');
+  assert.ok(scroller.querySelector('.spread-hero'), 'hero lives inside the scroller');
+  assert.ok(scroller.querySelector('.spread-inner'), 'body lives inside the scroller');
+  // A forward flip tags the (non-scrolling) spread with the page-turn animation.
+  $('#reader-next').click();
+  assert.ok($('#spread').classList.contains('flip-next'), 'flip-next animation applied');
+});
+
 test('filters narrow the menu', async () => {
   const { $, $$, app } = await boot();
   const before = $$('.card').length;
