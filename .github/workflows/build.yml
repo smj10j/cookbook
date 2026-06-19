@@ -5,6 +5,7 @@ name: Build & guard
 # Also fails if an API key ever gets committed to this public repo.
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
