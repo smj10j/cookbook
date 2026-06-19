@@ -52,7 +52,7 @@ ingredients:
       - 2 lemons, halved
       - "1½ tbsp olive oil"
       - Flaky salt
-      - Optional: red pepper flakes or a chili-oil drizzle
+      - "Optional: red pepper flakes or a chili-oil drizzle"
 steps:
   - section: Prep
     items:

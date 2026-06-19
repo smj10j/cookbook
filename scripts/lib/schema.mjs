@@ -159,5 +159,31 @@ export function validateRecipe(r, filename = '?') {
   if (normalizeSections(r.steps).every((s) => s.items.length === 0)) {
     fail('steps is empty');
   }
+
+  // Every ingredient/step item and tip must be a non-empty STRING. A YAML object here
+  // almost always means an unquoted "key: value" line (the colon makes YAML build a map)
+  // — that ships broken data and crashes the shopping list. Catch it at build time.
+  const badItem = (it) => typeof it !== 'string' || !it.trim();
+  for (const field of ['ingredients', 'steps']) {
+    for (const sec of normalizeSections(r[field])) {
+      for (const it of sec.items) {
+        if (badItem(it)) {
+          fail(`${field} has a non-string item (${JSON.stringify(it)}). A colon likely turned a line into a YAML map — wrap the whole line in double quotes.`);
+        }
+      }
+    }
+  }
+  if (Array.isArray(r.tips)) {
+    for (const t of r.tips) {
+      if (badItem(t)) fail(`a tip is a non-string value (${JSON.stringify(t)}). Wrap any "key: value" tip in double quotes.`);
+    }
+  }
+  if (Array.isArray(r.extras)) {
+    for (const x of r.extras) {
+      if (!x || typeof x.label !== 'string' || typeof x.note !== 'string') {
+        fail(`an extra must be { label: string, note: string } (got ${JSON.stringify(x)}).`);
+      }
+    }
+  }
   return errs;
 }

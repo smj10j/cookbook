@@ -5,13 +5,18 @@
   "description": "Tonight's Menu — Stephen & Lauren's interactive recipe flipbook.",
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs",
     "validate": "node scripts/validate.mjs",
+    "test": "node --test test/*.test.mjs",
+    "prebuild": "npm run validate && npm test",
+    "build": "node scripts/build.mjs",
     "photos": "node scripts/generate-photos.mjs",
-    "serve": "node scripts/build.mjs && node --watch-path=recipes scripts/build.mjs & python3 -m http.server 8000 --directory docs",
-    "preview": "npm run build && python3 -m http.server 8000 --directory docs"
+    "preview": "npm run build && python3 -m http.server 8000 --directory docs",
+    "serve": "python3 -m http.server 8000 --directory docs"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.1"
   }
 }

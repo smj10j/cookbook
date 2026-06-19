@@ -1,7 +1,12 @@
 /* ===========================================================================
-   Tonight's Menu — client app. Vanilla JS, no build step.
-   Loads recipes.json, renders the filterable menu, and drives the flipbook.
+   Tonight's Menu — DOM wiring + rendering. Pure logic lives in lib.js (tested).
+   Loaded as <script type="module">, so this runs after the DOM is parsed.
    =========================================================================== */
+import {
+  esc, inlineMd, cap, fmtMin, VEG,
+  scaleDisplay, classify, clampServes,
+  aggregateShoppingLines, recipeMatches, cuisineChipValues, shopSectionsForRecipe,
+} from './lib.js';
 
 const state = {
   all: [],
@@ -23,19 +28,9 @@ function saveSelected() {
 }
 
 const $ = (sel) => document.querySelector(sel);
-const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-// Minimal inline markdown: *italic* / _italic_  ->  <em>. Everything else escaped.
-const inlineMd = (s) =>
-  esc(s).replace(/(\*|_)(?=\S)([^*_]+?)\1/g, '<em>$2</em>');
-
-const VEG = new Set(['vegetarian', 'vegan']);
-const fmtMin = (m) => (m == null ? '—' : `${m} min`);
-const cap = (s) => (s ? s[0].toUpperCase() + s.slice(1) : s);
 
 // ── boot ──────────────────────────────────────────────────────────────────
-init();
-
-async function init() {
+export async function init() {
   setDate();
   try {
     const res = await fetch('recipes.json', { cache: 'no-cache' });
@@ -69,13 +64,6 @@ function buildFilters() {
     all.forEach((r) => [].concat(pluck(r)).forEach((v) => found.add(v)));
     return key.filter((v) => found.has(v));
   };
-  // Cuisine chips: surface umbrella groups (e.g. "Asian") first, then the specific
-  // cuisines. Selecting an umbrella matches every member cuisine (see apply()).
-  const cuisineGroups = data.cuisineGroups || {};
-  const presentCuisines = new Set(all.map((r) => r.cuisine));
-  const groupKeys = Object.keys(cuisineGroups).filter((g) => cuisineGroups[g].some((c) => presentCuisines.has(c)));
-  const cuisineValues = [...groupKeys, ...[...presentCuisines].filter((c) => !groupKeys.includes(c)).sort()];
-
   const groups = [
     { key: 'category', label: 'Course', values: present(data.vocab.category, (r) => r.category), labelFor: cap },
     { key: 'protein', label: 'Protein', values: present(data.vocab.protein, (r) => r.protein), labelFor: (v) => data.meta.protein[v]?.label || cap(v) },
@@ -83,26 +71,20 @@ function buildFilters() {
     { key: 'methods', label: 'Method', values: present(data.vocab.methods, (r) => r.methods), labelFor: (v) => data.meta.method[v]?.label || cap(v) },
     { key: 'time', label: 'Time', values: data.timeBuckets.map((b) => b.key), labelFor: (k) => data.timeBuckets.find((b) => b.key === k).label },
     { key: 'heat', label: 'Heat', values: present(data.vocab.heat, (r) => r.heat).filter((h) => h !== 'none'), labelFor: cap },
-    { key: 'cuisine', label: 'Cuisine', values: cuisineValues, labelFor: (v) => v },
+    { key: 'cuisine', label: 'Cuisine', values: cuisineChipValues(all, data.cuisineGroups || {}), labelFor: (v) => v },
   ];
-  const html = groups
+  $('#filter-groups').innerHTML = groups
     .filter((g) => g.values.length > 1 || g.key === 'time')
-    .map(
-      (g) => `
+    .map((g) => `
     <div class="filter-group" data-group="${g.key}">
       <span class="filter-group-label">${g.label}</span>
       <div class="chips">
-        ${g.values
-          .map((v) => {
-            const cls = g.key === 'protein' && VEG.has(v) ? 'chip chip-veg' : g.key === 'heat' ? 'chip chip-hot' : 'chip';
-            return `<button class="${cls}" type="button" role="button" aria-pressed="false" data-key="${g.key}" data-val="${esc(v)}">${esc(g.labelFor(v))}</button>`;
-          })
-          .join('')}
+        ${g.values.map((v) => {
+          const cls = g.key === 'protein' && VEG.has(v) ? 'chip chip-veg' : g.key === 'heat' ? 'chip chip-hot' : 'chip';
+          return `<button class="${cls}" type="button" aria-pressed="false" data-key="${g.key}" data-val="${esc(v)}">${esc(g.labelFor(v))}</button>`;
+        }).join('')}
       </div>
-    </div>`
-    )
-    .join('');
-  $('#filter-groups').innerHTML = html;
+    </div>`).join('');
 }
 
 function bindEvents() {
@@ -154,47 +136,20 @@ function clearFilters() {
   apply();
 }
 
-function matchesTime(total, bucketKey) {
-  const b = state.data.timeBuckets.find((x) => x.key === bucketKey);
-  const lo = b.min ?? -Infinity, hi = b.max ?? Infinity;
-  return total > lo && total <= hi;
-}
-
 function apply() {
-  const { q, filters } = state;
-  const cuisineGroups = state.data.cuisineGroups || {};
-  state.filtered = state.all.filter((r) => {
-    if (filters.category.size && !filters.category.has(r.category)) return false;
-    if (filters.protein.size && !filters.protein.has(r.protein)) return false;
-    if (filters.course.size && !filters.course.has(r.course)) return false;
-    if (filters.heat.size && !filters.heat.has(r.heat)) return false;
-    if (filters.cuisine.size) {
-      const ok = filters.cuisine.has(r.cuisine) || [...filters.cuisine].some((s) => cuisineGroups[s]?.includes(r.cuisine));
-      if (!ok) return false;
-    }
-    if (filters.methods.size && !r.methods.some((m) => filters.methods.has(m))) return false;
-    if (filters.time.size && ![...filters.time].some((k) => matchesTime(r.times.total, k))) return false;
-    if (q) {
-      const hay = [r.title, r.tagline, r.pitch, r.cuisine, r.tags.join(' '),
-        r.ingredients.flatMap((s) => s.items).join(' ')].join(' ').toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
-    return true;
-  });
+  const ctx = { q: state.q, filters: state.filters, cuisineGroups: state.data.cuisineGroups || {}, timeBuckets: state.data.timeBuckets || [] };
+  state.filtered = state.all.filter((r) => recipeMatches(r, ctx));
   renderMenu();
 }
 
 // ── menu (cards) ─────────────────────────────────────────────────────────────
 function renderMenu() {
   const list = state.filtered;
-  const menu = $('#menu');
   const active = state.q || Object.values(state.filters).some((s) => s.size);
   $('#clear-filters').hidden = !active;
-  $('#result-count').textContent = active
-    ? `${list.length} of ${state.all.length} recipes`
-    : `${state.all.length} recipes`;
+  $('#result-count').textContent = active ? `${list.length} of ${state.all.length} recipes` : `${state.all.length} recipes`;
   $('#empty-state').hidden = list.length > 0;
-  menu.innerHTML = list.map((r, i) => cardHtml(r, i)).join('');
+  $('#menu').innerHTML = list.map((r, i) => cardHtml(r, i)).join('');
 }
 
 function cardHtml(r, i) {
@@ -272,12 +227,12 @@ function closeReader() {
 function renderSpread(dir) {
   const { list, index } = state.reader;
   const r = list[index];
-  $('#spread').innerHTML = spreadHtml(r);
+  const stage = $('#spread');
+  stage.innerHTML = spreadHtml(r);
   $('#reader-prev').disabled = index <= 0;
   $('#reader-next').disabled = index >= list.length - 1;
-  const stage = $('#spread');
   stage.scrollTop = 0;
-  if (dir !== 0 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (dir !== 0 && typeof matchMedia === 'function' && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const cls = dir > 0 ? 'flip-next' : 'flip-prev';
     stage.classList.remove('flip-next', 'flip-prev');
     void stage.offsetWidth; // reflow to restart animation
@@ -286,15 +241,11 @@ function renderSpread(dir) {
 }
 
 function sectionsHtml(sections, kind) {
-  return sections
-    .map((s) => {
-      const head = s.section ? `<h4 class="subsection-h">${esc(s.section)}</h4>` : '';
-      if (kind === 'ing') {
-        return head + `<ul class="ing-list">${s.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`;
-      }
-      return head + `<ol class="step-list">${s.items.map((i) => `<li>${inlineMd(i)}</li>`).join('')}</ol>`;
-    })
-    .join('');
+  return sections.map((s) => {
+    const head = s.section ? `<h4 class="subsection-h">${esc(s.section)}</h4>` : '';
+    if (kind === 'ing') return head + `<ul class="ing-list">${s.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`;
+    return head + `<ol class="step-list">${s.items.map((i) => `<li>${inlineMd(i)}</li>`).join('')}</ol>`;
+  }).join('');
 }
 
 function spreadHtml(r) {
@@ -315,29 +266,20 @@ function spreadHtml(r) {
   ].filter(Boolean).join('');
 
   const meta = [
-    ['Serves', r.serves],
-    ['Prep', fmtMin(r.times.prep)],
-    ['Cook', fmtMin(r.times.cook)],
-    ['Total', fmtMin(r.times.total)],
-    ['Level', cap(r.difficulty)],
+    ['Serves', r.serves], ['Prep', fmtMin(r.times.prep)], ['Cook', fmtMin(r.times.cook)],
+    ['Total', fmtMin(r.times.total)], ['Level', cap(r.difficulty)],
   ].map(([l, v]) => `<div><div class="m-label">${l}</div><div class="m-value">${esc(v)}</div></div>`).join('');
 
   const tips = r.tips?.length
     ? `<div class="tips-box"><div class="section-h">Chef's Tips</div>
-        <ul class="tips-list">${r.tips.map((t) => `<li>${inlineMd(t)}</li>`).join('')}</ul></div>`
-    : '';
-
+        <ul class="tips-list">${r.tips.map((t) => `<li>${inlineMd(t)}</li>`).join('')}</ul></div>` : '';
   const extras = r.extras?.length
     ? `<div class="extras"><div class="section-h">Make It Yours</div><dl>${r.extras
-        .map((x) => `<dt>${esc(x.label)}</dt><dd>${inlineMd(x.note)}</dd>`).join('')}</dl></div>`
-    : '';
-
+        .map((x) => `<dt>${esc(x.label)}</dt><dd>${inlineMd(x.note)}</dd>`).join('')}</dl></div>` : '';
   const source = r.source?.name
     ? `<p class="spread-source">${r.source.url
         ? `Source: <a href="${esc(r.source.url)}" target="_blank" rel="noopener">${esc(r.source.name)}</a>`
-        : esc(r.source.name)}</p>`
-    : '';
-
+        : esc(r.source.name)}</p>` : '';
   const headnote = r.headnote ? `<p class="spread-headnote">${inlineMd(r.headnote)}</p>` : '';
 
   return `
@@ -350,16 +292,8 @@ function spreadHtml(r) {
       <div class="spread-chips">${chips}</div>
       <p class="spread-pitch">${inlineMd(r.pitch)}</p>
       <div class="spread-columns">
-        <div class="col-ingredients">
-          <div class="section-h">Ingredients</div>
-          ${sectionsHtml(r.ingredients, 'ing')}
-        </div>
-        <div class="col-steps">
-          <div class="section-h">Method</div>
-          ${sectionsHtml(r.steps, 'step')}
-          ${tips}
-          ${extras}
-        </div>
+        <div class="col-ingredients"><div class="section-h">Ingredients</div>${sectionsHtml(r.ingredients, 'ing')}</div>
+        <div class="col-steps"><div class="section-h">Method</div>${sectionsHtml(r.steps, 'step')}${tips}${extras}</div>
       </div>
       ${headnote}
       ${source}
@@ -407,123 +341,14 @@ function closeShopList() {
 function clearSelection() {
   state.selected.clear();
   saveSelected();
-  renderMenu();
+  state.shop.items = [];
+  $('#shoplist-body').innerHTML = '';          // never leave a stale list behind
+  document.querySelectorAll('.card-wrap.is-selected').forEach((w) => {
+    w.classList.remove('is-selected');
+    w.querySelector('.card-select')?.setAttribute('aria-pressed', 'false');
+  });
   renderShopbar();
   closeShopList();
-}
-
-// Quantity parsing/scaling --------------------------------------------------
-const UNI_FRAC = { '½': 1 / 2, '⅓': 1 / 3, '⅔': 2 / 3, '¼': 1 / 4, '¾': 3 / 4, '⅕': 1 / 5, '⅖': 2 / 5, '⅗': 3 / 5, '⅘': 4 / 5, '⅙': 1 / 6, '⅚': 5 / 6, '⅛': 1 / 8, '⅜': 3 / 8, '⅝': 5 / 8, '⅞': 7 / 8 };
-const FRAC_CLASS = '½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞';
-const QTY = `(?:\\d+\\s+\\d+\\/\\d+|\\d+\\/\\d+|\\d+(?:\\.\\d+)?[${FRAC_CLASS}]?|[${FRAC_CLASS}])`;
-const QTY_RE = new RegExp(`^\\s*(${QTY})(?:\\s*[-–—]\\s*(${QTY}))?\\s+(.*)$`);
-const FRAC_OUT = [[0, ''], [1 / 8, '⅛'], [1 / 4, '¼'], [1 / 3, '⅓'], [3 / 8, '⅜'], [1 / 2, '½'], [5 / 8, '⅝'], [2 / 3, '⅔'], [3 / 4, '¾'], [7 / 8, '⅞'], [1, '']];
-
-function parseNum(tok) {
-  tok = tok.trim();
-  let m;
-  if ((m = tok.match(new RegExp(`^(\\d+)\\s*([${FRAC_CLASS}])$`)))) return +m[1] + UNI_FRAC[m[2]];
-  if (UNI_FRAC[tok] != null) return UNI_FRAC[tok];
-  if ((m = tok.match(/^(\d+)\s+(\d+)\/(\d+)$/))) return +m[1] + +m[2] / +m[3];
-  if ((m = tok.match(/^(\d+)\/(\d+)$/))) return +m[1] / +m[2];
-  if (/^\d*\.?\d+$/.test(tok)) return +tok;
-  return null;
-}
-
-function parseQty(text) {
-  const m = text.match(QTY_RE);
-  if (!m) return { qty: null, hi: null, rest: text };
-  return { qty: parseNum(m[1]), hi: m[2] ? parseNum(m[2]) : null, rest: m[3] };
-}
-
-function fmtQty(n) {
-  if (n == null || n < 0) return '';
-  const whole = Math.floor(n + 1e-9);
-  const frac = n - whole;
-  let best = FRAC_OUT[0], bd = Infinity;
-  for (const f of FRAC_OUT) { const d = Math.abs(frac - f[0]); if (d < bd) { bd = d; best = f; } }
-  let w = whole, fc = best[1];
-  if (best[0] === 1) { w += 1; fc = ''; }
-  if (w === 0 && fc === '') return n > 0 ? String(Math.round(n * 100) / 100) : '0';
-  return (w > 0 ? String(w) : '') + fc;
-}
-
-function scaleDisplay(item, factor) {
-  if (item.qty == null) return item.rest; // unscalable (e.g. "Salt and pepper to taste")
-  const lo = fmtQty(item.qty * factor);
-  const hi = item.hi != null ? '–' + fmtQty(item.hi * factor) : '';
-  return (lo + hi + ' ' + item.rest).trim();
-}
-
-// Genuinely specialty items — kept CHECKED (you probably need to buy these).
-const EXOTIC = /saffron|sumac|za'?atar|gochujang|gochugaru|harissa|ras el hanout|garam masala|dukkah|\bmiso\b|tahini|fish sauce|hoisin|oyster sauce|pomegranate molasses|tamarind|black garlic|truffle|furikake|togarashi|\bdashi\b|preserved lemon/;
-
-// Classify an ingredient for the shopping list's default checkbox state:
-//   'core'   basics everyone has (salt, oil, sugar, flour, water, butter) — unchecked, no flag
-//   'pantry' common spices + standard condiments — unchecked, ⚑ flag (probably have, double-check)
-//   'buy'    fresh produce, proteins, specialty items — checked
-function classify(text) {
-  const t = text.toLowerCase();
-  const fresh = /\bfresh\b/.test(t);
-  if (
-    /\bsalt\b/.test(t) ||
-    /(black|white|ground|cracked|table)\s+pepper|peppercorns?|salt and pepper|freshly ground pepper/.test(t) ||
-    (/\boil\b/.test(t) && !/oil-cured|oil-packed/.test(t)) ||
-    (/\bsugar\b/.test(t) && !/sugar snap/.test(t)) ||
-    (/\bbutter\b/.test(t) && !/butter lettuce|nut butter|peanut butter|almond butter/.test(t)) ||
-    /\bwater\b/.test(t) ||
-    /\bflour\b/.test(t) ||
-    /cooking spray|non-?stick spray/.test(t)
-  ) return 'core';
-  if (EXOTIC.test(t)) return 'buy';
-  // common dried spices/seasonings (not fresh herbs)
-  if (!fresh && /paprika|\bcumin\b|cayenne|chil[ie] (powder|flakes?)|chili flakes?|crushed red pepper|red pepper flakes?|cinnamon|nutmeg|allspice|cardamom|ground clove|\bcoriander\b|turmeric|garlic powder|onion powder|ground ginger|italian seasoning|old bay|curry powder|chili powder|chipotle|ancho|bay (leaf|leaves)|ground mustard|mustard powder|five spice|herbes de provence|dried (oregano|thyme|basil|rosemary|dill|parsley|sage|mint|tarragon|chives)/.test(t)) return 'pantry';
-  // standard condiments + baking staples
-  if (/soy sauce|tamari|balsamic|red wine vinegar|white wine vinegar|rice (wine )?vinegar|apple cider vinegar|sherry vinegar|white vinegar|\bvinegar\b|\bhoney\b|maple syrup|dijon|whole-?grain mustard|yellow mustard|\bmustard\b|ketchup|mayonnaise|\bmayo\b|worcestershire|sriracha|hot sauce|sesame oil|vanilla extract|almond extract|baking soda|baking powder|cornstarch|corn ?starch|\bpanko\b|bread ?crumbs|tomato paste|\bbroth\b|\bstock\b|brown sugar|powdered sugar/.test(t)) return 'pantry';
-  return 'buy';
-}
-
-// Units recognized when splitting an ingredient so identical items can be merged.
-const UNITS = new Set(['cup', 'cups', 'tbsp', 'tablespoon', 'tablespoons', 'tsp', 'teaspoon', 'teaspoons', 'oz', 'ounce', 'ounces', 'lb', 'lbs', 'pound', 'pounds', 'g', 'gram', 'grams', 'kg', 'ml', 'l', 'liter', 'liters', 'clove', 'cloves', 'can', 'cans', 'jar', 'jars', 'pinch', 'pinches', 'dash', 'handful', 'handfuls', 'sprig', 'sprigs', 'stalk', 'stalks', 'bunch', 'bunches', 'head', 'heads', 'slice', 'slices', 'piece', 'pieces', 'quart', 'quarts', 'pint', 'pints', 'stick', 'sticks', 'package', 'packages', 'pkg', 'strip', 'strips', 'fillet', 'fillets']);
-const PREP_RE = /\b(minced|chopped|finely|coarsely|roughly|diced|sliced|thinly|thickly|halved|quartered|crumbled|grated|shredded|julienned|cubed|ground|freshly|peeled|seeded|deseeded|deveined|trimmed|drained|rinsed|cooked|melted|softened|toasted|optional|divided|packed|crushed)\b/g;
-
-function splitUnit(rest) {
-  const words = rest.trim().split(/\s+/);
-  const first = (words[0] || '').toLowerCase().replace(/[.,]/g, '');
-  if (UNITS.has(first)) return { unit: words[0].replace(/[.,]/g, ''), name: words.slice(1).join(' ') };
-  return { unit: '', name: rest };
-}
-
-// Reduce an ingredient to its core name so "2 cloves garlic, minced" and
-// "3 cloves garlic" collapse to one shopping-list line.
-function cleanName(name) {
-  return name.replace(/\([^)]*\)/g, '').split(',')[0].replace(PREP_RE, '').replace(/\s+/g, ' ').trim();
-}
-
-// Merge entries (already-scaled qty + rest) into deduped shopping lines.
-function aggregateShoppingLines(entries) {
-  const groups = new Map();
-  for (const e of entries) {
-    const { unit, name } = splitUnit(e.rest);
-    const display = cleanName(name) || e.rest.trim();
-    const key = display.toLowerCase();
-    if (!groups.has(key)) groups.set(key, { display, units: new Map() });
-    const uKey = unit.toLowerCase().replace(/s$/, '');
-    const units = groups.get(key).units;
-    if (!units.has(uKey)) units.set(uKey, { qty: 0, unit, hasQty: false });
-    const u = units.get(uKey);
-    if (e.qty != null) { u.qty += e.qty; u.hasQty = true; }
-  }
-  return [...groups.values()].map((g) => {
-    const parts = [...g.units.values()].filter((u) => u.hasQty)
-      .map((u) => (fmtQty(u.qty) + (u.unit ? ' ' + u.unit : '')).trim());
-    return parts.length ? `${parts.join(' + ')} ${g.display}`.trim() : g.display;
-  });
-}
-
-function clampServes(v) {
-  const n = parseInt(v, 10);
-  return isNaN(n) ? null : Math.max(1, Math.min(50, n));
 }
 
 function renderShopList() {
@@ -532,20 +357,16 @@ function renderShopList() {
   const items = [];
   let idx = 0;
   const html = recipes.map((r) => {
-    const factor = target / (r.serves || target);
-    const body = r.ingredients.map((sec) => {
+    const body = shopSectionsForRecipe(r, target).map((sec) => {
       const head = sec.section ? `<div class="shop-section">${esc(sec.section)}</div>` : '';
-      const rows = sec.items.map((line) => {
-        const p = parseQty(line);
-        const cat = classify(line);
-        const item = { recipe: r.title, qty: p.qty, hi: p.hi, rest: p.rest, serves: r.serves || target, cat };
+      const rows = sec.items.map((it) => {
         const i = idx++;
-        items.push(item);
-        const flag = cat === 'pantry'
+        items.push(it);
+        const flag = it.cat === 'pantry'
           ? ` <span class="pantry-flag" title="You likely have this — double-check your pantry">⚑</span>` : '';
-        return `<label class="shop-item${cat !== 'buy' ? ' is-staple' : ''}">
-          <input type="checkbox" data-idx="${i}"${cat === 'buy' ? ' checked' : ''} />
-          <span class="shop-qty" data-idx="${i}">${esc(scaleDisplay(item, factor))}</span>${flag}
+        return `<label class="shop-item${it.cat !== 'buy' ? ' is-staple' : ''}">
+          <input type="checkbox" data-idx="${i}"${it.cat === 'buy' ? ' checked' : ''} />
+          <span class="shop-qty" data-idx="${i}">${esc(it.display)}</span>${flag}
         </label>`;
       }).join('');
       return head + rows;
@@ -578,7 +399,6 @@ function copyShoppingList() {
   const checks = [...document.querySelectorAll('.shoplist-body input[type=checkbox]:checked')];
   if (!checks.length) { flashCopied('Nothing checked'); return; }
   const target = clampServes($('#shop-serves').value) || 2;
-  // Merge identical ingredients (across recipes) into one summed line.
   const entries = checks.map((cb) => {
     const item = state.shop.items[+cb.dataset.idx];
     const qty = item.qty != null ? item.qty * (target / (item.serves || target)) : null;
@@ -605,3 +425,7 @@ function flashCopied(msg) {
   clearTimeout(flashCopied._t);
   flashCopied._t = setTimeout(() => { el.hidden = true; }, 1800);
 }
+
+// Expose state for the test harness; auto-boot in the browser only.
+export { state };
+if (typeof window !== 'undefined' && !globalThis.__NO_AUTO_INIT__) init();

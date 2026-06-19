@@ -86,8 +86,11 @@ Key obligations (full spec in `CLAUDE.md`):
 npm run build
 ```
 
-This validates against the schema and regenerates `docs/recipes.json`. If it reports
-errors, fix the named fields and rebuild until clean.
+This runs `npm run validate` and `npm test`, then regenerates `docs/recipes.json` — the
+build won't complete if validation or any test fails. If it reports errors (e.g. an
+ingredient that became a YAML map because of an unquoted colon), fix the named fields and
+rebuild until clean. If your change touches site logic (not just recipe data), add or
+update tests in `test/` per `CLAUDE.md` before committing.
 
 ## 4. Photo (optional, ask the user)
 

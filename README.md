@@ -77,22 +77,25 @@ See `scripts/generate-photos.mjs` for options (`--only <slug>`, `--force`).
 ## Local development
 
 ```bash
-npm install          # one-time: installs js-yaml
-npm run preview      # builds, then serves the site at http://localhost:8000
+npm install          # one-time: installs js-yaml + jsdom (for tests)
+npm test             # run the full test suite (logic + jsdom UI tests)
+npm run preview      # builds (validate + test first), then serves at http://localhost:8000
 # or:
-npm run build        # just regenerate docs/recipes.json
+npm run build        # validate + test, then regenerate docs/recipes.json
 npm run validate     # lint every recipe against the schema
 ```
+
+`npm run build` won't produce output if validation or tests fail — testing is baked in.
 
 The site itself is plain HTML/CSS/JS — no framework, no build step for the page.
 The only "build" turns `recipes/*.md` into `docs/recipes.json`.
 
 ## How it's deployed
 
-GitHub Pages serves the `docs/` folder on the `main` branch. A GitHub Action
-(`.github/workflows/build.yml`) re-runs the build on every push so `docs/recipes.json`
-always matches the recipe files — even if you edit a recipe directly on GitHub. It also
-scans for accidentally-committed API keys and fails if it finds one.
+A GitHub Action (`.github/workflows/deploy.yml`) builds and deploys the site to GitHub
+Pages on every push to `main` — but **only after validation and the full test suite
+pass**. A failing test blocks the deploy. The workflow also scans for accidentally-
+committed API keys and refuses to deploy if it finds one.
 
 ## Repo layout
 
