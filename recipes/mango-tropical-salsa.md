@@ -1,6 +1,7 @@
 ---
 title: Chunky Mango-Habanero Salsa
 slug: mango-tropical-salsa
+category: side
 tagline: Sweet-heat tropical salsa — ripe mango, cool cucumber, and a slow habanero burn.
 pitch: >-
   Sweet and dangerous in the same bite: ripe mango and cool cucumber up front,

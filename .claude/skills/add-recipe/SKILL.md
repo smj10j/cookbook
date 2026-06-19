@@ -20,18 +20,34 @@ Before writing anything, read:
   Stephen & Lauren context (equipment, garden, dietary exclusions).
 - `recipes/blackened-steak-salad.md` — the golden reference recipe. Match its shape.
 
-## 1. Get the source
+## 1. Choose the path — and OFFER 3 OPTIONS when the request is open-ended
 
-Depending on what the user gave you:
+Decide which case you're in:
 
-- **A URL** → fetch it with the WebFetch tool. Ask it to return the full recipe:
-  title, yield, total/active time, the complete ingredient list (with quantities),
-  the full step-by-step instructions, and any author notes/tips. Recipe sites bury
-  this in ads and "life story" preamble — pull only the recipe. Also try to capture
-  the page's `og:image` URL; if there's a good one, note it as a candidate photo.
-- **Pasted text** → use it directly.
-- **Just an idea** ("make a recipe for X") → design a real, correct recipe using
-  sound technique and the user's equipment/garden.
+- **A specific URL** → ingest it (see below). Skip the options step.
+- **A specific dish or pasted recipe** ("add our chicken piccata", or pasted text) →
+  build it directly. Skip the options step.
+- **Open-ended** ("add a recipe", "make something with salmon", "I want a taco night")
+  → **DO NOT start building yet.** First pitch **three distinct options** and let
+  Stephen choose. Only after he picks one do you build the full recipe.
+
+### Presenting 3 options (open-ended case)
+
+Offer three genuinely different takes — vary the protein, technique, cuisine, or
+format so it's a real choice, not three flavors of the same dish. For each option give:
+a tempting **title** and a one-to-two sentence editorial pitch with a single *italic*
+"money line." Honor the constraints (no pork/lamb/duck/turkey/shellfish; dinner for two;
+their equipment + garden). Use the **AskUserQuestion** tool so Stephen can pick in one
+tap (or just number them 1–3 in chat). Wait for his choice, then continue to step 2 to
+build only the chosen recipe.
+
+### Ingesting a URL
+
+Fetch it with the WebFetch tool. Ask it to return the full recipe: title, yield,
+total/active time, the complete ingredient list (with quantities), the full
+step-by-step instructions, and any author notes/tips. Recipe sites bury this in ads and
+"life story" preamble — pull only the recipe. Also try to capture the page's `og:image`
+URL; if there's a good one, note it as a candidate photo.
 
 ## 2. Normalize to the house format
 
@@ -43,8 +59,11 @@ Key obligations (full spec in `CLAUDE.md`):
 - **slug** = lowercase-kebab-case = the filename. Make it unique (check `recipes/`).
 - **pitch**: a 3–5 sentence editorial pitch (Bon Appétit voice) with exactly one
   *italic* money line. Lead with technique or the visual moment.
-- **Controlled vocab only** for `protein`, `methods`, `course`, `heat`, `difficulty`
-  (see `scripts/lib/schema.mjs`). `cuisine` and `tags` are free text.
+- **Controlled vocab only** for `protein`, `methods`, `course`, `heat`, `difficulty`,
+  `category` (see `scripts/lib/schema.mjs`). `cuisine` and `tags` are free text.
+- **`category`**: `main` or `side`. Defaults to `main` (omit it for mains). Set
+  `category: side` for accompaniments — sauces, salsas, dips, chips, casseroles, simple
+  rice/bean sides. This drives the site's Main/Side "Course" filter.
 - **times**: realistic `prep`/`cook`/`total` in minutes (total may exceed prep+cook
   for marinating/chilling — call that out in the pitch or a tip).
 - **Chef's tips**: ALWAYS add 2–4. If the source has none, contribute your own real,
@@ -78,7 +97,11 @@ If the user wants a photo and an `OPENAI_API_KEY` is set in `.env`:
 npm run photos -- --only <slug>
 ```
 
-This generates `docs/images/<slug>.webp` and adds `hero:` to the recipe, then rebuild.
+The build auto-attaches `docs/images/<slug>.webp` (no frontmatter edit needed). The
+prompt in `scripts/generate-photos.mjs` is deliberately tuned for **photorealism** —
+natural light, real textures, slight imperfection — and explicitly steers away from the
+glossy/cartoony/over-styled "AI look." Keep it that way; if a result still looks fake,
+regenerate it (optionally at `--quality high`). Then rebuild.
 If you captured a good `og:image` from a source URL, you may instead download that to
 `docs/images/<slug>.webp` and set `hero:` by hand. Don't invent a photo if neither is
 available — the placeholder card looks intentional.

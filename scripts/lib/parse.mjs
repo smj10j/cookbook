@@ -20,6 +20,7 @@ export function readRecipeFile(path) {
   return {
     ...data,
     slug: data.slug || fileSlug,
+    category: data.category || 'main',
     headnote: body || null,
     ingredients: normalizeSections(data.ingredients),
     steps: normalizeSections(data.steps),

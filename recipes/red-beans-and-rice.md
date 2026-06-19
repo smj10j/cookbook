@@ -1,6 +1,7 @@
 ---
 title: Vegetarian New Orleans Red Beans & Rice
 slug: red-beans-and-rice
+category: side
 tagline: Creamy smoked-paprika red beans over fluffy rice — all the Cajun soul, no meat.
 pitch: >-
   This is New Orleans comfort food rebuilt without the andouille — and you won't

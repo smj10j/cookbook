@@ -6,7 +6,7 @@ import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { readAllRecipes } from './lib/parse.mjs';
-import { validateRecipe, VOCAB, PROTEIN_META, METHOD_META, TIME_BUCKETS } from './lib/schema.mjs';
+import { validateRecipe, VOCAB, PROTEIN_META, METHOD_META, TIME_BUCKETS, CUISINE_GROUPS } from './lib/schema.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const recipesDir = join(root, 'recipes');
@@ -47,6 +47,7 @@ const payload = {
   vocab: VOCAB,
   meta: { protein: PROTEIN_META, method: METHOD_META },
   timeBuckets: TIME_BUCKETS,
+  cuisineGroups: CUISINE_GROUPS,
   facets: { cuisines, tags: allTags },
   recipes: recipes.map(({ _file, ...r }) => r),
 };

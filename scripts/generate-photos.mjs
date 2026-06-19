@@ -61,13 +61,16 @@ function buildPrompt(r) {
     : r.course === 'snack' ? 'on parchment in a shallow dish'
     : 'on a handmade ceramic plate';
   return [
-    `A appetizing editorial food photograph of "${r.title}", ${r.cuisine} ${r.course}.`,
+    `A realistic, natural photograph of "${r.title}", a ${r.cuisine} ${r.course}.`,
     r.tagline,
     firstItems ? `Featuring ${firstItems}.` : '',
-    `Plated ${vessel} on a warm linen-and-wood table.`,
-    'Soft natural window light, shallow depth of field, three-quarter overhead angle.',
-    'Styled like a Bon Appétit / Cherry Bombe magazine spread, warm rustic tones,',
-    'cream and terracotta color palette, painterly and inviting.',
+    `Plated ${vessel} on a lived-in kitchen table.`,
+    'Shot on a full-frame DSLR with a 50mm lens at f/2.8: natural window light, soft real',
+    'shadows, shallow depth of field, slightly imperfect home-cook plating, true food',
+    'textures and steam, true-to-life colors that are NOT oversaturated.',
+    'Candid documentary food photography that looks like a real photo from a phone or camera —',
+    'with natural imperfections. It must NOT look like an illustration, 3D render, CGI, cartoon,',
+    'painting, or AI art, and must avoid glossy, plastic, waxy, or over-styled perfection.',
     'No text, no words, no logos, no hands, no people.',
   ].filter(Boolean).join(' ');
 }

@@ -93,6 +93,39 @@
     </div>
   </div>
 
+  <!-- ░░ SHOPPING LIST ░░ -->
+  <button class="shopbar" id="shopbar" hidden aria-haspopup="dialog">
+    <span class="shopbar-icon" aria-hidden="true">🛒</span>
+    Get Shopping List
+    <span class="shopbar-count" id="shopbar-count">0</span>
+  </button>
+
+  <div class="shoplist" id="shoplist" hidden aria-modal="true" role="dialog" aria-label="Shopping list">
+    <div class="shoplist-panel">
+      <header class="shoplist-head">
+        <h2>Shopping List</h2>
+        <button class="shoplist-close" id="shoplist-close" aria-label="Close shopping list">✕</button>
+      </header>
+      <div class="shoplist-controls">
+        <label class="serves-field">Serves
+          <input type="number" id="shop-serves" min="1" max="50" step="1" value="2" inputmode="numeric" />
+        </label>
+        <button class="copy-btn" id="shop-copy" type="button">Copy checked items</button>
+        <span class="copied-msg" id="shop-copied" hidden>Copied ✓</span>
+      </div>
+      <p class="shoplist-note">
+        Quantities scale to your serving count. Tick what you need —
+        <strong>only checked items are copied</strong>. Pantry staples (salt, pepper, oil, sugar…)
+        start unchecked.
+      </p>
+      <div class="shoplist-body" id="shoplist-body"></div>
+      <footer class="shoplist-foot">
+        <button class="link-btn" id="shop-clear" type="button">Clear selection</button>
+        <span class="shoplist-summary" id="shop-summary"></span>
+      </footer>
+    </div>
+  </div>
+
   <!-- Card / spread templates rendered in JS to keep markup in one place -->
   <script src="app.js"></script>
 </body>

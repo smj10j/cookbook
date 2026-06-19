@@ -50,7 +50,8 @@ difficulty: ★ easy | medium | advanced
 protein: ★ beef | chicken | fish | seafood | vegetarian | vegan | pork   # primary lane, pick ONE
 methods: ★ [grill, stove, oven, broiler, sous-vide, instant-pot, smoker, dehydrator, air-fryer, no-cook]  # >=1
 cuisine: ★ free text, Title Case (American, Italian, Mexican, Thai, Sichuan, Mediterranean…)
-course: ★ main | salad | soup | side | sauce | pasta | taco | snack
+category: main | side   # high-level menu role; defaults to main (omit for mains). Use `side` for sauces, salsas, dips, chips, casseroles, simple rice/bean sides.
+course: ★ main | salad | soup | side | sauce | pasta | taco | snack   # the granular dish type
 heat: ★ none | mild | medium | hot   # spice level
 equipment: [optional special gear, e.g. cast iron, sous-vide, grill]
 tags: [free-form filters: summer, make-ahead, gluten-free, date-night, garden, one-pan…]
@@ -91,10 +92,19 @@ allowed in pitch, steps, tips, extras, and the headnote.
 
 ## Controlled vocabularies
 
-`protein`, `methods`, `course`, `heat`, `difficulty` MUST use values from
+`protein`, `methods`, `course`, `heat`, `difficulty`, `category` MUST use values from
 `scripts/lib/schema.mjs` (`VOCAB`). The site builds its filter dropdowns from these,
 so do not invent new values — add them to `schema.mjs` first if genuinely needed.
 `cuisine` and `tags` are free text and become filters automatically.
+
+**Cuisine umbrellas.** `CUISINE_GROUPS` in `schema.mjs` lets a broad filter (e.g.
+"Asian") match many specific cuisines (Vietnamese, Japanese, Chinese, Thai, Sichuan,
+Korean…). The specific cuisines still appear as their own filters. When you add a recipe
+whose cuisine should roll up under an umbrella, make sure that cuisine is listed in the
+relevant group.
+
+**Filters on the site:** Course (Main/Side, from `category`), Protein, Dish (the
+granular `course`), Method, Time, Heat, and Cuisine (with umbrellas), plus search.
 
 ## Voice & standards (this is the whole point — keep it consistent)
 
@@ -129,3 +139,8 @@ Use the **add-recipe** skill (`.claude/skills/add-recipe/SKILL.md`). It handles 
 ("ingest this recipe from the web"), pasted text, or a from-scratch idea — normalizing
 to this format, naming it well, adding tips, then building. See `README.md` for the
 human-facing version.
+
+**Important:** when the request is **open-ended** (no URL and no specific dish — e.g.
+"add a recipe" or "something with salmon"), do NOT build immediately. First pitch **three
+distinct options** (vary protein/technique/cuisine) and let Stephen choose; only then
+build the chosen one. A specific URL or named dish skips straight to building.

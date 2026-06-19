@@ -19,7 +19,9 @@ export const VOCAB = {
     'air-fryer',
     'no-cook',
   ],
-  // What kind of dish. One per recipe.
+  // High-level menu role: a main dish vs. an accompaniment. Defaults to 'main'.
+  category: ['main', 'side'],
+  // What kind of dish (the granular descriptor). One per recipe.
   course: ['main', 'salad', 'soup', 'side', 'sauce', 'pasta', 'taco', 'snack'],
   // Spice level. One per recipe.
   heat: ['none', 'mild', 'medium', 'hot'],
@@ -50,6 +52,25 @@ export const METHOD_META = {
   dehydrator: { label: 'Dehydrator' },
   'air-fryer': { label: 'Air Fryer' },
   'no-cook': { label: 'No-Cook' },
+};
+
+// Cuisine umbrella groups. Selecting the umbrella (e.g. "Asian") matches any member
+// cuisine, while each specific cuisine stays available as its own filter.
+export const CUISINE_GROUPS = {
+  Asian: [
+    'Asian',
+    'Asian-American',
+    'Vietnamese',
+    'Japanese',
+    'Chinese',
+    'Thai',
+    'Sichuan',
+    'Korean',
+    'Indian',
+    'Filipino',
+    'Malaysian',
+    'Indonesian',
+  ],
 };
 
 // Coarse time buckets the UI offers as quick filters (minutes, inclusive lower bound).
@@ -111,6 +132,9 @@ export function validateRecipe(r, filename = '?') {
   }
   if (!VOCAB.course.includes(r.course)) {
     fail(`course "${r.course}" not in vocab (${VOCAB.course.join(', ')})`);
+  }
+  if (r.category && !VOCAB.category.includes(r.category)) {
+    fail(`category "${r.category}" not in vocab (${VOCAB.category.join(', ')})`);
   }
   if (!VOCAB.heat.includes(r.heat)) {
     fail(`heat "${r.heat}" not in vocab (${VOCAB.heat.join(', ')})`);

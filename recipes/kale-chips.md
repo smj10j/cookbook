@@ -1,6 +1,7 @@
 ---
 title: Crispy Oven Kale Chips
 slug: kale-chips
+category: side
 tagline: Shatter-crisp, salty kale leaves baked low and slow into a snackable chip.
 pitch: >-
   The secret to kale chips that crackle instead of wilt is restraint — dry

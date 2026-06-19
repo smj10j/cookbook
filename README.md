@@ -12,10 +12,15 @@ GitHub Pages so it works on any phone or laptop.
 
 ## What's here
 
-- A browsable **menu** of recipes you can filter by protein, time, cooking method,
-  heat level, course, and cuisine — plus full-text search.
+- A browsable **menu** of recipes you can filter by course (main/side), protein, dish
+  type, time, cooking method, heat level, and cuisine — plus full-text search. The
+  **Asian** cuisine filter rolls up Vietnamese, Japanese, Chinese, Thai, Sichuan, etc.
 - Click any card to open the full recipe **spread** and flip left/right through the
   results with arrow keys, swipes, or the on-screen arrows.
+- A **shopping-list builder**: tick the ✓ on any cards, hit the floating
+  **Get Shopping List** button, set how many people you're feeding (quantities scale
+  automatically), uncheck what you already have, and copy the list to your clipboard.
+  Pantry staples (salt, pepper, oil, sugar…) start unchecked.
 - Every recipe follows one **standard format**, so timings, ingredients, method,
   chef's tips, and extras are always in the same place.
 - Each recipe has a shareable link (e.g. `…/cookbook/#/blackened-steak-salad`) so you
@@ -37,6 +42,10 @@ Claude uses the **add-recipe skill** (`.claude/skills/add-recipe/`) to:
 3. Drop it in `recipes/`, rebuild, and (optionally) generate a photo.
 
 You review, then it's live on the next push.
+
+**If you're vague** ("add a recipe" or "something with salmon") Claude will first pitch
+**three options** and let you pick before building — so you get a say in the direction.
+Give a URL or a specific dish and it skips straight to building.
 
 ## Adding a recipe (by hand)
 

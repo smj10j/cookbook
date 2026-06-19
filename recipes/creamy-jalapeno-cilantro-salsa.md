@@ -1,6 +1,7 @@
 ---
 title: Creamy Jalapeño-Cilantro Salsa (Inspired by Fresa's)
 slug: creamy-jalapeno-cilantro-salsa
+category: side
 tagline: A smooth, dairy-free green salsa with a serious kick — charred peppers blended creamy with cilantro and lime.
 pitch: >-
   This is the addictive green sauce from Fresa's, the one with the deceptive

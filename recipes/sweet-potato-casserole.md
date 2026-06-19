@@ -1,6 +1,7 @@
 ---
 title: Brown Sugar Sweet Potato Casserole
 slug: sweet-potato-casserole
+category: side
 tagline: Silky brown-sugar sweet potatoes under a crunchy pecan-streusel crown.
 pitch: >-
   This is the holiday side Lauren remembers — creamy, cinnamon-warm sweet
