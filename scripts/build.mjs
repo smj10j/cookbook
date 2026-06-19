@@ -2,11 +2,15 @@
 // Compile recipes/*.md -> docs/recipes.json (the data the site loads).
 // Also runs validation first and refuses to build if anything is malformed.
 
-import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { readAllRecipes } from './lib/parse.mjs';
 import { validateRecipe, VOCAB, PROTEIN_META, METHOD_META, TIME_BUCKETS, CUISINE_GROUPS } from './lib/schema.mjs';
+import { recipeStubHtml, ogImageUrl } from './lib/stub.mjs';
+
+// Absolute site URL, used for canonical + Open Graph image links in the share pages.
+const SITE = (process.env.SITE_URL || 'https://smj10j.github.io/cookbook').replace(/\/+$/, '');
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const recipesDir = join(root, 'recipes');
@@ -56,3 +60,15 @@ const payload = {
 mkdirSync(dirname(outFile), { recursive: true });
 writeFileSync(outFile, JSON.stringify(payload, null, 2) + '\n');
 console.log(`✓ Built ${recipes.length} recipes -> docs/recipes.json`);
+
+// Per-recipe share pages (/r/<slug>/) carrying Open Graph link-preview tags.
+const rDir = join(root, 'docs', 'r');
+const ogDir = join(root, 'docs', 'og');
+rmSync(rDir, { recursive: true, force: true });
+for (const r of recipes) {
+  const ogImage = ogImageUrl(r, SITE, existsSync(join(ogDir, `${r.slug}.jpg`)));
+  const dir = join(rDir, r.slug);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, 'index.html'), recipeStubHtml(r, { site: SITE, ogImage }));
+}
+console.log(`✓ Built ${recipes.length} share pages -> docs/r/<slug>/`);

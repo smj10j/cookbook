@@ -158,6 +158,18 @@ test('copy: checklist format toggle produces "- [ ]" lines', async () => {
   assert.ok(text.split('\n').some((l) => l.startsWith('- [ ] ')), 'checklist lines present');
 });
 
+test('reader Share button copies the /r/<slug>/ preview link', async () => {
+  const { $, $$, getCopied } = await boot();
+  const card = $$('.card').find((c) => c.dataset.slug === 'blackened-steak-salad') || $$('.card')[0];
+  const slug = card.dataset.slug;
+  card.click();
+  assert.equal($('#reader').hidden, false);
+  $('#reader-share').click();
+  await Promise.resolve();
+  const copied = getCopied();
+  assert.ok(copied && copied.endsWith(`/r/${slug}/`), `share link should end with /r/${slug}/ (got ${copied})`);
+});
+
 test('filters narrow the menu', async () => {
   const { $, $$, app } = await boot();
   const before = $$('.card').length;

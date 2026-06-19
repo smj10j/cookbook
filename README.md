@@ -25,8 +25,11 @@ GitHub Pages so it works on any phone or laptop.
   want to double-check (soy sauce, vanilla, balsamic…).
 - Every recipe follows one **standard format**, so timings, ingredients, method,
   chef's tips, and extras are always in the same place.
-- Each recipe has a shareable link (e.g. `…/cookbook/#/blackened-steak-salad`) so you
-  can text someone straight to a dish.
+- **Shareable links with rich previews:** open a recipe and tap **🔗 Share** to copy (or,
+  on a phone, send) a link like `…/cookbook/r/blackened-steak-salad/`. In iMessage, Slack,
+  etc. it unfurls with the dish's photo and title (Open Graph preview), then opens straight
+  into the recipe. (The in-app `#/slug` hash links still work, but only the `r/<slug>/`
+  links show a preview — crawlers can't see a URL hash.)
 
 ## Adding a recipe (the easy way)
 

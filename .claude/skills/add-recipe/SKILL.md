@@ -106,7 +106,10 @@ prompt in `scripts/generate-photos.mjs` is tuned for the sweet spot Stephen want
 glistening ingredients, beautiful plating and props, gorgeous light — that is still
 *attainable* (no plastic/CGI/cartoon perfection). It should make you want to cook it
 tonight, while looking like a real photo. Regenerate (optionally `--quality high`) if a
-result drifts toward either failure mode — fake/over-glossy, or real-but-plain. Then rebuild.
+result drifts toward either failure mode — fake/over-glossy, or real-but-plain.
+
+After a photo exists, run `npm run og` to make its JPEG link-preview image (used by the
+`/r/<slug>/` share page so iMessage/Slack unfurl with the dish photo). Then rebuild.
 If you captured a good `og:image` from a source URL, you may instead download that to
 `docs/images/<slug>.webp` and set `hero:` by hand. Don't invent a photo if neither is
 available — the placeholder card looks intentional.

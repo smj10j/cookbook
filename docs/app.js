@@ -126,6 +126,7 @@ function bindEvents() {
   });
   $('#shoplist-body').addEventListener('change', updateSummary);
   $('#reader-close').addEventListener('click', closeReader);
+  $('#reader-share').addEventListener('click', shareCurrentRecipe);
   $('#reader-prev').addEventListener('click', () => flip(-1));
   $('#reader-next').addEventListener('click', () => flip(1));
   $('#reader').addEventListener('click', (e) => { if (e.target === $('#reader')) closeReader(); });
@@ -315,6 +316,29 @@ function routeFromHash() {
   const m = location.hash.match(/^#\/(.+)$/);
   if (m) openReader(decodeURIComponent(m[1]));
   else if (!$('#reader').hidden) closeReader();
+}
+
+// Shareable, preview-friendly URL for a recipe: …/r/<slug>/ (a real path, unlike the
+// in-app #/<slug> hash which link crawlers can't see).
+function shareUrl(slug) {
+  const base = location.origin + location.pathname.replace(/[^/]*$/, '');
+  return `${base}r/${slug}/`;
+}
+
+function shareCurrentRecipe() {
+  const r = state.reader.list[state.reader.index];
+  if (!r) return;
+  const url = shareUrl(r.slug);
+  if (navigator.share) { navigator.share({ title: r.title, url }).catch(() => {}); return; }
+  const btn = $('#reader-share');
+  const done = () => {
+    btn.classList.add('copied');
+    btn.textContent = 'Link copied ✓';
+    clearTimeout(shareCurrentRecipe._t);
+    shareCurrentRecipe._t = setTimeout(() => { btn.classList.remove('copied'); btn.textContent = '🔗 Share'; }, 1800);
+  };
+  if (navigator.clipboard?.writeText) navigator.clipboard.writeText(url).then(done).catch(() => fallbackCopy(url, done));
+  else fallbackCopy(url, done);
 }
 
 // ── shopping list ────────────────────────────────────────────────────────────
