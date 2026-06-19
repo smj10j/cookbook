@@ -243,7 +243,8 @@ function renderSpread(dir) {
   stage.innerHTML = spreadHtml(r);
   $('#reader-prev').disabled = index <= 0;
   $('#reader-next').disabled = index >= list.length - 1;
-  stage.scrollTop = 0;
+  const scroller = stage.querySelector('.spread-scroll');
+  if (scroller) scroller.scrollTop = 0;
   if (dir !== 0 && typeof matchMedia === 'function' && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const cls = dir > 0 ? 'flip-next' : 'flip-prev';
     stage.classList.remove('flip-next', 'flip-prev');
@@ -295,6 +296,7 @@ function spreadHtml(r) {
   const headnote = r.headnote ? `<p class="spread-headnote">${inlineMd(r.headnote)}</p>` : '';
 
   return `
+    <div class="spread-scroll">
     <div class="spread-hero">${heroInner}</div>
     <div class="spread-inner">
       <p class="spread-kicker">${esc(r.cuisine)} · ${esc(cap(r.course))}</p>
@@ -309,6 +311,7 @@ function spreadHtml(r) {
       </div>
       ${headnote}
       ${source}
+    </div>
     </div>`;
 }
 
