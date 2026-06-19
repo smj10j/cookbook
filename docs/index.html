@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tonight's Menu — Stephen &amp; Lauren's Table</title>
+  <meta name="description" content="An interactive flipbook of the dinners we keep coming back to." />
+  <meta property="og:title" content="Tonight's Menu" />
+  <meta property="og:description" content="An interactive flipbook of the dinners we keep coming back to." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Manrope:wght@300..800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Paper-grain noise overlay (SVG turbulence, multiply blend) -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ░░ MASTHEAD ░░ -->
+  <header class="masthead">
+    <div class="masthead-rule"></div>
+    <div class="masthead-row">
+      <span class="masthead-left">Tonight's Menu</span>
+      <span class="masthead-center"><em>For Stephen &amp; Lauren</em></span>
+      <span class="masthead-right" id="masthead-date"></span>
+    </div>
+    <div class="masthead-rule"></div>
+  </header>
+
+  <!-- ░░ HERO ░░ -->
+  <section class="hero">
+    <p class="hero-kicker">The dinner archive</p>
+    <h1 class="hero-headline">Dinners we keep <em>coming&nbsp;back</em> to.</h1>
+    <p class="hero-lede">
+      A living flipbook of the recipes worth repeating — pitched like a menu,
+      filtered like a pantry. Pick a night's craving and turn the page.
+    </p>
+  </section>
+
+  <!-- ░░ HOW THIS WORKS ░░ -->
+  <section class="howto">
+    <p>
+      <strong>How this works.</strong> Browse the cards below or narrow them with the
+      filters — protein, time, method, heat. Tap any card to open the full recipe, then
+      flip left and right through whatever's left after your filters. Everything links,
+      so you can send Lauren straight to a dish.
+    </p>
+  </section>
+
+  <!-- ░░ FILTERS ░░ -->
+  <section class="filters" id="filters">
+    <div class="filter-search">
+      <input type="search" id="search" placeholder="Search dishes, ingredients, vibes…"
+        autocomplete="off" aria-label="Search recipes" />
+    </div>
+    <div class="filter-groups" id="filter-groups">
+      <!-- filter chip groups injected by app.js -->
+    </div>
+    <div class="filter-footer">
+      <span class="result-count" id="result-count"></span>
+      <button class="clear-filters" id="clear-filters" type="button" hidden>Clear filters ✕</button>
+    </div>
+  </section>
+
+  <!-- ░░ THE MENU (card grid) ░░ -->
+  <main class="menu" id="menu" aria-live="polite">
+    <!-- recipe cards injected by app.js -->
+  </main>
+
+  <p class="empty-state" id="empty-state" hidden>
+    Nothing matches those filters yet. <button id="empty-clear" type="button">Clear them</button>
+    and try again.
+  </p>
+
+  <!-- ░░ COLOPHON ░░ -->
+  <footer class="colophon">
+    <div class="masthead-rule"></div>
+    <p><em>Set the table.</em> — Built with love, eaten with more.</p>
+    <p class="colophon-meta" id="colophon-meta"></p>
+  </footer>
+
+  <!-- ░░ RECIPE FLIPBOOK OVERLAY ░░ -->
+  <div class="reader" id="reader" hidden aria-modal="true" role="dialog" aria-label="Recipe">
+    <button class="reader-close" id="reader-close" aria-label="Close recipe">✕</button>
+    <button class="reader-nav reader-prev" id="reader-prev" aria-label="Previous recipe">‹</button>
+    <button class="reader-nav reader-next" id="reader-next" aria-label="Next recipe">›</button>
+    <div class="reader-stage">
+      <article class="spread" id="spread"><!-- recipe spread injected by app.js --></article>
+    </div>
+  </div>
+
+  <!-- Card / spread templates rendered in JS to keep markup in one place -->
+  <script src="app.js"></script>
+</body>
+</html>

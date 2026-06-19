@@ -1,0 +1,17 @@
+{
+  "name": "tonights-menu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tonight's Menu — Stephen & Lauren's interactive recipe flipbook.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "photos": "node scripts/generate-photos.mjs",
+    "serve": "node scripts/build.mjs && node --watch-path=recipes scripts/build.mjs & python3 -m http.server 8000 --directory docs",
+    "preview": "npm run build && python3 -m http.server 8000 --directory docs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

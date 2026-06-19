@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Secrets — NEVER commit credentials to this public repo.
+.env
+.env.*
+*.key
+*.pem
+secrets/
+**/credentials.json
+*-key.txt
+
+# OS / editor cruft
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Photo generation scratch
+scripts/.photo-cache/

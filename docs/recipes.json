@@ -1,0 +1,3845 @@
+{
+  "generatedAt": "2026-06-19T18:53:33.874Z",
+  "count": 31,
+  "vocab": {
+    "protein": [
+      "beef",
+      "chicken",
+      "fish",
+      "seafood",
+      "vegetarian",
+      "vegan",
+      "pork"
+    ],
+    "methods": [
+      "grill",
+      "stove",
+      "oven",
+      "broiler",
+      "sous-vide",
+      "instant-pot",
+      "smoker",
+      "dehydrator",
+      "air-fryer",
+      "no-cook"
+    ],
+    "course": [
+      "main",
+      "salad",
+      "soup",
+      "side",
+      "sauce",
+      "pasta",
+      "taco",
+      "snack"
+    ],
+    "heat": [
+      "none",
+      "mild",
+      "medium",
+      "hot"
+    ],
+    "difficulty": [
+      "easy",
+      "medium",
+      "advanced"
+    ]
+  },
+  "meta": {
+    "protein": {
+      "beef": {
+        "label": "Beef",
+        "color": "accent"
+      },
+      "chicken": {
+        "label": "Chicken",
+        "color": "accent"
+      },
+      "fish": {
+        "label": "Fish",
+        "color": "ink"
+      },
+      "seafood": {
+        "label": "Seafood",
+        "color": "ink"
+      },
+      "vegetarian": {
+        "label": "Vegetarian",
+        "color": "olive"
+      },
+      "vegan": {
+        "label": "Vegan",
+        "color": "olive"
+      },
+      "pork": {
+        "label": "Pork",
+        "color": "accent"
+      }
+    },
+    "method": {
+      "grill": {
+        "label": "Grill"
+      },
+      "stove": {
+        "label": "Stove"
+      },
+      "oven": {
+        "label": "Oven"
+      },
+      "broiler": {
+        "label": "Broiler"
+      },
+      "sous-vide": {
+        "label": "Sous Vide"
+      },
+      "instant-pot": {
+        "label": "Instant Pot"
+      },
+      "smoker": {
+        "label": "Smoker"
+      },
+      "dehydrator": {
+        "label": "Dehydrator"
+      },
+      "air-fryer": {
+        "label": "Air Fryer"
+      },
+      "no-cook": {
+        "label": "No-Cook"
+      }
+    }
+  },
+  "timeBuckets": [
+    {
+      "key": "under-30",
+      "label": "Under 30 min",
+      "max": 30
+    },
+    {
+      "key": "30-45",
+      "label": "30–45 min",
+      "min": 30,
+      "max": 45
+    },
+    {
+      "key": "45-60",
+      "label": "45–60 min",
+      "min": 45,
+      "max": 60
+    },
+    {
+      "key": "over-60",
+      "label": "Over 60 min",
+      "min": 60
+    }
+  ],
+  "facets": {
+    "cuisines": [
+      "American",
+      "Asian",
+      "Asian-American",
+      "Cajun",
+      "French",
+      "Greek",
+      "Italian",
+      "Japanese",
+      "Mediterranean",
+      "Mexican",
+      "Sichuan",
+      "Thai",
+      "Vietnamese"
+    ],
+    "tags": [
+      "batch-cooking",
+      "budget",
+      "comfort",
+      "comfort-food",
+      "cookout",
+      "cozy",
+      "dairy-free",
+      "date-night",
+      "elegant",
+      "garden",
+      "gluten-free",
+      "gluten-free-option",
+      "grilling",
+      "healthy",
+      "high-protein",
+      "holiday",
+      "leftovers",
+      "lemon",
+      "light",
+      "low-carb",
+      "make-ahead",
+      "meal-prep",
+      "meatless",
+      "no-cook",
+      "one-pan",
+      "one-pot",
+      "picnic",
+      "quick",
+      "salsa",
+      "snack",
+      "spicy",
+      "steakhouse",
+      "summer",
+      "sweet-heat",
+      "taco-night",
+      "thanksgiving",
+      "umami",
+      "vegan",
+      "vegetarian",
+      "weeknight"
+    ]
+  },
+  "recipes": [
+    {
+      "title": "Blackened Steak Salad with Blue Cheese & Blistered Tomatoes",
+      "slug": "blackened-steak-salad",
+      "tagline": "A Cajun-crusted sirloin over cool greens, blistered tomatoes, and sharp blue cheese.",
+      "pitch": "Hot steak, cold greens — the contrast is the whole point. A sirloin gets a brown-sugar-and-cayenne rub that chars into a dark, smoky crust on a screaming grill, then rests while cherry tomatoes blister in the same heat until their skins split and go jammy. Everything lands on mixed baby greens with crisp red onion, green pepper, and a balsamic-honey Dijon that you shake in a jar. *The money move: pull the steak 5°F early and let carryover finish it, so every slice stays pink against the cool leaves.*",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 15,
+        "total": 35
+      },
+      "difficulty": "medium",
+      "protein": "beef",
+      "methods": [
+        "grill"
+      ],
+      "cuisine": "American",
+      "course": "salad",
+      "heat": "medium",
+      "equipment": [
+        "grill",
+        "instant-read thermometer"
+      ],
+      "tags": [
+        "steakhouse",
+        "summer",
+        "gluten-free",
+        "date-night",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Steak & rub",
+          "items": [
+            "1 lb sirloin steak (or tenderloin)",
+            "1 tbsp olive oil (for rub adhesion)",
+            "1½ tsp kosher salt",
+            "1 tsp freshly ground black pepper",
+            "1½ tsp smoked paprika",
+            "½ tsp cayenne pepper (adjust to taste)",
+            "½ tsp onion powder",
+            "1 tsp brown sugar"
+          ]
+        },
+        {
+          "section": "Optional marinade",
+          "items": [
+            "1 tbsp olive oil",
+            "1 tbsp balsamic vinegar",
+            "1 tsp soy sauce",
+            "1 clove garlic, minced"
+          ]
+        },
+        {
+          "section": "Salad",
+          "items": [
+            "4 cups mixed baby greens",
+            "1 cup cherry or grape tomatoes",
+            "½ red onion, thinly sliced",
+            "1 green bell pepper, thinly sliced",
+            "⅓ cup crumbled blue cheese"
+          ]
+        },
+        {
+          "section": "Balsamic-honey Dijon",
+          "items": [
+            "¼ cup extra-virgin olive oil",
+            "2 tbsp balsamic vinegar",
+            "1 tsp Dijon mustard",
+            "1 tsp honey",
+            "Pinch of salt and pepper"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "If marinating, combine the marinade ingredients and refrigerate the steak 1–2 hours. Remove, pat very dry.",
+            "Rub the steak lightly with olive oil. Mix the rub ingredients and coat the steak evenly, pressing it in.",
+            "Whisk (or jar-shake) the dressing until emulsified. Slice the vegetables; soak the red onion in ice water for 10 minutes."
+          ]
+        },
+        {
+          "section": "Grill",
+          "items": [
+            "Heat the grill to high (~500°F) and oil the grates. Sear the steak 2–3 minutes per side until a dark crust forms.",
+            "Move to medium/indirect heat (~350°F) and cook to 125°F for medium-rare (it climbs to 130°F as it rests).",
+            "While the steak rests 5–10 minutes, toss the tomatoes in a little oil and blister them over high heat until the skins split and char."
+          ]
+        },
+        {
+          "section": "Assemble",
+          "items": [
+            "Bed the greens with red onion, bell pepper, and blistered tomatoes.",
+            "Slice the rested steak thinly against the grain and fan it over the top.",
+            "Scatter blue cheese, drizzle with the dressing, and finish with cracked pepper."
+          ]
+        }
+      ],
+      "tips": [
+        "To find the grain, look for the parallel muscle fibers and slice perpendicular to them — short fibers mean tender bites.",
+        "Pull the steak 5°F below your target; carryover heat finishes it during the rest so it never overcooks.",
+        "Soaking the sliced red onion in ice water for 10 minutes mellows its bite and makes it crisp.",
+        "A jar with a tight lid emulsifies the dressing better than a whisk — and stores the leftovers."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Use garden cherry tomatoes for blistering and stir a pinch of chopped thyme or basil into the dressing."
+        },
+        {
+          "label": "Add crunch",
+          "note": "Toasted walnuts, pecans, or pepitas; sliced avocado for creaminess; or grilled corn for sweetness."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A bold red — Zinfandel or Syrah. Serve the warm steak over the cool salad for the temperature contrast."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A house favorite that Stephen has dialed in over several rounds: the brown sugar in\nthe rub caramelizes against the cayenne for a sweet-hot crust, and blistering the\ntomatoes on the same grill turns this from a plain steak salad into something with\nreal restaurant contrast. The blue cheese is the upgrade from the original feta.",
+      "hero": "images/blackened-steak-salad.webp"
+    },
+    {
+      "title": "Brown Sugar Sweet Potato Casserole",
+      "slug": "sweet-potato-casserole",
+      "tagline": "Silky brown-sugar sweet potatoes under a crunchy pecan-streusel crown.",
+      "pitch": "This is the holiday side Lauren remembers — creamy, cinnamon-warm sweet potatoes that taste almost like pie, finished with a buttery brown-sugar pecan streusel that bakes into a craggy, golden crust. The base gets mashed smooth with cream and vanilla, then the topping caramelizes on top until the edges go crisp and the sugar bubbles. *The trick is the textural one-two: velvet underneath, candied crunch on top, in every single spoonful.* It comes together in one dish and holds beautifully on a crowded Thanksgiving table.",
+      "serves": 8,
+      "times": {
+        "prep": 25,
+        "cook": 30,
+        "total": 55
+      },
+      "difficulty": "easy",
+      "protein": "vegetarian",
+      "methods": [
+        "oven"
+      ],
+      "cuisine": "American",
+      "course": "side",
+      "heat": "none",
+      "equipment": [
+        "9x13 baking dish"
+      ],
+      "tags": [
+        "holiday",
+        "thanksgiving",
+        "make-ahead",
+        "vegetarian",
+        "comfort-food"
+      ],
+      "ingredients": [
+        {
+          "section": "Sweet potato base",
+          "items": [
+            "4–5 medium sweet potatoes (about 3 lbs), peeled and cubed",
+            "¼ cup unsalted butter, melted",
+            "¼ cup brown sugar",
+            "¼ cup heavy cream (or a dairy-free alternative)",
+            "½ tsp vanilla extract",
+            "½ tsp ground cinnamon",
+            "Pinch of freshly grated nutmeg",
+            "½ tsp kosher salt"
+          ]
+        },
+        {
+          "section": "Brown-sugar pecan topping",
+          "items": [
+            "½ cup pecans, chopped",
+            "¼ cup brown sugar",
+            "2 tbsp unsalted butter, melted",
+            "2 tbsp all-purpose flour",
+            "Pinch of salt"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Cook the sweet potatoes",
+          "items": [
+            "Heat the oven to 375°F and butter a 9x13 baking dish.",
+            "Boil the cubed sweet potatoes in salted water until fork-tender, about 20 minutes. Drain well and let the steam dissipate for a minute so the mash isn't watery."
+          ]
+        },
+        {
+          "section": "Build the base",
+          "items": [
+            "Mash the sweet potatoes until smooth, then beat in the melted butter, brown sugar, cream, vanilla, cinnamon, nutmeg, and salt. Taste and adjust the sweetness.",
+            "Spread the mixture into the prepared dish in an even layer."
+          ]
+        },
+        {
+          "section": "Top and bake",
+          "items": [
+            "In a bowl, rub the pecans, brown sugar, melted butter, flour, and salt together with your fingers until crumbly. Scatter evenly over the sweet potatoes.",
+            "Bake 25–30 minutes, until the topping is golden and the edges are bubbling. Let rest 5–10 minutes before serving so it sets."
+          ]
+        }
+      ],
+      "tips": [
+        "Roasting the sweet potatoes instead of boiling concentrates their sugars — halve them, roast cut-side down at 400°F until collapsing, then scoop and mash for a deeper flavor.",
+        "Toast the pecans in a dry skillet for a few minutes before mixing the streusel; it doubles their aroma in the finished crust.",
+        "Assemble the whole casserole a day ahead and refrigerate unbaked; add 10 minutes to the bake time straight from the fridge.",
+        "If you like a crisper top, run it under the broiler for the last 1–2 minutes — watch closely so the sugar doesn't scorch."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Stir a pinch of chopped thyme or a few torn sage leaves into the streusel for a savory edge that cuts the sweetness."
+        },
+        {
+          "label": "Make it dairy-free",
+          "note": "Swap the butter for a plant-based stick and use full-fat coconut cream in the base — the vanilla and cinnamon carry the flavor regardless."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A natural alongside glazed rainbow carrots and roasted fingerlings; rounds out a turkey-free holiday spread."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The sweet potato side Lauren remembered from past holidays, dialed in for Stephen's\nturkey-free Thanksgiving: a smooth, vanilla-scented base under a brown-sugar pecan\nstreusel that bakes into a candied, crunchy crown.",
+      "hero": "images/sweet-potato-casserole.webp"
+    },
+    {
+      "title": "Chicken Piccata with Thin Spaghetti & Lemon-Caper Pan Sauce",
+      "slug": "chicken-piccata",
+      "tagline": "Golden chicken cutlets in a buttery lemon-caper sauce, tangled with thin spaghetti.",
+      "pitch": "This is the piccata that earns its butter. Thin chicken cutlets get a quick flour dredge and a hard sear until the edges go lacquer-brown, then the pan becomes the whole show: white wine deglazed against the fond, lemon, briny capers, and cold butter swirled in off the heat until the sauce turns glossy and clings. Thin spaghetti drinks it all up, and crispy fried capers scattered on top give you little salty pops of crunch. *The trick is to swirl the butter into the sauce off the heat — that's how you get a silky emulsion instead of a greasy puddle.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "medium",
+      "protein": "chicken",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Italian",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "large skillet"
+      ],
+      "tags": [
+        "date-night",
+        "weeknight",
+        "garden",
+        "lemon"
+      ],
+      "ingredients": [
+        {
+          "section": "Chicken",
+          "items": [
+            "2 boneless skinless chicken breasts, sliced horizontally into 4 thin cutlets",
+            "½ cup all-purpose flour (whole wheat works too)",
+            "Kosher salt and freshly ground black pepper",
+            "2 tbsp olive oil",
+            "1 tbsp butter"
+          ]
+        },
+        {
+          "section": "Lemon-caper pan sauce",
+          "items": [
+            "2 garlic cloves, minced",
+            "Pinch of red chili flakes (optional)",
+            "¼ cup dry white wine",
+            "½ cup low-sodium chicken broth",
+            "Juice of 1 lemon, plus zest of ½ lemon",
+            "2 tbsp capers, drained (plus 1 tbsp extra for crisping)",
+            "3 tbsp cold butter, cubed"
+          ]
+        },
+        {
+          "section": "Pasta & finish",
+          "items": [
+            "4 oz thin spaghetti",
+            "2 tbsp fresh parsley, chopped (from the garden)",
+            "Lemon slices, for garnish",
+            "Toasted pine nuts (optional)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Pound the cutlets gently to an even ¼-inch thickness. Season the flour with salt and pepper, then dredge the cutlets and shake off the excess.",
+            "Bring a pot of salted water to a boil for the spaghetti."
+          ]
+        },
+        {
+          "section": "Crispy capers & chicken",
+          "items": [
+            "Heat the olive oil and 1 tbsp butter in a large skillet over medium-high. Add the extra 1 tbsp capers and fry until they burst open and crisp, about 1 minute; lift out and drain on a paper towel.",
+            "Add the chicken to the same pan and cook 3 minutes per side until deep golden and cooked through. Remove and tent loosely with foil."
+          ]
+        },
+        {
+          "section": "Pan sauce",
+          "items": [
+            "Lower the heat to medium. Add the garlic and chili flakes and sauté 30 seconds until fragrant. Pour in the white wine and let it reduce by half, scraping up the browned bits.",
+            "Add the broth, lemon juice, lemon zest, and the 2 tbsp capers. Simmer 3–4 minutes until reduced slightly.",
+            "Pull the pan off the heat and swirl in the cold butter a few cubes at a time until the sauce is glossy and emulsified. Taste and adjust salt and lemon."
+          ]
+        },
+        {
+          "section": "Combine & serve",
+          "items": [
+            "Meanwhile, cook the spaghetti until just al dente, reserving a splash of pasta water. Drain and toss the pasta directly into the sauce, loosening with pasta water if needed.",
+            "Return the chicken to the pan, spooning sauce over the top to rewarm for a minute.",
+            "Plate the spaghetti, lay the cutlets on top, and finish with parsley, crispy capers, lemon slices, and pine nuts if using."
+          ]
+        }
+      ],
+      "tips": [
+        "Pounding the cutlets to an even thickness is the whole game — they cook in minutes and stay juicy instead of drying out at the thin ends.",
+        "Swirl the butter in off the heat; too much direct heat breaks the emulsion and you lose the glossy, restaurant-style finish.",
+        "A heaping spoonful of reserved pasta water helps the sauce coat the spaghetti instead of sliding off it.",
+        "Fry the capers first in the chicken oil — they turn into salty little crisps that are the best garnish on the plate."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Finish with a generous handful of garden parsley, and wilt a few thinly sliced garden greens or spinach into the sauce at the end for color."
+        },
+        {
+          "label": "Make it a meal",
+          "note": "Serve with garlic-sautéed broccoli — sear the florets hard, then add garlic, a pinch of chili flakes, and a squeeze of lemon."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A crisp, unoaked white — Pinot Grigio or Sauvignon Blanc — to echo the lemon."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The piccata Stephen has refined across a few rounds: a wine-and-lemon pan sauce\nfinished with cold butter for gloss, plus crispy fried capers on top for crunch.\nThin spaghetti is the perfect tangle to carry the bright, briny sauce.",
+      "hero": "images/chicken-piccata.webp"
+    },
+    {
+      "title": "Chunky Mango-Habanero Salsa",
+      "slug": "mango-tropical-salsa",
+      "tagline": "Sweet-heat tropical salsa — ripe mango, cool cucumber, and a slow habanero burn.",
+      "pitch": "Sweet and dangerous in the same bite: ripe mango and cool cucumber up front, then a creeping habanero heat that builds a beat later. Everything is diced small and tossed raw — no blender, no cooking — so it stays bright, crunchy, and chunky, somewhere between a salsa and a relish. *Start the habanero smaller than you think you need; you can always add fire, but you can't take it back.* Lime zest and juice keep it electric, and a chiffonade of garden basil gives it an unexpected, almost-caprese lift. It's made for grilled fish or spooned straight into an avocado half.",
+      "serves": 4,
+      "times": {
+        "prep": 20,
+        "cook": 0,
+        "total": 35
+      },
+      "difficulty": "easy",
+      "protein": "vegan",
+      "methods": [
+        "no-cook"
+      ],
+      "cuisine": "Mexican",
+      "course": "sauce",
+      "heat": "hot",
+      "tags": [
+        "salsa",
+        "vegan",
+        "garden",
+        "summer",
+        "no-cook"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1 ripe mango, peeled and diced small",
+            "¼ cup red cherry tomatoes, quartered",
+            "¼ cup green cherry tomatoes, halved or quartered",
+            "1 small cucumber, peeled, seeded, and diced",
+            "1 jalapeño, finely diced (seeded for less heat)",
+            "1 serrano, very finely diced (with seeds if you're bold)",
+            "½ habanero, minced very finely (start with less if unsure)",
+            "2 tbsp red onion, finely diced",
+            "1 clove garlic, finely grated",
+            "2 tbsp fresh basil, chiffonade (or cilantro for a classic profile)",
+            "Zest and juice of 1 lime",
+            "1 tsp rice vinegar (optional, for brightness)",
+            "Pinch of kosher salt, to taste"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Dice the mango, cucumber, and onion small and keep everything roughly uniform — aim for a salsa-crudo texture, never pureed.",
+            "Mince the jalapeño, serrano, and habanero very finely. Taste a sliver of each first; heat varies, so adjust to your comfort.",
+            "In a bowl, combine the mango, both tomatoes, cucumber, onion, all the peppers, and garlic.",
+            "Add the lime zest and juice, the vinegar if using, salt, and basil. Stir gently to combine.",
+            "Let it sit at room temperature 10–15 minutes (or chill up to 4 hours) so the flavors meld. Taste and adjust salt, lime, and heat before serving."
+          ]
+        }
+      ],
+      "tips": [
+        "Balance the heat by adding more mango or cucumber, not by skimping on flavor — sweetness and cool crunch tame the habanero.",
+        "Treat the basil like mint — let it lift the salsa rather than dominate. A tiny chiffonade goes a long way.",
+        "For a smoky depth, grill the mango (or cucumber) briefly before dicing — the char plays beautifully against the fruit's sweetness.",
+        "No fresh mango? Stir in 2–3 tbsp pineapple juice, or simmer ¼ cup down to a syrupy reduction and use a spoonful for concentrated tropical punch."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "This is a showcase for garden serrano, jalapeño, habanero, cherry tomatoes, and basil. Use both red and green tomatoes for color and a tart-sweet contrast."
+        },
+        {
+          "label": "Serving ideas",
+          "note": "Spoon over grilled or seared fish, black-bean tacos, or seared tofu; pile into avocado halves; or scoop with salty tortilla or plantain chips."
+        },
+        {
+          "label": "Make it umami",
+          "note": "A tiny splash of soy sauce or fish sauce adds savory intrigue under the sweetness — just a few drops."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A merger of Stephen's two tropical salsa experiments: the sweet-heat mango-cucumber\nversion and the chunky garden-fire one, brought together with a slow habanero burn and\na bright basil lift. Raw, crunchy, and built to sit on grilled fish.",
+      "equipment": [],
+      "hero": "images/mango-tropical-salsa.webp"
+    },
+    {
+      "title": "Citrus Salmon with Blistered Asparagus",
+      "slug": "salmon-asparagus-citrus",
+      "tagline": "Bright, weeknight-easy salmon and asparagus with a glossy citrus finish.",
+      "pitch": "This is the salmon you reach for on a Tuesday and still feel proud serving on a Friday. Fillets get a quick citrus-garlic bath, then go skin-side down until the edges turn lacquered and the flesh just flakes, while asparagus blisters alongside in the same heat. A squeeze of lemon (or orange) at the end pulls everything into focus — sweet, savory, herby, clean. *The whole point: one bright pan, two ways, and dinner on the table in under half an hour.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 18,
+        "total": 33
+      },
+      "difficulty": "easy",
+      "protein": "fish",
+      "methods": [
+        "stove",
+        "oven",
+        "grill"
+      ],
+      "cuisine": "American",
+      "course": "main",
+      "heat": "none",
+      "equipment": [
+        "cast iron"
+      ],
+      "tags": [
+        "weeknight",
+        "quick",
+        "gluten-free",
+        "date-night",
+        "garden",
+        "one-pan"
+      ],
+      "ingredients": [
+        {
+          "section": "Salmon",
+          "items": [
+            "2 salmon fillets (about 6 oz each), skin-on",
+            "2 tbsp olive oil (or melted butter)",
+            "2 cloves garlic, minced",
+            "Juice and zest of 1 lemon",
+            "1 tbsp fresh dill or parsley, chopped",
+            "Salt and freshly ground black pepper, to taste",
+            "Lemon slices, for garnish"
+          ]
+        },
+        {
+          "section": "Asparagus",
+          "items": [
+            "1 bunch asparagus, woody ends trimmed",
+            "1 tbsp olive oil or butter",
+            "2 cloves garlic, minced",
+            "Salt and freshly ground black pepper, to taste",
+            "Grated Parmesan (optional)",
+            "Lemon wedges, for serving"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Pat the salmon completely dry. In a small bowl, whisk the olive oil, minced garlic, lemon juice, lemon zest, and chopped herbs with a pinch of salt and pepper.",
+            "Brush the citrus-garlic mixture over the fillets and let them sit at room temperature 10–15 minutes while you trim the asparagus and toss it with oil, garlic, salt, and pepper."
+          ]
+        },
+        {
+          "section": "Sear (stove)",
+          "items": [
+            "Heat 2 tbsp olive oil in a cast-iron skillet over medium-high. Lay the salmon skin-side down and press gently for 15 seconds so it stays flat. Cook 4–5 minutes until the skin is crisp and the fish is 70% opaque, then flip and finish 1–2 minutes.",
+            "Move the salmon to a plate. In the same skillet, sauté the asparagus 5–7 minutes until tender-crisp and lightly blistered. Spoon any pan juices and a squeeze of lemon over both."
+          ]
+        },
+        {
+          "section": "Finish & serve",
+          "items": [
+            "Return the salmon to the pan for a final minute, spooning the citrus pan sauce over the top. The fish is done when it flakes easily and reads 125–130°F at the thickest point.",
+            "Plate the salmon and asparagus, shower with Parmesan if using, and finish with lemon slices, fresh herbs, and a wedge on the side."
+          ]
+        }
+      ],
+      "tips": [
+        "Dry skin is crisp skin — blot the fillets twice and don't crowd the pan, or they steam instead of sear.",
+        "Pull the salmon at 125°F; carryover heat finishes it to a silky 130°F while it rests, so it never dries out.",
+        "Start the salmon first and add the asparagus once you flip the fish, so both land hot at the same moment.",
+        "A tight-lidded jar mellows raw garlic in the marinade — give it a 10-minute head start before brushing it on."
+      ],
+      "extras": [
+        {
+          "label": "Lemon-garlic, pan or bake",
+          "note": "To bake instead, set the oven to 400°F, brush the fillets with the citrus-garlic mix, roast salmon and asparagus on one sheet 12–15 minutes, then broil 2 minutes for a golden top."
+        },
+        {
+          "label": "Orange-glazed on the grill",
+          "note": "Swap lemon for an orange marinade and fire up the grill to medium-high (375–400°F). Grill skin-on fillets skin-side down 4–5 minutes, flip 3–4 minutes to 145°F; add oiled asparagus after 2–3 minutes so both finish together. Brush with reserved (uncontaminated) marinade for shine."
+        },
+        {
+          "label": "From the garden",
+          "note": "Stir chopped garden dill or basil into the marinade, and finish with a little fresh thyme. Garden lemon or a Meyer lemon makes the brightest glaze."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A crisp Sauvignon Blanc or unoaked Chardonnay. Round it out with buttery mashed potatoes, wild rice, or a simple garden salad."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The salmon that earns a permanent spot in the weeknight rotation: a fast\ncitrus-garlic marinade, a crisp skin from the cast iron, and asparagus blistered\nin the very same pan. Lemon keeps it bright on the stove or in the oven; swap in\norange and the grill for a sweeter, smokier summer version.",
+      "hero": "images/salmon-asparagus-citrus.webp"
+    },
+    {
+      "title": "Coconut Chicken Soup (Tom Kha Gai)",
+      "slug": "coconut-chicken-soup",
+      "tagline": "A silky coconut-lime broth with poached chicken, mushrooms, and a hit of fresh chile.",
+      "pitch": "This is the bowl you want when you need comfort with a pulse. A fragrant base of ginger, lemongrass, and garlic gets loosened with coconut milk into a broth that's rich but not heavy, then balanced on the knife's edge of salty fish sauce and sharp lime. Poached chicken and mushrooms slip in, and the whole thing finishes with torn cilantro and a few thin coins of fresh chile to clear your head. *Add the lime juice off the heat at the very end — boiling it turns the brightness flat and bitter.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "easy",
+      "protein": "chicken",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Thai",
+      "course": "soup",
+      "heat": "mild",
+      "equipment": [
+        "saucepan"
+      ],
+      "tags": [
+        "cozy",
+        "quick",
+        "garden",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Broth",
+          "items": [
+            "1 tbsp neutral oil",
+            "1 thumb fresh ginger, sliced into coins",
+            "1 stalk lemongrass, bruised and cut into 2-inch lengths (or extra ginger)",
+            "2 garlic cloves, smashed",
+            "2 cups low-sodium chicken broth",
+            "1 (13.5 oz) can full-fat coconut milk",
+            "1–2 tsp Thai chili paste (or 1 fresh chile, sliced)",
+            "1–2 tbsp fish sauce, to taste",
+            "1 tsp sugar"
+          ]
+        },
+        {
+          "section": "To finish",
+          "items": [
+            "2 boneless skinless chicken breasts, thinly sliced",
+            "6 oz mushrooms (cremini or shiitake), sliced",
+            "Juice of 1–2 limes, to taste",
+            "Fresh cilantro (from the garden)",
+            "1 serrano or Thai chile, thinly sliced (from the garden)",
+            "Steamed jasmine rice, to serve (optional)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Build the broth",
+          "items": [
+            "Heat the oil in a saucepan over medium. Add the ginger, lemongrass, and garlic and stir 1–2 minutes until fragrant.",
+            "Pour in the chicken broth and coconut milk, stir in the chili paste and sugar, and bring to a gentle simmer (don't let it hard-boil, which can split the coconut milk)."
+          ]
+        },
+        {
+          "section": "Poach & simmer",
+          "items": [
+            "Add the sliced chicken and mushrooms. Simmer gently 8–10 minutes until the chicken is just cooked through and the broth has taken on the aromatics.",
+            "Fish out the lemongrass and large ginger coins if you like. Stir in fish sauce to taste."
+          ]
+        },
+        {
+          "section": "Finish",
+          "items": [
+            "Take the pot off the heat. Stir in the lime juice, tasting as you go — you want it bright and balanced between salty, sour, and rich.",
+            "Ladle into bowls (over rice if using) and top with torn cilantro and thin slices of fresh chile."
+          ]
+        }
+      ],
+      "tips": [
+        "Keep the broth at a bare simmer, never a rolling boil — high heat splits coconut milk into oily and grainy parts.",
+        "Balance at the end on the trio of fish sauce (salt), lime (sour), and a pinch of sugar (sweet). Adjust one at a time until the broth makes you want another spoonful.",
+        "Slice the chicken thin and add it raw to the simmering broth; it cooks in minutes and stays tender instead of rubbery.",
+        "No lemongrass? A wider strip of lime zest plus extra ginger gets you most of the way to that citrusy aroma."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A few thin coins of garden serrano or Thai chile floated on top bring gentle sinus-clearing heat, and a heavy handful of cilantro is essential."
+        },
+        {
+          "label": "Make it heartier",
+          "note": "Serve over jasmine rice, or add a handful of rice noodles to the pot in the last 3 minutes."
+        },
+        {
+          "label": "Pairs with",
+          "note": "Crusty bread for dunking, or just a wedge of extra lime on the side."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The cozy bowl Stephen reaches for under the weather: warm, soothing, and just\nspicy enough to clear the sinuses. Coconut milk for richness, lime and fish\nsauce for brightness, and fresh chile to wake it all up.",
+      "hero": "images/coconut-chicken-soup.webp"
+    },
+    {
+      "title": "Creamy Jalapeño-Cilantro Salsa (Inspired by Fresa's)",
+      "slug": "creamy-jalapeno-cilantro-salsa",
+      "tagline": "A smooth, dairy-free green salsa with a serious kick — charred peppers blended creamy with cilantro and lime.",
+      "pitch": "This is the addictive green sauce from Fresa's, the one with the deceptive creaminess and a back-of-the-throat heat — and it has no dairy in it at all. Charred jalapeños and serranos get blended with cilantro, garlic, and lime, then turned silky by slowly streaming in oil until it emulsifies into a pale, pourable green. *The magic is that emulsion: a thin drizzle of oil while the blender runs is what makes it taste like crema with zero cream.* Roasting the peppers first rounds the raw bite into something smoky and deep. Pour it over tacos, eggs, or anything that needs waking up.",
+      "serves": 6,
+      "times": {
+        "prep": 10,
+        "cook": 10,
+        "total": 50
+      },
+      "difficulty": "easy",
+      "protein": "vegetarian",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Mexican",
+      "course": "sauce",
+      "heat": "hot",
+      "equipment": [
+        "blender"
+      ],
+      "tags": [
+        "salsa",
+        "dairy-free",
+        "garden",
+        "make-ahead",
+        "spicy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "6 fresh jalapeños, stemmed (seed some for less heat)",
+            "2 serrano peppers, stemmed (optional, for extra heat)",
+            "4 cloves garlic, unpeeled",
+            "1 cup fresh cilantro leaves and tender stems",
+            "Juice of 1 lime",
+            "½ tsp kosher salt, plus more to taste",
+            "½ cup neutral oil (canola or grapeseed)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Char the peppers and garlic",
+          "items": [
+            "Set the broiler to high and position a rack 4–6 inches below the element. Line a sheet pan with foil.",
+            "Spread the jalapeños, serranos, and unpeeled garlic on the pan. Broil about 10 minutes, rotating the peppers every 2–3 minutes, until blistered and charred all over. Tuck the garlic under a pepper so it softens gently without burning.",
+            "Let everything cool slightly. Peel the garlic. Seed some or all of the peppers if you want to dial the heat back."
+          ]
+        },
+        {
+          "section": "Blend and emulsify",
+          "items": [
+            "In a blender, combine the roasted peppers, garlic, cilantro, lime juice, and salt. Blend until mostly smooth.",
+            "With the blender running on low, slowly drizzle in the oil until the salsa turns creamy, pale green, and emulsified. Thin with a tablespoon of water at a time if needed.",
+            "Taste and adjust salt and lime. Let it rest at least 30 minutes for the flavors to meld before serving."
+          ]
+        }
+      ],
+      "tips": [
+        "The slow oil drizzle is non-negotiable — pour it in a thin stream while blending so it emulsifies instead of separating.",
+        "Keep the garlic slightly off to the side under the broiler, or tuck it beneath a pepper; it needs a gentler roast than the peppers.",
+        "Taste a sliver of each pepper before blending — heat varies wildly even within one batch, so seed accordingly.",
+        "The salsa deepens overnight; if it's too fiery fresh, a night in the fridge mellows the edge."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Built for garden jalapeños and serranos. For a smokier, slightly sweet version, char a handful of ripe cherry tomatoes alongside the peppers and blend them in."
+        },
+        {
+          "label": "No-cook shortcut",
+          "note": "Skip the broiler and blend the peppers raw for a brighter, grassier, more aggressive heat — faster, with a more vivid green."
+        },
+        {
+          "label": "Storage",
+          "note": "Keeps in an airtight container in the fridge for up to a week. Great on tacos, grilled meats, eggs, or avocado toast."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Stephen's take on the creamy green salsa from Fresa's: charred jalapeños and serranos\nblended with cilantro and lime, then emulsified silky-smooth with a slow stream of oil —\nall the richness of crema, none of the dairy.",
+      "hero": "images/creamy-jalapeno-cilantro-salsa.webp"
+    },
+    {
+      "title": "Crispy Broiled Salmon with Charred Broccoli & Lemon-Herb Brown Butter",
+      "slug": "crispy-broiled-salmon-charred-broccoli",
+      "tagline": "Shatter-crisp broiled salmon skin over charred broccoli and blistered tomatoes, with a lemon-caper brown butter.",
+      "pitch": "The whole game here is the skin. Pat the fillets bone-dry, score them, slick them with oil, and slide them skin-side-up close under a roaring broiler until the skin blisters into something that crackles under a fork while the flesh stays just-set and buttery. Broccoli roasts hot in the same oven until the tips char and go nutty, and garden cherry tomatoes burst sweet-tart against it. *A lemon-caper brown butter — nutty, briny, sharp with Dijon — ties cold acid to hot fat and pulls the whole plate together.* It's a weeknight dinner that eats like a bistro special.",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "broiler",
+        "oven"
+      ],
+      "cuisine": "American",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "broiler",
+        "sheet pan"
+      ],
+      "tags": [
+        "weeknight",
+        "gluten-free",
+        "date-night",
+        "garden",
+        "one-pan"
+      ],
+      "ingredients": [
+        {
+          "section": "Salmon",
+          "items": [
+            "2 skin-on salmon fillets (5–6 oz each)",
+            "Kosher salt and freshly ground black pepper",
+            "Neutral oil (grapeseed or avocado), for the skin"
+          ]
+        },
+        {
+          "section": "Vegetables",
+          "items": [
+            "1 small head broccoli (~3–4 cups florets), cut into bite-sized pieces",
+            "1 cup cherry tomatoes, halved",
+            "2 tbsp olive oil",
+            "2 garlic cloves, thinly sliced",
+            "Zest of 1 lemon",
+            "Juice of ½ lemon",
+            "Kosher salt and freshly ground black pepper"
+          ]
+        },
+        {
+          "section": "Lemon-herb brown butter",
+          "items": [
+            "4 tbsp unsalted butter",
+            "1 tsp Dijon mustard",
+            "1 tbsp capers, drained",
+            "2 sprigs fresh thyme (or ¼ tsp dried)",
+            "Zest of ½ lemon",
+            "Pinch of chili flakes or Aleppo pepper (optional)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Move an oven rack to about 6 inches below the broiler. You'll roast the vegetables at 450°F first, then switch to broil for the salmon.",
+            "Pat the salmon very dry, especially the skin. Score the skin 2–3 times with a sharp knife (don't cut into the flesh), season both sides, and rub the skin with a little neutral oil."
+          ]
+        },
+        {
+          "section": "Roast the vegetables",
+          "items": [
+            "Toss the broccoli and sliced garlic with the olive oil, lemon zest, salt, and pepper on a sheet pan. Roast at 450°F for 10 minutes.",
+            "Add the halved cherry tomatoes (tossed with a pinch of salt) and roast 6–8 minutes more, until the broccoli is charred at the tips and the tomatoes have softened but still hold. Don't crowd the pan."
+          ]
+        },
+        {
+          "section": "Broil the salmon",
+          "items": [
+            "Switch the oven to broil on high. Place the salmon skin-side up on an oiled, foil-lined sheet pan.",
+            "Broil 6–8 minutes, until the skin is deeply golden and shatter-crisp and the flesh just flakes. Rotate the pan halfway if your broiler runs uneven; for thick fillets, finish with a 1–2 minute rest in the turned-off oven."
+          ]
+        },
+        {
+          "section": "Brown butter & plate",
+          "items": [
+            "Melt the butter in a small saucepan over medium heat, swirling, until it foams then browns to amber with a nutty aroma, about 3–5 minutes. Pull it off the heat.",
+            "Stir in the Dijon, capers, thyme, lemon zest, and optional chili. Taste and brighten with a few drops of lemon juice.",
+            "Toss the roasted vegetables with a squeeze of lemon and divide between plates. Nestle the salmon on top, skin-side up, and spoon the warm brown butter over the fish and the vegetables."
+          ]
+        }
+      ],
+      "tips": [
+        "Dry skin plus high heat plus oil equals maximum crisp; scoring the skin keeps the fillet from curling and lifting off the pan.",
+        "Broiling skin-side up renders the fat and crackles the skin while shielding the flesh from the direct element, so it stays moist.",
+        "Pour the brown butter into a warm bowl the moment it's amber — leftover pan heat will tip it from nutty to burnt in seconds.",
+        "Salmon carries over off the heat, so pull it a touch early; the residual heat finishes it while you make the sauce."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden cherry tomatoes are the move here — they burst sweeter than store-bought. Finish with torn basil or parsley from the bed."
+        },
+        {
+          "label": "Make it a full plate",
+          "note": "Spoon it all over a quick herbed couscous, farro, or quinoa to soak up the brown butter."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A chilled Sauvignon Blanc or Grüner Veltliner, or a citrusy wheat beer to match the lemon."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Stephen's weeknight-elevated salmon: the broiler does the work of a restaurant\nsalamander, crackling the skin in minutes, while the broccoli chars in the same\noven and garden tomatoes burst alongside. The lemon-caper brown butter is the\nupgrade that turns a simple fish-and-vegetable plate into something worth setting\nthe table for.",
+      "hero": "images/crispy-broiled-salmon-charred-broccoli.webp"
+    },
+    {
+      "title": "Crispy Oven Kale Chips",
+      "slug": "kale-chips",
+      "tagline": "Shatter-crisp, salty kale leaves baked low and slow into a snackable chip.",
+      "pitch": "The secret to kale chips that crackle instead of wilt is restraint — dry leaves, the lightest film of oil, and a low oven that dehydrates rather than steams. Torn into bite-size pieces and spread in a single uncrowded layer, the kale shrinks and curls until the edges go translucent and shatter at a touch. *Bone-dry leaves and barely-there oil are everything: a wet or over-oiled chip steams limp instead of crisping.* A pinch of smoked paprika or garlic powder turns a healthy habit into something you'll fight over.",
+      "serves": 4,
+      "times": {
+        "prep": 10,
+        "cook": 22,
+        "total": 32
+      },
+      "difficulty": "easy",
+      "protein": "vegan",
+      "methods": [
+        "oven"
+      ],
+      "cuisine": "American",
+      "course": "snack",
+      "heat": "mild",
+      "equipment": [
+        "salad spinner"
+      ],
+      "tags": [
+        "snack",
+        "vegan",
+        "gluten-free",
+        "make-ahead",
+        "healthy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1 bunch kale (curly or lacinato)",
+            "1–2 tbsp olive oil",
+            "½ tsp kosher salt, or to taste",
+            "Optional seasonings: garlic powder, smoked paprika, or chili flakes"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Heat the oven to 300°F and line two baking sheets with parchment.",
+            "Wash the kale and dry it thoroughly — a salad spinner plus a few minutes on a towel. Any clinging water steams the leaves instead of crisping them.",
+            "Strip the leaves from the tough stems and tear them into bite-size pieces.",
+            "Toss the kale with just enough olive oil to lightly coat — the leaves should look barely glossy, not slick. Massage it in with your hands.",
+            "Spread in a single, uncrowded layer across both sheets. Sprinkle with salt and any optional seasonings.",
+            "Bake 20–25 minutes, rotating the pans and flipping the leaves halfway, until the edges are crisp but not browned.",
+            "Cool a few minutes on the sheet; they firm up as they cool. Eat the same day for peak crunch."
+          ]
+        }
+      ],
+      "tips": [
+        "Less oil is more — over-oiled chips go limp and greasy. A teaspoon per packed handful is plenty.",
+        "Season after baking if using fine salt or grated cheese-style toppings so they don't slide off the wet leaves.",
+        "If a few chips still feel bendy, return them to the warm (turned-off) oven for 5 minutes to finish drying.",
+        "Store fully cooled chips with a paper towel in an airtight container; they keep their crunch for a day or two."
+      ],
+      "extras": [
+        {
+          "label": "Dehydrator method",
+          "note": "You own a dehydrator — run the oiled, seasoned leaves at 125°F for 4–6 hours for the crispest, most evenly dried chips with zero risk of scorching."
+        },
+        {
+          "label": "From the garden",
+          "note": "Finish with a dusting of garden chili flakes, or toss in a little minced serrano with the oil for a slow-building heat."
+        },
+        {
+          "label": "Flavor swaps",
+          "note": "Try nutritional yeast and garlic powder for a cheesy vibe, or a pinch of cumin and lime zest for a taco-night snack."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A reliable, low-and-slow method for kale chips that actually stay crisp — the whole\ngame is dry leaves and a barely-there coat of oil.",
+      "hero": "images/kale-chips.webp"
+    },
+    {
+      "title": "Crispy-Skin Sea Bass with Tomato-Jalapeño Confit & Herbed Cucumber Salad",
+      "slug": "crispy-skin-sea-bass-tomato-jalapeno-confit",
+      "tagline": "Shatteringly crisp sea bass over warm, sweet-spicy tomato confit.",
+      "pitch": "Crackling skin is the headline here, and it comes from one rule: dry fish, hot pan, don't touch. The fillets sear skin-side down until the surface shatters like glass, set over a low, slow confit of cherry tomatoes, garlic, and jalapeño that turns jammy and sweet with a slow-building heat. A cool shaved-cucumber salad with rosemary, basil, and lemon zest snaps the whole plate awake. *Press the skin flat for the first fifteen seconds and let it ride — it releases on its own when it's truly crisp.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 30,
+        "total": 45
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Mediterranean",
+      "course": "main",
+      "heat": "medium",
+      "equipment": [
+        "cast iron"
+      ],
+      "tags": [
+        "summer",
+        "gluten-free",
+        "date-night",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Sea bass",
+          "items": [
+            "2 skin-on sea bass fillets (about 6 oz each), boneless",
+            "1–2 tbsp high-quality olive oil",
+            "Salt and freshly ground black pepper"
+          ]
+        },
+        {
+          "section": "Tomato-jalapeño confit",
+          "items": [
+            "⅓ cup olive oil",
+            "1 pint cherry or grape tomatoes, halved",
+            "1 jalapeño, minced (start with ½ if heat-sensitive)",
+            "1 clove garlic, minced",
+            "½ tsp fresh thyme, chopped",
+            "Pinch of salt"
+          ]
+        },
+        {
+          "section": "Herbed cucumber salad",
+          "items": [
+            "1 large cucumber, thinly sliced",
+            "1 tsp fresh rosemary, chopped",
+            "1 tsp fresh basil, chopped",
+            "Zest of 1 lemon",
+            "1 tbsp white wine or champagne vinegar",
+            "2 tbsp olive oil",
+            "Salt and cracked pepper, to taste",
+            "Optional: thinly sliced shallot or a few raw tomato halves"
+          ]
+        },
+        {
+          "section": "To finish",
+          "items": [
+            "Flaky salt (Maldon or fleur de sel)",
+            "Fresh basil sprigs"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep the fish",
+          "items": [
+            "Pat the sea bass completely dry, especially the skin. Set the fillets skin-side up, uncovered, in the fridge while you make everything else — extra drying time means crispier skin."
+          ]
+        },
+        {
+          "section": "Tomato-jalapeño confit",
+          "items": [
+            "In a small skillet or saucepan, combine the olive oil, halved tomatoes, minced jalapeño, garlic, thyme, and a pinch of salt.",
+            "Heat on low, swirling occasionally, until the tomatoes soften, blister, and turn slightly jammy, about 20–25 minutes. Keep it gentle — low and slow protects the confit's sweetness."
+          ]
+        },
+        {
+          "section": "Herbed cucumber salad",
+          "items": [
+            "Toss the sliced cucumber with the rosemary, basil, lemon zest, vinegar, olive oil, salt, and pepper (and shallot or raw tomato if using). Don't overdress — let the herbs lead. Chill until plating."
+          ]
+        },
+        {
+          "section": "Cook the fish",
+          "items": [
+            "Heat a cast-iron or stainless skillet over medium-high with 1–2 tbsp olive oil. Season the fillets with salt and pepper. When the oil shimmers, lay them skin-side down and press firmly with a spatula for 15 seconds to stop them curling.",
+            "Sear skin-side down 4–5 minutes until the fish is about 70% cooked through and the skin is golden and crisp. Flip and finish flesh-side down just 1–2 minutes. Don't move it while it sears — it releases naturally when ready."
+          ]
+        },
+        {
+          "section": "Plate",
+          "items": [
+            "Spoon a generous puddle of warm tomato-jalapeño confit onto each plate. Set the fish skin-side up over the confit so the skin stays crisp.",
+            "Add a mound of chilled cucumber salad and finish with lemon zest, flaky salt, and a sprig of basil."
+          ]
+        }
+      ],
+      "tips": [
+        "Skin-side up in the fridge, uncovered, for even 20 minutes wicks away surface moisture — the single biggest lever for crisp skin.",
+        "Press the fillets flat for the first 15 seconds only; after that, leave them be, and they'll lift cleanly when the skin is set.",
+        "Taste a sliver of your jalapeño first — heat varies wildly, so add it in stages and let the confit tell you when it's enough.",
+        "Serve immediately so the crisp skin doesn't steam against the warm confit; plate skin-up, never skin-down."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "This dish was built for the garden — use your own cherry tomatoes, jalapeños, rosemary, basil, and thyme. Sub a red serrano for the jalapeño for extra heat and a pop of color."
+        },
+        {
+          "label": "Other firm fish",
+          "note": "Halibut, mahi mahi, or drum fillets all work; for skinless fillets, sear the presentation side hard and finish gently rather than chasing crisp skin."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A crisp, unoaked white — Vermentino, Sauvignon Blanc, or a dry rosé — keeps pace with the bright confit and herbs."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A restaurant-style plate with very little fuss: a low, slow tomato-jalapeño confit\ndoes its thing hands-off while you chill a herby cucumber salad, then the fish gets\nits moment in a screaming pan for that signature crackling skin. Garden tomatoes\nand peppers make it sing.",
+      "hero": "images/crispy-skin-sea-bass-tomato-jalapeno-confit.webp"
+    },
+    {
+      "title": "Greek Orzo Salad with Arugula, Tomato & Red Onion",
+      "slug": "greek-orzo-salad",
+      "tagline": "Cool orzo tossed with juicy tomatoes, peppery arugula, and a sharp red-wine vinaigrette.",
+      "pitch": "A Greek salad given backbone — tender orzo folded into the crisp, fresh tangle of tomato, red onion, and peppery arugula instead of letting everything wilt in the dressing. The pasta is cooked in well-salted water, then cooled so it stays springy and drinks up just enough vinaigrette without going gluey. Everything gets dressed at the last minute, Greek-salad style, so each bite keeps its own distinct flavor and crunch. *The move is a 10-minute ice-water soak for the sliced red onion — it trades raw bite for a sweet, crisp snap that makes the whole bowl read fresh.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 10,
+        "total": 35
+      },
+      "difficulty": "easy",
+      "protein": "vegetarian",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Greek",
+      "course": "salad",
+      "heat": "none",
+      "tags": [
+        "summer",
+        "make-ahead",
+        "vegetarian",
+        "garden",
+        "picnic"
+      ],
+      "ingredients": [
+        {
+          "section": "Salad",
+          "items": [
+            "6 oz orzo (orecchiette also works beautifully)",
+            "2 cups cherry or grape tomatoes, halved",
+            "3 cups arugula, loosely packed",
+            "½ red onion, thinly sliced",
+            "½ English cucumber, diced",
+            "⅓ cup Kalamata olives, pitted and halved",
+            "⅓ cup crumbled feta"
+          ]
+        },
+        {
+          "section": "Red-wine vinaigrette",
+          "items": [
+            "3 tbsp extra-virgin olive oil",
+            "2 tbsp red wine vinegar",
+            "1 clove garlic, finely minced or grated",
+            "1 tsp dried oregano",
+            "½ tsp Dijon mustard (optional, for emulsion)",
+            "Kosher salt and freshly cracked black pepper"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Bring a pot of well-salted water to a boil and cook the orzo to al dente. Drain, rinse briefly under cool water to stop the cooking, and toss with a drizzle of olive oil so it doesn't clump.",
+            "Slice the red onion thin and soak it in a bowl of ice water for 10 minutes to mellow its bite, then drain and pat dry.",
+            "Whisk the vinaigrette ingredients together (or shake them in a jar) until emulsified. Taste and balance the salt and acid."
+          ]
+        },
+        {
+          "section": "Assemble",
+          "items": [
+            "In a large bowl, combine the cooled orzo, tomatoes, cucumber, olives, and drained red onion.",
+            "Just before serving, add the arugula and pour over the vinaigrette. Toss gently so the greens stay crisp and everything is lightly coated.",
+            "Scatter the feta over the top, finish with cracked pepper, and serve at once."
+          ]
+        }
+      ],
+      "tips": [
+        "Dress this Greek-salad style — at the last minute — so the arugula stays perky and each ingredient keeps its own flavor. Dressing early softens everything into a marinated salad (still good, just different).",
+        "Salt the pasta water generously; orzo seasons from the inside as it cooks, and bland pasta is the easiest way to flatten a cold salad.",
+        "Hold a little extra vinaigrette back — chilled pasta soaks up dressing as it sits, so refresh leftovers with a splash before serving.",
+        "For a heartier bowl, add a can of drained chickpeas; they make it a full vegetarian meal."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Lean on garden tomatoes and cucumber at their peak, and tear in fresh mint or basil for a cooling, summery lift."
+        },
+        {
+          "label": "Make-ahead",
+          "note": "Cook the orzo and mix the vinaigrette up to a day ahead, then toss with the greens and feta right before serving."
+        },
+        {
+          "label": "Pairs with",
+          "note": "Grilled bread and a crisp rosé or a glass of Assyrtiko for a patio dinner."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Stephen landed on a Greek salad — dressed just before serving so it stays crisp\nand distinct — then made it more substantial by folding in pasta boiled in salted\nwater. Orzo keeps it light and forkable; orecchiette gives it more chew if you\nwant it.",
+      "equipment": [],
+      "hero": "images/greek-orzo-salad.webp"
+    },
+    {
+      "title": "Greek Salmon Salad with Lemon-Oregano Dressing",
+      "slug": "greek-salad-with-salmon",
+      "tagline": "Warm oregano-rubbed salmon flaked over a classic Greek salad with a bright lemon-oregano dressing.",
+      "pitch": "A classic Greek salad with the volume turned up: oregano-rubbed salmon, seared golden in a hot pan, then flaked warm over cucumber, tomato, Kalamata olives, and a generous rubble of feta. The dressing is the soul of it — good olive oil, plenty of lemon, and dried oregano whisked until it clings to every leaf. *Flake the salmon on while it's still warm so it gently wilts the greens and the feta turns just creamy at the edges — that warm-meets-cool moment is what makes it dinner.* Dried oregano carries the dish, so use the freshest jar you've got.",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 8,
+        "total": 23
+      },
+      "difficulty": "easy",
+      "protein": "fish",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Greek",
+      "course": "salad",
+      "heat": "none",
+      "equipment": [
+        "cast iron"
+      ],
+      "tags": [
+        "summer",
+        "gluten-free",
+        "light",
+        "garden",
+        "weeknight"
+      ],
+      "ingredients": [
+        {
+          "section": "Salmon",
+          "items": [
+            "2 salmon fillets (6–7 oz each, skin on or off)",
+            "Kosher salt and freshly ground black pepper",
+            "½ tsp dried oregano",
+            "Olive oil, for searing"
+          ]
+        },
+        {
+          "section": "Salad",
+          "items": [
+            "5 oz mixed greens (romaine, spinach, or arugula)",
+            "1 cup cherry tomatoes, halved",
+            "½ large cucumber, sliced",
+            "¼ small red onion, thinly sliced",
+            "⅓ cup Kalamata olives, pitted",
+            "⅓ cup feta cheese, crumbled",
+            "Fresh dill, for garnish (optional)"
+          ]
+        },
+        {
+          "section": "Lemon-oregano dressing",
+          "items": [
+            "3 tbsp extra-virgin olive oil",
+            "1½ tbsp fresh lemon juice",
+            "½ tsp dried oregano",
+            "Pinch of salt and black pepper"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Dressing & prep",
+          "items": [
+            "Whisk the olive oil, lemon juice, oregano, salt, and pepper in a small bowl or jar until emulsified. Set aside.",
+            "Halve the tomatoes, slice the cucumber and red onion, and pit the olives. Crumble the feta."
+          ]
+        },
+        {
+          "section": "Sear the salmon",
+          "items": [
+            "Pat the fillets very dry. Season both sides with salt, pepper, and the dried oregano.",
+            "Heat 1–2 tbsp olive oil in a skillet over medium-high until it shimmers. Sear the salmon presentation-side down (skin-side up if skin-on) and don't move it for 3–4 minutes, until a golden crust forms.",
+            "Flip gently and cook 3–4 minutes more, until it flakes easily (125–130°F internal). Rest 2 minutes, then break into large flakes."
+          ]
+        },
+        {
+          "section": "Assemble",
+          "items": [
+            "In a large bowl, toss the greens, tomatoes, cucumber, and red onion with most of the dressing.",
+            "Divide between two plates and add the olives and feta. Top with the warm salmon flakes, drizzle the remaining dressing over the top, and garnish with dill."
+          ]
+        }
+      ],
+      "tips": [
+        "Dried oregano, not fresh, is the authentic Greek-salad move — it's more concentrated and perfumes the dressing better. Crush it between your fingers as you add it to wake up the oils.",
+        "Pat the salmon bone-dry before it hits the pan; surface moisture is what stops a golden crust from forming.",
+        "Press the fillet lightly with a spatula for the first 20 seconds in the pan to keep it from curling and ensure even contact.",
+        "Dress the greens just before serving so they stay crisp — limp lettuce is the one way to lose this salad."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden cucumber and tomatoes shine here, and a handful of torn mint or extra dill from the bed brightens every bite."
+        },
+        {
+          "label": "Prefer the grill?",
+          "note": "Grill the oregano-rubbed fillets over medium-high, skin-side down first, about 4 minutes a side, for a smoky edge."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A crisp Assyrtiko, dry rosé, or Sauvignon Blanc, with warm olive-oiled pita alongside."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The Greek-salad-meets-salmon version: a classic horiatiki given backbone with warm,\noregano-rubbed fish flaked on top. Pan-searing keeps it weeknight-fast and crisps\nthe fillet, while the lemon-oregano dressing and good feta keep it firmly,\nunapologetically Greek.",
+      "hero": "images/greek-salad-with-salmon.webp"
+    },
+    {
+      "title": "Grilled Everything-Bagel Tuna with Creamy Horseradish Sauce & Charred Lemon Broccolini",
+      "slug": "everything-bagel-tuna-horseradish-broccolini",
+      "tagline": "Seared-rare tuna with a toasty sesame crust, cool horseradish cream, and smoky lemon.",
+      "pitch": "Forty-five seconds a side is the whole game. The grill toasts that everything-bagel crust into a fragrant sesame-garlic shell while the center stays ruby-rare and cool — steakhouse swagger, coastal lightness. A tangy horseradish-yogurt cream sharpens every bite, and broccolini chars alongside lemon halves that go jammy and caramelized straight off the fire. *Once the tuna turns opaque it's gone, so trust the clock, not the color of the edges.*",
+      "serves": 2,
+      "times": {
+        "prep": 10,
+        "cook": 12,
+        "total": 22
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "grill"
+      ],
+      "cuisine": "American",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "grill",
+        "fish spatula"
+      ],
+      "tags": [
+        "quick",
+        "high-protein",
+        "gluten-free",
+        "date-night",
+        "summer"
+      ],
+      "ingredients": [
+        {
+          "section": "Tuna",
+          "items": [
+            "2 everything bagel–seasoned tuna steaks, about 6 oz each",
+            "1 tbsp olive oil, for brushing",
+            "½ tsp black pepper",
+            "½ tsp coarse salt (optional — depends on how salty the seasoning is)"
+          ]
+        },
+        {
+          "section": "Horseradish cream",
+          "items": [
+            "½ cup full-fat Greek yogurt",
+            "1 tbsp prepared horseradish (adjust to taste)",
+            "1 tsp Dijon mustard",
+            "1 tsp lemon juice",
+            "1 tsp honey or agave",
+            "½ tsp grated garlic (or a pinch of garlic powder)",
+            "Salt and pepper, to taste"
+          ]
+        },
+        {
+          "section": "Charred lemon broccolini",
+          "items": [
+            "1 bunch broccolini, trimmed",
+            "2 lemons, halved",
+            "1½ tbsp olive oil",
+            "Flaky salt",
+            {
+              "Optional": "red pepper flakes or a chili-oil drizzle"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Heat the grill to medium-high (around 450°F) and oil the grates well so the seasoning crust doesn't tear.",
+            "Stir together the yogurt, horseradish, Dijon, lemon juice, honey, and garlic; season with salt and pepper and chill — it thickens and mellows as it rests.",
+            "Toss the broccolini with olive oil and salt. Brush the cut sides of the lemons with a little oil."
+          ]
+        },
+        {
+          "section": "Grill the sides",
+          "items": [
+            "Grill the broccolini 6–8 minutes, turning occasionally, until charred and tender. Add the lemons cut-side down for the last 3 minutes until caramelized.",
+            "Move the broccolini and lemons to a warm plate and tent loosely with foil."
+          ]
+        },
+        {
+          "section": "Grill the tuna",
+          "items": [
+            "Brush the tuna lightly with olive oil. Grill 45–60 seconds per side for rare (ruby center), or up to 90 seconds for medium-rare. Rotate halfway through each side if you want crosshatch marks.",
+            "Rest the steaks 2 minutes — carryover heat finishes the sear without cooking the center."
+          ]
+        },
+        {
+          "section": "Serve",
+          "items": [
+            "Smear a generous spoonful of horseradish cream onto each plate and set the tuna on top or slightly offset.",
+            "Add the broccolini, squeeze over the charred lemon, and finish with flaky salt and an optional drizzle of chili oil."
+          ]
+        }
+      ],
+      "tips": [
+        "The second tuna turns opaque all the way through it goes chalky — pull it while the center is still rosy and let carryover do the rest.",
+        "Flip with a fish spatula or tongs, gently; the everything-bagel crust wants to grab the grates.",
+        "Charred lemons get sweeter and more aromatic — they're for squeezing and for looks, so don't skip the grill marks.",
+        "Toss a small chunk of cedar or fruitwood on the coals for a minute before the tuna goes on for a whisper of smoke."
+      ],
+      "extras": [
+        {
+          "label": "Make it a fuller plate",
+          "note": "Round it out with sesame jasmine rice or grilled smashed potatoes; otherwise keep it lean and high-protein as written."
+        },
+        {
+          "label": "From the garden",
+          "note": "A few thin slices of garden jalapeño or serrano stirred into the horseradish cream adds a clean background heat, and torn basil over the top brightens the plate."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A crisp New Zealand Sauvignon Blanc or a minerally Sancerre. For a cocktail, a citrus gin martini with cucumber echoes the brightness."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Those pre-seasoned tuna steaks are a head start to a fast, impressive dinner: the\ngrill toasts the crust, the center stays rare, and a cool horseradish cream plays\nthe role of a steakhouse sauce gone coastal. Char the lemons hard — they're half\nthe flavor and all of the drama.",
+      "hero": "images/everything-bagel-tuna-horseradish-broccolini.webp"
+    },
+    {
+      "title": "Grilled Lemon-Herb Chicken with Garden Vegetables",
+      "slug": "grilled-lemon-herb-chicken",
+      "tagline": "Lemon-and-rosemary marinated chicken grilled alongside charred summer vegetables.",
+      "pitch": "Proof that simple and healthy can still taste like the best night of summer. Chicken breasts soak in a bright marinade of lemon, garlic, rosemary, and thyme until they're juicy and herb-perfumed, then hit a hot grill for smoky char marks. Skewers of zucchini, bell pepper, and cherry tomatoes cook right alongside, blistering and going sweet over the flame. A final squeeze of lemon over everything pulls the whole plate together. *Pound the breasts to an even thickness before they go on — that's the difference between juicy all the way through and dry, leathery edges.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 15,
+        "total": 60
+      },
+      "difficulty": "easy",
+      "protein": "chicken",
+      "methods": [
+        "grill"
+      ],
+      "cuisine": "American",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "grill",
+        "skewers"
+      ],
+      "tags": [
+        "summer",
+        "grilling",
+        "gluten-free",
+        "garden",
+        "healthy"
+      ],
+      "ingredients": [
+        {
+          "section": "Chicken & marinade",
+          "items": [
+            "2 boneless skinless chicken breasts, pounded to even thickness",
+            "3 tbsp olive oil",
+            "Juice and zest of 1 lemon",
+            "3 garlic cloves, minced",
+            "1 tbsp fresh rosemary, chopped (from the garden)",
+            "1 tbsp fresh thyme leaves (from the garden)",
+            "1 tsp kosher salt",
+            "½ tsp freshly ground black pepper"
+          ]
+        },
+        {
+          "section": "Garden vegetables",
+          "items": [
+            "1 zucchini, cut into thick half-moons",
+            "1 bell pepper, cut into chunks",
+            "1 cup cherry tomatoes",
+            "2 tbsp olive oil",
+            "Kosher salt and pepper"
+          ]
+        },
+        {
+          "section": "To finish",
+          "items": [
+            "Lemon wedges",
+            "Flaky salt",
+            "A little extra chopped rosemary or thyme"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Marinate",
+          "items": [
+            "Whisk the olive oil, lemon juice and zest, garlic, rosemary, thyme, salt, and pepper. Add the chicken and turn to coat. Marinate 30 minutes to 2 hours in the fridge."
+          ]
+        },
+        {
+          "section": "Prep & heat",
+          "items": [
+            "Heat the grill to medium-high and oil the grates. Thread the zucchini, pepper, and cherry tomatoes onto skewers and brush with olive oil, salt, and pepper."
+          ]
+        },
+        {
+          "section": "Grill",
+          "items": [
+            "Grill the chicken 5–6 minutes per side until char marks form and the internal temperature reaches 160°F. Rest 5 minutes (carryover brings it to 165°F).",
+            "Grill the vegetable skewers alongside, turning, until charred and tender — about 3–4 minutes per side; pull the tomatoes as soon as they blister."
+          ]
+        },
+        {
+          "section": "Serve",
+          "items": [
+            "Slice the chicken and plate with the grilled vegetables. Squeeze fresh lemon over everything and finish with flaky salt and a scatter of extra herbs."
+          ]
+        }
+      ],
+      "tips": [
+        "Pound the breasts to an even thickness so they cook through at the same rate and don't dry out at the thin ends.",
+        "Pull the chicken at 160°F and let it rest — carryover heat finishes it at a safe, juicy 165°F.",
+        {
+          "Don't over-marinate": "the lemon's acid starts to firm up the surface of the chicken past a couple of hours, so 30 minutes to 2 hours is the sweet spot."
+        },
+        "Oil the grates right before the chicken goes on to prevent sticking and tearing the char you worked for."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Rosemary and thyme straight from the garden make the marinade; toss a sliced serrano onto the skewers if you want a little heat."
+        },
+        {
+          "label": "Swap the veg",
+          "note": "Asparagus, red onion wedges, or corn on the cob all grill beautifully in place of (or alongside) the zucchini and peppers."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A chilled white like Pinot Grigio, or sparkling water with a lot of lemon for a clean summer plate."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The grilled chicken Stephen comes back to all summer: a lemon-and-herb marinade\ndoes the heavy lifting, and the garden vegetables char right alongside on\nskewers for a clean, healthy plate that still tastes like a cookout.",
+      "hero": "images/grilled-lemon-herb-chicken.webp"
+    },
+    {
+      "title": "Grilled New York Strip with Charred Corn",
+      "slug": "grilled-ny-strip-charred-corn",
+      "tagline": "A two-zone grilled strip with buttery, blistered corn on the cob for two.",
+      "pitch": "Summer dinner, dialed in: build a two-zone fire and let the grill do two jobs at once. The corn steams in foil over the cooler side while the strips sear over the coals, picking up a charred, smoky crust and clean grill marks. When the steaks hit medium-rare you slide them to the cool zone to coast, rest under foil, then finish the corn with a fresh pat of butter that melts into the kernels. *The two-zone setup is the move — one side to sear hard, one side to coast, so nothing flares or overcooks while you tend the other.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "easy",
+      "protein": "beef",
+      "methods": [
+        "grill"
+      ],
+      "cuisine": "American",
+      "course": "main",
+      "heat": "none",
+      "equipment": [
+        "grill",
+        "instant-read thermometer"
+      ],
+      "tags": [
+        "summer",
+        "date-night",
+        "gluten-free",
+        "cookout",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Steak",
+          "items": [
+            "2 New York strip steaks (1–1.5 inches thick)",
+            "1 tbsp olive oil (or avocado oil)",
+            "Kosher salt and freshly ground black pepper",
+            "Optional: garlic powder, smoked paprika, or fresh rosemary/thyme sprigs",
+            "Optional finish: 1 tbsp garlic-herb butter"
+          ]
+        },
+        {
+          "section": "Corn on the cob",
+          "items": [
+            "2 ears corn, husked",
+            "2 tbsp butter, plus more for finishing",
+            "Kosher salt and black pepper",
+            "Optional: chopped cilantro or grated Parmesan, for serving"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Pat the steaks dry and let them sit at room temperature 20–30 minutes. Coat lightly with oil and season generously with salt and pepper (and any optional spices).",
+            "Rub each ear of corn with butter, season with salt and pepper, and wrap tightly in foil, sealing the ends to trap steam."
+          ]
+        },
+        {
+          "section": "Build the fire",
+          "items": [
+            "Preheat the grill to medium-high, around 400–450°F. Bank the coals (or set burners) for a two-zone fire — one hot side for searing, one cooler side for indirect cooking.",
+            "Set the foil-wrapped corn on the cooler side first. Grill 15–20 minutes, turning every 5 minutes, until the kernels are tender and lightly caramelized."
+          ]
+        },
+        {
+          "section": "Grill the steaks",
+          "items": [
+            "Lay the steaks over the hottest part of the grill and sear with the lid closed, 3–4 minutes per side. For crosshatch marks, rotate each steak 45 degrees halfway through each side.",
+            "If they need more time to reach doneness, slide them to the cooler side. Pull at 130–135°F for medium-rare (rare 120–125°F, medium 140–145°F).",
+            "Rest the steaks on a plate, tented loosely with foil, for 5–10 minutes. Add a pat of garlic-herb butter while they rest if you like."
+          ]
+        },
+        {
+          "section": "Finish & serve",
+          "items": [
+            "Carefully unwrap the corn and add an extra pat of butter to each ear; sprinkle with cilantro or Parmesan if using.",
+            "Plate each steak with an ear of corn and finish with cracked pepper and flaky salt."
+          ]
+        }
+      ],
+      "tips": [
+        "For clean crosshatch grill marks, rotate the steak 45 degrees halfway through each side rather than flipping repeatedly.",
+        "Start the corn before the steaks — it needs the full 15–20 minutes, while the strips only want a few minutes a side over high heat.",
+        "A pat of garlic-herb butter added as the steak rests melts down and doubles as a built-in sauce.",
+        "Pull the steaks 5°F below target; carryover heat finishes them under the foil tent so they land right at medium-rare."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Toss a few rosemary or thyme sprigs onto the coals while searing for aromatic smoke, and finish the corn with chopped garden cilantro."
+        },
+        {
+          "label": "Make it street-corn",
+          "note": "Brush the grilled corn with mayo, dust with chili powder and lime, and finish with cotija for an elote-style side."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A crisp lager or a juicy Zinfandel — both stand up to char and butter on a warm night."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The classic backyard pairing, run like a line cook would: corn on the cool zone,\nsteaks on the fire, and a two-zone setup that keeps everything moving without a\nsingle flare-up. Pull the steaks early and let the foil tent finish them.",
+      "hero": "images/grilled-ny-strip-charred-corn.webp"
+    },
+    {
+      "title": "Grilled Salmon Salad with Dijon-Balsamic Vinaigrette",
+      "slug": "grilled-salmon-salad-dijon-balsamic",
+      "tagline": "Warm grilled salmon over cool spring mix, garden cucumber and tomato, with a tangy Dijon-balsamic vinaigrette.",
+      "pitch": "Warm fish, cool greens — that contrast is the whole pleasure. Salmon goes straight over a medium-high grill, skin-side down, and stays put until it lifts cleanly with a just-pink center, then rests while you toss spring mix, garden cucumber, and burst-sweet cherry tomatoes in a sharp Dijon-balsamic vinaigrette. Kalamata olives and crumbled feta push it Mediterranean; thin-sliced red onion, soaked to mellow, keeps it bright. *Lay the salmon on warm so it half-wilts the greens beneath it — the dressing clings, the leaves soften just so, and every forkful gets fish, crunch, and tang at once.*",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 8,
+        "total": 28
+      },
+      "difficulty": "easy",
+      "protein": "fish",
+      "methods": [
+        "grill"
+      ],
+      "cuisine": "Mediterranean",
+      "course": "salad",
+      "heat": "none",
+      "equipment": [
+        "grill"
+      ],
+      "tags": [
+        "summer",
+        "gluten-free",
+        "date-night",
+        "garden",
+        "light"
+      ],
+      "ingredients": [
+        {
+          "section": "Salad",
+          "items": [
+            "2 salmon fillets (6–7 oz each, skin on or off)",
+            "Kosher salt and cracked black pepper",
+            "Olive oil, for brushing",
+            "5 oz baby spring mix",
+            "1 cup cherry tomatoes, halved",
+            "½ large cucumber, thinly sliced (peeled if thick-skinned)",
+            "¼ small red onion, very thinly sliced",
+            "¼–⅓ cup Kalamata olives, pitted and halved",
+            "¼ cup feta cheese, crumbled"
+          ]
+        },
+        {
+          "section": "Dijon-balsamic vinaigrette",
+          "items": [
+            "1½ tbsp Dijon mustard",
+            "2 tbsp balsamic vinegar",
+            "4 tbsp extra-virgin olive oil",
+            "1 tsp honey or maple syrup (optional, for balance)",
+            "Pinch of salt and black pepper"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Dressing & prep",
+          "items": [
+            "Whisk the Dijon, balsamic, and a pinch of salt and pepper in a small bowl or jar; add honey if you want a softer edge. Slowly drizzle in the olive oil while whisking until emulsified. Set aside.",
+            "Halve the tomatoes and olives. Thinly slice the cucumber and red onion (a mandoline gets them paper-thin). Soak the onion in ice water for 10 minutes to mellow its bite, then drain. Crumble the feta."
+          ]
+        },
+        {
+          "section": "Grill the salmon",
+          "items": [
+            "Heat the grill to medium-high and oil the grates. Brush the salmon with olive oil and season generously with salt and pepper.",
+            "Grill skin-side down first and don't move it for about 4 minutes, until it releases cleanly. Flip and cook 3–4 minutes more, until it flakes easily with a just-pink center (125–130°F internal). Rest 2 minutes."
+          ]
+        },
+        {
+          "section": "Assemble",
+          "items": [
+            "Toss the spring mix, tomatoes, cucumber, and red onion with a little of the vinaigrette and divide between two shallow bowls or plates.",
+            "Set the salmon on top, whole or flaked into large chunks. Scatter the olives and feta, drizzle more vinaigrette over the fish, and serve right away while it's warm."
+          ]
+        }
+      ],
+      "tips": [
+        "Let the salmon tell you when to flip — it sticks until the skin crisps and releases, then lifts cleanly off the grates with no tearing.",
+        "Soaking the sliced red onion in ice water for 10 minutes tames the raw bite and crisps it up.",
+        "A lidded jar emulsifies the vinaigrette better than a whisk and stores the extra; shake hard right before dressing.",
+        "Dress the greens lightly and save the bolder drizzle for over the warm salmon, where it pools and clings."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden cucumber and cherry tomatoes are the backbone here; a basil or mint chiffonade torn over the top adds a fresh, herby lift."
+        },
+        {
+          "label": "No grill tonight?",
+          "note": "Pan-sear the patted-dry fillets in a hot skillet, presentation-side down, 3–4 minutes per side to 125–130°F — or bake at 400°F for 12–15 minutes and broil the last minute for color."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A chilled Sauvignon Blanc, dry rosé, or Albariño. Toast olive-oiled pita or baguette for a crisp side."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A dinner salad that came together from a full garden haul: cucumber and cherry\ntomatoes from the bed, spring mix and red onion from the store, and a Dijon-\nbalsamic vinaigrette shaken in a jar. Kalamata olives and feta nudge it\nMediterranean, and the warm grilled salmon over cool greens is the contrast that\nmakes it dinner, not a side.",
+      "hero": "images/grilled-salmon-salad-dijon-balsamic.webp"
+    },
+    {
+      "title": "Herb-Butter Swordfish",
+      "slug": "herb-butter-swordfish",
+      "tagline": "Meaty swordfish steaks basted in a melting garden-herb compound butter.",
+      "pitch": "Swordfish is the steak of the sea, and it wants to be treated like one: a hot pan, a golden crust, and a slick of butter to finish. These thick steaks sear until they're bronzed on both faces, then get basted in a foaming compound butter loaded with garden parsley, dill, and chives until every bite tastes of herb and brown butter. Garlicky roasted Brussels sprouts with a flick of lemon zest round it into a full plate. *Tilt the pan and spoon that herb butter over the fish for the last minute — that's the whole trick to a steakhouse finish.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "easy",
+      "protein": "fish",
+      "methods": [
+        "grill",
+        "stove"
+      ],
+      "cuisine": "American",
+      "course": "main",
+      "heat": "none",
+      "equipment": [
+        "cast iron"
+      ],
+      "tags": [
+        "date-night",
+        "gluten-free",
+        "garden",
+        "summer"
+      ],
+      "ingredients": [
+        {
+          "section": "Swordfish & herb butter",
+          "items": [
+            "2 swordfish steaks (about 6 oz each)",
+            "1 tbsp olive oil",
+            "2 tbsp unsalted butter, plus more for basting",
+            "2 tbsp mixed fresh herbs (parsley, dill, chives), finely chopped",
+            "1 clove garlic, minced (optional)",
+            "Salt and freshly ground black pepper, to taste",
+            "Lemon wedges, for serving"
+          ]
+        },
+        {
+          "section": "Garlic roasted Brussels sprouts",
+          "items": [
+            "1 lb Brussels sprouts, trimmed and halved",
+            "3–4 garlic cloves, minced",
+            "2–3 tbsp olive oil",
+            "½ tsp red pepper flakes (adjust to taste)",
+            "Salt and freshly ground black pepper",
+            "Zest of 1 lemon"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Roast the sprouts",
+          "items": [
+            "Preheat the oven to 400°F. Toss the halved Brussels sprouts with the minced garlic, olive oil, red pepper flakes, and a generous pinch of salt; spread in a single layer on a sheet pan.",
+            "Roast 20–25 minutes, stirring once halfway, until crispy at the edges and tender inside. Toss with lemon zest and black pepper the moment they come out."
+          ]
+        },
+        {
+          "section": "Make the herb butter",
+          "items": [
+            "Soften 2 tbsp butter and mash in the chopped herbs and garlic with a pinch of salt and pepper. Set aside (it'll melt and foam in the pan when you baste)."
+          ]
+        },
+        {
+          "section": "Sear the swordfish",
+          "items": [
+            "Pat the steaks dry and season both sides with salt and pepper. Heat the olive oil in a cast-iron skillet over medium-high.",
+            "Lay the steaks in the hot pan and cook undisturbed 3–4 minutes per side, until a golden crust forms and the fish is just opaque through (thickness dictates the exact time)."
+          ]
+        },
+        {
+          "section": "Baste & serve",
+          "items": [
+            "In the last minute, drop the herb butter into the pan. As it foams, tilt the skillet and spoon the herby brown butter over the fish again and again.",
+            "Plate the swordfish with the roasted Brussels sprouts, pour over any pan butter, and serve with lemon wedges."
+          ]
+        }
+      ],
+      "tips": [
+        "Swordfish dries out fast — pull it the moment it turns opaque in the center; it should still feel springy, not firm.",
+        "A dry surface is everything for the crust; blot the steaks well and don't crowd the pan.",
+        "Build the compound butter ahead and chill it in a log; slice off coins to melt over the fish right at the table.",
+        "If grilling instead, oil the grates and cook over medium-high 3–4 minutes per side, then finish with a coin of the herb butter melting on top."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Use whatever's thriving — parsley, dill, chives, even a little thyme or basil — in the compound butter, and the lemon zest from a garden Meyer lemon if you've got one."
+        },
+        {
+          "label": "Side swaps",
+          "note": "From the same source trio, a grilled corn and bell pepper salad (lime-honey vinaigrette) or a spicy corn and Brussels sprout sauté both pair beautifully if you want something brighter than the roast."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A medium-bodied white like a lightly oaked Chardonnay or a dry rosé stands up to the meaty fish and brown butter."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Swordfish takes to a sear like a good steak, and a garden-herb compound butter\nspooned over the top in the last minute turns it into something restaurant-worthy.\nGarlicky roasted Brussels sprouts with lemon zest make it a complete, easy plate\nfor two.",
+      "hero": "images/herb-butter-swordfish.webp"
+    },
+    {
+      "title": "Instant Pot Vietnamese Beef Stew",
+      "slug": "instant-pot-beef-stew",
+      "tagline": "A Vietnamese-Chinese fusion flank steak stew, deep with star anise and fish sauce.",
+      "pitch": "This is the stew that fills the kitchen with star anise and ginger the second the lid comes off. Flank steak gets browned hard in the Instant Pot, then simmered under pressure with fennel, fish sauce, soy, and a few whole star anise until the meat goes spoon-tender and the broth turns deep and savory-sweet. It lands somewhere between a Vietnamese bò kho and a Chinese braise — bright, aromatic, and built for a bowl of rice or crusty bread. *Fish sauce and star anise are the backbone here: one brings the funky umami, the other the warm, licorice perfume that makes the whole pot taste slow-cooked in 45 minutes flat.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 45,
+        "total": 75
+      },
+      "difficulty": "easy",
+      "protein": "beef",
+      "methods": [
+        "instant-pot"
+      ],
+      "cuisine": "Vietnamese",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "Instant Pot"
+      ],
+      "tags": [
+        "one-pot",
+        "weeknight",
+        "comfort",
+        "garden",
+        "make-ahead"
+      ],
+      "ingredients": [
+        {
+          "section": "Stew",
+          "items": [
+            "1 lb flank steak, cut into 1–2 inch pieces",
+            "1 tbsp sesame oil",
+            "1 onion, chopped",
+            "4 cloves garlic, minced",
+            "1 inch fresh ginger, sliced",
+            "1 small bulb fennel, thinly sliced",
+            "1 tbsp fish sauce",
+            "2 tbsp soy sauce",
+            "1 tbsp rice vinegar",
+            "1 tbsp sugar (or honey)",
+            "1 tbsp hot sauce (optional, to taste)",
+            "2–3 whole star anise",
+            "4 cups beef broth (or water)",
+            "Salt and pepper, to taste"
+          ]
+        },
+        {
+          "section": "To finish & serve",
+          "items": [
+            "4–5 scallions, cut into 2-inch pieces (reserve some for garnish)",
+            "Fresh cilantro, for garnish",
+            "Steamed rice or crusty bread"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Brown & build",
+          "items": [
+            "Set the Instant Pot to Sauté. When hot, add the sesame oil, onion, garlic, and ginger and cook 2–3 minutes until aromatic.",
+            "Add the flank steak and brown on all sides to build flavor in the base.",
+            "Stir in the fish sauce, soy sauce, rice vinegar, sugar, and hot sauce. Cook 1–2 minutes so the sauces coat the beef."
+          ]
+        },
+        {
+          "section": "Pressure cook",
+          "items": [
+            "Add the fennel, star anise, and broth, stirring so the beef and fennel are submerged.",
+            "Seal the lid and pressure-cook on high for 35 minutes. Let the pressure release naturally for 10 minutes, then quick-release the rest."
+          ]
+        },
+        {
+          "section": "Finish",
+          "items": [
+            "Open the lid and stir in the scallions. Taste and adjust with salt and pepper.",
+            "Ladle into bowls over rice (or with bread alongside) and garnish with reserved scallions and cilantro."
+          ]
+        }
+      ],
+      "tips": [
+        "Brown the flank steak in batches if your pot is crowded — a hard sear on the meat is where the broth's depth comes from.",
+        "Star anise is potent; two to three pods is plenty, and pull them before serving so no one bites one.",
+        "For more body and sweetness, add carrot or daikon coins before pressure cooking — they soften into the broth and round it out.",
+        "Adjust the fish sauce and sugar at the end, a little at a time, to balance salty against sweet to your taste."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Finish each bowl with a heap of garden cilantro and a sliced serrano or jalapeño for fresh heat that cuts the rich broth."
+        },
+        {
+          "label": "Make ahead",
+          "note": "Like most braises, this is even better the next day — the spices deepen overnight. Store and reheat gently on the stove."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A bowl of jasmine rice or a torn baguette, plus a cold lager or an off-dry Riesling."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A pantry-and-garden fusion that leans Vietnamese with a Chinese braise's backbone:\nfish sauce, star anise, ginger, and fennel doing the work while the Instant Pot\nturns flank steak tender. Bright, aromatic, and ready for rice or bread.",
+      "hero": "images/instant-pot-beef-stew.webp"
+    },
+    {
+      "title": "Mediterranean Stuffed Peppers with Quinoa, Chickpeas & Feta",
+      "slug": "mediterranean-veg",
+      "tagline": "Sweet roasted bell peppers packed with herbed quinoa, chickpeas, and melty feta.",
+      "pitch": "Bell peppers turn silky and sweet in the oven, the perfect vessel for a filling of nutty quinoa, creamy chickpeas, and salty feta laced with oregano and lemon. The trick is to pre-roast the empty pepper halves so they soften and concentrate before they're stuffed — no raw, squeaky pepper, no watery base. The filling is built to stand on its own, brightened with lemon and fresh herbs so it tastes like more than the sum of its pantry parts. A final blast under the heat melts the feta into golden pockets across the top. *Toasting the quinoa dry in the pan before it simmers is the quiet upgrade — it deepens everything into something warm and nutty rather than flat.*",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 40,
+        "total": 60
+      },
+      "difficulty": "easy",
+      "protein": "vegetarian",
+      "methods": [
+        "oven"
+      ],
+      "cuisine": "Mediterranean",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "baking dish"
+      ],
+      "tags": [
+        "vegetarian",
+        "make-ahead",
+        "meal-prep",
+        "garden",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Peppers",
+          "items": [
+            "2 large bell peppers (red, yellow, or orange), halved and seeded",
+            "1 tbsp olive oil",
+            "Kosher salt and freshly cracked black pepper"
+          ]
+        },
+        {
+          "section": "Filling",
+          "items": [
+            "½ cup quinoa, rinsed",
+            "1 cup vegetable broth (or water)",
+            "1 cup canned chickpeas, drained and rinsed",
+            "1 small shallot or ¼ red onion, finely diced",
+            "2 cloves garlic, minced",
+            "1 cup cherry tomatoes, quartered",
+            "2 tbsp Kalamata olives, chopped",
+            "1 tsp dried oregano",
+            "½ tsp ground cumin",
+            "Juice and zest of ½ lemon",
+            "½ cup crumbled feta, divided",
+            "2 tbsp chopped fresh parsley (plus more to finish)",
+            "1 tbsp olive oil"
+          ]
+        },
+        {
+          "section": "To finish",
+          "items": [
+            "Pinch of red pepper flakes (optional)",
+            "Lemon wedges, for serving"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Roast the peppers",
+          "items": [
+            "Preheat the oven to 400°F. Rub the pepper halves inside and out with olive oil and season with salt and pepper.",
+            "Set them cut-side up in a baking dish and roast 15 minutes until they begin to soften and slump. Leave the oven on."
+          ]
+        },
+        {
+          "section": "Make the filling",
+          "items": [
+            "Toast the rinsed quinoa in a dry saucepan over medium heat for 2–3 minutes until it smells nutty. Add the broth, bring to a boil, then cover and simmer 12–15 minutes until the liquid is absorbed. Fluff with a fork.",
+            "In a skillet, warm 1 tbsp olive oil over medium heat and soften the shallot 2–3 minutes. Add the garlic, oregano, and cumin and cook 1 minute until fragrant.",
+            "Stir in the chickpeas, tomatoes, and olives and cook 3–4 minutes until the tomatoes start to break down.",
+            "Fold in the cooked quinoa, lemon juice and zest, parsley, and half the feta. Taste and adjust salt, pepper, and red pepper flakes."
+          ]
+        },
+        {
+          "section": "Stuff & bake",
+          "items": [
+            "Spoon the filling generously into the roasted pepper halves and scatter the remaining feta over the top.",
+            "Return to the oven and bake 18–22 minutes, until the peppers are tender and the feta is golden in spots.",
+            "Finish with fresh parsley and serve with lemon wedges."
+          ]
+        }
+      ],
+      "tips": [
+        "Pre-roasting the empty peppers before stuffing is the difference between sweet and tender versus raw and watery — don't skip it.",
+        "Rinse the quinoa even if the package says pre-rinsed; it washes off the bitter saponin coating that can make the filling taste soapy.",
+        "These reheat beautifully, so make the full batch — the filling tastes even better the next day once the flavors settle.",
+        "For golden, bubbling tops, finish under the broiler for the last 2 minutes; watch closely so the feta doesn't scorch."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Use garden cherry tomatoes and a handful of chopped fresh mint or basil in the filling; a little fresh oregano in place of dried sings here."
+        },
+        {
+          "label": "Make it vegan",
+          "note": "Swap the feta for a few spoonfuls of dairy-free feta or a dollop of seasoned cashew cream stirred through the warm filling."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A simple cucumber-yogurt sauce or tzatziki on the side, and a glass of dry rosé or a light red like Grenache."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Of the vegetarian Mediterranean options Stephen weighed, the stuffed peppers were\nthe one to build out fully: a one-dish dinner that holds together, travels well as\nleftovers, and leans on pantry staples brightened with lemon and herbs.",
+      "hero": "images/mediterranean-veg.webp"
+    },
+    {
+      "title": "Miso-Glazed Black Cod with Charred Bok Choy & Ginger-Scallion Oil",
+      "slug": "miso-black-cod-bok-choy",
+      "tagline": "Nobu-style lacquered cod, smoky bok choy, and a sizzling aromatic oil.",
+      "pitch": "This is the dish that makes people think you trained somewhere fancy. Buttery black cod sits overnight in a sweet-savory miso marinade, then caramelizes under the broiler until the edges go deep amber and the flesh flakes into silky sheets. Charred baby bok choy and a hot-poured ginger-scallion oil bring smoke, freshness, and a little heat, while quick pickled cucumbers cut clean through the richness. *The marinade does the work the night before — twenty minutes from fridge to plate is all that's left.*",
+      "serves": 2,
+      "times": {
+        "prep": 25,
+        "cook": 20,
+        "total": 285
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "broiler",
+        "grill"
+      ],
+      "cuisine": "Japanese",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "broiler"
+      ],
+      "tags": [
+        "make-ahead",
+        "date-night",
+        "umami",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Cod & miso marinade",
+          "items": [
+            "2 black cod (sablefish) fillets, about 6 oz each",
+            "2 tbsp white miso paste",
+            "1 tbsp mirin",
+            "1 tbsp sake (or dry white wine)",
+            "1 tsp soy sauce",
+            "1 tsp honey (or sugar)",
+            "Neutral oil, for the pan"
+          ]
+        },
+        {
+          "section": "Charred bok choy",
+          "items": [
+            "4 baby bok choy, halved lengthwise",
+            "1 tbsp neutral oil (grapeseed or avocado)",
+            "Flaky salt"
+          ]
+        },
+        {
+          "section": "Ginger-scallion oil",
+          "items": [
+            "2 scallions, finely minced",
+            "1 tbsp fresh ginger, finely grated",
+            "1 small garlic clove, minced",
+            "3 tbsp neutral oil",
+            "1 tsp sesame oil",
+            "Pinch of chili flakes (optional)",
+            "Salt, to taste"
+          ]
+        },
+        {
+          "section": "Quick pickled cucumber",
+          "items": [
+            "½ English cucumber (or 2 Persian), thinly sliced",
+            "3 tbsp rice vinegar",
+            "1 tsp sugar",
+            "½ tsp salt",
+            "1 tsp sesame seeds"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "Steamed jasmine or sushi rice (optional)",
+            "Toasted sesame seeds and cilantro, to garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "The night before",
+          "items": [
+            "Whisk the miso, mirin, sake, soy sauce, and honey until smooth. Pat the cod dry, coat it evenly in the marinade, and refrigerate at least 4 hours, ideally overnight. Black cod is rich and forgiving — longer means deeper umami."
+          ]
+        },
+        {
+          "section": "Pickles & oil",
+          "items": [
+            "Stir the rice vinegar, sugar, and salt until dissolved, then toss with the cucumber and sesame seeds. Let sit at least 15 minutes (longer is better).",
+            "Combine the scallions, ginger, garlic, chili flakes, and sesame oil in a heatproof bowl. Heat the neutral oil until shimmering and pour it over the aromatics — it should sizzle. Stir, salt to taste, and set aside to bloom."
+          ]
+        },
+        {
+          "section": "Broil the cod",
+          "items": [
+            "Position a rack in the upper third and preheat the broiler on high. Line a sheet with foil and lightly oil it. Wipe excess marinade off the fillets, leaving a thin coating to prevent scorching.",
+            "Broil 8–10 minutes until nearly cooked through, watching closely — miso burns fast, so a light char is the target, not black. The cod is done when it flakes easily and the edges are glossy amber."
+          ]
+        },
+        {
+          "section": "Char the bok choy",
+          "items": [
+            "Brush the bok choy halves with neutral oil. Sear cut-side down in a hot skillet (or on the grill) 2–3 minutes until charred, flip for 1 minute more, and finish with flaky salt."
+          ]
+        },
+        {
+          "section": "Plate",
+          "items": [
+            "Fan the bok choy on each plate and spoon over the ginger-scallion oil. Lay the cod slightly offset, glazed side up.",
+            "Nest a small pile of pickled cucumber alongside (or on a mound of rice), then finish with sesame seeds and a few cilantro leaves."
+          ]
+        }
+      ],
+      "tips": [
+        "Miso scorches in seconds under a broiler — leave only a thin film on the fish and stay at the oven door.",
+        "No mirin? Mix 1 tbsp white wine with 1 tsp sugar and 1 tsp water until dissolved; it works perfectly in the marinade.",
+        "Don't overcook the bok choy — its crunch and vivid green are what make the plate pop against the rich fish.",
+        "Make extra pickled cucumber; spooned over a bite of cod, the acidity is the contrast the whole plate is built on."
+      ],
+      "extras": [
+        {
+          "label": "Sea bass on the grill",
+          "note": "Sea bass is a great alternative — marinate just 10–15 minutes (it's leaner), then grill skin-side down 3–4 minutes, flip, brush with glaze, and grill 3–4 minutes more. Move it to indirect heat after searing if the honey-miso starts to scorch."
+        },
+        {
+          "label": "Regular cod swap",
+          "note": "Standard cod works too — it's leaner, so marinate no longer than 12 hours and shorten the broil to 6–8 minutes plus a 2-minute char so it stays moist."
+        },
+        {
+          "label": "Restaurant finishing drizzle",
+          "note": "For extra shine, melt 1 tbsp butter and stir in 1 tsp each soy, honey, and rice vinegar plus a pinch of grated ginger; drizzle this ginger-soy butter over the fish right before serving."
+        },
+        {
+          "label": "From the garden",
+          "note": "Finish with garden cilantro, and use a garden cucumber for the quick pickle. A pinch of jalapeño in the pickling liquid adds a gentle background heat."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Restaurant elegance from a make-ahead marinade: the miso does its quiet work\novernight, so the night-of is just a fast broil, a hot sizzle of ginger-scallion\noil, and a charred green. The pickled cucumber is the secret — bright acidity to\ncut the buttery, lacquered cod.",
+      "hero": "images/miso-black-cod-bok-choy.webp"
+    },
+    {
+      "title": "Reverse-Sear New York Strip with Garlic-Herb Broccoli",
+      "slug": "reverse-sear-ny-strip",
+      "tagline": "A low-and-slow strip finished with a screaming butter-baste, beside charred garden broccoli.",
+      "pitch": "This is the steakhouse trick that takes the guesswork out of a perfect crust. The strip starts in a gentle 250°F oven on a wire rack until it creeps to 115°F, edge-to-edge rosy and dry on the surface — then it hits a smoking cast-iron for a 60-second-a-side sear and a bath of foaming butter, smashed garlic, and garden thyme spooned over the top. Garden broccoli chars hard in the same pan, picking up the drippings and a hit of lemon. *The dry surface is the secret: a steak that's already warm and bone-dry browns in a minute flat, so the inside never overshoots medium-rare.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 50,
+        "total": 75
+      },
+      "difficulty": "medium",
+      "protein": "beef",
+      "methods": [
+        "oven",
+        "stove"
+      ],
+      "cuisine": "American",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "cast iron",
+        "wire rack",
+        "instant-read thermometer"
+      ],
+      "tags": [
+        "steakhouse",
+        "date-night",
+        "gluten-free",
+        "garden",
+        "low-carb"
+      ],
+      "ingredients": [
+        {
+          "section": "Steak",
+          "items": [
+            "2 New York strip steaks (about 1.5 inches thick)",
+            "2 tsp kosher salt",
+            "1 tsp freshly ground black pepper",
+            "1 tbsp neutral oil (avocado or grapeseed)",
+            "2 tbsp unsalted butter",
+            "3 cloves garlic, smashed",
+            "3 sprigs fresh thyme",
+            "1 sprig fresh rosemary"
+          ]
+        },
+        {
+          "section": "Garlic-herb broccoli",
+          "items": [
+            "1 large head broccoli, cut into bite-size florets",
+            "2 tbsp olive oil",
+            "2 cloves garlic, thinly sliced",
+            "Pinch of red pepper flakes (optional)",
+            "1 tsp lemon juice, plus zest of ½ lemon",
+            "Kosher salt and black pepper"
+          ]
+        },
+        {
+          "section": "Herb butter (optional)",
+          "items": [
+            "2 tbsp unsalted butter, softened",
+            "½ tsp chopped thyme",
+            "½ tsp chopped rosemary",
+            "1 small clove garlic, grated",
+            "Pinch of salt"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Dry-brine & slow-roast",
+          "items": [
+            "Salt the steaks on all sides and rest on a wire rack at room temperature for at least 40 minutes (or salt the night before, uncovered in the fridge, for the best crust).",
+            "Heat the oven to 250°F. Pepper the steaks and set the rack over a baking sheet. Roast until the internal temperature reads 115°F for medium-rare, about 35–45 minutes for 1.5-inch steaks. Use a probe thermometer and start checking early — thinner steaks move fast.",
+            "Pull the steaks and rest 5–10 minutes while you heat the pan. The surface should look dry; pat it with a paper towel if not."
+          ]
+        },
+        {
+          "section": "Sear & baste",
+          "items": [
+            "Heat a cast-iron skillet over high until just smoking. Add the neutral oil, then lay in the steaks and sear 45–60 seconds per side until a deep crust forms.",
+            "Add the butter, smashed garlic, thyme, and rosemary. Tilt the pan and spoon the foaming butter over the steaks for 30 seconds a side. Pull at 125–130°F (it climbs to 130–135°F as it rests).",
+            "Rest the steaks 5–10 minutes, topped with a dollop of herb butter if using. Slice against the grain."
+          ]
+        },
+        {
+          "section": "Char the broccoli",
+          "items": [
+            "Toss the florets with olive oil, salt, pepper, and red pepper flakes. Heat a skillet (or use the steak pan after searing) over medium-high until smoking hot.",
+            "Add the broccoli cut-side down in a single layer and char undisturbed 2–3 minutes until deeply browned. Toss and cook 2 more minutes.",
+            "Add the sliced garlic, then a splash of water and cover for 1–2 minutes to steam the stems tender. Uncover, let the liquid cook off, and finish with lemon juice and zest. Serve alongside the sliced steak."
+          ]
+        }
+      ],
+      "tips": [
+        "The reverse sear's whole advantage is a bone-dry, pre-warmed surface — that's why the steak browns in under a minute without graying the interior. Don't skip the rest before searing.",
+        "For a ¾-inch steak, pull from the oven at 110°F (around 20 minutes) and sear hard and fast, 30 seconds a side, or it will sail past medium-rare.",
+        "No oven? Bring the steak up gently on the stovetop over low heat with a butter baste, rest, then hard-sear — or sous-vide at 125°F for 45 minutes for edge-to-edge precision.",
+        "Let the broccoli sit undisturbed to char; constant stirring steams it gray instead of building those deep brown, caramelized edges."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden thyme and rosemary are the heart of the baste; a few sliced cremini or oyster mushrooms sautéed in the steak butter make a rich third element."
+        },
+        {
+          "label": "Make ahead",
+          "note": "The herb butter can be mixed and refrigerated days in advance; bring to room temperature before topping the steak."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A structured red — Cabernet Sauvignon or Malbec — and a crusty bread to mop the garlic-herb butter."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Stephen has run this technique enough times to trust it cold: the gentle oven does\nthe cooking, and the cast-iron does only the crust. The garden thyme and a hard\nchar on the broccoli turn a weeknight strip into something that eats like a\nsteakhouse plate.",
+      "hero": "images/reverse-sear-ny-strip.webp"
+    },
+    {
+      "title": "Serrano-Spiced Chicken with Lemon-Tahini & Date-Almond Pilaf",
+      "slug": "serrano-chicken-lemon-tahini-pilaf",
+      "tagline": "Spice-rubbed chicken over sweet date-almond rice, drizzled with cool lemon-tahini.",
+      "pitch": "This plate plays sweet, savory, nutty, and bright all at once. Chicken breasts get a paprika-garlic-serrano rub that perfumes the meat as it sears, laid over a fragrant rice pilaf studded with chopped dates and toasted almonds for little hits of caramel and crunch. Garden peppers run through the whole dish — minced serrano in the rub, sweet banana pepper and jalapeño in the pilaf base, blistered bell pepper strips on top. A cool, lemony tahini drizzle ties it together and cuts the richness. *The dates are the secret — their caramel sweetness against the savory rice and the creamy tahini is what makes this taste like a restaurant dish.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 30,
+        "total": 45
+      },
+      "difficulty": "medium",
+      "protein": "chicken",
+      "methods": [
+        "stove",
+        "oven"
+      ],
+      "cuisine": "Mediterranean",
+      "course": "main",
+      "heat": "medium",
+      "equipment": [
+        "cast iron",
+        "saucepan"
+      ],
+      "tags": [
+        "date-night",
+        "garden",
+        "meal-prep"
+      ],
+      "ingredients": [
+        {
+          "section": "Chicken & rub",
+          "items": [
+            "2 boneless skinless chicken breasts, pounded to even thickness",
+            "1 tsp paprika",
+            "1 serrano, seeded and minced (from the garden)",
+            "1 garlic clove, minced",
+            "1 tbsp olive oil",
+            "Kosher salt"
+          ]
+        },
+        {
+          "section": "Date-almond pilaf",
+          "items": [
+            "1 cup sushi or short-grain rice, rinsed",
+            "1 tbsp olive oil",
+            "1 garlic clove, minced",
+            "½ banana pepper, diced (from the garden)",
+            "½ jalapeño, diced (from the garden)",
+            "2½ cups hot vegetable stock",
+            "4–6 dates, pitted and chopped",
+            "¼ cup almonds, toasted and chopped",
+            "Zest of ½ lemon",
+            "2 tbsp parsley, chopped"
+          ]
+        },
+        {
+          "section": "Roasted peppers & finish",
+          "items": [
+            "1 bell pepper, sliced into strips",
+            "1 banana pepper, sliced into strips",
+            "1 tbsp olive oil",
+            "3–4 tbsp lemon-tahini sauce (or tahini thinned with lemon juice)",
+            "½ cucumber, diced",
+            "Lemon wedges"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep & rub",
+          "items": [
+            "Heat the oven to 425°F. Pound the chicken to an even thickness, then rub all over with paprika, salt, minced garlic, minced serrano, and olive oil. Let it sit at room temperature while you start the rice."
+          ]
+        },
+        {
+          "section": "Start the pilaf",
+          "items": [
+            "In a saucepan, heat 1 tbsp olive oil and sauté the garlic with the diced banana pepper and jalapeño until soft, about 2 minutes.",
+            "Add the rinsed rice and stir to coat, then pour in the hot stock. Cover and cook on very low until tender, about 18 minutes."
+          ]
+        },
+        {
+          "section": "Roast the peppers",
+          "items": [
+            "Toss the bell pepper and banana pepper strips with olive oil and salt on a sheet pan. Roast at 425°F until blistered and tender, about 10 minutes."
+          ]
+        },
+        {
+          "section": "Sear the chicken",
+          "items": [
+            "Heat a cast-iron skillet over medium-high. Sear the chicken 5–6 minutes per side until golden and 160°F internal; rest 5 minutes (carryover brings it to 165°F)."
+          ]
+        },
+        {
+          "section": "Finish & plate",
+          "items": [
+            "Fluff the rice and fold in the chopped dates, toasted almonds, lemon zest, and parsley. Taste and season.",
+            "Mound the pilaf, slice the chicken and fan it on top, then drizzle generously with lemon-tahini. Garnish with roasted peppers, diced cucumber, and a lemon wedge."
+          ]
+        }
+      ],
+      "tips": [
+        "Mince the serrano fine and work it into the rub — it perfumes the meat from the inside as it sears without turning the dish into a chile challenge.",
+        "Pull the breasts at 160°F and rest them; carryover finishes them at 165°F so they stay juicy instead of drying out.",
+        "Toast the almonds in a dry pan until they smell nutty before chopping — raw almonds taste flat against the sweet dates.",
+        "If your tahini sauce is thick, loosen it with lemon juice and a splash of water until it drizzles in a ribbon."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "This dish is built for the pepper patch — serrano in the rub, banana pepper and jalapeño in the pilaf, and bell pepper roasted on top. Swap in whatever's ripe."
+        },
+        {
+          "label": "Starter",
+          "note": "Blister extra garden peppers and pile them over whipped goat cheese (mashed with olive oil, a splash of red wine vinegar, and salt) for a quick appetizer."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A chilled Sauvignon Blanc or Albariño cuts the tahini richness and balances the heat."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A pantry-raid dinner that turned into a keeper: dates and toasted almonds make\nthe rice taste Levantine, garden peppers thread heat and sweetness through every\nlayer, and a cool lemon-tahini drizzle pulls it all together.",
+      "hero": "images/serrano-chicken-lemon-tahini-pilaf.webp"
+    },
+    {
+      "title": "Sichuan Spicy Beef Noodle Soup",
+      "slug": "sichuan-beef-noodle-soup",
+      "tagline": "A big-batch mala beef soup — doubanjiang broth, tender beef, fresh noodles, built to order.",
+      "pitch": "This is the bowl you crave for years after the first one. Beef browns hard in the Instant Pot, then pressure-cooks into a doubanjiang broth bloomed with Sichuan peppercorn, star anise, and dried chiles until the meat falls apart and the liquid turns red, numbing, and deep. It's built as a big batch on purpose: cook the beef and broth together, then store them apart so you can drop in fresh noodles and blanched bok choy bowl by bowl for days. *The defining move is toasting the doubanjiang until its oil stains the pot red — that bloom is the whole mala backbone, so don't rush it.*",
+      "serves": 8,
+      "times": {
+        "prep": 15,
+        "cook": 75,
+        "total": 110
+      },
+      "difficulty": "medium",
+      "protein": "beef",
+      "methods": [
+        "instant-pot",
+        "stove"
+      ],
+      "cuisine": "Sichuan",
+      "course": "soup",
+      "heat": "hot",
+      "equipment": [
+        "Instant Pot",
+        "fine-mesh strainer"
+      ],
+      "tags": [
+        "make-ahead",
+        "batch-cooking",
+        "spicy",
+        "comfort",
+        "leftovers"
+      ],
+      "ingredients": [
+        {
+          "section": "Beef",
+          "items": [
+            "3 lb beef (ideally 1.5 lb short ribs plus 1.5 lb beef shank, or 3 lb chuck)",
+            "Fine sea salt, to season",
+            "2 tbsp neutral oil, for searing"
+          ]
+        },
+        {
+          "section": "Aromatics & vegetables",
+          "items": [
+            "1 large onion, quartered",
+            "10–12 cloves garlic, smashed",
+            "3–4 inch piece ginger, sliced into ¼-inch coins",
+            "6 scallions (whites for broth, greens sliced for garnish)",
+            "1 large carrot, cut into thick coins"
+          ]
+        },
+        {
+          "section": "Spices",
+          "items": [
+            "1½ tsp whole Sichuan peppercorns",
+            "2 star anise",
+            "1½ tsp dried chile flakes (or 6–10 dried chiles)",
+            "2 bay leaves",
+            "½ tsp fennel seeds (optional)"
+          ]
+        },
+        {
+          "section": "Seasonings",
+          "items": [
+            "¼ cup doubanjiang (Pixian chile bean paste)",
+            "3 tbsp Shaoxing wine",
+            "2 tbsp dark soy sauce",
+            "2–3 tsp sugar (or 1½ tsp rock sugar)"
+          ]
+        },
+        {
+          "section": "Liquid",
+          "items": [
+            "6 cups vegetable broth (low-sodium)",
+            "2 cups water (enough to fill the pot about ⅔ full)"
+          ]
+        },
+        {
+          "section": "To serve (per bowl)",
+          "items": [
+            "24 oz dried wheat noodles (or 2 lb fresh)",
+            "1–2 lb baby bok choy, quartered lengthwise",
+            "½–1 tsp white pepper, for finishing",
+            "2–3 tsp toasted sesame oil, for drizzling",
+            "Table-side: chili oil, Chinkiang black vinegar, pickled mustard greens, extra scallion greens"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Sear the beef",
+          "items": [
+            "Pat the beef dry and season all over with fine sea salt. Set the Instant Pot to Sauté (High) and add the oil.",
+            "Brown the beef in batches, 3–5 minutes per side, until deeply browned. Crowding steams the meat, so give it room. Transfer to a plate."
+          ]
+        },
+        {
+          "section": "Bloom the base",
+          "items": [
+            "Into the hot pot add the scallion whites, ginger, and garlic; stir about 1 minute until fragrant.",
+            "Add the Sichuan peppercorns, chile flakes, star anise, bay leaves, and optional fennel; stir 1 minute to bloom.",
+            "Add the doubanjiang and stir until it darkens and its oil turns the pot red, 1–2 minutes. Stir in the Shaoxing wine, dark soy, and sugar."
+          ]
+        },
+        {
+          "section": "Pressure cook",
+          "items": [
+            "Return the beef and any juices to the pot. Add the carrot coins, then the vegetable broth and water until the pot is about ⅔ full. Stir to dissolve the doubanjiang.",
+            "Lock the lid and pressure-cook on High for 55 minutes, then let the pressure release naturally for 20 minutes."
+          ]
+        },
+        {
+          "section": "Strain & separate",
+          "items": [
+            "Lift out the beef and dunk it briefly in cool water for about a minute so the surface doesn't dry out, then set on a plate to cool.",
+            "Skim most of the fat from the broth, then strain through a fine-mesh strainer into a clean pot. Discard the spices and aromatics.",
+            "Remove any bones and slice the beef across the grain into ¼-inch slices, or tear the shank/chuck into ¾–1 inch chunks. At this point the broth and beef can be stored separately up to 5 days."
+          ]
+        },
+        {
+          "section": "Build the bowls",
+          "items": [
+            "Boil the noodles to tender-chewy, drain, and rinse briefly to keep them from clumping. Divide among bowls.",
+            "Return the strained broth to a simmer with the sliced beef; taste and adjust with salt, a splash more soy, or a teaspoon of sugar to round it out. Add the bok choy to the broth and cook about 1 minute until just tender.",
+            "Ladle broth, beef, and bok choy over the noodles. Finish with scallion greens, a pinch of white pepper, and a drizzle of sesame oil. Let each eater tune their bowl with chili oil, black vinegar, and pickled mustard greens."
+          ]
+        }
+      ],
+      "tips": [
+        "Toasting the doubanjiang until its oil runs red is the single most important step — that bloom carries the entire mala flavor.",
+        "Store the beef and broth separately, and never store cooked noodles in the soup; cook fresh noodles and blanch bok choy each time so leftovers taste restaurant-fresh.",
+        "Adjust the mala heat at the table with chili oil rather than the pot, so the base broth stays balanced for everyone.",
+        "For Day 2 bowls, a fresh pinch of toasted, ground Sichuan peppercorn restores the numbing tingle the spices lose in storage."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A handful of garden cilantro and thinly sliced serrano on top brighten the rich broth; swap bok choy for any tender Chinese greens you have on hand."
+        },
+        {
+          "label": "Leftover strategy",
+          "note": "Freeze broth in 1–2 cup containers or silicone cubes and freeze the beef separately; both keep about 3 months. Reheat broth and beef together to a strong simmer, then add fresh noodles and greens."
+        },
+        {
+          "label": "Pairs with",
+          "note": "An off-dry Junmai sake or a nigori cuts the chili heat — sweet enough to cool the mala without going dessert-sweet."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A killer Sichuan bowl Stephen and Lauren have chased for years, scaled up to eight\nservings and engineered for leftovers. Cook the beef and broth together, store them\napart, and assemble each bowl to order with fresh noodles, greens, and a table-side\nmala station.",
+      "hero": "images/sichuan-beef-noodle-soup.webp"
+    },
+    {
+      "title": "Smoky Sous-Vide Chicken Tinga Tacos",
+      "slug": "chicken-tinga-tacos",
+      "tagline": "Silky sous-vide chicken in a glossy chipotle-tomato glaze, crisped and piled into warm tortillas.",
+      "pitch": "Tinga, engineered. Chicken breasts go into a 125°F bath with a smoky chipotle-tomato sauce until they're absurdly tender, then get shredded and crisped in a ripping-hot pan so the edges go dark and craggy. The reserved sauce reduces down to a brick-red, spoon-coating glaze that clings to every strand. Pile it into charred tortillas with white onion, cilantro, cotija, and a squeeze of lime, and let quick-pickled red onions cut the richness. *Reduce the sauce until a spoon dragged through leaves a trail that holds for a second — that's peak taco stickiness.*",
+      "serves": 2,
+      "times": {
+        "prep": 25,
+        "cook": 120,
+        "total": 165
+      },
+      "difficulty": "medium",
+      "protein": "chicken",
+      "methods": [
+        "sous-vide",
+        "stove"
+      ],
+      "cuisine": "Mexican",
+      "course": "taco",
+      "heat": "hot",
+      "equipment": [
+        "sous-vide",
+        "blender"
+      ],
+      "tags": [
+        "taco-night",
+        "make-ahead",
+        "garden",
+        "spicy"
+      ],
+      "ingredients": [
+        {
+          "section": "Chicken & seasoning",
+          "items": [
+            "1–1.25 lbs boneless skinless chicken breasts",
+            "1 heaping tsp kosher salt",
+            "½ tsp black pepper",
+            "½ tsp ground cumin",
+            "½ tsp smoked paprika",
+            "¼ tsp Mexican oregano"
+          ]
+        },
+        {
+          "section": "Tinga sauce",
+          "items": [
+            "1 tbsp neutral oil",
+            "½ white or yellow onion, sliced",
+            "2 large garlic cloves, smashed",
+            "1 (14.5 oz) can crushed or whole tomatoes",
+            "1–2 chipotle peppers in adobo (1 for medium, 2 for hot)",
+            "1–2 tsp adobo sauce",
+            "½ tsp ground cumin",
+            "½ tsp smoked paprika",
+            "½ tsp kosher salt",
+            "Splash of apple cider vinegar or lime juice",
+            "1 tsp butter, to finish (optional)"
+          ]
+        },
+        {
+          "section": "Quick pickled red onions",
+          "items": [
+            "1 red onion, thinly sliced",
+            "½ cup apple cider vinegar",
+            "½ cup water",
+            "1 tbsp sugar",
+            "1 tsp kosher salt",
+            "1–2 thin slices serrano or jalapeño (from the garden)"
+          ]
+        },
+        {
+          "section": "To assemble",
+          "items": [
+            "8–12 corn or flour tortillas",
+            "Diced white onion",
+            "Fresh cilantro, chopped (from the garden)",
+            "Cotija or queso fresco, crumbled",
+            "Lime wedges",
+            "Optional - sliced radish, avocado, crema"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Make the tinga sauce",
+          "items": [
+            "Heat the oil in a skillet over medium. Sauté the sliced onion 4–5 minutes until soft and lightly golden, then add the garlic and stir 1 minute.",
+            "Add the tomatoes, chipotles, adobo, cumin, smoked paprika, and salt. Simmer 10 minutes, then blend until smooth. Taste — more adobo for heat, a splash of vinegar or lime for brightness."
+          ]
+        },
+        {
+          "section": "Season & bag",
+          "items": [
+            "Season the chicken with the salt, pepper, cumin, smoked paprika, and oregano. Let it sit 10 minutes.",
+            "Place the chicken in a sous-vide or zip bag with ⅓ cup of the blended sauce; reserve the rest. Remove the air by water displacement or vacuum sealer."
+          ]
+        },
+        {
+          "section": "Sous-vide",
+          "items": [
+            "Cook at 125°F for 1 hour 45 minutes for a silky, juicy texture. (For a more classic firm shred, run 140°F for 90 minutes instead.)"
+          ]
+        },
+        {
+          "section": "Pickle the onions",
+          "items": [
+            "While the chicken cooks, pack the sliced red onion and chile into a jar. Simmer the vinegar, water, sugar, and salt until dissolved, pour over the onions to submerge, and let steep at least 15 minutes."
+          ]
+        },
+        {
+          "section": "Reduce, crisp & sauce",
+          "items": [
+            "Pour the reserved sauce into a pan over medium-low and simmer 8–12 minutes until thick, glossy, and spoon-coating. Adjust salt.",
+            "Remove the chicken from the bag and shred gently into medium strands (don't over-shred). Heat 1 tbsp oil in a wide skillet over medium-high, spread the chicken in a thin layer, and leave it undisturbed 45–60 seconds to crisp before flipping for another 30 seconds.",
+            "Add the reduced sauce and toss to coat; simmer 1–2 minutes just to marry. Stir in the butter off the heat for a silky finish if you like."
+          ]
+        },
+        {
+          "section": "Assemble",
+          "items": [
+            "Char the tortillas over a flame or in a dry skillet (for flour, skillet-warm then steam under a towel).",
+            "Pile in the tinga and top with white onion, cilantro, cotija, pickled onions, and a squeeze of lime."
+          ]
+        }
+      ],
+      "tips": [
+        "At 125°F the chicken stays at that temperature far longer than the few minutes needed for pasteurization, so it's chef-safe — but it won't fall apart like braised tinga. Crisping and saucing relaxes the fibers into taco-ready strands.",
+        "Make the sauce and season the chicken up to a day ahead, but only bag the chicken with sauce right before it goes in the bath — long acid contact softens the texture too far.",
+        "For thin corn tortillas, double them up; saucy tinga will blow through a single layer.",
+        "If your tomatoes are very acidic, a teaspoon of honey in the sauce rounds it out."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Drop a thin slice of serrano or jalapeño into the pickling brine for heat, and finish the tacos with a heavy hand of garden cilantro."
+        },
+        {
+          "label": "Crema upgrade",
+          "note": "Blend ¼ cup crema or sour cream with a roasted jalapeño, lime juice, and salt for a cooling drizzle."
+        },
+        {
+          "label": "Make-ahead",
+          "note": "The tinga sauce keeps 5 days in the fridge or 3 months frozen, and tastes even better after a day as the aromatics meld."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Stephen dialed this in over a long thread: sous-vide breasts at 125°F for silk,\na chipotle sauce reduced to a glossy glaze, and a hard crisp in the pan for the\ncraggy edges that make tinga sing. Quick pickled onions are non-negotiable.",
+      "hero": "images/chicken-tinga-tacos.webp"
+    },
+    {
+      "title": "Sous-Vide Salmon with Brown-Butter Citrus Glaze, Charred Asparagus & Herbed Couscous",
+      "slug": "sous-vide-salmon-brown-butter-citrus",
+      "tagline": "Silky bath-cooked salmon under a nutty brown-butter citrus glaze, with charred asparagus and herbed couscous.",
+      "pitch": "This is the refined one — precision and patience over fire. Salmon poaches in a 120°F bath until it's so tender it barely holds a flake, then takes a 30-second kiss in a hot pan for the faintest golden crust. The finish is the showpiece: a beurre noisette swirled with orange and lemon zest until it smells nutty and toasty, spooned warm over the fillet so it pools into the couscous below. *The whole plate turns on that brown butter — pull it the second it smells like hazelnuts and goes amber, because a few seconds more is the difference between nutty and burnt.* Charred asparagus brings the bitter-green contrast.",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 50,
+        "total": 70
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "sous-vide",
+        "stove"
+      ],
+      "cuisine": "French",
+      "course": "main",
+      "heat": "none",
+      "equipment": [
+        "sous-vide",
+        "vacuum sealer",
+        "cast iron"
+      ],
+      "tags": [
+        "date-night",
+        "elegant",
+        "make-ahead",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Salmon",
+          "items": [
+            "2 salmon fillets (skin-on or skinless, 5–6 oz each)",
+            "Kosher salt and freshly ground black pepper",
+            "2 sprigs fresh thyme or dill (optional)",
+            "1 garlic clove, smashed (optional)",
+            "A pat of butter or drizzle of olive oil (for the bag)",
+            "Neutral oil (for the final sear)"
+          ]
+        },
+        {
+          "section": "Brown-butter citrus glaze",
+          "items": [
+            "4 tbsp unsalted butter",
+            "1 small orange (zest plus 1–2 tsp juice)",
+            "1 lemon (zest plus 1–2 tsp juice)",
+            "1 tsp honey (optional, for balance)",
+            "1 tbsp capers, drained (optional twist)",
+            "Pinch of flaky salt"
+          ]
+        },
+        {
+          "section": "Charred asparagus",
+          "items": [
+            "1 bunch asparagus, woody ends trimmed",
+            "Olive oil",
+            "Salt and pepper",
+            "Shaved Parmesan or lemon zest, to finish (optional)"
+          ]
+        },
+        {
+          "section": "Herbed couscous",
+          "items": [
+            "1 cup couscous",
+            "1¼ cups chicken or vegetable broth",
+            "1 tbsp olive oil or butter",
+            "1 shallot or scallion, minced",
+            "1–2 tbsp chopped fresh herbs (parsley, dill, mint, or basil)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Bath",
+          "items": [
+            "Set the sous-vide to 120°F for medium-rare (125°F for medium). Season the fillets with salt and pepper.",
+            "Bag each fillet with a pat of butter or a drizzle of oil, plus thyme and smashed garlic if using. Seal by vacuum or water-displacement.",
+            "Submerge and cook 45 minutes (you can hold up to 1 hour without overcooking)."
+          ]
+        },
+        {
+          "section": "Sides",
+          "items": [
+            "Couscous: bring the broth to a boil, stir in couscous, olive oil, and a pinch of salt. Cover, pull off the heat, and let sit 5 minutes. Fluff, then fold in the shallot and herbs.",
+            "Asparagus: toss with olive oil, salt, and pepper and set aside, ready to char."
+          ]
+        },
+        {
+          "section": "Glaze & finish",
+          "items": [
+            "In a light-colored saucepan, melt the butter over medium and swirl constantly. After 3–5 minutes it foams, then turns amber with golden flecks and a nutty aroma — pull it immediately.",
+            "Off the heat, stir in the orange and lemon zest, 1–2 tsp of each juice, the honey, and capers if using. Keep warm.",
+            "Sear the asparagus in a hot pan or grill pan until lightly charred and crisp-tender. Pat the salmon dry and sear presentation-side down 30–60 seconds for a golden crust.",
+            "Spoon couscous onto each plate, add the asparagus, and set the salmon alongside. Drizzle warm brown-butter glaze over the fish and finish with a little extra zest."
+          ]
+        }
+      ],
+      "tips": [
+        "Brown butter turns on a dime — use a light-colored pan so you can see the color change, and have your zest and juice measured before you start.",
+        "Pour the finished brown butter into a warm bowl off the heat; the residual pan heat will keep darkening it otherwise.",
+        "Toast the dry couscous in a dry pan for a minute before adding broth for a deeper, nuttier flavor.",
+        "The sear is for color and aroma only — 30 to 60 seconds. The fish is already cooked, so any longer and you lose the silky bath texture."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Finish the couscous with garden mint or basil, and a stir of chopped thyme into the brown butter echoes the herbs in the bag."
+        },
+        {
+          "label": "Add crunch",
+          "note": "Toast a tablespoon of pine nuts and fold them into the couscous, or scatter them over the asparagus for texture."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A chilled white with some weight — Chardonnay, Viognier, or a dry Riesling stands up to the brown butter."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The elegant entry in the salmon rotation: sous-vide for an unbroken, custardy\nflake, then a beurre noisette brightened with orange and lemon. The original lemon-\nbutter-caper idea grew into a proper brown-butter glaze, and the herbed couscous\nand charred asparagus turn it into a full, restaurant-grade plate for two.",
+      "hero": "images/sous-vide-salmon-brown-butter-citrus.webp"
+    },
+    {
+      "title": "Soy-Hoisin Steak Kebabs",
+      "slug": "soy-hoisin-steak-kebabs",
+      "tagline": "Sticky-glazed sirloin skewers with sweet peppers and onion, charred over a hot grill.",
+      "pitch": "These skewers earn their lacquer. Cubes of sirloin soak overnight in soy, hoisin, honey, and toasted sesame until they're savory-sweet to the core, then get threaded between garden bell peppers and red onion and grilled hard until the edges char and the glaze turns sticky. The hoisin caramelizes against the live fire for a glossy, almost barbecue-like crust. *Reduce the leftover marinade to a quick glaze and brush it on in the last minute — that's the lacquered, restaurant shine.*",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 10,
+        "total": 150
+      },
+      "difficulty": "easy",
+      "protein": "beef",
+      "methods": [
+        "grill"
+      ],
+      "cuisine": "Asian-American",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "grill",
+        "skewers"
+      ],
+      "tags": [
+        "summer",
+        "date-night",
+        "cookout",
+        "garden",
+        "make-ahead"
+      ],
+      "ingredients": [
+        {
+          "section": "Marinade",
+          "items": [
+            "¼ cup soy sauce",
+            "¼ cup hoisin sauce",
+            "2 tbsp olive oil",
+            "1 tbsp honey",
+            "1 tbsp rice vinegar",
+            "1 tbsp toasted sesame oil",
+            "2 cloves garlic, minced",
+            "1 tsp fresh ginger, grated",
+            "½ tsp freshly ground black pepper",
+            "¼ tsp red pepper flakes (optional, for heat)"
+          ]
+        },
+        {
+          "section": "Skewers",
+          "items": [
+            "1 lb sirloin steak, cut into 1.5-inch cubes",
+            "1 red bell pepper, cut into 1.5-inch squares",
+            "1 green bell pepper, cut into 1.5-inch squares",
+            "1 red onion, cut into 1.5-inch chunks",
+            "1 tbsp toasted sesame seeds, for garnish",
+            "2 scallions, thinly sliced, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Marinate",
+          "items": [
+            "Whisk all the marinade ingredients in a bowl until smooth. Reserve ¼ cup for glazing later.",
+            "Add the steak cubes to the remaining marinade, tossing to coat. Cover and refrigerate at least 2 hours, ideally overnight.",
+            "If using wooden skewers, soak them in water for 30 minutes so they don't scorch."
+          ]
+        },
+        {
+          "section": "Build & grill",
+          "items": [
+            "Thread the steak onto skewers, alternating with bell pepper and red onion. Leave a little space between pieces so they char rather than steam.",
+            "Preheat the grill to medium-high and oil the grates. Grill the kebabs 8–10 minutes, turning every 2–3 minutes, until the steak is medium-rare (130–135°F) and the vegetables are charred and tender.",
+            "In the last minute, brush the skewers with the reserved marinade for a sticky, glossy glaze."
+          ]
+        },
+        {
+          "section": "Finish",
+          "items": [
+            "Rest the kebabs 5 minutes. Scatter with toasted sesame seeds and sliced scallions and serve over rice."
+          ]
+        }
+      ],
+      "tips": [
+        "Always reserve a portion of the marinade before the raw steak goes in — that clean portion is what you brush on at the end and use as a finishing glaze.",
+        "Cut the steak, peppers, and onion to the same size so everything cooks at the same rate on the skewer.",
+        "Hoisin and honey both have sugar, so they burn fast; glaze only in the final minute and keep the kebabs moving over the heat.",
+        "Leave a small gap between pieces on the skewer — crowding traps steam and prevents a good char."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Add chunks of garden zucchini or cherry tomatoes to the skewers, and stir a little minced serrano or jalapeño into the marinade for a sharper kick."
+        },
+        {
+          "label": "Make ahead",
+          "note": "The steak can marinate up to 24 hours; thread the skewers in the morning and refrigerate so they're grill-ready at dinner."
+        },
+        {
+          "label": "Pairs with",
+          "note": "Steamed jasmine rice and a cucumber salad, with a chilled off-dry Riesling or a light lager."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The source was just a marinade, but it's a good one — soy and hoisin doing the\nheavy lifting, sesame and ginger rounding it out. Built into proper skewers with\ngarden peppers and a last-minute glaze, it eats like takeout you'd actually pay\nfor.",
+      "hero": "images/soy-hoisin-steak-kebabs.webp"
+    },
+    {
+      "title": "Sriracha-Honey Salmon with Crispy Kale Chips",
+      "slug": "sriracha-honey-salmon-kale-chips",
+      "tagline": "Sous-vide salmon lacquered in sweet-heat glaze, grill-charred, with shattering spiced kale.",
+      "pitch": "This is the sweet-heat lacquer move: salmon goes into the bath at a precise 125°F until it's custard-tender all the way through, then hits a screaming grill for ninety seconds a side — just long enough to caramelize a honey-and- Sriracha glaze into glassy, sticky char without pushing the inside past medium. Alongside, curly kale roasts low and slow with garlic salt, smoked paprika, and cayenne until the leaves shatter like edible solar panels. *Because the sous-vide locks the protein first, you can glaze and char the surface aggressively while the interior stays silky.* It tastes engineered, and it basically is.",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 50,
+        "total": 70
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "sous-vide",
+        "grill"
+      ],
+      "cuisine": "Asian",
+      "course": "main",
+      "heat": "medium",
+      "equipment": [
+        "sous-vide",
+        "vacuum sealer",
+        "grill"
+      ],
+      "tags": [
+        "sweet-heat",
+        "date-night",
+        "gluten-free-option",
+        "make-ahead",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Salmon & glaze",
+          "items": [
+            "2 salmon fillets, 5–7 oz each, skin removed",
+            "2 tbsp honey",
+            "1½ tbsp Sriracha",
+            "1 tbsp soy sauce",
+            "1 tsp toasted sesame oil",
+            "1 clove garlic, grated",
+            "1 tsp fresh ginger, grated",
+            "½ tsp rice vinegar (optional, brightens the glaze)",
+            "Kosher salt (a light season before bagging)"
+          ]
+        },
+        {
+          "section": "Spiced kale chips",
+          "items": [
+            "1 bunch curly kale, stems removed, torn into 2-inch pieces",
+            "1½ tbsp olive oil",
+            "½–¾ tsp garlic salt",
+            "½ tsp smoked paprika",
+            "¼ tsp cayenne (adjust to taste)",
+            "Pinch of brown sugar (optional, for better browning)",
+            "Lime wedge, for finishing (optional)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Glaze & bath",
+          "items": [
+            "Whisk honey, Sriracha, soy, sesame oil, garlic, ginger, and optional rice vinegar. Reserve 1 tbsp to brush on after grilling.",
+            "Set the sous-vide to 125°F. Lightly salt the fillets, bag each with 1–2 tsp of glaze (just a touch — too much dilutes the sear), and seal.",
+            "Submerge and cook 45 minutes. You can hold up to 15 minutes longer without overcooking."
+          ]
+        },
+        {
+          "section": "Kale chips",
+          "items": [
+            "Heat the oven to 300°F. Toss kale with olive oil, garlic salt, paprika, cayenne, and the optional brown sugar.",
+            "Spread in a single layer with no overlapping leaves — airflow is what makes them crisp.",
+            "Roast 12–15 minutes, rotate the tray, then 3–5 minutes more until shatter-crisp. Watch the last few minutes closely; they go from crisp to scorched fast. Finish with a squeeze of lime if you like."
+          ]
+        },
+        {
+          "section": "Grill-finish & plate",
+          "items": [
+            "Heat the grill to high; clean and oil the grates. Remove the salmon from the bag and pat gently dry.",
+            "Brush a thin layer of glaze over the fillets and grill 1–2 minutes per side, lid open — you want char marks and glassy lacquer, not more interior cooking.",
+            "Brush with the reserved glaze off-heat. Plate with a pile of kale chips alongside and drizzle any extra glaze over the top."
+          ]
+        }
+      ],
+      "tips": [
+        "125°F gives a buttery, restaurant medium-rare that's fully pasteurized over 45 minutes — firm enough to survive the grill without breaking apart.",
+        "Keep the bag glaze minimal; surface moisture is the enemy of caramelization. Save the real glaze hit for the grill and the finish.",
+        "Honey scorches quickly over direct flame, so keep the glaze thin and the grill time short — lacquer, then pull.",
+        "If you'd rather not fire the grill, broil the patted-dry fillets 2–3 inches from the element for 2–3 minutes, glazing once, until the surface blisters."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A squeeze of garden lime and a scatter of torn cilantro over the finished plate cut the sweetness and add a fresh, herby lift."
+        },
+        {
+          "label": "Make it gluten-free",
+          "note": "Swap the soy sauce for tamari or coconut aminos; everything else is already gluten-free."
+        },
+        {
+          "label": "Heat dial",
+          "note": "Push the cayenne and Sriracha for a serious burn, or pull both back and lean on the smoked paprika for a milder, smokier glaze."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A NASA-flavor-division build that Stephen dialed in across a few rounds: sous-vide\nsets the protein at a precise 125°F so the grill can do nothing but char and\nlacquer. The kale keeps his garlic-salt, paprika, and cayenne profile but roasts\nlow to stay crisp and bitter-free — a savory, crackling foil to the sticky\nsweet-heat fish.",
+      "hero": "images/sriracha-honey-salmon-kale-chips.webp"
+    },
+    {
+      "title": "Summer Caprese Pasta with Roasted Squash Ribbons & Burst Tomatoes",
+      "slug": "summer-pasta",
+      "tagline": "Spaghetti tangled with charred squash ribbons, jammy tomatoes, basil, and torn mozzarella.",
+      "pitch": "This is a garden party in a bowl — ribbons of yellow squash roasted until their edges caramelize, cherry tomatoes blistered until they burst and release their sweet juices, all tossed with spaghetti and torn fresh basil. The warm pasta softens cool pearls of mozzarella just enough to go molten at the edges, and a homemade balsamic glaze, reduced down to a syrup, lands the sweet-tart finish. It's the warm-and-cool contrast that makes it sing — hot, glossy noodles against creamy cheese and bright herbs. *Shave the squash thin with a Y-peeler and roast the ribbons just long enough to brown the edges, never long enough to go soggy — that caramelized edge is the whole dish.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "medium",
+      "protein": "vegetarian",
+      "methods": [
+        "stove",
+        "oven"
+      ],
+      "cuisine": "Italian",
+      "course": "pasta",
+      "heat": "mild",
+      "equipment": [
+        "Y-peeler or mandoline",
+        "sheet pan"
+      ],
+      "tags": [
+        "summer",
+        "vegetarian",
+        "garden",
+        "date-night",
+        "meatless"
+      ],
+      "ingredients": [
+        {
+          "section": "Pasta & vegetables",
+          "items": [
+            "8 oz spaghetti (or linguine or bucatini)",
+            "1 medium yellow squash (or half yellow squash, half zucchini)",
+            "2 cups cherry tomatoes (mixed colors if you have them)",
+            "3–4 cloves garlic, thinly sliced",
+            "6–7 tbsp olive oil, divided",
+            "Kosher salt and freshly ground black pepper",
+            "½ cup reserved pasta water"
+          ]
+        },
+        {
+          "section": "Balsamic glaze",
+          "items": [
+            "½ cup balsamic vinegar",
+            "1 tsp honey or sugar (optional, for gloss)"
+          ]
+        },
+        {
+          "section": "To finish",
+          "items": [
+            "¾–1 cup mozzarella pearls (or 1 ball fresh mozzarella, torn)",
+            "1 small bunch fresh basil, torn",
+            "Pinch of red pepper flakes (optional)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Balsamic glaze",
+          "items": [
+            "In a small saucepan over medium heat, bring the balsamic vinegar to a gentle simmer and stir in the honey if using.",
+            "Simmer, stirring occasionally, until reduced by half and thick enough to coat the back of a spoon, 8–10 minutes. Watch it closely near the end so it doesn't burn; lower the heat if it bubbles hard. Set aside to cool and thicken."
+          ]
+        },
+        {
+          "section": "Roast the vegetables",
+          "items": [
+            "Preheat the oven to 425°F. Using a Y-peeler or mandoline, shave the squash into thin ribbons.",
+            "On a parchment-lined sheet pan, toss the squash ribbons with olive oil, salt, and pepper and spread them on one half in a single layer. On the other half, toss the tomatoes with olive oil, sliced garlic, salt, and pepper.",
+            "Roast 10–12 minutes, until the tomatoes blister and burst and the squash edges turn golden."
+          ]
+        },
+        {
+          "section": "Cook the pasta",
+          "items": [
+            "Meanwhile, bring a large pot of salted water to a boil and cook the spaghetti to al dente. Reserve ½ cup pasta water, then drain."
+          ]
+        },
+        {
+          "section": "Toss & plate",
+          "items": [
+            "In a large bowl or wide sauté pan, combine the hot pasta, roasted tomatoes with all their juices, and the squash ribbons. Add 2–3 tbsp olive oil and a splash of pasta water and toss until glossy and loose.",
+            "Stir in the torn basil and red pepper flakes if using; add more pasta water if it looks dry.",
+            "Twirl into shallow bowls, nestle in the mozzarella so it softens from the heat, drizzle generously with the balsamic glaze, and finish with more basil and cracked black pepper."
+          ]
+        }
+      ],
+      "tips": [
+        "Roast the squash just until the edges brown — pull it before it slumps, or the ribbons go limp and watery in the bowl.",
+        "Add the mozzarella off the heat at the very end so it stays in soft, molten pockets instead of dissolving into the sauce.",
+        "This is just as good at room temperature — let it cool and it becomes a stellar summer pasta salad for the next day.",
+        "No balsamic glaze on hand? The reduction here takes ten minutes; or blend basil, olive oil, and a pinch of salt into a quick basil oil instead."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "This is peak-tomato food — use garden cherry and grape tomatoes for color and sweetness, and a generous handful of garden basil torn in at the end."
+        },
+        {
+          "label": "Make it more filling",
+          "note": "Add a spoon of ricotta stirred through, a swirl of pesto, or toasted pine nuts and pesto breadcrumbs for crunch."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A crisp white like Vermentino or Albariño and a slab of grilled sourdough brushed with olive oil."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Stephen circled through a lot of summer pasta pitches — scallops, peaches,\nputtanesca — before settling on the squash-tomato-basil-mozzarella combination, a\ntrue summer classic, then scaling it for two and folding in a homemade balsamic\nglaze. Meatless, garden-forward, and best when the tomatoes are at their peak.",
+      "hero": "images/summer-pasta.webp"
+    },
+    {
+      "title": "Tilapia Piccata with Fettuccine & Broccoli",
+      "slug": "tilapia-piccata-fettuccine-broccoli",
+      "tagline": "Crisp-seared tilapia in a glossy lemon-caper pan sauce over fettuccine and charred broccoli.",
+      "pitch": "This is chicken piccata's lighter, faster cousin — delicate tilapia gets a whisper-thin flour dredge so it crisps golden without going gummy, leaving a fond that becomes the backbone of the sauce. Deglaze with white wine, simmer down lemon juice and briny capers, then swirl in cold butter off the heat until the sauce goes glossy and clings. The same skillet chars broccoli florets so they drink up the drippings, and the fettuccine finishes right in the pan with a splash of starchy water. *The trick is the off-heat butter swirl — monter au beurre — that turns sharp lemon and wine into a silky emulsion that coats every noodle.*",
+      "serves": 2,
+      "times": {
+        "prep": 12,
+        "cook": 20,
+        "total": 32
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Italian",
+      "course": "pasta",
+      "heat": "none",
+      "equipment": [
+        "large skillet"
+      ],
+      "tags": [
+        "date-night",
+        "weeknight",
+        "lemon",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Tilapia",
+          "items": [
+            "2 tilapia fillets (5–8 oz each)",
+            "Kosher salt and freshly cracked black pepper",
+            "¼ cup all-purpose flour (for a micro-dredge)",
+            "2 tbsp olive oil",
+            "1 tbsp unsalted butter (for searing)"
+          ]
+        },
+        {
+          "section": "Piccata sauce",
+          "items": [
+            "2–3 cloves garlic, minced",
+            "½ cup dry white wine (Sauvignon Blanc or Pinot Grigio), or low-sodium chicken stock",
+            "3–4 thin lemon slices",
+            "Juice of 1 large lemon (~3 tbsp)",
+            "2 tbsp capers, drained (smash a few lightly)",
+            "2 tbsp unsalted butter (for finishing)",
+            "2 tbsp fresh parsley, finely chopped"
+          ]
+        },
+        {
+          "section": "Broccoli & pasta",
+          "items": [
+            "1 large head broccoli, cut into florets (peel and slice the stem)",
+            "6 oz fettuccine",
+            "Olive oil, salt, and pepper",
+            "Pinch of chili flakes (optional)",
+            "½ cup reserved pasta water"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Pat the tilapia completely dry, season both sides with salt and pepper, then dredge lightly in flour and shake off the excess — a thin coat means a crisp crust and a clean, glossy sauce.",
+            "Cut the broccoli into florets; peel the stem and slice it thin to sear alongside. Toss with olive oil, salt, pepper, and chili flakes if using.",
+            "Mince the garlic, slice the lemon into thin wheels, juice the remaining lemon, chop the parsley, and drain the capers (smash a few with the flat of your knife for extra brine)."
+          ]
+        },
+        {
+          "section": "Pasta & broccoli",
+          "items": [
+            "Bring a large pot of well-salted water to a boil and cook the fettuccine to al dente. Reserve ½ cup pasta water, then drain and toss with a little olive oil to keep it loose.",
+            "Meanwhile, heat a large skillet over medium-high. Add a drizzle of oil and the broccoli in a single layer; leave it untouched 2–3 minutes to char, toss once, sear 1 minute more, then scoot it to the side of the pan or remove to a bowl."
+          ]
+        },
+        {
+          "section": "Sear & sauce",
+          "items": [
+            "Add the 2 tbsp olive oil and 1 tbsp butter to the cleared pan. Lay in the tilapia and sear undisturbed about 3 minutes until golden, flip, and cook 2–3 minutes more until it just flakes. Transfer to a warm plate.",
+            "Lower the heat to medium. Add the garlic and cook 20–30 seconds until fragrant, then lay in the lemon slices and let them caramelize 30–45 seconds per side.",
+            "Pour in the wine (or stock) and scrape up the fond. Add the capers and reduce by about half, 1–2 minutes. Stir in the lemon juice.",
+            "Off the heat, swirl in the 2 tbsp finishing butter a pat at a time until the sauce turns glossy, then stir in the parsley. Taste and adjust salt and acid."
+          ]
+        },
+        {
+          "section": "Finish",
+          "items": [
+            "Add the drained fettuccine and broccoli to the sauce, splashing in pasta water as needed until everything is silky and coated.",
+            "Nest the pasta and broccoli into shallow bowls, lay the tilapia on top, and spoon the remaining sauce over the fish."
+          ]
+        }
+      ],
+      "tips": [
+        "Pull the tilapia the instant it flakes — it is delicate, and carryover heat finishes it on the plate. Overcooked, it turns chalky.",
+        "Searing the lemon slices caramelizes their acidity into a deeper, rounder citrus flavor; don't skip them in the sauce.",
+        "Reserve more pasta water than you think you need — its starch is what makes the butter-wine sauce cling to the noodles instead of pooling.",
+        "If the sauce tastes too sharp at the end, swirl in one more pat of cold butter; too flat, add a final squeeze of lemon."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Finish with extra chopped parsley and a little fresh thyme, and brighten the sauce with garden lemon zest grated in just before serving."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A crisp, unoaked white — Sauvignon Blanc or Pinot Grigio — echoes the wine in the sauce. Add grilled bread to mop up the extra."
+        },
+        {
+          "label": "Make it greener",
+          "note": "Swap or supplement the broccoli with broccolini or asparagus tips, charred the same way in the skillet."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Stephen worked this one through a couple of rounds — first sorting out a rogue\nlemon slice that kept appearing from nowhere, then folding the fettuccine cleanly\ninto the sauce. The result eats like a restaurant lemon-caper trio: crisp fish,\nsilky sauce, and deeply seared broccoli, all in one skillet.",
+      "hero": "images/tilapia-piccata-fettuccine-broccoli.webp"
+    },
+    {
+      "title": "Tomato-Basil Chicken Fettuccine with Fresh Mozzarella",
+      "slug": "italian-chicken-pasta",
+      "tagline": "Seared chicken and a quick fresh-tomato sauce tossed with fettuccine and melty mozzarella.",
+      "pitch": "This is the weeknight pasta that tastes like late summer. Chicken sears golden in olive oil, then fresh tomatoes cook down in the same pan into a loose, jammy sauce flecked with garlic and a whisper of chili. Fettuccine goes in to catch it all, and cubes of fresh mozzarella melt into soft, creamy pockets as you toss. Torn basil and an optional thread of balsamic at the end keep it bright instead of heavy. *Stir the mozzarella in off the heat so it goes molten and stretchy rather than tough — those creamy pockets are the whole point.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "easy",
+      "protein": "chicken",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Italian",
+      "course": "pasta",
+      "heat": "none",
+      "equipment": [
+        "large skillet"
+      ],
+      "tags": [
+        "weeknight",
+        "date-night",
+        "garden",
+        "summer"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "8 oz fettuccine (thin spaghetti also works)",
+            "2 small chicken breasts (or 1 large), sliced into thin strips",
+            "2 large or 4 medium fresh tomatoes, diced",
+            "4 garlic cloves, minced",
+            "4 oz fresh mozzarella, cut into small cubes",
+            "A handful of fresh basil, torn (from the garden)",
+            "2–3 tbsp olive oil",
+            "Pinch of red pepper flakes (optional)",
+            "1 tbsp balsamic vinegar (optional)",
+            "Kosher salt and freshly ground black pepper"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Pasta",
+          "items": [
+            "Bring a large pot of salted water to a boil. Cook the fettuccine until just al dente, then reserve ½ cup pasta water and drain."
+          ]
+        },
+        {
+          "section": "Chicken",
+          "items": [
+            "Season the chicken strips with salt and pepper. Heat 1–2 tbsp olive oil in a large skillet over medium-high and cook the chicken 3–5 minutes per side until golden and cooked through. Remove and set aside."
+          ]
+        },
+        {
+          "section": "Tomato sauce",
+          "items": [
+            "Lower the heat to medium and add a little more oil if needed. Sauté the garlic 1–2 minutes until fragrant and just golden — don't let it burn.",
+            "Add the diced tomatoes with a pinch of salt, pepper, and chili flakes if using. Cook 5–7 minutes, stirring, until they break down into a slightly chunky sauce."
+          ]
+        },
+        {
+          "section": "Combine",
+          "items": [
+            "Return the chicken to the pan and toss to coat. Add the drained fettuccine, loosening with a splash of pasta water until the sauce clings.",
+            "Off the heat, fold in the mozzarella cubes and torn basil so the cheese softens into creamy pockets.",
+            "Plate, finish with a thread of balsamic if you like, and top with a few extra basil leaves."
+          ]
+        }
+      ],
+      "tips": [
+        "Add the mozzarella off the heat — residual warmth melts it into soft, stretchy pockets, while direct heat over-cooks it into rubber.",
+        "A spoonful of reserved pasta water emulsifies the tomato oil into a sauce that actually coats the noodles.",
+        "For extra richness, swirl a knob of butter or a splash of cream into the tomatoes before adding the pasta.",
+        "Use the ripest tomatoes you can find; in winter, a cup of halved cherry tomatoes breaks down sweeter than mealy slicers."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden tomatoes and a big handful of fresh basil make this dish — toss in some torn arugula at the end for a peppery edge."
+        },
+        {
+          "label": "Add veg",
+          "note": "Wilt a few handfuls of spinach or sautéed zucchini into the tomatoes for more vegetables."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A light Italian red like Chianti, or a chilled rosé for a hot evening."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A bright, fast Italian dinner Stephen landed on after weighing a whole flight of\nchicken pastas: fresh tomatoes cooked down to a loose sauce, fettuccine to carry\nit, and cubes of fresh mozzarella that melt into creamy pockets as you toss.",
+      "hero": "images/italian-chicken-pasta.webp"
+    },
+    {
+      "title": "Vegetarian New Orleans Red Beans & Rice",
+      "slug": "red-beans-and-rice",
+      "tagline": "Creamy smoked-paprika red beans over fluffy rice — all the Cajun soul, no meat.",
+      "pitch": "This is New Orleans comfort food rebuilt without the andouille — and you won't miss it, because the smoke comes from layered smoked paprika, a deeply browned holy trinity, and beans simmered low until they break down into their own velvety gravy. The secret to that signature creaminess is mashing a ladle of the cooked beans against the side of the pot and stirring it back in, no cream or roux required. A little cayenne and a final splash of vinegar wake the whole pot up. *Salt the beans only at the very end — early salt toughens their skins and keeps them from ever going creamy.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 120,
+        "total": 615
+      },
+      "difficulty": "medium",
+      "protein": "vegetarian",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Cajun",
+      "course": "main",
+      "heat": "medium",
+      "equipment": [
+        "Dutch oven"
+      ],
+      "tags": [
+        "vegetarian",
+        "comfort-food",
+        "make-ahead",
+        "budget",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Red beans",
+          "items": [
+            "½ lb dried red kidney beans, soaked overnight (or quick-soaked)",
+            "1 tbsp olive oil",
+            "1 yellow onion, diced",
+            "1 green bell pepper, diced",
+            "2 celery stalks, diced",
+            "4 cloves garlic, minced",
+            "1½ tsp smoked paprika",
+            "1 tsp dried thyme",
+            "1 tsp dried oregano",
+            "¼–½ tsp cayenne pepper (adjust to taste)",
+            "1–2 bay leaves",
+            "½ tsp smoked salt or 1 tsp soy sauce (optional, for depth)",
+            "4 cups vegetable broth or water",
+            "Kosher salt and freshly cracked black pepper (added at the end)",
+            "1 tsp red wine vinegar or hot sauce, to finish"
+          ]
+        },
+        {
+          "section": "Rice & garnish",
+          "items": [
+            "1 cup long-grain white rice",
+            "2 cups water",
+            "2 green onions, thinly sliced",
+            "2 tbsp chopped fresh parsley",
+            "Hot sauce, for serving"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Soak",
+          "items": [
+            "Soak the beans overnight in cold water, or quick-soak — bring them to a boil for 5 minutes, then cover, take off the heat, and let sit 1 hour. Drain and rinse."
+          ]
+        },
+        {
+          "section": "Build the base",
+          "items": [
+            "Heat the olive oil in a Dutch oven over medium heat. Add the onion, bell pepper, and celery (the holy trinity) and cook 7–9 minutes, letting them brown a little for deeper flavor.",
+            "Add the garlic and cook 1 minute, then stir in the smoked paprika, thyme, oregano, and cayenne and toast 30 seconds until fragrant."
+          ]
+        },
+        {
+          "section": "Simmer",
+          "items": [
+            "Add the drained beans, bay leaves, the optional smoked salt or soy sauce, and the broth. Bring to a boil, then lower to a gentle simmer.",
+            "Simmer uncovered 1½–2½ hours, stirring occasionally and adding water if it gets dry, until the beans are completely tender and the liquid has thickened.",
+            "Mash a ladleful of beans against the side of the pot and stir it back in to thicken the gravy and make it creamy.",
+            "Only now season generously with salt and black pepper. Discard the bay leaves and stir in the vinegar or hot sauce to brighten."
+          ]
+        },
+        {
+          "section": "Rice & serve",
+          "items": [
+            "While the beans finish, rinse the rice, then combine with the water and a pinch of salt in a saucepan. Bring to a boil, cover, reduce to low, and cook 15–18 minutes until tender. Let rest 5 minutes, then fluff.",
+            "Spoon the beans over the rice and finish with green onions, parsley, and more hot sauce at the table."
+          ]
+        }
+      ],
+      "tips": [
+        "Salt the beans only at the very end — added early, salt toughens the skins and stops them from turning creamy.",
+        "Smoked paprika is doing the work that andouille usually does; bloom it in the hot oil with the other spices so its flavor opens up. A drop of liquid smoke pushes it even further if you like.",
+        "For the silkiest texture, mash more beans than you think you need — that starchy gravy is the whole point of red beans and rice.",
+        "This is a make-ahead dream — it tastes even better the next day, so cook the full pot and reheat with a splash of broth."
+      ],
+      "extras": [
+        {
+          "label": "Add chicken sausage",
+          "note": "For a meaty version, brown 2 sliced chicken andouille or smoked chicken sausages in the pot first, remove, then build the base in the drippings and return the sausage to simmer with the beans."
+        },
+        {
+          "label": "Instant Pot",
+          "note": "Skip the soak. Sauté the trinity and spices on the Sauté setting, add the rinsed beans and broth, then cook on High Pressure 35–40 minutes with a natural release before mashing and seasoning."
+        },
+        {
+          "label": "From the garden",
+          "note": "Stir in fresh thyme from the garden and finish with chopped parsley; a diced garden serrano or jalapeño in the trinity adds fresh heat."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Stephen's red beans skip the andouille and turkey entirely and lean on smoked\npaprika, a hard-browned trinity, and a long, low simmer for that signature Cajun\ndepth. Mashing some of the beans back into the pot gives you the creamy gravy with\nno cream — and an optional chicken-sausage version is right there if you want it.",
+      "hero": "images/red-beans-and-rice.webp"
+    }
+  ]
+}
