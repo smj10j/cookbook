@@ -130,9 +130,8 @@ test('serves input rescales quantities', async () => {
   assert.match(steak.querySelector('.shop-qty').textContent, /^2 lb/, 'doubled for 4 servings');
 });
 
-test('copy merges duplicates and only includes checked items', async () => {
+test('copy: merges duplicates, excludes staples, formats as a dash list', async () => {
   const { $, $$, getCopied } = await boot();
-  // two recipes that both use garlic, to prove the merge
   for (const slug of ['blackened-steak-salad', 'chicken-piccata']) {
     const b = $$('.card-select').find((x) => x.dataset.select === slug);
     if (b) b.click();
@@ -142,11 +141,21 @@ test('copy merges duplicates and only includes checked items', async () => {
   await Promise.resolve();
   const text = getCopied();
   assert.ok(text && text.length, 'something was copied');
-  const lines = text.split('\n');
-  // garlic should appear at most once (merged)
-  assert.ok(lines.filter((l) => /garlic/i.test(l)).length <= 1, 'garlic merged to one line');
-  // copied list must not contain unchecked staples
-  assert.ok(!/olive oil|kosher salt|balsamic vinegar/i.test(text), 'staples excluded from copy');
+  const rows = text.split('\n').filter(Boolean);
+  assert.ok(rows.every((l) => l.startsWith('- ') || l === 'Optional:'), 'dash-list format');
+  assert.ok(rows.filter((l) => /garlic/i.test(l)).length <= 1, 'garlic merged to one line');
+  assert.ok(!/olive oil|kosher salt|balsamic vinegar/i.test(text), 'unchecked staples excluded');
+});
+
+test('copy: checklist format toggle produces "- [ ]" lines', async () => {
+  const { $, $$, getCopied } = await boot();
+  $$('.card-select')[0].click();
+  $('#shopbar').click();
+  $('#format-toggle .fmt-btn[data-format="checkbox"]').click();
+  $('#shop-copy').click();
+  await Promise.resolve();
+  const text = getCopied();
+  assert.ok(text.split('\n').some((l) => l.startsWith('- [ ] ')), 'checklist lines present');
 });
 
 test('filters narrow the menu', async () => {

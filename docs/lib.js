@@ -87,14 +87,17 @@ export function classify(text) {
   return 'buy';
 }
 
-// ── ingredient normalization (for merging duplicates on copy) ────────────────
-// Measure words (removed; the first one found becomes the line's unit).
-const MEASURE = new Set(['cup', 'cups', 'tbsp', 'tablespoon', 'tablespoons', 'tsp', 'teaspoon', 'teaspoons', 'oz', 'ounce', 'ounces', 'lb', 'lbs', 'pound', 'pounds', 'g', 'gram', 'grams', 'kg', 'ml', 'l', 'liter', 'liters', 'clove', 'cloves', 'can', 'cans', 'jar', 'jars', 'bottle', 'bottles', 'pinch', 'pinches', 'dash', 'handful', 'handfuls', 'sprig', 'sprigs', 'stalk', 'stalks', 'bunch', 'bunches', 'head', 'heads', 'slice', 'slices', 'wedge', 'wedges', 'round', 'rounds', 'piece', 'pieces', 'fillet', 'fillets', 'filet', 'filets', 'strip', 'strips', 'stick', 'sticks', 'leaf', 'leaves', 'package', 'packages', 'pkg', 'quart', 'quarts', 'pint', 'pints']);
-// Descriptors removed anywhere. NB: "baby" is intentionally NOT here (kept distinct).
-const DESC = new Set(['small', 'medium', 'large', 'jumbo', 'mini', 'extra', 'fresh', 'dried', 'ground', 'whole', 'ripe', 'raw', 'cooked', 'skinless', 'boneless', 'skin-on', 'skin', 'peeled', 'seeded', 'deseeded', 'deveined', 'drained', 'rinsed', 'packed', 'toasted', 'softened', 'melted', 'divided', 'optional', 'plus', 'minced', 'chopped', 'finely', 'coarsely', 'roughly', 'diced', 'sliced', 'thinly', 'thickly', 'halved', 'quartered', 'crumbled', 'grated', 'shredded', 'julienned', 'cubed', 'freshly', 'trimmed', 'torn', 'to', 'taste', 'for', 'garnish', 'serving', 'of', 'a', 'the', 'about', 'approximately', 'each', 'more', 'as', 'needed']);
-const DERIVED = new Set(['juice', 'zest', 'peel', 'rind']); // "lemon juice"/"zest of 1 lemon" -> lemon
-const GENERIC_TAIL = new Set(['cheese']);                   // "feta cheese" -> feta
-const KEEP_PLURAL = new Set(['greens', 'beans', 'peas', 'oats', 'grits', 'sprouts', 'noodles', 'asparagus', 'couscous', 'hummus', 'molasses']);
+// ── ingredient normalization + smart merging (for the copied shopping list) ──
+// Measure/portion words: the first one found becomes the line's unit; the rest drop.
+// NB: slice/wedge/round/fillet are NOT here — they're preparations, handled below.
+const MEASURE = new Set(['cup', 'cups', 'tbsp', 'tablespoon', 'tablespoons', 'tsp', 'teaspoon', 'teaspoons', 'oz', 'ounce', 'ounces', 'lb', 'lbs', 'pound', 'pounds', 'g', 'gram', 'grams', 'kg', 'ml', 'l', 'liter', 'liters', 'clove', 'cloves', 'can', 'cans', 'jar', 'jars', 'bottle', 'bottles', 'pinch', 'pinches', 'dash', 'handful', 'handfuls', 'sprig', 'sprigs', 'stalk', 'stalks', 'bunch', 'bunches', 'head', 'heads', 'ear', 'ears', 'bulb', 'bulbs', 'piece', 'pieces', 'strip', 'strips', 'stick', 'sticks', 'leaf', 'leaves', 'package', 'packages', 'pkg', 'quart', 'quarts', 'pint', 'pints']);
+// Descriptors + preparations removed anywhere. "baby" is intentionally NOT here (kept distinct).
+const DESC = new Set(['small', 'medium', 'large', 'jumbo', 'mini', 'extra', 'fresh', 'dried', 'ground', 'whole', 'ripe', 'raw', 'cooked', 'skinless', 'boneless', 'skin-on', 'skin', 'peeled', 'seeded', 'deseeded', 'deveined', 'drained', 'rinsed', 'packed', 'toasted', 'softened', 'melted', 'divided', 'plus', 'minced', 'chopped', 'finely', 'coarsely', 'roughly', 'diced', 'sliced', 'thinly', 'thickly', 'halved', 'quartered', 'crumbled', 'grated', 'shredded', 'julienned', 'cubed', 'freshly', 'trimmed', 'torn', 'smashed', 'pitted', 'husked', 'shucked', 'cut', 'into', 'bite', 'size', 'bite-size', 'florets', 'floret', 'fillet', 'fillets', 'filet', 'filets', 'very', 'to', 'taste', 'for', 'garnish', 'serving', 'of', 'a', 'an', 'the', 'and', 'about', 'approximately', 'each', 'more', 'as', 'needed']);
+// Preparations that imply a derived form: removed from the name; recorded as `prep`.
+const DERIVED = new Set(['juice', 'zest', 'peel', 'rind', 'slice', 'slices', 'wedge', 'wedges', 'round', 'rounds']);
+const GENERIC_TAIL = new Set(['cheese']);                  // "feta cheese" -> feta
+const KEEP_PLURAL = new Set(['greens', 'beans', 'peas', 'oats', 'grits', 'sprouts', 'noodles', 'asparagus', 'couscous', 'hummus', 'molasses', 'chives']);
+const HERBS = new Set(['thyme', 'rosemary', 'sage', 'dill', 'parsley', 'cilantro', 'mint', 'basil', 'tarragon', 'chive', 'oregano', 'marjoram']);
 const SPELL = { filet: 'fillet', filets: 'fillet', fillets: 'fillet', yoghurt: 'yogurt' };
 
 function singular(w) {
@@ -104,62 +107,145 @@ function singular(w) {
   if (w.endsWith('s') && !w.endsWith('ss')) return w.slice(0, -1);
   return w;
 }
-function tokenize(seg) {
-  return seg
-    .replace(/[^a-z\s-]/g, ' ')
-    .split(/\s+/).filter(Boolean)
-    .map((w) => SPELL[w] || w)
-    .filter((w) => !DESC.has(w) && !DERIVED.has(w))
-    .map((w) => (MEASURE.has(w) ? w : singular(w)))
-    .filter(Boolean);
+function detectPrep(t) {
+  if (/\bjuiced?\b/.test(t)) return 'juice';
+  if (/\bzest(ed)?\b/.test(t)) return 'zest';
+  if (/\b(slice|sliced|slices|wedge|wedges|round|rounds)\b/.test(t)) return 'slice';
+  return 'whole';
+}
+function nameTokens(seg) {
+  let unit = '';
+  const name = [];
+  for (let w of seg.replace(/[^a-z0-9\s-]/g, ' ').split(/\s+/).filter(Boolean)) {
+    if (/^[\d/.-]+$/.test(w)) continue;            // stray numbers
+    w = SPELL[w] || w;
+    if (MEASURE.has(w)) { if (!unit) unit = w; continue; }
+    if (DESC.has(w) || DERIVED.has(w)) continue;
+    name.push(singular(w));
+  }
+  return { unit, name };
 }
 
-// Reduce an ingredient (the text after its quantity) to { unit, display, key }.
-// Two ingredients merge iff their `key` matches.
-export function analyze(rest) {
-  let t = String(rest).toLowerCase()
-    .replace(/\([^)]*\)/g, ' ')
-    .replace(/\b(zest|juice|peel|rind)\s+of\s+/g, ' ');
-  // "A or B" / "A/B": key on the first option, borrowing a trailing noun from the last.
-  const alts = t.split(/\s+or\s+|\s*\/\s*/);
-  let words = tokenize(alts[0]);
+// Reduce an ingredient (text after its quantity) to { key, display, unit, prep, count }.
+// Two ingredients merge iff their `key` matches. `prep`/`count` feed the yield rules.
+export function normalizeIngredient(rest) {
+  const raw = String(rest);
+  let t = raw.toLowerCase().replace(/\([^)]*\)/g, ' ');
+  const prep = detectPrep(t);
+  t = t.replace(/\b(zest|juice|peel|rind)\s+of\s+/g, ' ').split(',')[0]; // drop the prep clause
+  const numTok = t.match(new RegExp(`(\\d+\\s+\\d+/\\d+|\\d+/\\d+|\\d+(?:\\.\\d+)?|[${FRAC_CLASS}])`));
+  const count = numTok ? parseNum(numTok[0]) : null;
+  const alts = t.split(/\s+or\s+|\s*\/\s*/);          // "A or B" -> first option (+ borrow noun)
+  let { unit, name } = nameTokens(alts[0]);
   if (alts.length > 1) {
-    const last = tokenize(alts[alts.length - 1]);
-    if (words.length && last.length > words.length) {
-      const head = last[last.length - 1];
-      if (!words.includes(head)) words.push(head);
+    const last = nameTokens(alts[alts.length - 1]);
+    if (name.length && last.name.length > name.length) {
+      const head = last.name[last.name.length - 1];
+      if (!name.includes(head)) name = name.concat(head);
     }
   }
-  let unit = '';
-  const nameWords = [];
-  for (const w of words) {
-    if (MEASURE.has(w)) { if (!unit) unit = w; continue; }
-    nameWords.push(w);
-  }
-  if (nameWords.length > 1 && GENERIC_TAIL.has(nameWords[nameWords.length - 1])) nameWords.pop();
-  const display = nameWords.join(' ') || String(rest).trim();
-  const key = [...new Set(nameWords)].sort().join(' ');
-  return { unit, display, key };
+  // "feta cheese" and "feta" should MERGE, but "blue cheese" must not display as "blue".
+  // So drop a generic trailing noun (cheese) from the KEY only, keeping it in the display.
+  const display = name.join(' ') || raw.trim();
+  const keyWords = name.length > 1 && GENERIC_TAIL.has(name[name.length - 1]) ? name.slice(0, -1) : name;
+  return { key: [...new Set(keyWords)].sort().join(' '), display, unit, prep, count };
 }
 
-// Merge entries (already-scaled qty + rest) into deduped shopping lines.
-export function aggregateShoppingLines(entries) {
-  const groups = new Map();
-  for (const e of entries) {
-    const { unit, display, key } = analyze(e.rest);
-    const k = key || display.toLowerCase();
-    if (!groups.has(k)) groups.set(k, { display, units: new Map() });
-    const uk = unit.toLowerCase().replace(/s$/, '');
-    const units = groups.get(k).units;
-    if (!units.has(uk)) units.set(uk, { qty: 0, unit, hasQty: false });
-    const u = units.get(uk);
+// Optional ingredients ("Optional: …" / "… (optional)") get their own copy section.
+export function isOptional(line) {
+  return /^\s*optional\b/i.test(String(line)) || /\(optional\)/i.test(String(line));
+}
+function cleanOptional(line) {
+  return String(line).replace(/^\s*optional\s*:?\s*/i, '').replace(/\s*\(optional\)/i, '').trim();
+}
+
+const fmtUnit = (q, unit) => (fmtQty(q) + (unit ? ' ' + unit : '')).trim();
+
+function genericLine(g) {
+  const byUnit = new Map();
+  for (const e of g.entries) {
+    const uk = (e.unit || '').replace(/s$/, '');
+    if (!byUnit.has(uk)) byUnit.set(uk, { qty: 0, unit: e.unit, hasQty: false });
+    const u = byUnit.get(uk);
     if (e.qty != null) { u.qty += e.qty; u.hasQty = true; }
   }
-  return [...groups.values()].map((g) => {
-    const parts = [...g.units.values()].filter((u) => u.hasQty)
-      .map((u) => (fmtQty(u.qty) + (u.unit ? ' ' + u.unit : '')).trim());
-    return parts.length ? `${parts.join(' + ')} ${g.display}`.trim() : g.display;
-  });
+  const parts = [...byUnit.values()].filter((u) => u.hasQty).map((u) => fmtUnit(u.qty, u.unit));
+  return parts.length ? `${parts.join(' + ')} ${g.display}`.trim() : g.display;
+}
+
+// Garlic: collect cloves and express as bulbs (~10 cloves/bulb) — what you actually buy.
+function garlicRule(g) {
+  let cloves = 0;
+  for (const e of g.entries) {
+    const u = (e.unit || '').replace(/s$/, '');
+    if (u === 'bulb' || u === 'head') cloves += (e.qty ?? 1) * 10;
+    else cloves += e.qty ?? 1;                       // cloves, or a bare count
+  }
+  cloves = Math.round(cloves);
+  const bulbs = Math.max(1, Math.ceil(cloves / 10));
+  return `${bulbs} bulb${bulbs !== 1 ? 's' : ''} garlic (≈${cloves} clove${cloves !== 1 ? 's' : ''})`;
+}
+
+// Citrus: estimate whole fruit. Juiced fruit also yields zest; sliced/whole fruit can't be
+// juiced. ~3 tbsp juice and ~1 tbsp zest per lemon/lime.
+function citrusRule(g) {
+  const fruit = g.display;
+  let juice = 0, zest = 0, whole = 0;
+  for (const e of g.entries) {
+    const u = (e.unit || '').replace(/s$/, ''), q = e.qty;
+    if (e.prep === 'juice') juice += u === 'tbsp' ? (q ?? 3) / 3 : u === 'tsp' ? (q ?? 9) / 9 : u === 'cup' ? (q ?? 0) * 16 / 3 : (q ?? 1);
+    else if (e.prep === 'zest') zest += u === 'tsp' ? (q ?? 3) / 3 : (q ?? 1);
+    else whole += q ?? 1;
+  }
+  const jl = Math.ceil(juice - 1e-9), wl = Math.ceil(whole - 1e-9), zl = Math.ceil(zest - 1e-9);
+  const n = Math.max(1, jl + wl + Math.max(0, zl - (jl + wl)));
+  return `${n} ${fruit}${n !== 1 ? 's' : ''}`;
+}
+
+// Fresh herbs are sold in bunches regardless of the small amount a recipe calls for.
+function herbRule(g) {
+  let cups = 0;
+  for (const e of g.entries) if ((e.unit || '').replace(/s$/, '') === 'cup') cups += e.qty ?? 0;
+  const b = Math.max(1, Math.ceil(cups));
+  return `${b} bunch${b !== 1 ? 'es' : ''} ${g.display}`;
+}
+
+function ruleFor(key, display) {
+  if (key === 'garlic') return garlicRule;
+  if (display === 'lemon' || display === 'lime') return citrusRule;
+  if (HERBS.has(key)) return herbRule;
+  return null;
+}
+
+// Build the merged shopping list from checked entries ({ qty (scaled), rest }).
+// Returns { lines, optional }. Identical ingredients merge; staple filtering is upstream.
+export function buildShoppingList(entries) {
+  const groups = new Map();
+  const optional = [];
+  for (const e of entries) {
+    if (isOptional(e.rest)) { optional.push(cleanOptional(e.rest)); continue; }
+    const n = normalizeIngredient(e.rest);
+    const k = n.key || n.display;
+    if (!groups.has(k)) groups.set(k, { display: n.display, entries: [] });
+    const qty = e.qty != null ? e.qty : n.count;
+    groups.get(k).entries.push({ qty, unit: n.unit, prep: n.prep });
+  }
+  const lines = [];
+  for (const [k, g] of groups) {
+    const rule = ruleFor(k, g.display);
+    lines.push(rule ? rule(g) : genericLine(g));
+  }
+  return { lines, optional: [...new Set(optional)] };
+}
+
+// Format the shopping list for the clipboard.
+//   'dash'     -> "- item"          (universal: plaintext / RTF / markdown)
+//   'checkbox' -> "- [ ] item"      (markdown task list)
+export function formatShoppingList({ lines, optional }, format = 'dash') {
+  const bullet = format === 'checkbox' ? '- [ ] ' : '- ';
+  const out = lines.map((l) => bullet + l);
+  if (optional.length) out.push('', 'Optional:', ...optional.map((l) => bullet + l));
+  return out.join('\n');
 }
 
 // Per-recipe scaled shopping rows (pure; used by the overlay and by tests).
@@ -170,7 +256,7 @@ export function shopSectionsForRecipe(recipe, target) {
     items: (sec.items || []).map((line) => {
       const p = parseQty(line);
       const cat = classify(line);
-      const item = { qty: p.qty, hi: p.hi, rest: p.rest, serves: recipe.serves || target, cat };
+      const item = { qty: p.qty, hi: p.hi, rest: p.rest, serves: recipe.serves || target, cat, optional: isOptional(line) };
       return { ...item, display: scaleDisplay(item, factor) };
     }),
   }));

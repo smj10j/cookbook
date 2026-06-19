@@ -465,6 +465,13 @@ a { color: var(--accent); }
   padding: 9px 16px; cursor: pointer;
 }
 .copy-btn:hover { background: #8e3917; }
+.format-toggle { display: inline-flex; border: 1px solid var(--rule); border-radius: 100px; overflow: hidden; }
+.fmt-btn {
+  font-family: var(--sans); font-size: 12px; letter-spacing: 0.02em;
+  background: transparent; color: #5a5149; border: none; padding: 7px 13px; cursor: pointer;
+}
+.fmt-btn + .fmt-btn { border-left: 1px solid var(--rule); }
+.fmt-btn[aria-pressed="true"] { background: var(--ink); color: var(--cream); }
 .copied-msg { font-size: 13px; color: var(--olive); font-weight: 600; }
 .shoplist-note { margin: 4px 24px 0; font-size: 13px; color: var(--stone); line-height: 1.45; }
 .shoplist-note strong { color: var(--accent); }

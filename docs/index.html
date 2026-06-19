@@ -111,13 +111,18 @@
           <input type="number" id="shop-serves" min="1" max="50" step="1" value="2" inputmode="numeric" />
         </label>
         <button class="copy-btn" id="shop-copy" type="button">Copy checked items</button>
+        <div class="format-toggle" id="format-toggle" role="group" aria-label="Copy format">
+          <button type="button" class="fmt-btn" data-format="dash" aria-pressed="true" title="Hyphen list — pastes anywhere">List</button>
+          <button type="button" class="fmt-btn" data-format="checkbox" aria-pressed="false" title="Markdown checklist — - [ ] items">Checklist</button>
+        </div>
         <span class="copied-msg" id="shop-copied" hidden>Copied ✓</span>
       </div>
       <p class="shoplist-note">
-        Quantities scale to your serving count. <strong>Only checked items are copied</strong>,
-        and duplicates are merged into one line. Pantry staples — salt, oil, sugar, common spices,
-        vinegars, condiments — start unchecked; a <span class="pantry-flag" aria-hidden="true">⚑</span>
-        marks things you likely have but may want to double-check.
+        Quantities scale to your serving count and <strong>identical ingredients are merged</strong>
+        (garlic shows up as bulbs, lemons are estimated from how they're used). <strong>Only checked
+        items are copied.</strong> Pantry staples — salt, oil, sugar, common spices, condiments — start
+        unchecked; a <span class="pantry-flag" aria-hidden="true">⚑</span> marks things you likely have.
+        Optional items land in their own section at the bottom.
       </p>
       <div class="shoplist-body" id="shoplist-body"></div>
       <footer class="shoplist-foot">

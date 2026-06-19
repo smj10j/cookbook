@@ -5,7 +5,7 @@
 import {
   esc, inlineMd, cap, fmtMin, VEG,
   scaleDisplay, classify, clampServes,
-  aggregateShoppingLines, recipeMatches, cuisineChipValues, shopSectionsForRecipe,
+  buildShoppingList, formatShoppingList, recipeMatches, cuisineChipValues, shopSectionsForRecipe,
 } from './lib.js';
 
 const state = {
@@ -17,11 +17,14 @@ const state = {
   reader: { list: [], index: -1 },
   selected: new Set(),     // slugs picked for the shopping list (persisted)
   shop: { items: [] },     // current overlay item rows
+  copyFormat: 'dash',      // 'dash' | 'checkbox' (persisted)
 };
 
 const SELECT_KEY = 'tm-selected';
+const FORMAT_KEY = 'tm-copyformat';
 function loadSelected() {
   try { JSON.parse(localStorage.getItem(SELECT_KEY) || '[]').forEach((s) => state.selected.add(s)); } catch {}
+  try { const f = localStorage.getItem(FORMAT_KEY); if (f === 'dash' || f === 'checkbox') state.copyFormat = f; } catch {}
 }
 function saveSelected() {
   try { localStorage.setItem(SELECT_KEY, JSON.stringify([...state.selected])); } catch {}
@@ -48,6 +51,7 @@ export async function init() {
   bindEvents();
   apply();
   renderShopbar();
+  syncFormatToggle();
   $('#colophon-meta').textContent = `${state.all.length} recipes and counting`;
   routeFromHash();
 }
@@ -113,6 +117,13 @@ function bindEvents() {
   $('#shop-serves').addEventListener('input', updateQuantities);
   $('#shop-copy').addEventListener('click', copyShoppingList);
   $('#shop-clear').addEventListener('click', clearSelection);
+  $('#format-toggle').addEventListener('click', (e) => {
+    const b = e.target.closest('.fmt-btn');
+    if (!b) return;
+    state.copyFormat = b.dataset.format;
+    try { localStorage.setItem(FORMAT_KEY, state.copyFormat); } catch {}
+    syncFormatToggle();
+  });
   $('#shoplist-body').addEventListener('change', updateSummary);
   $('#reader-close').addEventListener('click', closeReader);
   $('#reader-prev').addEventListener('click', () => flip(-1));
@@ -326,6 +337,11 @@ function renderShopbar() {
   $('#shopbar-count').textContent = n;
 }
 
+function syncFormatToggle() {
+  document.querySelectorAll('#format-toggle .fmt-btn')
+    .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.format === state.copyFormat)));
+}
+
 function openShopList() {
   if (!state.selected.size) return;
   $('#shoplist').hidden = false;
@@ -362,10 +378,13 @@ function renderShopList() {
       const rows = sec.items.map((it) => {
         const i = idx++;
         items.push(it);
-        const flag = it.cat === 'pantry'
+        const checked = it.cat === 'buy' && !it.optional;
+        const flag = it.optional
+          ? ` <span class="pantry-flag" title="Optional — copied into its own section only if you check it">optional</span>`
+          : it.cat === 'pantry'
           ? ` <span class="pantry-flag" title="You likely have this — double-check your pantry">⚑</span>` : '';
-        return `<label class="shop-item${it.cat !== 'buy' ? ' is-staple' : ''}">
-          <input type="checkbox" data-idx="${i}"${it.cat === 'buy' ? ' checked' : ''} />
+        return `<label class="shop-item${it.cat !== 'buy' || it.optional ? ' is-staple' : ''}">
+          <input type="checkbox" data-idx="${i}"${checked ? ' checked' : ''} />
           <span class="shop-qty" data-idx="${i}">${esc(it.display)}</span>${flag}
         </label>`;
       }).join('');
@@ -404,7 +423,7 @@ function copyShoppingList() {
     const qty = item.qty != null ? item.qty * (target / (item.serves || target)) : null;
     return { qty, rest: item.rest };
   });
-  const text = aggregateShoppingLines(entries).join('\n');
+  const text = formatShoppingList(buildShoppingList(entries), state.copyFormat);
   const done = (msg) => flashCopied(msg);
   if (navigator.clipboard?.writeText) {
     navigator.clipboard.writeText(text).then(() => done('Copied ✓')).catch(() => fallbackCopy(text, done));

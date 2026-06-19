@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
-  parseQty, fmtQty, scaleDisplay, classify, analyze, aggregateShoppingLines,
+  parseQty, fmtQty, scaleDisplay, classify, normalizeIngredient, buildShoppingList, formatShoppingList, isOptional,
   clampServes, bucketMatch, recipeMatches, cuisineChipValues, shopSectionsForRecipe, inlineMd, esc,
 } from '../docs/lib.js';
 
@@ -60,46 +60,57 @@ test('classify: core / pantry / buy', () => {
   for (const s of buy) assert.equal(classify(s), 'buy', s);
 });
 
-test('analyze produces a merge key that ignores units/prep/derived forms', () => {
-  const k = (s) => analyze(s).key;
-  assert.equal(k('small red onion'), k('red onion'));
-  assert.equal(k('cloves garlic'), k('garlic cloves, minced'));
-  assert.equal(k('feta'), k('feta cheese'));
-  assert.equal(k('salmon filets'), k('skin-on salmon fillets'));
-  assert.equal(k('fresh basil'), k('fresh basil sprigs, torn'));
-  // lemon forms all collapse
-  const lemon = k('1 lemon');
-  for (const s of ['lemon slices', 'lemon wedges', 'zest of 1 lemon', 'juice of 1 lemon', 'fresh lemon juice']) {
-    assert.equal(k(s), lemon, s);
-  }
-  // "A or B": merges with first option
-  assert.equal(k('fresh dill or parsley'), k('fresh dill'));
-  assert.notEqual(k('fresh dill or parsley'), k('fresh parsley'));
+test('normalizeIngredient strips prep words and keeps the buy-name', () => {
+  const d = (s) => normalizeIngredient(s).display;
+  assert.equal(d('small red onion, very thinly sliced'), 'red onion');           // #1
+  assert.equal(d('cup Kalamata olives, pitted and halved'), 'kalamata olive');   // #2
+  assert.equal(d('large head broccoli, cut into bite-size florets'), 'broccoli'); // #3
+  assert.equal(d('ears corn, husked'), 'corn');                                  // #8
+  assert.equal(d('feta cheese'), 'feta cheese');     // display keeps "cheese"…
+  assert.equal(normalizeIngredient('feta cheese').key, normalizeIngredient('crumbled feta').key); // …but merges with "feta"
+  assert.equal(d('crumbled blue cheese'), 'blue cheese'); // never collapses to "blue"
+  assert.equal(d('skin-on salmon fillets'), 'salmon');
 });
 
-test('analyze does NOT over-merge distinct items', () => {
-  const k = (s) => analyze(s).key;
-  assert.notEqual(k('green bell pepper'), k('red bell pepper'));
-  assert.notEqual(k('cherry tomatoes'), k('grape tomatoes'));
-  assert.notEqual(k('sweet potato'), k('russet potato'));
-  assert.notEqual(k('red pepper flakes'), k('red bell pepper'));
-  assert.notEqual(k('baby spinach'), k('spinach'));    // "baby" kept distinct
-  assert.notEqual(k('lime'), k('lemon'));
+const lines = (a) => buildShoppingList(a).lines;
+
+test('merge: same ingredient prepared differently becomes one clean line', () => {
+  assert.deepEqual(lines([{ qty: 0.25, rest: 'small red onion, very thinly sliced' }]), ['¼ red onion']);          // #1
+  assert.deepEqual(lines([{ qty: 0.25, rest: 'cup Kalamata olives, pitted and halved' }]), ['¼ cup kalamata olive']); // #2
+  assert.deepEqual(lines([{ qty: 1, rest: 'large head broccoli, cut into bite-size florets' }]), ['1 head broccoli']); // #3
+  assert.deepEqual(lines([{ qty: 2, rest: 'ears corn, husked' }]), ['2 ears corn']);                              // #8
+  assert.deepEqual(lines([{ qty: 1, rest: 'cup cherry or grape tomatoes' }, { qty: 2, rest: 'cups cherry tomatoes' }]), ['3 cup cherry tomato']); // #7
+  assert.deepEqual(lines([{ qty: 1, rest: 'cup feta' }, { qty: 1, rest: 'cup feta cheese' }]), ['2 cup feta']);
+  assert.deepEqual(lines([{ qty: 2, rest: 'salmon fillets (6 oz each)' }, { qty: 1, rest: 'skin-on salmon filet' }]), ['3 salmon']);
 });
 
-test('aggregateShoppingLines merges + sums', () => {
-  assert.deepEqual(
-    aggregateShoppingLines([{ qty: 7, rest: 'cloves garlic' }, { qty: 4, rest: 'garlic cloves, minced' }]),
-    ['11 cloves garlic']);
-  assert.deepEqual(
-    aggregateShoppingLines([{ qty: 1, rest: 'red onion, sliced' }, { qty: 0.25, rest: 'small red onion' }]),
-    ['1¼ red onion']);
-  assert.deepEqual(
-    aggregateShoppingLines([{ qty: 1, rest: 'cup baby spinach' }, { qty: 2, rest: 'oz baby spinach' }]),
-    ['1 cup + 2 oz baby spinach']);
-  // distinct items stay separate
-  assert.equal(aggregateShoppingLines([{ qty: 1, rest: 'cup feta' }, { qty: 1, rest: 'cup feta cheese' }]).length, 1);
-  assert.equal(aggregateShoppingLines([{ qty: 1, rest: 'green bell pepper' }, { qty: 1, rest: 'red bell pepper' }]).length, 2);
+test('yield rules: garlic bulbs, lemon count, herb bunches', () => {
+  assert.deepEqual(lines([{ qty: 3, rest: 'cloves garlic, smashed' }, { qty: 6, rest: 'cloves garlic' }]),
+    ['1 bulb garlic (≈9 cloves)']);                                                                               // #6
+  assert.deepEqual(lines([{ qty: null, rest: 'zest of 2 lemons' }, { qty: null, rest: 'juice of 3 lemons' }, { qty: 1, rest: 'lemon, sliced' }]),
+    ['4 lemons']);                                                                                                // #9
+  assert.deepEqual(lines([{ qty: 2, rest: 'tbsp lemon juice' }, { qty: 1, rest: 'lemon, sliced' }]), ['2 lemons']);
+  assert.deepEqual(lines([{ qty: 5, rest: 'sprigs thyme' }, { qty: 0.5, rest: 'tsp thyme' }]), ['1 bunch thyme']); // #10
+});
+
+test('does NOT over-merge distinct items', () => {
+  assert.equal(lines([{ qty: 1, rest: 'green bell pepper' }, { qty: 1, rest: 'red bell pepper' }]).length, 2);
+  assert.equal(lines([{ qty: 1, rest: 'cup cherry tomatoes' }, { qty: 1, rest: 'cup grape tomatoes' }]).length, 2);
+  assert.equal(lines([{ qty: 1, rest: 'baby spinach' }, { qty: 1, rest: 'spinach' }]).length, 2);   // "baby" kept distinct
+  assert.equal(lines([{ qty: 1, rest: 'lime, juiced' }, { qty: 1, rest: 'lemon, juiced' }]).length, 2);
+});
+
+test('optional items get their own section; copy format toggles', () => {
+  const res = buildShoppingList([
+    { qty: 2, rest: 'cloves garlic' },
+    { qty: null, rest: 'Optional: garlic powder, smoked paprika, or fresh rosemary/thyme sprigs' },
+  ]);
+  assert.deepEqual(res.optional, ['garlic powder, smoked paprika, or fresh rosemary/thyme sprigs']);  // #4
+  assert.ok(isOptional('Optional: capers') && isOptional('1 tbsp capers (optional)'));
+  const dash = formatShoppingList(res, 'dash');
+  assert.ok(dash.startsWith('- 1 bulb garlic'));
+  assert.ok(/\nOptional:\n- garlic powder/.test(dash));                                               // #4 section placement
+  assert.ok(formatShoppingList(res, 'checkbox').includes('- [ ] 1 bulb garlic'));                     // #5 checklist format
 });
 
 test('filtering: bucketMatch + recipeMatches', () => {
