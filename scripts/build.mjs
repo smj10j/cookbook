@@ -42,7 +42,8 @@ const cuisines = [...new Set(recipes.map((r) => r.cuisine))].sort();
 const allTags = [...new Set(recipes.flatMap((r) => r.tags))].sort();
 
 const payload = {
-  generatedAt: new Date().toISOString(),
+  // No build timestamp here on purpose: a volatile field would make the JSON differ
+  // on every build and trigger needless CI re-commits.
   count: recipes.length,
   vocab: VOCAB,
   meta: { protein: PROTEIN_META, method: METHOD_META },

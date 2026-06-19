@@ -53,8 +53,7 @@ async function init() {
   bindEvents();
   apply();
   renderShopbar();
-  $('#colophon-meta').textContent =
-    `${state.all.length} recipes · built ${new Date(state.data.generatedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+  $('#colophon-meta').textContent = `${state.all.length} recipes and counting`;
   routeFromHash();
 }
 
