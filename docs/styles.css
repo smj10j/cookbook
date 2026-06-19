@@ -481,8 +481,13 @@ a { color: var(--accent); }
   font-size: 14.5px; color: #3b342e; line-height: 1.4;
 }
 .shop-item input { margin: 3px 0 0; width: 16px; height: 16px; accent-color: var(--accent); flex: none; cursor: pointer; }
-.shop-item.is-staple span { color: var(--stone); }
+.shop-item.is-staple > .shop-qty { color: var(--stone); }
 .shop-qty { font-variant-numeric: tabular-nums; }
+.pantry-flag {
+  color: #b5852a; font-size: 12px; margin-left: 5px; cursor: help; vertical-align: 1px;
+  -webkit-user-select: none; user-select: none;
+}
+.shoplist-note .pantry-flag { margin-left: 1px; }
 .shoplist-foot {
   display: flex; align-items: center; justify-content: space-between;
   padding: 12px 24px 18px; border-top: 1px solid var(--rule);

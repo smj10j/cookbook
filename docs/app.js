@@ -455,22 +455,70 @@ function scaleDisplay(item, factor) {
   return (lo + hi + ' ' + item.rest).trim();
 }
 
-// Pantry staples start unchecked. Careful matching so produce like "bell pepper",
-// "sugar snap peas", "butter lettuce" is NOT treated as a staple.
-function isStaple(text) {
+// Genuinely specialty items — kept CHECKED (you probably need to buy these).
+const EXOTIC = /saffron|sumac|za'?atar|gochujang|gochugaru|harissa|ras el hanout|garam masala|dukkah|\bmiso\b|tahini|fish sauce|hoisin|oyster sauce|pomegranate molasses|tamarind|black garlic|truffle|furikake|togarashi|\bdashi\b|preserved lemon/;
+
+// Classify an ingredient for the shopping list's default checkbox state:
+//   'core'   basics everyone has (salt, oil, sugar, flour, water, butter) — unchecked, no flag
+//   'pantry' common spices + standard condiments — unchecked, ⚑ flag (probably have, double-check)
+//   'buy'    fresh produce, proteins, specialty items — checked
+function classify(text) {
   const t = text.toLowerCase();
-  return (
+  const fresh = /\bfresh\b/.test(t);
+  if (
     /\bsalt\b/.test(t) ||
     /(black|white|ground|cracked|table)\s+pepper|peppercorns?|salt and pepper|freshly ground pepper/.test(t) ||
-    /\boil\b/.test(t) ||
+    (/\boil\b/.test(t) && !/oil-cured|oil-packed/.test(t)) ||
     (/\bsugar\b/.test(t) && !/sugar snap/.test(t)) ||
     (/\bbutter\b/.test(t) && !/butter lettuce|nut butter|peanut butter|almond butter/.test(t)) ||
     /\bwater\b/.test(t) ||
     /\bflour\b/.test(t) ||
-    /baking (soda|powder)/.test(t) ||
-    /(garlic|onion) powder/.test(t) ||
     /cooking spray|non-?stick spray/.test(t)
-  );
+  ) return 'core';
+  if (EXOTIC.test(t)) return 'buy';
+  // common dried spices/seasonings (not fresh herbs)
+  if (!fresh && /paprika|\bcumin\b|cayenne|chil[ie] (powder|flakes?)|chili flakes?|crushed red pepper|red pepper flakes?|cinnamon|nutmeg|allspice|cardamom|ground clove|\bcoriander\b|turmeric|garlic powder|onion powder|ground ginger|italian seasoning|old bay|curry powder|chili powder|chipotle|ancho|bay (leaf|leaves)|ground mustard|mustard powder|five spice|herbes de provence|dried (oregano|thyme|basil|rosemary|dill|parsley|sage|mint|tarragon|chives)/.test(t)) return 'pantry';
+  // standard condiments + baking staples
+  if (/soy sauce|tamari|balsamic|red wine vinegar|white wine vinegar|rice (wine )?vinegar|apple cider vinegar|sherry vinegar|white vinegar|\bvinegar\b|\bhoney\b|maple syrup|dijon|whole-?grain mustard|yellow mustard|\bmustard\b|ketchup|mayonnaise|\bmayo\b|worcestershire|sriracha|hot sauce|sesame oil|vanilla extract|almond extract|baking soda|baking powder|cornstarch|corn ?starch|\bpanko\b|bread ?crumbs|tomato paste|\bbroth\b|\bstock\b|brown sugar|powdered sugar/.test(t)) return 'pantry';
+  return 'buy';
+}
+
+// Units recognized when splitting an ingredient so identical items can be merged.
+const UNITS = new Set(['cup', 'cups', 'tbsp', 'tablespoon', 'tablespoons', 'tsp', 'teaspoon', 'teaspoons', 'oz', 'ounce', 'ounces', 'lb', 'lbs', 'pound', 'pounds', 'g', 'gram', 'grams', 'kg', 'ml', 'l', 'liter', 'liters', 'clove', 'cloves', 'can', 'cans', 'jar', 'jars', 'pinch', 'pinches', 'dash', 'handful', 'handfuls', 'sprig', 'sprigs', 'stalk', 'stalks', 'bunch', 'bunches', 'head', 'heads', 'slice', 'slices', 'piece', 'pieces', 'quart', 'quarts', 'pint', 'pints', 'stick', 'sticks', 'package', 'packages', 'pkg', 'strip', 'strips', 'fillet', 'fillets']);
+const PREP_RE = /\b(minced|chopped|finely|coarsely|roughly|diced|sliced|thinly|thickly|halved|quartered|crumbled|grated|shredded|julienned|cubed|ground|freshly|peeled|seeded|deseeded|deveined|trimmed|drained|rinsed|cooked|melted|softened|toasted|optional|divided|packed|crushed)\b/g;
+
+function splitUnit(rest) {
+  const words = rest.trim().split(/\s+/);
+  const first = (words[0] || '').toLowerCase().replace(/[.,]/g, '');
+  if (UNITS.has(first)) return { unit: words[0].replace(/[.,]/g, ''), name: words.slice(1).join(' ') };
+  return { unit: '', name: rest };
+}
+
+// Reduce an ingredient to its core name so "2 cloves garlic, minced" and
+// "3 cloves garlic" collapse to one shopping-list line.
+function cleanName(name) {
+  return name.replace(/\([^)]*\)/g, '').split(',')[0].replace(PREP_RE, '').replace(/\s+/g, ' ').trim();
+}
+
+// Merge entries (already-scaled qty + rest) into deduped shopping lines.
+function aggregateShoppingLines(entries) {
+  const groups = new Map();
+  for (const e of entries) {
+    const { unit, name } = splitUnit(e.rest);
+    const display = cleanName(name) || e.rest.trim();
+    const key = display.toLowerCase();
+    if (!groups.has(key)) groups.set(key, { display, units: new Map() });
+    const uKey = unit.toLowerCase().replace(/s$/, '');
+    const units = groups.get(key).units;
+    if (!units.has(uKey)) units.set(uKey, { qty: 0, unit, hasQty: false });
+    const u = units.get(uKey);
+    if (e.qty != null) { u.qty += e.qty; u.hasQty = true; }
+  }
+  return [...groups.values()].map((g) => {
+    const parts = [...g.units.values()].filter((u) => u.hasQty)
+      .map((u) => (fmtQty(u.qty) + (u.unit ? ' ' + u.unit : '')).trim());
+    return parts.length ? `${parts.join(' + ')} ${g.display}`.trim() : g.display;
+  });
 }
 
 function clampServes(v) {
@@ -489,12 +537,15 @@ function renderShopList() {
       const head = sec.section ? `<div class="shop-section">${esc(sec.section)}</div>` : '';
       const rows = sec.items.map((line) => {
         const p = parseQty(line);
-        const item = { recipe: r.title, qty: p.qty, hi: p.hi, rest: p.rest, serves: r.serves || target, staple: isStaple(line) };
+        const cat = classify(line);
+        const item = { recipe: r.title, qty: p.qty, hi: p.hi, rest: p.rest, serves: r.serves || target, cat };
         const i = idx++;
         items.push(item);
-        return `<label class="shop-item${item.staple ? ' is-staple' : ''}">
-          <input type="checkbox" data-idx="${i}"${item.staple ? '' : ' checked'} />
-          <span class="shop-qty" data-idx="${i}">${esc(scaleDisplay(item, factor))}</span>
+        const flag = cat === 'pantry'
+          ? ` <span class="pantry-flag" title="You likely have this — double-check your pantry">⚑</span>` : '';
+        return `<label class="shop-item${cat !== 'buy' ? ' is-staple' : ''}">
+          <input type="checkbox" data-idx="${i}"${cat === 'buy' ? ' checked' : ''} />
+          <span class="shop-qty" data-idx="${i}">${esc(scaleDisplay(item, factor))}</span>${flag}
         </label>`;
       }).join('');
       return head + rows;
@@ -525,18 +576,15 @@ function updateSummary() {
 
 function copyShoppingList() {
   const checks = [...document.querySelectorAll('.shoplist-body input[type=checkbox]:checked')];
-  const byRecipe = new Map();
-  for (const cb of checks) {
+  if (!checks.length) { flashCopied('Nothing checked'); return; }
+  const target = clampServes($('#shop-serves').value) || 2;
+  // Merge identical ingredients (across recipes) into one summed line.
+  const entries = checks.map((cb) => {
     const item = state.shop.items[+cb.dataset.idx];
-    const span = document.querySelector(`.shop-qty[data-idx="${cb.dataset.idx}"]`);
-    const line = span ? span.textContent : '';
-    if (!byRecipe.has(item.recipe)) byRecipe.set(item.recipe, []);
-    byRecipe.get(item.recipe).push(line);
-  }
-  if (!byRecipe.size) { flashCopied('Nothing checked'); return; }
-  let text = '';
-  for (const [title, lines] of byRecipe) text += `— ${title} —\n${lines.join('\n')}\n\n`;
-  text = text.trim();
+    const qty = item.qty != null ? item.qty * (target / (item.serves || target)) : null;
+    return { qty, rest: item.rest };
+  });
+  const text = aggregateShoppingLines(entries).join('\n');
   const done = (msg) => flashCopied(msg);
   if (navigator.clipboard?.writeText) {
     navigator.clipboard.writeText(text).then(() => done('Copied ✓')).catch(() => fallbackCopy(text, done));

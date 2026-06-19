@@ -61,16 +61,18 @@ function buildPrompt(r) {
     : r.course === 'snack' ? 'on parchment in a shallow dish'
     : 'on a handmade ceramic plate';
   return [
-    `A realistic, natural photograph of "${r.title}", a ${r.cuisine} ${r.course}.`,
+    `A mouth-watering, professionally food-styled photograph of "${r.title}", a ${r.cuisine} ${r.course}.`,
     r.tagline,
     firstItems ? `Featuring ${firstItems}.` : '',
-    `Plated ${vessel} on a lived-in kitchen table.`,
-    'Shot on a full-frame DSLR with a 50mm lens at f/2.8: natural window light, soft real',
-    'shadows, shallow depth of field, slightly imperfect home-cook plating, true food',
-    'textures and steam, true-to-life colors that are NOT oversaturated.',
-    'Candid documentary food photography that looks like a real photo from a phone or camera —',
-    'with natural imperfections. It must NOT look like an illustration, 3D render, CGI, cartoon,',
-    'painting, or AI art, and must avoid glossy, plastic, waxy, or over-styled perfection.',
+    `Restaurant-quality plating ${vessel} on a beautifully styled table with tasteful props,`,
+    'fresh herbs and garnishes, and gorgeous color contrast.',
+    'Shot by a top Instagram food photographer on a full-frame DSLR, 50mm at f/2.8:',
+    'gorgeous soft directional window light, glistening fresh ingredients, juicy and crisp',
+    'textures, a wisp of steam, vibrant appetizing color, shallow depth of field, and a',
+    'beautiful, considered composition — crave-worthy and drool-inducing, the kind of photo',
+    'that makes you want to cook it tonight.',
+    'It is still a REAL photograph — photorealistic with natural imperfections — NOT an',
+    'illustration, 3D render, CGI, cartoon, painting, or AI art, and never plastic, waxy, or fake.',
     'No text, no words, no logos, no hands, no people.',
   ].filter(Boolean).join(' ');
 }

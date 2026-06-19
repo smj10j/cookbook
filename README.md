@@ -19,8 +19,10 @@ GitHub Pages so it works on any phone or laptop.
   results with arrow keys, swipes, or the on-screen arrows.
 - A **shopping-list builder**: tick the ✓ on any cards, hit the floating
   **Get Shopping List** button, set how many people you're feeding (quantities scale
-  automatically), uncheck what you already have, and copy the list to your clipboard.
-  Pantry staples (salt, pepper, oil, sugar…) start unchecked.
+  automatically), and copy the list to your clipboard — identical ingredients across
+  recipes are merged into one line. Pantry staples (salt, oil, sugar, common spices,
+  vinegars, condiments…) start unchecked; a ⚑ marks things you probably have but might
+  want to double-check (soy sauce, vanilla, balsamic…).
 - Every recipe follows one **standard format**, so timings, ingredients, method,
   chef's tips, and extras are always in the same place.
 - Each recipe has a shareable link (e.g. `…/cookbook/#/blackened-steak-salad`) so you

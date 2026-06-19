@@ -98,10 +98,12 @@ npm run photos -- --only <slug>
 ```
 
 The build auto-attaches `docs/images/<slug>.webp` (no frontmatter edit needed). The
-prompt in `scripts/generate-photos.mjs` is deliberately tuned for **photorealism** —
-natural light, real textures, slight imperfection — and explicitly steers away from the
-glossy/cartoony/over-styled "AI look." Keep it that way; if a result still looks fake,
-regenerate it (optionally at `--quality high`). Then rebuild.
+prompt in `scripts/generate-photos.mjs` is tuned for the sweet spot Stephen wants:
+**a real, photographic look AND mouth-watering, Instagram-grade food styling** — fresh
+glistening ingredients, beautiful plating and props, gorgeous light — that is still
+*attainable* (no plastic/CGI/cartoon perfection). It should make you want to cook it
+tonight, while looking like a real photo. Regenerate (optionally `--quality high`) if a
+result drifts toward either failure mode — fake/over-glossy, or real-but-plain. Then rebuild.
 If you captured a good `og:image` from a source URL, you may instead download that to
 `docs/images/<slug>.webp` and set `hero:` by hand. Don't invent a photo if neither is
 available — the placeholder card looks intentional.
