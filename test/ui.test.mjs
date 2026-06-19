@@ -26,9 +26,14 @@ async function boot() {
   window.matchMedia = globalThis.matchMedia;
   globalThis.__NO_AUTO_INIT__ = true;
   window.__NO_AUTO_INIT__ = true;
-  // `navigator` is a read-only global in Node — stub clipboard on it instead of reassigning.
+  // Provide navigator.clipboard. Works whether Node has a global `navigator`
+  // (Node 21+, read-only) or not (Node 20, undefined).
   const clip = { writeText: (t) => { copied = t; return Promise.resolve(); } };
-  try { Object.defineProperty(globalThis.navigator, 'clipboard', { value: clip, configurable: true }); } catch {}
+  if (typeof globalThis.navigator === 'undefined') {
+    set('navigator', { clipboard: clip, userAgent: 'test' });
+  } else {
+    try { Object.defineProperty(globalThis.navigator, 'clipboard', { value: clip, configurable: true }); } catch {}
+  }
   set('fetch', async () => ({ json: async () => recipes }));
   const app = await import(`../docs/app.js?b=${bootCount++}`);
   await app.init();
