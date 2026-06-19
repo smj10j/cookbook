@@ -36,8 +36,9 @@ Decide which case you're in:
 Offer three genuinely different takes — vary the protein, technique, cuisine, or
 format so it's a real choice, not three flavors of the same dish. For each option give:
 a tempting **title** and a one-to-two sentence editorial pitch with a single *italic*
-"money line." Honor the constraints (no pork/lamb/duck/turkey/shellfish; dinner for two;
-their equipment + garden). Use the **AskUserQuestion** tool so Stephen can pick in one
+"money line." Honor the constraints (no pork/lamb/duck/turkey; dinner for two; their
+equipment + garden). Shellfish is allowed — Lauren eats it, Stephen doesn't — so it's
+fine to offer, just flag a fish/veg swap for Stephen. Use the **AskUserQuestion** tool so Stephen can pick in one
 tap (or just number them 1–3 in chat). Wait for his choice, then continue to step 2 to
 build only the chosen recipe.
 
@@ -70,8 +71,10 @@ Key obligations (full spec in `CLAUDE.md`):
   useful ones. This is a house rule.
 - **extras**: variations, pairings, make-ahead, and a "From the garden" note when the
   garden herbs/produce fit.
-- Respect the dietary exclusions: no pork, lamb, duck, turkey, or shellfish. If a
-  source recipe centers on those, adapt it (swap the protein) and say so in a tip.
+- Respect the dietary exclusions: no pork, lamb, duck, or turkey. If a source recipe
+  centers on those, adapt it (swap the protein) and say so in a tip. **Shellfish is
+  fine** — keep it (Lauren eats it); when a dish is built around shellfish, add a tip
+  with a fish/vegetable swap so Stephen can eat it too.
 - **source**: `{ name, url }` — credit the original site with its URL if it came from
   one; otherwise `{ name: "Adapted from Stephen's ChatGPT recipe notes", url: null }`
   or a sensible attribution.
@@ -94,7 +97,29 @@ update tests in `test/` per `CLAUDE.md` before committing.
 
 ## 4. Photo (optional, ask the user)
 
-If the user wants a photo and an `OPENAI_API_KEY` is set in `.env`:
+Every card needs a photo that fits the book's calm, editorial look. **Prefer a real
+photo from the source over an AI one** — when you ingest a URL, capture its `og:image`
+(or the main dish photo) as a candidate.
+
+**Decision rule — source image first:**
+
+1. If the source has a beautiful, high-resolution photo of the *actual dish* that
+   already fits the book's look and feel (clean, appetizing, well-lit, croppable to a
+   roughly square card), use it: download it to `docs/images/<slug>.webp`,
+   resizing/recompressing to match the other cards (~1200px, webp), and set
+   `hero: images/<slug>.webp`. The `source` field already credits the site.
+2. If the source photo is *close* — good food but wrong crop, size, or aspect — resize,
+   recrop, or recompress it to fit, as long as the result still looks at home next to
+   the existing cards.
+3. Only if there's no usable source image, or it would clash with the book's style
+   (busy background, heavy filter, watermark, low-res, off-brand styling), fall back to
+   generating one with AI.
+
+**The bar is consistency.** Never let the book become a smorgasbord of randomly styled
+images — a coherent set of AI photos beats one gorgeous but stylistically off-brand
+source photo. When in doubt about whether a source image fits, generate instead.
+
+To generate with AI (needs `OPENAI_API_KEY` in `.env`):
 
 ```bash
 npm run photos -- --only <slug>
@@ -108,10 +133,9 @@ glistening ingredients, beautiful plating and props, gorgeous light — that is 
 tonight, while looking like a real photo. Regenerate (optionally `--quality high`) if a
 result drifts toward either failure mode — fake/over-glossy, or real-but-plain.
 
-After a photo exists, run `npm run og` to make its JPEG link-preview image (used by the
-`/r/<slug>/` share page so iMessage/Slack unfurl with the dish photo). Then rebuild.
-If you captured a good `og:image` from a source URL, you may instead download that to
-`docs/images/<slug>.webp` and set `hero:` by hand. Don't invent a photo if neither is
+Either way, once `docs/images/<slug>.webp` exists, run `npm run og` to make its JPEG
+link-preview image (used by the `/r/<slug>/` share page so iMessage/Slack unfurl with
+the dish photo), then rebuild. Don't invent a photo if neither a source nor AI image is
 available — the placeholder card looks intentional.
 
 ## 5. Show & commit

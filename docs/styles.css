@@ -281,7 +281,7 @@ a { color: var(--accent); }
 }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 
-.reader-stage { perspective: 2400px; width: min(940px, 100%); max-height: 92vh; }
+.reader-stage { position: relative; perspective: 2400px; width: min(940px, 100%); max-height: 92vh; }
 .spread {
   background: var(--card);
   border: 1px solid var(--rule);
@@ -291,10 +291,10 @@ a { color: var(--accent); }
   overflow-y: auto;
   transform-origin: left center;
 }
-.spread.flip-next { animation: flip-next 0.5s var(--ease); }
-.spread.flip-prev { animation: flip-prev 0.5s var(--ease); }
-@keyframes flip-next { from { transform: rotateY(-14deg); opacity: 0.2; } to { transform: none; opacity: 1; } }
-@keyframes flip-prev { from { transform: rotateY(14deg); opacity: 0.2; } to { transform: none; opacity: 1; } }
+.spread.flip-next { animation: flip-next 0.45s cubic-bezier(0.33, 0, 0.25, 1); }
+.spread.flip-prev { animation: flip-prev 0.45s cubic-bezier(0.33, 0, 0.25, 1); }
+@keyframes flip-next { from { transform: rotateY(-28deg); opacity: 0.4; } to { transform: none; opacity: 1; } }
+@keyframes flip-prev { from { transform: rotateY(28deg); opacity: 0.4; } to { transform: none; opacity: 1; } }
 
 .reader-close, .reader-nav {
   position: fixed; z-index: 60;
@@ -306,9 +306,10 @@ a { color: var(--accent); }
 }
 .reader-close { top: 20px; right: 22px; width: 42px; height: 42px; font-size: 17px; }
 .reader-share {
-  position: fixed; z-index: 60; top: 20px; left: 22px; height: 42px;
-  display: flex; align-items: center; gap: 6px; padding: 0 16px;
+  position: absolute; z-index: 5; top: 14px; right: 14px; height: 36px;
+  display: flex; align-items: center; gap: 6px; padding: 0 14px;
   background: var(--card); color: var(--ink); border: 1px solid var(--rule); border-radius: 100px;
+  box-shadow: 0 2px 12px -3px rgba(28, 24, 22, 0.6);
   cursor: pointer; font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.01em;
   transition: background 0.15s, color 0.15s;
 }
@@ -523,7 +524,7 @@ a { color: var(--accent); }
   .reader-nav { width: 40px; height: 40px; font-size: 22px; bottom: 18px; top: auto; transform: none; }
   .reader-prev { left: 14px; } .reader-next { right: 14px; }
   .reader-close { top: 12px; right: 12px; }
-  .reader-share { top: 12px; left: 12px; padding: 0 12px; font-size: 12px; }
+  .reader-share { top: 12px; right: 60px; padding: 0 12px; font-size: 12px; height: 34px; }
   .shoplist { padding: 0; }
   .shoplist-panel { width: 100%; height: 100%; max-height: 100%; border-radius: 0; border: none; }
   .shopbar { bottom: 18px; }

@@ -154,9 +154,12 @@ granular `course`), Method, Time, Heat, and Cuisine (with umbrellas), plus searc
 - **Garden herbs/produce:** thyme, rosemary, cilantro, mint, basil, lavender, arugula,
   habanero, serrano, jalapeño, tomatoes, cucumber. Reference these in a
   "From the garden" extra when they fit.
-- **They do NOT eat:** duck, lamb, turkey, pork, or shellfish. Never author a recipe
-  centered on these. If a source dish uses shellfish (e.g. scallops/shrimp), swap to a
-  fish or vegetable. (`pork`/`seafood` remain in the vocab only for completeness.)
+- **Dietary:** Neither Stephen nor Lauren eats duck, lamb, turkey, or pork — never
+  author a recipe centered on those. **Shellfish belongs in the cookbook:** Lauren
+  eats it, Stephen does not. So keep and add shellfish recipes — do NOT strip shellfish
+  out — but when a dish is built around shellfish, note an easy fish/vegetable swap in a
+  tip so Stephen can eat it too. (`pork` stays in the vocab only for completeness;
+  `seafood` is fully in play.)
 - Cooking is usually **dinner for two**.
 
 ## Adding a recipe
