@@ -118,6 +118,32 @@ ingredient that became a YAML map because of an unquoted colon), fix the named f
 rebuild until clean. If your change touches site logic (not just recipe data), add or
 update tests in `test/` per `CLAUDE.md` before committing.
 
+## 3.5 Nutrition — teach the database any new ingredients
+
+Each card shows an estimated per-serving **Nutrition** panel, computed at build time from
+`data/nutrition.json` (an ingredient DB keyed by each item's *smallest divisible unit*).
+You do **not** add a `nutrition:` field to the recipe — but if your recipe uses an
+ingredient the DB has never seen, you must add it, or that ingredient is silently dropped
+from the estimate. The build prints a `⚠ Nutrition:` warning listing anything missing.
+
+1. After building, run the coverage report:
+   ```bash
+   npm run nutrition -- <slug>     # this recipe's numbers + any unmatched ingredients
+   npm run nutrition               # (or the whole-cookbook list)
+   ```
+2. For each **unmatched** ingredient, look up its nutrition online (USDA FoodData Central
+   is the gold standard; a manufacturer label works for branded items). Use **WebSearch /
+   WebFetch**.
+3. Add an entry to `data/nutrition.json` storing the values for the ingredient's **smallest
+   divisible unit** (a single shrimp, a teaspoon of a spice, a fluid ounce of a liqueur),
+   following the schema and unit conventions in `CLAUDE.md` (→ *Nutrition*). Give it
+   sensible `aliases` (including an ASCII alias for any accented name), a `density` if it's
+   ever measured by volume, and an `each` (grams/piece) if recipes count it by piece.
+   Sanity-check that `kcal ≈ 4·protein + 4·carb + 9·fat` (alcohol reads higher).
+4. Rebuild (`npm run build`) and re-run `npm run nutrition` until the recipe is **high**
+   confidence with no unmatched ingredients (a stray garnish like a whole pie pumpkin that
+   would double-count is fine to leave out). Commit `data/nutrition.json` alongside the rest.
+
 ## 4. Photo (standard step — every card gets one)
 
 A photo is **part of adding a recipe**, not an afterthought — generate one so the card never

@@ -6,7 +6,7 @@ import {
   esc, inlineMd, cap, fmtMin, VEG,
   scaleDisplay, classify, clampServes,
   buildShoppingList, formatShoppingList, recipeMatches, cuisineChipValues, shopSectionsForRecipe,
-  hashForKind, parseHash,
+  hashForKind, parseHash, nutritionPanelHtml,
 } from './lib.js';
 
 const state = {
@@ -510,6 +510,7 @@ function spreadHtml(r) {
       </div>
       ${headnote}
       ${source}
+      ${nutritionPanelHtml(r)}
     </div>
     </div>`;
 }

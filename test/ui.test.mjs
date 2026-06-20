@@ -270,6 +270,31 @@ test('in-recipe "Add to list" button toggles selection and syncs the grid card',
   assert.equal($('#reader-cart').hidden, true, 'in-reader cart hides when the list empties');
 });
 
+test('the reader shows a collapsed per-serving nutrition panel at the bottom', async () => {
+  const { $, $$ } = await boot();
+  const card = $$('.card').find((c) => c.dataset.slug === 'blackened-steak-salad') || $$('.card')[0];
+  card.click();
+  const panel = $('#spread .nutrition');
+  assert.ok(panel, 'a .nutrition panel renders in the spread');
+  assert.equal(panel.tagName.toLowerCase(), 'details', 'it is a collapsible <details>');
+  assert.ok(!panel.open, 'collapsed by default — only seen if you look for it');
+  // It sits at the very bottom of the spread body.
+  const kids = [...$('#spread .spread-inner').children];
+  assert.equal(kids[kids.length - 1], panel, 'nutrition is the last block in the spread');
+  // Summary shows a calorie figure; the open panel lists macros with %DV.
+  assert.match($('#spread .nutrition-kcal').textContent, /\d+\s*cal/);
+  const labels = $$('#spread .nutri-name').map((e) => e.textContent);
+  assert.ok(labels.includes('Protein') && labels.includes('Sodium'), 'macros listed');
+  assert.ok($$('#spread .nutri-dv').some((e) => /\d+%/.test(e.textContent)), 'a %DV figure shows');
+});
+
+test('drinks also get a nutrition panel (calories from the spec)', async () => {
+  const { $, $$ } = await boot('https://example.com/#drinks');
+  $$('.card')[0].click();
+  assert.ok($('#spread .nutrition'), 'drinks carry a nutrition estimate too');
+  assert.match($('#spread .nutrition-kcal').textContent, /\d+\s*cal/);
+});
+
 test('filters narrow the menu', async () => {
   const { $, $$, app } = await boot();
   const before = $$('.card').length;

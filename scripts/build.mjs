@@ -11,6 +11,7 @@ import {
   BASE_META, FAMILY_META, STRENGTH_META,
 } from './lib/schema.mjs';
 import { recipeStubHtml, ogImageUrl } from './lib/stub.mjs';
+import { loadDb, buildIndex, recipeNutrition } from './lib/nutrition.mjs';
 
 // Absolute site URL, used for canonical + Open Graph image links in the share pages.
 const SITE = (process.env.SITE_URL || 'https://smj10j.github.io/cookbook').replace(/\/+$/, '');
@@ -45,6 +46,31 @@ if (errors.length) {
   for (const e of errors) console.error('  ' + e);
   console.error('\nFix the recipe files above and re-run `npm run build`.\n');
   process.exit(1);
+}
+
+// Estimate per-serving nutrition for every recipe from the ingredient database
+// (data/nutrition.json), baking it into the feed so the site renders without any
+// runtime lookup. Unmatched ingredients are collected and reported (non-fatal) so
+// the add-recipe/add-drink skills know what to add to the database next.
+const nutritionDb = loadDb(join(root, 'data', 'nutrition.json'));
+const nutritionIndex = buildIndex(nutritionDb);
+const unmatchedAll = new Map(); // ingredient name -> count of recipes missing it
+for (const r of recipes) {
+  const nut = recipeNutrition(r, nutritionDb, nutritionIndex);
+  r.nutrition = {
+    perServing: nut.perServing,
+    confidence: nut.confidence,
+    matched: nut.matched,
+    considered: nut.considered,
+  };
+  for (const name of nut.unmatched) unmatchedAll.set(name, (unmatchedAll.get(name) || 0) + 1);
+}
+if (unmatchedAll.size) {
+  const sorted = [...unmatchedAll.entries()].sort((a, b) => b[1] - a[1]);
+  console.warn(`\n⚠ Nutrition: ${unmatchedAll.size} ingredient(s) not in data/nutrition.json (skipped in the estimate):`);
+  for (const [name, n] of sorted.slice(0, 40)) console.warn(`  · ${name}${n > 1 ? ` (×${n})` : ''}`);
+  if (sorted.length > 40) console.warn(`  …and ${sorted.length - 40} more. Run \`npm run nutrition\` for the full list.`);
+  console.warn('');
 }
 
 // Build the facet index so the site can render filter dropdowns without recomputing.

@@ -311,6 +311,91 @@ export function recipeMatches(r, { q, filters, cuisineGroups = {}, timeBuckets =
   return true;
 }
 
+// ── nutrition (per-serving estimate + %DV) ───────────────────────────────────
+// FDA Daily Values (2,000-calorie reference) used to express each nutrient as a
+// percentage of recommended daily intake. `sugar` has no official total-sugars
+// DV, so we reference the 50 g added-sugars value as a sensible yardstick.
+export const DAILY_VALUES = {
+  kcal: 2000, fat: 78, satfat: 20, sodium: 2300, carb: 275, fiber: 28, sugar: 50, protein: 50,
+};
+
+// Display order + formatting for the nutrition panel. `dv` keys into DAILY_VALUES;
+// `indent` marks a nutrient nested under the row above it (Sat. Fat under Fat).
+export const NUTRIENT_DISPLAY = [
+  { key: 'kcal', label: 'Calories', unit: '', decimals: 0 },
+  { key: 'fat', label: 'Total Fat', unit: 'g', decimals: 1 },
+  { key: 'satfat', label: 'Saturated Fat', unit: 'g', decimals: 1, indent: true },
+  { key: 'sodium', label: 'Sodium', unit: 'mg', decimals: 0 },
+  { key: 'carb', label: 'Total Carbohydrate', unit: 'g', decimals: 1 },
+  { key: 'fiber', label: 'Dietary Fiber', unit: 'g', decimals: 1, indent: true },
+  { key: 'sugar', label: 'Sugars', unit: 'g', decimals: 1, indent: true },
+  { key: 'protein', label: 'Protein', unit: 'g', decimals: 1 },
+];
+
+// Percent of the Daily Value for a nutrient amount (rounded integer, or null if
+// there's no reference value to compare against).
+export function pctOfDV(key, value) {
+  const dv = DAILY_VALUES[key];
+  if (!dv || value == null) return null;
+  return Math.round((value / dv) * 100);
+}
+
+const fmtAmount = (v, decimals) => {
+  if (v == null) return '0';
+  const r = decimals ? Math.round(v * 10 ** decimals) / 10 ** decimals : Math.round(v);
+  return String(r);
+};
+
+// Turn a recipe's stored nutrition into display rows:
+//   { key, label, indent, amount: "12.3g", pct: 18 | null }
+export function nutritionRows(r) {
+  const per = r?.nutrition?.perServing;
+  if (!per) return [];
+  return NUTRIENT_DISPLAY.map((d) => ({
+    key: d.key,
+    label: d.label,
+    indent: !!d.indent,
+    amount: fmtAmount(per[d.key], d.decimals) + d.unit,
+    pct: pctOfDV(d.key, per[d.key]),
+  }));
+}
+
+// True when a recipe has a usable nutrition estimate to show.
+export function hasNutrition(r) {
+  return !!(r?.nutrition?.perServing && r.nutrition.confidence !== 'none');
+}
+
+// The collapsed nutrition panel, rendered at the very bottom of a spread. Built
+// here (pure) so it can be unit-tested; app.js just drops the string in.
+export function nutritionPanelHtml(r) {
+  if (!hasNutrition(r)) return '';
+  const rows = nutritionRows(r);
+  const n = r.nutrition;
+  const kcal = rows.find((x) => x.key === 'kcal');
+  const body = rows.map((x) => `
+        <div class="nutri-row${x.indent ? ' is-sub' : ''}">
+          <span class="nutri-name">${esc(x.label)}</span>
+          <span class="nutri-amt">${esc(x.amount)}</span>
+          <span class="nutri-dv">${x.pct == null ? '' : esc(x.pct + '%')}</span>
+        </div>`).join('');
+  // A short caveat when coverage is thin, so the estimate is never oversold.
+  const note = n.confidence === 'high'
+    ? 'Estimated from ingredients — per serving.'
+    : `Rough estimate — ${n.matched} of ${n.considered} ingredients matched.`;
+  return `
+    <details class="nutrition">
+      <summary class="nutrition-summary">
+        <span class="nutrition-label">Nutrition <span class="nutrition-est">(estimated, per serving)</span></span>
+        <span class="nutrition-kcal">${kcal ? esc(kcal.amount) : ''} cal</span>
+      </summary>
+      <div class="nutrition-panel">
+        <div class="nutri-head"><span>Amount per serving · serves ${esc(r.serves)}</span><span class="nutri-dv-head">% DV*</span></div>
+        ${body}
+        <p class="nutrition-note">${esc(note)} <span class="nutrition-foot">*Percent of a 2,000-calorie daily value.</span></p>
+      </div>
+    </details>`;
+}
+
 // ── routing (hash <-> app route) ─────────────────────────────────────────────
 // Recipes are addressed as '#/<slug>'. The Food/Drinks tabs get their own hash
 // ('#food' / '#drinks') so a tab choice survives a refresh and is shareable.
