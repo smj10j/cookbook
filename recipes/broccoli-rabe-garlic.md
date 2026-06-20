@@ -11,7 +11,7 @@ pitch: >-
   and it tastes like a great Italian restaurant side.
   *Brown the garlic and lift it out before the greens go in — returning it at the end
   keeps it nutty instead of bitter.*
-serves: 6
+serves: 2
 times:
   prep: 10
   cook: 15
@@ -31,15 +31,15 @@ tags:
   - italian
   - quick
 ingredients:
-  - 2 bunches broccoli rabe
-  - 3 tbsp good olive oil
-  - 6 large garlic cloves, sliced
-  - ½ tsp crushed red pepper flakes
-  - 2 tsp kosher salt
-  - ½ tsp freshly ground black pepper
+  - 1 bunch broccoli rabe
+  - 1 tbsp good olive oil
+  - 2 large garlic cloves, sliced
+  - ¼ tsp crushed red pepper flakes
+  - ¾ tsp kosher salt
+  - ¼ tsp freshly ground black pepper
 steps:
   - Rinse the broccoli rabe in a colander and drain well. Cut off and discard the tough ends, then cut the rest into 2-inch pieces.
-  - Heat the olive oil in a large pot and add the garlic. Cook over low heat, stirring occasionally, for 4 to 6 minutes, until golden brown. Remove the garlic with a slotted spoon and set aside.
+  - Heat the olive oil in a large skillet and add the garlic. Cook over low heat, stirring occasionally, for 4 to 6 minutes, until golden brown. Remove the garlic with a slotted spoon and set aside.
   - Add the broccoli rabe to the hot oil along with the red pepper flakes, salt, and pepper. Cook, covered, over medium-to-low heat for 5 to 10 minutes, turning occasionally with tongs, until the stalks are tender but still al dente.
   - Add the reserved garlic back in, check the seasoning, and serve hot.
 tips:

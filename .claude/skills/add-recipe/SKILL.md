@@ -67,6 +67,13 @@ Key obligations (full spec in `CLAUDE.md`):
   rice/bean sides. This drives the site's Main/Side "Course" filter.
 - **times**: realistic `prep`/`cook`/`total` in minutes (total may exceed prep+cook
   for marinating/chilling — call that out in the pitch or a tip).
+- **serves**: default to **2** (dinner for two) and rescale a source recipe's ingredient
+  quantities to serve 2 for a normal plated dish. BUT keep a larger natural yield for true
+  batch recipes — a casserole, a pot of soup made for leftovers, a dozen deviled eggs, a jar
+  of salsa, a snack mix. When the source specifies something other than 2, or the dish is
+  naturally a bigger batch, **don't silently pick**: recommend the serving size you think
+  fits (e.g. "this soup is great to batch — keep it at 8?") and let Stephen choose with
+  **AskUserQuestion**, then scale the quantities to his choice.
 - **Chef's tips**: ALWAYS add 2–4. If the source has none, contribute your own real,
   useful ones. This is a house rule.
 - **extras**: variations, pairings, make-ahead, and a "From the garden" note when the

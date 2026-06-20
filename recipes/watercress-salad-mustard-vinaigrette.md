@@ -10,7 +10,7 @@ pitch: >-
   counterpoint to anything rich coming off the grill or out of the oven.
   *Dress it the moment before serving — watercress is delicate and turns from peppery to
   limp fast.*
-serves: 4
+serves: 2
 times:
   prep: 10
   cook: 0
@@ -31,10 +31,10 @@ tags:
   - side
   - spring
 ingredients:
-  - 2 small bunches watercress, tough stems trimmed (about 10 cups)
-  - 2 tbsp Dijon mustard
-  - 1 tbsp best-quality red wine vinegar
-  - ¼ cup olive oil
+  - 1 small bunch watercress, tough stems trimmed (about 5 cups)
+  - 1 tbsp Dijon mustard
+  - 1½ tsp best-quality red wine vinegar
+  - 2 tbsp olive oil
   - ½ small garlic clove, finely grated
   - Kosher salt and freshly ground black pepper
 steps:

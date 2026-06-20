@@ -10,7 +10,7 @@ pitch: >-
   silky chard with frizzled edges. It's the side that quietly steals the plate.
   *Massaging the warm oil in is the move — it seasons and softens the greens before
   the grill ever touches them.*
-serves: 4
+serves: 2
 times:
   prep: 10
   cook: 10
@@ -33,15 +33,15 @@ tags:
   - quick
   - grill
 ingredients:
-  - 4 garlic cloves, thinly sliced
-  - ¼ cup olive oil
-  - ½ tsp crushed red pepper flakes
-  - ½ tsp kosher salt, plus more
+  - 2 garlic cloves, thinly sliced
+  - 2 tbsp olive oil
+  - ¼ tsp crushed red pepper flakes
+  - ¼ tsp kosher salt, plus more
   - Freshly ground black pepper
-  - 2 large bunches Swiss chard (or Tuscan kale), tough stems trimmed
+  - 1 large bunch Swiss chard (or Tuscan kale), tough stems trimmed
 steps:
   - Prepare a grill for medium-high heat.
-  - Bring the garlic, olive oil, red pepper flakes, and ½ tsp salt to a boil in a small saucepan over medium heat. Cook until the garlic is golden, then let cool; season with more salt and black pepper.
+  - Bring the garlic, olive oil, red pepper flakes, and ¼ tsp salt to a boil in a small saucepan over medium heat. Cook until the garlic is golden, then let cool; season with more salt and black pepper.
   - Combine the greens and the garlic oil in a large bowl, massaging the oil into the leaves until they're glossy and slightly softened.
   - Grill the greens until lightly charred and tender, about 1 minute per side. Pile onto a platter and spoon over any oil and garlic left in the bowl.
 tips:

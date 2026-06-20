@@ -127,6 +127,12 @@ function bindEvents() {
   $('#shoplist-body').addEventListener('change', updateSummary);
   $('#reader-close').addEventListener('click', closeReader);
   $('#reader-share').addEventListener('click', shareCurrentRecipe);
+  $('#spread').addEventListener('click', (e) => {
+    const sel = e.target.closest('.spread-select');
+    if (!sel) return;
+    e.stopPropagation();
+    toggleSelect(sel.dataset.select);
+  });
   $('#reader-prev').addEventListener('click', () => flip(-1));
   $('#reader-next').addEventListener('click', () => flip(1));
   $('#reader').addEventListener('click', (e) => { if (e.target === $('#reader')) closeReader(); });
@@ -240,17 +246,34 @@ function renderSpread(dir) {
   const { list, index } = state.reader;
   const r = list[index];
   const stage = $('#spread');
+  const animate = dir !== 0 && typeof matchMedia === 'function'
+    && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const outgoing = animate ? stage.innerHTML : null;   // snapshot the page we're leaving
   stage.innerHTML = spreadHtml(r);
   $('#reader-prev').disabled = index <= 0;
   $('#reader-next').disabled = index >= list.length - 1;
   const scroller = stage.querySelector('.spread-scroll');
   if (scroller) scroller.scrollTop = 0;
-  if (dir !== 0 && typeof matchMedia === 'function' && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const cls = dir > 0 ? 'flip-next' : 'flip-prev';
-    stage.classList.remove('flip-next', 'flip-prev');
-    void stage.offsetWidth; // reflow to restart animation
-    stage.classList.add(cls);
-  }
+  if (animate) turnPage(outgoing, dir);
+}
+
+// A real page-turn: the page we just left is cloned into a "leaf" that lifts and rotates
+// away around the spine (right edge swings toward you going forward; left edge going back),
+// revealing the new page already sitting flat beneath it. A sweeping shade darkens the
+// leaf as it turns. The live #spread never animates — only this throwaway leaf does — so
+// the mobile-WebKit "snap to final frame" bug (animating an overflow:auto layer) can't bite.
+function turnPage(outgoingHtml, dir) {
+  const stage = $('#spread');
+  const book = stage.parentElement;                     // .reader-stage (perspective layer)
+  book.querySelectorAll('.turn-leaf').forEach((l) => l.remove());   // never stack leaves
+  const leaf = document.createElement('div');
+  leaf.className = `spread turn-leaf ${dir > 0 ? 'turn-next' : 'turn-prev'}`;
+  leaf.setAttribute('aria-hidden', 'true');
+  leaf.innerHTML = `${outgoingHtml}<div class="turn-shade" aria-hidden="true"></div>`;
+  book.appendChild(leaf);
+  const done = () => leaf.remove();
+  leaf.addEventListener('animationend', done, { once: true });
+  setTimeout(done, 1100);                               // fallback if animationend never fires
 }
 
 function sectionsHtml(sections, kind) {
@@ -267,9 +290,17 @@ function spreadHtml(r) {
         <div class="placeholder-sub">${esc(r.cuisine)} · ${esc(cap(r.course))}</div></div>`;
   const heroInner = r.hero
     ? `<img src="${esc(r.hero)}" alt="${esc(r.title)}"
-         onerror="this.closest('.spread-hero').innerHTML = this.dataset.fallback"
+         onerror="this.outerHTML = this.dataset.fallback"
          data-fallback='${heroPlaceholder.replace(/'/g, '&#39;')}' />`
     : heroPlaceholder;
+
+  const picked = state.selected.has(r.slug);
+  const selectBtn = `<button class="spread-select" type="button" data-select="${esc(r.slug)}"
+      aria-pressed="${picked}" aria-label="${picked ? 'Remove' : 'Add'} ${esc(r.title)} ${picked ? 'from' : 'to'} the shopping list"
+      title="Add to shopping list">
+      <span class="spread-select-check" aria-hidden="true">✓</span>
+      <span class="spread-select-label">${picked ? 'On the list' : 'Add to list'}</span>
+    </button>`;
 
   const chips = [
     `<span class="schip${VEG.has(r.protein) ? ' is-veg' : ''}">${esc(M.protein[r.protein]?.label || r.protein)}</span>`,
@@ -297,7 +328,7 @@ function spreadHtml(r) {
 
   return `
     <div class="spread-scroll">
-    <div class="spread-hero">${heroInner}</div>
+    <div class="spread-hero">${heroInner}${selectBtn}</div>
     <div class="spread-inner">
       <p class="spread-kicker">${esc(r.cuisine)} · ${esc(cap(r.course))}</p>
       <h2 class="spread-title">${esc(r.title)}</h2>
@@ -346,16 +377,25 @@ function shareCurrentRecipe() {
 
 // ── shopping list ────────────────────────────────────────────────────────────
 function toggleSelect(slug) {
-  if (state.selected.has(slug)) state.selected.delete(slug);
-  else state.selected.add(slug);
+  const picked = !state.selected.has(slug);
+  if (picked) state.selected.add(slug); else state.selected.delete(slug);
   saveSelected();
-  const picked = state.selected.has(slug);
-  const btn = document.querySelector(`.card-select[data-select="${CSS.escape(slug)}"]`);
-  if (btn) {
-    btn.setAttribute('aria-pressed', picked);
-    btn.closest('.card-wrap').classList.toggle('is-selected', picked);
-  }
+  reflectSelection(slug, picked);
   renderShopbar();
+}
+
+// Keep every control for this recipe in sync — the grid card's ✓ and the in-recipe
+// "Add to list" button can both be on screen, and either can flip the selection.
+function reflectSelection(slug, picked) {
+  document.querySelectorAll(`.card-select[data-select="${CSS.escape(slug)}"]`).forEach((btn) => {
+    btn.setAttribute('aria-pressed', picked);
+    btn.closest('.card-wrap')?.classList.toggle('is-selected', picked);
+  });
+  document.querySelectorAll(`.spread-select[data-select="${CSS.escape(slug)}"]`).forEach((btn) => {
+    btn.setAttribute('aria-pressed', picked);
+    const lbl = btn.querySelector('.spread-select-label');
+    if (lbl) lbl.textContent = picked ? 'On the list' : 'Add to list';
+  });
 }
 
 function renderShopbar() {
@@ -389,6 +429,11 @@ function clearSelection() {
   document.querySelectorAll('.card-wrap.is-selected').forEach((w) => {
     w.classList.remove('is-selected');
     w.querySelector('.card-select')?.setAttribute('aria-pressed', 'false');
+  });
+  document.querySelectorAll('.spread-select[aria-pressed="true"]').forEach((b) => {
+    b.setAttribute('aria-pressed', 'false');
+    const lbl = b.querySelector('.spread-select-label');
+    if (lbl) lbl.textContent = 'Add to list';
   });
   renderShopbar();
   closeShopList();

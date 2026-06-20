@@ -73,7 +73,7 @@ title: ★ Proper dish name — descriptive, appetizing. NOT "Steak Salad Ideas"
 slug: ★ lowercase-kebab-case, must equal the filename without .md
 tagline: ★ one sentence, ~8–14 words, the elevator pitch
 pitch: ★ 3–5 sentence editorial sales pitch (see Voice). Use one *italic* "money line".
-serves: ★ integer
+serves: ★ integer — default 2 (cooking is dinner for two); rescale a source's quantities to 2 for a normal plated dish. KEEP a larger natural yield for true batch recipes (a casserole, a pot of soup meant for leftovers, a dozen deviled eggs, a jar of salsa, a snack mix). When a source says other than 2 or the natural yield is larger, recommend a size and let Stephen choose — don't silently pick.
 times: ★ { prep: <min>, cook: <min>, total: <min> }   # total may exceed prep+cook (marinating, chilling)
 difficulty: ★ easy | medium | advanced
 protein: ★ beef | chicken | fish | seafood | vegetarian | vegan | pork   # primary lane, pick ONE

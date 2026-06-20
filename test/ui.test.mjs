@@ -170,20 +170,49 @@ test('reader Share button copies the /r/<slug>/ preview link', async () => {
   assert.ok(copied && copied.endsWith(`/r/${slug}/`), `share link should end with /r/${slug}/ (got ${copied})`);
 });
 
-test('REGRESSION: flip animates a non-scrolling layer (mobile page-turn snap)', async () => {
+test('REGRESSION: flip animates a throwaway leaf, never the live scroll layer', async () => {
   const { $, $$ } = await boot();
   $$('.card')[0].click();
   assert.equal($('#reader').hidden, false);
-  // Scrolling must live on an inner wrapper, NOT on the animated #spread element —
-  // animating a transform on the scroll container makes mobile WebKit snap to the
-  // final frame instead of playing the 0.5s page-turn.
+  // Scrolling must live on an inner wrapper, NOT on the animated element — animating a
+  // transform on an overflow:auto layer makes mobile WebKit snap to the final frame
+  // instead of playing the page-turn.
   const scroller = $('#spread .spread-scroll');
   assert.ok(scroller, 'spread content is wrapped in a .spread-scroll layer');
   assert.ok(scroller.querySelector('.spread-hero'), 'hero lives inside the scroller');
   assert.ok(scroller.querySelector('.spread-inner'), 'body lives inside the scroller');
-  // A forward flip tags the (non-scrolling) spread with the page-turn animation.
+  // A forward flip clones the OUTGOING page into a throwaway .turn-leaf that animates,
+  // while the live #spread (the new page) is never animated — that separation is what
+  // keeps mobile WebKit from snapping.
   $('#reader-next').click();
-  assert.ok($('#spread').classList.contains('flip-next'), 'flip-next animation applied');
+  const leaf = $('.reader-stage .turn-leaf');
+  assert.ok(leaf, 'a turning leaf is created on flip');
+  assert.ok(leaf.classList.contains('turn-next'), 'forward turn direction class applied');
+  assert.ok(leaf.querySelector('.spread-scroll'), 'leaf carries the page it is turning away from');
+  assert.ok(!$('#spread').classList.contains('turn-leaf'), 'the live spread itself never animates');
+  assert.ok($('#spread .spread-scroll'), 'the live spread shows the new page');
+});
+
+test('in-recipe "Add to list" button toggles selection and syncs the grid card', async () => {
+  const { $, $$, app } = await boot();
+  const card = $$('.card').find((c) => c.dataset.slug === 'blackened-steak-salad') || $$('.card')[0];
+  const slug = card.dataset.slug;
+  card.click();
+  assert.equal($('#reader').hidden, false);
+  const btn = $('#spread .spread-select');
+  assert.ok(btn, 'the spread hero has an Add-to-list button');
+  assert.equal(btn.getAttribute('aria-pressed'), 'false', 'starts unselected');
+  btn.click();
+  assert.ok(app.state.selected.has(slug), 'recipe added to the shopping selection');
+  assert.equal(btn.getAttribute('aria-pressed'), 'true');
+  assert.equal($('#shopbar').hidden, false, 'shopbar appears');
+  const cardSel = $$('.card-select').find((b) => b.dataset.select === slug);
+  assert.equal(cardSel.getAttribute('aria-pressed'), 'true', 'grid card ✓ kept in sync');
+  assert.ok(cardSel.closest('.card-wrap').classList.contains('is-selected'));
+  btn.click();
+  assert.ok(!app.state.selected.has(slug), 'toggles back off');
+  assert.equal(btn.getAttribute('aria-pressed'), 'false');
+  assert.equal(cardSel.getAttribute('aria-pressed'), 'false', 'grid card un-synced too');
 });
 
 test('filters narrow the menu', async () => {

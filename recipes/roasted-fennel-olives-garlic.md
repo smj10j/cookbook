@@ -11,7 +11,7 @@ pitch: >-
   asks almost nothing of you.
   *Leave a little core on each wedge so the layers stay together, then don't move them —
   that undisturbed contact is what gives you those deep-caramelized faces.*
-serves: 4
+serves: 2
 times:
   prep: 15
   cook: 40
@@ -31,12 +31,12 @@ tags:
   - roasted
   - make-ahead
 ingredients:
-  - 2 large fennel bulbs (about 1½ lb), trimmed and cut into ¾-inch wedges through the core
-  - 6 garlic cloves, smashed and peeled
-  - ⅔ cup pitted Kalamata or oil-cured black olives
-  - 3 tbsp extra-virgin olive oil
-  - ½ tsp kosher salt
-  - ¼ tsp freshly ground black pepper
+  - 1 large fennel bulb (about ¾ lb), trimmed and cut into ¾-inch wedges through the core
+  - 3 garlic cloves, smashed and peeled
+  - ⅓ cup pitted Kalamata or oil-cured black olives
+  - 1½ tbsp extra-virgin olive oil
+  - ¼ tsp kosher salt
+  - ⅛ tsp freshly ground black pepper
   - Reserved fennel fronds and a squeeze of lemon, for serving (optional)
 steps:
   - Preheat the oven to 425°F.
