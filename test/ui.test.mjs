@@ -205,7 +205,9 @@ test('in-recipe "Add to list" button toggles selection and syncs the grid card',
   btn.click();
   assert.ok(app.state.selected.has(slug), 'recipe added to the shopping selection');
   assert.equal(btn.getAttribute('aria-pressed'), 'true');
-  assert.equal($('#shopbar').hidden, false, 'shopbar appears');
+  assert.equal($('#shopbar').hidden, false, 'corner cart FAB appears');
+  assert.equal($('#reader-cart').hidden, false, 'in-reader cart appears');
+  assert.equal($('#reader-cart-count').textContent, '1', 'in-reader cart shows the count');
   const cardSel = $$('.card-select').find((b) => b.dataset.select === slug);
   assert.equal(cardSel.getAttribute('aria-pressed'), 'true', 'grid card ✓ kept in sync');
   assert.ok(cardSel.closest('.card-wrap').classList.contains('is-selected'));
@@ -213,6 +215,7 @@ test('in-recipe "Add to list" button toggles selection and syncs the grid card',
   assert.ok(!app.state.selected.has(slug), 'toggles back off');
   assert.equal(btn.getAttribute('aria-pressed'), 'false');
   assert.equal(cardSel.getAttribute('aria-pressed'), 'false', 'grid card un-synced too');
+  assert.equal($('#reader-cart').hidden, true, 'in-reader cart hides when the list empties');
 });
 
 test('filters narrow the menu', async () => {

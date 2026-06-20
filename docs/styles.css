@@ -318,39 +318,82 @@ a { color: var(--accent); }
   will-change: transform;
 }
 .turn-leaf .spread-scroll { overflow: hidden; }      /* the leaf is a frozen snapshot */
-.turn-leaf.turn-next { transform-origin: left center;  animation: turn-next 0.82s cubic-bezier(0.62, 0.02, 0.32, 1) forwards; }
-.turn-leaf.turn-prev { transform-origin: right center; animation: turn-prev 0.82s cubic-bezier(0.62, 0.02, 0.32, 1) forwards; }
-@keyframes turn-next { from { transform: rotateY(0); } to { transform: rotateY(-118deg); } }
-@keyframes turn-prev { from { transform: rotateY(0); } to { transform: rotateY(118deg); } }
-/* a soft shadow that sweeps across the page as it tips up and away */
+.turn-leaf.turn-next { transform-origin: left center;  animation: turn-next 1.05s cubic-bezier(0.55, 0.04, 0.30, 1) forwards; }
+.turn-leaf.turn-prev { transform-origin: right center; animation: turn-prev 1.05s cubic-bezier(0.55, 0.04, 0.30, 1) forwards; }
+/* A touch of skew mid-turn bends the leaf like a real sheet rather than a rigid panel. */
+@keyframes turn-next {
+  0%   { transform: rotateY(0deg) skewY(0deg); }
+  45%  { transform: rotateY(-58deg) skewY(1.8deg); }
+  100% { transform: rotateY(-106deg) skewY(0deg); }
+}
+@keyframes turn-prev {
+  0%   { transform: rotateY(0deg) skewY(0deg); }
+  45%  { transform: rotateY(58deg) skewY(-1.8deg); }
+  100% { transform: rotateY(106deg) skewY(0deg); }
+}
+/* Shadow + a moving highlight: light rakes across the curved sheet (the bulge catches it,
+   the curling edge falls into shadow) so the page reads as bending, not just rotating. */
 .turn-shade { position: absolute; inset: 0; pointer-events: none; opacity: 0; }
-.turn-leaf.turn-next .turn-shade { background: linear-gradient(90deg, rgba(20, 16, 12, 0) 38%, rgba(20, 16, 12, 0.34)); animation: turn-shade 0.82s ease-in forwards; }
-.turn-leaf.turn-prev .turn-shade { background: linear-gradient(270deg, rgba(20, 16, 12, 0) 38%, rgba(20, 16, 12, 0.34)); animation: turn-shade 0.82s ease-in forwards; }
-@keyframes turn-shade { 0% { opacity: 0; } 72% { opacity: 1; } 100% { opacity: 0; } }
+.turn-leaf.turn-next .turn-shade {
+  background:
+    linear-gradient(90deg, rgba(255, 250, 240, 0) 50%, rgba(255, 250, 240, 0.24) 74%, rgba(255, 250, 240, 0) 90%),
+    linear-gradient(90deg, rgba(20, 16, 12, 0) 28%, rgba(20, 16, 12, 0.46) 100%);
+  animation: turn-shade 1.05s ease-in forwards;
+}
+.turn-leaf.turn-prev .turn-shade {
+  background:
+    linear-gradient(270deg, rgba(255, 250, 240, 0) 50%, rgba(255, 250, 240, 0.24) 74%, rgba(255, 250, 240, 0) 90%),
+    linear-gradient(270deg, rgba(20, 16, 12, 0) 28%, rgba(20, 16, 12, 0.46) 100%);
+  animation: turn-shade 1.05s ease-in forwards;
+}
+@keyframes turn-shade { 0% { opacity: 0; } 70% { opacity: 1; } 100% { opacity: 0; } }
 
-.reader-close, .reader-nav {
-  position: fixed; z-index: 60;
+.reader-close, .reader-nav, .reader-cart {
   background: var(--card); color: var(--ink);
   border: 1px solid var(--rule); border-radius: 100px;
   cursor: pointer; font-family: var(--serif);
   display: flex; align-items: center; justify-content: center;
   transition: transform 0.15s var(--ease), background 0.15s;
 }
-.reader-close { top: 20px; right: 22px; width: 42px; height: 42px; font-size: 17px; }
-.reader-share {
-  position: absolute; z-index: 5; top: 14px; right: 14px; height: 36px;
-  display: flex; align-items: center; gap: 6px; padding: 0 14px;
-  background: var(--card); color: var(--ink); border: 1px solid var(--rule); border-radius: 100px;
-  box-shadow: 0 2px 12px -3px rgba(28, 24, 22, 0.6);
-  cursor: pointer; font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.01em;
-  transition: background 0.15s, color 0.15s;
+/* Close + cart ride ON the recipe (top-right of the spread) — local to what they act on,
+   not pinned to the far viewport corner. They sit above the turning leaf (z 6). The cart
+   is only shown when the list has something in it. */
+.reader-close, .reader-cart { position: absolute; z-index: 7; top: 14px; width: 42px; height: 42px; }
+.reader-close { right: 14px; font-size: 17px; }
+.reader-cart { right: 64px; }
+.reader-cart[hidden] { display: none; }
+.reader-cart-icon { font-size: 18px; line-height: 1; }
+.reader-cart-count {
+  position: absolute; top: -5px; right: -5px;
+  background: var(--accent); color: #fff; font-family: var(--sans);
+  min-width: 18px; height: 18px; padding: 0 5px; border-radius: 100px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 11px; font-variant-numeric: tabular-nums; border: 2px solid var(--card);
 }
+/* Share — a circular icon button at the hero's top-right, with the standard share glyph
+   (one node linked to two). Swaps to a check briefly after copying. */
+.reader-share {
+  position: absolute; z-index: 7; top: 14px; right: 64px;
+  width: 38px; height: 38px; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(247, 241, 227, 0.94); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 50%;
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+  box-shadow: 0 2px 12px -3px rgba(28, 24, 22, 0.6);
+  cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s, right 0.2s var(--ease);
+}
+body.has-cart .reader-share { right: 114px; }   /* make room for the cart between share and ✕ */
+.reader-share svg { width: 17px; height: 17px; }
+.reader-share-icon { display: block; }
+.reader-share-check { display: none; }
 .reader-share:hover { background: var(--accent); color: var(--cream); border-color: var(--accent); }
 .reader-share.copied { background: var(--olive); color: #fff; border-color: var(--olive); }
-.reader-nav { top: 50%; transform: translateY(-50%); width: 52px; height: 52px; font-size: 30px; line-height: 1; }
+.reader-share.copied .reader-share-icon { display: none; }
+.reader-share.copied .reader-share-check { display: block; }
+.reader-nav { position: fixed; z-index: 60; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; font-size: 30px; line-height: 1; }
 .reader-prev { left: 18px; }
 .reader-next { right: 18px; }
-.reader-close:hover, .reader-nav:hover { background: var(--accent); color: var(--cream); }
+.reader-close:hover, .reader-nav:hover, .reader-cart:hover { background: var(--accent); color: var(--cream); }
 .reader-nav:disabled { opacity: 0.25; cursor: default; }
 .reader-nav:disabled:hover { background: var(--card); color: var(--ink); }
 
@@ -424,64 +467,82 @@ a { color: var(--accent); }
 .spread-headnote { margin: 22px 0 0; font-family: var(--serif); font-style: italic; font-size: 15.5px; color: #4a423b; line-height: 1.55; max-width: 64ch; }
 
 /* ░░ CARD SELECTION (shopping list) ░░ */
-.card-wrap { position: relative; display: flex; }
+/* container-type lets the ✓ button anchor to the bottom of the 4:3 hero via cqw units. */
+.card-wrap { position: relative; display: flex; container-type: inline-size; }
 .card-wrap .card { width: 100%; }
+/* Circular "+" at the hero's bottom-right that fills to an accent check once added —
+   parity with the in-recipe button. top derives from the 4:3 visual height (75cqw). */
 .card-select {
-  position: absolute; top: 10px; right: 10px; z-index: 4;
-  width: 30px; height: 30px; border-radius: 50%;
-  border: 1.5px solid var(--rule); background: rgba(247, 241, 227, 0.92);
-  color: transparent; cursor: pointer; font-size: 15px; line-height: 1;
+  position: absolute; right: 12px; z-index: 4;
+  top: calc(75cqw - 44px);
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--rule); background: rgba(247, 241, 227, 0.94);
+  color: var(--ink); cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 2px 8px -3px rgba(28, 24, 22, 0.5);
-  transition: all 0.15s var(--ease);
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+  box-shadow: 0 2px 10px -3px rgba(28, 24, 22, 0.55);
+  transition: background 0.15s var(--ease), color 0.15s var(--ease), border-color 0.15s var(--ease), transform 0.15s var(--ease);
 }
-.card-select:hover { border-color: var(--accent); color: var(--accent); }
+.card-select svg { width: 18px; height: 18px; }
+.card-select-plus { display: block; }
+.card-select-check { display: none; }
+.card-select:hover { border-color: var(--accent); color: var(--accent); transform: scale(1.08); }
 .card-select[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.card-select[aria-pressed="true"] .card-select-plus { display: none; }
+.card-select[aria-pressed="true"] .card-select-check { display: block; }
 .card-wrap.is-selected .card { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-/* In-recipe "Add to list" pill — bottom-right of the spread hero (mobile + desktop) */
+/* In-recipe add-to-list — a circular "+" at the spread hero's bottom-right (mobile +
+   desktop). Fills to an accent check once the recipe is on the list. */
 .spread-select {
   position: absolute; right: 14px; bottom: 14px; z-index: 5;
-  display: inline-flex; align-items: center; gap: 8px;
-  height: 38px; padding: 0 16px 0 11px;
-  border: 1px solid var(--rule); border-radius: 100px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; padding: 0; border-radius: 50%;
+  border: 1px solid var(--rule);
   background: rgba(247, 241, 227, 0.94); color: var(--ink);
   -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
-  font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.01em;
   box-shadow: 0 2px 12px -3px rgba(28, 24, 22, 0.6);
-  cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s;
+  cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
 }
-.spread-select-check {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 18px; height: 18px; border-radius: 50%;
-  border: 1.5px solid currentColor; font-size: 11px; line-height: 1;
-}
-.spread-select:hover { border-color: var(--accent); color: var(--accent); }
+.spread-select svg { width: 21px; height: 21px; }
+.spread-select-plus { display: block; }
+.spread-select-check { display: none; }
+.spread-select:hover { border-color: var(--accent); color: var(--accent); transform: scale(1.05); }
 .spread-select[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
-.spread-select[aria-pressed="true"] .spread-select-check { border-color: #fff; }
+.spread-select[aria-pressed="true"] .spread-select-plus { display: none; }
+.spread-select[aria-pressed="true"] .spread-select-check { display: block; }
 
-/* ░░ FLOATING SHOPPING-LIST BUTTON ░░ */
+/* ░░ FLOATING SHOPPING-CART BUTTON ░░ */
+/* A circular cart FAB pinned to the top-right corner — the standard, findable spot on
+   the home page and over the cards. Only shown once the list has something in it. */
 .shopbar {
-  position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%);
+  position: fixed; top: 16px; right: 16px;
   z-index: 45;
-  display: flex; align-items: center; gap: 9px;
-  font-family: var(--sans); font-size: 15px; font-weight: 600; letter-spacing: 0.01em;
-  color: var(--cream); background: var(--ink);
-  border: none; border-radius: 100px; padding: 13px 22px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px; border-radius: 50%;
+  color: var(--cream); background: var(--ink); border: none;
   box-shadow: 0 14px 36px -12px rgba(28, 24, 22, 0.7);
   cursor: pointer;
-  animation: shopbar-in 0.35s var(--ease);
+  animation: shopbar-in 0.3s var(--ease);
 }
 .shopbar[hidden] { display: none; }
 .shopbar:hover { background: var(--accent); }
-.shopbar-icon { font-size: 17px; }
+.shopbar-icon { font-size: 23px; line-height: 1; }
 .shopbar-count {
+  position: absolute; top: -3px; right: -3px;
   background: var(--accent); color: #fff; font-variant-numeric: tabular-nums;
   min-width: 22px; height: 22px; padding: 0 6px; border-radius: 100px;
-  display: inline-flex; align-items: center; justify-content: center; font-size: 13px;
+  display: inline-flex; align-items: center; justify-content: center; font-size: 12px;
+  border: 2px solid var(--cream);
 }
-.shopbar:hover .shopbar-count { background: var(--cream); color: var(--accent); }
-@keyframes shopbar-in { from { opacity: 0; transform: translate(-50%, 16px); } to { opacity: 1; transform: translate(-50%, 0); } }
+.shopbar:hover .shopbar-count { background: var(--cream); color: var(--accent); border-color: var(--accent); }
+@keyframes shopbar-in { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }
+/* Keep the corner cart FAB from sitting on top of the masthead date where they'd collide
+   (narrower viewports). The date is decorative — hide it (no reflow) only while a cart
+   is showing; on wide screens the cart clears the date, so it stays visible. */
+@media (max-width: 1280px) {
+  body.has-cart .masthead-right { visibility: hidden; }
+}
 
 /* ░░ SHOPPING-LIST OVERLAY ░░ */
 .shoplist[hidden] { display: none; }
@@ -581,13 +642,11 @@ a { color: var(--accent); }
   .reader { padding: 0; }
   .reader-stage { max-height: 100vh; height: 100vh; width: 100%; }
   .spread { max-height: 100vh; border-radius: 0; border: none; }
+  .spread-hero { aspect-ratio: 28 / 15; }   /* ~25% taller on mobile — show more of the photo, no stretch */
   .reader-nav { width: 40px; height: 40px; font-size: 22px; bottom: 18px; top: auto; transform: none; }
   .reader-prev { left: 14px; } .reader-next { right: 14px; }
-  .reader-close { top: 12px; right: 12px; }
-  .reader-share { top: 12px; right: 60px; padding: 0 12px; font-size: 12px; height: 34px; }
   .shoplist { padding: 0; }
   .shoplist-panel { width: 100%; height: 100%; max-height: 100%; border-radius: 0; border: none; }
-  .shopbar { bottom: 18px; }
 }
 
 /* ░░ REDUCED MOTION ░░ */

@@ -112,6 +112,7 @@ function bindEvents() {
   });
   // Shopping list
   $('#shopbar').addEventListener('click', openShopList);
+  $('#reader-cart').addEventListener('click', openShopList);
   $('#shoplist-close').addEventListener('click', closeShopList);
   $('#shoplist').addEventListener('click', (e) => { if (e.target === $('#shoplist')) closeShopList(); });
   $('#shop-serves').addEventListener('input', updateQuantities);
@@ -181,7 +182,10 @@ function cardHtml(r, i) {
   return `
   <div class="card-wrap${picked ? ' is-selected' : ''}">
     <button class="card-select" type="button" data-select="${esc(r.slug)}"
-      aria-pressed="${picked}" aria-label="Add ${esc(r.title)} to shopping list" title="Add to shopping list">✓</button>
+      aria-pressed="${picked}" aria-label="${picked ? 'Remove from' : 'Add to'} shopping list" title="Add to shopping list">
+      <svg class="card-select-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+      <svg class="card-select-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+    </button>
     <button class="card" data-slug="${esc(r.slug)}" style="animation-delay:${Math.min(i * 45, 540)}ms">
       <div class="card-visual">${visualHtml(r, num)}</div>
       <div class="card-body">
@@ -273,7 +277,7 @@ function turnPage(outgoingHtml, dir) {
   book.appendChild(leaf);
   const done = () => leaf.remove();
   leaf.addEventListener('animationend', done, { once: true });
-  setTimeout(done, 1100);                               // fallback if animationend never fires
+  setTimeout(done, 1500);                               // fallback if animationend never fires
 }
 
 function sectionsHtml(sections, kind) {
@@ -296,10 +300,9 @@ function spreadHtml(r) {
 
   const picked = state.selected.has(r.slug);
   const selectBtn = `<button class="spread-select" type="button" data-select="${esc(r.slug)}"
-      aria-pressed="${picked}" aria-label="${picked ? 'Remove' : 'Add'} ${esc(r.title)} ${picked ? 'from' : 'to'} the shopping list"
-      title="Add to shopping list">
-      <span class="spread-select-check" aria-hidden="true">✓</span>
-      <span class="spread-select-label">${picked ? 'On the list' : 'Add to list'}</span>
+      aria-pressed="${picked}" aria-label="${picked ? 'Remove from' : 'Add to'} shopping list" title="Add to shopping list">
+      <svg class="spread-select-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+      <svg class="spread-select-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
     </button>`;
 
   const chips = [
@@ -366,10 +369,9 @@ function shareCurrentRecipe() {
   if (navigator.share) { navigator.share({ title: r.title, url }).catch(() => {}); return; }
   const btn = $('#reader-share');
   const done = () => {
-    btn.classList.add('copied');
-    btn.textContent = 'Link copied ✓';
+    btn.classList.add('copied');              // CSS swaps the share glyph for a check
     clearTimeout(shareCurrentRecipe._t);
-    shareCurrentRecipe._t = setTimeout(() => { btn.classList.remove('copied'); btn.textContent = '🔗 Share'; }, 1800);
+    shareCurrentRecipe._t = setTimeout(() => btn.classList.remove('copied'), 1800);
   };
   if (navigator.clipboard?.writeText) navigator.clipboard.writeText(url).then(done).catch(() => fallbackCopy(url, done));
   else fallbackCopy(url, done);
@@ -389,12 +391,12 @@ function toggleSelect(slug) {
 function reflectSelection(slug, picked) {
   document.querySelectorAll(`.card-select[data-select="${CSS.escape(slug)}"]`).forEach((btn) => {
     btn.setAttribute('aria-pressed', picked);
+    btn.setAttribute('aria-label', picked ? 'Remove from shopping list' : 'Add to shopping list');
     btn.closest('.card-wrap')?.classList.toggle('is-selected', picked);
   });
   document.querySelectorAll(`.spread-select[data-select="${CSS.escape(slug)}"]`).forEach((btn) => {
     btn.setAttribute('aria-pressed', picked);
-    const lbl = btn.querySelector('.spread-select-label');
-    if (lbl) lbl.textContent = picked ? 'On the list' : 'Add to list';
+    btn.setAttribute('aria-label', picked ? 'Remove from shopping list' : 'Add to shopping list');
   });
 }
 
@@ -402,6 +404,10 @@ function renderShopbar() {
   const n = state.selected.size;
   $('#shopbar').hidden = n === 0;
   $('#shopbar-count').textContent = n;
+  document.body.classList.toggle('has-cart', n > 0);   // lets CSS yield the masthead date
+  // In-reader cart (the floating corner cart is hidden behind the reader overlay)
+  const rc = $('#reader-cart');
+  if (rc) { rc.hidden = n === 0; $('#reader-cart-count').textContent = n; }
 }
 
 function syncFormatToggle() {
@@ -432,8 +438,7 @@ function clearSelection() {
   });
   document.querySelectorAll('.spread-select[aria-pressed="true"]').forEach((b) => {
     b.setAttribute('aria-pressed', 'false');
-    const lbl = b.querySelector('.spread-select-label');
-    if (lbl) lbl.textContent = 'Add to list';
+    b.setAttribute('aria-label', 'Add to shopping list');
   });
   renderShopbar();
   closeShopList();

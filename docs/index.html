@@ -51,10 +51,10 @@
     <p>
       <strong>How this works.</strong> Browse the cards below or narrow them with the
       filters — protein, time, method, heat. Tap any card to open the full recipe, then
-      flip left and right through whatever's left after your filters.
+      flip left and right through whatever's left after your filters.<br>
       <strong>Building dinner?</strong> Tap the <span class="howto-check" aria-hidden="true">✓</span>
       on any card — or <em>Add to list</em> on an open recipe — to drop it on your shopping
-      list. A 🛒 button slides up at the bottom to review, scale to your servings, and copy
+      list. A 🛒 cart in the top-right corner lets you review, scale to your servings, and copy
       everything at once. Everything links, too, so you can send Lauren straight to a dish.
     </p>
   </section>
@@ -93,19 +93,30 @@
 
   <!-- ░░ RECIPE FLIPBOOK OVERLAY ░░ -->
   <div class="reader" id="reader" hidden aria-modal="true" role="dialog" aria-label="Recipe">
-    <button class="reader-close" id="reader-close" aria-label="Close recipe">✕</button>
     <button class="reader-nav reader-prev" id="reader-prev" aria-label="Previous recipe">‹</button>
     <button class="reader-nav reader-next" id="reader-next" aria-label="Next recipe">›</button>
     <div class="reader-stage">
-      <button class="reader-share" id="reader-share" aria-label="Copy a shareable link to this recipe">🔗 Share</button>
+      <button class="reader-close" id="reader-close" aria-label="Close recipe">✕</button>
+      <button class="reader-cart" id="reader-cart" hidden aria-haspopup="dialog" aria-label="Open shopping list">
+        <span class="reader-cart-icon" aria-hidden="true">🛒</span>
+        <span class="reader-cart-count" id="reader-cart-count">0</span>
+      </button>
+      <button class="reader-share" id="reader-share" aria-label="Copy a shareable link to this recipe" title="Share this recipe">
+        <svg class="reader-share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+        </svg>
+        <svg class="reader-share-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      </button>
       <article class="spread" id="spread"><!-- recipe spread injected by app.js --></article>
     </div>
   </div>
 
   <!-- ░░ SHOPPING LIST ░░ -->
-  <button class="shopbar" id="shopbar" hidden aria-haspopup="dialog">
+  <button class="shopbar" id="shopbar" hidden aria-haspopup="dialog" aria-label="Open shopping list" title="Shopping list">
     <span class="shopbar-icon" aria-hidden="true">🛒</span>
-    Get Shopping List
     <span class="shopbar-count" id="shopbar-count">0</span>
   </button>
 
@@ -128,8 +139,8 @@
       </div>
       <p class="shoplist-note">
         Quantities scale to your serving count and <strong>identical ingredients are merged</strong>
-        (garlic shows up as bulbs, lemons are estimated from how they're used). <strong>Only checked
-        items are copied.</strong> Pantry staples — salt, oil, sugar, common spices, condiments — start
+        (garlic shows up as bulbs, lemons are estimated from how they're used).<br>
+        <strong>Only checked items are copied.</strong> Pantry staples — salt, oil, sugar, common spices, condiments — start
         unchecked; a <span class="pantry-flag" aria-hidden="true">⚑</span> marks things you likely have.
         Optional items land in their own section at the bottom.
       </p>
