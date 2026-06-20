@@ -336,34 +336,29 @@ a { color: var(--accent); }
    weighty, eased like a real page falling, so it reads as browsing a book. */
 .turn-leaf {
   position: absolute; inset: 0; z-index: 6; margin: 0;
-  pointer-events: none; backface-visibility: hidden; transform-style: preserve-3d;
-  will-change: transform;
+  pointer-events: none; transform-style: preserve-3d; will-change: transform;
 }
 .turn-leaf .spread-scroll { overflow: hidden; }      /* the leaf is a frozen snapshot */
-/* One continuous segment (no mid-keyframe stop, which is what made it "stick"), eased
-   slow→fast so the page falls under its own weight. The skew grows monotonically as it
-   turns so the sheet progressively rolls/curls instead of flipping like rigid cardboard
-   (the back face hides past 90°, so the end skew is only ever felt as the roll, not seen). */
-.turn-leaf.turn-next { transform-origin: left center;  animation: turn-next 1.05s cubic-bezier(0.5, 0, 0.7, 1) forwards; }
-.turn-leaf.turn-prev { transform-origin: right center; animation: turn-prev 1.05s cubic-bezier(0.5, 0, 0.7, 1) forwards; }
-@keyframes turn-next { from { transform: rotateY(0deg) skewY(0deg); } to { transform: rotateY(-104deg) skewY(5deg); } }
-@keyframes turn-prev { from { transform: rotateY(0deg) skewY(0deg); } to { transform: rotateY(104deg) skewY(-5deg); } }
-/* Shadow + a moving highlight: light rakes across the curved sheet (the bulge catches it,
-   the curling edge falls into shadow) so the page reads as bending, not just rotating. */
-.turn-shade { position: absolute; inset: 0; pointer-events: none; opacity: 0; }
-.turn-leaf.turn-next .turn-shade {
-  background:
-    linear-gradient(90deg, rgba(255, 250, 240, 0) 50%, rgba(255, 250, 240, 0.24) 74%, rgba(255, 250, 240, 0) 90%),
-    linear-gradient(90deg, rgba(20, 16, 12, 0) 28%, rgba(20, 16, 12, 0.46) 100%);
-  animation: turn-shade 1.05s ease-in forwards;
-}
-.turn-leaf.turn-prev .turn-shade {
-  background:
-    linear-gradient(270deg, rgba(255, 250, 240, 0) 50%, rgba(255, 250, 240, 0.24) 74%, rgba(255, 250, 240, 0) 90%),
-    linear-gradient(270deg, rgba(20, 16, 12, 0) 28%, rgba(20, 16, 12, 0.46) 100%);
-  animation: turn-shade 1.05s ease-in forwards;
-}
-@keyframes turn-shade { 0% { opacity: 0; } 70% { opacity: 1; } 100% { opacity: 0; } }
+/* The leaf as a whole flips around the spine, slow→fast like a page falling. */
+.turn-leaf.turn-next { transform-origin: left center;  animation: turn-flip-next 1.65s cubic-bezier(0.5, 0, 0.7, 1) forwards; }
+.turn-leaf.turn-prev { transform-origin: right center; animation: turn-flip-prev 1.65s cubic-bezier(0.5, 0, 0.7, 1) forwards; }
+@keyframes turn-flip-next { from { transform: rotateY(0deg); } to { transform: rotateY(-100deg); } }
+@keyframes turn-flip-prev { from { transform: rotateY(0deg); } to { transform: rotateY(100deg); } }
+
+/* …while the page is sliced into vertical segments that each hinge a few degrees off the
+   previous one. Nested in 3D, that chain BOWS the sheet — the bend swells to its peak at
+   mid-turn (like pushing the middle of a page down) then relaxes flat as it lands. Each
+   segment is a clipped clone of the page so the real content curves, not a blank panel. */
+.turn-seg { position: absolute; top: 0; transform-style: preserve-3d; backface-visibility: hidden; }
+.turn-leaf.turn-next .turn-seg { transform-origin: left center;  animation: seg-curl-next 1.65s ease-in-out forwards; }
+.turn-leaf.turn-prev .turn-seg { transform-origin: right center; animation: seg-curl-prev 1.65s ease-in-out forwards; }
+@keyframes seg-curl-next { 0% { transform: rotateY(0); } 45% { transform: rotateY(-6deg); } 100% { transform: rotateY(0); } }
+@keyframes seg-curl-prev { 0% { transform: rotateY(0); } 45% { transform: rotateY(6deg); } 100% { transform: rotateY(0); } }
+.turn-seg-face { position: absolute; top: 0; overflow: hidden; background: var(--card); }
+/* outer segments fall into shadow as the page bows (depth set per segment in JS) */
+.turn-seg-shade { position: absolute; inset: 0; pointer-events: none; background: #140f0c; opacity: 0; }
+.turn-leaf .turn-seg-shade { animation: seg-shade 1.65s ease-in-out forwards; }
+@keyframes seg-shade { 0% { opacity: 0; } 45% { opacity: calc(var(--depth, 0) * 0.4); } 100% { opacity: 0; } }
 
 .reader-close, .reader-nav, .reader-cart {
   background: var(--card); color: var(--ink);

@@ -360,23 +360,68 @@ function renderSpread(dir) {
   if (animate) turnPage(outgoing, dir);
 }
 
-// A real page-turn: the page we just left is cloned into a "leaf" that lifts and rotates
-// away around the spine (right edge swings toward you going forward; left edge going back),
-// revealing the new page already sitting flat beneath it. A sweeping shade darkens the
-// leaf as it turns. The live #spread never animates — only this throwaway leaf does — so
-// the mobile-WebKit "snap to final frame" bug (animating an overflow:auto layer) can't bite.
+// A real page-turn: the page we just left is cloned into a throwaway "leaf" that flips away
+// around the spine, revealing the new page already sitting flat beneath it. The leaf is
+// sliced into vertical segments hinged in 3D so the sheet BOWS/curls like real paper as it
+// turns (see CSS). The live #spread never animates — only this leaf does — so the old
+// mobile-WebKit "snap to final frame" bug (animating an overflow:auto layer) can't bite.
+const CURL_SEGMENTS = 16;
 function turnPage(outgoingHtml, dir) {
   const stage = $('#spread');
   const book = stage.parentElement;                     // .reader-stage (perspective layer)
   book.querySelectorAll('.turn-leaf').forEach((l) => l.remove());   // never stack leaves
+  const next = dir > 0;
+  const rect = stage.getBoundingClientRect();
+  const W = Math.round(rect.width), H = Math.round(rect.height);
   const leaf = document.createElement('div');
-  leaf.className = `spread turn-leaf ${dir > 0 ? 'turn-next' : 'turn-prev'}`;
   leaf.setAttribute('aria-hidden', 'true');
-  leaf.innerHTML = `${outgoingHtml}<div class="turn-shade" aria-hidden="true"></div>`;
+  if (W > 40 && H > 40) {
+    leaf.className = `turn-leaf ${next ? 'turn-next' : 'turn-prev'}`;
+    leaf.appendChild(buildCurlSegments(outgoingHtml, next, W, H));
+  } else {
+    // No measurable layout (e.g. the jsdom test env) — fall back to a single-piece flip.
+    leaf.className = `spread turn-leaf ${next ? 'turn-next' : 'turn-prev'}`;
+    leaf.innerHTML = outgoingHtml;
+  }
   book.appendChild(leaf);
   const done = () => leaf.remove();
   leaf.addEventListener('animationend', done, { once: true });
-  setTimeout(done, 1500);                               // fallback if animationend never fires
+  setTimeout(done, 2100);                               // fallback if animationend never fires
+}
+
+// Build the nested vertical segments. Each shows one vertical band of the page (a clipped
+// clone), positioned at the previous segment's far edge so the 3D chain curls.
+function buildCurlSegments(html, next, W, H, n = CURL_SEGMENTS) {
+  const segW = W / n;
+  const tpl = document.createElement('template');
+  tpl.innerHTML = html;                                 // parse once, clone per segment
+  let inner = null;                                     // build from the leading edge inward
+  for (let k = n - 1; k >= 0; k--) {                    // k = distance from the spine
+    const seg = document.createElement('div');
+    seg.className = 'turn-seg';
+    seg.style.width = `${segW}px`;
+    seg.style.height = `${H}px`;
+    // The spine-most segment (root) sits on the spine side of the leaf — left edge for a
+    // forward turn, right edge for a back turn ("spine on the opposite side"). Every other
+    // segment hinges off its parent's far edge so the chain marches toward the leading edge.
+    seg.style.left = k === 0
+      ? (next ? '0px' : `${W - segW}px`)
+      : (next ? `${segW}px` : `${-segW}px`);
+    const bandLeft = next ? k * segW : W - (k + 1) * segW;           // which band of the page this is
+    const face = document.createElement('div');
+    face.className = 'turn-seg-face';
+    face.style.cssText = `width:${W}px;height:${H}px;left:${-bandLeft}px;`
+      + `clip-path:inset(0 ${W - bandLeft - segW}px 0 ${bandLeft}px)`;
+    face.appendChild(tpl.content.cloneNode(true));
+    seg.appendChild(face);
+    const shade = document.createElement('div');
+    shade.className = 'turn-seg-shade';
+    shade.style.setProperty('--depth', String(k / (n - 1)));        // outer bands darken more
+    seg.appendChild(shade);
+    if (inner) seg.appendChild(inner);
+    inner = seg;
+  }
+  return inner;                                          // the spine-most segment (the root)
 }
 
 function sectionsHtml(sections, kind) {
