@@ -1,5 +1,9 @@
 {
-  "count": 40,
+  "count": 59,
+  "counts": {
+    "food": 44,
+    "drink": 15
+  },
   "vocab": {
     "protein": [
       "beef",
@@ -24,7 +28,8 @@
     ],
     "category": [
       "main",
-      "side"
+      "side",
+      "dessert"
     ],
     "course": [
       "main",
@@ -34,7 +39,8 @@
       "sauce",
       "pasta",
       "taco",
-      "snack"
+      "snack",
+      "dessert"
     ],
     "heat": [
       "none",
@@ -46,6 +52,51 @@
       "easy",
       "medium",
       "advanced"
+    ],
+    "base": [
+      "gin",
+      "vodka",
+      "whiskey",
+      "rum",
+      "tequila",
+      "mezcal",
+      "brandy",
+      "liqueur",
+      "non-alcoholic"
+    ],
+    "family": [
+      "daiquiri",
+      "sour",
+      "margarita",
+      "martini",
+      "gimlet",
+      "highball",
+      "tiki",
+      "swizzle",
+      "smash",
+      "sling",
+      "old-fashioned",
+      "fizz",
+      "mule",
+      "spritz",
+      "punch",
+      "frozen",
+      "dessert",
+      "shot"
+    ],
+    "drinkMethods": [
+      "shaken",
+      "stirred",
+      "built",
+      "blended",
+      "muddled",
+      "swizzled",
+      "dry-shake"
+    ],
+    "strength": [
+      "sessionable",
+      "medium",
+      "spirit-forward"
     ]
   },
   "meta": {
@@ -109,6 +160,132 @@
       },
       "no-cook": {
         "label": "No-Cook"
+      },
+      "shaken": {
+        "label": "Shaken"
+      },
+      "stirred": {
+        "label": "Stirred"
+      },
+      "built": {
+        "label": "Built"
+      },
+      "blended": {
+        "label": "Blended"
+      },
+      "muddled": {
+        "label": "Muddled"
+      },
+      "swizzled": {
+        "label": "Swizzled"
+      },
+      "dry-shake": {
+        "label": "Dry-Shake"
+      }
+    },
+    "base": {
+      "gin": {
+        "label": "Gin",
+        "color": "olive"
+      },
+      "vodka": {
+        "label": "Vodka",
+        "color": "ink"
+      },
+      "whiskey": {
+        "label": "Whiskey",
+        "color": "accent"
+      },
+      "rum": {
+        "label": "Rum",
+        "color": "accent"
+      },
+      "tequila": {
+        "label": "Tequila",
+        "color": "olive"
+      },
+      "mezcal": {
+        "label": "Mezcal",
+        "color": "accent"
+      },
+      "brandy": {
+        "label": "Brandy",
+        "color": "accent"
+      },
+      "liqueur": {
+        "label": "Liqueur",
+        "color": "ink"
+      },
+      "non-alcoholic": {
+        "label": "Non-Alcoholic",
+        "color": "olive"
+      }
+    },
+    "family": {
+      "daiquiri": {
+        "label": "Daiquiri"
+      },
+      "sour": {
+        "label": "Sour"
+      },
+      "margarita": {
+        "label": "Margarita"
+      },
+      "martini": {
+        "label": "Martini"
+      },
+      "gimlet": {
+        "label": "Gimlet"
+      },
+      "highball": {
+        "label": "Highball"
+      },
+      "tiki": {
+        "label": "Tiki"
+      },
+      "swizzle": {
+        "label": "Swizzle"
+      },
+      "smash": {
+        "label": "Smash"
+      },
+      "sling": {
+        "label": "Sling"
+      },
+      "old-fashioned": {
+        "label": "Old Fashioned"
+      },
+      "fizz": {
+        "label": "Fizz"
+      },
+      "mule": {
+        "label": "Mule"
+      },
+      "spritz": {
+        "label": "Spritz"
+      },
+      "punch": {
+        "label": "Punch"
+      },
+      "frozen": {
+        "label": "Frozen"
+      },
+      "dessert": {
+        "label": "Dessert"
+      },
+      "shot": {
+        "label": "Shot"
+      }
+    },
+    "strength": {
+      "sessionable": {
+        "label": "Sessionable"
+      },
+      "medium": {
+        "label": "Balanced"
+      },
+      "spirit-forward": {
+        "label": "Spirit-Forward"
       }
     }
   },
@@ -169,16 +346,22 @@
     ],
     "tags": [
       "appetizer",
+      "baking",
       "batch-cooking",
+      "boozy",
       "budget",
+      "citrusy",
       "comfort",
       "comfort-food",
       "cookout",
       "cozy",
+      "creamy",
       "dairy-free",
       "date-night",
+      "dessert",
       "elegant",
       "fall",
+      "fruity",
       "garden",
       "gluten-free",
       "gluten-free-option",
@@ -200,9 +383,11 @@
       "party",
       "picnic",
       "quick",
+      "refreshing",
       "roasted",
       "salsa",
       "side",
+      "smoky",
       "snack",
       "spicy",
       "spring",
@@ -211,6 +396,7 @@
       "sweet-heat",
       "taco-night",
       "thanksgiving",
+      "tropical",
       "umami",
       "vegan",
       "vegetarian",
@@ -344,6 +530,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "A house favorite that Stephen has dialed in over several rounds: the brown sugar in\nthe rub caramelizes against the cayenne for a sweet-hot crust, and blistering the\ntomatoes on the same grill turns this from a plain steak salad into something with\nreal restaurant contrast. The blue cheese is the upgrade from the original feta.",
       "hero": "images/blackened-steak-salad.webp"
@@ -420,6 +607,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "headnote": "Ina Garten's no-fuss broccoli rabe: brown the garlic in good oil, lift it out, then\nsteam the greens in that fragrant oil with red pepper and return the garlic at the end.\nBitter, garlicky, and just spicy enough.",
       "equipment": [],
       "hero": "images/broccoli-rabe-garlic.webp"
@@ -497,6 +685,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "A no-fuss broiled fillet that earns its keep with a reduced orange-tarragon sauce.\nSimmer the juice down until it's glossy, broil the fish fast, and dinner's on the\ntable in 25 minutes.",
       "equipment": [],
@@ -580,9 +769,203 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Liza Schoenfein's quick broiler method, scaled for two: preheat the pan blazing hot,\nbroil the fish six minutes, and finish with a raw sauce of lemon, oregano, capers, and\nKalamata. Bright, briny, and on the table in 25 minutes.",
       "hero": "images/sea-bass-citrus-olive-caper.webp"
+    },
+    {
+      "title": "Brown Butter Banana Bread with Coconut & Chocolate",
+      "slug": "brown-butter-banana-bread",
+      "tagline": "Nutty browned butter, dark chocolate chunks, and a tropical hit of coconut in one ridiculously good loaf.",
+      "pitch": "Banana bread, but it went to finishing school. The butter gets browned until it smells like toffee, which threads a deep, nutty caramel through the whole loaf, while a spoonful of cream of coconut keeps the crumb impossibly moist and lends a faint tropical sweetness. Pools of chopped dark chocolate and toasted walnuts do the rest. It bakes up with a craggy, sugar-crisp top and a tender, almost custardy center. *Brown the butter past golden to genuinely nutty — those toasty bits are the whole point, so don't pull it early.*",
+      "serves": 10,
+      "category": "dessert",
+      "course": "dessert",
+      "times": {
+        "prep": 25,
+        "cook": 60,
+        "total": 100
+      },
+      "difficulty": "easy",
+      "protein": "vegetarian",
+      "methods": [
+        "oven",
+        "stove"
+      ],
+      "cuisine": "American",
+      "heat": "none",
+      "tags": [
+        "dessert",
+        "make-ahead",
+        "fall",
+        "baking"
+      ],
+      "ingredients": [
+        {
+          "section": "Wet",
+          "items": [
+            "½ cup (1 stick) unsalted butter",
+            "3 ripe bananas, mashed (about 1¼ cups)",
+            "2 large eggs",
+            "½ cup brown sugar, packed",
+            "3 tbsp cream of coconut (such as Coco López)",
+            "3 tbsp granulated sugar",
+            "1 tsp vanilla extract",
+            "¼ tsp lime zest (optional)"
+          ]
+        },
+        {
+          "section": "Dry",
+          "items": [
+            "1¾ cups all-purpose flour",
+            "1 tsp baking soda",
+            "½ tsp salt",
+            "½ tsp cinnamon",
+            "⅛ tsp ground cardamom (optional)"
+          ]
+        },
+        {
+          "section": "Mix-ins",
+          "items": [
+            "¾ cup chopped dark chocolate or chunks, a little reserved for the top",
+            "½ cup walnuts, toasted and chopped",
+            "2 tbsp unsweetened shredded coconut (optional)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Brown the butter — melt it in a small saucepan over medium heat, swirling often, until it foams, smells nutty, and brown flecks form on the bottom, 5–7 minutes. Pour into a large bowl and let cool 5–10 minutes.",
+            "Toast the walnuts — spread them on a sheet pan and bake at 350°F for 7–9 minutes until fragrant and slightly darkened, then cool and chop.",
+            "Whisk the brown sugar and granulated sugar into the warm (not hot) browned butter, then whisk in the mashed bananas, eggs, cream of coconut, vanilla, and lime zest until smooth.",
+            "In a separate bowl, whisk the flour, baking soda, salt, cinnamon, and cardamom. Fold the dry into the wet just until combined — a few flour streaks are fine.",
+            "Fold in the chocolate, walnuts, and shredded coconut, saving a little chocolate for the top.",
+            "Scrape into a greased or parchment-lined 9×5-inch loaf pan, scatter the reserved chocolate over, and bake at 350°F for 50–60 minutes, until a toothpick comes out with moist crumbs (not wet batter).",
+            "Cool in the pan 15 minutes, then turn out onto a wire rack to cool completely before slicing."
+          ]
+        }
+      ],
+      "tips": [
+        "Bananas not ripe enough? Roast them whole in their skins at 300°F for 15 minutes until soft and blackened, then mash.",
+        "Don't overmix once the flour goes in — overworked batter bakes up tough and domed instead of tender.",
+        "For a crackly, bakery-style top, sprinkle a tablespoon of turbinado or raw sugar over the batter before it bakes.",
+        "Chopped bar chocolate melts into luscious pools; chips hold their shape if you'd rather have distinct bites."
+      ],
+      "extras": [
+        {
+          "label": "No cream of coconut?",
+          "note": "Swap in ¼ cup sour cream or Greek yogurt — less tropical, every bit as moist."
+        },
+        {
+          "label": "Make it muffins",
+          "note": "Divide into a lined 12-cup tin and bake at 350°F for about 20–24 minutes."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
+      "headnote": "Brown butter is the cheat code for banana bread — five extra minutes at the stove for a\nloaf that tastes like it came from a very good bakery.",
+      "equipment": [],
+      "hero": "images/brown-butter-banana-bread.webp"
+    },
+    {
+      "title": "Brown Butter Sugar Cookies",
+      "slug": "brown-butter-sugar-cookies",
+      "tagline": "Crackly-topped sugar cookies with a deep, toffee-nutty brown butter backbone.",
+      "pitch": "A sugar cookie has no business tasting this complex. The trick is browning the butter until it turns the color of maple and smells like toasted hazelnuts, then chilling it back to a scoopable solid so it can be creamed like normal. That nutty, caramelized fat gives the cookies a chewy center and a sugar-crusted, crackled top that shatters on the first bite. *Chilling the browned butter is non-negotiable — solid butter creams and traps air; melted butter just makes a greasy puddle.*",
+      "serves": 24,
+      "category": "dessert",
+      "course": "dessert",
+      "times": {
+        "prep": 25,
+        "cook": 12,
+        "total": 80
+      },
+      "difficulty": "easy",
+      "protein": "vegetarian",
+      "methods": [
+        "oven",
+        "stove"
+      ],
+      "cuisine": "American",
+      "heat": "none",
+      "tags": [
+        "dessert",
+        "baking",
+        "make-ahead"
+      ],
+      "ingredients": [
+        {
+          "section": "Browned butter",
+          "items": [
+            "1 cup (2 sticks) unsalted butter"
+          ]
+        },
+        {
+          "section": "Wet",
+          "items": [
+            "1¼ cups granulated sugar, plus more for rolling",
+            "1 large egg plus 1 yolk",
+            "2 tsp vanilla extract"
+          ]
+        },
+        {
+          "section": "Dry",
+          "items": [
+            "2¼ cups all-purpose flour",
+            "½ tsp baking soda",
+            "½ tsp baking powder",
+            "¾ tsp salt"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Brown the butter — melt it in a saucepan over medium heat, swirling, until it foams and smells nutty with brown flecks on the bottom, 5–7 minutes.",
+            "Pour the browned butter into a bowl and chill until semi-solid and scoopable, about 30–45 minutes in the fridge.",
+            "Cream the chilled browned butter with the 1¼ cups sugar until pale and fluffy, then beat in the egg, yolk, and vanilla.",
+            "In a separate bowl, whisk the flour, baking soda, baking powder, and salt, then mix into the butter just until combined.",
+            "Roll the dough into balls, roll each in granulated sugar, and space them on parchment-lined sheets.",
+            "Bake at 350°F for 10–12 minutes, until set at the edges but still soft in the center.",
+            "Let the cookies rest on the sheet a few minutes to finish setting before moving them to a rack."
+          ]
+        }
+      ],
+      "tips": [
+        "Don't skip chilling the browned butter — it has to be semi-solid to cream properly, or the cookies spread into thin, greasy disks.",
+        "Roll the dough balls generously in sugar for that signature crackly, sparkling top.",
+        "Pull them while the centers still look slightly underdone — they firm up on the hot sheet and stay chewy.",
+        "For evenly sized cookies, scoop the dough with a tablespoon measure or small disher before rolling."
+      ],
+      "extras": [
+        {
+          "label": "Lemon sugar cookies",
+          "note": "Rub 1 tbsp lemon zest into the sugar before creaming for a bright, citrusy version."
+        },
+        {
+          "label": "Make it ahead",
+          "note": "Freeze the sugared dough balls on a tray, then bake straight from frozen — just add a minute or two."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
+      "headnote": "Browning the butter is five minutes of work for a sugar cookie that tastes like it has a\nsecret — nutty, deep, and impossible to eat just one of.",
+      "equipment": [],
+      "hero": "images/brown-butter-sugar-cookies.webp"
     },
     {
       "title": "Brown Sugar Sweet Potato Casserole",
@@ -688,6 +1071,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "headnote": "The sweet potato side Lauren remembered from past holidays, dialed in for Stephen's\nturkey-free Thanksgiving: a smooth, vanilla-scented base under a brown-sugar pecan\nstreusel that bakes into a candied, crunchy crown.",
       "hero": "images/sweet-potato-casserole.webp"
     },
@@ -810,6 +1194,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "The piccata Stephen has refined across a few rounds: a wine-and-lemon pan sauce\nfinished with cold butter for gloss, plus crispy fried capers on top for crunch.\nThin spaghetti is the perfect tangle to carry the bright, briny sauce.",
       "hero": "images/chicken-piccata.webp"
@@ -899,6 +1284,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "headnote": "A merger of Stephen's two tropical salsa experiments: the sweet-heat mango-cucumber\nversion and the chunky garden-fire one, brought together with a slow habanero burn and\na bright basil lift. Raw, crunchy, and built to sit on grilled fish.",
       "equipment": [],
       "hero": "images/mango-tropical-salsa.webp"
@@ -1013,9 +1399,112 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "The salmon that earns a permanent spot in the weeknight rotation: a fast\ncitrus-garlic marinade, a crisp skin from the cast iron, and asparagus blistered\nin the very same pan. Lemon keeps it bright on the stove or in the oven; swap in\norange and the grill for a sweeter, smokier summer version.",
       "hero": "images/salmon-asparagus-citrus.webp"
+    },
+    {
+      "title": "Classic Pumpkin Pie from Fresh Pumpkin",
+      "slug": "classic-pumpkin-pie",
+      "tagline": "A from-scratch roasted-pumpkin custard in a buttery, flaky crust — the real Thanksgiving thing.",
+      "pitch": "This is the pumpkin pie that ruins canned filling for you forever. You roast a sugar pumpkin until it slumps and sweetens, purée it down, and whisk it into a glossy spiced custard set with eggs and evaporated milk. It pours into an all-butter crust and bakes into a deep, burnished round that quivers ever so slightly in the center when you pull it. *Roast your own pumpkin — the purée is richer, less watery, and tastes like actual squash instead of a tin.*",
+      "serves": 8,
+      "category": "dessert",
+      "course": "dessert",
+      "times": {
+        "prep": 45,
+        "cook": 60,
+        "total": 240
+      },
+      "difficulty": "medium",
+      "protein": "vegetarian",
+      "methods": [
+        "oven"
+      ],
+      "cuisine": "American",
+      "heat": "none",
+      "tags": [
+        "dessert",
+        "fall",
+        "make-ahead"
+      ],
+      "ingredients": [
+        {
+          "section": "Pumpkin purée",
+          "items": [
+            "1 pie pumpkin (2½–3 lb)",
+            "1 tbsp neutral oil"
+          ]
+        },
+        {
+          "section": "Crust",
+          "items": [
+            "1¼ cups all-purpose flour",
+            "½ tsp salt",
+            "1 tbsp sugar",
+            "½ cup cold unsalted butter, cubed",
+            "3–4 tbsp ice water (or use a good store-bought crust)"
+          ]
+        },
+        {
+          "section": "Filling",
+          "items": [
+            "2 cups fresh pumpkin purée",
+            "¾ cup brown sugar",
+            "¼ cup granulated sugar",
+            "½ tsp salt",
+            "1½ tsp cinnamon",
+            "½ tsp ground ginger",
+            "¼ tsp ground cloves",
+            "¼ tsp nutmeg",
+            "2 large eggs plus 1 yolk",
+            "1 cup evaporated milk or heavy cream",
+            "1 tsp vanilla extract"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Halve and seed the pumpkin, rub the cut sides with the oil, and roast cut-side down at 400°F for 35–45 minutes until fork-tender. Scoop and purée smooth, draining in a sieve if watery, then measure out 2 cups.",
+            "For the crust, mix the flour, salt, and sugar, then cut in the cold butter until the mixture looks like coarse crumbs.",
+            "Add ice water a tablespoon at a time, just until the dough holds together, then chill it 30 minutes.",
+            "Roll the dough out and fit it into a 9-inch pie dish, crimp the edge, and chill again while you make the filling.",
+            "For the filling, whisk the eggs and yolk, then whisk in the purée, both sugars, salt, spices, and vanilla.",
+            "Stream in the evaporated milk or cream and whisk until completely smooth, then pour into the chilled crust.",
+            "Bake at 425°F for 15 minutes, then reduce the heat to 350°F and bake 40–45 minutes more, until the center is just set and barely jiggles.",
+            "Cool completely, about 2 hours, before slicing so the custard firms up."
+          ]
+        }
+      ],
+      "tips": [
+        "A fresh pie pumpkin beats canned every time — the purée is richer, sweeter, and far less watery.",
+        "If your purée seems loose, drain it in a sieve or cheesecloth before measuring, or the custard won't set cleanly.",
+        "Resist cutting it warm — let the pie cool fully so the custard sets into clean, sliceable wedges.",
+        "Serve with lightly sweetened whipped cream or a thin drizzle of maple syrup over each slice."
+      ],
+      "extras": [
+        {
+          "label": "Make it ahead",
+          "note": "Bake the pie a day early and refrigerate — the flavor deepens overnight and the slices cut even cleaner cold."
+        },
+        {
+          "label": "Blind-bake insurance",
+          "note": "For an extra-crisp bottom, line the crust with foil and pie weights and bake 12 minutes at 375°F before filling."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
+      "headnote": "The whole pie hinges on the purée — roast a real sugar pumpkin and you'll taste the\ndifference in every forkful.",
+      "equipment": [],
+      "hero": "images/classic-pumpkin-pie.webp"
     },
     {
       "title": "Coconut Chicken Soup (Tom Kha Gai)",
@@ -1121,6 +1610,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "The cozy bowl Stephen reaches for under the weather: warm, soothing, and just\nspicy enough to clear the sinuses. Coconut milk for richness, lime and fish\nsauce for brightness, and fresh chile to wake it all up.",
       "hero": "images/coconut-chicken-soup.webp"
@@ -1213,6 +1703,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "headnote": "Stephen's take on the creamy green salsa from Fresa's: charred jalapeños and serranos\nblended with cilantro and lime, then emulsified silky-smooth with a slow stream of oil —\nall the richness of crema, none of the dairy.",
       "hero": "images/creamy-jalapeno-cilantro-salsa.webp"
     },
@@ -1337,6 +1828,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Stephen's weeknight-elevated salmon: the broiler does the work of a restaurant\nsalamander, crackling the skin in minutes, while the broccoli chars in the same\noven and garden tomatoes burst alongside. The lemon-caper brown butter is the\nupgrade that turns a simple fish-and-vegetable plate into something worth setting\nthe table for.",
       "hero": "images/crispy-broiled-salmon-charred-broccoli.webp"
@@ -1422,6 +1914,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "headnote": "A reliable, low-and-slow method for kale chips that actually stay crisp — the whole\ngame is dry leaves and a barely-there coat of oil.",
       "hero": "images/kale-chips.webp"
     },
@@ -1555,9 +2048,118 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "A restaurant-style plate with very little fuss: a low, slow tomato-jalapeño confit\ndoes its thing hands-off while you chill a herby cucumber salad, then the fish gets\nits moment in a screaming pan for that signature crackling skin. Garden tomatoes\nand peppers make it sing.",
       "hero": "images/crispy-skin-sea-bass-tomato-jalapeno-confit.webp"
+    },
+    {
+      "title": "Fresh Pumpkin Bread (Spiced & Nutty)",
+      "slug": "fresh-pumpkin-bread",
+      "tagline": "Roasted-from-scratch pumpkin, a warm spice cabinet, and toasted nuts in one deeply moist loaf.",
+      "pitch": "Canned pumpkin can't touch this. You roast a sugar pumpkin until it caramelizes at the edges, then purée it into something silkier and far more flavorful than anything from a tin. That fresh purée carries a whole spice rack — cinnamon, nutmeg, ginger, clove, a whisper of cardamom — and bakes into a dark, tender crumb shot through with toasted nuts and a sugar-crisp top. *Drain the purée until it's thick as canned — watery pumpkin is the only thing standing between you and a perfect crumb.*",
+      "serves": 10,
+      "category": "dessert",
+      "course": "dessert",
+      "times": {
+        "prep": 30,
+        "cook": 60,
+        "total": 150
+      },
+      "difficulty": "easy",
+      "protein": "vegetarian",
+      "methods": [
+        "oven"
+      ],
+      "cuisine": "American",
+      "heat": "none",
+      "tags": [
+        "dessert",
+        "fall",
+        "make-ahead",
+        "baking"
+      ],
+      "ingredients": [
+        {
+          "section": "Pumpkin purée",
+          "items": [
+            "1 sugar or pie pumpkin (2½–3 lb)"
+          ]
+        },
+        {
+          "section": "Wet",
+          "items": [
+            "1¾ cups fresh pumpkin purée",
+            "2 large eggs, room temp",
+            "½ cup avocado or light olive oil",
+            "1 cup granulated sugar",
+            "½ cup light brown sugar",
+            "1 tsp vanilla extract"
+          ]
+        },
+        {
+          "section": "Dry",
+          "items": [
+            "1½ cups all-purpose flour",
+            "1 tsp baking soda",
+            "½ tsp baking powder",
+            "½ tsp salt",
+            "1½ tsp cinnamon",
+            "1 tsp nutmeg",
+            "½ tsp ground ginger",
+            "¼ tsp ground cloves",
+            "pinch of cardamom (optional)"
+          ]
+        },
+        {
+          "section": "Add-ins",
+          "items": [
+            "½ cup chopped toasted nuts (walnuts, almonds, or hazelnuts)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Halve and seed the pumpkin, then roast it cut-side down at 400°F for 35–45 minutes until fork-tender. Scoop the flesh from the skin and purée until smooth.",
+            "If the purée looks watery, drain it in a fine sieve or cheesecloth until it's thick like canned pumpkin, then measure out 1¾ cups.",
+            "Preheat the oven to 350°F and grease and parchment-line a 9×5-inch loaf pan.",
+            "Whisk the wet ingredients together — purée, eggs, oil, both sugars, and vanilla — until smooth.",
+            "In a separate bowl, whisk all the dry ingredients to distribute the spices evenly.",
+            "Fold the dry into the wet just until combined; don't overmix, or the loaf bakes up tough.",
+            "Fold in the toasted nuts, then scrape the batter into the prepared pan.",
+            "Bake 55–65 minutes until a toothpick comes out with moist crumbs (internal temperature around 205–208°F).",
+            "Cool in the pan 10 minutes, then turn out onto a wire rack to cool completely before slicing."
+          ]
+        }
+      ],
+      "tips": [
+        "Watery purée is the enemy of a good crumb — drain it in a sieve or cheesecloth until it mounds on a spoon like canned pumpkin.",
+        "Mix by hand; an electric mixer over-aerates the batter and leaves you with a gummy, sunken loaf.",
+        "If the top browns too fast before the center sets, tent the loaf loosely with foil for the last 15 minutes.",
+        "Toast the nuts at 350°F for 6–8 minutes first — it wakes up their oils and adds a deeper, roastier crunch."
+      ],
+      "extras": [
+        {
+          "label": "Make it ahead",
+          "note": "The loaf keeps wrapped at room temp for 3 days and freezes beautifully — slice first, then thaw a piece at a time."
+        },
+        {
+          "label": "Roast extra",
+          "note": "One pumpkin usually yields more than 1¾ cups; freeze the surplus purée in ¼-cup portions for pancakes or oatmeal."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
+      "headnote": "Roasting your own pumpkin takes an extra half hour and pays you back tenfold — the purée\nis sweeter, darker, and worlds away from the can.",
+      "equipment": [],
+      "hero": "images/fresh-pumpkin-bread.webp"
     },
     {
       "title": "Greek Orzo Salad with Arugula, Tomato & Red Onion",
@@ -1654,6 +2256,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Stephen landed on a Greek salad — dressed just before serving so it stays crisp\nand distinct — then made it more substantial by folding in pasta boiled in salted\nwater. Orzo keeps it light and forkable; orecchiette gives it more chew if you\nwant it.",
       "equipment": [],
@@ -1770,6 +2373,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "The Greek-salad-meets-salmon version: a classic horiatiki given backbone with warm,\noregano-rubbed fish flaked on top. Pan-searing keeps it weeknight-fast and crisps\nthe fillet, while the lemon-oregano dressing and good feta keep it firmly,\nunapologetically Greek.",
       "hero": "images/greek-salad-with-salmon.webp"
@@ -1894,6 +2498,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Those pre-seasoned tuna steaks are a head start to a fast, impressive dinner: the\ngrill toasts the crust, the center stays rare, and a cool horseradish cream plays\nthe role of a steakhouse sauce gone coastal. Char the lemons hard — they're half\nthe flavor and all of the drama.",
       "hero": "images/everything-bagel-tuna-horseradish-broccolini.webp"
@@ -1974,6 +2579,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "headnote": "Chris Morocco's trick for hearty greens: bloom garlic and chili in olive oil, massage\nit into the leaves, then char them fast over high heat. Smoky, silky, and just spicy\nenough.",
       "hero": "images/leafy-greens-spicy-garlic-oil.webp"
     },
@@ -2093,6 +2699,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "The grilled chicken Stephen comes back to all summer: a lemon-and-herb marinade\ndoes the heavy lifting, and the garden vegetables char right alongside on\nskewers for a clean, healthy plate that still tastes like a cookout.",
       "hero": "images/grilled-lemon-herb-chicken.webp"
@@ -2205,6 +2812,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "The classic backyard pairing, run like a line cook would: corn on the cool zone,\nsteaks on the fire, and a two-zone setup that keeps everything moving without a\nsingle flare-up. Pull the steaks early and let the foil tent finish them.",
       "hero": "images/grilled-ny-strip-charred-corn.webp"
@@ -2313,6 +2921,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "A dinner salad that came together from a full garden haul: cucumber and cherry\ntomatoes from the bed, spring mix and red onion from the store, and a Dijon-\nbalsamic vinaigrette shaken in a jar. Kalamata olives and feta nudge it\nMediterranean, and the warm grilled salmon over cool greens is the contrast that\nmakes it dinner, not a side.",
       "hero": "images/grilled-salmon-salad-dijon-balsamic.webp"
@@ -2426,6 +3035,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Swordfish takes to a sear like a good steak, and a garden-herb compound butter\nspooned over the top in the last minute turns it into something restaurant-worthy.\nGarlicky roasted Brussels sprouts with lemon zest make it a complete, easy plate\nfor two.",
       "hero": "images/herb-butter-swordfish.webp"
@@ -2507,6 +3117,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "headnote": "Katie Lee's bright take on a classic: lemon zest and capers fold into a smooth,\nfood-processor-easy yolk filling. Make the components ahead and pipe them in just\nbefore serving.",
       "equipment": [],
       "hero": "images/lemon-caper-deviled-eggs.webp"
@@ -2583,6 +3194,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "headnote": "Brittany Mullins' cozy fall move — pumpkin pie spice and a drizzle of maple — applied to\nquick-roasting hulled pepitas. Toss, roast, and cool to crisp; then put them on\neverything.",
       "equipment": [],
       "hero": "images/pumpkin-spice-pepitas.webp"
@@ -2665,6 +3277,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "A fast, sunny one-pan supper: fresh tuna gently cooked in a garlicky tomato sauce\nwith Kalamata olives and basil. Take the garlic only to gold and the sauce stays\nsweet — and if you like your tuna pink, just sear it and spoon the sauce over.",
       "hero": "images/mediterranean-tuna-blistered-tomatoes.webp"
@@ -2785,6 +3398,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Of the vegetarian Mediterranean options Stephen weighed, the stuffed peppers were\nthe one to build out fully: a one-dish dinner that holds together, travels well as\nleftovers, and leans on pantry staples brightened with lemon and herbs.",
       "hero": "images/mediterranean-veg.webp"
@@ -2934,6 +3548,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Restaurant elegance from a make-ahead marinade: the miso does its quiet work\novernight, so the night-of is just a fast broil, a hot sizzle of ginger-scallion\noil, and a charred green. The pickled cucumber is the secret — bright acidity to\ncut the buttery, lacquered cod.",
       "hero": "images/miso-black-cod-bok-choy.webp"
@@ -3017,6 +3632,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Alison Roman's gentle tomato poach: garlic and Aleppo bloomed in oil, a saffron-scented\nbroth, and cod cooked at a bare simmer until it flakes. Easy, elegant, and built for\ncrusty bread.",
       "hero": "images/poached-cod-tomato-saffron.webp"
@@ -3141,6 +3757,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Stephen has run this technique enough times to trust it cold: the gentle oven does\nthe cooking, and the cast-iron does only the crust. The garden thyme and a hard\nchar on the broccoli turn a weeknight strip into something that eats like a\nsteakhouse plate.",
       "hero": "images/reverse-sear-ny-strip.webp"
@@ -3218,6 +3835,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "headnote": "Molly Stevens' approach to roasting fennel: thick wedges, smashed garlic, and olives on\na hot sheet pan until the cut faces caramelize and the layers go silky. A simple,\nelegant side that practically cooks itself.",
       "equipment": [],
       "hero": "images/roasted-fennel-olives-garlic.webp"
@@ -3350,6 +3968,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "A pantry-raid dinner that turned into a keeper: dates and toasted almonds make\nthe rice taste Levantine, garden peppers thread heat and sweetness through every\nlayer, and a cool lemon-tahini drizzle pulls it all together.",
       "hero": "images/serrano-chicken-lemon-tahini-pilaf.webp"
@@ -3507,6 +4126,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "A killer Sichuan bowl Stephen and Lauren have chased for years, scaled up to eight\nservings and engineered for leftovers. Cook the beef and broth together, store them\napart, and assemble each bowl to order with fresh noodles, greens, and a table-side\nmala station.",
       "hero": "images/sichuan-beef-noodle-soup.webp"
@@ -3661,6 +4281,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Stephen dialed this in over a long thread: sous-vide breasts at 125°F for silk,\na chipotle sauce reduced to a glossy glaze, and a hard crisp in the pan for the\ncraggy edges that make tinga sing. Quick pickled onions are non-negotiable.",
       "hero": "images/chicken-tinga-tacos.webp"
@@ -3791,6 +4412,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "The elegant entry in the salmon rotation: sous-vide for an unbroken, custardy\nflake, then a beurre noisette brightened with orange and lemon. The original lemon-\nbutter-caper idea grew into a proper brown-butter glaze, and the herbed couscous\nand charred asparagus turn it into a full, restaurant-grade plate for two.",
       "hero": "images/sous-vide-salmon-brown-butter-citrus.webp"
@@ -3903,6 +4525,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "The source was just a marinade, but it's a good one — soy and hoisin doing the\nheavy lifting, sesame and ginger rounding it out. Built into proper skewers with\ngarden peppers and a last-minute glaze, it eats like takeout you'd actually pay\nfor.",
       "hero": "images/soy-hoisin-steak-kebabs.webp"
@@ -4019,6 +4642,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "A NASA-flavor-division build that Stephen dialed in across a few rounds: sous-vide\nsets the protein at a precise 125°F so the grill can do nothing but char and\nlacquer. The kale keeps his garlic-salt, paprika, and cayenne profile but roasts\nlow to stay crisp and bitter-free — a savory, crackling foil to the sticky\nsweet-heat fish.",
       "hero": "images/sriracha-honey-salmon-kale-chips.webp"
@@ -4140,6 +4764,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Stephen circled through a lot of summer pasta pitches — scallops, peaches,\nputtanesca — before settling on the squash-tomato-basil-mozzarella combination, a\ntrue summer classic, then scaling it for two and folding in a homemade balsamic\nglaze. Meatless, garden-forward, and best when the tomatoes are at their peak.",
       "hero": "images/summer-pasta.webp"
@@ -4265,6 +4890,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "Stephen worked this one through a couple of rounds — first sorting out a rogue\nlemon slice that kept appearing from nowhere, then folding the fettuccine cleanly\ninto the sauce. The result eats like a restaurant lemon-caper trio: crisp fish,\nsilky sauce, and deeply seared broccoli, all in one skillet.",
       "hero": "images/tilapia-piccata-fettuccine-broccoli.webp"
@@ -4369,6 +4995,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "category": "main",
       "headnote": "A bright, fast Italian dinner Stephen landed on after weighing a whole flight of\nchicken pastas: fresh tomatoes cooked down to a loose sauce, fettuccine to carry\nit, and cubes of fresh mozzarella that melt into creamy pockets as you toss.",
       "hero": "images/italian-chicken-pasta.webp"
@@ -4492,6 +5119,7 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "headnote": "Stephen's red beans skip the andouille and turkey entirely and lean on smoked\npaprika, a hard-browned trinity, and a long, low simmer for that signature Cajun\ndepth. Mashing some of the beans back into the pot gives you the creamy gravy with\nno cream — and an optional chicken-sausage version is right there if you want it.",
       "hero": "images/red-beans-and-rice.webp"
     },
@@ -4567,9 +5195,1123 @@
       },
       "created": "2026-06-19T00:00:00.000Z",
       "updated": "2026-06-19T00:00:00.000Z",
+      "kind": "food",
       "headnote": "A two-ingredient idea done right: bracing watercress and a sharp Dijon–red wine\nvinaigrette. Whisk, toss at the last second, and serve. The perfect crisp foil to\nanything rich.",
       "equipment": [],
       "hero": "images/watercress-salad-mustard-vinaigrette.webp"
+    },
+    {
+      "title": "Brown Sugar Banana Daiquiri",
+      "slug": "brown-sugar-banana-daiquiri",
+      "kind": "drink",
+      "tagline": "Ripe banana muddled with brown sugar and shaken into a daiquiri with banana-bread depth.",
+      "pitch": "Forget the frozen poolside slush — this is a proper shaken daiquiri that happens to taste like the corner of a warm banana loaf. Spotty-ripe banana gets muddled into brown sugar syrup, then beaten cold with white rum and fresh lime until the shaker frosts and the fruit goes silky. It pours out caramel-gold and bracing, with a final grate of nutmeg that smells like a bakery and a kitchen at once. *It's shaken, not blended — banana-bread depth without a drop of slush.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "rum",
+      "family": "daiquiri",
+      "methods": [
+        "muddled",
+        "shaken"
+      ],
+      "glass": "Coupe",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "fruity",
+        "dessert"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz rum",
+            "1 oz fresh lime juice",
+            "½ oz brown sugar syrup (1:1 brown sugar and water)",
+            "3 slices ripe banana",
+            "Ice",
+            "Freshly grated nutmeg or a banana chip, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Muddle the banana slices with the brown sugar syrup in the bottom of a shaker until smooth.",
+            "Add the lime juice and rum.",
+            "Fill the shaker with ice and shake hard until it frosts over, about 12–15 seconds.",
+            "Fine-strain (double-strain) into a chilled coupe so it lands silky and free of banana threads.",
+            "Grate fresh nutmeg over the top, or perch a banana chip on the rim."
+          ]
+        }
+      ],
+      "tips": [
+        "Make the brown sugar syrup 1:1 by weight — equal parts brown sugar and hot water, stirred until clear, then cooled.",
+        "Use a very ripe, spotty banana; it muddles into the drink and brings the deepest banana-bread flavor.",
+        "Float a barspoon of dark rum on top for a molasses-rich finish that drinks more spirit-forward (Stephen)."
+      ],
+      "extras": [
+        {
+          "label": "Make it Lauren-sweet",
+          "note": "Nudge the brown sugar syrup up to ¾ oz and add a fourth banana slice for a softer, dessert-leaning pour."
+        },
+        {
+          "label": "From the garden",
+          "note": "Clap a sprig of mint over the glass before garnishing — banana and mint is a quietly great pairing."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A daiquiri that tastes like dessert without ever touching a blender — all the warmth of\nbanana bread, shaken bone-cold.",
+      "equipment": [],
+      "hero": "images/brown-sugar-banana-daiquiri.webp"
+    },
+    {
+      "title": "Citrus-Passion Mezcal Margarita",
+      "slug": "citrus-passion-mezcal-margarita",
+      "kind": "drink",
+      "tagline": "Passion fruit and double citrus over a whisper of mezcal smoke, split with bright blanco tequila.",
+      "pitch": "A margarita built for people who flinch at the word mezcal — here the smoke is a seasoning, not the main event. Tart passion fruit and a double hit of lime and lemon carry the glass, while a one-ounce pour of mezcal split with blanco tequila leaves only a curl of campfire in the background. It comes out tropical and sharp up front, then ends with that smoky exhale that makes you go back for another. *The mezcal is seasoning, not the star — splitting it with tequila keeps the smoke behind the fruit.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "mezcal",
+      "family": "margarita",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Rocks",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "smoky",
+        "citrusy",
+        "tropical"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1 oz mezcal",
+            "1 oz blanco tequila",
+            "¾ oz fresh lime juice",
+            "¼ oz fresh lemon juice",
+            "¾ oz triple sec",
+            "½ oz passion fruit syrup",
+            "¼ oz agave syrup (optional, for body)",
+            "Tajín or sugar-salt, for the rim (optional)",
+            "Ice",
+            "Lime wheel, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Optionally half-rim a rocks glass with Tajín or sugar-salt — a half rim lets you choose chili-lime or clean with each sip.",
+            "Add the mezcal, tequila, lime juice, lemon juice, triple sec, passion fruit syrup, and agave to a shaker filled with ice.",
+            "Shake hard for 12–15 seconds, until the shaker frosts over.",
+            "Strain over fresh ice in the rocks glass.",
+            "Garnish with a lime wheel."
+          ]
+        }
+      ],
+      "tips": [
+        "Passion fruit syrup can be store-bought or homemade — simmer equal parts passion fruit purée and sugar until it dissolves, then cool.",
+        "Whip-shake (a short, fast shake with just a couple of small ice cubes) for a silkier, more aerated texture.",
+        "Lean the smoke forward for Stephen by going 1½ oz mezcal to ½ oz tequila; reverse the split for Lauren's lighter, fruitier glass."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Add a thin serrano slice to the shaker for a tropical-meets-smoky heat that plays well with the passion fruit."
+        },
+        {
+          "label": "Make it longer",
+          "note": "Drop the spirits to ¾ oz each and top with soda over ice for a smoky passion fruit highball that drinks lower and lasts."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Smoke in the background, passion fruit and citrus out front — a gateway mezcal margarita\nthat still tastes like the real thing.",
+      "equipment": [],
+      "hero": "images/citrus-passion-mezcal-margarita.webp"
+    },
+    {
+      "title": "Classic Daiquiri",
+      "slug": "classic-daiquiri",
+      "kind": "drink",
+      "tagline": "Rum, lime, and sugar shaken bone-cold into the cleanest three-ingredient cocktail there is.",
+      "pitch": "The daiquiri gets a bad rap from the blender — the real thing is three ingredients, shaken hard, with nowhere to hide. Good white rum, fresh-squeezed lime, and just enough simple syrup to round the edges, beaten over ice until the shaker frosts and your hand aches. It comes out bracing and bone-dry with a whisper of sweetness, the kind of drink that disappears before you mean it to. *Everything rides on fresh lime juice — bottled goes flat and bitter, so squeeze it to order.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "rum",
+      "family": "daiquiri",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Coupe",
+      "strength": "spirit-forward",
+      "heat": "none",
+      "tags": [
+        "citrusy",
+        "refreshing"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz white rum",
+            "1 oz fresh lime juice",
+            "¾ oz simple syrup",
+            "Ice",
+            "Lime wheel, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Add the rum, lime juice, and simple syrup to a shaker filled with ice.",
+            "Shake hard until the shaker frosts over, about 12–15 seconds.",
+            "Double-strain into a chilled coupe so it lands silky and ice-shard free.",
+            "Garnish with a lime wheel."
+          ]
+        }
+      ],
+      "tips": [
+        "Chill the coupe in the freezer while you shake — a warm glass kills it by the third sip.",
+        "¾ oz syrup is the classic balance; drop to ½ oz for a drier, more spirit-forward pour (Stephen) or nudge up for Lauren.",
+        "A barspoon of maraschino liqueur turns this into a Hemingway-leaning daiquiri if you have a bottle around."
+      ],
+      "extras": [
+        {
+          "label": "Make it longer",
+          "note": "Drop the rum to 1½ oz and top with soda over ice for a daiquiri highball that drinks lower and lasts the afternoon."
+        },
+        {
+          "label": "From the garden",
+          "note": "Muddle a few mint leaves in before you shake, or float a basil leaf, for a garden-fresh lift."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The benchmark against which every other rum sour is measured — and proof that three\nthings, in balance, beat ten things fighting.",
+      "equipment": [],
+      "hero": "images/classic-daiquiri.webp"
+    },
+    {
+      "title": "Coconut Cream Martini",
+      "slug": "coconut-cream-martini",
+      "kind": "drink",
+      "tagline": "A grown-up Almond Joy in a coupe — coconut, coffee, and cream shaken silky cold.",
+      "pitch": "This is dessert in a glass and it knows it — coconut tequila and vodka for backbone, Baileys and Kahlúa for that mocha-and-cream swirl, all whipped over ice until the shaker frosts and the drink turns pale and glossy. A swirl of chocolate syrup down the inside of a chilled coupe makes it look like something off a pastry cart, and a dust of toasted coconut on top brings the candy-bar nostalgia home. *Think a boozy Almond Joy, only smoother and colder, sliding down far too easily.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "liqueur",
+      "family": "dessert",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Coupe",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "creamy",
+        "dessert"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1 oz coconut tequila",
+            "1 oz vodka",
+            "1 oz Baileys Irish Cream",
+            "¾ oz Kahlúa",
+            "½ oz simple syrup (optional)",
+            "1 dash vanilla extract or a pinch of sea salt (optional)",
+            "Ice",
+            "Shaved chocolate or toasted coconut, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Chill a coupe in the freezer while you build the drink.",
+            "Add everything to a shaker filled with ice and shake hard for 15–20 seconds, until frosty.",
+            "Optionally drizzle chocolate syrup around the inside of the chilled glass for a swirl.",
+            "Strain into the coupe and garnish with shaved chocolate or toasted coconut."
+          ]
+        }
+      ],
+      "tips": [
+        "Rim the glass with crushed graham cracker or toasted coconut for extra candy-bar drama.",
+        "Blend it with a scoop of vanilla ice cream for a frozen, milkshake-style version.",
+        "Taste before you strain and dial the sweetness — add the simple syrup for Lauren, leave it out for Stephen."
+      ],
+      "extras": [
+        {
+          "label": "Make it a nightcap flight",
+          "note": "Pour half-portions into two small glasses so you each get a sip without the full dessert hit before bed."
+        },
+        {
+          "label": "From the garden",
+          "note": "A single muddled mint leaf in the shaker reads like the green foil on a peppermint patty — bright against all that cream."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Unapologetic dessert — serve it after dinner in place of pudding and skip the spoons.",
+      "equipment": [],
+      "hero": "images/coconut-cream-martini.webp"
+    },
+    {
+      "title": "Coconut Pineapple Swizzle",
+      "slug": "coconut-pineapple-swizzle",
+      "kind": "drink",
+      "tagline": "Crushed-ice swizzle of rum, pineapple, and a barely-there coconut cream, finished with bitters.",
+      "pitch": "A swizzle is the lazy bartender's secret weapon — no shaking, just crushed ice and a spinning stick until the glass frosts white. Light rum, pineapple, and a small whisper of coconut cream go in together, swizzled until everything chills and dilutes into something soft and tropical but never thick. Mound more crushed ice on top, float a few dashes of Angostura across the surface, and tuck in a slapped mint sprig so the first sip is herb and bitters before the fruit. *Coconut cream is a seasoning here, not the main event — a half ounce reads silky, an ounce reads piña colada.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "rum",
+      "family": "swizzle",
+      "methods": [
+        "built",
+        "swizzled"
+      ],
+      "glass": "Collins",
+      "strength": "sessionable",
+      "heat": "none",
+      "tags": [
+        "tropical",
+        "creamy",
+        "refreshing"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz light rum",
+            "1 oz pineapple juice",
+            "½ oz coconut cream (the thick cream layer, e.g. Coco López)",
+            "¾ oz fresh lime juice",
+            "¼ oz simple syrup",
+            "2–3 dashes Angostura bitters",
+            "Crushed ice",
+            "Mint sprig and lime wheel, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Fill a Collins or highball glass halfway with crushed ice.",
+            "Add everything except the bitters.",
+            "Swizzle with a swizzle stick or a barspoon spun between your palms until the glass frosts.",
+            "Mound more crushed ice over the top to dome it.",
+            "Dash the bitters across the top as a float.",
+            "Slap a mint sprig to wake it up and tuck it in alongside a lime wheel."
+          ]
+        }
+      ],
+      "tips": [
+        "Keep it light and barely-creamy, never thick — if it tastes like a piña colada you've overdone the coconut cream.",
+        "No ice crusher? Wrap cubes in a clean towel and roll a rolling pin over them, or pulse briefly in a blender.",
+        "Coconut cream clumps when cold, so warm and stir the can until smooth before measuring, and it swizzles in clean."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A second slapped mint sprig (or a basil leaf) on top doubles the herbal hit and looks the part."
+        },
+        {
+          "label": "Make it a pitcher",
+          "note": "Batchable — combine everything but the bitters and crushed ice ahead, then swizzle each glass to order so the dilution stays right."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The gentle, beach-chair cousin of the daiquiri — all crushed ice, soft coconut, and a bitters float you smell before you taste.",
+      "equipment": [],
+      "hero": "images/coconut-pineapple-swizzle.webp"
+    },
+    {
+      "title": "French Martini",
+      "slug": "french-martini",
+      "kind": "drink",
+      "tagline": "Vodka, Chambord, and pineapple shaken hard into a fruity coupe with a frothy crown.",
+      "pitch": "Don't let the name fool you — there's no gin, no vermouth, just vodka, raspberry Chambord, and pineapple juice shaken until it whips up a pale, frothy cap. It drinks silky and fruit-forward, deep berry underneath with that bright pineapple lift on top, sweet without ever going cloying. It's a coupe that looks like a sunset and goes down like a treat. *Shake it hard and long — the pineapple juice is what foams up that signature frothy crown, so don't shortchange it.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "vodka",
+      "family": "martini",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Coupe",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "fruity",
+        "refreshing"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz vodka",
+            "½ oz Chambord (raspberry liqueur)",
+            "1 oz pineapple juice",
+            "Ice",
+            "3 raspberries or a lemon twist, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Add the vodka, Chambord, and pineapple juice to a shaker filled with ice.",
+            "Shake HARD until the shaker frosts and the juice whips into foam, about 15 seconds.",
+            "Strain into a chilled coupe so the frothy cap sits on top.",
+            "Garnish with raspberries on a pick or a lemon twist."
+          ]
+        }
+      ],
+      "tips": [
+        "Shake harder and longer than you think — the foam comes entirely from beating air into the pineapple juice.",
+        "Use good, fresh pineapple juice; the cheap-from-concentrate stuff foams poorly and tastes tinny.",
+        "Keep everything cold — chill the coupe and use fresh ice so the crown holds instead of collapsing."
+      ],
+      "extras": [
+        {
+          "label": "Make it longer",
+          "note": "Build the same pour over ice in a highball and top with soda for a lighter, fruitier afternoon drink."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The chicest of the fruity martinis — deep raspberry, bright pineapple, and a foam cap\nthat makes a plain vodka pour look like a special occasion.",
+      "equipment": [],
+      "hero": "images/french-martini.webp"
+    },
+    {
+      "title": "Lemon Drop Martini",
+      "slug": "lemon-drop-martini",
+      "kind": "drink",
+      "tagline": "A sugar-rimmed coupe of cold vodka and fresh lemon, dialed right between tart and sweet.",
+      "pitch": "This is dessert and aperitif in one — vodka and triple sec shaken hard with fresh lemon until the shaker frosts, then poured into a coupe rimmed with crackling sugar. The first sip lands sweet off the rim, then snaps tart in the middle, then finishes clean. It drinks like grown-up lemonade with a backbone, bright enough for Lauren and spirited enough to mean it. *Sugar the rim and taste before you pour — that crystallized edge is the whole trick, and the lemon should sing, not pucker.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "vodka",
+      "family": "martini",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Coupe",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "citrusy",
+        "refreshing"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz vodka",
+            "¾ oz triple sec",
+            "1 oz fresh lemon juice",
+            "½–¾ oz simple syrup",
+            "Granulated sugar, for the rim",
+            "Ice",
+            "Lemon twist, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Run a lemon wedge around the rim of a chilled coupe, then dip the rim in granulated sugar.",
+            "Add the vodka, triple sec, lemon juice, and simple syrup to a shaker filled with ice.",
+            "Shake hard until the shaker frosts over, about 12–15 seconds.",
+            "Fine-strain into the sugar-rimmed coupe.",
+            "Express a lemon twist over the top and drop it in."
+          ]
+        }
+      ],
+      "tips": [
+        "Taste the shaker before you pour and adjust the syrup — lemons vary, so start at ½ oz and climb toward ¾ for Lauren.",
+        "Use fresh-squeezed lemon only; bottled juice goes flat and metallic and there is nowhere for it to hide here.",
+        "Chill the coupe in the freezer while you shake so the sugar rim stays crisp."
+      ],
+      "extras": [
+        {
+          "label": "Raspberry Lemon Drop",
+          "note": "Add ½ oz Chambord, or muddle 4–5 fresh raspberries in the shaker before you add ice, for a blush-pink, fruitier pour."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The cocktail that taught a generation that a martini glass could hold something\nsweet — sharp lemon, a sugar crust, and zero apology.",
+      "equipment": [],
+      "hero": "images/lemon-drop-martini.webp"
+    },
+    {
+      "title": "Mudslide",
+      "slug": "mudslide",
+      "kind": "drink",
+      "tagline": "A frozen, boozy milkshake of vodka, coffee liqueur, and Irish cream, laced with chocolate.",
+      "pitch": "Part cocktail, part dessert, fully unserious — vodka for the kick, Kahlúa for the coffee, and Baileys for the cream, all blitzed with ice into a thick, pale-mocha swirl. A ribbon of chocolate syrup spiraled down the inside of the glass turns every sip into a stripe of fudge, and a tall crown of whipped cream takes it the rest of the way over the top. *It's a milkshake that happens to be drunk, and there's no shame in admitting that's the appeal.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "vodka",
+      "family": "frozen",
+      "methods": [
+        "blended"
+      ],
+      "glass": "Hurricane",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "creamy",
+        "dessert"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1 oz vodka",
+            "1 oz coffee liqueur (such as Kahlúa)",
+            "1 oz Baileys Irish Cream",
+            "1 cup ice",
+            "Chocolate syrup, for the glass (optional)",
+            "Whipped cream, for garnish (optional)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Drizzle chocolate syrup around the inside of the glass for a marbled swirl.",
+            "Blend the vodka, coffee liqueur, Baileys, and ice until smooth and thick.",
+            "Pour into the prepared glass.",
+            "Top with whipped cream and a little more chocolate."
+          ]
+        }
+      ],
+      "tips": [
+        "Shake it over ice and skip the blender for a looser, on-the-rocks version.",
+        "A scoop of vanilla ice cream in the blender turns it into a full-on boozy milkshake.",
+        "Freeze the glass first so the frozen pour holds its shape instead of melting on contact."
+      ],
+      "extras": [
+        {
+          "label": "Split it",
+          "note": "One batch fills two short glasses comfortably — pour half each so you both get the chocolate swirl without the full dessert hit."
+        },
+        {
+          "label": "From the garden",
+          "note": "A muddled mint leaf or two blended in reads like a mint-chip shake, cool against all that coffee and cream."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The dessert cart's answer to a nightcap — blend it after dinner and call it both courses at once.",
+      "equipment": [],
+      "hero": "images/mudslide.webp"
+    },
+    {
+      "title": "Peach Rum Sour",
+      "slug": "peach-rum-sour",
+      "kind": "drink",
+      "tagline": "Rum, lemon, and ripe peach dry-shaken to a thick foam cap, finished with a swirl of bitters.",
+      "pitch": "The sour template never misses, and peach was made for it. Rum and lemon do the bones, peach nectar brings late-summer sweetness, and an egg white — dry-shaken first, without ice — whips the whole thing into a dense, glossy foam that holds a pour of bitters like a canvas. Strain it into a chilled coupe, drop a few dashes of bitters on the foam and swirl them into a feather, and you've got something that looks like a cocktail bar charged eighteen dollars for. *The dry shake is the magic — beat it hard with no ice first, and the foam comes out thick enough to write on.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "rum",
+      "family": "sour",
+      "methods": [
+        "dry-shake",
+        "shaken"
+      ],
+      "glass": "Coupe",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "fruity",
+        "refreshing"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz rum",
+            "1 oz fresh lemon juice",
+            "1 oz peach nectar (or 2 canned peach slices, muddled)",
+            "½ oz simple syrup",
+            "1 egg white (optional, for froth)",
+            "Ice",
+            "Peach slice or lemon twist, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Dry-shake everything without ice for about 15 seconds to froth the egg white.",
+            "Add ice and shake again until cold.",
+            "Fine-strain into a chilled coupe.",
+            "Garnish with a peach slice or lemon twist and a few drops of bitters swirled across the foam."
+          ]
+        }
+      ],
+      "tips": [
+        "Skip the egg and use ¾ oz aquafaba (chickpea liquid) for the same thick foam, fully vegan.",
+        "Stephen — a dash of Angostura or peach bitters in the shake adds depth and a drier, more grown-up edge.",
+        "In peak season, muddle a wedge of fresh ripe peach in the shaker in place of (or alongside) the nectar."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A basil or thyme leaf slapped and dropped in before the dry shake gives the peach a soft herbal back-note."
+        },
+        {
+          "label": "Make it sparkle",
+          "note": "Build it without the egg white, strain over ice in a Collins glass, and top with soda for a longer, lower peach fizz."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A frothy, late-summer peach sour with a bitters feather on top — the prettiest five-minute drink in the book.",
+      "equipment": [],
+      "hero": "images/peach-rum-sour.webp"
+    },
+    {
+      "title": "Pineapple Heatwave",
+      "slug": "pineapple-heatwave",
+      "kind": "drink",
+      "tagline": "Shaken pineapple-rum with a quiet chili creep that lands sweet, then warm on the finish.",
+      "pitch": "This is a tiki drink that bites back without ever shouting. Light rum and fresh pineapple go in bright and tropical, lime and bitters pull it back from candy, and a single thin slice of jalapeño or habanero steeped in the shaker leaves a slow warmth that builds across the glass. Shake it hard so it comes out frothy and cold, then double-strain over fresh ice so the heat reads clean instead of muddy. *The chili creeps — thirty seconds in the shaker is plenty, because it only gets louder as you drink.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "rum",
+      "family": "tiki",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Rocks",
+      "strength": "medium",
+      "heat": "mild",
+      "tags": [
+        "tropical",
+        "spicy",
+        "refreshing"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz light or gold rum",
+            "1½ oz pineapple juice",
+            "¾ oz fresh lime juice",
+            "½ oz simple syrup",
+            "2 dashes Angostura bitters",
+            "1 thin slice fresh jalapeño or habanero, seeds removed (optional)",
+            "Ice",
+            "Pineapple wedge, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Optionally steep the chili slice in the empty shaker for 30–60 seconds — it creeps, so don't overdo it.",
+            "Add the rum, pineapple juice, lime juice, simple syrup, and bitters.",
+            "Fill with ice and shake hard for 12–15 seconds until frothy and cold.",
+            "Double-strain over fresh ice in a rocks glass.",
+            "Garnish with a pineapple wedge."
+          ]
+        }
+      ],
+      "tips": [
+        "It's built to pair with a mango-habanero salsa — the pineapple tames the fire while the chili echoes it.",
+        "Muddle a coin of fresh ginger into the simple syrup before you build for a deeper, rounder heat.",
+        "Batch it ×4 in a pitcher (hold the chili and ice) for a porch round, then shake and steep to order."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Use a slice of garden jalapeño for a friendly warmth, or habanero if you want it to actually sweat — both creep, so start with one thin slice."
+        },
+        {
+          "label": "Dial the sweetness",
+          "note": "Drop the syrup to ¼ oz for Stephen's drier, more spirit-forward pour, or nudge it up to ¾ oz for Lauren."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A pineapple-rum cooler with a slow chili burn — sweet up front, warm on the back, and dangerously easy in the heat.",
+      "equipment": [],
+      "hero": "images/pineapple-heatwave.webp"
+    },
+    {
+      "title": "Salty Coconut Honey Rum Smash",
+      "slug": "salty-coconut-honey-rum-smash",
+      "kind": "drink",
+      "tagline": "Gold rum shaken with coconut milk, honey, and a pinch of salt into something silky and sea-breezy.",
+      "pitch": "Shake coconut milk hard enough and it stops being a splash and becomes a body — light, silky, almost mousse-like — which is the whole trick here. Gold rum and honey syrup bring warmth and floral depth, lemon cuts the richness, and a single pinch of flaky salt does what salt always does, snapping every flavor into focus. Slap a few mint or basil leaves before they go in, shake long over ice, and strain over crushed ice for a drink that tastes like a warm beach at dusk. *That pinch of salt is non-negotiable — it turns sweet-and-creamy into crave-able.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "rum",
+      "family": "smash",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Rocks",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "creamy",
+        "refreshing"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz gold rum",
+            "¾ oz fresh lemon juice",
+            "¾ oz honey syrup (1:1 honey and hot water)",
+            "1 oz coconut milk (stir the can first)",
+            "1 small pinch flaky sea salt",
+            "3–4 fresh mint or basil leaves (optional)",
+            "Crushed ice",
+            "Mint sprig, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Gently slap the herbs between your palms to release their oils and drop them in the shaker.",
+            "Add the lemon juice, honey syrup, coconut milk, salt, and rum.",
+            "Shake hard with ice for 15–20 seconds to emulsify the coconut into a light, silky body.",
+            "Double-strain over crushed ice in a rocks glass.",
+            "Garnish with a slapped mint sprig."
+          ]
+        }
+      ],
+      "tips": [
+        "Make honey syrup at a 1:1 ratio — equal parts honey and hot water, stirred until it pours like simple syrup.",
+        "Shake longer than feels normal, a full 15–20 seconds, so the coconut milk emulsifies and the drink turns silky instead of separating.",
+        "Float ½ oz dark rum over the top for a richer, more spirit-forward \"Midnight Smash.\""
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Mint keeps it bright and classic; basil from the garden takes it somewhere savory and grown-up — either one, slapped, before the shake."
+        },
+        {
+          "label": "For Stephen",
+          "note": "The dark-rum float is the move — it pushes this from sessionable toward spirit-forward without touching the sweetness."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A salted-coconut honey smash that drinks like dessert's cooler, breezier sibling — silky, herbal, and gone too fast.",
+      "equipment": [],
+      "hero": "images/salty-coconut-honey-rum-smash.webp"
+    },
+    {
+      "title": "Singapore Sling",
+      "slug": "singapore-sling",
+      "kind": "drink",
+      "tagline": "The pink, layered gin sling born at Raffles Hotel — tropical, frothy, and quietly complex.",
+      "pitch": "Ngiam Tong Boon dreamed this up behind the Long Bar at Raffles Hotel around 1915, and it still drinks like a postcard from the tropics — gin braced with cherry brandy, Bénédictine, and a whisper of Cointreau, lengthened with pineapple and lime into a blushing, sunset-pink highball. Fresh pineapple juice is the trick — shaken hard, it throws up a frothy cap that makes the whole thing look like dessert and drink like a fruit punch with a backbone. *Under that cheerful pink it hides a dozen moving parts, which is exactly why it never gets old.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "medium",
+      "base": "gin",
+      "family": "sling",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Highball",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "fruity",
+        "tropical"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1½ oz gin",
+            "½ oz cherry brandy (cherry liqueur, such as Cherry Heering)",
+            "¼ oz Cointreau",
+            "¼ oz Bénédictine",
+            "4 oz pineapple juice",
+            "½ oz fresh lime juice",
+            "⅓ oz grenadine",
+            "1 dash Angostura bitters",
+            "Ice",
+            "Pineapple slice and a cherry, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Add everything to a shaker filled with ice.",
+            "Shake hard until the shaker frosts and the juice whips up a froth.",
+            "Strain into an ice-filled highball.",
+            "Garnish with a pineapple slice and a cherry."
+          ]
+        }
+      ],
+      "tips": [
+        "Use fresh pineapple juice if you can — it gives the signature frothy top that the bottled stuff can't.",
+        "No Bénédictine on hand — a touch more cherry brandy plus a little extra Cointreau approximates its honeyed, herbal note.",
+        "Build it for two in a small pitcher and split between glasses so the froth stays even across both pours."
+      ],
+      "extras": [
+        {
+          "label": "Lower and longer",
+          "note": "Cut the gin to 1 oz and top with a splash of soda for a sessionable porch-sipper that lasts the afternoon."
+        },
+        {
+          "label": "From the garden",
+          "note": "Slap a mint sprig over the top before garnishing for a cooling, almost mojito-like lift against the fruit."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "A century-old crowd-pleaser that still earns its place — equal parts cocktail and tropical\nholiday in a glass.",
+      "equipment": [],
+      "hero": "images/singapore-sling.webp"
+    },
+    {
+      "title": "Spicy Pineapple Margarita with Tajín Rim",
+      "slug": "spicy-pineapple-margarita-tajin",
+      "kind": "drink",
+      "tagline": "Bright pineapple and blanco tequila shaken cold, poured over ice into a chili-lime Tajín rim.",
+      "pitch": "This is the margarita that tastes like a beach vendor's fruit cup — pineapple juice shaken cold with blanco tequila and fresh lime until it turns frothy and gold. The Tajín rim does the heavy lifting, dragging a little chili-lime salt into every sip so the sweetness never gets cloying. It lands tropical and tart with a slow, friendly burn that builds the longer you sit with it. *The rim is the whole trick — chili-lime Tajín turns each sip sweet, then bright, then warm.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "tequila",
+      "family": "margarita",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Rocks",
+      "strength": "medium",
+      "heat": "mild",
+      "tags": [
+        "tropical",
+        "spicy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz blanco tequila",
+            "1 oz triple sec",
+            "1½ oz pineapple juice",
+            "1 oz fresh lime juice",
+            "½ oz simple syrup or agave",
+            "Tajín, for the rim",
+            "1 lime wedge, for the rim",
+            "Ice",
+            "Pineapple wedge or lime wheel, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Rim a rocks glass — run the lime wedge around the edge and dip it into a saucer of Tajín, then fill the glass with fresh ice.",
+            "Add the tequila, triple sec, pineapple juice, lime juice, and syrup to a shaker filled with ice.",
+            "Shake hard until the shaker frosts over, about 12–15 seconds.",
+            "Strain into the rimmed glass over the fresh ice.",
+            "Garnish with a pineapple wedge or lime wheel."
+          ]
+        }
+      ],
+      "tips": [
+        "Rim only half the glass so you can choose a chili-lime sip or a clean one as you go.",
+        "Use ½ oz agave instead of simple syrup for a rounder, more authentic margarita backbone.",
+        "Shake with a thin slice of jalapeño in the tin (then strain it out) for heat without the burn of biting in."
+      ],
+      "extras": [
+        {
+          "label": "Charred & smoky",
+          "note": "Char a few pineapple slices in a screaming-hot grill pan, muddle them in before you shake, and float ½ oz mezcal for a campfire edge."
+        },
+        {
+          "label": "Stephen swap",
+          "note": "Sub rum for the tequila for a softer, tiki-leaning tropical twist on the same chili-lime rim."
+        },
+        {
+          "label": "From the garden",
+          "note": "Drop a jalapeño slice into the glass (or a hotter serrano) when you want the heat dialed up."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Sweet, tart, and gently spicy — the chili-lime rim is what keeps this one honest.",
+      "equipment": [],
+      "hero": "images/spicy-pineapple-margarita-tajin.webp"
+    },
+    {
+      "title": "Vodka Gimlet",
+      "slug": "vodka-gimlet",
+      "kind": "drink",
+      "tagline": "Vodka, fresh lime, and a whisper of syrup shaken cold into the cleanest sour there is.",
+      "pitch": "The gimlet is a study in restraint — vodka, fresh lime, a touch of syrup, beaten over ice until the shaker frosts and your hand aches. No bitters, no liqueur, nothing to blur it; just cold, citrus, and spirit standing exactly where they should. It comes out bracing and crystal-clear, the kind of drink that resets your palate and your evening at once. *Drop the syrup to a half-ounce and it turns dry and spirit-forward — Stephen's lane to a tee.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "vodka",
+      "family": "gimlet",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Coupe",
+      "strength": "spirit-forward",
+      "heat": "none",
+      "tags": [
+        "citrusy",
+        "refreshing"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz vodka",
+            "¾ oz fresh lime juice",
+            "¾ oz simple syrup",
+            "Ice",
+            "Lime wheel, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Add the vodka, lime juice, and simple syrup to a shaker filled with ice.",
+            "Shake hard until the shaker frosts over, about 12–15 seconds.",
+            "Fine-strain into a chilled coupe.",
+            "Garnish with a lime wheel."
+          ]
+        }
+      ],
+      "tips": [
+        "Swap the vodka for gin and you have a classic gin gimlet — same ratios, more botanical lift.",
+        "Drop to ½ oz syrup for a drier, more spirit-forward pour (Stephen) or hold at ¾ for Lauren.",
+        "Fresh lime is non-negotiable here; bottled juice goes flat and bitter and there is nothing to cover it."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Muddle a few mint or basil leaves in before you shake, or float a sprig, for a garden-fresh lift."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "Three ingredients, perfectly balanced — proof that the simplest sour, made with fresh\nlime, beats anything dressed up to hide its flaws.",
+      "equipment": [],
+      "hero": "images/vodka-gimlet.webp"
+    },
+    {
+      "title": "White Russian",
+      "slug": "white-russian",
+      "kind": "drink",
+      "tagline": "Vodka and coffee liqueur over ice, crowned with a slow float of cold cream.",
+      "pitch": "This is the after-dinner drink that doubles as dessert — vodka and coffee liqueur over a glass of ice, with cold cream poured slow over the back of a spoon so it pools and clouds down through the dark. Stirred, it turns a uniform mocha-beige; left alone, it layers like a tiny cream parfait. Either way it drinks rich, boozy, and just sweet enough, all coffee and cream with a spirit kick underneath. *That slow cream float is pure theater — pour it over the back of a barspoon and let it billow before you decide to stir or leave it layered.*",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "vodka",
+      "family": "dessert",
+      "methods": [
+        "built"
+      ],
+      "glass": "Rocks",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "creamy",
+        "boozy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz vodka",
+            "1 oz coffee liqueur (such as Kahlúa)",
+            "1 oz heavy cream",
+            "Ice"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Fill a rocks glass with ice.",
+            "Pour in the vodka and coffee liqueur.",
+            "Float the cream over the back of a barspoon so it clouds down through the drink.",
+            "Stir gently to combine into a uniform beige, or leave it layered for the photogenic look."
+          ]
+        }
+      ],
+      "tips": [
+        "Use milk or half-and-half instead of heavy cream for a lighter, less rich pour.",
+        "Leave it layered for the photo, or give it a slow stir for an even, mocha-beige drink.",
+        "A tiny grate of fresh nutmeg or cinnamon over the top adds a warm aromatic lift."
+      ],
+      "extras": [
+        {
+          "label": "Make it boozier",
+          "note": "Swap an ounce of the cream for cold-brew concentrate, or add a barspoon of crème de cacao, to push it darker and more grown-up."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-06-19T00:00:00.000Z",
+      "headnote": "The Dude's drink — three things over ice, a slow pour of cream, and the most\nforgiving cocktail you'll ever build at the end of a long night.",
+      "equipment": [],
+      "hero": "images/white-russian.webp"
     }
   ]
 }

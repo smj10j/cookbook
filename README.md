@@ -12,21 +12,21 @@ GitHub Pages so it works on any phone or laptop.
 
 ## What's here
 
-- A browsable **menu** of recipes you can filter by course (main/side), protein, dish
-  type, time, cooking method, heat level, and cuisine — plus full-text search. The
-  **Asian** cuisine filter rolls up Vietnamese, Japanese, Chinese, Thai, Sichuan, etc.
+- **Two sections behind tabs at the top — Food and Drinks.** Food filters by course
+  (main/side/dessert), protein, dish type, time, method, heat, and cuisine (the **Asian**
+  filter rolls up Vietnamese, Japanese, Chinese, Thai, Sichuan, etc.). Drinks filter by
+  base spirit, style, strength, flavor, and heat. Both have full-text search.
 - Click any card to open the full recipe **spread** and flip left/right through the
   results with arrow keys, swipes, or the on-screen arrows.
-- A **shopping-list builder**: tick the ✓ on any cards, hit the floating
-  **Get Shopping List** button, set how many people you're feeding (quantities scale
-  automatically), and copy the list to your clipboard — identical ingredients across
-  recipes are merged into one line. Pantry staples (salt, oil, sugar, common spices,
-  vinegars, condiments…) start unchecked; a ⚑ marks things you probably have but might
-  want to double-check (soy sauce, vanilla, balsamic…).
+- A **shopping-list builder**: tap the **+** on any card (food or drink), hit the floating
+  🛒 cart in the top-right, set how many servings you want (quantities scale automatically),
+  and copy the list to your clipboard — identical ingredients across recipes are merged into
+  one line (garlic by the bulb, citrus by the fruit, bitters by the bottle). Pantry staples
+  start unchecked; a ⚑ marks things you probably have but might want to double-check.
 - Every recipe follows one **standard format**, so timings, ingredients, method,
   chef's tips, and extras are always in the same place.
-- **Shareable links with rich previews:** open a recipe and tap **🔗 Share** to copy (or,
-  on a phone, send) a link like `…/cookbook/r/blackened-steak-salad/`. In iMessage, Slack,
+- **Shareable links with rich previews:** open a recipe and tap the **share** button to copy
+  (or, on a phone, send) a link like `…/cookbook/r/blackened-steak-salad/`. In iMessage, Slack,
   etc. it unfurls with the dish's photo and title (Open Graph preview), then opens straight
   into the recipe. (The in-app `#/slug` hash links still work, but only the `r/<slug>/`
   links show a preview — crawlers can't see a URL hash.)
@@ -40,11 +40,17 @@ This repo is built to be driven by **Claude Code**. Just ask, in plain English:
 > "Add a recipe for the chicken thing we had — paste: …"
 >
 > "Make a recipe for sheet-pan gnocchi with a chef tip or two."
+>
+> "Add a mezcal margarita" *(drinks work the same way)*
 
-Claude uses the **add-recipe skill** (`.claude/skills/add-recipe/`) to:
+Claude uses the **add-recipe skill** (`.claude/skills/add-recipe/`) — or the **add-drink
+skill** (`.claude/skills/add-drink/`) for cocktails — to:
 1. Fetch & clean the source (if it's a URL), or take your text/idea.
 2. Reshape it into our standard format, **give it a proper name**, and add chef's tips.
-3. Drop it in `recipes/`, rebuild, and (optionally) generate a photo.
+3. Drop it in `recipes/` (or `drinks/`), rebuild, and (optionally) generate a photo.
+
+Both skills first check for a near-duplicate (and ask before adding one) and whether a new
+filter is warranted (e.g. a new `dessert` course) before building.
 
 You review, then it's live on the next push.
 
@@ -103,7 +109,8 @@ committed API keys and refuses to deploy if it finds one.
 ## Repo layout
 
 ```
-recipes/      ← the recipes (edit these)
+recipes/      ← the food recipes (edit these)
+drinks/       ← the cocktails (kind: drink)
 docs/         ← the published site (Pages serves this)
 scripts/      ← build, validate, and photo tooling
 CLAUDE.md     ← the format spec + house style (for Claude and for you)

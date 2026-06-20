@@ -93,6 +93,20 @@ test('yield rules: garlic bulbs, lemon count, herb bunches', () => {
   assert.deepEqual(lines([{ qty: 5, rest: 'sprigs thyme' }, { qty: 0.5, rest: 'tsp thyme' }]), ['1 bunch thyme']); // #10
 });
 
+test('drinks: bitters collapse to one bottle; ice/syrup/spirits classify sanely', () => {
+  // every bitters variant (Angostura, aromatic, "a dash of bitters") merges to one line
+  assert.deepEqual(lines([
+    { qty: 2, rest: 'dashes Angostura bitters' },
+    { qty: 1, rest: 'dash of bitters' },
+    { qty: 2, rest: 'dashes aromatic bitters' },
+  ]), ['bitters']);
+  for (const s of ['1 cup ice', 'Crushed ice']) assert.equal(classify(s), 'core', s);
+  for (const s of ['2 dashes Angostura bitters', '¾ oz simple syrup', '½ oz agave syrup', '⅓ oz grenadine']) {
+    assert.equal(classify(s), 'pantry', s);
+  }
+  for (const s of ['2 oz white rum', '1 oz triple sec', 'vanilla ice cream']) assert.equal(classify(s), 'buy', s);
+});
+
 test('does NOT over-merge distinct items', () => {
   assert.equal(lines([{ qty: 1, rest: 'green bell pepper' }, { qty: 1, rest: 'red bell pepper' }]).length, 2);
   assert.equal(lines([{ qty: 1, rest: 'cup cherry tomatoes' }, { qty: 1, rest: 'cup grape tomatoes' }]).length, 2);

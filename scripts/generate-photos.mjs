@@ -54,27 +54,56 @@ if (!KEY) {
   process.exit(1);
 }
 
-// ── prompt builder: consistent editorial food photography ──
+// Pull the garnish phrase out of a drink's ingredients ("Lime wheel, for garnish" -> "lime wheel").
+function garnishOf(r) {
+  const g = (r.ingredients || []).flatMap((s) => s.items || []).find((l) => /garnish/i.test(l));
+  return g ? g.replace(/,?\s*for garnish.*$/i, '').replace(/\(optional\)/ig, '').trim() : '';
+}
+
+// ── prompt builder: consistent editorial photography (food, dessert, or cocktail) ──
 function buildPrompt(r) {
+  if (r.kind === 'drink') return buildDrinkPrompt(r);
+  const isDessert = r.category === 'dessert' || r.course === 'dessert';
   const firstItems = (r.ingredients[0]?.items || []).slice(0, 4).join(', ');
-  const vessel =
-    r.course === 'soup' ? 'in a rustic ceramic bowl'
+  const vessel = isDessert ? 'on a dessert plate or a rustic wooden board (a sliced loaf, a wedge of pie, or cookies as fits the dish)'
+    : r.course === 'soup' ? 'in a rustic ceramic bowl'
     : r.course === 'salad' ? 'on a wide ceramic plate'
     : r.course === 'sauce' ? 'in a small bowl with a spoon'
     : r.course === 'taco' ? 'on a wooden board'
     : r.course === 'snack' ? 'on parchment in a shallow dish'
     : 'on a handmade ceramic plate';
+  const garnishLine = isDessert ? 'a light dusting of sugar or a simple sweet finish, and gorgeous color contrast.'
+    : 'fresh herbs and garnishes, and gorgeous color contrast.';
   return [
-    `A mouth-watering, professionally food-styled photograph of "${r.title}", a ${r.cuisine} ${r.course}.`,
+    `A mouth-watering, professionally food-styled photograph of "${r.title}", a ${r.cuisine} ${isDessert ? 'dessert' : r.course}.`,
     r.tagline,
     firstItems ? `Featuring ${firstItems}.` : '',
     `Restaurant-quality plating ${vessel} on a beautifully styled table with tasteful props,`,
-    'fresh herbs and garnishes, and gorgeous color contrast.',
+    garnishLine,
     'Shot by a top Instagram food photographer on a full-frame DSLR, 50mm at f/2.8:',
     'gorgeous soft directional window light, glistening fresh ingredients, juicy and crisp',
     'textures, a wisp of steam, vibrant appetizing color, shallow depth of field, and a',
     'beautiful, considered composition — crave-worthy and drool-inducing, the kind of photo',
-    'that makes you want to cook it tonight.',
+    'that makes you want to make it tonight.',
+    'It is still a REAL photograph — photorealistic with natural imperfections — NOT an',
+    'illustration, 3D render, CGI, cartoon, painting, or AI art, and never plastic, waxy, or fake.',
+    'No text, no words, no logos, no hands, no people.',
+  ].filter(Boolean).join(' ');
+}
+
+// Cocktail styling — the drink in its proper glassware, not a plated dish.
+function buildDrinkPrompt(r) {
+  const glass = r.glass ? `a ${r.glass.toLowerCase()} glass` : 'an elegant cocktail glass';
+  const garnish = garnishOf(r);
+  return [
+    `A mouth-watering, professionally styled cocktail photograph of "${r.title}", a ${r.base} ${r.family} cocktail served in ${glass}.`,
+    r.tagline,
+    garnish ? `Garnished with ${garnish.toLowerCase()}.` : '',
+    'Styled on a bar top or a beautifully set table with tasteful props,',
+    'beads of condensation on the glass, glistening ice where it belongs, fresh garnish, and vibrant, appetizing color.',
+    'Shot by a top cocktail photographer on a full-frame DSLR, 50mm at f/2.8:',
+    'soft directional window light, shallow depth of field, and a beautiful, considered composition —',
+    'crisp, refreshing, and crave-worthy.',
     'It is still a REAL photograph — photorealistic with natural imperfections — NOT an',
     'illustration, 3D render, CGI, cartoon, painting, or AI art, and never plastic, waxy, or fake.',
     'No text, no words, no logos, no hands, no people.',
@@ -129,7 +158,8 @@ async function generate(r) {
 
 // ── run ──
 mkdirSync(imagesDir, { recursive: true });
-let recipes = readAllRecipes(join(root, 'recipes'));
+const drinksDir = join(root, 'drinks');
+let recipes = [...readAllRecipes(join(root, 'recipes')), ...(existsSync(drinksDir) ? readAllRecipes(drinksDir) : [])];
 if (only) recipes = recipes.filter((r) => r.slug === only);
 if (!force) recipes = recipes.filter((r) => !existsSync(join(imagesDir, `${r.slug}.webp`)));
 recipes = recipes.slice(0, limit);

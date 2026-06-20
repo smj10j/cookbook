@@ -6,7 +6,10 @@ import { writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { readAllRecipes } from './lib/parse.mjs';
-import { validateRecipe, VOCAB, PROTEIN_META, METHOD_META, TIME_BUCKETS, CUISINE_GROUPS } from './lib/schema.mjs';
+import {
+  validateRecipe, VOCAB, PROTEIN_META, METHOD_META, TIME_BUCKETS, CUISINE_GROUPS,
+  BASE_META, FAMILY_META, STRENGTH_META,
+} from './lib/schema.mjs';
 import { recipeStubHtml, ogImageUrl } from './lib/stub.mjs';
 
 // Absolute site URL, used for canonical + Open Graph image links in the share pages.
@@ -14,9 +17,12 @@ const SITE = (process.env.SITE_URL || 'https://smj10j.github.io/cookbook').repla
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const recipesDir = join(root, 'recipes');
+const drinksDir = join(root, 'drinks');
 const outFile = join(root, 'docs', 'recipes.json');
 
-const recipes = readAllRecipes(recipesDir);
+// Food lives in recipes/, drinks in drinks/. Both compile into one feed (distinguished
+// by `kind`); the site shows one or the other behind the Food/Drinks tabs.
+const recipes = [...readAllRecipes(recipesDir), ...(existsSync(drinksDir) ? readAllRecipes(drinksDir) : [])];
 
 // Auto-attach a photo if docs/images/<slug>.webp exists, so the photo pipeline
 // never has to edit recipe frontmatter. An explicit `hero:` still wins.
@@ -42,15 +48,19 @@ if (errors.length) {
 }
 
 // Build the facet index so the site can render filter dropdowns without recomputing.
-const cuisines = [...new Set(recipes.map((r) => r.cuisine))].sort();
+const cuisines = [...new Set(recipes.map((r) => r.cuisine).filter(Boolean))].sort();
 const allTags = [...new Set(recipes.flatMap((r) => r.tags))].sort();
 
 const payload = {
   // No build timestamp here on purpose: a volatile field would make the JSON differ
   // on every build and trigger needless CI re-commits.
   count: recipes.length,
+  counts: {
+    food: recipes.filter((r) => r.kind !== 'drink').length,
+    drink: recipes.filter((r) => r.kind === 'drink').length,
+  },
   vocab: VOCAB,
-  meta: { protein: PROTEIN_META, method: METHOD_META },
+  meta: { protein: PROTEIN_META, method: METHOD_META, base: BASE_META, family: FAMILY_META, strength: STRENGTH_META },
   timeBuckets: TIME_BUCKETS,
   cuisineGroups: CUISINE_GROUPS,
   facets: { cuisines, tags: allTags },

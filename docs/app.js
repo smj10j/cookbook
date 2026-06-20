@@ -13,11 +13,33 @@ const state = {
   data: null,
   filtered: [],
   q: '',
-  filters: { category: new Set(), protein: new Set(), course: new Set(), methods: new Set(), heat: new Set(), cuisine: new Set(), time: new Set() },
+  kind: 'food',            // 'food' | 'drink' — which tab is showing
+  filters: {
+    category: new Set(), protein: new Set(), course: new Set(), methods: new Set(),
+    heat: new Set(), cuisine: new Set(), time: new Set(),
+    base: new Set(), family: new Set(), strength: new Set(), tags: new Set(),  // drink facets
+  },
   reader: { list: [], index: -1 },
   selected: new Set(),     // slugs picked for the shopping list (persisted)
   shop: { items: [] },     // current overlay item rows
   copyFormat: 'dash',      // 'dash' | 'checkbox' (persisted)
+};
+
+// Curated flavor tags that become the Drinks "Flavor" filter (kept tight on purpose).
+const DRINK_FLAVORS = ['citrusy', 'tropical', 'creamy', 'fruity', 'herbal', 'smoky', 'spicy', 'dessert', 'refreshing', 'boozy'];
+
+// Hero copy per section.
+const HERO = {
+  food: {
+    kicker: 'The dinner archive',
+    headline: 'Dinners we keep <em>coming&nbsp;back</em> to.',
+    lede: 'A living flipbook of the recipes worth repeating — pitched like a menu, filtered like a pantry. Pick a night’s craving and turn the page.',
+  },
+  drink: {
+    kicker: 'The home bar',
+    headline: 'Drinks worth <em>shaking</em> for.',
+    lede: 'A flipbook of the cocktails we keep coming back to — pitched like a bar menu, filtered like a liquor cabinet. Pick a mood and turn the page.',
+  },
 };
 
 const SELECT_KEY = 'tm-selected';
@@ -47,13 +69,36 @@ export async function init() {
   // drop any persisted slugs that no longer exist
   const valid = new Set(state.all.map((r) => r.slug));
   [...state.selected].forEach((s) => valid.has(s) || state.selected.delete(s));
+  setHero();
   buildFilters();
   bindEvents();
   apply();
   renderShopbar();
   syncFormatToggle();
-  $('#colophon-meta').textContent = `${state.all.length} recipes and counting`;
+  const c = state.data.counts || { food: state.all.length, drink: 0 };
+  $('#colophon-meta').textContent = `${c.food} recipes · ${c.drink} drinks and counting`;
   routeFromHash();
+}
+
+// Swap the hero copy for the active section.
+function setHero() {
+  const h = HERO[state.kind] || HERO.food;
+  $('.hero-kicker').textContent = h.kicker;
+  $('.hero-headline').innerHTML = h.headline;
+  $('.hero-lede').textContent = h.lede;
+}
+
+// Switch tabs: set the kind, reset search + filters (they differ per section), rebuild.
+function setKind(kind) {
+  if (kind !== 'food' && kind !== 'drink') return;
+  state.kind = kind;
+  state.q = '';
+  $('#search').value = '';
+  Object.values(state.filters).forEach((s) => s.clear());
+  document.querySelectorAll('#tabs .tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.kind === kind)));
+  setHero();
+  buildFilters();
+  apply();
 }
 
 function setDate() {
@@ -62,21 +107,31 @@ function setDate() {
 
 // ── filters ─────────────────────────────────────────────────────────────────
 function buildFilters() {
-  const { all, data } = state;
-  const present = (key, pluck) => {
+  const { data } = state;
+  const kindRecipes = state.all.filter((r) => (r.kind || 'food') === state.kind);
+  const present = (vocab, pluck) => {
     const found = new Set();
-    all.forEach((r) => [].concat(pluck(r)).forEach((v) => found.add(v)));
-    return key.filter((v) => found.has(v));
+    kindRecipes.forEach((r) => [].concat(pluck(r)).filter((v) => v != null).forEach((v) => found.add(v)));
+    return vocab.filter((v) => found.has(v));
   };
-  const groups = [
-    { key: 'category', label: 'Course', values: present(data.vocab.category, (r) => r.category), labelFor: cap },
-    { key: 'protein', label: 'Protein', values: present(data.vocab.protein, (r) => r.protein), labelFor: (v) => data.meta.protein[v]?.label || cap(v) },
-    { key: 'course', label: 'Dish', values: present(data.vocab.course, (r) => r.course).filter((c) => c !== 'main' && c !== 'side'), labelFor: cap },
-    { key: 'methods', label: 'Method', values: present(data.vocab.methods, (r) => r.methods), labelFor: (v) => data.meta.method[v]?.label || cap(v) },
-    { key: 'time', label: 'Time', values: data.timeBuckets.map((b) => b.key), labelFor: (k) => data.timeBuckets.find((b) => b.key === k).label },
-    { key: 'heat', label: 'Heat', values: present(data.vocab.heat, (r) => r.heat).filter((h) => h !== 'none'), labelFor: cap },
-    { key: 'cuisine', label: 'Cuisine', values: cuisineChipValues(all, data.cuisineGroups || {}), labelFor: (v) => v },
-  ];
+  const flavorsPresent = new Set(kindRecipes.flatMap((r) => r.tags || []));
+  const groups = state.kind === 'drink'
+    ? [
+        { key: 'base', label: 'Base', values: present(data.vocab.base, (r) => r.base), labelFor: (v) => data.meta.base[v]?.label || cap(v) },
+        { key: 'family', label: 'Style', values: present(data.vocab.family, (r) => r.family), labelFor: (v) => data.meta.family[v]?.label || cap(v) },
+        { key: 'strength', label: 'Strength', values: present(data.vocab.strength, (r) => r.strength), labelFor: (v) => data.meta.strength[v]?.label || cap(v) },
+        { key: 'tags', label: 'Flavor', values: DRINK_FLAVORS.filter((f) => flavorsPresent.has(f)), labelFor: cap },
+        { key: 'heat', label: 'Heat', values: present(data.vocab.heat, (r) => r.heat).filter((h) => h !== 'none'), labelFor: cap },
+      ]
+    : [
+        { key: 'category', label: 'Course', values: present(data.vocab.category, (r) => r.category), labelFor: cap },
+        { key: 'protein', label: 'Protein', values: present(data.vocab.protein, (r) => r.protein), labelFor: (v) => data.meta.protein[v]?.label || cap(v) },
+        { key: 'course', label: 'Dish', values: present(data.vocab.course, (r) => r.course).filter((c) => !['main', 'side', 'dessert'].includes(c)), labelFor: cap },
+        { key: 'methods', label: 'Method', values: present(data.vocab.methods, (r) => r.methods), labelFor: (v) => data.meta.method[v]?.label || cap(v) },
+        { key: 'time', label: 'Time', values: data.timeBuckets.map((b) => b.key), labelFor: (k) => data.timeBuckets.find((b) => b.key === k).label },
+        { key: 'heat', label: 'Heat', values: present(data.vocab.heat, (r) => r.heat).filter((h) => h !== 'none'), labelFor: cap },
+        { key: 'cuisine', label: 'Cuisine', values: cuisineChipValues(kindRecipes, data.cuisineGroups || {}), labelFor: (v) => v },
+      ];
   $('#filter-groups').innerHTML = groups
     .filter((g) => g.values.length > 1 || g.key === 'time')
     .map((g) => `
@@ -92,6 +147,10 @@ function buildFilters() {
 }
 
 function bindEvents() {
+  $('#tabs').addEventListener('click', (e) => {
+    const t = e.target.closest('.tab');
+    if (t && t.dataset.kind !== state.kind) setKind(t.dataset.kind);
+  });
   $('#search').addEventListener('input', (e) => { state.q = e.target.value.trim().toLowerCase(); apply(); });
   $('#filter-groups').addEventListener('click', (e) => {
     const btn = e.target.closest('.chip');
@@ -157,26 +216,41 @@ function clearFilters() {
 
 function apply() {
   const ctx = { q: state.q, filters: state.filters, cuisineGroups: state.data.cuisineGroups || {}, timeBuckets: state.data.timeBuckets || [] };
-  state.filtered = state.all.filter((r) => recipeMatches(r, ctx));
+  state.filtered = state.all.filter((r) => (r.kind || 'food') === state.kind && recipeMatches(r, ctx));
   renderMenu();
 }
 
 // ── menu (cards) ─────────────────────────────────────────────────────────────
 function renderMenu() {
   const list = state.filtered;
+  const total = state.all.filter((r) => (r.kind || 'food') === state.kind).length;
+  const noun = state.kind === 'drink' ? 'drink' : 'recipe';
   const active = state.q || Object.values(state.filters).some((s) => s.size);
   $('#clear-filters').hidden = !active;
-  $('#result-count').textContent = active ? `${list.length} of ${state.all.length} recipes` : `${state.all.length} recipes`;
+  $('#result-count').textContent = active ? `${list.length} of ${total} ${noun}s` : `${total} ${noun}s`;
   $('#empty-state').hidden = list.length > 0;
   $('#menu').innerHTML = list.map((r, i) => cardHtml(r, i)).join('');
 }
 
-function cardHtml(r, i) {
-  const tags = [
-    `<span class="tag tag-protein">${esc(state.data.meta.protein[r.protein]?.label || r.protein)}</span>`,
-    ...r.methods.slice(0, 2).map((m) => `<span class="tag">${esc(state.data.meta.method[m]?.label || m)}</span>`),
+// Card eyebrow tags — protein/method/heat for food; base/style/heat for a drink.
+function cardTags(r) {
+  const M = state.data.meta;
+  if (r.kind === 'drink') {
+    return [
+      `<span class="tag tag-protein">${esc(M.base[r.base]?.label || r.base)}</span>`,
+      `<span class="tag">${esc(M.family[r.family]?.label || r.family)}</span>`,
+      r.heat !== 'none' ? `<span class="tag tag-hot">${esc(cap(r.heat))} heat</span>` : '',
+    ].filter(Boolean).join('');
+  }
+  return [
+    `<span class="tag tag-protein">${esc(M.protein[r.protein]?.label || r.protein)}</span>`,
+    ...(r.methods || []).slice(0, 2).map((m) => `<span class="tag">${esc(M.method[m]?.label || m)}</span>`),
     r.heat !== 'none' ? `<span class="tag tag-hot">${esc(cap(r.heat))} heat</span>` : '',
   ].filter(Boolean).join('');
+}
+
+function cardHtml(r, i) {
+  const tags = cardTags(r);
   const num = String(i + 1).padStart(2, '0');
   const picked = state.selected.has(r.slug);
   return `
@@ -210,19 +284,32 @@ function visualHtml(r, num) {
   return placeholderHtml(r, num);
 }
 
+// "Cuisine · Dish" for food; "Base · Style" for a drink. Returns an escaped string.
+function subline(r) {
+  const M = state.data.meta;
+  return r.kind === 'drink'
+    ? `${esc(M.base[r.base]?.label || r.base)} · ${esc(M.family[r.family]?.label || r.family)}`
+    : `${esc(r.cuisine)} · ${esc(cap(r.course))}`;
+}
+
 function placeholderHtml(r, num) {
   return `<span class="placeholder-num">${num}</span>
     <div class="placeholder">
       <div class="placeholder-plate">${esc(r.title)}</div>
-      <div class="placeholder-sub">${esc(r.cuisine)} · ${esc(cap(r.course))}</div>
+      <div class="placeholder-sub">${subline(r)}</div>
     </div>`;
 }
 
 // ── reader / flipbook ────────────────────────────────────────────────────────
 function openReader(slug, dir = 0) {
-  let list = state.filtered.length ? state.filtered : state.all;
+  const target = state.all.find((r) => r.slug === slug);
+  if (!target) return;
+  // Arriving at a recipe from the other section (e.g. a shared drink link) flips the tab.
+  if ((target.kind || 'food') !== state.kind) setKind(target.kind || 'food');
+  const kindList = state.all.filter((r) => (r.kind || 'food') === state.kind);
+  let list = state.filtered.length ? state.filtered : kindList;
   let index = list.findIndex((r) => r.slug === slug);
-  if (index === -1) { list = state.all; index = list.findIndex((r) => r.slug === slug); }
+  if (index === -1) { list = kindList; index = list.findIndex((r) => r.slug === slug); }
   if (index === -1) return;
   state.reader = { list, index };
   $('#reader').hidden = false;
@@ -288,10 +375,40 @@ function sectionsHtml(sections, kind) {
   }).join('');
 }
 
-function spreadHtml(r) {
+// The 5-cell spec block — kitchen timings for food, bar spec for a drink.
+function metaCells(r) {
   const M = state.data.meta;
+  const cells = r.kind === 'drink'
+    ? [['Serves', r.serves], ['Time', fmtMin(r.times.total)], ['Base', M.base[r.base]?.label || r.base],
+       ['Glass', r.glass], ['Level', cap(r.difficulty)]]
+    : [['Serves', r.serves], ['Prep', fmtMin(r.times.prep)], ['Cook', fmtMin(r.times.cook)],
+       ['Total', fmtMin(r.times.total)], ['Level', cap(r.difficulty)]];
+  return cells.map(([l, v]) => `<div><div class="m-label">${l}</div><div class="m-value">${esc(v)}</div></div>`).join('');
+}
+
+function chipsHtml(r) {
+  const M = state.data.meta;
+  if (r.kind === 'drink') {
+    return [
+      `<span class="schip">${esc(M.base[r.base]?.label || r.base)}</span>`,
+      `<span class="schip">${esc(M.family[r.family]?.label || r.family)}</span>`,
+      ...(r.methods || []).map((m) => `<span class="schip">${esc(M.method[m]?.label || m)}</span>`),
+      r.strength ? `<span class="schip">${esc(M.strength[r.strength]?.label || cap(r.strength))}</span>` : '',
+      r.heat !== 'none' ? `<span class="schip is-hot">${esc(cap(r.heat))} heat</span>` : '',
+      ...(r.tags || []).map((t) => `<span class="schip">${esc(t)}</span>`),
+    ].filter(Boolean).join('');
+  }
+  return [
+    `<span class="schip${VEG.has(r.protein) ? ' is-veg' : ''}">${esc(M.protein[r.protein]?.label || r.protein)}</span>`,
+    ...(r.methods || []).map((m) => `<span class="schip">${esc(M.method[m]?.label || m)}</span>`),
+    r.heat !== 'none' ? `<span class="schip is-hot">${esc(cap(r.heat))} heat</span>` : '',
+    ...(r.tags || []).map((t) => `<span class="schip">${esc(t)}</span>`),
+  ].filter(Boolean).join('');
+}
+
+function spreadHtml(r) {
   const heroPlaceholder = `<div class="placeholder"><div class="placeholder-plate">${esc(r.title)}</div>
-        <div class="placeholder-sub">${esc(r.cuisine)} · ${esc(cap(r.course))}</div></div>`;
+        <div class="placeholder-sub">${subline(r)}</div></div>`;
   const heroInner = r.hero
     ? `<img src="${esc(r.hero)}" alt="${esc(r.title)}"
          onerror="this.outerHTML = this.dataset.fallback"
@@ -305,17 +422,8 @@ function spreadHtml(r) {
       <svg class="spread-select-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
     </button>`;
 
-  const chips = [
-    `<span class="schip${VEG.has(r.protein) ? ' is-veg' : ''}">${esc(M.protein[r.protein]?.label || r.protein)}</span>`,
-    ...r.methods.map((m) => `<span class="schip">${esc(M.method[m]?.label || m)}</span>`),
-    r.heat !== 'none' ? `<span class="schip is-hot">${esc(cap(r.heat))} heat</span>` : '',
-    ...r.tags.map((t) => `<span class="schip">${esc(t)}</span>`),
-  ].filter(Boolean).join('');
-
-  const meta = [
-    ['Serves', r.serves], ['Prep', fmtMin(r.times.prep)], ['Cook', fmtMin(r.times.cook)],
-    ['Total', fmtMin(r.times.total)], ['Level', cap(r.difficulty)],
-  ].map(([l, v]) => `<div><div class="m-label">${l}</div><div class="m-value">${esc(v)}</div></div>`).join('');
+  const chips = chipsHtml(r);
+  const meta = metaCells(r);
 
   const tips = r.tips?.length
     ? `<div class="tips-box"><div class="section-h">Chef's Tips</div>
@@ -333,7 +441,7 @@ function spreadHtml(r) {
     <div class="spread-scroll">
     <div class="spread-hero">${heroInner}${selectBtn}</div>
     <div class="spread-inner">
-      <p class="spread-kicker">${esc(r.cuisine)} · ${esc(cap(r.course))}</p>
+      <p class="spread-kicker">${subline(r)}</p>
       <h2 class="spread-title">${esc(r.title)}</h2>
       <p class="spread-tagline">${esc(r.tagline)}</p>
       <div class="spread-meta">${meta}</div>

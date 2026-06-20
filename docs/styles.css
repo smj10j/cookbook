@@ -68,8 +68,30 @@ a { color: var(--accent); }
 .masthead-center { text-align: center; font-family: var(--serif); font-style: italic; letter-spacing: 0.02em; text-transform: none; font-size: 14px; color: var(--stone); }
 .masthead-right { text-align: right; color: var(--accent); font-weight: 600; }
 
+/* ░░ SECTION TABS (Food / Drinks) ░░ */
+.tabs {
+  position: relative; z-index: 2;
+  max-width: var(--maxw); margin: 16px auto 0; padding: 0 24px;
+  display: flex; justify-content: center; align-items: center; gap: 6px;
+}
+.tab {
+  position: relative;
+  font-family: var(--serif); font-size: 20px; letter-spacing: 0.01em;
+  background: none; border: none; cursor: pointer;
+  color: var(--stone); padding: 6px 22px 10px;
+  transition: color 0.15s var(--ease);
+}
+.tab::after {
+  content: ""; position: absolute; left: 22px; right: 22px; bottom: 4px; height: 2px;
+  background: var(--accent); transform: scaleX(0); transform-origin: center;
+  transition: transform 0.2s var(--ease);
+}
+.tab:hover { color: var(--ink); }
+.tab[aria-pressed="true"] { color: var(--accent); }
+.tab[aria-pressed="true"]::after { transform: scaleX(1); }
+
 /* ░░ HERO ░░ */
-.hero { max-width: var(--maxw); margin: 0 auto; padding: 46px 24px 8px; }
+.hero { max-width: var(--maxw); margin: 0 auto; padding: 30px 24px 8px; }
 .hero-kicker {
   margin: 0 0 14px;
   color: var(--accent);
@@ -318,19 +340,14 @@ a { color: var(--accent); }
   will-change: transform;
 }
 .turn-leaf .spread-scroll { overflow: hidden; }      /* the leaf is a frozen snapshot */
-.turn-leaf.turn-next { transform-origin: left center;  animation: turn-next 1.05s cubic-bezier(0.55, 0.04, 0.30, 1) forwards; }
-.turn-leaf.turn-prev { transform-origin: right center; animation: turn-prev 1.05s cubic-bezier(0.55, 0.04, 0.30, 1) forwards; }
-/* A touch of skew mid-turn bends the leaf like a real sheet rather than a rigid panel. */
-@keyframes turn-next {
-  0%   { transform: rotateY(0deg) skewY(0deg); }
-  45%  { transform: rotateY(-58deg) skewY(1.8deg); }
-  100% { transform: rotateY(-106deg) skewY(0deg); }
-}
-@keyframes turn-prev {
-  0%   { transform: rotateY(0deg) skewY(0deg); }
-  45%  { transform: rotateY(58deg) skewY(-1.8deg); }
-  100% { transform: rotateY(106deg) skewY(0deg); }
-}
+/* One continuous segment (no mid-keyframe stop, which is what made it "stick"), eased
+   slow→fast so the page falls under its own weight. The skew grows monotonically as it
+   turns so the sheet progressively rolls/curls instead of flipping like rigid cardboard
+   (the back face hides past 90°, so the end skew is only ever felt as the roll, not seen). */
+.turn-leaf.turn-next { transform-origin: left center;  animation: turn-next 1.05s cubic-bezier(0.5, 0, 0.7, 1) forwards; }
+.turn-leaf.turn-prev { transform-origin: right center; animation: turn-prev 1.05s cubic-bezier(0.5, 0, 0.7, 1) forwards; }
+@keyframes turn-next { from { transform: rotateY(0deg) skewY(0deg); } to { transform: rotateY(-104deg) skewY(5deg); } }
+@keyframes turn-prev { from { transform: rotateY(0deg) skewY(0deg); } to { transform: rotateY(104deg) skewY(-5deg); } }
 /* Shadow + a moving highlight: light rakes across the curved sheet (the bulge catches it,
    the curling edge falls into shadow) so the page reads as bending, not just rotating. */
 .turn-shade { position: absolute; inset: 0; pointer-events: none; opacity: 0; }
@@ -390,7 +407,14 @@ body.has-cart .reader-share { right: 114px; }   /* make room for the cart betwee
 .reader-share.copied { background: var(--olive); color: #fff; border-color: var(--olive); }
 .reader-share.copied .reader-share-icon { display: none; }
 .reader-share.copied .reader-share-check { display: block; }
-.reader-nav { position: fixed; z-index: 60; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; font-size: 30px; line-height: 1; }
+/* Prev/next get an accent outline + terracotta glyph + a stronger shadow so they pop
+   off the page (they were nearly invisible cream-on-cream, especially on mobile). */
+.reader-nav {
+  position: fixed; z-index: 60; top: 50%; transform: translateY(-50%);
+  width: 52px; height: 52px; font-size: 30px; line-height: 1;
+  border: 2px solid var(--accent); color: var(--accent);
+  box-shadow: 0 6px 20px -5px rgba(28, 24, 22, 0.55);
+}
 .reader-prev { left: 18px; }
 .reader-next { right: 18px; }
 .reader-close:hover, .reader-nav:hover, .reader-cart:hover { background: var(--accent); color: var(--cream); }

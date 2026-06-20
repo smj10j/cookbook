@@ -36,6 +36,12 @@
     <div class="masthead-rule"></div>
   </header>
 
+  <!-- ░░ SECTION TABS (Food / Drinks) ░░ -->
+  <nav class="tabs" id="tabs" aria-label="Menu section">
+    <button class="tab" type="button" data-kind="food" aria-pressed="true">Food</button>
+    <button class="tab" type="button" data-kind="drink" aria-pressed="false">Drinks</button>
+  </nav>
+
   <!-- ░░ HERO ░░ -->
   <section class="hero">
     <p class="hero-kicker">The dinner archive</p>
@@ -49,13 +55,11 @@
   <!-- ░░ HOW THIS WORKS ░░ -->
   <section class="howto">
     <p>
-      <strong>How this works.</strong> Browse the cards below or narrow them with the
-      filters — protein, time, method, heat. Tap any card to open the full recipe, then
-      flip left and right through whatever's left after your filters.<br>
-      <strong>Building dinner?</strong> Tap the <span class="howto-check" aria-hidden="true">✓</span>
-      on any card — or <em>Add to list</em> on an open recipe — to drop it on your shopping
-      list. A 🛒 cart in the top-right corner lets you review, scale to your servings, and copy
-      everything at once. Everything links, too, so you can send Lauren straight to a dish.
+      <strong>How this works.</strong> Flip between <strong>Food</strong> and <strong>Drinks</strong>
+      up top, filter to taste, then tap a card to open it and page left/right through the rest.<br>
+      <strong>Stocking up?</strong> Hit the <span class="howto-check" aria-hidden="true">+</span> on any
+      card or open recipe to add it to your list — the 🛒 up top scales it to your servings and copies
+      it in one tap.
     </p>
   </section>
 
@@ -138,11 +142,11 @@
         <span class="copied-msg" id="shop-copied" hidden>Copied ✓</span>
       </div>
       <p class="shoplist-note">
-        Quantities scale to your serving count and <strong>identical ingredients are merged</strong>
-        (garlic shows up as bulbs, lemons are estimated from how they're used).<br>
-        <strong>Only checked items are copied.</strong> Pantry staples — salt, oil, sugar, common spices, condiments — start
-        unchecked; a <span class="pantry-flag" aria-hidden="true">⚑</span> marks things you likely have.
-        Optional items land in their own section at the bottom.
+        Quantities scale to your serving count and <strong>identical ingredients merge</strong> across
+        recipes (garlic by the bulb, citrus by the fruit, bitters by the bottle).<br>
+        <strong>Only checked items copy.</strong> Pantry staples start unchecked — a
+        <span class="pantry-flag" aria-hidden="true">⚑</span> flags what you probably already have, and
+        optional bits sit in their own section.
       </p>
       <div class="shoplist-body" id="shoplist-body"></div>
       <footer class="shoplist-foot">

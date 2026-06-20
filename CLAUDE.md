@@ -7,7 +7,8 @@ into a static site. This file tells you (Claude) how to keep everything consiste
 ## Repo map
 
 ```
-recipes/              SOURCE OF TRUTH — one .md per recipe (YAML frontmatter + optional prose)
+recipes/              SOURCE OF TRUTH for food — one .md per recipe (YAML frontmatter + optional prose)
+drinks/               SOURCE OF TRUTH for cocktails — one .md per drink (same format, `kind: drink`)
 docs/                 The published static site (GitHub Pages serves from here)
   index.html styles.css
   app.js              DOM wiring + rendering (loaded as <script type="module">)
@@ -17,7 +18,7 @@ docs/                 The published static site (GitHub Pages serves from here)
   og/                 JPEG link-preview images (<slug>.jpg) — run `npm run og` to (re)make
   r/<slug>/           GENERATED share pages with Open Graph preview tags (do not hand-edit)
 scripts/
-  build.mjs           recipes/*.md -> docs/recipes.json (validates first, aborts on error)
+  build.mjs           recipes/*.md + drinks/*.md -> docs/recipes.json (validates first, aborts on error)
   validate.mjs        Lint recipes against the schema
   generate-photos.mjs AI photo pipeline (needs an image-gen API key; see README)
   lib/schema.mjs      Controlled vocabularies + validation rules (the contract)
@@ -79,8 +80,8 @@ difficulty: ★ easy | medium | advanced
 protein: ★ beef | chicken | fish | seafood | vegetarian | vegan | pork   # primary lane, pick ONE
 methods: ★ [grill, stove, oven, broiler, sous-vide, instant-pot, smoker, dehydrator, air-fryer, no-cook]  # >=1
 cuisine: ★ free text, Title Case (American, Italian, Mexican, Thai, Sichuan, Mediterranean…)
-category: main | side   # high-level menu role; defaults to main (omit for mains). Use `side` for sauces, salsas, dips, chips, casseroles, simple rice/bean sides.
-course: ★ main | salad | soup | side | sauce | pasta | taco | snack   # the granular dish type
+category: main | side | dessert   # menu role; defaults to main (omit for mains). `side` for sauces/salsas/dips/chips/casseroles/simple sides; `dessert` for sweets & baked goods.
+course: ★ main | salad | soup | side | sauce | pasta | taco | snack | dessert   # the granular dish type
 heat: ★ none | mild | medium | hot   # spice level
 equipment: [optional special gear, e.g. cast iron, sous-vide, grill]
 tags: [free-form filters: summer, make-ahead, gluten-free, date-night, garden, one-pan…]
@@ -119,12 +120,38 @@ ingredients:
 `steps` works identically (rendered as a numbered method). Inline `*italics*` are
 allowed in pitch, steps, tips, extras, and the headnote.
 
+## Drinks (cocktails)
+
+Drinks live in **`drinks/`** (one `.md` each) and use the same file format with a few
+swapped fields. Match `drinks/classic-daiquiri.md` (the golden drink). The differences:
+
+- `kind: drink` ★ (food omits `kind`).
+- **No** `protein` / `cuisine` / `course` / `category`. Instead:
+  - `base` ★ — the lead spirit: `gin | vodka | whiskey | rum | tequila | mezcal | brandy | liqueur | non-alcoholic`
+  - `family` ★ — the style: `daiquiri | sour | margarita | martini | gimlet | highball | tiki | swizzle | smash | sling | old-fashioned | fizz | mule | spritz | punch | frozen | dessert | shot`
+  - `methods` ★ — `shaken | stirred | built | blended | muddled | swizzled | dry-shake` (≥1)
+  - `glass` ★ — free text, Title Case (Coupe, Rocks, Highball, Collins, Martini…)
+  - `strength` — `sessionable | medium | spirit-forward`
+- `serves: 1` by default (one drink). `times: { prep, total }` — **no `cook`** (~5 min total).
+- `tags` are free text; include 1–3 **flavor** tags from `citrusy, tropical, creamy, fruity,
+  herbal, smoky, spicy, dessert, refreshing, boozy` — these power the Drinks "Flavor" filter.
+- Everything else is identical: tagline, pitch (one *italic* money line), 2–4 tips, extras,
+  source, dates. Quantities in `oz`; include an `Ice` line and a garnish line. "Dash of
+  bitters" lines collapse to a single "bitters" on the shopping list automatically.
+
 ## Controlled vocabularies
 
-`protein`, `methods`, `course`, `heat`, `difficulty`, `category` MUST use values from
-`scripts/lib/schema.mjs` (`VOCAB`). The site builds its filter dropdowns from these,
-so do not invent new values — add them to `schema.mjs` first if genuinely needed.
+Food (`protein`, `methods`, `course`, `heat`, `difficulty`, `category`) and drinks
+(`base`, `family`, `methods`, `strength`) MUST use values from `scripts/lib/schema.mjs`
+(`VOCAB`). The site builds its filter dropdowns from these, so don't invent values inline.
 `cuisine` and `tags` are free text and become filters automatically.
+
+**Growing the vocabulary — do it, but sparingly.** When something doesn't fit an existing
+value, *consider whether it needs a new one* instead of shoehorning it in — e.g. a dessert
+is neither a main nor a side, so it earns `category: dessert`. If it genuinely needs a new
+value, add it to `VOCAB` (and label maps) in `schema.mjs` and document it here **before**
+using it. Keep the filter set tight: a new value should pull its weight, not balloon the
+dropdowns. When in doubt, flag it to Stephen rather than quietly adding a filter.
 
 **Cuisine umbrellas.** `CUISINE_GROUPS` in `schema.mjs` lets a broad filter (e.g.
 "Asian") match many specific cuisines (Vietnamese, Japanese, Chinese, Thai, Sichuan,
@@ -132,8 +159,10 @@ Korean…). The specific cuisines still appear as their own filters. When you ad
 whose cuisine should roll up under an umbrella, make sure that cuisine is listed in the
 relevant group.
 
-**Filters on the site:** Course (Main/Side, from `category`), Protein, Dish (the
-granular `course`), Method, Time, Heat, and Cuisine (with umbrellas), plus search.
+**Two sections, behind tabs at the top — Food and Drinks — each with its own filters.**
+Food: Course (Main/Side/Dessert, from `category`), Protein, Dish (granular `course`),
+Method, Time, Heat, Cuisine (with umbrellas), + search. Drinks: Base, Style (`family`),
+Strength, Flavor (from `tags`), Heat, + search.
 
 ## Voice & standards (this is the whole point — keep it consistent)
 
@@ -165,14 +194,29 @@ granular `course`), Method, Time, Heat, and Cuisine (with umbrellas), plus searc
   `seafood` is fully in play.)
 - Cooking is usually **dinner for two**.
 
-## Adding a recipe
+## Adding a recipe or drink
 
-Use the **add-recipe** skill (`.claude/skills/add-recipe/SKILL.md`). It handles a URL
-("ingest this recipe from the web"), pasted text, or a from-scratch idea — normalizing
-to this format, naming it well, adding tips, then building. See `README.md` for the
-human-facing version.
+- **Food** → the **add-recipe** skill (`.claude/skills/add-recipe/SKILL.md`).
+- **Cocktails / drinks** → the **add-drink** skill (`.claude/skills/add-drink/SKILL.md`).
 
-**Important:** when the request is **open-ended** (no URL and no specific dish — e.g.
-"add a recipe" or "something with salmon"), do NOT build immediately. First pitch **three
-distinct options** (vary protein/technique/cuisine) and let Stephen choose; only then
-build the chosen one. A specific URL or named dish skips straight to building.
+Both handle a URL, pasted text, or a from-scratch idea — normalizing to this format,
+naming it well, adding tips, then building. See `README.md` for the human-facing version.
+
+**Two pre-flight checks both skills run before writing (don't skip):**
+
+1. **Duplicate / near-duplicate.** Scan `recipes/` and `drinks/` for an existing item that's
+   very similar (same dish/drink, or a close variation). If you find one, *stop and ask Stephen*
+   whether to **abort**, **merge** the two interactively (with your help), or **add it anyway**
+   as a distinct variation. Don't silently create a near-twin.
+2. **New filter/vocab value?** If the new item doesn't fit the existing controlled vocab
+   (e.g. a dessert, a new cocktail family), consider adding a value per *Growing the
+   vocabulary* above — conservatively, and flag it to Stephen rather than ballooning filters.
+
+**Open-ended requests:** when there's no URL and no specific dish/drink (e.g. "add a recipe",
+"make a cocktail"), do NOT build immediately — first pitch **three distinct options** (vary
+protein/technique/cuisine, or base/family/style for drinks) and let Stephen choose, then build
+the chosen one. A specific URL or named item skips straight to building.
+
+**Serving sizes:** food defaults to **2** (rescale to 2 for plated dishes; keep natural
+yields for true batches — casseroles, loaves, pies, salsas). Drinks default to **1**. When a
+source's natural yield differs, recommend a size and let Stephen choose.

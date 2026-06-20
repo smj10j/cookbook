@@ -17,10 +17,13 @@ export function readRecipeFile(path) {
   const raw = readFileSync(path, 'utf8');
   const { data, body } = parseFrontmatter(raw);
   const fileSlug = basename(path).replace(/\.md$/, '');
+  const kind = data.kind === 'drink' ? 'drink' : 'food';
   return {
     ...data,
+    kind,
     slug: data.slug || fileSlug,
-    category: data.category || 'main',
+    // category only applies to food (Main/Side); leave drinks without it.
+    category: kind === 'drink' ? undefined : data.category || 'main',
     headnote: body || null,
     ingredients: normalizeSections(data.ingredients),
     steps: normalizeSections(data.steps),

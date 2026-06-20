@@ -42,10 +42,27 @@ async function boot() {
   return { window, doc: window.document, app, $, $$, getCopied: () => copied };
 }
 
-test('boots and renders one card per recipe', async () => {
+const foodRecipes = recipes.recipes.filter((r) => (r.kind || 'food') === 'food');
+const drinkRecipes = recipes.recipes.filter((r) => r.kind === 'drink');
+
+test('boots and renders one card per FOOD recipe (default tab)', async () => {
   const { $$, app } = await boot();
-  assert.equal($$('.card').length, recipes.count);
-  assert.equal(app.state.all.length, recipes.count);
+  assert.equal($$('.card').length, foodRecipes.length, 'one card per food recipe on the default tab');
+  assert.equal(app.state.all.length, recipes.count, 'state holds food + drinks');
+});
+
+test('Drinks tab swaps the dataset, filters, and spec block', async () => {
+  const { $, $$, app } = await boot();
+  $$('#tabs .tab').find((t) => t.dataset.kind === 'drink').click();
+  assert.equal(app.state.kind, 'drink');
+  assert.equal($$('.card').length, drinkRecipes.length, 'cards switch to the drinks set');
+  const groups = $$('.filter-group').map((g) => g.dataset.group);
+  assert.ok(groups.includes('base'), 'a Base filter appears on Drinks');
+  assert.ok(!groups.includes('protein'), 'the Protein filter is hidden on Drinks');
+  $$('.card')[0].click();
+  assert.equal($('#reader').hidden, false);
+  const labels = $$('#spread .m-label').map((e) => e.textContent);
+  assert.ok(labels.includes('Base') && labels.includes('Glass'), 'drink spec block shows Base + Glass');
 });
 
 test('selecting a card shows the shopbar and marks the card', async () => {
@@ -64,17 +81,17 @@ test('selecting a card shows the shopbar and marks the card', async () => {
   assert.equal($('#shopbar').hidden, true);
 });
 
-test('REGRESSION: selecting EVERY recipe renders a non-empty list (no crash)', async () => {
+test('REGRESSION: selecting EVERY visible card renders a non-empty list (no crash)', async () => {
   const { $, $$, app } = await boot();
-  $$('.card-select').forEach((b) => b.click());
-  assert.equal(app.state.selected.size, recipes.count);
+  $$('.card-select').forEach((b) => b.click());      // every FOOD card on the default tab
+  assert.equal(app.state.selected.size, foodRecipes.length);
   $('#shopbar').click();                       // open the overlay
   assert.equal($('#shoplist').hidden, false);
   const body = $('#shoplist-body').textContent;
   assert.ok(!/No recipes selected/.test(body), 'overlay must not be empty');
-  assert.equal($$('.shop-recipe').length, recipes.count, 'one block per selected recipe');
-  // total rows == total ingredient lines across all recipes
-  const totalLines = recipes.recipes.reduce((n, r) => n + r.ingredients.reduce((m, s) => m + s.items.length, 0), 0);
+  assert.equal($$('.shop-recipe').length, foodRecipes.length, 'one block per selected recipe');
+  // total rows == total ingredient lines across the selected recipes
+  const totalLines = foodRecipes.reduce((n, r) => n + r.ingredients.reduce((m, s) => m + s.items.length, 0), 0);
   assert.equal($$('.shop-item').length, totalLines);
 });
 

@@ -19,14 +19,27 @@ export const VOCAB = {
     'air-fryer',
     'no-cook',
   ],
-  // High-level menu role: a main dish vs. an accompaniment. Defaults to 'main'.
-  category: ['main', 'side'],
+  // High-level menu role: main dish, accompaniment, or dessert. Defaults to 'main'.
+  category: ['main', 'side', 'dessert'],
   // What kind of dish (the granular descriptor). One per recipe.
-  course: ['main', 'salad', 'soup', 'side', 'sauce', 'pasta', 'taco', 'snack'],
-  // Spice level. One per recipe.
+  course: ['main', 'salad', 'soup', 'side', 'sauce', 'pasta', 'taco', 'snack', 'dessert'],
+  // Spice level. One per recipe (shared by food + drinks — spicy margaritas exist).
   heat: ['none', 'mild', 'medium', 'hot'],
-  // Effort. One per recipe.
+  // Effort. One per recipe (shared).
   difficulty: ['easy', 'medium', 'advanced'],
+
+  // ── DRINKS (kind: drink) ──────────────────────────────────────────────────
+  // Primary spirit / lane. One per drink (the drink analogue of `protein`).
+  base: ['gin', 'vodka', 'whiskey', 'rum', 'tequila', 'mezcal', 'brandy', 'liqueur', 'non-alcoholic'],
+  // Cocktail family / style — the granular dish type for drinks (analogue of `course`).
+  family: [
+    'daiquiri', 'sour', 'margarita', 'martini', 'gimlet', 'highball', 'tiki', 'swizzle',
+    'smash', 'sling', 'old-fashioned', 'fizz', 'mule', 'spritz', 'punch', 'frozen', 'dessert', 'shot',
+  ],
+  // How a drink is built. One or more (analogue of `methods` for food).
+  drinkMethods: ['shaken', 'stirred', 'built', 'blended', 'muddled', 'swizzled', 'dry-shake'],
+  // How boozy it drinks — drives a filter and the spec block.
+  strength: ['sessionable', 'medium', 'spirit-forward'],
 };
 
 // Human-friendly labels + display color hints for tags shown in the UI.
@@ -41,6 +54,8 @@ export const PROTEIN_META = {
   pork: { label: 'Pork', color: 'accent' },
 };
 
+// Method labels cover BOTH food and drink methods (it's just a label lookup; the filter
+// chips themselves are built per-kind from VOCAB.methods / VOCAB.drinkMethods).
 export const METHOD_META = {
   grill: { label: 'Grill' },
   stove: { label: 'Stove' },
@@ -52,6 +67,42 @@ export const METHOD_META = {
   dehydrator: { label: 'Dehydrator' },
   'air-fryer': { label: 'Air Fryer' },
   'no-cook': { label: 'No-Cook' },
+  // drink methods
+  shaken: { label: 'Shaken' },
+  stirred: { label: 'Stirred' },
+  built: { label: 'Built' },
+  blended: { label: 'Blended' },
+  muddled: { label: 'Muddled' },
+  swizzled: { label: 'Swizzled' },
+  'dry-shake': { label: 'Dry-Shake' },
+};
+
+// Drink label maps (analogues of PROTEIN_META).
+export const BASE_META = {
+  gin: { label: 'Gin', color: 'olive' },
+  vodka: { label: 'Vodka', color: 'ink' },
+  whiskey: { label: 'Whiskey', color: 'accent' },
+  rum: { label: 'Rum', color: 'accent' },
+  tequila: { label: 'Tequila', color: 'olive' },
+  mezcal: { label: 'Mezcal', color: 'accent' },
+  brandy: { label: 'Brandy', color: 'accent' },
+  liqueur: { label: 'Liqueur', color: 'ink' },
+  'non-alcoholic': { label: 'Non-Alcoholic', color: 'olive' },
+};
+
+export const FAMILY_META = {
+  daiquiri: { label: 'Daiquiri' }, sour: { label: 'Sour' }, margarita: { label: 'Margarita' },
+  martini: { label: 'Martini' }, gimlet: { label: 'Gimlet' }, highball: { label: 'Highball' },
+  tiki: { label: 'Tiki' }, swizzle: { label: 'Swizzle' }, smash: { label: 'Smash' },
+  sling: { label: 'Sling' }, 'old-fashioned': { label: 'Old Fashioned' }, fizz: { label: 'Fizz' },
+  mule: { label: 'Mule' }, spritz: { label: 'Spritz' }, punch: { label: 'Punch' },
+  frozen: { label: 'Frozen' }, dessert: { label: 'Dessert' }, shot: { label: 'Shot' },
+};
+
+export const STRENGTH_META = {
+  sessionable: { label: 'Sessionable' },
+  medium: { label: 'Balanced' },
+  'spirit-forward': { label: 'Spirit-Forward' },
 };
 
 // Cuisine umbrella groups. Selecting the umbrella (e.g. "Asian") matches any member
@@ -81,22 +132,10 @@ export const TIME_BUCKETS = [
   { key: 'over-60', label: 'Over 60 min', min: 60 },
 ];
 
-const REQUIRED = [
-  'title',
-  'slug',
-  'tagline',
-  'pitch',
-  'serves',
-  'times',
-  'difficulty',
-  'protein',
-  'methods',
-  'cuisine',
-  'course',
-  'heat',
-  'ingredients',
-  'steps',
-];
+// Required fields shared by both kinds, plus the kind-specific ones.
+const SHARED_REQUIRED = ['title', 'slug', 'tagline', 'pitch', 'serves', 'times', 'difficulty', 'heat', 'ingredients', 'steps'];
+const FOOD_REQUIRED = ['protein', 'methods', 'cuisine', 'course'];
+const DRINK_REQUIRED = ['base', 'family', 'methods', 'glass'];
 
 // Normalize ingredients/steps: each entry is either a plain string (ungrouped)
 // or { section, items: [...] }. Returns a consistent [{ section, items }] shape.
@@ -116,8 +155,11 @@ export function normalizeSections(value) {
 export function validateRecipe(r, filename = '?') {
   const errs = [];
   const fail = (m) => errs.push(`${filename}: ${m}`);
+  const kind = r.kind || 'food';
+  if (!['food', 'drink'].includes(kind)) fail(`kind "${r.kind}" must be "food" or "drink"`);
 
-  for (const key of REQUIRED) {
+  const required = [...SHARED_REQUIRED, ...(kind === 'drink' ? DRINK_REQUIRED : FOOD_REQUIRED)];
+  for (const key of required) {
     if (r[key] === undefined || r[key] === null || r[key] === '') {
       fail(`missing required field "${key}"`);
     }
@@ -127,29 +169,37 @@ export function validateRecipe(r, filename = '?') {
   if (typeof r.slug !== 'string' || !/^[a-z0-9-]+$/.test(r.slug)) {
     fail(`slug "${r.slug}" must be lowercase kebab-case`);
   }
-  if (!VOCAB.protein.includes(r.protein)) {
-    fail(`protein "${r.protein}" not in vocab (${VOCAB.protein.join(', ')})`);
+
+  if (kind === 'drink') {
+    if (!VOCAB.base.includes(r.base)) fail(`base "${r.base}" not in vocab (${VOCAB.base.join(', ')})`);
+    if (!VOCAB.family.includes(r.family)) fail(`family "${r.family}" not in vocab (${VOCAB.family.join(', ')})`);
+    if (typeof r.glass !== 'string' || !r.glass.trim()) fail('glass must be a non-empty string');
+    if (r.strength != null && !VOCAB.strength.includes(r.strength)) {
+      fail(`strength "${r.strength}" not in vocab (${VOCAB.strength.join(', ')})`);
+    }
+    if (!Array.isArray(r.methods) || r.methods.length === 0) {
+      fail('methods must be a non-empty list');
+    } else {
+      for (const m of r.methods) if (!VOCAB.drinkMethods.includes(m)) fail(`drink method "${m}" not in vocab (${VOCAB.drinkMethods.join(', ')})`);
+    }
+  } else {
+    if (!VOCAB.protein.includes(r.protein)) fail(`protein "${r.protein}" not in vocab (${VOCAB.protein.join(', ')})`);
+    if (!VOCAB.course.includes(r.course)) fail(`course "${r.course}" not in vocab (${VOCAB.course.join(', ')})`);
+    if (r.category && !VOCAB.category.includes(r.category)) fail(`category "${r.category}" not in vocab (${VOCAB.category.join(', ')})`);
+    if (!Array.isArray(r.methods) || r.methods.length === 0) {
+      fail('methods must be a non-empty list');
+    } else {
+      for (const m of r.methods) if (!VOCAB.methods.includes(m)) fail(`method "${m}" not in vocab`);
+    }
   }
-  if (!VOCAB.course.includes(r.course)) {
-    fail(`course "${r.course}" not in vocab (${VOCAB.course.join(', ')})`);
-  }
-  if (r.category && !VOCAB.category.includes(r.category)) {
-    fail(`category "${r.category}" not in vocab (${VOCAB.category.join(', ')})`);
-  }
+
   if (!VOCAB.heat.includes(r.heat)) {
     fail(`heat "${r.heat}" not in vocab (${VOCAB.heat.join(', ')})`);
   }
   if (!VOCAB.difficulty.includes(r.difficulty)) {
     fail(`difficulty "${r.difficulty}" not in vocab (${VOCAB.difficulty.join(', ')})`);
   }
-  if (!Array.isArray(r.methods) || r.methods.length === 0) {
-    fail('methods must be a non-empty list');
-  } else {
-    for (const m of r.methods) {
-      if (!VOCAB.methods.includes(m)) fail(`method "${m}" not in vocab`);
-    }
-  }
-  for (const t of ['prep', 'cook', 'total']) {
+  for (const t of (kind === 'drink' ? ['prep', 'total'] : ['prep', 'cook', 'total'])) {
     if (typeof r.times?.[t] !== 'number') fail(`times.${t} must be a number (minutes)`);
   }
   if (typeof r.serves !== 'number' || r.serves < 1) fail('serves must be a positive number');

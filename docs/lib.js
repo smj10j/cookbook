@@ -79,18 +79,21 @@ export function classify(text) {
     (/\bbutter\b/.test(t) && !/butter lettuce|nut butter|peanut butter|almond butter/.test(t)) ||
     /\bwater\b/.test(t) ||
     /\bflour\b/.test(t) ||
+    (/\bice\b/.test(t) && !/ice cream/.test(t)) ||      // ice is a given; ice cream you buy
     /cooking spray|non-?stick spray/.test(t)
   ) return 'core';
   if (EXOTIC.test(t)) return 'buy';
   if (!fresh && /paprika|\bcumin\b|cayenne|chil[ie] (powder|flakes?)|chili flakes?|crushed red pepper|red pepper flakes?|cinnamon|nutmeg|allspice|cardamom|ground clove|\bcoriander\b|turmeric|garlic powder|onion powder|ground ginger|italian seasoning|old bay|curry powder|chili powder|chipotle|ancho|bay (leaf|leaves)|ground mustard|mustard powder|five spice|herbes de provence|dried (oregano|thyme|basil|rosemary|dill|parsley|sage|mint|tarragon|chives)/.test(t)) return 'pantry';
   if (/soy sauce|tamari|balsamic|red wine vinegar|white wine vinegar|rice (wine )?vinegar|apple cider vinegar|sherry vinegar|white vinegar|\bvinegar\b|\bhoney\b|maple syrup|dijon|whole-?grain mustard|yellow mustard|\bmustard\b|ketchup|mayonnaise|\bmayo\b|worcestershire|sriracha|hot sauce|sesame oil|vanilla extract|almond extract|baking soda|baking powder|cornstarch|corn ?starch|\bpanko\b|bread ?crumbs|tomato paste|\bbroth\b|\bstock\b|brown sugar|powdered sugar/.test(t)) return 'pantry';
+  // Drink staples you almost certainly already have a bottle/jar of.
+  if (/\bbitters\b|simple syrup|\bagave\b|grenadine|orgeat|\bsyrup\b/.test(t)) return 'pantry';
   return 'buy';
 }
 
 // ── ingredient normalization + smart merging (for the copied shopping list) ──
 // Measure/portion words: the first one found becomes the line's unit; the rest drop.
 // NB: slice/wedge/round/fillet are NOT here — they're preparations, handled below.
-const MEASURE = new Set(['cup', 'cups', 'tbsp', 'tablespoon', 'tablespoons', 'tsp', 'teaspoon', 'teaspoons', 'oz', 'ounce', 'ounces', 'lb', 'lbs', 'pound', 'pounds', 'g', 'gram', 'grams', 'kg', 'ml', 'l', 'liter', 'liters', 'clove', 'cloves', 'can', 'cans', 'jar', 'jars', 'bottle', 'bottles', 'pinch', 'pinches', 'dash', 'handful', 'handfuls', 'sprig', 'sprigs', 'stalk', 'stalks', 'bunch', 'bunches', 'head', 'heads', 'ear', 'ears', 'bulb', 'bulbs', 'piece', 'pieces', 'strip', 'strips', 'stick', 'sticks', 'leaf', 'leaves', 'package', 'packages', 'pkg', 'quart', 'quarts', 'pint', 'pints']);
+const MEASURE = new Set(['cup', 'cups', 'tbsp', 'tablespoon', 'tablespoons', 'tsp', 'teaspoon', 'teaspoons', 'oz', 'ounce', 'ounces', 'lb', 'lbs', 'pound', 'pounds', 'g', 'gram', 'grams', 'kg', 'ml', 'l', 'liter', 'liters', 'clove', 'cloves', 'can', 'cans', 'jar', 'jars', 'bottle', 'bottles', 'pinch', 'pinches', 'dash', 'dashes', 'handful', 'handfuls', 'sprig', 'sprigs', 'stalk', 'stalks', 'bunch', 'bunches', 'head', 'heads', 'ear', 'ears', 'bulb', 'bulbs', 'piece', 'pieces', 'strip', 'strips', 'stick', 'sticks', 'leaf', 'leaves', 'package', 'packages', 'pkg', 'quart', 'quarts', 'pint', 'pints', 'splash', 'splashes', 'barspoon', 'barspoons', 'part', 'parts']);
 // Descriptors + preparations removed anywhere. "baby" is intentionally NOT here (kept distinct).
 const DESC = new Set(['small', 'medium', 'large', 'jumbo', 'mini', 'extra', 'fresh', 'dried', 'ground', 'whole', 'ripe', 'raw', 'cooked', 'skinless', 'boneless', 'skin-on', 'skin', 'peeled', 'seeded', 'deseeded', 'deveined', 'drained', 'rinsed', 'packed', 'toasted', 'softened', 'melted', 'divided', 'plus', 'minced', 'chopped', 'finely', 'coarsely', 'roughly', 'diced', 'sliced', 'thinly', 'thickly', 'halved', 'quartered', 'crumbled', 'grated', 'shredded', 'julienned', 'cubed', 'freshly', 'trimmed', 'torn', 'smashed', 'pitted', 'husked', 'shucked', 'cut', 'into', 'bite', 'size', 'bite-size', 'florets', 'floret', 'fillet', 'fillets', 'filet', 'filets', 'very', 'to', 'taste', 'for', 'garnish', 'serving', 'of', 'a', 'an', 'the', 'and', 'about', 'approximately', 'each', 'more', 'as', 'needed']);
 // Preparations that imply a derived form: removed from the name; recorded as `prep`.
@@ -144,6 +147,10 @@ export function normalizeIngredient(rest) {
       if (!name.includes(head)) name = name.concat(head);
     }
   }
+  // Bitters: every variant (Angostura, aromatic, orange, "a dash of bitters") is just one
+  // bottle to buy — collapse them all to a single "bitters" line. (Match the raw text:
+  // singular() would have already turned "bitters" into "bitter" in `name`.)
+  if (/\bbitters\b/.test(t)) return { key: 'bitters', display: 'bitters', unit: '', prep: 'whole', count };
   // "feta cheese" and "feta" should MERGE, but "blue cheese" must not display as "blue".
   // So drop a generic trailing noun (cheese) from the KEY only, keeping it in the display.
   const display = name.join(' ') || raw.trim();
@@ -210,8 +217,14 @@ function herbRule(g) {
   return `${b} bunch${b !== 1 ? 'es' : ''} ${g.display}`;
 }
 
+// Bitters are bought by the bottle and used by the dash — quantity is meaningless on a list.
+function bittersRule() {
+  return 'bitters';
+}
+
 function ruleFor(key, display) {
   if (key === 'garlic') return garlicRule;
+  if (key === 'bitters') return bittersRule;
   if (display === 'lemon' || display === 'lime') return citrusRule;
   if (HERBS.has(key)) return herbRule;
   return null;
@@ -270,21 +283,28 @@ export function bucketMatch(total, bucket) {
 
 // filters: { category, protein, course, methods, heat, cuisine, time } each a Set.
 export function recipeMatches(r, { q, filters, cuisineGroups = {}, timeBuckets = [] }) {
-  if (filters.category.size && !filters.category.has(r.category)) return false;
-  if (filters.protein.size && !filters.protein.has(r.protein)) return false;
-  if (filters.course.size && !filters.course.has(r.course)) return false;
-  if (filters.heat.size && !filters.heat.has(r.heat)) return false;
-  if (filters.cuisine.size) {
+  // Food facets
+  if (filters.category?.size && !filters.category.has(r.category)) return false;
+  if (filters.protein?.size && !filters.protein.has(r.protein)) return false;
+  if (filters.course?.size && !filters.course.has(r.course)) return false;
+  if (filters.cuisine?.size) {
     const ok = filters.cuisine.has(r.cuisine) || [...filters.cuisine].some((s) => cuisineGroups[s]?.includes(r.cuisine));
     if (!ok) return false;
   }
-  if (filters.methods.size && !r.methods.some((m) => filters.methods.has(m))) return false;
-  if (filters.time.size) {
+  // Drink facets
+  if (filters.base?.size && !filters.base.has(r.base)) return false;
+  if (filters.family?.size && !filters.family.has(r.family)) return false;
+  if (filters.strength?.size && !filters.strength.has(r.strength)) return false;
+  if (filters.tags?.size && !(r.tags || []).some((t) => filters.tags.has(t))) return false;
+  // Shared facets
+  if (filters.heat?.size && !filters.heat.has(r.heat)) return false;
+  if (filters.methods?.size && !(r.methods || []).some((m) => filters.methods.has(m))) return false;
+  if (filters.time?.size) {
     const ok = [...filters.time].some((k) => { const b = timeBuckets.find((x) => x.key === k); return b && bucketMatch(r.times.total, b); });
     if (!ok) return false;
   }
   if (q) {
-    const hay = [r.title, r.tagline, r.pitch, r.cuisine, (r.tags || []).join(' '),
+    const hay = [r.title, r.tagline, r.pitch, r.cuisine, r.base, r.family, (r.tags || []).join(' '),
       (r.ingredients || []).flatMap((s) => s.items).join(' ')].join(' ').toLowerCase();
     if (!hay.includes(q)) return false;
   }

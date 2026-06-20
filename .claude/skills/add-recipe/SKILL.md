@@ -20,6 +20,21 @@ Before writing anything, read:
   Stephen & Lauren context (equipment, garden, dietary exclusions).
 - `recipes/blackened-steak-salad.md` — the golden reference recipe. Match its shape.
 
+> **Adding a drink/cocktail instead?** Use the **add-drink** skill
+> (`.claude/skills/add-drink/SKILL.md`) — drinks have their own format and live in `drinks/`.
+
+## 0.5 Two pre-flight checks (do these BEFORE building)
+
+1. **Duplicate / near-duplicate.** Scan `recipes/` (and `drinks/`) for an existing recipe
+   that's the same dish or a close variation. If you find one, **stop and ask** (AskUserQuestion)
+   whether to **abort**, **merge** the two interactively with your help, or **add it anyway**
+   as a distinct variation. Don't silently create a near-twin.
+2. **New filter/vocab value?** If the recipe doesn't fit the existing vocab, consider whether
+   it needs a new value — e.g. a **dessert** is neither a main nor a side, so it takes
+   `category: dessert` + `course: dessert`. Add any genuinely-needed value to `VOCAB` + label
+   maps in `scripts/lib/schema.mjs` and document it in CLAUDE.md first — conservatively, and
+   flag it to Stephen rather than ballooning the filters.
+
 ## 1. Choose the path — and OFFER 3 OPTIONS when the request is open-ended
 
 Decide which case you're in:
@@ -62,9 +77,10 @@ Key obligations (full spec in `CLAUDE.md`):
   *italic* money line. Lead with technique or the visual moment.
 - **Controlled vocab only** for `protein`, `methods`, `course`, `heat`, `difficulty`,
   `category` (see `scripts/lib/schema.mjs`). `cuisine` and `tags` are free text.
-- **`category`**: `main` or `side`. Defaults to `main` (omit it for mains). Set
-  `category: side` for accompaniments — sauces, salsas, dips, chips, casseroles, simple
-  rice/bean sides. This drives the site's Main/Side "Course" filter.
+- **`category`**: `main`, `side`, or `dessert`. Defaults to `main` (omit it for mains). Use
+  `category: side` for accompaniments (sauces, salsas, dips, chips, casseroles, simple sides)
+  and `category: dessert` (+ `course: dessert`) for sweets & baked goods. This drives the
+  site's Course filter (Main / Side / Dessert).
 - **times**: realistic `prep`/`cook`/`total` in minutes (total may exceed prep+cook
   for marinating/chilling — call that out in the pitch or a tip).
 - **serves**: default to **2** (dinner for two) and rescale a source recipe's ingredient
@@ -102,11 +118,12 @@ ingredient that became a YAML map because of an unquoted colon), fix the named f
 rebuild until clean. If your change touches site logic (not just recipe data), add or
 update tests in `test/` per `CLAUDE.md` before committing.
 
-## 4. Photo (optional, ask the user)
+## 4. Photo (standard step — every card gets one)
 
-Every card needs a photo that fits the book's calm, editorial look. **Prefer a real
-photo from the source over an AI one** — when you ingest a URL, capture its `og:image`
-(or the main dish photo) as a candidate.
+A photo is **part of adding a recipe**, not an afterthought — generate one so the card never
+ships as a bare placeholder, unless there's genuinely no usable image. **Prefer a real photo
+from the source over an AI one** — when you ingest a URL, capture its `og:image` (or the main
+dish photo) as a candidate.
 
 **Decision rule — source image first:**
 

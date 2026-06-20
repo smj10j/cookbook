@@ -2,13 +2,16 @@
 // Lint every recipe against the schema without building. Run by the add-recipe
 // skill and by CI. Exits non-zero if anything is malformed.
 
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { readAllRecipes } from './lib/parse.mjs';
 import { validateRecipe } from './lib/schema.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const recipes = readAllRecipes(join(root, 'recipes'));
+const drinksDir = join(root, 'drinks');
+// Lint both food (recipes/) and drinks (drinks/) — they share the validator (it branches on kind).
+const recipes = [...readAllRecipes(join(root, 'recipes')), ...(existsSync(drinksDir) ? readAllRecipes(drinksDir) : [])];
 
 const errors = [];
 const slugs = new Set();
