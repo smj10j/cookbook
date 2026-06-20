@@ -46,7 +46,7 @@ steps:
   - Grill the greens until lightly charred and tender, about 1 minute per side. Pile onto a platter and spoon over any oil and garlic left in the bowl.
 tips:
   - No grill? Char the oiled greens in a screaming-hot cast-iron pan or under the broiler — you're after blistered, frizzled edges either way.
-  - Keep the chard stems: slice them thin and grill alongside, or save for a quick pickle.
+  - Don't toss the chard stems — slice them thin and grill alongside, or save for a quick pickle.
   - Make the spicy garlic oil ahead — it keeps for days and is great on eggs, beans, or toast.
 extras:
   - label: From the garden

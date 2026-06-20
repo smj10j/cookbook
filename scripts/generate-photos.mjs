@@ -11,6 +11,10 @@
 //   npm run photos -- --limit 3       # cap how many to generate this run
 //
 // Requires OPENAI_API_KEY in .env (git-ignored) or the environment.
+// NOTE: the key is normally ALREADY present in .env on this machine — just run this
+// script. Do NOT pre-check for the key with separate shell commands (a .env glob
+// false-negative once caused a needless pause); if it is genuinely missing, the
+// loader below exits with a clear, actionable message.
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';

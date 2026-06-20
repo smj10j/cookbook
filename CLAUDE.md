@@ -54,8 +54,11 @@ Rules for any change to site behavior or logic:
 2. **Add/extend tests** in `test/` for what you changed — `test/lib.test.mjs` for pure
    functions, `test/ui.test.mjs` (jsdom) for selection/overlay/filter behavior. When you
    fix a bug, add a regression test that fails before your fix.
-3. **Run `npm test` (or `npm run build`) before committing.** Never commit or deploy with
-   red tests.
+3. **Run `npm test` (or `npm run build`) before committing — and CHAIN it so a failure
+   aborts the commit:** `npm run build && git add -A && git commit …`. Never run the build
+   and the commit as separate, un-chained steps (a piped/un-`&&`-ed build can fail while the
+   commit/push still runs, pushing a state that breaks the CI deploy gate). Never commit or
+   deploy with red tests.
 4. Recipe data is also tested: every ingredient/step/tip must be a string and every recipe
    must render shopping rows without throwing (guards the YAML "colon makes a map" bug).
 

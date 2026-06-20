@@ -119,7 +119,9 @@ photo from the source over an AI one** — when you ingest a URL, capture its `o
 images — a coherent set of AI photos beats one gorgeous but stylistically off-brand
 source photo. When in doubt about whether a source image fits, generate instead.
 
-To generate with AI (needs `OPENAI_API_KEY` in `.env`):
+To generate with AI (the `OPENAI_API_KEY` is already configured in `.env` on Stephen's
+machine — just run the pipeline; **don't pre-flight for the key or pause to ask**, the
+script errors clearly if it is ever truly missing):
 
 ```bash
 npm run photos -- --only <slug>

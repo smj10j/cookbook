@@ -48,7 +48,7 @@ steps:
   - Scrape the filling into a resealable plastic bag, seal it, and snip off a corner. Pipe the filling into the egg whites.
   - Garnish with a dusting of paprika and a sprinkle of chopped parsley just before serving.
 tips:
-  - Make ahead: keep the piped filling and empty whites in separate covered containers for up to two days, then pipe and garnish right before the party.
+  - Make ahead by keeping the piped filling and empty whites in separate covered containers for up to two days, then pipe and garnish right before the party.
   - Slightly older eggs (a week or two) peel far more cleanly than fresh ones.
   - For an even silkier filling, push the yolks through a fine sieve before adding the mayo.
 extras:
