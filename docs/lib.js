@@ -311,6 +311,28 @@ export function recipeMatches(r, { q, filters, cuisineGroups = {}, timeBuckets =
   return true;
 }
 
+// ── routing (hash <-> app route) ─────────────────────────────────────────────
+// Recipes are addressed as '#/<slug>'. The Food/Drinks tabs get their own hash
+// ('#food' / '#drinks') so a tab choice survives a refresh and is shareable.
+export function hashForKind(kind) {
+  return kind === 'drink' ? '#drinks' : '#food';
+}
+
+// Parse a location.hash into a route:
+//   { type: 'recipe', slug }          — '#/<slug>'
+//   { type: 'tab',    kind }          — '#food' | '#drinks'
+//   { type: 'home',   kind: 'food' }  — empty/unknown hash (the default section)
+export function parseHash(hash) {
+  const h = String(hash || '').replace(/^#/, '');
+  if (h.startsWith('/')) {
+    const slug = decodeURIComponent(h.slice(1));
+    return slug ? { type: 'recipe', slug } : { type: 'home', kind: 'food' };
+  }
+  if (h === 'drinks') return { type: 'tab', kind: 'drink' };
+  if (h === 'food') return { type: 'tab', kind: 'food' };
+  return { type: 'home', kind: 'food' };
+}
+
 // Cuisine chips: umbrella groups (e.g. "Asian") first, then the specific cuisines.
 export function cuisineChipValues(recipes, cuisineGroups = {}) {
   const present = new Set(recipes.map((r) => r.cuisine));

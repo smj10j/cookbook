@@ -7,10 +7,30 @@ import { dirname, join } from 'node:path';
 import {
   parseQty, fmtQty, scaleDisplay, classify, normalizeIngredient, buildShoppingList, formatShoppingList, isOptional,
   clampServes, bucketMatch, recipeMatches, cuisineChipValues, shopSectionsForRecipe, inlineMd, esc,
+  parseHash, hashForKind,
 } from '../docs/lib.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const data = JSON.parse(readFileSync(join(root, 'docs/recipes.json'), 'utf8'));
+
+test('parseHash maps hashes to routes (recipe / tab / home)', () => {
+  assert.deepEqual(parseHash('#/espresso-martini'), { type: 'recipe', slug: 'espresso-martini' });
+  assert.deepEqual(parseHash('#/blackened%20steak'), { type: 'recipe', slug: 'blackened steak' });
+  assert.deepEqual(parseHash('#drinks'), { type: 'tab', kind: 'drink' });
+  assert.deepEqual(parseHash('#food'), { type: 'tab', kind: 'food' });
+  // empty, bare, and unknown hashes all fall back to the default food section
+  assert.deepEqual(parseHash(''), { type: 'home', kind: 'food' });
+  assert.deepEqual(parseHash('#'), { type: 'home', kind: 'food' });
+  assert.deepEqual(parseHash('#/'), { type: 'home', kind: 'food' });
+  assert.deepEqual(parseHash('#nonsense'), { type: 'home', kind: 'food' });
+});
+
+test('hashForKind is the inverse for tabs', () => {
+  assert.equal(hashForKind('drink'), '#drinks');
+  assert.equal(hashForKind('food'), '#food');
+  assert.equal(parseHash(hashForKind('drink')).kind, 'drink');
+  assert.equal(parseHash(hashForKind('food')).kind, 'food');
+});
 
 test('parseQty handles ints, fractions, unicode, ranges, mixed', () => {
   assert.deepEqual(parseQty('1 lb sirloin steak'), { qty: 1, hi: null, rest: 'lb sirloin steak' });

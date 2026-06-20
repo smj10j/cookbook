@@ -6,6 +6,7 @@ import {
   esc, inlineMd, cap, fmtMin, VEG,
   scaleDisplay, classify, clampServes,
   buildShoppingList, formatShoppingList, recipeMatches, cuisineChipValues, shopSectionsForRecipe,
+  hashForKind, parseHash,
 } from './lib.js';
 
 const state = {
@@ -89,7 +90,10 @@ function setHero() {
 }
 
 // Switch tabs: set the kind, reset search + filters (they differ per section), rebuild.
-function setKind(kind) {
+// syncHash reflects the choice in the URL ('#food' / '#drinks') so it survives a
+// refresh and is shareable; pass false when the hash is already being set elsewhere
+// (e.g. opening a recipe, or routing from an existing hash).
+function setKind(kind, syncHash = true) {
   if (kind !== 'food' && kind !== 'drink') return;
   state.kind = kind;
   state.q = '';
@@ -99,6 +103,12 @@ function setKind(kind) {
   setHero();
   buildFilters();
   apply();
+  if (syncHash) writeHash(hashForKind(kind));
+}
+
+// Reflect a route in the URL without firing hashchange (replaceState, like the reader).
+function writeHash(hash) {
+  if (location.hash !== hash) history.replaceState(null, '', hash || location.pathname + location.search);
 }
 
 function setDate() {
@@ -304,8 +314,9 @@ function placeholderHtml(r, num) {
 function openReader(slug, dir = 0) {
   const target = state.all.find((r) => r.slug === slug);
   if (!target) return;
-  // Arriving at a recipe from the other section (e.g. a shared drink link) flips the tab.
-  if ((target.kind || 'food') !== state.kind) setKind(target.kind || 'food');
+  // Arriving at a recipe from the other section (e.g. a shared drink link) flips the
+  // tab — but keep syncHash off so we don't clobber the '#/<slug>' hash set below.
+  if ((target.kind || 'food') !== state.kind) setKind(target.kind || 'food', false);
   const kindList = state.all.filter((r) => (r.kind || 'food') === state.kind);
   let list = state.filtered.length ? state.filtered : kindList;
   let index = list.findIndex((r) => r.slug === slug);
@@ -330,7 +341,8 @@ function flip(dir) {
 function closeReader() {
   $('#reader').hidden = true;
   document.body.style.overflow = '';
-  if (location.hash.startsWith('#/')) history.replaceState(null, '', location.pathname + location.search);
+  // Leaving a recipe drops back to its section, not a bare URL, so the tab persists.
+  if (location.hash.startsWith('#/')) writeHash(hashForKind(state.kind));
 }
 
 function renderSpread(dir) {
@@ -458,9 +470,11 @@ function spreadHtml(r) {
 }
 
 function routeFromHash() {
-  const m = location.hash.match(/^#\/(.+)$/);
-  if (m) openReader(decodeURIComponent(m[1]));
-  else if (!$('#reader').hidden) closeReader();
+  const route = parseHash(location.hash);
+  if (route.type === 'recipe') { openReader(route.slug); return; }
+  // A tab/home hash: close any open reader, then select the section it names.
+  if (!$('#reader').hidden) closeReader();
+  if (route.kind !== state.kind) setKind(route.kind, false);
 }
 
 // Shareable, preview-friendly URL for a recipe: …/r/<slug>/ (a real path, unlike the

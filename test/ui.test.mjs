@@ -11,8 +11,8 @@ const html = readFileSync(join(root, 'docs/index.html'), 'utf8');
 const recipes = JSON.parse(readFileSync(join(root, 'docs/recipes.json'), 'utf8'));
 
 let bootCount = 0;
-async function boot() {
-  const dom = new JSDOM(html, { url: 'https://example.com/', pretendToBeVisual: true });
+async function boot(url = 'https://example.com/') {
+  const dom = new JSDOM(html, { url, pretendToBeVisual: true });
   const { window } = dom;
   let copied = null;
   const set = (k, v) => { try { globalThis[k] = v; } catch { Object.defineProperty(globalThis, k, { value: v, configurable: true, writable: true }); } };
@@ -63,6 +63,41 @@ test('Drinks tab swaps the dataset, filters, and spec block', async () => {
   assert.equal($('#reader').hidden, false);
   const labels = $$('#spread .m-label').map((e) => e.textContent);
   assert.ok(labels.includes('Base') && labels.includes('Glass'), 'drink spec block shows Base + Glass');
+});
+
+test('choosing a tab writes a shareable hash to the URL', async () => {
+  const { window, $$ } = await boot();
+  assert.equal(window.location.hash, '', 'no hash on the default food load');
+  $$('#tabs .tab').find((t) => t.dataset.kind === 'drink').click();
+  assert.equal(window.location.hash, '#drinks', 'Drinks tab adds #drinks');
+  $$('#tabs .tab').find((t) => t.dataset.kind === 'food').click();
+  assert.equal(window.location.hash, '#food', 'Food tab adds #food');
+});
+
+test('booting with #drinks lands on the Drinks tab (refresh/shareable)', async () => {
+  const { app, $$ } = await boot('https://example.com/#drinks');
+  assert.equal(app.state.kind, 'drink', 'the drinks section is active from the hash alone');
+  assert.equal($$('.card').length, drinkRecipes.length, 'drink cards render on boot');
+});
+
+test('a hashchange to #drinks switches tabs; back to #food returns', async () => {
+  const { window, app } = await boot();
+  window.location.hash = '#drinks';
+  window.dispatchEvent(new window.Event('hashchange'));
+  assert.equal(app.state.kind, 'drink');
+  window.location.hash = '#food';
+  window.dispatchEvent(new window.Event('hashchange'));
+  assert.equal(app.state.kind, 'food');
+});
+
+test('closing a recipe restores its section hash, not a bare URL', async () => {
+  const { window, app, $, $$ } = await boot();
+  $$('#tabs .tab').find((t) => t.dataset.kind === 'drink').click();
+  $$('.card')[0].click();                              // open a drink
+  assert.match(window.location.hash, /^#\//, 'reader sets a #/<slug> hash');
+  $('#reader-close').click();
+  assert.equal(window.location.hash, '#drinks', 'closing returns to the Drinks tab');
+  assert.equal(app.state.kind, 'drink');
 });
 
 test('selecting a card shows the shopbar and marks the card', async () => {
