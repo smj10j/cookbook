@@ -485,20 +485,13 @@ body.has-cart .reader-share { right: 114px; }   /* make room for the cart betwee
 .spread-source { margin: 30px 0 0; padding-top: 16px; border-top: 1px solid var(--rule); font-size: 12px; color: var(--stone); letter-spacing: 0.03em; }
 .spread-headnote { margin: 22px 0 0; font-family: var(--serif); font-style: italic; font-size: 15.5px; color: #4a423b; line-height: 1.55; max-width: 64ch; }
 
-/* ░░ NUTRITION (collapsed; sits quietly at the very bottom of a spread) ░░ */
+/* ░░ NUTRITION (always shown in full at the very bottom of a spread) ░░ */
 .nutrition { margin: 26px 0 4px; border-top: 1px solid var(--rule); }
 .nutrition-summary {
   display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
-  padding: 13px 2px 4px; cursor: pointer; list-style: none;
+  padding: 13px 2px 4px;
   font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone);
 }
-.nutrition-summary::-webkit-details-marker { display: none; }
-.nutrition-summary::before {
-  content: "▸"; margin-right: 7px; font-size: 9px; color: var(--accent);
-  transition: transform 0.18s var(--ease); display: inline-block;
-}
-.nutrition[open] .nutrition-summary::before { transform: rotate(90deg); }
-.nutrition-summary:hover { color: var(--ink); }
 .nutrition-label { font-weight: 700; }
 .nutrition-est { font-weight: 400; text-transform: none; letter-spacing: 0.02em; color: var(--stone); }
 .nutrition-kcal { margin-left: auto; font-variant-numeric: tabular-nums; letter-spacing: 0.06em; color: var(--accent); font-weight: 700; }

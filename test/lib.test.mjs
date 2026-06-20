@@ -318,12 +318,13 @@ test('nutritionRows maps perServing to labelled rows with %DV', () => {
   assert.deepEqual(nutritionRows({}), []);          // no nutrition → no rows
 });
 
-test('hasNutrition + nutritionPanelHtml render a collapsed estimate', () => {
+test('hasNutrition + nutritionPanelHtml render an always-expanded estimate', () => {
   assert.equal(hasNutrition(sampleRecipe()), true);
   assert.equal(hasNutrition({ nutrition: { confidence: 'none', perServing: {} } }), false);
   assert.equal(nutritionPanelHtml({}), '');         // nothing to show
   const html = nutritionPanelHtml(sampleRecipe());
-  assert.match(html, /<details class="nutrition">/);
+  assert.match(html, /<section class="nutrition">/);
+  assert.doesNotMatch(html, /<details|<summary/);   // no collapse affordance
   assert.match(html, /500 cal/);
   assert.match(html, /Sodium/);
   assert.match(html, /50%/);                         // a %DV figure rendered
