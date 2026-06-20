@@ -365,8 +365,9 @@ export function hasNutrition(r) {
   return !!(r?.nutrition?.perServing && r.nutrition.confidence !== 'none');
 }
 
-// The collapsed nutrition panel, rendered at the very bottom of a spread. Built
-// here (pure) so it can be unit-tested; app.js just drops the string in.
+// The nutrition panel, rendered at the very bottom of a spread — always shown
+// in full (no collapse). Built here (pure) so it can be unit-tested; app.js just
+// drops the string in.
 export function nutritionPanelHtml(r) {
   if (!hasNutrition(r)) return '';
   const rows = nutritionRows(r);
@@ -383,17 +384,17 @@ export function nutritionPanelHtml(r) {
     ? 'Estimated from ingredients — per serving.'
     : `Rough estimate — ${n.matched} of ${n.considered} ingredients matched.`;
   return `
-    <details class="nutrition">
-      <summary class="nutrition-summary">
+    <section class="nutrition">
+      <div class="nutrition-summary">
         <span class="nutrition-label">Nutrition <span class="nutrition-est">(estimated, per serving)</span></span>
         <span class="nutrition-kcal">${kcal ? esc(kcal.amount) : ''} cal</span>
-      </summary>
+      </div>
       <div class="nutrition-panel">
         <div class="nutri-head"><span>Amount per serving · serves ${esc(r.serves)}</span><span class="nutri-dv-head">% DV*</span></div>
         ${body}
         <p class="nutrition-note">${esc(note)} <span class="nutrition-foot">*Percent of a 2,000-calorie daily value.</span></p>
       </div>
-    </details>`;
+    </section>`;
 }
 
 // ── routing (hash <-> app route) ─────────────────────────────────────────────
