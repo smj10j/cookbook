@@ -83,6 +83,25 @@ Runs `npm run validate` and `npm test`, then regenerates `docs/recipes.json` —
 complete if validation or any test fails. Fix the reported fields and rebuild until clean.
 If your change touches site logic (not just drink data), add/update tests in `test/` first.
 
+## 4.5 Nutrition — teach the database any new ingredients
+
+Every card (drinks included) shows an estimated per-serving **Nutrition** panel, computed
+at build time from `data/nutrition.json`. You don't add a `nutrition:` field — but if the
+drink uses a spirit, liqueur, juice, or syrup the DB has never seen, add it or it's dropped
+from the estimate. The build prints a `⚠ Nutrition:` warning for anything missing.
+
+1. After building: `npm run nutrition -- <slug>` (this drink's numbers + unmatched items).
+2. Look up each unmatched ingredient online (USDA, or the bottle's label for a branded
+   liqueur) with **WebSearch / WebFetch**.
+3. Add an entry to `data/nutrition.json` per the ingredient's **smallest divisible unit** —
+   for drink liquids that's a **fluid ounce** (`"unit": "oz"`, `g` ≈ 28–34). Follow the
+   schema + conventions in `CLAUDE.md` (→ *Nutrition*); add ASCII `aliases` for accented
+   names (Kahlúa→kahlua, etc.). Spirits/liqueurs read higher than `4·carb+9·fat` because
+   alcohol adds ~7 kcal/g — use known per-ounce calorie values (≈64 kcal/oz for an 80-proof
+   spirit, higher for liqueurs).
+4. Rebuild and re-run `npm run nutrition` until the drink is **high** confidence. Commit
+   `data/nutrition.json` with the rest.
+
 ## 5. Photo (standard step — every card gets one)
 
 A photo is **part of adding a drink**, not optional. Same pipeline as food

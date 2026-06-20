@@ -533,7 +533,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "A house favorite that Stephen has dialed in over several rounds: the brown sugar in\nthe rub caramelizes against the cayenne for a sweet-hot crust, and blistering the\ntomatoes on the same grill turns this from a plain steak salad into something with\nreal restaurant contrast. The blue cheese is the upgrade from the original feta.",
-      "hero": "images/blackened-steak-salad.webp"
+      "hero": "images/blackened-steak-salad.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 1013,
+          "protein": 65.4,
+          "carb": 24.8,
+          "fat": 72.4,
+          "satfat": 19.4,
+          "fiber": 5.3,
+          "sugar": 15.3,
+          "sodium": 2101
+        },
+        "confidence": "high",
+        "matched": 21,
+        "considered": 21
+      }
     },
     {
       "title": "Broccoli Rabe with Garlic & Chili",
@@ -610,7 +625,22 @@
       "kind": "food",
       "headnote": "Ina Garten's no-fuss broccoli rabe: brown the garlic in good oil, lift it out, then\nsteam the greens in that fragrant oil with red pepper and return the garlic at the end.\nBitter, garlicky, and just spicy enough.",
       "equipment": [],
-      "hero": "images/broccoli-rabe-garlic.webp"
+      "hero": "images/broccoli-rabe-garlic.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 88,
+          "protein": 3.8,
+          "carb": 4.2,
+          "fat": 7.3,
+          "satfat": 1,
+          "fiber": 2.9,
+          "sugar": 0,
+          "sodium": 747
+        },
+        "confidence": "high",
+        "matched": 6,
+        "considered": 6
+      }
     },
     {
       "title": "Broiled Fish with Citrus & Herb Sauce",
@@ -689,7 +719,22 @@
       "category": "main",
       "headnote": "A no-fuss broiled fillet that earns its keep with a reduced orange-tarragon sauce.\nSimmer the juice down until it's glossy, broil the fish fast, and dinner's on the\ntable in 25 minutes.",
       "equipment": [],
-      "hero": "images/broiled-fish-citrus-herbs.webp"
+      "hero": "images/broiled-fish-citrus-herbs.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 244,
+          "protein": 23.4,
+          "carb": 24.1,
+          "fat": 6.3,
+          "satfat": 1,
+          "fiber": 1.5,
+          "sugar": 17.3,
+          "sodium": 683
+        },
+        "confidence": "high",
+        "matched": 8,
+        "considered": 8
+      }
     },
     {
       "title": "Broiled Sea Bass with Citrus, Olive & Caper Sauce",
@@ -772,7 +817,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "Liza Schoenfein's quick broiler method, scaled for two: preheat the pan blazing hot,\nbroil the fish six minutes, and finish with a raw sauce of lemon, oregano, capers, and\nKalamata. Bright, briny, and on the table in 25 minutes.",
-      "hero": "images/sea-bass-citrus-olive-caper.webp"
+      "hero": "images/sea-bass-citrus-olive-caper.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 228,
+          "protein": 27.5,
+          "carb": 4.1,
+          "fat": 11.7,
+          "satfat": 1.6,
+          "fiber": 1.5,
+          "sugar": 0.8,
+          "sodium": 779
+        },
+        "confidence": "high",
+        "matched": 8,
+        "considered": 8
+      }
     },
     {
       "title": "Brown Butter Banana Bread with Coconut & Chocolate",
@@ -873,7 +933,22 @@
       "kind": "food",
       "headnote": "Brown butter is the cheat code for banana bread — five extra minutes at the stove for a\nloaf that tastes like it came from a very good bakery.",
       "equipment": [],
-      "hero": "images/brown-butter-banana-bread.webp"
+      "hero": "images/brown-butter-banana-bread.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 389,
+          "protein": 6,
+          "carb": 48,
+          "fat": 20.4,
+          "satfat": 10.4,
+          "fiber": 3.6,
+          "sugar": 23.6,
+          "sodium": 307
+        },
+        "confidence": "high",
+        "matched": 16,
+        "considered": 16
+      }
     },
     {
       "title": "Brown Butter Sugar Cookies",
@@ -965,7 +1040,22 @@
       "kind": "food",
       "headnote": "Browning the butter is five minutes of work for a sugar cookie that tastes like it has a\nsecret — nutty, deep, and impossible to eat just one of.",
       "equipment": [],
-      "hero": "images/brown-butter-sugar-cookies.webp"
+      "hero": "images/brown-butter-sugar-cookies.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 154,
+          "protein": 1.4,
+          "carb": 19.5,
+          "fat": 7.9,
+          "satfat": 4.9,
+          "fiber": 0.3,
+          "sugar": 10.6,
+          "sodium": 150
+        },
+        "confidence": "high",
+        "matched": 8,
+        "considered": 8
+      }
     },
     {
       "title": "Brown Sugar Sweet Potato Casserole",
@@ -1073,7 +1163,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "kind": "food",
       "headnote": "The sweet potato side Lauren remembered from past holidays, dialed in for Stephen's\nturkey-free Thanksgiving: a smooth, vanilla-scented base under a brown-sugar pecan\nstreusel that bakes into a candied, crunchy crown.",
-      "hero": "images/sweet-potato-casserole.webp"
+      "hero": "images/sweet-potato-casserole.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 271,
+          "protein": 2.3,
+          "carb": 30.9,
+          "fat": 16.2,
+          "satfat": 7.5,
+          "fiber": 3,
+          "sugar": 17.1,
+          "sodium": 226
+        },
+        "confidence": "high",
+        "matched": 11,
+        "considered": 11
+      }
     },
     {
       "title": "Chicken Piccata with Thin Spaghetti & Lemon-Caper Pan Sauce",
@@ -1197,7 +1302,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "The piccata Stephen has refined across a few rounds: a wine-and-lemon pan sauce\nfinished with cold butter for gloss, plus crispy fried capers on top for crunch.\nThin spaghetti is the perfect tangle to carry the bright, briny sauce.",
-      "hero": "images/chicken-piccata.webp"
+      "hero": "images/chicken-piccata.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 873,
+          "protein": 49,
+          "carb": 66.4,
+          "fat": 42.1,
+          "satfat": 17.7,
+          "fiber": 3.2,
+          "sugar": 2.1,
+          "sodium": 752
+        },
+        "confidence": "high",
+        "matched": 11,
+        "considered": 11
+      }
     },
     {
       "title": "Chunky Mango-Habanero Salsa",
@@ -1287,7 +1407,22 @@
       "kind": "food",
       "headnote": "A merger of Stephen's two tropical salsa experiments: the sweet-heat mango-cucumber\nversion and the chunky garden-fire one, brought together with a slow habanero burn and\na bright basil lift. Raw, crunchy, and built to sit on grilled fish.",
       "equipment": [],
-      "hero": "images/mango-tropical-salsa.webp"
+      "hero": "images/mango-tropical-salsa.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 49,
+          "protein": 1.2,
+          "carb": 11.7,
+          "fat": 0.3,
+          "satfat": 0.1,
+          "fiber": 1.7,
+          "sugar": 8.8,
+          "sodium": 4
+        },
+        "confidence": "high",
+        "matched": 11,
+        "considered": 11
+      }
     },
     {
       "title": "Citrus Salmon with Blistered Asparagus",
@@ -1402,7 +1537,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "The salmon that earns a permanent spot in the weeknight rotation: a fast\ncitrus-garlic marinade, a crisp skin from the cast iron, and asparagus blistered\nin the very same pan. Lemon keeps it bright on the stove or in the oven; swap in\norange and the grill for a sweeter, smokier summer version.",
-      "hero": "images/salmon-asparagus-citrus.webp"
+      "hero": "images/salmon-asparagus-citrus.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 566,
+          "protein": 38.3,
+          "carb": 8.6,
+          "fat": 42.5,
+          "satfat": 10.3,
+          "fiber": 3.8,
+          "sugar": 3.2,
+          "sodium": 126
+        },
+        "confidence": "high",
+        "matched": 7,
+        "considered": 7
+      }
     },
     {
       "title": "Classic Pumpkin Pie from Fresh Pumpkin",
@@ -1504,7 +1654,22 @@
       "kind": "food",
       "headnote": "The whole pie hinges on the purée — roast a real sugar pumpkin and you'll taste the\ndifference in every forkful.",
       "equipment": [],
-      "hero": "images/classic-pumpkin-pie.webp"
+      "hero": "images/classic-pumpkin-pie.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 421,
+          "protein": 4,
+          "carb": 46.4,
+          "fat": 25.2,
+          "satfat": 14.6,
+          "fiber": 1,
+          "sugar": 29.9,
+          "sodium": 337
+        },
+        "confidence": "high",
+        "matched": 17,
+        "considered": 18
+      }
     },
     {
       "title": "Coconut Chicken Soup (Tom Kha Gai)",
@@ -1613,7 +1778,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "The cozy bowl Stephen reaches for under the weather: warm, soothing, and just\nspicy enough to clear the sinuses. Coconut milk for richness, lime and fish\nsauce for brightness, and fresh chile to wake it all up.",
-      "hero": "images/coconut-chicken-soup.webp"
+      "hero": "images/coconut-chicken-soup.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 703,
+          "protein": 47,
+          "carb": 17.5,
+          "fat": 52,
+          "satfat": 37.8,
+          "fiber": 1.3,
+          "sugar": 10.9,
+          "sodium": 2060
+        },
+        "confidence": "high",
+        "matched": 12,
+        "considered": 12
+      }
     },
     {
       "title": "Creamy Jalapeño-Cilantro Salsa (Inspired by Fresa's)",
@@ -1705,7 +1885,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "kind": "food",
       "headnote": "Stephen's take on the creamy green salsa from Fresa's: charred jalapeños and serranos\nblended with cilantro and lime, then emulsified silky-smooth with a slow stream of oil —\nall the richness of crema, none of the dairy.",
-      "hero": "images/creamy-jalapeno-cilantro-salsa.webp"
+      "hero": "images/creamy-jalapeno-cilantro-salsa.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 168,
+          "protein": 0.3,
+          "carb": 1.7,
+          "fat": 18.1,
+          "satfat": 1.6,
+          "fiber": 0.6,
+          "sugar": 0.7,
+          "sodium": 161
+        },
+        "confidence": "high",
+        "matched": 6,
+        "considered": 6
+      }
     },
     {
       "title": "Crispy Broiled Salmon with Charred Broccoli & Lemon-Herb Brown Butter",
@@ -1831,7 +2026,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "Stephen's weeknight-elevated salmon: the broiler does the work of a restaurant\nsalamander, crackling the skin in minutes, while the broccoli chars in the same\noven and garden tomatoes burst alongside. The lemon-caper brown butter is the\nupgrade that turns a simple fish-and-vegetable plate into something worth setting\nthe table for.",
-      "hero": "images/crispy-broiled-salmon-charred-broccoli.webp"
+      "hero": "images/crispy-broiled-salmon-charred-broccoli.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 754,
+          "protein": 40,
+          "carb": 15.5,
+          "fat": 60.3,
+          "satfat": 21.1,
+          "fiber": 5.7,
+          "sugar": 4.8,
+          "sodium": 479
+        },
+        "confidence": "high",
+        "matched": 9,
+        "considered": 9
+      }
     },
     {
       "title": "Crispy Oven Kale Chips",
@@ -1916,7 +2126,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "kind": "food",
       "headnote": "A reliable, low-and-slow method for kale chips that actually stay crisp — the whole\ngame is dry leaves and a barely-there coat of oil.",
-      "hero": "images/kale-chips.webp"
+      "hero": "images/kale-chips.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 63,
+          "protein": 1.5,
+          "carb": 2.3,
+          "fat": 5.4,
+          "satfat": 0.7,
+          "fiber": 1.8,
+          "sugar": 0.7,
+          "sodium": 257
+        },
+        "confidence": "high",
+        "matched": 3,
+        "considered": 3
+      }
     },
     {
       "title": "Crispy-Skin Sea Bass with Tomato-Jalapeño Confit & Herbed Cucumber Salad",
@@ -2051,7 +2276,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "A restaurant-style plate with very little fuss: a low, slow tomato-jalapeño confit\ndoes its thing hands-off while you chill a herby cucumber salad, then the fish gets\nits moment in a screaming pan for that signature crackling skin. Garden tomatoes\nand peppers make it sing.",
-      "hero": "images/crispy-skin-sea-bass-tomato-jalapeno-confit.webp"
+      "hero": "images/crispy-skin-sea-bass-tomato-jalapeno-confit.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 724,
+          "protein": 29.4,
+          "carb": 11.9,
+          "fat": 63.2,
+          "satfat": 8.5,
+          "fiber": 2.9,
+          "sugar": 6.5,
+          "sodium": 111
+        },
+        "confidence": "high",
+        "matched": 12,
+        "considered": 12
+      }
     },
     {
       "title": "Fresh Pumpkin Bread (Spiced & Nutty)",
@@ -2159,7 +2399,22 @@
       "kind": "food",
       "headnote": "Roasting your own pumpkin takes an extra half hour and pays you back tenfold — the purée\nis sweeter, darker, and worlds away from the can.",
       "equipment": [],
-      "hero": "images/fresh-pumpkin-bread.webp"
+      "hero": "images/fresh-pumpkin-bread.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 346,
+          "protein": 4.7,
+          "carb": 48.6,
+          "fat": 15.6,
+          "satfat": 2.4,
+          "fiber": 1.5,
+          "sugar": 32,
+          "sodium": 263
+        },
+        "confidence": "high",
+        "matched": 15,
+        "considered": 16
+      }
     },
     {
       "title": "Greek Orzo Salad with Arugula, Tomato & Red Onion",
@@ -2260,7 +2515,22 @@
       "category": "main",
       "headnote": "Stephen landed on a Greek salad — dressed just before serving so it stays crisp\nand distinct — then made it more substantial by folding in pasta boiled in salted\nwater. Orzo keeps it light and forkable; orecchiette gives it more chew if you\nwant it.",
       "equipment": [],
-      "hero": "images/greek-orzo-salad.webp"
+      "hero": "images/greek-orzo-salad.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 639,
+          "protein": 17.1,
+          "carb": 76.2,
+          "fat": 30.5,
+          "satfat": 7,
+          "fiber": 6.7,
+          "sugar": 9.7,
+          "sodium": 591
+        },
+        "confidence": "high",
+        "matched": 12,
+        "considered": 12
+      }
     },
     {
       "title": "Greek Salmon Salad with Lemon-Oregano Dressing",
@@ -2376,7 +2646,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "The Greek-salad-meets-salmon version: a classic horiatiki given backbone with warm,\noregano-rubbed fish flaked on top. Pan-searing keeps it weeknight-fast and crisps\nthe fillet, while the lemon-oregano dressing and good feta keep it firmly,\nunapologetically Greek.",
-      "hero": "images/greek-salad-with-salmon.webp"
+      "hero": "images/greek-salad-with-salmon.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 680,
+          "protein": 40.6,
+          "carb": 13.8,
+          "fat": 52.1,
+          "satfat": 11.6,
+          "fiber": 4.2,
+          "sugar": 5.7,
+          "sodium": 645
+        },
+        "confidence": "high",
+        "matched": 11,
+        "considered": 11
+      }
     },
     {
       "title": "Grilled Everything-Bagel Tuna with Creamy Horseradish Sauce & Charred Lemon Broccolini",
@@ -2501,7 +2786,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "Those pre-seasoned tuna steaks are a head start to a fast, impressive dinner: the\ngrill toasts the crust, the center stays rare, and a cool horseradish cream plays\nthe role of a steakhouse sauce gone coastal. Char the lemons hard — they're half\nthe flavor and all of the drama.",
-      "hero": "images/everything-bagel-tuna-horseradish-broccolini.webp"
+      "hero": "images/everything-bagel-tuna-horseradish-broccolini.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 454,
+          "protein": 46.7,
+          "carb": 19.2,
+          "fat": 22.1,
+          "satfat": 4.6,
+          "fiber": 5.1,
+          "sugar": 8.9,
+          "sodium": 674
+        },
+        "confidence": "high",
+        "matched": 13,
+        "considered": 13
+      }
     },
     {
       "title": "Grilled Leafy Greens with Spicy Garlic Oil",
@@ -2581,7 +2881,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "kind": "food",
       "headnote": "Chris Morocco's trick for hearty greens: bloom garlic and chili in olive oil, massage\nit into the leaves, then char them fast over high heat. Smoky, silky, and just spicy\nenough.",
-      "hero": "images/leafy-greens-spicy-garlic-oil.webp"
+      "hero": "images/leafy-greens-spicy-garlic-oil.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 144,
+          "protein": 2,
+          "carb": 4.7,
+          "fat": 13.7,
+          "satfat": 1.9,
+          "fiber": 1.8,
+          "sugar": 1.1,
+          "sodium": 452
+        },
+        "confidence": "high",
+        "matched": 5,
+        "considered": 5
+      }
     },
     {
       "title": "Grilled Lemon-Herb Chicken with Garden Vegetables",
@@ -2702,7 +3017,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "The grilled chicken Stephen comes back to all summer: a lemon-and-herb marinade\ndoes the heavy lifting, and the garden vegetables char right alongside on\nskewers for a clean, healthy plate that still tastes like a cookout.",
-      "hero": "images/grilled-lemon-herb-chicken.webp"
+      "hero": "images/grilled-lemon-herb-chicken.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 556,
+          "protein": 40.6,
+          "carb": 12.1,
+          "fat": 38.8,
+          "satfat": 5.9,
+          "fiber": 3.7,
+          "sugar": 6.5,
+          "sodium": 1095
+        },
+        "confidence": "high",
+        "matched": 11,
+        "considered": 11
+      }
     },
     {
       "title": "Grilled New York Strip with Charred Corn",
@@ -2815,7 +3145,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "The classic backyard pairing, run like a line cook would: corn on the cool zone,\nsteaks on the fire, and a two-zone setup that keeps everything moving without a\nsingle flare-up. Pull the steaks early and let the foil tent finish them.",
-      "hero": "images/grilled-ny-strip-charred-corn.webp"
+      "hero": "images/grilled-ny-strip-charred-corn.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 839,
+          "protein": 72,
+          "carb": 17,
+          "fat": 53.3,
+          "satfat": 22.3,
+          "fiber": 2.4,
+          "sugar": 5.9,
+          "sodium": 235
+        },
+        "confidence": "high",
+        "matched": 4,
+        "considered": 4
+      }
     },
     {
       "title": "Grilled Salmon Salad with Dijon-Balsamic Vinaigrette",
@@ -2924,7 +3269,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "A dinner salad that came together from a full garden haul: cucumber and cherry\ntomatoes from the bed, spring mix and red onion from the store, and a Dijon-\nbalsamic vinaigrette shaken in a jar. Kalamata olives and feta nudge it\nMediterranean, and the warm grilled salmon over cool greens is the contrast that\nmakes it dinner, not a side.",
-      "hero": "images/grilled-salmon-salad-dijon-balsamic.webp"
+      "hero": "images/grilled-salmon-salad-dijon-balsamic.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 749,
+          "protein": 40.3,
+          "carb": 18,
+          "fat": 57.8,
+          "satfat": 11.6,
+          "fiber": 4.3,
+          "sugar": 9.7,
+          "sodium": 817
+        },
+        "confidence": "high",
+        "matched": 11,
+        "considered": 11
+      }
     },
     {
       "title": "Herb-Butter Swordfish",
@@ -3038,7 +3398,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "Swordfish takes to a sear like a good steak, and a garden-herb compound butter\nspooned over the top in the last minute turns it into something restaurant-worthy.\nGarlicky roasted Brussels sprouts with lemon zest make it a complete, easy plate\nfor two.",
-      "hero": "images/herb-butter-swordfish.webp"
+      "hero": "images/herb-butter-swordfish.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 664,
+          "protein": 41.8,
+          "carb": 23.3,
+          "fat": 46.8,
+          "satfat": 13.7,
+          "fiber": 9,
+          "sugar": 4.9,
+          "sodium": 293
+        },
+        "confidence": "high",
+        "matched": 9,
+        "considered": 9
+      }
     },
     {
       "title": "Lemon-Caper Deviled Eggs",
@@ -3120,7 +3495,22 @@
       "kind": "food",
       "headnote": "Katie Lee's bright take on a classic: lemon zest and capers fold into a smooth,\nfood-processor-easy yolk filling. Make the components ahead and pipe them in just\nbefore serving.",
       "equipment": [],
-      "hero": "images/lemon-caper-deviled-eggs.webp"
+      "hero": "images/lemon-caper-deviled-eggs.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 199,
+          "protein": 6.5,
+          "carb": 0.7,
+          "fat": 18.2,
+          "satfat": 3.7,
+          "fiber": 0.1,
+          "sugar": 0.3,
+          "sodium": 255
+        },
+        "confidence": "high",
+        "matched": 7,
+        "considered": 7
+      }
     },
     {
       "title": "Maple Pumpkin-Spice Pepitas",
@@ -3197,7 +3587,22 @@
       "kind": "food",
       "headnote": "Brittany Mullins' cozy fall move — pumpkin pie spice and a drizzle of maple — applied to\nquick-roasting hulled pepitas. Toss, roast, and cool to crisp; then put them on\neverything.",
       "equipment": [],
-      "hero": "images/pumpkin-spice-pepitas.webp"
+      "hero": "images/pumpkin-spice-pepitas.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 107,
+          "protein": 4.8,
+          "carb": 3.6,
+          "fat": 9,
+          "satfat": 1.5,
+          "fiber": 1.2,
+          "sugar": 1.7,
+          "sodium": 61
+        },
+        "confidence": "high",
+        "matched": 5,
+        "considered": 5
+      }
     },
     {
       "title": "Mediterranean Fresh Tuna with Blistered Tomatoes, Olives & Basil",
@@ -3280,7 +3685,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "A fast, sunny one-pan supper: fresh tuna gently cooked in a garlicky tomato sauce\nwith Kalamata olives and basil. Take the garlic only to gold and the sauce stays\nsweet — and if you like your tuna pink, just sear it and spoon the sauce over.",
-      "hero": "images/mediterranean-tuna-blistered-tomatoes.webp"
+      "hero": "images/mediterranean-tuna-blistered-tomatoes.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 343,
+          "protein": 39.3,
+          "carb": 7.3,
+          "fat": 17.1,
+          "satfat": 2.6,
+          "fiber": 2.3,
+          "sugar": 3.3,
+          "sodium": 210
+        },
+        "confidence": "high",
+        "matched": 7,
+        "considered": 7
+      }
     },
     {
       "title": "Mediterranean Stuffed Peppers with Quinoa, Chickpeas & Feta",
@@ -3401,7 +3821,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "Of the vegetarian Mediterranean options Stephen weighed, the stuffed peppers were\nthe one to build out fully: a one-dish dinner that holds together, travels well as\nleftovers, and leans on pantry staples brightened with lemon and herbs.",
-      "hero": "images/mediterranean-veg.webp"
+      "hero": "images/mediterranean-veg.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 603,
+          "protein": 21.8,
+          "carb": 70,
+          "fat": 28.1,
+          "satfat": 8.1,
+          "fiber": 14.4,
+          "sugar": 14.7,
+          "sodium": 829
+        },
+        "confidence": "high",
+        "matched": 14,
+        "considered": 14
+      }
     },
     {
       "title": "Miso-Glazed Black Cod with Charred Bok Choy & Ginger-Scallion Oil",
@@ -3551,7 +3986,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "Restaurant elegance from a make-ahead marinade: the miso does its quiet work\novernight, so the night-of is just a fast broil, a hot sizzle of ginger-scallion\noil, and a charred green. The pickled cucumber is the secret — bright acidity to\ncut the buttery, lacquered cod.",
-      "hero": "images/miso-black-cod-bok-choy.webp"
+      "hero": "images/miso-black-cod-bok-choy.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 738,
+          "protein": 29.7,
+          "carb": 23.5,
+          "fat": 57.6,
+          "satfat": 8.5,
+          "fiber": 4,
+          "sugar": 14,
+          "sodium": 1496
+        },
+        "confidence": "high",
+        "matched": 18,
+        "considered": 18
+      }
     },
     {
       "title": "Poached Cod in Saffron Tomato Broth",
@@ -3635,7 +4085,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "Alison Roman's gentle tomato poach: garlic and Aleppo bloomed in oil, a saffron-scented\nbroth, and cod cooked at a bare simmer until it flakes. Easy, elegant, and built for\ncrusty bread.",
-      "hero": "images/poached-cod-tomato-saffron.webp"
+      "hero": "images/poached-cod-tomato-saffron.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 251,
+          "protein": 28.2,
+          "carb": 11.5,
+          "fat": 8.1,
+          "satfat": 0.9,
+          "fiber": 2.6,
+          "sugar": 5.7,
+          "sodium": 211
+        },
+        "confidence": "high",
+        "matched": 9,
+        "considered": 9
+      }
     },
     {
       "title": "Reverse-Sear New York Strip with Garlic-Herb Broccoli",
@@ -3760,7 +4225,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "Stephen has run this technique enough times to trust it cold: the gentle oven does\nthe cooking, and the cast-iron does only the crust. The garden thyme and a hard\nchar on the broccoli turn a weeknight strip into something that eats like a\nsteakhouse plate.",
-      "hero": "images/reverse-sear-ny-strip.webp"
+      "hero": "images/reverse-sear-ny-strip.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 1058,
+          "protein": 74.7,
+          "carb": 15.5,
+          "fat": 77.8,
+          "satfat": 30.9,
+          "fiber": 5.3,
+          "sugar": 2.8,
+          "sodium": 2259
+        },
+        "confidence": "high",
+        "matched": 16,
+        "considered": 16
+      }
     },
     {
       "title": "Roasted Fennel with Olives & Garlic",
@@ -3838,7 +4318,22 @@
       "kind": "food",
       "headnote": "Molly Stevens' approach to roasting fennel: thick wedges, smashed garlic, and olives on\na hot sheet pan until the cut faces caramelize and the layers go silky. A simple,\nelegant side that practically cooks itself.",
       "equipment": [],
-      "hero": "images/roasted-fennel-olives-garlic.webp"
+      "hero": "images/roasted-fennel-olives-garlic.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 164,
+          "protein": 2,
+          "carb": 11.8,
+          "fat": 13.4,
+          "satfat": 1.8,
+          "fiber": 4.6,
+          "sugar": 0,
+          "sodium": 559
+        },
+        "confidence": "high",
+        "matched": 6,
+        "considered": 6
+      }
     },
     {
       "title": "Serrano-Spiced Chicken with Lemon-Tahini & Date-Almond Pilaf",
@@ -3971,7 +4466,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "A pantry-raid dinner that turned into a keeper: dates and toasted almonds make\nthe rice taste Levantine, garden peppers thread heat and sweetness through every\nlayer, and a cool lemon-tahini drizzle pulls it all together.",
-      "hero": "images/serrano-chicken-lemon-tahini-pilaf.webp"
+      "hero": "images/serrano-chicken-lemon-tahini-pilaf.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 1091,
+          "protein": 55.6,
+          "carb": 111,
+          "fat": 48.7,
+          "satfat": 6.7,
+          "fiber": 10.7,
+          "sugar": 19.9,
+          "sodium": 898
+        },
+        "confidence": "high",
+        "matched": 19,
+        "considered": 19
+      }
     },
     {
       "title": "Sichuan Spicy Beef Noodle Soup",
@@ -4129,7 +4639,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "A killer Sichuan bowl Stephen and Lauren have chased for years, scaled up to eight\nservings and engineered for leftovers. Cook the beef and broth together, store them\napart, and assemble each bowl to order with fresh noodles, greens, and a table-side\nmala station.",
-      "hero": "images/sichuan-beef-noodle-soup.webp"
+      "hero": "images/sichuan-beef-noodle-soup.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 845,
+          "protein": 52.8,
+          "carb": 72.6,
+          "fat": 38,
+          "satfat": 13.1,
+          "fiber": 5.5,
+          "sugar": 7.1,
+          "sodium": 1220
+        },
+        "confidence": "high",
+        "matched": 22,
+        "considered": 22
+      }
     },
     {
       "title": "Smoky Sous-Vide Chicken Tinga Tacos",
@@ -4284,7 +4809,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "Stephen dialed this in over a long thread: sous-vide breasts at 125°F for silk,\na chipotle sauce reduced to a glossy glaze, and a hard crisp in the pan for the\ncraggy edges that make tinga sing. Quick pickled onions are non-negotiable.",
-      "hero": "images/chicken-tinga-tacos.webp"
+      "hero": "images/chicken-tinga-tacos.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 804,
+          "protein": 67.9,
+          "carb": 88.3,
+          "fat": 19.7,
+          "satfat": 4.1,
+          "fiber": 13.9,
+          "sugar": 18.7,
+          "sodium": 2855
+        },
+        "confidence": "high",
+        "matched": 23,
+        "considered": 23
+      }
     },
     {
       "title": "Sous-Vide Salmon with Brown-Butter Citrus Glaze, Charred Asparagus & Herbed Couscous",
@@ -4415,7 +4955,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "The elegant entry in the salmon rotation: sous-vide for an unbroken, custardy\nflake, then a beurre noisette brightened with orange and lemon. The original lemon-\nbutter-caper idea grew into a proper brown-butter glaze, and the herbed couscous\nand charred asparagus turn it into a full, restaurant-grade plate for two.",
-      "hero": "images/sous-vide-salmon-brown-butter-citrus.webp"
+      "hero": "images/sous-vide-salmon-brown-butter-citrus.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 1031,
+          "protein": 50.8,
+          "carb": 89.6,
+          "fat": 52.7,
+          "satfat": 23,
+          "fiber": 10.7,
+          "sugar": 13.7,
+          "sodium": 779
+        },
+        "confidence": "high",
+        "matched": 14,
+        "considered": 14
+      }
     },
     {
       "title": "Soy-Hoisin Steak Kebabs",
@@ -4528,7 +5083,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "The source was just a marinade, but it's a good one — soy and hoisin doing the\nheavy lifting, sesame and ginger rounding it out. Built into proper skewers with\ngarden peppers and a last-minute glaze, it eats like takeout you'd actually pay\nfor.",
-      "hero": "images/soy-hoisin-steak-kebabs.webp"
+      "hero": "images/soy-hoisin-steak-kebabs.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 851,
+          "protein": 63.4,
+          "carb": 40.5,
+          "fat": 48.3,
+          "satfat": 13,
+          "fiber": 5.8,
+          "sugar": 25.9,
+          "sodium": 2407
+        },
+        "confidence": "high",
+        "matched": 16,
+        "considered": 16
+      }
     },
     {
       "title": "Sriracha-Honey Salmon with Crispy Kale Chips",
@@ -4645,7 +5215,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "A NASA-flavor-division build that Stephen dialed in across a few rounds: sous-vide\nsets the protein at a precise 125°F so the grill can do nothing but char and\nlacquer. The kale keeps his garlic-salt, paprika, and cayenne profile but roasts\nlow to stay crisp and bitter-free — a savory, crackling foil to the sticky\nsweet-heat fish.",
-      "hero": "images/sriracha-honey-salmon-kale-chips.webp"
+      "hero": "images/sriracha-honey-salmon-kale-chips.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 582,
+          "protein": 38.2,
+          "carb": 25.9,
+          "fat": 36.3,
+          "satfat": 6.6,
+          "fiber": 4.2,
+          "sugar": 20.7,
+          "sodium": 1234
+        },
+        "confidence": "high",
+        "matched": 13,
+        "considered": 13
+      }
     },
     {
       "title": "Summer Caprese Pasta with Roasted Squash Ribbons & Burst Tomatoes",
@@ -4767,7 +5352,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "Stephen circled through a lot of summer pasta pitches — scallops, peaches,\nputtanesca — before settling on the squash-tomato-basil-mozzarella combination, a\ntrue summer classic, then scaling it for two and folding in a homemade balsamic\nglaze. Meatless, garden-forward, and best when the tomatoes are at their peak.",
-      "hero": "images/summer-pasta.webp"
+      "hero": "images/summer-pasta.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 1078,
+          "protein": 28.6,
+          "carb": 107.4,
+          "fat": 58.7,
+          "satfat": 13.4,
+          "fiber": 7.7,
+          "sugar": 21.6,
+          "sodium": 389
+        },
+        "confidence": "high",
+        "matched": 10,
+        "considered": 10
+      }
     },
     {
       "title": "Tilapia Piccata with Fettuccine & Broccoli",
@@ -4893,7 +5493,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "Stephen worked this one through a couple of rounds — first sorting out a rogue\nlemon slice that kept appearing from nowhere, then folding the fettuccine cleanly\ninto the sauce. The result eats like a restaurant lemon-caper trio: crisp fish,\nsilky sauce, and deeply seared broccoli, all in one skillet.",
-      "hero": "images/tilapia-piccata-fettuccine-broccoli.webp"
+      "hero": "images/tilapia-piccata-fettuccine-broccoli.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 944,
+          "protein": 54.2,
+          "carb": 95.5,
+          "fat": 36.6,
+          "satfat": 14.3,
+          "fiber": 10.6,
+          "sugar": 8.2,
+          "sodium": 569
+        },
+        "confidence": "high",
+        "matched": 13,
+        "considered": 13
+      }
     },
     {
       "title": "Tomato-Basil Chicken Fettuccine with Fresh Mozzarella",
@@ -4998,7 +5613,22 @@
       "kind": "food",
       "category": "main",
       "headnote": "A bright, fast Italian dinner Stephen landed on after weighing a whole flight of\nchicken pastas: fresh tomatoes cooked down to a loose sauce, fettuccine to carry\nit, and cubes of fresh mozzarella that melt into creamy pockets as you toss.",
-      "hero": "images/italian-chicken-pasta.webp"
+      "hero": "images/italian-chicken-pasta.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 945,
+          "protein": 63.6,
+          "carb": 89.4,
+          "fat": 35.5,
+          "satfat": 10.8,
+          "fiber": 5.1,
+          "sugar": 7.7,
+          "sodium": 446
+        },
+        "confidence": "high",
+        "matched": 7,
+        "considered": 7
+      }
     },
     {
       "title": "Vegetarian New Orleans Red Beans & Rice",
@@ -5121,7 +5751,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "kind": "food",
       "headnote": "Stephen's red beans skip the andouille and turkey entirely and lean on smoked\npaprika, a hard-browned trinity, and a long, low simmer for that signature Cajun\ndepth. Mashing some of the beans back into the pot gives you the creamy gravy with\nno cream — and an optional chicken-sausage version is right there if you want it.",
-      "hero": "images/red-beans-and-rice.webp"
+      "hero": "images/red-beans-and-rice.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 848,
+          "protein": 34.6,
+          "carb": 157.2,
+          "fat": 9.1,
+          "satfat": 1.2,
+          "fiber": 34.3,
+          "sugar": 8,
+          "sodium": 211
+        },
+        "confidence": "high",
+        "matched": 18,
+        "considered": 18
+      }
     },
     {
       "title": "Watercress Salad with Mustard Vinaigrette",
@@ -5198,7 +5843,22 @@
       "kind": "food",
       "headnote": "A two-ingredient idea done right: bracing watercress and a sharp Dijon–red wine\nvinaigrette. Whisk, toss at the last second, and serve. The perfect crisp foil to\nanything rich.",
       "equipment": [],
-      "hero": "images/watercress-salad-mustard-vinaigrette.webp"
+      "hero": "images/watercress-salad-mustard-vinaigrette.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 132,
+          "protein": 1,
+          "carb": 1.3,
+          "fat": 14,
+          "satfat": 1.8,
+          "fiber": 0.5,
+          "sugar": 0.2,
+          "sodium": 190
+        },
+        "confidence": "high",
+        "matched": 5,
+        "considered": 5
+      }
     },
     {
       "title": "Brown Sugar Banana Daiquiri",
@@ -5273,7 +5933,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "A daiquiri that tastes like dessert without ever touching a blender — all the warmth of\nbanana bread, shaken bone-cold.",
       "equipment": [],
-      "hero": "images/brown-sugar-banana-daiquiri.webp"
+      "hero": "images/brown-sugar-banana-daiquiri.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 215,
+          "protein": 0.9,
+          "carb": 23.1,
+          "fat": 0.2,
+          "satfat": 0.1,
+          "fiber": 1.8,
+          "sugar": 14.3,
+          "sodium": 1
+        },
+        "confidence": "high",
+        "matched": 4,
+        "considered": 4
+      }
     },
     {
       "title": "Citrus-Passion Mezcal Margarita",
@@ -5352,7 +6027,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "Smoke in the background, passion fruit and citrus out front — a gateway mezcal margarita\nthat still tastes like the real thing.",
       "equipment": [],
-      "hero": "images/citrus-passion-mezcal-margarita.webp"
+      "hero": "images/citrus-passion-mezcal-margarita.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 275,
+          "protein": 0.2,
+          "carb": 26.3,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.2,
+          "sugar": 23.1,
+          "sodium": 1
+        },
+        "confidence": "high",
+        "matched": 7,
+        "considered": 7
+      }
     },
     {
       "title": "Classic Daiquiri",
@@ -5424,7 +6114,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "The benchmark against which every other rum sour is measured — and proof that three\nthings, in balance, beat ten things fighting.",
       "equipment": [],
-      "hero": "images/classic-daiquiri.webp"
+      "hero": "images/classic-daiquiri.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 173,
+          "protein": 0.2,
+          "carb": 12.3,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.2,
+          "sugar": 10.1,
+          "sodium": 0
+        },
+        "confidence": "high",
+        "matched": 3,
+        "considered": 3
+      }
     },
     {
       "title": "Coconut Cream Martini",
@@ -5499,7 +6204,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "Unapologetic dessert — serve it after dinner in place of pudding and skip the spoons.",
       "equipment": [],
-      "hero": "images/coconut-cream-martini.webp"
+      "hero": "images/coconut-cream-martini.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 331,
+          "protein": 0.8,
+          "carb": 25.8,
+          "fat": 4.8,
+          "satfat": 3,
+          "fiber": 0,
+          "sugar": 25,
+          "sodium": 254
+        },
+        "confidence": "high",
+        "matched": 6,
+        "considered": 6
+      }
     },
     {
       "title": "Coconut Pineapple Swizzle",
@@ -5578,7 +6298,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "The gentle, beach-chair cousin of the daiquiri — all crushed ice, soft coconut, and a bitters float you smell before you taste.",
       "equipment": [],
-      "hero": "images/coconut-pineapple-swizzle.webp"
+      "hero": "images/coconut-pineapple-swizzle.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 217,
+          "protein": 0.7,
+          "carb": 11,
+          "fat": 5,
+          "satfat": 4.5,
+          "fiber": 0.5,
+          "sugar": 7.6,
+          "sodium": 2
+        },
+        "confidence": "high",
+        "matched": 6,
+        "considered": 6
+      }
     },
     {
       "title": "Espresso Martini",
@@ -5658,7 +6393,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "The bartender's benchmark — three ingredients, no cream, and a foam cap that says you\ndid it right. Master this one before you go riffing.",
       "equipment": [],
-      "hero": "images/espresso-martini.webp"
+      "hero": "images/espresso-martini.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 247,
+          "protein": 0.1,
+          "carb": 18.8,
+          "fat": 0.2,
+          "satfat": 0,
+          "fiber": 0,
+          "sugar": 17.3,
+          "sodium": 7
+        },
+        "confidence": "high",
+        "matched": 5,
+        "considered": 5
+      }
     },
     {
       "title": "French Martini",
@@ -5726,7 +6476,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "The chicest of the fruity martinis — deep raspberry, bright pineapple, and a foam cap\nthat makes a plain vodka pour look like a special occasion.",
       "equipment": [],
-      "hero": "images/french-martini.webp"
+      "hero": "images/french-martini.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 240,
+          "protein": 1.9,
+          "carb": 25.9,
+          "fat": 0.6,
+          "satfat": 0,
+          "fiber": 4.9,
+          "sugar": 13.3,
+          "sodium": 3
+        },
+        "confidence": "high",
+        "matched": 4,
+        "considered": 4
+      }
     },
     {
       "title": "Lemon Drop Martini",
@@ -5797,7 +6562,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "The cocktail that taught a generation that a martini glass could hold something\nsweet — sharp lemon, a sugar crust, and zero apology.",
       "equipment": [],
-      "hero": "images/lemon-drop-martini.webp"
+      "hero": "images/lemon-drop-martini.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 244,
+          "protein": 0.2,
+          "carb": 19,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.2,
+          "sugar": 17.2,
+          "sodium": 0
+        },
+        "confidence": "high",
+        "matched": 4,
+        "considered": 4
+      }
     },
     {
       "title": "Mudslide",
@@ -5870,7 +6650,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "The dessert cart's answer to a nightcap — blend it after dinner and call it both courses at once.",
       "equipment": [],
-      "hero": "images/mudslide.webp"
+      "hero": "images/mudslide.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 259,
+          "protein": 0.8,
+          "carb": 21,
+          "fat": 4.6,
+          "satfat": 2.8,
+          "fiber": 0,
+          "sugar": 20,
+          "sodium": 15
+        },
+        "confidence": "high",
+        "matched": 4,
+        "considered": 4
+      }
     },
     {
       "title": "Peach Rum Sour",
@@ -5945,7 +6740,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "A frothy, late-summer peach sour with a bitters feather on top — the prettiest five-minute drink in the book.",
       "equipment": [],
-      "hero": "images/peach-rum-sour.webp"
+      "hero": "images/peach-rum-sour.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 195,
+          "protein": 3.9,
+          "carb": 13.6,
+          "fat": 0.1,
+          "satfat": 0,
+          "fiber": 0.4,
+          "sugar": 11.5,
+          "sodium": 57
+        },
+        "confidence": "high",
+        "matched": 5,
+        "considered": 5
+      }
     },
     {
       "title": "Pineapple Heatwave",
@@ -6022,7 +6832,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "A pineapple-rum cooler with a slow chili burn — sweet up front, warm on the back, and dangerously easy in the heat.",
       "equipment": [],
-      "hero": "images/pineapple-heatwave.webp"
+      "hero": "images/pineapple-heatwave.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 195,
+          "protein": 0.5,
+          "carb": 16.5,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.5,
+          "sugar": 12.7,
+          "sodium": 0
+        },
+        "confidence": "high",
+        "matched": 6,
+        "considered": 6
+      }
     },
     {
       "title": "Salty Coconut Honey Rum Smash",
@@ -6098,7 +6923,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "A salted-coconut honey smash that drinks like dessert's cooler, breezier sibling — silky, herbal, and gone too fast.",
       "equipment": [],
-      "hero": "images/salty-coconut-honey-rum-smash.webp"
+      "hero": "images/salty-coconut-honey-rum-smash.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 230,
+          "protein": 0.8,
+          "carb": 13.3,
+          "fat": 6,
+          "satfat": 5.4,
+          "fiber": 0.2,
+          "sugar": 11.9,
+          "sodium": 123
+        },
+        "confidence": "high",
+        "matched": 6,
+        "considered": 6
+      }
     },
     {
       "title": "Singapore Sling",
@@ -6175,7 +7015,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "A century-old crowd-pleaser that still earns its place — equal parts cocktail and tropical\nholiday in a glass.",
       "equipment": [],
-      "hero": "images/singapore-sling.webp"
+      "hero": "images/singapore-sling.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 283,
+          "protein": 0.5,
+          "carb": 33.2,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.5,
+          "sugar": 28.1,
+          "sodium": 2
+        },
+        "confidence": "high",
+        "matched": 8,
+        "considered": 8
+      }
     },
     {
       "title": "Spicy Pineapple Margarita with Tajín Rim",
@@ -6256,7 +7111,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "Sweet, tart, and gently spicy — the chili-lime rim is what keeps this one honest.",
       "equipment": [],
-      "hero": "images/spicy-pineapple-margarita-tajin.webp"
+      "hero": "images/spicy-pineapple-margarita-tajin.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 347,
+          "protein": 0.8,
+          "carb": 42.8,
+          "fat": 0.1,
+          "satfat": 0,
+          "fiber": 2.2,
+          "sugar": 32.1,
+          "sodium": 1
+        },
+        "confidence": "high",
+        "matched": 6,
+        "considered": 6
+      }
     },
     {
       "title": "Vodka Gimlet",
@@ -6324,7 +7194,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "Three ingredients, perfectly balanced — proof that the simplest sour, made with fresh\nlime, beats anything dressed up to hide its flaws.",
       "equipment": [],
-      "hero": "images/vodka-gimlet.webp"
+      "hero": "images/vodka-gimlet.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 171,
+          "protein": 0.1,
+          "carb": 11.7,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.1,
+          "sugar": 10,
+          "sodium": 0
+        },
+        "confidence": "high",
+        "matched": 3,
+        "considered": 3
+      }
     },
     {
       "title": "White Russian",
@@ -6391,7 +7276,22 @@
       "updated": "2026-06-19T00:00:00.000Z",
       "headnote": "The Dude's drink — three things over ice, a slow pour of cream, and the most\nforgiving cocktail you'll ever build at the end of a long night.",
       "equipment": [],
-      "hero": "images/white-russian.webp"
+      "hero": "images/white-russian.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 329,
+          "protein": 0.8,
+          "carb": 15.8,
+          "fat": 10.9,
+          "satfat": 6.8,
+          "fiber": 0,
+          "sugar": 14.8,
+          "sodium": 14
+        },
+        "confidence": "high",
+        "matched": 3,
+        "considered": 3
+      }
     }
   ]
 }

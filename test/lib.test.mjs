@@ -8,7 +8,11 @@ import {
   parseQty, fmtQty, scaleDisplay, classify, normalizeIngredient, buildShoppingList, formatShoppingList, isOptional,
   clampServes, bucketMatch, recipeMatches, cuisineChipValues, shopSectionsForRecipe, inlineMd, esc,
   parseHash, hashForKind,
+  pctOfDV, nutritionRows, hasNutrition, nutritionPanelHtml, NUTRIENT_DISPLAY,
 } from '../docs/lib.js';
+import {
+  parseLine, normalizeName, buildIndex, matchName, toBaseUnits, lineNutrition, recipeNutrition, NUTRIENT_KEYS,
+} from '../scripts/lib/nutrition.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const data = JSON.parse(readFileSync(join(root, 'docs/recipes.json'), 'utf8'));
@@ -173,6 +177,167 @@ test('inlineMd italicizes and escapes', () => {
   assert.equal(esc('<x>&"'), '&lt;x&gt;&amp;&quot;');
 });
 
+// ── NUTRITION ENGINE (build-time): parse, match, convert, sum ────────────────
+const NDB = {
+  'olive oil': { unit: 'tsp', g: 4.5, n: { kcal: 40, protein: 0, carb: 0, fat: 4.5, satfat: 0.6, fiber: 0, sugar: 0, sodium: 0 }, aliases: ['extra-virgin olive oil'] },
+  'granulated sugar': { unit: 'tsp', g: 4.2, n: { kcal: 16, protein: 0, carb: 4.2, fat: 0, satfat: 0, fiber: 0, sugar: 4.2, sodium: 0 }, aliases: ['sugar'] },
+  'kosher salt': { unit: 'tsp', g: 6, n: { kcal: 0, protein: 0, carb: 0, fat: 0, satfat: 0, fiber: 0, sugar: 0, sodium: 1900 }, aliases: ['salt'] },
+  'cherry tomato': { unit: 'tomato', g: 17, density: 0.67, n: { kcal: 3, protein: 0.15, carb: 0.65, fat: 0.03, satfat: 0.004, fiber: 0.2, sugar: 0.43, sodium: 1 }, aliases: ['grape tomato'] },
+  salmon: { unit: 'fillet', g: 170, n: { kcal: 280, protein: 39, carb: 0, fat: 13, satfat: 3, fiber: 0, sugar: 0, sodium: 86 } },
+  garlic: { unit: 'clove', g: 3, n: { kcal: 4, protein: 0.2, carb: 1, fat: 0, satfat: 0, fiber: 0.1, sugar: 0, sodium: 1 } },
+  'white rum': { unit: 'oz', g: 28, n: { kcal: 65, protein: 0, carb: 0, fat: 0, satfat: 0, fiber: 0, sugar: 0, sodium: 0 } },
+};
+const NIDX = buildIndex(NDB);
+const near = (a, b, eps = 0.05) => Math.abs(a - b) <= eps;
+
+test('nutrition parseLine: quantity (midpoint of ranges), unit token, name', () => {
+  assert.deepEqual(parseLine('1 tbsp olive oil'), { qty: 1, unit: 'tbsp', name: 'olive oil', rest: 'tbsp olive oil' });
+  assert.deepEqual(parseLine('1½ tsp kosher salt').qty, 1.5);
+  assert.equal(parseLine('2–3 cloves garlic').qty, 2.5);              // range → midpoint
+  assert.equal(parseLine('2 salmon fillets (about 6 oz each)').unit, '');  // count, not a unit
+  assert.equal(parseLine('2 salmon fillets (about 6 oz each)').name, 'salmon fillets');
+  assert.equal(parseLine('1 (14.5 oz) can whole peeled tomatoes').unit, 'can'); // paren size stripped
+  assert.equal(parseLine('½ red onion, thinly sliced').name, 'red onion'); // prep clause dropped at comma
+});
+
+test('nutrition normalizeName strips accents/punctuation and singularises', () => {
+  assert.equal(normalizeName('Jalapeños'), 'jalapeno');
+  assert.equal(normalizeName('Extra-Virgin Olive Oil'), 'extra virgin olive oil'); // hyphens → spaces
+  assert.equal(normalizeName('Cherry Tomatoes'), 'cherry tomato');
+});
+
+test('nutrition matchName: aliases, descriptor-peeling, trailing nouns', () => {
+  assert.equal(matchName('extra-virgin olive oil', NDB, NIDX), 'olive oil');
+  assert.equal(matchName('sugar', NDB, NIDX), 'granulated sugar');
+  assert.equal(matchName('small red onion', NDB, NIDX), null);     // not in this mini-db
+  assert.equal(matchName('skin-on salmon fillets', NDB, NIDX), 'salmon');
+  assert.equal(matchName('grape tomatoes', NDB, NIDX), 'cherry tomato');
+});
+
+test('nutrition toBaseUnits converts every unit family into the base unit', () => {
+  const oil = NDB['olive oil'];
+  assert.ok(near(toBaseUnits(parseLine('1 tbsp olive oil'), oil), 3));        // 1 tbsp = 3 tsp
+  assert.ok(near(toBaseUnits(parseLine('1 cup olive oil'), oil), 48, 0.1));   // 1 cup = 48 tsp
+  // bare count against a piece base
+  assert.equal(toBaseUnits(parseLine('2 salmon fillets'), NDB.salmon), 2);
+  // mass against a piece base (1 lb / 170 g)
+  assert.ok(near(toBaseUnits({ qty: 1, unit: 'lb' }, NDB.salmon), 453.592 / 170, 0.01));
+  // volume against a piece base, via density (1 cup cherry tomatoes)
+  assert.ok(near(toBaseUnits(parseLine('1 cup cherry tomatoes'), NDB['cherry tomato']), 236.588 * 0.67 / 17, 0.1));
+  // fluid oz in a drink against an oz base
+  assert.equal(toBaseUnits(parseLine('2 oz white rum'), NDB['white rum'], 'drink'), 2);
+});
+
+test('nutrition parseLine skips size descriptors before the unit; plural sibilants', () => {
+  assert.equal(parseLine('1 heaping tsp kosher salt').unit, 'tsp');      // descriptor skipped
+  assert.equal(parseLine('1 small pinch flaky sea salt').unit, 'pinch');
+  assert.equal(parseLine('2 large cloves garlic').unit, 'clove');
+  assert.equal(parseLine('2–3 dashes Angostura bitters').unit, 'dash');  // dashes → dash
+});
+
+test('nutrition: bare count of a WEIGHT-based item needs `each` (no silent over-count)', () => {
+  // Olives stored per cup. "6 olives" must NOT be read as 6 cups (the bug that made
+  // a salad read 9,000 mg sodium). Without `each` it's unresolved…
+  const noEach = { unit: 'cup', g: 135, n: { kcal: 188, protein: 1.4, carb: 10, fat: 18, satfat: 2.4, fiber: 4.4, sugar: 0, sodium: 1556 } };
+  assert.equal(toBaseUnits({ qty: 6, unit: '' }, noEach), null);
+  // …with a per-piece weight it converts honestly (6 × 4 g ÷ 135 g/cup ≈ 0.18 cup).
+  const withEach = { ...noEach, each: 4 };
+  assert.ok(near(toBaseUnits({ qty: 6, unit: '' }, withEach), 6 * 4 / 135, 0.001));
+  // Proteins stored per-oz, counted by piece, resolve via `each` (170 g ≈ 6 oz).
+  const fish = { unit: 'oz', g: 28, each: 170, n: { kcal: 58, protein: 5.6, carb: 0, fat: 3.8, satfat: 0.8, fiber: 0, sugar: 0, sodium: 13 } };
+  assert.ok(near(toBaseUnits({ qty: 2, unit: '' }, fish), 2 * 170 / 28, 0.01)); // 2 fillets ≈ 12 oz
+});
+
+test('nutrition lineNutrition: skips garnish/taste lines, flags unknowns', () => {
+  assert.equal(lineNutrition('Salt and pepper, to taste', NDB, NIDX).status, 'skip');
+  assert.equal(lineNutrition('Lime wheel, for garnish', NDB, NIDX).status, 'skip');
+  assert.equal(lineNutrition('Ice', NDB, NIDX).status, 'skip');
+  assert.equal(lineNutrition('2 cups dragonfruit foam', NDB, NIDX).status, 'unmatched'); // has qty, no match
+  const ok = lineNutrition('1 tsp granulated sugar', NDB, NIDX);
+  assert.equal(ok.status, 'ok');
+  assert.ok(near(ok.nutrients.kcal, 16));
+});
+
+test('nutrition recipeNutrition: per-serving totals + coverage/confidence', () => {
+  const recipe = {
+    kind: 'food', serves: 2,
+    ingredients: [{ section: null, items: [
+      '2 tbsp olive oil',          // 6 tsp → 240 kcal, 27g fat
+      '2 cloves garlic, minced',   // 2 cloves
+      'Salt and pepper to taste',  // skipped
+    ] }],
+  };
+  const nut = recipeNutrition(recipe, NDB, NIDX);
+  assert.equal(nut.serves, 2);
+  assert.equal(nut.considered, 2);          // taste line not counted
+  assert.equal(nut.matched, 2);
+  assert.equal(nut.confidence, 'high');
+  assert.ok(near(nut.perServing.kcal, (240 + 8) / 2, 1));     // ((6*40)+(2*4))/2
+  assert.ok(near(nut.perServing.fat, 27 / 2, 0.2));
+  for (const k of NUTRIENT_KEYS) assert.equal(typeof nut.perServing[k], 'number');
+});
+
+test('nutrition recipeNutrition: low coverage downgrades confidence', () => {
+  const recipe = { kind: 'food', serves: 1, ingredients: [{ section: null, items: [
+    '1 tsp olive oil', '2 cups xantham mystery', '3 cups unobtainium', '4 oz phantom',
+  ] }] };
+  const nut = recipeNutrition(recipe, NDB, NIDX);
+  assert.equal(nut.matched, 1);
+  assert.equal(nut.considered, 4);
+  assert.equal(nut.confidence, 'low');
+  assert.ok(nut.unmatched.length >= 3);
+});
+
+// ── NUTRITION DISPLAY (front-end, pure) ──────────────────────────────────────
+const sampleRecipe = (over = {}) => ({
+  serves: 2,
+  nutrition: { confidence: 'high', matched: 8, considered: 8, perServing: {
+    kcal: 500, protein: 25, carb: 40, fat: 22, satfat: 6, fiber: 7, sugar: 9, sodium: 1150,
+  } },
+  ...over,
+});
+
+test('pctOfDV against FDA daily values', () => {
+  assert.equal(pctOfDV('kcal', 1000), 50);
+  assert.equal(pctOfDV('sodium', 2300), 100);
+  assert.equal(pctOfDV('protein', 25), 50);
+  assert.equal(pctOfDV('fat', 39), 50);
+  assert.equal(pctOfDV('nonexistent', 5), null);
+});
+
+test('nutritionRows maps perServing to labelled rows with %DV', () => {
+  const rows = nutritionRows(sampleRecipe());
+  assert.equal(rows.length, NUTRIENT_DISPLAY.length);
+  const cal = rows.find((r) => r.key === 'kcal');
+  assert.equal(cal.amount, '500');
+  assert.equal(cal.pct, 25);                       // 500/2000
+  const sodium = rows.find((r) => r.key === 'sodium');
+  assert.equal(sodium.amount, '1150mg');
+  assert.equal(sodium.pct, 50);
+  assert.ok(rows.find((r) => r.key === 'satfat').indent, 'sat fat nested');
+  assert.deepEqual(nutritionRows({}), []);          // no nutrition → no rows
+});
+
+test('hasNutrition + nutritionPanelHtml render a collapsed estimate', () => {
+  assert.equal(hasNutrition(sampleRecipe()), true);
+  assert.equal(hasNutrition({ nutrition: { confidence: 'none', perServing: {} } }), false);
+  assert.equal(nutritionPanelHtml({}), '');         // nothing to show
+  const html = nutritionPanelHtml(sampleRecipe());
+  assert.match(html, /<details class="nutrition">/);
+  assert.match(html, /500 cal/);
+  assert.match(html, /Sodium/);
+  assert.match(html, /50%/);                         // a %DV figure rendered
+  assert.match(html, /estimated, per serving/i);
+});
+
+test('nutritionPanelHtml adds a caveat when coverage is thin', () => {
+  const html = nutritionPanelHtml(sampleRecipe({ nutrition: {
+    confidence: 'partial', matched: 4, considered: 8,
+    perServing: { kcal: 200, protein: 5, carb: 10, fat: 8, satfat: 2, fiber: 1, sugar: 3, sodium: 300 },
+  } }));
+  assert.match(html, /4 of 8 ingredients/);
+});
+
 // ── DATA REGRESSION: every recipe must render shopping rows without throwing ──
 test('every shipped recipe produces clean shopping rows (regression for the crash bug)', () => {
   for (const r of data.recipes) {
@@ -183,6 +348,69 @@ test('every shipped recipe produces clean shopping rows (regression for the cras
         assert.ok(['core', 'pantry', 'buy'].includes(it.cat), `${r.slug} row cat valid`);
       }
     }, `${r.slug} should not throw in shopSectionsForRecipe`);
+  }
+});
+
+test('every shipped recipe carries a per-serving nutrition estimate', () => {
+  for (const r of data.recipes) {
+    assert.ok(r.nutrition && r.nutrition.perServing, `${r.slug} has nutrition.perServing`);
+    for (const k of NUTRIENT_KEYS) {
+      const v = r.nutrition.perServing[k];
+      assert.equal(typeof v, 'number', `${r.slug} ${k} is a number`);
+      assert.ok(isFinite(v) && v >= 0, `${r.slug} ${k} is finite & non-negative (${v})`);
+    }
+    assert.ok(['high', 'partial', 'low', 'none'].includes(r.nutrition.confidence), `${r.slug} confidence valid`);
+    // The panel must render without throwing for every shipped recipe.
+    assert.doesNotThrow(() => nutritionPanelHtml(r), `${r.slug} nutrition panel renders`);
+  }
+});
+
+test('every recipe has a real (non-empty) nutrition estimate — DB covers the menu', () => {
+  for (const r of data.recipes) {
+    // Calories should be a positive estimate for any real dish/drink (the DB covers it).
+    assert.ok(r.nutrition.perServing.kcal > 0, `${r.slug} has a calorie estimate`);
+    assert.notEqual(r.nutrition.confidence, 'none', `${r.slug} matched at least some ingredients`);
+  }
+});
+
+test('protein-lane mains carry a realistic protein estimate (piece-count guard)', () => {
+  const meat = new Set(['beef', 'chicken', 'fish', 'seafood', 'pork']);
+  for (const r of data.recipes) {
+    if (r.kind === 'drink' || !meat.has(r.protein) || (r.category && r.category !== 'main')) continue;
+    // A meat/fish dinner should never read like a garnish — catches the "2 fillets
+    // counted as 2 oz" regression, where protein collapsed to single digits.
+    assert.ok(r.nutrition.perServing.protein >= 12,
+      `${r.slug}: protein ${r.nutrition.perServing.protein}g too low for a ${r.protein} main`);
+  }
+});
+
+test('no shipped recipe has an implausible sodium estimate (over-count guard)', () => {
+  for (const r of data.recipes) {
+    // Even the saltiest plate shouldn't clear ~4,000 mg/serving; a higher number
+    // means a per-piece item was read as cups (the kalamata-olive regression).
+    assert.ok(r.nutrition.perServing.sodium < 4000,
+      `${r.slug}: sodium ${r.nutrition.perServing.sodium}mg/serving is implausibly high`);
+  }
+});
+
+// The database itself: well-formed entries with physically-plausible numbers.
+const nutritionDb = JSON.parse(readFileSync(join(root, 'data/nutrition.json'), 'utf8'));
+test('nutrition database entries are well-formed and physically plausible', () => {
+  for (const [key, e] of Object.entries(nutritionDb)) {
+    assert.equal(typeof e.unit, 'string', `${key}: unit is a string`);
+    assert.ok(typeof e.g === 'number' && e.g > 0, `${key}: g is a positive number`);
+    assert.ok(e.n && typeof e.n === 'object', `${key}: has nutrient object`);
+    for (const k of NUTRIENT_KEYS) {
+      const v = e.n[k];
+      assert.ok(typeof v === 'number' && isFinite(v) && v >= 0, `${key}.${k} is a non-negative number (${v})`);
+    }
+    // Calories can't materially undercut what protein+fat alone supply (carbs
+    // ignored to stay robust to fiber; 15% slack absorbs rounding and real-data
+    // variance), and can't exceed pure-fat density (~9 kcal/g). Catches the classic
+    // per-100g data-entry slip and sign errors.
+    const floor = 0.85 * (4 * e.n.protein + 9 * e.n.fat) - 3;
+    assert.ok(e.n.kcal >= floor, `${key}: kcal ${e.n.kcal} below protein+fat floor ${floor.toFixed(1)}`);
+    assert.ok(e.n.kcal <= 9 * e.g + 2, `${key}: kcal ${e.n.kcal} exceeds 9 kcal/g ceiling for ${e.g}g`);
   }
 });
 
