@@ -5892,6 +5892,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "A Vietnamese steakhouse classic that comes together faster than the rice cooker:\nthe marinade does the flavor work, and the only real skill is heat management —\nget the pan hot enough that the beef sears instead of stews, and *shake* it like\nyou mean it.",
+      "hero": "images/vietnamese-shaking-beef.webp",
       "nutrition": {
         "perServing": {
           "kcal": 755,
