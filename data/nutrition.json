@@ -2552,6 +2552,20 @@
       "chopped nuts"
     ]
   },
+  "oyster sauce": {
+    "unit": "tbsp",
+    "g": 18,
+    "n": {
+      "kcal": 9,
+      "protein": 0.2,
+      "carb": 2,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.8,
+      "sodium": 492
+    }
+  },
   "soy sauce": {
     "unit": "tbsp",
     "g": 16,
