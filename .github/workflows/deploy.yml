@@ -3,6 +3,10 @@ name: Build, test & deploy
 # Builds the site and deploys to GitHub Pages — but ONLY if validation and the full
 # test suite pass first. A failing test blocks the deploy. Also refuses to deploy if a
 # credential was ever committed to this public repo.
+#
+# A separate `photos` job generates AI photos for any recipe missing one and opens a PR
+# with them (it cannot push to protected `main` directly — the ruleset requires a PR you
+# approve). Merging that PR triggers a fresh deploy that attaches the new heroes.
 
 on:
   push:
@@ -58,3 +62,54 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Generate AI photos for any recipe/drink missing one, push them to a branch, and
+  # surface a one-click "open a PR" link in the run summary. We do NOT push to `main`
+  # (the ruleset requires a PR you approve) and we do NOT auto-create the PR (that needs
+  # a repo toggle that also lets Actions approve PRs). You open + approve + merge it;
+  # merging triggers a fresh deploy that attaches the new heroes. Runs independently of
+  # the deploy gate — a photo hiccup never blocks publishing.
+  photos:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # push the ci/photos-* branch (NOT main, which the ruleset protects)
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+
+      - name: Install cwebp (compresses the ~1.8MB API output to ~70KB)
+        run: sudo apt-get update && sudo apt-get install -y webp
+
+      - name: Generate photos for recipes missing one
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node scripts/generate-photos.mjs
+
+      - name: Push a branch + PR link if any photos were generated
+        run: |
+          if [ -z "$(git status --porcelain docs/images)" ]; then
+            echo "No new photos — nothing to do." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          branch="ci/photos-${{ github.run_id }}"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add docs/images
+          git commit -m "Add AI-generated photos for recipes missing one"
+          git push origin "$branch"
+          url="${{ github.server_url }}/${{ github.repository }}/compare/main...$branch?expand=1"
+          {
+            echo "### 📸 New recipe photos ready for review"
+            echo ""
+            echo "CI generated photos on branch \`$branch\`. Review them, then:"
+            echo ""
+            echo "**[→ Open a PR to publish them]($url)**"
+            echo ""
+            echo "Approve + merge and the next deploy attaches them as recipe heroes."
+          } >> "$GITHUB_STEP_SUMMARY"
