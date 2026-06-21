@@ -3750,6 +3750,107 @@
       "sodium": 0
     }
   },
+  "whiskey": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 70,
+      "protein": 0,
+      "carb": 0,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "bourbon",
+      "rye",
+      "rye whiskey",
+      "scotch",
+      "blended scotch",
+      "islay scotch",
+      "single malt scotch",
+      "irish whiskey",
+      "whisky"
+    ]
+  },
+  "aperol": {
+    "unit": "oz",
+    "g": 31,
+    "n": {
+      "kcal": 45,
+      "protein": 0,
+      "carb": 7,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 7,
+      "sodium": 1
+    },
+    "aliases": [
+      "aperitivo"
+    ]
+  },
+  "prosecco": {
+    "unit": "oz",
+    "g": 29,
+    "n": {
+      "kcal": 24,
+      "protein": 0,
+      "carb": 1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.4,
+      "sodium": 1
+    },
+    "aliases": [
+      "champagne",
+      "cava",
+      "sparkling wine",
+      "brut",
+      "dry sparkling wine"
+    ]
+  },
+  "creme de menthe": {
+    "unit": "oz",
+    "g": 33,
+    "n": {
+      "kcal": 95,
+      "protein": 0,
+      "carb": 14,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 14,
+      "sodium": 1
+    },
+    "aliases": [
+      "crème de menthe",
+      "white creme de menthe",
+      "green creme de menthe"
+    ]
+  },
+  "creme de cacao": {
+    "unit": "oz",
+    "g": 33,
+    "n": {
+      "kcal": 100,
+      "protein": 0,
+      "carb": 12,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 12,
+      "sodium": 1
+    },
+    "aliases": [
+      "crème de cacao",
+      "dark creme de cacao",
+      "white creme de cacao"
+    ]
+  },
   "gin": {
     "unit": "oz",
     "g": 28,
@@ -3780,7 +3881,12 @@
     "aliases": [
       "white rum",
       "light rum",
-      "gold rum"
+      "gold rum",
+      "dark rum",
+      "aged rum",
+      "spiced rum",
+      "amber rum",
+      "black rum"
     ]
   },
   "tequila": {
@@ -4011,6 +4117,141 @@
     "aliases": [
       "coffee beans"
     ]
+  },
+  "brewed coffee": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 1,
+      "protein": 0.1,
+      "carb": 0,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 1
+    },
+    "aliases": [
+      "coffee",
+      "hot coffee",
+      "drip coffee",
+      "strong brewed coffee",
+      "hot brewed coffee"
+    ]
+  },
+  "club soda": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 0,
+      "protein": 0,
+      "carb": 0,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 2
+    },
+    "aliases": [
+      "soda water",
+      "seltzer",
+      "sparkling water",
+      "club soda to top"
+    ]
+  },
+  "ginger beer": {
+    "unit": "oz",
+    "g": 30,
+    "n": {
+      "kcal": 11,
+      "protein": 0,
+      "carb": 2.8,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 2.8,
+      "sodium": 2
+    },
+    "aliases": [
+      "ginger ale"
+    ]
+  },
+  "grapefruit juice": {
+    "unit": "oz",
+    "g": 30,
+    "n": {
+      "kcal": 12,
+      "protein": 0.2,
+      "carb": 2.9,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 2.9,
+      "sodium": 0
+    },
+    "aliases": [
+      "fresh grapefruit juice",
+      "grapefruit soda"
+    ]
+  },
+  "caramel sauce": {
+    "unit": "tbsp",
+    "g": 19,
+    "n": {
+      "kcal": 60,
+      "protein": 0.3,
+      "carb": 14,
+      "fat": 1.5,
+      "satfat": 0.9,
+      "fiber": 0,
+      "sugar": 11,
+      "sodium": 60
+    },
+    "aliases": [
+      "salted caramel sauce",
+      "dulce de leche",
+      "caramel"
+    ]
+  },
+  "milk": {
+    "unit": "cup",
+    "g": 244,
+    "density": 1.03,
+    "n": {
+      "kcal": 149,
+      "protein": 8,
+      "carb": 12,
+      "fat": 8,
+      "satfat": 4.6,
+      "fiber": 0,
+      "sugar": 12,
+      "sodium": 105
+    },
+    "aliases": [
+      "whole milk",
+      "2% milk",
+      "reduced-fat milk"
+    ]
+  },
+  "vanilla ice cream": {
+    "unit": "cup",
+    "g": 132,
+    "density": 0.56,
+    "n": {
+      "kcal": 273,
+      "protein": 4.6,
+      "carb": 31,
+      "fat": 14.5,
+      "satfat": 9,
+      "fiber": 0.8,
+      "sugar": 28,
+      "sodium": 106
+    },
+    "aliases": [
+      "ice cream",
+      "vanilla bean ice cream"
+    ],
+    "each": 66
   },
   "angostura bitters": {
     "unit": "tsp",
