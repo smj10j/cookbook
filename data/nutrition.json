@@ -434,6 +434,24 @@
       "cayenne pepper"
     ]
   },
+  "chili powder": {
+    "unit": "tsp",
+    "g": 2.6,
+    "n": {
+      "kcal": 8,
+      "protein": 0.3,
+      "carb": 1.4,
+      "fat": 0.4,
+      "satfat": 0.1,
+      "fiber": 0.9,
+      "sugar": 0.2,
+      "sodium": 26
+    },
+    "aliases": [
+      "chile powder",
+      "ancho chili powder"
+    ]
+  },
   "paprika": {
     "unit": "tsp",
     "g": 2.3,
@@ -1554,6 +1572,30 @@
       "mushroom"
     ]
   },
+  "cabbage": {
+    "unit": "cup",
+    "g": 70,
+    "density": 0.4,
+    "n": {
+      "kcal": 18,
+      "protein": 0.9,
+      "carb": 4.1,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 1.8,
+      "sugar": 2.2,
+      "sodium": 13
+    },
+    "aliases": [
+      "green cabbage",
+      "red cabbage",
+      "shredded cabbage",
+      "coleslaw mix",
+      "napa cabbage",
+      "savoy cabbage"
+    ],
+    "each": 900
+  },
   "baby bok choy": {
     "unit": "head",
     "g": 100,
@@ -2211,6 +2253,26 @@
     },
     "aliases": [
       "full-fat coconut milk"
+    ]
+  },
+  "sour cream": {
+    "unit": "tbsp",
+    "g": 14,
+    "n": {
+      "kcal": 30,
+      "protein": 0.4,
+      "carb": 0.7,
+      "fat": 2.9,
+      "satfat": 1.7,
+      "fiber": 0,
+      "sugar": 0.4,
+      "sodium": 8
+    },
+    "aliases": [
+      "mexican crema",
+      "crema",
+      "creme fraiche",
+      "crème fraîche"
     ]
   },
   "greek yogurt": {
