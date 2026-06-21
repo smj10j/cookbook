@@ -367,6 +367,25 @@
       "sodium": 488
     }
   },
+  "cornstarch": {
+    "unit": "tbsp",
+    "g": 8,
+    "n": {
+      "kcal": 30,
+      "protein": 0,
+      "carb": 7,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 1
+    },
+    "aliases": [
+      "corn starch",
+      "potato starch",
+      "tapioca starch"
+    ]
+  },
   "vanilla extract": {
     "unit": "tsp",
     "g": 4.2,
@@ -2790,6 +2809,29 @@
       "tortillas"
     ]
   },
+  "tofu": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 20,
+      "protein": 2.2,
+      "carb": 0.5,
+      "fat": 1.1,
+      "satfat": 0.2,
+      "fiber": 0.3,
+      "sugar": 0.2,
+      "sodium": 4
+    },
+    "aliases": [
+      "silken tofu",
+      "soft tofu",
+      "firm tofu",
+      "extra-firm tofu",
+      "medium tofu",
+      "block tofu"
+    ],
+    "each": 396
+  },
   "chickpeas": {
     "unit": "cup",
     "g": 164,
@@ -3067,7 +3109,9 @@
     },
     "aliases": [
       "pixian chile bean paste",
-      "chile bean paste"
+      "chile bean paste",
+      "fermented black beans",
+      "douchi"
     ]
   },
   "sriracha": {
