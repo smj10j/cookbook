@@ -1993,6 +1993,26 @@
       "beef short rib"
     ]
   },
+  "whole chicken": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 42,
+      "protein": 3.6,
+      "carb": 0,
+      "fat": 2.9,
+      "satfat": 0.8,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 20
+    },
+    "aliases": [
+      "spatchcocked chicken",
+      "whole chicken spatchcocked",
+      "chicken legs",
+      "chicken drumsticks"
+    ]
+  },
   "chicken breast": {
     "unit": "oz",
     "g": 28,
