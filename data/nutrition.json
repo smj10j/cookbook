@@ -1586,6 +1586,14 @@
     "aliases": [
       "cremini mushrooms",
       "shiitake mushrooms",
+      "oyster mushrooms",
+      "king oyster mushrooms",
+      "portobello mushrooms",
+      "portobello",
+      "wild mushrooms",
+      "mixed mushrooms",
+      "dried porcini",
+      "porcini",
       "mushroom"
     ]
   },
@@ -2609,6 +2617,24 @@
     "aliases": [
       "short-grain rice",
       "short grain rice"
+    ]
+  },
+  "arborio rice": {
+    "unit": "cup",
+    "g": 200,
+    "density": 0.85,
+    "n": {
+      "kcal": 716,
+      "protein": 13,
+      "carb": 158,
+      "fat": 1,
+      "satfat": 0.2,
+      "fiber": 3.5,
+      "sugar": 0,
+      "sodium": 3
+    },
+    "aliases": [
+      "risotto rice"
     ]
   },
   "jasmine rice": {
