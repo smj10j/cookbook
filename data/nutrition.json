@@ -614,6 +614,23 @@
       "ground cardamom"
     ]
   },
+  "garam masala": {
+    "unit": "tsp",
+    "g": 2.3,
+    "n": {
+      "kcal": 8,
+      "protein": 0.3,
+      "carb": 1.4,
+      "fat": 0.3,
+      "satfat": 0.1,
+      "fiber": 0.7,
+      "sugar": 0.1,
+      "sodium": 2
+    },
+    "aliases": [
+      "curry powder"
+    ]
+  },
   "pumpkin pie spice": {
     "unit": "tsp",
     "g": 2.1,
@@ -3981,7 +3998,11 @@
       "mixed fresh herbs",
       "chopped fresh herbs",
       "herb",
-      "fresh herb"
+      "fresh herb",
+      "dried fenugreek leaves",
+      "kasuri methi",
+      "curry leaves",
+      "curry leaf"
     ]
   },
   "ice": {
