@@ -121,6 +121,7 @@ export const CUISINE_GROUPS = {
     'Filipino',
     'Malaysian',
     'Indonesian',
+    'Singaporean',
   ],
 };
 
