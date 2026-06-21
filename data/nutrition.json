@@ -594,7 +594,9 @@
       "chili flakes",
       "chile flakes",
       "dried chile flakes",
-      "chili flake"
+      "chili flake",
+      "gochugaru",
+      "korean chili flakes"
     ]
   },
   "aleppo pepper": {
@@ -2682,6 +2684,25 @@
     "aliases": [
       "oyster sauce",
       "chili paste"
+    ]
+  },
+  "gochujang": {
+    "unit": "tbsp",
+    "g": 18,
+    "n": {
+      "kcal": 30,
+      "protein": 0.8,
+      "carb": 6.5,
+      "fat": 0.3,
+      "satfat": 0,
+      "fiber": 0.4,
+      "sugar": 3,
+      "sodium": 410
+    },
+    "aliases": [
+      "gochujang paste",
+      "korean chili paste",
+      "korean chile paste"
     ]
   },
   "doubanjiang": {
