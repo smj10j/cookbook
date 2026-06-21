@@ -1947,6 +1947,27 @@
     ],
     "each": 160
   },
+  "halibut": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 33,
+      "protein": 6.4,
+      "carb": 0,
+      "fat": 0.8,
+      "satfat": 0.11,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 18
+    },
+    "aliases": [
+      "halibut fillet",
+      "halibut fillets",
+      "halibut steak",
+      "halibut steaks"
+    ],
+    "each": 170
+  },
   "white fish": {
     "unit": "oz",
     "g": 28,
