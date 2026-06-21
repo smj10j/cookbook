@@ -1572,6 +1572,31 @@
       "bok choy"
     ]
   },
+  "potato": {
+    "unit": "potato",
+    "g": 170,
+    "density": 0.6,
+    "n": {
+      "kcal": 130,
+      "protein": 3.5,
+      "carb": 30,
+      "fat": 0.2,
+      "satfat": 0.1,
+      "fiber": 2.2,
+      "sugar": 1.2,
+      "sodium": 10
+    },
+    "aliases": [
+      "potatoes",
+      "yukon gold potato",
+      "yukon gold potatoes",
+      "russet potato",
+      "russet potatoes",
+      "yellow potatoes",
+      "baby potatoes"
+    ],
+    "each": 170
+  },
   "sweet potato": {
     "unit": "potato",
     "g": 130,
@@ -2056,6 +2081,29 @@
       "arctic char"
     ],
     "each": 115
+  },
+  "scallops": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 25,
+      "protein": 4.6,
+      "carb": 0.7,
+      "fat": 0.2,
+      "satfat": 0.05,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 90
+    },
+    "aliases": [
+      "scallop",
+      "sea scallops",
+      "sea scallop",
+      "dry sea scallops",
+      "dry-packed scallops",
+      "bay scallops"
+    ],
+    "each": 30
   },
   "egg": {
     "unit": "egg",
