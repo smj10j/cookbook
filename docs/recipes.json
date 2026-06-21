@@ -1,8 +1,8 @@
 {
-  "count": 61,
+  "count": 95,
   "counts": {
-    "food": 45,
-    "drink": 16
+    "food": 63,
+    "drink": 32
   },
   "vocab": {
     "protein": [
@@ -326,7 +326,8 @@
       "Indian",
       "Filipino",
       "Malaysian",
-      "Indonesian"
+      "Indonesian",
+      "Singaporean"
     ]
   },
   "facets": {
@@ -335,19 +336,29 @@
       "Asian",
       "Asian-American",
       "Cajun",
+      "Filipino",
       "French",
       "Greek",
+      "Indian",
       "Italian",
+      "Italian-American",
       "Japanese",
+      "Korean",
       "Mediterranean",
       "Mexican",
+      "Middle Eastern",
+      "Moroccan",
+      "Peruvian",
       "Sichuan",
+      "Singaporean",
+      "Spanish",
       "Thai",
       "Vietnamese"
     ],
     "tags": [
       "appetizer",
       "baking",
+      "batch",
       "batch-cooking",
       "boozy",
       "budget",
@@ -369,6 +380,7 @@
       "grill",
       "grilling",
       "healthy",
+      "herbal",
       "high-protein",
       "holiday",
       "italian",
@@ -387,6 +399,7 @@
       "refreshing",
       "roasted",
       "salsa",
+      "seafood",
       "side",
       "smoky",
       "snack",
@@ -1183,6 +1196,281 @@
       }
     },
     {
+      "title": "Butter Chicken (Murgh Makhani)",
+      "slug": "butter-chicken-murgh-makhani",
+      "tagline": "Charred yogurt-marinated chicken in a velvety tomato-cream-butter gravy with warm spice.",
+      "pitch": "The creamy Indian classic, and the dish that finally puts Indian on your menu. Yogurt-marinated chicken gets a hard char, then simmers into a velvety tomato-cream-butter gravy bloomed with garam masala, ginger, and fenugreek — rich, faintly sweet, and gently spiced. *The sauce is the destination: blend it silky before the cream goes in, and it turns burnished and restaurant-smooth.* Crowd-pleasing, make-ahead friendly, and the perfect creamy counterpoint to all your bright, acidic dishes.",
+      "serves": 4,
+      "times": {
+        "prep": 20,
+        "cook": 30,
+        "total": 75
+      },
+      "difficulty": "medium",
+      "protein": "chicken",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Indian",
+      "course": "main",
+      "heat": "medium",
+      "equipment": [
+        "blender"
+      ],
+      "tags": [
+        "make-ahead",
+        "comfort",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Chicken & marinade",
+          "items": [
+            "1.5 lb boneless skinless chicken thighs, cut into chunks",
+            "½ cup greek yogurt",
+            "1 tbsp lemon juice",
+            "2 cloves garlic, grated",
+            "1 tbsp grated ginger",
+            "1 tsp garam masala",
+            "1 tsp ground cumin",
+            "1 tsp paprika",
+            "½ tsp turmeric",
+            "½ tsp cayenne",
+            "1 tsp kosher salt"
+          ]
+        },
+        {
+          "section": "Sauce",
+          "items": [
+            "3 tbsp butter",
+            "1 onion, diced",
+            "4 cloves garlic, minced",
+            "1 tbsp grated ginger",
+            "1 tbsp garam masala",
+            "1 tsp ground cumin",
+            "1 tsp paprika",
+            "½ tsp turmeric",
+            "½ tsp cayenne",
+            "1 (14 oz) can crushed tomatoes",
+            "½ cup heavy cream",
+            "1 tsp granulated sugar",
+            "1 tsp dried fenugreek leaves",
+            "Salt to taste"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "¼ cup cilantro",
+            "Basmati rice or naan"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Marinate",
+          "items": [
+            "Toss the chicken with the yogurt, lemon, garlic, ginger, and the marinade spices and salt. Marinate at least 30 minutes, or overnight."
+          ]
+        },
+        {
+          "section": "Sear",
+          "items": [
+            "Melt 1 tbsp of the butter in a skillet over medium-high. Sear the marinated chicken in batches until browned but not fully cooked through, then set aside."
+          ]
+        },
+        {
+          "section": "Sauce",
+          "items": [
+            "Melt the remaining 2 tbsp butter and cook the onion until soft, 5 minutes. Add the garlic, ginger, and the sauce spices and cook 1 minute. Add the crushed tomatoes and simmer 10 minutes, then blend smooth with an immersion blender.",
+            "Return the chicken and simmer 8–10 minutes, until cooked through. Stir in the cream, sugar, and fenugreek (crushed between your palms) and simmer 2 minutes. Season with salt."
+          ]
+        },
+        {
+          "section": "Serve",
+          "items": [
+            "Finish with cilantro and serve over basmati rice or with warm naan."
+          ]
+        }
+      ],
+      "tips": [
+        "Blend the tomato base smooth before the cream goes in — that velvety, lump-free sauce is what separates restaurant makhani from a chunky curry.",
+        "Char the marinated chicken hard before it simmers; those browned edges are flavor you can't get by poaching it in the sauce.",
+        "Crush the dried fenugreek leaves between your palms as you add them — it releases that distinctive restaurant aroma.",
+        "A pinch of sugar balances the tomato's acidity; taste and adjust at the very end."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A big handful of garden cilantro, and a fresh green chile if you want more heat."
+        },
+        {
+          "label": "Make it a feast",
+          "note": "Warm naan and basmati rice, with a cucumber-yogurt raita to cool the spice."
+        },
+        {
+          "label": "Lighter swap",
+          "note": "Half-and-half stands in for the cream, or use coconut milk for a dairy-free version."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Delhi's gift to the world: tandoori chicken reborn in a buttery tomato gravy. The two-step\nmethod — char, then simmer — is the whole secret to its depth.",
+      "hero": "images/butter-chicken-murgh-makhani.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 567,
+          "protein": 36.3,
+          "carb": 15.7,
+          "fat": 41.1,
+          "satfat": 18.6,
+          "fiber": 3.3,
+          "sugar": 7.4,
+          "sodium": 774
+        },
+        "confidence": "high",
+        "matched": 25,
+        "considered": 25
+      }
+    },
+    {
+      "title": "Charred Eggplant Steaks with Romesco",
+      "slug": "eggplant-steaks-romesco",
+      "tagline": "Thick eggplant planks grilled until custardy, over a smoky almond-and-red-pepper romesco.",
+      "pitch": "A genuine vegetable \"steak\" with a smoky Spanish sauce — proof a meat-free main can have real heft. Thick-cut eggplant planks are scored, oiled, and grilled until the edges char and the flesh goes custardy, set over a romesco of roasted red pepper, toasted almond, and smoked paprika. *Roasted well past done, the eggplant turns silky and rich and eats like a steak — and the romesco does the rest.* The sauce alone is worth it; you'll put it on everything.",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "easy",
+      "protein": "vegan",
+      "methods": [
+        "grill",
+        "oven"
+      ],
+      "cuisine": "Spanish",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "grill",
+        "blender"
+      ],
+      "tags": [
+        "vegan",
+        "vegetarian",
+        "garden",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Eggplant steaks",
+          "items": [
+            "2 large eggplants",
+            "3 tbsp olive oil",
+            "1 tsp smoked paprika",
+            "1 tsp ground cumin",
+            "1 tsp kosher salt",
+            "½ tsp black pepper"
+          ]
+        },
+        {
+          "section": "Romesco",
+          "items": [
+            "1 cup roasted red peppers",
+            "½ cup almonds, toasted",
+            "2 cloves garlic",
+            "2 tbsp olive oil",
+            "1 tbsp red wine vinegar",
+            "1 tsp smoked paprika",
+            "Pinch of cayenne",
+            "½ tsp salt"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "2 tbsp parsley, chopped",
+            "2 tbsp almonds, chopped",
+            "Lemon wedges"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Char the eggplant",
+          "items": [
+            "Slice each eggplant lengthwise into ¾-inch planks. Score the cut sides in a crosshatch, brush both sides with the oil, and season with the smoked paprika, cumin, salt, and pepper.",
+            "Grill over medium-high (or roast at 425°F) 8–10 minutes per side, until deeply charred and fully collapsed and creamy inside."
+          ]
+        },
+        {
+          "section": "Romesco",
+          "items": [
+            "Blend the roasted peppers, toasted almonds, garlic, oil, vinegar, smoked paprika, cayenne, and salt until thick and just a little textured."
+          ]
+        },
+        {
+          "section": "Plate",
+          "items": [
+            "Spread the romesco on plates, lay the eggplant steaks on top, and finish with parsley, chopped almonds, and a squeeze of lemon."
+          ]
+        }
+      ],
+      "tips": [
+        "Cook the eggplant well past \"done\" — it should be fully collapsed and custardy, never squeaky or spongy. Char is good.",
+        "Score the cut sides in a crosshatch so the oil and smoke get in and the flesh cooks through faster.",
+        "Romesco keeps a week and is a swap-anywhere sauce — it's just as good on the chicken, fish, or scallops elsewhere in this book.",
+        "No fresh roasted peppers? Jarred piquillo or red peppers make a great shortcut romesco."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Parsley to finish, and a little fresh thyme on the eggplant before it grills."
+        },
+        {
+          "label": "Make it heartier",
+          "note": "Serve over couscous or with white beans for a fuller plate (a crumble of feta is great, if you don't need it vegan)."
+        },
+        {
+          "label": "Other \"steaks\"",
+          "note": "The same treatment works on thick portobello caps or cabbage wedges if eggplant's not the mood."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Catalan romesco — roasted peppers, almonds, smoked paprika — was made for charred vegetables.\nEggplant cooked until silky is the perfect meaty-but-meatless canvas for it.",
+      "hero": "images/eggplant-steaks-romesco.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 711,
+          "protein": 15.5,
+          "carb": 44.5,
+          "fat": 57.5,
+          "satfat": 6.4,
+          "fiber": 21.9,
+          "sugar": 21.2,
+          "sodium": 1591
+        },
+        "confidence": "high",
+        "matched": 15,
+        "considered": 15
+      }
+    },
+    {
       "title": "Chicken Piccata with Thin Spaghetti & Lemon-Caper Pan Sauce",
       "slug": "chicken-piccata",
       "tagline": "Golden chicken cutlets in a buttery lemon-caper sauce, tangled with thin spaghetti.",
@@ -1322,6 +1610,140 @@
       }
     },
     {
+      "title": "Chicken Shawarma with Garlic Toum",
+      "slug": "chicken-shawarma-toum",
+      "tagline": "Spice-marinated chicken thighs roasted with char, piled into pita with fluffy garlic toum.",
+      "pitch": "Spit-roast flavor from your oven: chicken thighs marinated in cumin, coriander, paprika, and turmeric, roasted until the edges crisp and char, then piled with tomato, cucumber, and a cloud of toum — the billowy, emulsified Lebanese garlic sauce that's a genuinely fun technique to master. *Toum is garlic whipped into a fluffy white mayo-without-egg — pure pungent magic, and it goes on everything.* It's a platter or a wrap, and it's built on the garden herbs and chiles you already grow.",
+      "serves": 4,
+      "times": {
+        "prep": 20,
+        "cook": 25,
+        "total": 75
+      },
+      "difficulty": "medium",
+      "protein": "chicken",
+      "methods": [
+        "oven",
+        "grill"
+      ],
+      "cuisine": "Middle Eastern",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "food processor"
+      ],
+      "tags": [
+        "garden",
+        "date-night",
+        "meal-prep"
+      ],
+      "ingredients": [
+        {
+          "section": "Chicken & marinade",
+          "items": [
+            "1.5 lb boneless skinless chicken thighs",
+            "3 tbsp olive oil",
+            "2 tbsp lemon juice",
+            "4 cloves garlic, grated",
+            "2 tsp ground cumin",
+            "2 tsp ground coriander",
+            "1 tsp paprika",
+            "½ tsp turmeric",
+            "½ tsp cinnamon",
+            "¼ tsp cayenne",
+            "1 tsp kosher salt",
+            "½ tsp black pepper"
+          ]
+        },
+        {
+          "section": "Garlic toum",
+          "items": [
+            "¼ cup garlic cloves (about 10)",
+            "1 cup neutral oil",
+            "3 tbsp lemon juice",
+            "½ tsp salt",
+            "2 tbsp ice water"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "4 pita breads, warmed",
+            "1 tomato, diced",
+            "1 cup cucumber, diced",
+            "½ red onion, thinly sliced",
+            "¼ cup parsley"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Marinate",
+          "items": [
+            "Toss the chicken with the oil, lemon, garlic, and all the spices, salt, and pepper. Chill at least 1 hour, ideally overnight."
+          ]
+        },
+        {
+          "section": "Make the toum",
+          "items": [
+            "In a food processor, blend the garlic and salt to a paste. With the motor running, drizzle in the oil very slowly — drop by drop at first — alternating with the lemon juice and ice water, until it turns thick, white, and fluffy like mayonnaise."
+          ]
+        },
+        {
+          "section": "Roast & build",
+          "items": [
+            "Roast the chicken on a sheet pan at 425°F for 20–25 minutes, until charred at the edges (or grill it), broiling the last 2 minutes for extra char. Rest, then slice.",
+            "Pile the chicken into warm pita with tomato, cucumber, red onion, and parsley, and a generous smear of toum."
+          ]
+        }
+      ],
+      "tips": [
+        "Toum lives or dies on a slow oil drizzle — go drop by drop at first. If it breaks, start over with a fresh garlic clove and dribble the broken sauce back in.",
+        "Use thighs, not breasts — they stay juicy through the high-heat char that makes shawarma taste like shawarma.",
+        "Crank the broiler for the last 2 minutes to mimic the crispy edges of a vertical spit.",
+        "Marinate overnight if you can; the spices need time to bloom into the meat."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Parsley, mint, and a sliced garden tomato and cucumber for the platter."
+        },
+        {
+          "label": "Make it a bowl",
+          "note": "Skip the pita and serve over rice or greens with the toum and a spoon of tahini."
+        },
+        {
+          "label": "Heat dial",
+          "note": "A little harissa or extra cayenne in the marinade pushes the warmth."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "The home version of the shawarma spit: a hard, spice-crusted char in the oven, and a garlic\nsauce so good you'll find excuses to make it.",
+      "hero": "images/chicken-shawarma-toum.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 1079,
+          "protein": 37.9,
+          "carb": 43.8,
+          "fat": 84.9,
+          "satfat": 11.7,
+          "fiber": 3.7,
+          "sugar": 3.1,
+          "sodium": 1190
+        },
+        "confidence": "high",
+        "matched": 22,
+        "considered": 22
+      }
+    },
+    {
       "title": "Chunky Mango-Habanero Salsa",
       "slug": "mango-tropical-salsa",
       "category": "side",
@@ -1424,6 +1846,139 @@
         "confidence": "high",
         "matched": 11,
         "considered": 11
+      }
+    },
+    {
+      "title": "Cioppino — Build-Your-Own Seafood Stew",
+      "slug": "cioppino-seafood-stew",
+      "tagline": "A garlicky saffron-fennel-tomato broth loaded with white fish and your pick of shellfish.",
+      "pitch": "A true batch recipe and a stunner for company: a garlicky, saffron-and-fennel tomato broth — basically the poached-cod-in-saffron-broth already in this book, scaled into a feast — built so anyone at the table loads it with exactly what they like. *You build the broth, then the seafood poaches in it in eight minutes, perfuming the whole pot.* Firm white fish is the constant (and exactly what Stephen eats); clams, mussels, crab, and calamari are all swap-in add-ins. Serve with grilled bread to mop the bowl.",
+      "serves": 4,
+      "times": {
+        "prep": 25,
+        "cook": 35,
+        "total": 60
+      },
+      "difficulty": "medium",
+      "protein": "seafood",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Italian-American",
+      "course": "soup",
+      "heat": "mild",
+      "equipment": [
+        "Dutch oven"
+      ],
+      "tags": [
+        "batch",
+        "date-night",
+        "gluten-free",
+        "make-ahead"
+      ],
+      "ingredients": [
+        {
+          "section": "The seafood (white fish is the constant — add any mix of the rest)",
+          "items": [
+            "1 lb cod or halibut, cut into 2-inch chunks",
+            "½ lb littleneck clams, scrubbed",
+            "½ lb mussels, scrubbed and debearded",
+            "¼ lb lump crab or calamari"
+          ]
+        },
+        {
+          "section": "Broth",
+          "items": [
+            "3 tbsp olive oil",
+            "1 onion, diced",
+            "1 fennel bulb, diced",
+            "4 cloves garlic, minced",
+            "½ tsp red pepper flakes",
+            "2 tbsp tomato paste",
+            "1 (28 oz) can crushed tomatoes",
+            "1 cup dry white wine",
+            "3 cups fish stock",
+            "Pinch of saffron threads",
+            "1 bay leaf",
+            "1 tbsp chopped oregano",
+            "Salt to taste"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "¼ cup parsley, chopped",
+            "Grilled bread",
+            "Lemon wedges"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Build the broth",
+          "items": [
+            "Heat the oil in a large Dutch oven over medium. Cook the onion and fennel until soft, 6–8 minutes. Add the garlic and red pepper flakes and cook 1 minute, then stir in the tomato paste and cook 1 minute more.",
+            "Add the wine and simmer 2 minutes. Stir in the crushed tomatoes, fish stock, saffron, bay leaf, and oregano. Simmer 20 minutes, until the broth is rich and fragrant. Season with salt."
+          ]
+        },
+        {
+          "section": "Add the seafood",
+          "items": [
+            "Tuck the clams and mussels into the broth, cover, and cook 3–4 minutes, until they begin to open.",
+            "Add the fish chunks (and crab or calamari) and simmer gently 4–5 minutes, until the fish is just opaque and the shells have all opened. Discard any that stay shut."
+          ]
+        },
+        {
+          "section": "Serve",
+          "items": [
+            "Shower with parsley and ladle into bowls. Serve with grilled bread and lemon wedges."
+          ]
+        }
+      ],
+      "tips": [
+        "The fish and broth are the whole recipe — the clams, mussels, crab, and calamari are all optional. Use any mix to about 1 lb total, or skip them entirely for a fish-only stew that Stephen can dig into.",
+        "Poach gently and pull the pot the moment the fish turns opaque; seafood overcooks fast in hot broth.",
+        "The broth is even better made a day ahead — cool and chill it, then reheat and add the seafood just before serving.",
+        "No fish stock? Use bottled clam juice, or a mix of vegetable broth and a splash of the wine."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Fennel fronds and parsley over the top; a little thyme or basil in the broth."
+        },
+        {
+          "label": "Make it a feast",
+          "note": "Double the broth and pile in a true mix — clams, mussels, crab, calamari, and two kinds of fish — for a crowd."
+        },
+        {
+          "label": "Pairs with",
+          "note": "Lots of grilled, garlic-rubbed bread and a crisp white or rosé."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "San Francisco's great Italian-American fishermen's stew — built to use whatever came off\nthe boat. Here it's a choose-your-own pot: one broth, and everyone's bowl their own way.",
+      "hero": "images/cioppino-seafood-stew.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 416,
+          "protein": 40.6,
+          "carb": 18,
+          "fat": 15.8,
+          "satfat": 2.3,
+          "fiber": 4.2,
+          "sugar": 5.3,
+          "sodium": 870
+        },
+        "confidence": "high",
+        "matched": 16,
+        "considered": 16
       }
     },
     {
@@ -2296,6 +2851,119 @@
       }
     },
     {
+      "title": "Filipino Chicken Adobo",
+      "slug": "filipino-chicken-adobo",
+      "tagline": "Chicken thighs braised in soy, vinegar, garlic, and bay until glossy and falling apart.",
+      "pitch": "The easiest deeply-savory braise you'll ever make, and a whole new cuisine in one pot. Chicken thighs simmer in soy, cane vinegar, a smashed head of garlic, bay, and black pepper until they're glossy and tender, the sauce reducing to a tangy-salty-sweet glaze you spoon over rice. *Vinegar and soy is the whole secret — it tastes like it took all day and asks for five minutes of work.* One pot, big leftovers, and it's even better the next night.",
+      "serves": 4,
+      "times": {
+        "prep": 10,
+        "cook": 45,
+        "total": 55
+      },
+      "difficulty": "easy",
+      "protein": "chicken",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Filipino",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "Dutch oven"
+      ],
+      "tags": [
+        "make-ahead",
+        "one-pan",
+        "gluten-free",
+        "batch"
+      ],
+      "ingredients": [
+        {
+          "section": "Braise",
+          "items": [
+            "6 bone-in skin-on chicken thighs (about 2 lb)",
+            "½ cup soy sauce",
+            "⅓ cup cane vinegar (or apple cider vinegar)",
+            "8 cloves garlic, smashed",
+            "6 bay leaves",
+            "1 tbsp black peppercorns",
+            "1 tbsp brown sugar",
+            "1 cup water"
+          ]
+        },
+        {
+          "section": "To finish & serve",
+          "items": [
+            "1 tbsp neutral oil",
+            "2 scallions, sliced",
+            "Steamed jasmine rice"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Braise",
+          "items": [
+            "Combine the chicken, soy, vinegar, garlic, bay, peppercorns, brown sugar, and water in a Dutch oven. If you have time, let it marinate 30 minutes.",
+            "Bring to a boil, then lower to a simmer, cover, and cook 30 minutes. Uncover and simmer 10–15 minutes more, until the sauce reduces and the chicken is tender."
+          ]
+        },
+        {
+          "section": "Crisp & serve",
+          "items": [
+            "For crispy edges, lift out the thighs and sear them skin-side down in the oil in a hot pan until browned, then reduce the sauce until glossy and return the chicken to coat.",
+            "Serve over jasmine rice with sliced scallions and plenty of the sauce."
+          ]
+        }
+      ],
+      "tips": [
+        "Don't stir while the vinegar first cooks — let it boil a couple of minutes so it mellows from sharp to savory before you stir.",
+        "For crispy skin, pull the thighs after braising and crisp them in a hot pan, then reduce the sauce to a glaze.",
+        "It genuinely improves overnight as the garlic and soy deepen — a great make-ahead.",
+        "A whole smashed head of garlic is correct here; it melts right into the sauce."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A shower of garden scallion to finish, and a fresh bay leaf or two if you grow it."
+        },
+        {
+          "label": "Make it a meal",
+          "note": "Steamed jasmine rice is non-negotiable for soaking up the salty-sour glaze."
+        },
+        {
+          "label": "Swap",
+          "note": "Works just as well with drumsticks or a mix of bone-in chicken pieces."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "The unofficial national dish of the Philippines — and the rare braise that's genuinely\nhard to mess up. Soy, vinegar, garlic, bay: four things that turn into something far\ngreater than their sum.",
+      "hero": "images/filipino-chicken-adobo.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 330,
+          "protein": 28.7,
+          "carb": 9.4,
+          "fat": 19.8,
+          "satfat": 4.9,
+          "fiber": 1.4,
+          "sugar": 3.9,
+          "sodium": 1886
+        },
+        "confidence": "high",
+        "matched": 10,
+        "considered": 10
+      }
+    },
+    {
       "title": "Fresh Pumpkin Bread (Spiced & Nutty)",
       "slug": "fresh-pumpkin-bread",
       "tagline": "Roasted-from-scratch pumpkin, a warm spice cabinet, and toasted nuts in one deeply moist loaf.",
@@ -2806,6 +3474,143 @@
       }
     },
     {
+      "title": "Grilled Fish Tacos with Lime Crema & Quick Slaw",
+      "slug": "grilled-fish-tacos-lime-crema",
+      "tagline": "Chili-lime grilled white fish in warm tortillas with crunchy slaw and smoky lime crema.",
+      "pitch": "Lighter than the beer-battered Baja version but every bit as good: firm white fish takes a quick chili-lime marinade and a fast char on the grill, then folds into warm tortillas with a crisp cabbage-lime slaw and a cool, tangy crema. *All the freshness of a beach taco with none of the fryer — the char does the heavy lifting.* It plugs straight into the salsas already in this book and comes together in under half an hour.",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 8,
+        "total": 28
+      },
+      "difficulty": "easy",
+      "protein": "fish",
+      "methods": [
+        "grill"
+      ],
+      "cuisine": "Mexican",
+      "course": "taco",
+      "heat": "medium",
+      "equipment": [
+        "grill"
+      ],
+      "tags": [
+        "summer",
+        "weeknight",
+        "gluten-free",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Fish & marinade",
+          "items": [
+            "1 lb cod or halibut fillets",
+            "2 tbsp olive oil",
+            "2 tbsp lime juice",
+            "1 tsp chili powder",
+            "1 tsp ground cumin",
+            "1 clove garlic, grated",
+            "½ tsp kosher salt"
+          ]
+        },
+        {
+          "section": "Quick slaw",
+          "items": [
+            "2 cups shredded cabbage",
+            "2 tbsp cilantro, chopped",
+            "1 tbsp lime juice",
+            "1 tbsp olive oil",
+            "Pinch of salt"
+          ]
+        },
+        {
+          "section": "Lime crema",
+          "items": [
+            "⅓ cup sour cream",
+            "1 tbsp mayonnaise",
+            "1 tbsp lime juice",
+            "Pinch of salt"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "6 corn tortillas, warmed",
+            "1 avocado, sliced",
+            "¼ cup cotija, crumbled",
+            "Lime wedges, cilantro, and hot sauce"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Marinate & mix",
+          "items": [
+            "Whisk the oil, lime juice, chili powder, cumin, garlic, and salt. Coat the fish and marinate 15 minutes.",
+            "Toss the cabbage with cilantro, lime juice, oil, and salt. Stir together the crema ingredients."
+          ]
+        },
+        {
+          "section": "Grill",
+          "items": [
+            "Heat the grill (or a grill pan) to medium-high and oil the grates. Grill the fish 3–4 minutes per side, until charred and just flaking, then break into big chunks."
+          ]
+        },
+        {
+          "section": "Build",
+          "items": [
+            "Warm the tortillas. Layer slaw, fish, and avocado, drizzle with lime crema, and finish with cotija, cilantro, lime, and a shake of hot sauce."
+          ]
+        }
+      ],
+      "tips": [
+        "A fish basket or well-oiled grates keep delicate fillets from sticking; if in doubt, sear them in cast iron instead.",
+        "Don't over-marinate — 15 minutes is plenty, or the lime starts to \"cook\" the fish before it hits the grill.",
+        "Double-stack (or char) the tortillas so they don't fall apart under the juicy fish.",
+        "Want it crispy? Dredge the fish in seasoned flour and pan-fry instead of grilling for the battered Baja version."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A handful of garden cilantro and a sliced serrano or jalapeño for heat."
+        },
+        {
+          "label": "Salsa it up",
+          "note": "Spoon on the chunky mango-habanero or creamy jalapeño-cilantro salsa already in this book."
+        },
+        {
+          "label": "Make it a bowl",
+          "note": "Skip the tortillas and pile everything over rice or greens for a taco bowl."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "The taco that conquered Southern California, in its lighter grilled form. Hot charred fish\nagainst cold crunchy slaw is the entire point — and the crispy variation is one tip away.",
+      "hero": "images/grilled-fish-tacos-lime-crema.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 965,
+          "protein": 63.9,
+          "carb": 53.3,
+          "fat": 58,
+          "satfat": 13.9,
+          "fiber": 12.4,
+          "sugar": 5.3,
+          "sodium": 975
+        },
+        "confidence": "high",
+        "matched": 17,
+        "considered": 17
+      }
+    },
+    {
       "title": "Grilled Leafy Greens with Spicy Garlic Oil",
       "slug": "leafy-greens-spicy-garlic-oil",
       "tagline": "Hearty greens massaged in chili-garlic oil and charred fast on the grill.",
@@ -3289,6 +4094,158 @@
       }
     },
     {
+      "title": "Hainanese Chicken Rice",
+      "slug": "hainanese-chicken-rice",
+      "tagline": "Gently poached silky chicken with fragrant schmaltz rice and a trio of bright sauces.",
+      "pitch": "The \"national dish of Singapore,\" and a genuine technique to add to your kit: a whole chicken poached to silky, just-set tenderness, then the rice cooked in the chicken-rich poaching broth so every grain tastes like the bird. It comes with a trio of sauces — fiery chili-garlic, bright ginger-scallion, and dark soy. *It looks plain and tastes like the most comforting thing you've ever made — proof that poaching, done right, beats roasting for pure tenderness.* Restrained, elegant, and unlike anything else on the menu.",
+      "serves": 4,
+      "times": {
+        "prep": 25,
+        "cook": 45,
+        "total": 70
+      },
+      "difficulty": "medium",
+      "protein": "chicken",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Singaporean",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "large pot"
+      ],
+      "tags": [
+        "comfort",
+        "gluten-free",
+        "batch"
+      ],
+      "ingredients": [
+        {
+          "section": "Poached chicken",
+          "items": [
+            "3.5 lb whole chicken",
+            "6 slices ginger",
+            "4 scallions",
+            "4 cloves garlic, smashed",
+            "1 tbsp kosher salt"
+          ]
+        },
+        {
+          "section": "Chicken rice",
+          "items": [
+            "2 cups jasmine rice, rinsed",
+            "2 tbsp neutral oil",
+            "4 cloves garlic, minced",
+            "1 tbsp grated ginger",
+            "2½ cups reserved poaching broth"
+          ]
+        },
+        {
+          "section": "Ginger-scallion oil",
+          "items": [
+            "3 scallions, finely sliced",
+            "2 tbsp grated ginger",
+            "¼ cup neutral oil",
+            "½ tsp salt"
+          ]
+        },
+        {
+          "section": "Chili sauce",
+          "items": [
+            "2 serranos (or red chiles)",
+            "2 cloves garlic",
+            "1 tbsp grated ginger",
+            "1 tbsp lime juice",
+            "1 tsp granulated sugar",
+            "2 tbsp poaching broth"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "1 cucumber, sliced",
+            "Cilantro",
+            "Dark soy sauce, for drizzling"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Poach",
+          "items": [
+            "Rub the chicken with the salt. Put it in a pot with the ginger, scallions, and smashed garlic and cover with cold water. Bring to a bare simmer, then cook very gently 30–35 minutes (or turn off the heat and steep, covered, 45 minutes), until it reaches 165°F in the thigh.",
+            "Lift the chicken out and plunge it into ice water for 5 minutes to set the skin. Reserve the poaching broth."
+          ]
+        },
+        {
+          "section": "Rice",
+          "items": [
+            "Heat the oil in a pot and cook the garlic and ginger 1 minute. Add the rinsed rice and toast 2 minutes.",
+            "Add 2½ cups of the poaching broth, bring to a boil, cover, and cook on low 15 minutes. Rest, covered, 10 minutes, then fluff."
+          ]
+        },
+        {
+          "section": "Sauces",
+          "items": [
+            "Ginger-scallion oil: combine the scallion, ginger, and salt in a heatproof bowl. Heat the oil until shimmering and pour it over so it sizzles.",
+            "Chili sauce: blend the serranos, garlic, ginger, lime juice, sugar, and broth until smooth."
+          ]
+        },
+        {
+          "section": "Serve",
+          "items": [
+            "Carve the chicken and serve over or alongside the rice with cucumber, cilantro, the two sauces, and a drizzle of dark soy."
+          ]
+        }
+      ],
+      "tips": [
+        "Poach at a bare shiver, never a rolling boil — that's the secret to silky, just-set meat instead of stringy.",
+        "The ice bath right after poaching sets the skin into its signature glossy, slippery texture.",
+        "Cook the rice in the poaching broth, not water — that's where all the chicken flavor lives.",
+        "The three sauces are the dish — don't skip the ginger-scallion oil or the chili, and make extra of both."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden serranos or jalapeños in the chili sauce, and cilantro over everything."
+        },
+        {
+          "label": "Short on time",
+          "note": "A few bone-in chicken thighs poach faster than a whole bird and still make a rich broth."
+        },
+        {
+          "label": "Make it a spread",
+          "note": "A small bowl of the hot poaching broth with sliced scallion alongside is traditional."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Deceptively simple and deeply technique-driven: the gentlest poach, the most fragrant rice,\nand three sauces that turn a plain plate into something you'll crave.",
+      "hero": "images/hainanese-chicken-rice.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 1189,
+          "protein": 60.7,
+          "carb": 89.6,
+          "fat": 62.6,
+          "satfat": 13.4,
+          "fiber": 3.2,
+          "sugar": 3.7,
+          "sodium": 2529
+        },
+        "confidence": "high",
+        "matched": 21,
+        "considered": 21
+      }
+    },
+    {
       "title": "Herb-Butter Swordfish",
       "slug": "herb-butter-swordfish",
       "tagline": "Meaty swordfish steaks basted in a melting garden-herb compound butter.",
@@ -3418,6 +4375,136 @@
       }
     },
     {
+      "title": "Korean Gochujang-Glazed Salmon with Sesame Bok Choy",
+      "slug": "korean-gochujang-salmon-bok-choy",
+      "tagline": "Broiled salmon lacquered in sweet-spicy gochujang over fast sesame-charred bok choy.",
+      "pitch": "Gochujang is the sweet-savory-spicy note most weeknight salmon is missing, and here it turns into a glaze that caramelizes into a sticky, blistered crust. The fillets get coated, broiled until the edges char and bubble, and finished with a second brush of glaze for shine, over quick sesame-charred bok choy. *Run it under the broiler for the last minute and the glaze goes lacquered and blackened-in-spots — the best part.* It's on the table in twenty-odd minutes and built on the salmon you cook all the time.",
+      "serves": 2,
+      "times": {
+        "prep": 10,
+        "cook": 12,
+        "total": 22
+      },
+      "difficulty": "easy",
+      "protein": "fish",
+      "methods": [
+        "broiler",
+        "stove"
+      ],
+      "cuisine": "Korean",
+      "course": "main",
+      "heat": "medium",
+      "equipment": [
+        "broiler"
+      ],
+      "tags": [
+        "weeknight",
+        "gluten-free",
+        "spicy",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Salmon & glaze",
+          "items": [
+            "2 salmon fillets (about 6 oz each)",
+            "2 tbsp gochujang",
+            "1 tbsp honey",
+            "1 tbsp soy sauce",
+            "1 tbsp rice vinegar",
+            "1 tsp sesame oil",
+            "2 cloves garlic, grated",
+            "1 tsp grated ginger"
+          ]
+        },
+        {
+          "section": "Sesame bok choy",
+          "items": [
+            "4 heads baby bok choy, halved",
+            "1 tbsp neutral oil",
+            "1 tsp sesame oil",
+            "2 cloves garlic, sliced",
+            "1 tbsp soy sauce"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "2 scallions, thinly sliced",
+            "1 tbsp sesame seeds",
+            "Steamed rice"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Glaze",
+          "items": [
+            "Whisk the gochujang, honey, soy, rice vinegar, sesame oil, garlic, and ginger. Pat the salmon dry and coat it with half the glaze; reserve the rest for finishing. Let it sit 10 minutes if you have time."
+          ]
+        },
+        {
+          "section": "Broil",
+          "items": [
+            "Heat the broiler with a rack in the upper third and line a sheet pan with foil. Broil the salmon 6–8 minutes, until the glaze caramelizes and the fish reaches 125–130°F, brushing on the reserved glaze halfway through."
+          ]
+        },
+        {
+          "section": "Bok choy & plate",
+          "items": [
+            "Meanwhile, heat the neutral and sesame oils in a skillet over medium-high. Add the garlic, then the bok choy cut-side down, and sear 2 minutes.",
+            "Splash in the soy sauce and a tablespoon of water, cover, and steam 2 minutes more, until crisp-tender.",
+            "Plate the salmon and bok choy over rice, and finish with scallions and sesame seeds."
+          ]
+        }
+      ],
+      "tips": [
+        "Reserve half the glaze for the end — gochujang scorches fast, so the second coat goes on after the heat for shine without burning.",
+        "Broil on the upper rack and watch it; you want lacquered, blistered edges, not blackened ones.",
+        "Pull the salmon at 125°F for silky or 130°F for firm — it keeps cooking off the heat.",
+        "Heat dial: gochujang brands vary a lot — start at 2 tbsp and add a pinch of gochugaru or a squeeze of sriracha if you want more burn."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A shower of garden scallion and a few slices of serrano amp up the fresh heat."
+        },
+        {
+          "label": "Make it a bowl",
+          "note": "Pile everything over rice with sliced cucumber and a soft egg for a gochujang salmon rice bowl."
+        },
+        {
+          "label": "Swap",
+          "note": "The glaze works on any firm fish — try it on cod or black cod."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "A fast, fiery weeknight salmon that leans on one great Korean pantry staple — and proves\nthe broiler is the most underused tool for a caramelized glaze.",
+      "hero": "images/korean-gochujang-salmon-bok-choy.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 588,
+          "protein": 40.6,
+          "carb": 24.8,
+          "fat": 37.3,
+          "satfat": 6.4,
+          "fiber": 3.7,
+          "sugar": 14.6,
+          "sodium": 1503
+        },
+        "confidence": "high",
+        "matched": 15,
+        "considered": 15
+      }
+    },
+    {
       "title": "Lemon-Caper Deviled Eggs",
       "slug": "lemon-caper-deviled-eggs",
       "tagline": "Classic deviled eggs brightened with lemon zest, capers, and grated garlic.",
@@ -3512,6 +4599,119 @@
         "confidence": "high",
         "matched": 7,
         "considered": 7
+      }
+    },
+    {
+      "title": "Linguine alle Vongole (Linguine with Clams)",
+      "slug": "linguine-alle-vongole",
+      "tagline": "Linguine finished in a briny garlic-white-wine clam sauce with chili and lemon.",
+      "pitch": "The Italian-coast classic, done right: fresh clams steam open in a pan of garlic, white wine, olive oil, and chili flake, then the linguine finishes cooking in that briny liquor so every strand drinks up the sauce, with parsley and lemon to brighten. *No cream, no cheese — the clams' own salty juice and a knob of butter are the entire sauce, and they're plenty.* It's a fast, restaurant-feeling weeknight dish and a natural counterpart to the piccata-style pastas already in this book.",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "medium",
+      "protein": "seafood",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Italian",
+      "course": "pasta",
+      "heat": "mild",
+      "equipment": [
+        "large pot"
+      ],
+      "tags": [
+        "date-night",
+        "weeknight",
+        "seafood"
+      ],
+      "ingredients": [
+        {
+          "section": "Clams & sauce",
+          "items": [
+            "2 lb littleneck clams, scrubbed",
+            "12 oz linguine",
+            "¼ cup olive oil",
+            "6 cloves garlic, thinly sliced",
+            "½ tsp red pepper flakes",
+            "½ cup dry white wine",
+            "2 tbsp butter",
+            "¼ cup parsley, chopped",
+            "1 lemon",
+            "½ cup reserved pasta water",
+            "Salt"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Scrub the clams and discard any that won't close. Soak them in cold salted water 20 minutes to purge grit, then drain. Bring a large pot of salted water to a boil for the pasta."
+          ]
+        },
+        {
+          "section": "Steam the clams",
+          "items": [
+            "Heat the oil in a large pan over medium. Add the garlic and red pepper flakes and cook until the garlic is pale gold, 1–2 minutes — don't let it burn.",
+            "Add the wine and clams, cover, and steam 4–6 minutes, until they open. Discard any that stay shut. Lift the clams out, leaving the briny liquor in the pan; pull some meats from their shells if you like."
+          ]
+        },
+        {
+          "section": "Finish the pasta",
+          "items": [
+            "Cook the linguine to 1 minute shy of al dente and reserve ½ cup pasta water. Add the pasta to the clam liquor with a splash of pasta water and toss vigorously 1–2 minutes to emulsify.",
+            "Off the heat, swirl in the butter, parsley, and a squeeze of lemon, then return the clams. Twirl into bowls and spoon the clams and sauce over."
+          ]
+        }
+      ],
+      "tips": [
+        "Purge the clams in salted water before cooking so they spit out their grit — nothing ruins vongole like sand.",
+        "No cheese on vongole — the briny clam liquor and a knob of butter are the whole sauce.",
+        "Finish the pasta in the clam broth with a splash of starchy pasta water; that's what makes the sauce cling instead of pool.",
+        "Swap for Stephen — build the same garlic-wine-chili sauce without clams and toss in seared firm white fish (or sautéed mushrooms) for a shellfish-free \"vongole.\""
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A big handful of garden parsley, and a pinch of fresh chile in place of the flakes."
+        },
+        {
+          "label": "Make it in rosso",
+          "note": "A handful of cherry tomatoes burst in the garlic oil turns it into a vongole in rosso."
+        },
+        {
+          "label": "Pairs with",
+          "note": "The rest of the crisp white wine and a slab of grilled bread."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Naples in a bowl: clams, garlic, wine, good oil, and pasta cooked right in the brine. Lauren\nloves it — and the swap tip keeps Stephen at the same table with a fillet of fish.",
+      "hero": "images/linguine-alle-vongole.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 1081,
+          "protein": 33.7,
+          "carb": 129.8,
+          "fat": 42.4,
+          "satfat": 11.4,
+          "fiber": 6.8,
+          "sugar": 6,
+          "sodium": 446
+        },
+        "confidence": "high",
+        "matched": 10,
+        "considered": 10
       }
     },
     {
@@ -4006,6 +5206,411 @@
       }
     },
     {
+      "title": "Moroccan Chicken Tagine with Green Olives & Preserved Lemon",
+      "slug": "moroccan-chicken-tagine",
+      "tagline": "Spice-rubbed chicken thighs braised with saffron, green olives, and preserved lemon over couscous.",
+      "pitch": "A new cuisine built from flavors you already reach for — olives, lemon, warm spice. Chicken thighs get a cumin-paprika-ginger rub and a hard sear, then braise low with onion, saffron, cracked green olives, and preserved lemon until they're falling off the bone in a glossy, briny sauce. *The preserved lemon is the whole magic trick — it goes silky and floral and makes the entire pot taste expensive.* It's a forgiving one-pot braise that scales up, reheats even better, and lands over buttery couscous.",
+      "serves": 4,
+      "times": {
+        "prep": 20,
+        "cook": 50,
+        "total": 70
+      },
+      "difficulty": "medium",
+      "protein": "chicken",
+      "methods": [
+        "stove",
+        "oven"
+      ],
+      "cuisine": "Moroccan",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "Dutch oven"
+      ],
+      "tags": [
+        "make-ahead",
+        "one-pan",
+        "batch",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Chicken & spice rub",
+          "items": [
+            "6 bone-in skin-on chicken thighs (about 2 lb)",
+            "1 tsp ground cumin",
+            "1 tsp paprika",
+            "1 tsp ground ginger",
+            "½ tsp turmeric",
+            "½ tsp cinnamon",
+            "1 tsp kosher salt",
+            "½ tsp black pepper"
+          ]
+        },
+        {
+          "section": "Braise",
+          "items": [
+            "2 tbsp olive oil",
+            "1 large onion, sliced",
+            "4 cloves garlic, minced",
+            "1 tbsp grated fresh ginger",
+            "1 tsp ground coriander",
+            "Pinch of saffron threads",
+            "1½ cups chicken broth",
+            "1 preserved lemon, rind only, sliced",
+            "¾ cup green olives (Castelvetrano or cracked)"
+          ]
+        },
+        {
+          "section": "To finish & serve",
+          "items": [
+            "¼ cup cilantro, chopped",
+            "¼ cup parsley, chopped",
+            "Couscous, for serving"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Sear",
+          "items": [
+            "Pat the thighs dry. Mix the cumin, paprika, ground ginger, turmeric, cinnamon, salt, and pepper, and rub it all over the chicken.",
+            "Heat the oil in a Dutch oven over medium-high. Brown the thighs skin-side down 5–6 minutes until golden, flip for 2 minutes, then remove."
+          ]
+        },
+        {
+          "section": "Braise",
+          "items": [
+            "Lower the heat and cook the onion 5 minutes until soft. Add the garlic, fresh ginger, coriander, and saffron and cook 1 minute.",
+            "Pour in the broth and scrape up the browned bits. Nestle the chicken back in skin-side up and scatter the preserved lemon and olives around it.",
+            "Cover and simmer gently (or braise in a 350°F oven) 35–40 minutes, until the chicken is tender and nearly falling off the bone. Uncover for the last 10 minutes to reduce the sauce."
+          ]
+        },
+        {
+          "section": "Finish",
+          "items": [
+            "Shower with the cilantro and parsley and serve over couscous, spooning the briny sauce on top."
+          ]
+        }
+      ],
+      "tips": [
+        "Use only the rind of the preserved lemon — scrape away and discard the soft, intensely salty pulp, then slice the rind into thin ribbons.",
+        "Brown the thighs hard and don't crowd the pan; that fond is the backbone of the sauce.",
+        "The salt comes mostly from the olives and preserved lemon, so hold off on adding more until the very end.",
+        "Like most braises, it's even better the next day — cool, chill, and reheat gently."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A big handful of garden cilantro and parsley at the finish; a little thyme in the braise."
+        },
+        {
+          "label": "Scale it",
+          "note": "A forgiving braise — halve it for a dinner for two, or double it in a bigger pot for a crowd."
+        },
+        {
+          "label": "Pairs with",
+          "note": "Buttery couscous or warm flatbread and a chopped cucumber-tomato salad."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "The classic Moroccan pairing — salt-cured lemon and green olives against saffron and warm\nspice — does all the work here. Bone-in thighs stay juicy through the long braise and make\ntheir own rich sauce.",
+      "hero": "images/moroccan-chicken-tagine.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 379,
+          "protein": 27.3,
+          "carb": 8.8,
+          "fat": 27,
+          "satfat": 6,
+          "fiber": 2.7,
+          "sugar": 1.6,
+          "sodium": 1343
+        },
+        "confidence": "high",
+        "matched": 18,
+        "considered": 18
+      }
+    },
+    {
+      "title": "Pan-Seared Halibut with Charred Corn & Cherry-Tomato Succotash",
+      "slug": "pan-seared-halibut-corn-succotash",
+      "tagline": "A crisp-seared halibut fillet over warm charred-corn succotash, finished with nutty brown butter.",
+      "pitch": "Halibut is the meatiest, most luxurious of the white fish, and the move here is a hard cast-iron sear that lacquers the top golden while the inside stays just-set and silky. It lands on a warm succotash of blistered summer corn, jammy cherry tomatoes, shallot, and basil, then gets a spoonful of brown butter poured over at the table. *The whole trick is pulling it at 130°F so it flakes in big translucent petals instead of drying to cotton.* It's a thirty-minute, one-pan dinner that eats like the coast.",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 15,
+        "total": 30
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "American",
+      "course": "main",
+      "heat": "none",
+      "equipment": [
+        "cast iron",
+        "instant-read thermometer"
+      ],
+      "tags": [
+        "summer",
+        "gluten-free",
+        "date-night",
+        "garden",
+        "one-pan"
+      ],
+      "ingredients": [
+        {
+          "section": "Halibut",
+          "items": [
+            "2 halibut fillets (about 6 oz each), skinless",
+            "1 tbsp olive oil",
+            "1 tbsp butter",
+            "Kosher salt and black pepper"
+          ]
+        },
+        {
+          "section": "Charred corn succotash",
+          "items": [
+            "2 ears corn, kernels cut off (about 1½ cups)",
+            "1 cup cherry tomatoes, halved",
+            "1 shallot, finely diced",
+            "2 cloves garlic, minced",
+            "1 tbsp butter",
+            "1 tbsp olive oil",
+            "2 tbsp chopped basil",
+            "1 tbsp lemon juice",
+            "Pinch of red pepper flakes (optional)",
+            "Salt and pepper to taste"
+          ]
+        },
+        {
+          "section": "Brown butter",
+          "items": [
+            "2 tbsp butter",
+            "1 tbsp lemon juice",
+            "1 tbsp chopped basil"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Pat the halibut very dry, season both sides with salt and pepper, and let it sit at room temperature while you make the succotash.",
+            "Cut the corn kernels off the cobs, halve the tomatoes, dice the shallot, and mince the garlic."
+          ]
+        },
+        {
+          "section": "Succotash",
+          "items": [
+            "Heat 1 tbsp oil and 1 tbsp butter in a cast-iron skillet over medium-high. Add the corn in an even layer and let it char undisturbed 2–3 minutes, then stir and cook 2 minutes more.",
+            "Add the shallot and garlic and cook 1 minute until fragrant. Add the tomatoes and red pepper flakes and cook 2–3 minutes, until the tomatoes slump.",
+            "Stir in the basil, lemon juice, salt, and pepper. Scrape into a bowl and wipe out the pan."
+          ]
+        },
+        {
+          "section": "Sear & finish",
+          "items": [
+            "Heat 1 tbsp oil in the same pan over medium-high until shimmering. Lay the halibut down presentation-side first and sear undisturbed 3–4 minutes, until deep golden.",
+            "Flip, add 1 tbsp butter, and baste 2–3 minutes, until the fish reaches 130°F at the center and flakes. Rest 2 minutes.",
+            "Wipe the pan, melt 2 tbsp butter over medium, and swirl until it smells nutty and turns golden-brown, about 2 minutes. Off the heat, stir in the lemon juice and basil.",
+            "Spoon the succotash onto plates, set the halibut on top, and pour the brown butter over."
+          ]
+        }
+      ],
+      "tips": [
+        "Halibut is lean and dries out fast — pull it at 130°F and let carryover heat finish it to a flaky 135°F off the pan.",
+        "Get the fish bone-dry and the pan properly hot before it goes in; that's the entire secret to a golden crust that doesn't stick.",
+        "No cast iron? Any heavy stainless pan works — just skip nonstick, which won't build the same crust.",
+        "Not at the counter? This works beautifully with cod, sea bass, or swordfish in halibut's place."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Stir garden basil (and a little thyme) into the succotash, and use ripe garden cherry tomatoes for blistering."
+        },
+        {
+          "label": "Off-season swap",
+          "note": "No sweet summer corn? Frozen kernels, charred hard in the dry pan first, stand in well."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A crisp white — Sauvignon Blanc or unoaked Chardonnay — and a slab of grilled bread for the brown butter."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "The kind of fast, bright summer plate that feels like a restaurant: a meaty white fish\nseared hard, a sweet-and-jammy corn succotash underneath, and brown butter tying it all\ntogether.",
+      "hero": "images/pan-seared-halibut-corn-succotash.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 639,
+          "protein": 43.6,
+          "carb": 25.8,
+          "fat": 42.4,
+          "satfat": 17.1,
+          "fiber": 4.3,
+          "sugar": 9.9,
+          "sodium": 293
+        },
+        "confidence": "high",
+        "matched": 14,
+        "considered": 14
+      }
+    },
+    {
+      "title": "Peruvian Pollo a la Brasa with Green Ají Sauce",
+      "slug": "peruvian-pollo-a-la-brasa",
+      "tagline": "Spatchcocked roast chicken with a deep cumin-paprika marinade and the addictive green ají verde.",
+      "pitch": "The roast chicken people drive across town for — and the green sauce that's basically your flavor profile in a blender. A spatchcocked bird gets a cumin-paprika-soy-lime marinade and roasts until the skin lacquers deep mahogany, then it's carved and served with ají verde: jalapeño, cilantro, lime, and garlic whipped silky and spicy-green. *That sauce is the reason this chicken is famous — you'll want to put it on everything.* It's a Sunday-dinner centerpiece that makes its own leftovers.",
+      "serves": 4,
+      "times": {
+        "prep": 20,
+        "cook": 55,
+        "total": 260
+      },
+      "difficulty": "medium",
+      "protein": "chicken",
+      "methods": [
+        "oven",
+        "grill"
+      ],
+      "cuisine": "Peruvian",
+      "course": "main",
+      "heat": "medium",
+      "equipment": [
+        "roasting rack"
+      ],
+      "tags": [
+        "garden",
+        "gluten-free",
+        "batch",
+        "date-night"
+      ],
+      "ingredients": [
+        {
+          "section": "Chicken & marinade",
+          "items": [
+            "3.5 lb whole chicken, spatchcocked",
+            "3 tbsp soy sauce",
+            "2 tbsp lime juice",
+            "4 cloves garlic, grated",
+            "1 tbsp ground cumin",
+            "1 tbsp paprika",
+            "1 tsp smoked paprika",
+            "1 tbsp dried oregano",
+            "1 tsp black pepper",
+            "2 tbsp olive oil",
+            "1 tsp kosher salt"
+          ]
+        },
+        {
+          "section": "Green ají sauce",
+          "items": [
+            "2 jalapeños, seeded",
+            "1 cup cilantro",
+            "½ cup mayonnaise",
+            "2 tbsp cotija (or parmesan)",
+            "1 tbsp lime juice",
+            "1 clove garlic",
+            "2 tbsp olive oil",
+            "Pinch of salt"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "Lime wedges"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Marinate",
+          "items": [
+            "Pat the chicken dry and spatchcock it — remove the backbone with shears and press it flat. Whisk together all the marinade ingredients.",
+            "Rub the marinade all over the chicken, including under the skin. Chill at least 4 hours, ideally overnight."
+          ]
+        },
+        {
+          "section": "Roast",
+          "items": [
+            "Heat the oven to 425°F. Roast the chicken skin-side up on a rack 45–55 minutes, until deeply bronzed and 165°F in the thigh. Rest 10 minutes before carving. (Or grill over two-zone medium heat, skin-side up over indirect, about 40 minutes.)"
+          ]
+        },
+        {
+          "section": "Sauce & serve",
+          "items": [
+            "Blend all the ají sauce ingredients until smooth and bright green, loosening with a splash of water if needed.",
+            "Carve the chicken and serve with the ají verde and lime wedges."
+          ]
+        }
+      ],
+      "tips": [
+        "Spatchcocking lets the whole bird cook flat and evenly with maximum crispy skin — use kitchen shears, or have the butcher do it.",
+        "Work the marinade under the skin, not just over it, and give it at least 4 hours; overnight is better.",
+        "The ají verde is the whole point — make a double batch, it keeps several days and goes on everything.",
+        "Heat dial: leave the jalapeño seeds in (or add a serrano) for a real kick; seed them fully for a milder green sauce."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden cilantro is the base of the sauce, and a garden jalapeño or serrano dials the heat."
+        },
+        {
+          "label": "Serve with",
+          "note": "Crispy potatoes or fries and a simple salad — the classic pollería plate."
+        },
+        {
+          "label": "Make it a grill night",
+          "note": "Two-zone fire, skin-side up over indirect heat with the lid down, for real charcoal char."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Lima's most famous dish: charcoal-blasted marinated chicken with a creamy, herby, gently\nfiery green sauce. The oven gets you most of the way there; the ají verde gets you all the\nway.",
+      "hero": "images/peruvian-pollo-a-la-brasa.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 951,
+          "protein": 54.2,
+          "carb": 6.5,
+          "fat": 76.6,
+          "satfat": 17.1,
+          "fiber": 2,
+          "sugar": 1,
+          "sodium": 1656
+        },
+        "confidence": "high",
+        "matched": 18,
+        "considered": 18
+      }
+    },
+    {
       "title": "Poached Cod in Saffron Tomato Broth",
       "slug": "poached-cod-tomato-saffron",
       "tagline": "Cod gently poached in a garlicky, saffron-scented tomato broth.",
@@ -4335,6 +5940,132 @@
         "confidence": "high",
         "matched": 6,
         "considered": 6
+      }
+    },
+    {
+      "title": "Seared Scallops over Silky Potato Purée with Brown Butter & Charred Lemon",
+      "slug": "seared-scallops-potato-puree",
+      "tagline": "Caramel-crusted sea scallops on a buttery potato purée, with nutty brown butter and charred lemon.",
+      "pitch": "The date-night showstopper that looks like an afternoon of work and takes thirty minutes. Big dry-packed scallops, patted bone-dry, hit a screaming pan and build a deep caramel crust in two minutes flat over a velvety potato purée whipped silky with butter and cream. *The whole dish is a study in contrast — crackling crust, sweet just-warm center, cool creamy purée underneath.* Brown butter, capers, and a charred lemon pull it together.",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "medium",
+      "protein": "seafood",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "French",
+      "course": "main",
+      "heat": "none",
+      "equipment": [
+        "cast iron",
+        "potato ricer"
+      ],
+      "tags": [
+        "date-night",
+        "gluten-free",
+        "elegant"
+      ],
+      "ingredients": [
+        {
+          "section": "Scallops",
+          "items": [
+            "1 lb large dry sea scallops (about 10–12)",
+            "Kosher salt and black pepper",
+            "1 tbsp neutral oil",
+            "1 tbsp butter"
+          ]
+        },
+        {
+          "section": "Potato purée",
+          "items": [
+            "1 lb Yukon gold potatoes, peeled and cubed",
+            "4 tbsp butter",
+            "½ cup heavy cream, warmed",
+            "Salt and white pepper"
+          ]
+        },
+        {
+          "section": "Brown butter & finish",
+          "items": [
+            "3 tbsp butter",
+            "1 lemon, halved",
+            "1 tbsp capers (optional)",
+            "2 tbsp chopped chives"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Purée",
+          "items": [
+            "Cover the potatoes with cold salted water, bring to a boil, and cook until very tender, 15–18 minutes. Drain well and return to the pan over low heat for a minute to steam-dry.",
+            "Pass through a ricer (or mash very smooth). Beat in the 4 tbsp butter, then the warm cream, until silky. Season with salt and white pepper and keep warm."
+          ]
+        },
+        {
+          "section": "Char & sear",
+          "items": [
+            "Heat a dry skillet and char the lemon halves cut-side down until deeply browned; set aside.",
+            "Pat the scallops bone-dry and season. Heat the oil and 1 tbsp butter in a cast-iron skillet over high until just smoking. Add the scallops without crowding and sear undisturbed 2 minutes, until a deep golden crust forms. Flip and cook 1 minute more, just to opaque. Remove."
+          ]
+        },
+        {
+          "section": "Brown butter & plate",
+          "items": [
+            "Wipe the pan, add the 3 tbsp butter over medium, and swirl until it smells nutty and turns golden-brown. Stir in the capers and, off the heat, a squeeze of charred lemon.",
+            "Spoon the purée onto plates, set the scallops on top, pour the brown butter over, and finish with chives and the charred lemon halves."
+          ]
+        }
+      ],
+      "tips": [
+        "Dry, dry, dry — pat the scallops bone-dry and don't move them for two minutes; that's the only path to a caramel crust instead of a gray steam.",
+        "Buy \"dry\" (chemical-free) scallops; \"wet\" ones leak liquid and refuse to brown.",
+        "A ricer makes the glossiest purée — and warm the cream and butter before they go in so it stays silky, not gluey.",
+        "Swap for Stephen — the purée and brown butter are just as good under a seared halibut or cod fillet."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Chives or a little tarragon stirred into the brown butter; a few thyme leaves over the top."
+        },
+        {
+          "label": "Change the bed",
+          "note": "Not in a potato mood? A silky sweet-corn or celery-root purée stands in beautifully."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A glass of Champagne or crisp Chablis — this is a special-occasion plate."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Shellfish belongs in this book — Lauren loves scallops — and they're the most\nrestaurant-feeling thing you can make in half an hour. The swap tip keeps Stephen on the\nsame plate with a fillet of fish.",
+      "hero": "images/seared-scallops-potato-puree.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 1057,
+          "protein": 44.6,
+          "carb": 50.3,
+          "fat": 75.9,
+          "satfat": 43.4,
+          "fiber": 4,
+          "sugar": 4.1,
+          "sodium": 1209
+        },
+        "confidence": "high",
+        "matched": 10,
+        "considered": 10
       }
     },
     {
@@ -5235,6 +6966,126 @@
       }
     },
     {
+      "title": "Steak au Poivre with Cognac-Peppercorn Cream",
+      "slug": "steak-au-poivre",
+      "tagline": "A peppercorn-crusted steak seared in cast iron, finished with a silky cognac-cream pan sauce.",
+      "pitch": "This is the French-bistro classic worth learning for the sauce alone: a steak pressed in coarsely cracked black pepper, seared hard in cast iron, then set aside while you build a pan sauce on its fond. Cognac goes in to deglaze — flamed or simmered off — and reduces with broth and cream into something glossy and peppery. *Igniting the cognac burns off its raw edge and leaves a deep, toasty backbone in the sauce — a thirty-second piece of theater.* It eats like a restaurant and teaches you a proper pan sauce in one go.",
+      "serves": 2,
+      "times": {
+        "prep": 10,
+        "cook": 15,
+        "total": 25
+      },
+      "difficulty": "medium",
+      "protein": "beef",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "French",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "cast iron",
+        "instant-read thermometer"
+      ],
+      "tags": [
+        "date-night",
+        "steakhouse",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Steak",
+          "items": [
+            "2 filet mignon or New York strip steaks (about 6 oz each)",
+            "2 tbsp black peppercorns, coarsely cracked",
+            "Kosher salt",
+            "1 tbsp neutral oil",
+            "1 tbsp butter"
+          ]
+        },
+        {
+          "section": "Cognac-peppercorn sauce",
+          "items": [
+            "1 shallot, minced",
+            "⅓ cup cognac (or brandy)",
+            "½ cup beef broth",
+            "½ cup heavy cream",
+            "1 tsp Dijon mustard",
+            "1 tbsp butter",
+            "Salt to taste"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Pat the steaks very dry and season all over with salt. Crack the peppercorns coarsely (rock a heavy pan over them on the board) and press them onto both flat sides of each steak."
+          ]
+        },
+        {
+          "section": "Sear",
+          "items": [
+            "Heat the oil and 1 tbsp butter in a cast-iron skillet over medium-high. Sear the steaks 3–4 minutes per side, to 125°F for medium-rare. Move them to a plate to rest."
+          ]
+        },
+        {
+          "section": "Sauce",
+          "items": [
+            "Lower the heat to medium and cook the shallot in the pan drippings 1 minute. Pull the pan off the heat, add the cognac, then return it — and either flame it off with a long lighter or simmer 1 minute to cook off the alcohol — scraping up the fond.",
+            "Add the beef broth and reduce by half. Stir in the cream and Dijon and simmer until the sauce coats a spoon, 2–3 minutes. Off the heat, swirl in the butter and season with salt.",
+            "Return the steaks and any resting juices to the pan, spoon the sauce over, and serve."
+          ]
+        }
+      ],
+      "tips": [
+        "Crack the peppercorns coarse, not fine — you want fragrant, crunchy cracks, not a dusty burn.",
+        "Flambé safely: pull the pan off the heat before the cognac goes in, then ignite with a long lighter (or just simmer it off) — keep your face and the hood clear.",
+        "Pull the steaks at 125°F; they climb to a perfect medium-rare while the sauce comes together.",
+        "No cognac? Brandy or bourbon works, and a broth-and-cream sauce with no spirit is still excellent."
+      ],
+      "extras": [
+        {
+          "label": "Pairs with",
+          "note": "Crispy frites or a pile of dressed watercress — the full bistro plate."
+        },
+        {
+          "label": "From the garden",
+          "note": "A little chopped thyme stirred into the sauce, or a tangle of garden watercress alongside."
+        },
+        {
+          "label": "Make it richer",
+          "note": "A spoonful of brined green peppercorns stirred into the sauce doubles the pepper character."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "The dish that taught a generation of home cooks how to build a pan sauce — sear, deglaze,\nreduce, mount with butter — using nothing but the brown bits left in the pan.",
+      "hero": "images/steak-au-poivre.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 826,
+          "protein": 45.6,
+          "carb": 10.2,
+          "fat": 60.9,
+          "satfat": 29.9,
+          "fiber": 2.6,
+          "sugar": 3.4,
+          "sodium": 477
+        },
+        "confidence": "high",
+        "matched": 10,
+        "considered": 10
+      }
+    },
+    {
       "title": "Summer Caprese Pasta with Roasted Squash Ribbons & Burst Tomatoes",
       "slug": "summer-pasta",
       "tagline": "Spaghetti tangled with charred squash ribbons, jammy tomatoes, basil, and torn mozzarella.",
@@ -5369,6 +7220,271 @@
         "confidence": "high",
         "matched": 10,
         "considered": 10
+      }
+    },
+    {
+      "title": "Thai Grilled Beef \"Crying Tiger\" Salad (Nam Tok)",
+      "slug": "thai-crying-tiger-beef-salad",
+      "tagline": "Charred grilled beef sliced thin over herbs in a fierce lime, fish sauce, and toasted-rice dressing.",
+      "pitch": "This is the Thai grilled-beef salad that hits four things at once — smoke, herbs, sour-salty heat, and a nutty grip you can't quite place. A marinated steak chars hard over the grill, rests, and gets sliced thin, then tossed warm with mint, cilantro, shallot, and a dressing of lime, fish sauce, and chili. *The secret is khao khua — raw rice toasted dark and ground to a powder — which gives the dressing a nutty texture that clings to every slice.* It's bright, fiery, and built around the grill you already love.",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 10,
+        "total": 60
+      },
+      "difficulty": "medium",
+      "protein": "beef",
+      "methods": [
+        "grill"
+      ],
+      "cuisine": "Thai",
+      "course": "salad",
+      "heat": "hot",
+      "equipment": [
+        "grill",
+        "instant-read thermometer"
+      ],
+      "tags": [
+        "summer",
+        "gluten-free",
+        "date-night",
+        "garden",
+        "spicy"
+      ],
+      "ingredients": [
+        {
+          "section": "Beef & marinade",
+          "items": [
+            "12 oz flank, skirt, or sirloin steak",
+            "1 tbsp fish sauce",
+            "1 tbsp soy sauce",
+            "1 tbsp neutral oil",
+            "1 tsp brown sugar",
+            "2 cloves garlic, grated",
+            "½ tsp white pepper"
+          ]
+        },
+        {
+          "section": "Nam tok dressing",
+          "items": [
+            "2 tbsp fish sauce",
+            "2 tbsp lime juice",
+            "1 tsp brown sugar (or palm sugar)",
+            "2 tsp toasted rice powder",
+            "1 tsp red pepper flakes (or 1–2 Thai chiles, minced)",
+            "1 shallot, thinly sliced",
+            "2 scallions, thinly sliced",
+            "¼ cup mint leaves",
+            "¼ cup cilantro leaves"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "4 cups butter lettuce or mixed greens",
+            "1 cup cucumber, sliced",
+            "1 cup cherry tomatoes, halved"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Marinate",
+          "items": [
+            "Whisk the fish sauce, soy, oil, brown sugar, garlic, and white pepper. Coat the steak and marinate 30 minutes at room temperature (or up to 4 hours, chilled).",
+            "If you don't have toasted rice powder: toast 2 tbsp raw rice in a dry pan over medium until deep golden and fragrant, 5–8 minutes, then grind to a coarse powder."
+          ]
+        },
+        {
+          "section": "Grill",
+          "items": [
+            "Heat the grill to high and oil the grates. Grill the steak 3–4 minutes per side, until charred outside and 130°F for medium-rare.",
+            "Rest the steak 5 minutes, then slice thinly against the grain."
+          ]
+        },
+        {
+          "section": "Toss & plate",
+          "items": [
+            "Stir together the fish sauce, lime juice, brown sugar, toasted rice powder, and chili until the sugar dissolves.",
+            "Add the warm sliced beef, shallot, scallions, mint, and cilantro and toss to coat.",
+            "Bed the lettuce with cucumber and tomatoes, pile the dressed beef and herbs on top, and spoon over any dressing left in the bowl."
+          ]
+        }
+      ],
+      "tips": [
+        "Toast raw rice until it's the color of dark caramel before grinding — that nutty khao khua is the soul of the dressing, not an optional garnish.",
+        "Grill to a true medium-rare (130°F) and slice thin against the grain so the beef stays tender against the crunchy herbs.",
+        "Dress the beef while it's still warm; it drinks up the lime and fish sauce far better than cold.",
+        "Heat dial: 1 tsp flakes is a gentle hum — go to 2–3 fresh Thai chiles for a real crying-tiger burn."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden mint and cilantro are the entire herb bill; thinly sliced serranos stand in nicely for the Thai chiles."
+        },
+        {
+          "label": "Serve with",
+          "note": "Warm sticky rice or jasmine rice to temper the heat and soak up the dressing."
+        },
+        {
+          "label": "Make it a spread",
+          "note": "Set out extra dressing as a \"jaew\" dipping sauce alongside the sliced beef."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Nam tok means \"waterfall\" — for the juices that drip off the grilling beef. It's the\nlivelier, herb-packed cousin of a steak salad, and the toasted rice is what makes people\nask what's in it.",
+      "hero": "images/thai-crying-tiger-beef-salad.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 512,
+          "protein": 47.9,
+          "carb": 23.5,
+          "fat": 25.3,
+          "satfat": 7.9,
+          "fiber": 4.6,
+          "sugar": 11.1,
+          "sodium": 2454
+        },
+        "confidence": "high",
+        "matched": 19,
+        "considered": 19
+      }
+    },
+    {
+      "title": "Thai Red Curry with Crispy Tofu & Garden Vegetables",
+      "slug": "thai-red-curry-crispy-tofu",
+      "tagline": "A coconut red curry full of garden vegetables, finished with golden crisp-fried tofu.",
+      "pitch": "Everything you love about your Tom Kha, in a richer, customizable curry. Crisped tofu and quick-cooked vegetables come together in a coconut-red-curry sauce bright with lime and basil, over jasmine rice. *Fry the tofu first and add it at the end so it stays crisp against the silky sauce — texture is the whole game.* It's vegan, naturally gluten-free, weeknight-fast, and the protein is a drop-in: tofu tonight, chicken or fish next time.",
+      "serves": 4,
+      "times": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "easy",
+      "protein": "vegan",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Thai",
+      "course": "main",
+      "heat": "medium",
+      "equipment": [
+        "wok"
+      ],
+      "tags": [
+        "vegan",
+        "vegetarian",
+        "garden",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Crispy tofu",
+          "items": [
+            "14 oz extra-firm tofu, cubed",
+            "2 tbsp cornstarch",
+            "2 tbsp neutral oil",
+            "Pinch of salt"
+          ]
+        },
+        {
+          "section": "Curry",
+          "items": [
+            "3 tbsp red curry paste",
+            "1½ cups coconut milk",
+            "1 cup vegetable broth",
+            "1 tbsp soy sauce",
+            "1 tbsp brown sugar",
+            "1 red bell pepper, sliced",
+            "1 cup green beans, trimmed",
+            "1 zucchini, half-mooned",
+            "1 tbsp lime juice",
+            "¼ cup Thai basil"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "Jasmine rice",
+            "Lime wedges and extra basil"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Crisp the tofu",
+          "items": [
+            "Press the tofu dry, cube it, and toss with the cornstarch and salt. Pan-fry in the oil over medium-high until golden and crisp on all sides, 8–10 minutes, then remove."
+          ]
+        },
+        {
+          "section": "Build the curry",
+          "items": [
+            "In the same pan, fry the curry paste 1 minute until fragrant. Add the thick top of the coconut milk and cook until it sputters and the oil separates, about 2 minutes.",
+            "Add the rest of the coconut milk, broth, soy sauce, and brown sugar and simmer 3 minutes. Add the bell pepper, green beans, and zucchini and simmer 5–7 minutes, until crisp-tender.",
+            "Stir in the lime juice and basil. Fold the crispy tofu back in, or pile it on top to keep it crunchy."
+          ]
+        },
+        {
+          "section": "Serve",
+          "items": [
+            "Serve over jasmine rice with lime wedges and extra basil."
+          ]
+        }
+      ],
+      "tips": [
+        "Crisp the tofu first and add it at the very end (or on top) so it stays crunchy against the silky sauce.",
+        "Bloom the curry paste in a little of the thick coconut cream until the oil separates and it smells fragrant — that step makes the curry taste restaurant-deep.",
+        "Swap the protein freely — poached chicken or chunks of firm white fish go in with the vegetables; just simmer until cooked through.",
+        "Curry-paste brands vary wildly in heat, so start with 2 tbsp and build up to taste."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Thai or regular basil, a sliced serrano, and whatever's coming in — eggplant, beans, peppers."
+        },
+        {
+          "label": "Make it heartier",
+          "note": "A handful of spinach or a second vegetable bulks it up; serve with extra rice."
+        },
+        {
+          "label": "Protein your way",
+          "note": "Crispy tofu, poached chicken, or firm white fish all work in the same sauce (use fish sauce in place of soy if you're not keeping it vegan)."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "One coconut-curry base, endless variations. The crispy tofu is what makes the vegan version\nfeel like a treat — but the sauce is happy to carry chicken or fish just as well.",
+      "hero": "images/thai-red-curry-crispy-tofu.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 375,
+          "protein": 12,
+          "carb": 19.7,
+          "fat": 29.7,
+          "satfat": 17.7,
+          "fiber": 4,
+          "sugar": 10.6,
+          "sodium": 660
+        },
+        "confidence": "high",
+        "matched": 13,
+        "considered": 13
       }
     },
     {
@@ -5630,6 +7746,134 @@
         "confidence": "high",
         "matched": 7,
         "considered": 7
+      }
+    },
+    {
+      "title": "Vegetarian Mapo Tofu",
+      "slug": "vegetarian-mapo-tofu",
+      "tagline": "Silky tofu in a fiery, numbing doubanjiang sauce with hard-seared mushrooms standing in for pork.",
+      "pitch": "You love Sichuan and heat — this is the meat-free icon of that cuisine. Silky cubes of soft tofu simmer in a fierce, numbing sauce of doubanjiang, garlic, and Sichuan peppercorn, with hard-seared mushrooms standing in for the usual pork, thickened glossy and spooned over rice. *That tingly má buzz is the whole point — it makes tofu the most exciting thing on the table.* Fast, fierce, fully vegetarian, and a natural sibling to your Sichuan beef noodle soup.",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 15,
+        "total": 30
+      },
+      "difficulty": "medium",
+      "protein": "vegetarian",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Sichuan",
+      "course": "main",
+      "heat": "hot",
+      "equipment": [
+        "wok"
+      ],
+      "tags": [
+        "vegetarian",
+        "spicy",
+        "weeknight"
+      ],
+      "ingredients": [
+        {
+          "section": "Mains",
+          "items": [
+            "14 oz soft tofu, cubed",
+            "4 oz shiitake or cremini mushrooms, finely chopped"
+          ]
+        },
+        {
+          "section": "Sauce",
+          "items": [
+            "2 tbsp doubanjiang (chili bean paste)",
+            "1 tbsp fermented black beans, rinsed and chopped (optional)",
+            "1 tsp Sichuan peppercorns, toasted and ground",
+            "3 cloves garlic, minced",
+            "1 tbsp grated ginger",
+            "3 scallions, sliced (whites and greens separated)",
+            "2 tbsp neutral oil",
+            "1 tsp red pepper flakes",
+            "1 tbsp soy sauce",
+            "1 tbsp Shaoxing wine",
+            "1 tsp granulated sugar",
+            "1 cup vegetable broth",
+            "1 tbsp cornstarch mixed with 2 tbsp water"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "Steamed rice"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Gently cube the tofu and slide it into a bowl of warm salted water to hold (this keeps it intact). Toast the Sichuan peppercorns in a dry pan until fragrant, then grind."
+          ]
+        },
+        {
+          "section": "Build the sauce",
+          "items": [
+            "Heat the oil in a wok over medium-high. Add the mushrooms and cook until browned and dry, 4–5 minutes. Push them aside, add the doubanjiang and black beans, and fry 1 minute until the oil turns red.",
+            "Add the garlic, ginger, scallion whites, and red pepper flakes and cook 30 seconds. Add the soy, Shaoxing, sugar, and broth and simmer 2 minutes."
+          ]
+        },
+        {
+          "section": "Finish",
+          "items": [
+            "Drain the tofu and slide it in. Simmer gently 3–4 minutes, nudging rather than stirring so the cubes stay whole. Stir in the cornstarch slurry and simmer until glossy and thickened.",
+            "Off the heat, sprinkle with the ground Sichuan pepper and scallion greens. Serve over steamed rice."
+          ]
+        }
+      ],
+      "tips": [
+        "The mushrooms are the meat here — brown them hard and dry so they turn chewy and savory, the texture that usually comes from pork.",
+        "Fry the doubanjiang in the oil until it stains the oil red; that bloomed chili-bean flavor is the backbone of mapo.",
+        "Nudge, don't stir — soft tofu falls apart if you're rough, so fold gently with the back of the spoon.",
+        "That numbing tingle is the má in mapo — toast and grind whole Sichuan peppercorns fresh for the full buzz."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Scallion greens and a pinch of garden serrano for extra heat."
+        },
+        {
+          "label": "Make it heartier",
+          "note": "Fold in crumbled extra-firm tofu or more mushrooms and serve with garlicky greens."
+        },
+        {
+          "label": "Dial the heat",
+          "note": "Go easy on the doubanjiang and flakes for mild, or add a spoon of chili oil for a real Sichuan burn."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Mapo tofu without the pork loses nothing — browned mushrooms bring the savory chew, and the\ndoubanjiang-and-Sichuan-pepper sauce does the rest. Numbing, spicy, and deeply comforting\nover rice.",
+      "hero": "images/vegetarian-mapo-tofu.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 358,
+          "protein": 21.4,
+          "carb": 18.9,
+          "fat": 23.2,
+          "satfat": 3,
+          "fiber": 5.8,
+          "sugar": 7.4,
+          "sodium": 1849
+        },
+        "confidence": "high",
+        "matched": 15,
+        "considered": 15
       }
     },
     {
@@ -6002,6 +8246,406 @@
       }
     },
     {
+      "title": "Wild Mushroom Risotto",
+      "slug": "wild-mushroom-risotto",
+      "tagline": "Toasted arborio coaxed creamy with warm broth, seared wild mushrooms, parmesan, and thyme.",
+      "pitch": "Risotto is the technique every cook should own, and this is the cozy, vegetarian way in. Arborio rice is toasted, then coaxed creamy with ladle after ladle of warm broth and a tangle of hard-seared wild mushrooms, finished off the heat with butter, parmesan, and garden thyme. *The magic is the slow stir — no cream anywhere, just the rice's own starch beaten into silk.* Deeply savory and elegant, and once you have the base down it unlocks a dozen future risottos.",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 30,
+        "total": 45
+      },
+      "difficulty": "medium",
+      "protein": "vegetarian",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Italian",
+      "course": "main",
+      "heat": "none",
+      "equipment": [
+        "heavy saucepan"
+      ],
+      "tags": [
+        "vegetarian",
+        "comfort",
+        "garden",
+        "date-night"
+      ],
+      "ingredients": [
+        {
+          "section": "Mushrooms",
+          "items": [
+            "8 oz mixed mushrooms (cremini, shiitake, oyster), sliced",
+            "1 tbsp olive oil",
+            "1 tbsp butter",
+            "1 tbsp thyme",
+            "2 tbsp parsley, chopped"
+          ]
+        },
+        {
+          "section": "Risotto",
+          "items": [
+            "1 cup arborio rice",
+            "4 cups vegetable broth, kept warm",
+            "½ cup dry white wine",
+            "1 shallot, minced",
+            "2 cloves garlic, minced",
+            "2 tbsp olive oil",
+            "3 tbsp butter",
+            "½ cup grated parmesan",
+            "Salt and pepper"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Sear the mushrooms",
+          "items": [
+            "Heat the oil and butter in a wide pan over medium-high. Sear the mushrooms in a single layer until deep golden, 6–8 minutes. Stir in the thyme and a pinch of salt, then set aside, reserving some for garnish."
+          ]
+        },
+        {
+          "section": "Build the risotto",
+          "items": [
+            "In the same pan, warm the oil over medium and cook the shallot 2 minutes. Add the garlic and rice and toast 2 minutes, until the edges of the grains turn translucent.",
+            "Add the wine and stir until absorbed. Add the warm broth one ladle at a time, stirring often and letting each ladle absorb before the next, 18–22 minutes, until the rice is creamy and al dente."
+          ]
+        },
+        {
+          "section": "Finish",
+          "items": [
+            "Off the heat, beat in the butter and parmesan until glossy, then fold in most of the mushrooms. Season with salt and pepper.",
+            "Spoon into shallow bowls and top with the reserved mushrooms, parsley, and more parmesan."
+          ]
+        }
+      ],
+      "tips": [
+        "Keep the broth hot in a separate pot — cold broth shocks the rice and stops it releasing the starch that becomes the \"cream\" (no dairy required).",
+        "Sear the mushrooms hard and don't crowd the pan; you want deep browning, not steam.",
+        "The final off-heat beating of butter and cheese — mantecatura — is what makes it glossy and luxurious. Don't skip it.",
+        "It should spread like lava, not stand in a mound; loosen with a splash more broth if it tightens up."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden thyme and parsley, and a little rosemary seared with the mushrooms."
+        },
+        {
+          "label": "Make it luxe",
+          "note": "A few rehydrated dried porcini — and their soaking liquid — deepen the flavor enormously."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A simple arugula salad and the rest of the white wine."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "The dish that teaches patience: toast, deglaze, ladle, stir, repeat. No cream — just rice,\nbroth, and time turning into something silky and rich.",
+      "hero": "images/wild-mushroom-risotto.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 958,
+          "protein": 21.2,
+          "carb": 93.9,
+          "fat": 50.8,
+          "satfat": 21.2,
+          "fiber": 3.9,
+          "sugar": 6.3,
+          "sodium": 1721
+        },
+        "confidence": "high",
+        "matched": 13,
+        "considered": 13
+      }
+    },
+    {
+      "title": "Aperol Spritz",
+      "slug": "aperol-spritz",
+      "kind": "drink",
+      "tagline": "Aperol, prosecco, and a splash of soda over ice — the bittersweet drink of a European summer.",
+      "pitch": "You have no low-ABV, no spritz, and nothing for a hot afternoon when a full cocktail is too much — this is all three. Aperol, prosecco, and a splash of soda over a glass packed with ice, bittersweet and barely-boozy, with an orange slice. *It's the drink of a European summer in a glass, and it's basically un-mess-up-able.* Given how much you grill outside, this is the patio sipper your list was missing.",
+      "serves": 1,
+      "times": {
+        "prep": 3,
+        "total": 3
+      },
+      "difficulty": "easy",
+      "base": "liqueur",
+      "family": "spritz",
+      "methods": [
+        "built"
+      ],
+      "glass": "Wine",
+      "strength": "sessionable",
+      "heat": "none",
+      "tags": [
+        "refreshing",
+        "citrusy",
+        "fruity"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "3 oz prosecco",
+            "2 oz Aperol",
+            "1 oz club soda",
+            "Ice",
+            "Orange slice, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Fill a wine glass with ice.",
+            "Add the prosecco, then the Aperol, then the splash of soda, in that order so it gently layers.",
+            "Stir once and garnish with an orange slice."
+          ]
+        }
+      ],
+      "tips": [
+        "The order matters — prosecco first, then Aperol, then soda — so it layers instead of going flat.",
+        "Use lots of ice; a full glass melts slower and keeps the spritz colder.",
+        "Keep the prosecco brut (dry) — Aperol brings plenty of sweetness on its own.",
+        "A green olive on the pick is the classic Venetian touch alongside the orange."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A sprig of mint or basil gives it a fresh, herbal lift."
+        },
+        {
+          "label": "Make it lighter",
+          "note": "More soda and less Aperol for an even more sessionable afternoon sipper."
+        },
+        {
+          "label": "Make it bitter",
+          "note": "Swap Campari for the Aperol for a more bitter, spirit-forward spritz if Pam's pouring."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "The 3-2-1 of the Venetian aperitivo: three parts prosecco, two Aperol, one soda. Sunset in a\nglass, and the easiest thing on the whole list to make.",
+      "equipment": [],
+      "hero": "images/aperol-spritz.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 162,
+          "protein": 0,
+          "carb": 17,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0,
+          "sugar": 15.2,
+          "sodium": 7
+        },
+        "confidence": "high",
+        "matched": 3,
+        "considered": 3
+      }
+    },
+    {
+      "title": "Bourbon Milk Punch",
+      "slug": "bourbon-milk-punch",
+      "kind": "drink",
+      "tagline": "Bourbon, cream, and vanilla shaken cold and grated with nutmeg — a New Orleans classic.",
+      "pitch": "A New Orleans brunch legend — bourbon, cream, vanilla, and a little sugar shaken cold and grated with nutmeg. *Smooth as eggnog but cleaner, with the bourbon right out front where Pam wants it.* Creamy and dessert-leaning, yet unmistakably a whiskey drink — the ideal both-of-them pour.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "whiskey",
+      "family": "punch",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Rocks",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "creamy",
+        "dessert",
+        "boozy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz bourbon",
+            "2 oz milk",
+            "1 oz heavy cream",
+            "½ oz simple syrup",
+            "½ tsp vanilla extract",
+            "Ice",
+            "Grated nutmeg, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Shake the bourbon, milk, cream, simple syrup, and vanilla with ice until cold and frothy.",
+            "Strain over fresh ice into a rocks glass.",
+            "Grate fresh nutmeg over the top."
+          ]
+        }
+      ],
+      "tips": [
+        "New Orleans serves it brunch-cold and frothy — shake hard with plenty of ice.",
+        "Whole milk plus a little cream is the right body; all cream is too heavy, all milk too thin.",
+        "A good vanilla (or a split bean) makes it taste like melted ice cream.",
+        "Pam's pour — the bourbon stays front and center, so don't be shy with it."
+      ],
+      "extras": [
+        {
+          "label": "Make it frozen",
+          "note": "Blend with vanilla ice cream for a boozy bourbon shake."
+        },
+        {
+          "label": "Brandy version",
+          "note": "Swap brandy for the bourbon for the classic French-Quarter brandy milk punch."
+        },
+        {
+          "label": "Batch for two",
+          "note": "Shake doubles, or stir a pitcher and serve over ice with nutmeg."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "A French-Quarter brunch staple since the 1800s — somewhere between a White Russian and\neggnog, but lighter and built on good bourbon.",
+      "equipment": [],
+      "hero": "images/bourbon-milk-punch.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 309,
+          "protein": 2.8,
+          "carb": 10.6,
+          "fat": 12.8,
+          "satfat": 7.9,
+          "fiber": 0,
+          "sugar": 10.6,
+          "sodium": 38
+        },
+        "confidence": "high",
+        "matched": 5,
+        "considered": 5
+      }
+    },
+    {
+      "title": "Brandy Alexander",
+      "slug": "brandy-alexander",
+      "kind": "drink",
+      "tagline": "Cognac, crème de cacao, and cream shaken silky and capped with fresh nutmeg.",
+      "pitch": "The elegant grown-up dessert drink — cognac, crème de cacao, and cream shaken cold and capped with nutmeg. *Chocolatey and plush up front, but the cognac gives it a warm, boozy backbone Pam will appreciate.* It fills a real gap (you have zero brandy drinks) and threads the needle perfectly between creamy and spirit-forward.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "brandy",
+      "family": "dessert",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Coupe",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "creamy",
+        "dessert",
+        "boozy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1½ oz cognac",
+            "1 oz creme de cacao",
+            "1 oz heavy cream",
+            "Ice",
+            "Grated nutmeg, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Shake the cognac, crème de cacao, and cream with ice until cold and frothy.",
+            "Double-strain into a chilled coupe.",
+            "Grate fresh nutmeg over the top."
+          ]
+        }
+      ],
+      "tips": [
+        "Shake hard to whip the cream into a silky, frothy texture.",
+        "Dark crème de cacao gives a deeper chocolate color and flavor; white keeps it paler.",
+        "Use a decent cognac — it's the backbone, and Pam will taste it.",
+        "Fresh-grated nutmeg is the finishing aroma; pre-ground won't do it justice."
+      ],
+      "extras": [
+        {
+          "label": "Make it an after-dinner",
+          "note": "A shot of espresso pushes it toward an Alexander-meets-espresso-martini."
+        },
+        {
+          "label": "Lighter swap",
+          "note": "Half-and-half in place of the cream for a slightly less rich version."
+        },
+        {
+          "label": "Garnish up",
+          "note": "A few fine chocolate shavings alongside the nutmeg."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "A 1920s classic and John Lennon's drink of choice — chocolate and cream with a cognac spine.\nEqual cream and cacao, a little more brandy, shaken cold.",
+      "equipment": [],
+      "hero": "images/brandy-alexander.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 305,
+          "protein": 0.8,
+          "carb": 13.6,
+          "fat": 10.8,
+          "satfat": 6.8,
+          "fiber": 0,
+          "sugar": 13.1,
+          "sodium": 12
+        },
+        "confidence": "high",
+        "matched": 3,
+        "considered": 3
+      }
+    },
+    {
       "title": "Brown Sugar Banana Daiquiri",
       "slug": "brown-sugar-banana-daiquiri",
       "kind": "drink",
@@ -6273,6 +8917,97 @@
       }
     },
     {
+      "title": "Classic Old Fashioned",
+      "slug": "old-fashioned",
+      "kind": "drink",
+      "tagline": "Bourbon stirred down with sugar, bitters, and a flamed orange peel — the original cocktail.",
+      "pitch": "Your bar has no whiskey at all — this is the foundation stone to fix that. Good bourbon (or rye) stirred down with a little sugar, a few dashes of Angostura, and an expressed orange peel until it's cold, silky, and spirit-forward. *It's the original cocktail — two ounces of good whiskey and the discipline to add almost nothing else.* It's the natural counterweight to all the bright, tropical pours on this list.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "whiskey",
+      "family": "old-fashioned",
+      "methods": [
+        "stirred"
+      ],
+      "glass": "Rocks",
+      "strength": "spirit-forward",
+      "heat": "none",
+      "tags": [
+        "boozy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz bourbon or rye",
+            "½ oz simple syrup",
+            "3 dashes Angostura bitters",
+            "Ice",
+            "Orange peel, for garnish",
+            "Cocktail cherry, for garnish (optional)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Add the simple syrup and bitters to a rocks glass.",
+            "Add a large ice cube and the bourbon, then stir 20–30 seconds to chill and dilute.",
+            "Express the orange peel over the top — squeeze the skin to spritz its oils — then drop it in. Add a cherry if you like."
+          ]
+        }
+      ],
+      "tips": [
+        "One large cube melts slower than a handful of small ones — less dilution, and a colder drink for longer.",
+        "Express the orange peel skin-side down over the glass; that spritz of citrus oil is half the aroma.",
+        "The traditional move is to muddle a sugar cube with the bitters and a splash of water instead of syrup.",
+        "Stephen's pour — rye for more spice and a drier edge; bourbon for a rounder, sweeter old fashioned."
+      ],
+      "extras": [
+        {
+          "label": "Make it smoky",
+          "note": "A few drops of mezcal, or a smoked-glass rinse, adds a campfire note."
+        },
+        {
+          "label": "From the garden",
+          "note": "A sprig of expressed thyme or rosemary over the top is a nice seasonal touch."
+        },
+        {
+          "label": "Batch for two",
+          "note": "Double everything, stir with ice, and split over two large cubes."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "The drink that defined the word \"cocktail\" — spirit, sugar, water, bitters. Everything since\nis a variation on it.",
+      "equipment": [],
+      "hero": "images/old-fashioned.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 169,
+          "protein": 0,
+          "carb": 6.9,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0,
+          "sugar": 6.5,
+          "sodium": 0
+        },
+        "confidence": "high",
+        "matched": 3,
+        "considered": 3
+      }
+    },
+    {
       "title": "Coconut Cream Martini",
       "slug": "coconut-cream-martini",
       "kind": "drink",
@@ -6457,6 +9192,102 @@
       }
     },
     {
+      "title": "Dirty Banana",
+      "slug": "dirty-banana",
+      "kind": "drink",
+      "tagline": "Ripe banana, coffee liqueur, rum, and cream blended into a thick frozen shake.",
+      "pitch": "A frozen Caribbean blender drink: ripe banana, coffee liqueur, rum, cream, and a little chocolate whirled into a thick, sippable shake. *Banana bread meets espresso meets beach — it drinks like the brown-sugar banana daiquiri's dessert cousin.* Frozen, creamy, and exactly the indulgent-but-fun lane Lauren loves.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "rum",
+      "family": "frozen",
+      "methods": [
+        "blended"
+      ],
+      "glass": "Hurricane",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "creamy",
+        "dessert",
+        "tropical"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1 oz dark rum",
+            "1 oz coffee liqueur",
+            "½ banana",
+            "1 oz heavy cream",
+            "½ oz chocolate syrup",
+            "1 cup ice",
+            "Whipped cream, for garnish",
+            "Banana slice, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Add the rum, coffee liqueur, banana, cream, chocolate syrup, and ice to a blender.",
+            "Blend until thick and smooth.",
+            "Pour into a hurricane glass.",
+            "Top with whipped cream and a banana slice."
+          ]
+        }
+      ],
+      "tips": [
+        "A very ripe, spotty banana blends sweeter and smoother — freeze the chunks first for an even thicker shake.",
+        "Drizzle chocolate syrup inside the glass before pouring for a pretty swirl.",
+        "Balance the sweetness with a slightly bitter coffee liqueur (Mr Black) if you have it.",
+        "Lauren's pour — a little more chocolate; Pam's — bump the rum to 1.5 oz."
+      ],
+      "extras": [
+        {
+          "label": "Make it boozier",
+          "note": "A float of dark rum, or a shot of espresso, turns it into a banana mudslide."
+        },
+        {
+          "label": "Lighter swap",
+          "note": "Use milk instead of cream for a thinner, less rich shake."
+        },
+        {
+          "label": "Batch for two",
+          "note": "Double everything and blend — it's a natural crowd-pleaser."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "A Jamaican beach-bar staple — frozen, boozy, and basically a banana milkshake for grown-ups.\nThe coffee liqueur keeps all that sweetness in check.",
+      "equipment": [],
+      "hero": "images/dirty-banana.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 368,
+          "protein": 1.9,
+          "carb": 41.3,
+          "fat": 11.3,
+          "satfat": 6.9,
+          "fiber": 2.1,
+          "sugar": 31.3,
+          "sodium": 29
+        },
+        "confidence": "high",
+        "matched": 6,
+        "considered": 6
+      }
+    },
+    {
       "title": "Espresso Martini",
       "slug": "espresso-martini",
       "kind": "drink",
@@ -6552,6 +9383,99 @@
       }
     },
     {
+      "title": "French 75",
+      "slug": "french-75",
+      "kind": "drink",
+      "tagline": "Gin and fresh lemon shaken cold, topped with Champagne — bright, dry, and celebratory.",
+      "pitch": "You have no sparkling cocktail, and this is the most elegant one there is. Gin and fresh lemon shaken cold, then topped with Champagne in a flute so it arrives bright, dry, and celebratory with a citrus spine. *It drinks like a lemon drop that put on a tuxedo.* Perfect for an anniversary or New Year's, and it finally gives gin a real showcase beyond the Singapore Sling.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "gin",
+      "family": "fizz",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Flute",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "citrusy",
+        "refreshing",
+        "boozy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1 oz gin",
+            "½ oz lemon juice",
+            "½ oz simple syrup",
+            "3 oz Champagne",
+            "Ice",
+            "Lemon twist, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Shake the gin, lemon juice, and simple syrup with ice until cold.",
+            "Strain into a chilled Champagne flute.",
+            "Top slowly with Champagne and garnish with a lemon twist."
+          ]
+        }
+      ],
+      "tips": [
+        "Chill the flute first — bubbles and warmth are enemies.",
+        "Top with the Champagne slowly so it doesn't foam over the rim.",
+        "Keep it brut; the simple syrup already brings the sweetness.",
+        "For Stephen's drier take, drop the syrup to ¼ oz."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A lemon-thyme sprig, or a few muddled raspberries for a French 75 \"royale.\""
+        },
+        {
+          "label": "Make it a Cognac 75",
+          "note": "Swap cognac for the gin for a richer, warmer version — the original recipe debate."
+        },
+        {
+          "label": "Batch for two",
+          "note": "Shake doubles of the gin, lemon, and syrup, split into two flutes, and top each with Champagne."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "Named for a French field gun for the kick it delivers — gin and Champagne, sharpened with\nlemon. The most festive thing on the list.",
+      "equipment": [],
+      "hero": "images/french-75.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 165,
+          "protein": 0.1,
+          "carb": 10.8,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.1,
+          "sugar": 8.1,
+          "sodium": 3
+        },
+        "confidence": "high",
+        "matched": 4,
+        "considered": 4
+      }
+    },
+    {
       "title": "French Martini",
       "slug": "french-martini",
       "kind": "drink",
@@ -6628,6 +9552,190 @@
           "fiber": 4.9,
           "sugar": 13.3,
           "sodium": 3
+        },
+        "confidence": "high",
+        "matched": 4,
+        "considered": 4
+      }
+    },
+    {
+      "title": "Grasshopper",
+      "slug": "grasshopper",
+      "kind": "drink",
+      "tagline": "Crème de menthe, crème de cacao, and cream shaken into a pale-green after-dinner dream.",
+      "pitch": "A mint-chocolate milkshake in a coupe — crème de menthe, crème de cacao, and cream shaken into a pale-green, after-dinner classic. *It tastes exactly like a Thin Mint, and you can muddle garden mint in for a fresh lift.* Pure dessert, low-key boozy, and a retro charmer your bar doesn't have.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "liqueur",
+      "family": "dessert",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Coupe",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "creamy",
+        "dessert"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1 oz creme de menthe",
+            "1 oz creme de cacao",
+            "1 oz heavy cream",
+            "Ice",
+            "Mint sprig, for garnish",
+            "Chocolate shavings, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Shake the crème de menthe, crème de cacao, and cream with ice until cold and frothy.",
+            "Double-strain into a chilled coupe.",
+            "Garnish with a mint sprig and chocolate shavings."
+          ]
+        }
+      ],
+      "tips": [
+        "Equal parts is the classic build — green crème de menthe for color, white crème de cacao so it stays minty-pale.",
+        "Shake hard and long; you want it frothy and milkshake-cold.",
+        "For a richer version, blend it with a scoop of vanilla ice cream instead of the cream.",
+        "A slapped sprig of garden mint over the top freshens the whole thing."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A slapped mint sprig (and a candy-cane rim at the holidays)."
+        },
+        {
+          "label": "Make it frozen",
+          "note": "Blend with vanilla ice cream for a grasshopper milkshake."
+        },
+        {
+          "label": "Boozy for Pam",
+          "note": "Add ½ oz vodka, or a float of crème de menthe, for more punch."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "A New Orleans classic from the 1910s — and the original mint-chocolate dessert in a glass.\nEqual parts, shaken cold, and don't skip the chocolate on top.",
+      "equipment": [],
+      "hero": "images/grasshopper.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 296,
+          "protein": 0.8,
+          "carb": 26.8,
+          "fat": 10.8,
+          "satfat": 6.8,
+          "fiber": 0,
+          "sugar": 26.8,
+          "sodium": 13
+        },
+        "confidence": "high",
+        "matched": 3,
+        "considered": 3
+      }
+    },
+    {
+      "title": "Irish Coffee",
+      "slug": "irish-coffee",
+      "kind": "drink",
+      "tagline": "Hot coffee, Irish whiskey, and brown sugar under a thick float of lightly whipped cream.",
+      "pitch": "The only warm drink on the whole menu, and a perfect after-dinner one: hot coffee, Irish whiskey, brown sugar, and a thick float of lightly whipped cream you sip the coffee through. *That cool cream against the hot, boozy coffee is one of the great cocktail textures.* Cozy, creamy, and spirit-forward — built for a cold night with Pam.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "whiskey",
+      "family": "dessert",
+      "methods": [
+        "built"
+      ],
+      "glass": "Irish Coffee Mug",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "creamy",
+        "dessert",
+        "boozy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1½ oz Irish whiskey",
+            "4 oz hot brewed coffee",
+            "1 tsp brown sugar",
+            "1 oz heavy cream, lightly whipped"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Warm a glass mug with hot water, then empty it.",
+            "Add the brown sugar and hot coffee and stir to dissolve.",
+            "Stir in the Irish whiskey.",
+            "Float the lightly whipped cream over the back of a spoon so it sits on top — then sip the hot coffee through the cool cream."
+          ]
+        }
+      ],
+      "tips": [
+        "Warm the mug first so the drink stays hot to the last sip.",
+        "Whip the cream only to a loose, just-pourable float — too stiff and it sits like a lid, too loose and it sinks.",
+        "Don't stir after the cream goes on; the whole point is hot coffee pulled through cool cream.",
+        "Pam's pour — a second measure of whiskey makes it a proper nightcap."
+      ],
+      "extras": [
+        {
+          "label": "Garnish up",
+          "note": "A little grated nutmeg or cinnamon over the cream."
+        },
+        {
+          "label": "Make it a treat",
+          "note": "Serve with a square of dark chocolate, or shave some over the cream."
+        },
+        {
+          "label": "Decaf version",
+          "note": "Use decaf so an after-dinner Irish coffee won't keep you up."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "Invented at Foynes airport in 1940s Ireland to warm cold travelers — and still the\nbenchmark for a hot boozy coffee. The cool cream float is everything.",
+      "equipment": [],
+      "hero": "images/irish-coffee.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 227,
+          "protein": 1.2,
+          "carb": 5.3,
+          "fat": 10.8,
+          "satfat": 6.8,
+          "fiber": 0,
+          "sugar": 5.3,
+          "sodium": 16
         },
         "confidence": "high",
         "matched": 4,
@@ -6721,6 +9829,196 @@
       }
     },
     {
+      "title": "Mojito",
+      "slug": "mojito",
+      "kind": "drink",
+      "tagline": "White rum, muddled garden mint, lime, and soda over crushed ice — the great refresher.",
+      "pitch": "You grow mint, you love rum, and you somehow don't have a mojito — that's a gap begging to be closed. White rum, muddled garden mint, lime, sugar, and soda over crushed ice: the most refreshing long drink in the canon. *Gently bruise the mint, don't shred it — you want the perfume, not the bitterness.* It uses your garden directly and is the easiest crowd-pleaser to batch for a party.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "rum",
+      "family": "highball",
+      "methods": [
+        "muddled",
+        "built"
+      ],
+      "glass": "Highball",
+      "strength": "sessionable",
+      "heat": "none",
+      "tags": [
+        "refreshing",
+        "herbal",
+        "citrusy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz white rum",
+            "1 oz lime juice",
+            "¾ oz simple syrup",
+            "10 mint leaves",
+            "2 oz club soda",
+            "Ice",
+            "Mint sprig, for garnish",
+            "Lime wheel, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Gently muddle the mint leaves with the simple syrup in the bottom of a highball glass — press, don't shred.",
+            "Add the lime juice and rum, then fill the glass with crushed ice.",
+            "Top with club soda and stir up from the bottom to lift the mint.",
+            "Garnish with a mint sprig and a lime wheel."
+          ]
+        }
+      ],
+      "tips": [
+        "Bruise the mint, don't pulverize it — you want the perfume, not the bitter chlorophyll.",
+        "Slap the garnish sprig between your palms before adding; it releases the aroma without shredding.",
+        "Crushed ice keeps it frosty and dilutes just enough as you sip.",
+        "Stephen's version — muddle a slice of jalapeño with the mint for a spicy mojito."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden mint is the whole point; try a few basil leaves in the muddle too."
+        },
+        {
+          "label": "Make it fruity",
+          "note": "Muddle a few strawberries or raspberries for a berry mojito."
+        },
+        {
+          "label": "Batch for two",
+          "note": "Muddle mint and syrup in a pitcher, add the rum and lime, and top with soda over ice."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "Havana's gift to hot afternoons: rum, lime, sugar, mint, and soda. The whole trick is a\ngentle hand with the mint and plenty of ice.",
+      "equipment": [],
+      "hero": "images/mojito.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 176,
+          "protein": 0.4,
+          "carb": 12.6,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.4,
+          "sugar": 10.1,
+          "sodium": 6
+        },
+        "confidence": "high",
+        "matched": 5,
+        "considered": 5
+      }
+    },
+    {
+      "title": "Moscow Mule",
+      "slug": "moscow-mule",
+      "kind": "drink",
+      "tagline": "Vodka, fresh lime, and spicy ginger beer over ice in a frosty copper mug.",
+      "pitch": "Fills the mule gap and finally gives vodka something refreshing to do beyond martinis. Vodka, fresh lime, and sharp ginger beer over crushed ice in a frosty copper mug — bright, fizzy, and endlessly riffable. *The ginger beer does all the work; your only job is to keep it cold and lime-forward.* It slots right into your tropical-and-spicy house style with a pineapple or jalapeño twist.",
+      "serves": 1,
+      "times": {
+        "prep": 3,
+        "total": 3
+      },
+      "difficulty": "easy",
+      "base": "vodka",
+      "family": "mule",
+      "methods": [
+        "built"
+      ],
+      "glass": "Copper Mug",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "refreshing",
+        "citrusy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz vodka",
+            "½ oz lime juice",
+            "4 oz ginger beer",
+            "Ice",
+            "Lime wedge, for garnish",
+            "Mint sprig, for garnish (optional)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Fill a copper mug (or highball glass) with ice.",
+            "Add the vodka and lime juice.",
+            "Top with the ginger beer and stir gently.",
+            "Garnish with a lime wedge and a sprig of mint."
+          ]
+        }
+      ],
+      "tips": [
+        "Spicy ginger beer — not sweet ginger ale — is what makes a mule a mule; the sharper, the better.",
+        "The copper mug is tradition and keeps it frosty, but a highball glass works fine.",
+        "Squeeze the lime wedge in before dropping it; the fresh juice brightens the whole drink.",
+        "Stephen's version — muddle a few slices of jalapeño in first for a spicy mule."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Muddle garden mint or a slice of jalapeño or serrano before building."
+        },
+        {
+          "label": "Make it tropical",
+          "note": "Add a splash of pineapple juice for an island-leaning mule."
+        },
+        {
+          "label": "Batch for two",
+          "note": "Double the vodka and lime, split over two mugs, and top each with ginger beer."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "Born in 1940s Hollywood to sell ginger beer and vodka, and still one of the most refreshing\nlong drinks going. The copper mug is half the fun.",
+      "equipment": [],
+      "hero": "images/moscow-mule.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 176,
+          "protein": 0.1,
+          "carb": 12.5,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.1,
+          "sugar": 11.4,
+          "sodium": 8
+        },
+        "confidence": "high",
+        "matched": 3,
+        "considered": 3
+      }
+    },
+    {
       "title": "Mudslide",
       "slug": "mudslide",
       "kind": "drink",
@@ -6806,6 +10104,293 @@
         "confidence": "high",
         "matched": 4,
         "considered": 4
+      }
+    },
+    {
+      "title": "Non-Alcoholic Spiced Pineapple-Ginger Cooler",
+      "slug": "na-spiced-pineapple-ginger-cooler",
+      "kind": "drink",
+      "tagline": "Pineapple and lime shaken with ginger and honey, topped with soda over a Tajín rim.",
+      "pitch": "You have no zero-proof option, and this one is unmistakably yours — tropical, a little spicy, garden-bright. Fresh pineapple and lime shaken with ginger and a touch of honey, topped with soda and finished with a Tajín rim, echoing your spicy pineapple margarita without the tequila. *It proves a no-proof drink can have real backbone — heat, acid, and fruit doing all the work the booze usually does.* Great for a designated driver, a dry night, or just an afternoon cooler that still feels like a cocktail.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "non-alcoholic",
+      "family": "highball",
+      "methods": [
+        "shaken",
+        "built"
+      ],
+      "glass": "Highball",
+      "strength": "sessionable",
+      "heat": "mild",
+      "tags": [
+        "tropical",
+        "refreshing",
+        "spicy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "3 oz pineapple juice",
+            "½ oz lime juice",
+            "½ oz honey syrup",
+            "½ oz ginger syrup",
+            "3 oz club soda",
+            "Ice",
+            "Tajín, for the rim",
+            "Pineapple wedge, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Rim a highball glass with Tajín — run a lime wedge around the rim and dip it in the Tajín — then fill with ice.",
+            "Shake the pineapple juice, lime juice, honey syrup, and ginger syrup with ice until cold.",
+            "Strain into the glass and top with club soda.",
+            "Garnish with a pineapple wedge."
+          ]
+        }
+      ],
+      "tips": [
+        "The Tajín rim does the heavy lifting — it brings the chili-salt-lime kick that usually comes from tequila.",
+        "Fresh ginger syrup (simmer sliced ginger with sugar and water) gives real warmth; bottled works in a pinch.",
+        "Shake the juices first for a frothy top, then top gently with soda so it stays lively.",
+        "Make it boozy — 1.5 oz blanco tequila or white rum turns it into a spicy pineapple cocktail."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Muddle a slice of jalapeño or serrano for real heat, and finish with a mint sprig."
+        },
+        {
+          "label": "Make it longer",
+          "note": "Top with extra soda for a lighter, more sessionable cooler."
+        },
+        {
+          "label": "Batch for two",
+          "note": "Double the juices and syrups, shake, and split over ice, topping each with soda."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "Proof that \"no proof\" doesn't mean no flavor — chili, ginger, lime, and pineapple carry the\nwhole thing. The Tajín rim makes it feel like a real cocktail.",
+      "equipment": [],
+      "hero": "images/na-spiced-pineapple-ginger-cooler.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 108,
+          "protein": 0.4,
+          "carb": 27.9,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.4,
+          "sugar": 24.1,
+          "sodium": 6
+        },
+        "confidence": "high",
+        "matched": 5,
+        "considered": 5
+      }
+    },
+    {
+      "title": "Painkiller",
+      "slug": "painkiller",
+      "kind": "drink",
+      "tagline": "Dark rum, pineapple, orange, and cream of coconut, shaken and dusted with fresh nutmeg.",
+      "pitch": "The creamy tropical tiki classic that's basically engineered for Lauren — dark rum, pineapple, orange, and a generous pour of cream of coconut, shaken and dusted with fresh nutmeg. *It's a piña colada that grew up — silkier, nuttier, and dangerously easy.* It hits the coconut-and-pineapple sweet spot dead center and feels like dessert and vacation at once.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "rum",
+      "family": "tiki",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Rocks",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "tropical",
+        "creamy",
+        "fruity"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz dark rum",
+            "4 oz pineapple juice",
+            "1 oz orange juice",
+            "1 oz cream of coconut",
+            "Ice",
+            "Grated nutmeg, for garnish",
+            "Pineapple wedge, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Shake the rum, pineapple juice, orange juice, and cream of coconut with ice until cold.",
+            "Pour unstrained into a glass filled with fresh crushed ice.",
+            "Grate fresh nutmeg generously over the top.",
+            "Garnish with a pineapple wedge."
+          ]
+        }
+      ],
+      "tips": [
+        "Fresh-grated nutmeg over the top is non-negotiable — it's the aroma that defines a Painkiller.",
+        "Pusser's rum is the traditional pour, but any rich dark or aged rum works.",
+        "Use real cream of coconut (Coco López), not coconut milk, for the silky body.",
+        "Lauren's pour — a touch more cream of coconut; Stephen's — float a smoky aged rum on top."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A mint sprig gives a fresh lift against the richness."
+        },
+        {
+          "label": "Make it frozen",
+          "note": "Blend with a cup of ice for a frosty, slushy painkiller."
+        },
+        {
+          "label": "Batch for two",
+          "note": "Double everything, shake, and pour over crushed ice in two glasses."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "Born at the Soggy Dollar Bar in the British Virgin Islands — a richer, dark-rum cousin of\nthe piña colada. The nutmeg on top is what makes it unforgettable.",
+      "equipment": [],
+      "hero": "images/painkiller.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 340,
+          "protein": 1.2,
+          "carb": 38.1,
+          "fat": 6.6,
+          "satfat": 5.7,
+          "fiber": 0.5,
+          "sugar": 32.8,
+          "sodium": 6
+        },
+        "confidence": "high",
+        "matched": 4,
+        "considered": 4
+      }
+    },
+    {
+      "title": "Paloma",
+      "slug": "paloma",
+      "kind": "drink",
+      "tagline": "Blanco tequila, fresh grapefruit, lime, and a pinch of salt, topped tall with soda.",
+      "pitch": "Your only tequila drinks are both margaritas — the Paloma is the other great agave cooler, and arguably the more sessionable one. Blanco tequila, fresh grapefruit, lime, a pinch of salt, and a top of soda over ice, tall and tart and barely sweet. *Grapefruit and tequila is one of those pairings that just clicks — bitter, bright, and built for the heat.* Different glass, different family, same agave love you've already shown.",
+      "serves": 1,
+      "times": {
+        "prep": 3,
+        "total": 3
+      },
+      "difficulty": "easy",
+      "base": "tequila",
+      "family": "highball",
+      "methods": [
+        "built"
+      ],
+      "glass": "Highball",
+      "strength": "sessionable",
+      "heat": "none",
+      "tags": [
+        "citrusy",
+        "refreshing"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz blanco tequila",
+            "2 oz grapefruit juice",
+            "½ oz lime juice",
+            "½ oz simple syrup",
+            "2 oz club soda",
+            "Pinch of salt",
+            "Ice",
+            "Grapefruit wedge, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Salt the rim of a highball glass if you like, then fill it with ice.",
+            "Add the tequila, grapefruit juice, lime juice, simple syrup, and a pinch of salt.",
+            "Top with club soda and stir gently.",
+            "Garnish with a grapefruit wedge."
+          ]
+        }
+      ],
+      "tips": [
+        "The pinch of salt is the secret — it tames the grapefruit's bitterness and makes everything pop.",
+        "Classic shortcut — skip the juice and syrup and just top tequila and lime with grapefruit soda (Squirt or Jarritos).",
+        "Fresh-squeezed grapefruit juice is brighter and less sweet than bottled; ruby red is prettiest.",
+        "Stephen's version — a Tajín or chili-salt rim ties it to your spicy margarita."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A slice of muddled serrano or jalapeño for a spicy paloma."
+        },
+        {
+          "label": "Make it smoky",
+          "note": "Swap mezcal for half the tequila."
+        },
+        {
+          "label": "Batch for two",
+          "note": "Double everything in a pitcher and top with soda over ice."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "Mexico's actual favorite tequila drink — more than the margarita. Grapefruit, salt, and\nagave: bitter, bright, and endlessly drinkable.",
+      "equipment": [],
+      "hero": "images/paloma.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 181,
+          "protein": 0.5,
+          "carb": 13.6,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.1,
+          "sugar": 12.5,
+          "sodium": 4
+        },
+        "confidence": "high",
+        "matched": 5,
+        "considered": 5
       }
     },
     {
@@ -6899,6 +10484,100 @@
       }
     },
     {
+      "title": "Penicillin",
+      "slug": "penicillin",
+      "kind": "drink",
+      "tagline": "Scotch shaken with honey-ginger and lemon, crowned with a smoky Islay float.",
+      "pitch": "The modern classic that fits you perfectly — it's honey, ginger, lemon, and smoke, every flavor you already chase. Blended scotch is shaken cold with fresh lemon and honey-ginger syrup, then a float of peaty Islay whisky goes on top so the smoke hits your nose before the citrus hits your tongue. *That smoky float is the same trick that makes your mezcal margarita sing, just pointed at whiskey.* Warming, bracing, and the drink people remember from a night.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "whiskey",
+      "family": "sour",
+      "methods": [
+        "shaken"
+      ],
+      "glass": "Rocks",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "smoky",
+        "citrusy",
+        "boozy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "2 oz blended scotch",
+            "¾ oz lemon juice",
+            "¾ oz honey-ginger syrup",
+            "¼ oz Islay scotch",
+            "Ice",
+            "Candied ginger, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Shake the blended scotch, lemon juice, and honey-ginger syrup with ice until cold.",
+            "Strain over fresh ice into a rocks glass.",
+            "Float the Islay scotch on top, pouring gently over the back of a barspoon so it sits on the surface.",
+            "Garnish with a piece of candied ginger."
+          ]
+        }
+      ],
+      "tips": [
+        "The Islay float is the whole trick — pour it slowly over the back of a barspoon so it sits on top and hits your nose first.",
+        "Make honey-ginger syrup by simmering equal parts honey and water with sliced fresh ginger, then strain and cool.",
+        "Double-strain to keep stray ginger bits out of a clean-looking drink.",
+        "Use an inexpensive blended scotch for the body and save the peaty Islay for the float."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A little more fresh ginger in the syrup makes for a sharper, spicier bite."
+        },
+        {
+          "label": "Make it milder",
+          "note": "Lighten or skip the Islay float if heavy smoke isn't your thing."
+        },
+        {
+          "label": "Batch for two",
+          "note": "Shake doubles, strain over ice in two glasses, and float the Islay on each."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "Sam Ross's 2005 modern classic — and proof that smoke, honey, ginger, and citrus belong\ntogether. The peaty float is what tips it from a good sour into something unforgettable.",
+      "equipment": [],
+      "hero": "images/penicillin.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 203,
+          "protein": 0.1,
+          "carb": 12.4,
+          "fat": 0,
+          "satfat": 0,
+          "fiber": 0.1,
+          "sugar": 11.1,
+          "sodium": 0
+        },
+        "confidence": "high",
+        "matched": 4,
+        "considered": 4
+      }
+    },
+    {
       "title": "Pineapple Heatwave",
       "slug": "pineapple-heatwave",
       "kind": "drink",
@@ -6988,6 +10667,99 @@
         "confidence": "high",
         "matched": 6,
         "considered": 6
+      }
+    },
+    {
+      "title": "Salted Caramel White Russian",
+      "slug": "salted-caramel-white-russian",
+      "kind": "drink",
+      "tagline": "Vodka and coffee liqueur over ice with a salted-caramel swirl and a slow float of cream.",
+      "pitch": "A riff on a drink you already make: vodka and coffee liqueur over ice, but with a salted-caramel swirl and a float of cream, finished with flaky salt. *The pinch of salt is what tips it from sweet to crave-able.* Familiar, creamy, dessert-in-a-glass, and a five-minute upgrade on the classic.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "vodka",
+      "family": "dessert",
+      "methods": [
+        "built"
+      ],
+      "glass": "Rocks",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "creamy",
+        "dessert"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "1½ oz vodka",
+            "1 oz coffee liqueur",
+            "1 oz heavy cream",
+            "½ oz caramel sauce",
+            "Ice",
+            "Flaky salt, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Drizzle the caramel sauce inside a rocks glass and fill with ice.",
+            "Add the vodka and coffee liqueur and stir.",
+            "Float the cream slowly over the top, pouring over the back of a spoon.",
+            "Finish with a pinch of flaky salt."
+          ]
+        }
+      ],
+      "tips": [
+        "Float the cream over the back of a spoon for the classic layered look, then stir before sipping.",
+        "The pinch of flaky salt on top is what tips it from sweet to crave-able — don't skip it.",
+        "Warm the caramel slightly so it stirs in smoothly instead of clumping.",
+        "Stephen's pour — less caramel and more coffee liqueur for a drier, more bitter cup."
+      ],
+      "extras": [
+        {
+          "label": "Make it frozen",
+          "note": "Blend with a scoop of vanilla ice cream for a salted-caramel mudslide."
+        },
+        {
+          "label": "Boozy for Pam",
+          "note": "Bump the vodka and add a float of coffee liqueur."
+        },
+        {
+          "label": "Garnish up",
+          "note": "A few coffee beans or a caramel drizzle down the inside of the glass."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "The Dude's drink, dressed up — salted caramel turns the White Russian from a simple\nnightcap into a proper dessert.",
+      "equipment": [],
+      "hero": "images/salted-caramel-white-russian.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 357,
+          "protein": 1.1,
+          "carb": 29.8,
+          "fat": 12.3,
+          "satfat": 7.6,
+          "fiber": 0,
+          "sugar": 25.8,
+          "sodium": 74
+        },
+        "confidence": "high",
+        "matched": 4,
+        "considered": 4
       }
     },
     {
@@ -7267,6 +11039,98 @@
         "confidence": "high",
         "matched": 6,
         "considered": 6
+      }
+    },
+    {
+      "title": "Spiked Affogato",
+      "slug": "spiked-affogato",
+      "kind": "drink",
+      "tagline": "A scoop of vanilla ice cream drowned in hot espresso and a shot of bourbon.",
+      "pitch": "Dessert and cocktail in one glass: a scoop of vanilla ice cream drowned in hot espresso with a shot of bourbon, amaro, or coffee liqueur poured over. *It melts as you eat it, turning from dessert into a boozy coffee shake halfway down.* Endlessly customizable — keep it gentle for Lauren, pour it heavier for Pam — and genuinely creative.",
+      "serves": 1,
+      "times": {
+        "prep": 5,
+        "total": 5
+      },
+      "difficulty": "easy",
+      "base": "whiskey",
+      "family": "dessert",
+      "methods": [
+        "built"
+      ],
+      "glass": "Coupe",
+      "strength": "medium",
+      "heat": "none",
+      "tags": [
+        "creamy",
+        "dessert",
+        "boozy"
+      ],
+      "ingredients": [
+        {
+          "section": null,
+          "items": [
+            "½ cup vanilla ice cream",
+            "1 oz espresso",
+            "1 oz bourbon",
+            "Chocolate shavings, for garnish"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Add a scoop of vanilla ice cream to a chilled coupe or small glass.",
+            "Pull a hot shot of espresso.",
+            "Pour the bourbon over the ice cream, then the hot espresso.",
+            "Garnish with chocolate shavings and serve immediately with a spoon."
+          ]
+        }
+      ],
+      "tips": [
+        "Serve it the second it's built — affogato is a race between hot espresso and melting ice cream, and that's the fun.",
+        "Use a really good vanilla ice cream; it's most of the flavor.",
+        "Keep it gentle for Lauren with coffee liqueur, or pour it heavier for Pam with a full shot of bourbon or amaro.",
+        "A pinch of flaky salt or a dusting of cocoa over the top sharpens the sweetness."
+      ],
+      "extras": [
+        {
+          "label": "Amaro version",
+          "note": "Montenegro or Averna over the ice cream makes a more bitter, grown-up affogato."
+        },
+        {
+          "label": "Make it a float",
+          "note": "An extra splash of cold coffee liqueur turns it into a boozy affogato float."
+        },
+        {
+          "label": "Garnish up",
+          "note": "A few coffee beans or a mint leaf for a pretty finish."
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT bar notes",
+        "url": null
+      },
+      "created": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-06-20T00:00:00.000Z",
+      "headnote": "The Italian \"drowned\" dessert, given a pour of booze — part nightcap, part dessert, and gone\nbefore it fully melts. Pick your spirit and your sweetness.",
+      "equipment": [],
+      "hero": "images/spiked-affogato.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 210,
+          "protein": 2.4,
+          "carb": 16,
+          "fat": 7.4,
+          "satfat": 4.5,
+          "fiber": 0.4,
+          "sugar": 14,
+          "sodium": 57
+        },
+        "confidence": "high",
+        "matched": 3,
+        "considered": 3
       }
     },
     {
