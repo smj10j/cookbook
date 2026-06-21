@@ -82,17 +82,20 @@ jobs:
 
       - run: npm ci
 
-      - name: Install cwebp (compresses the ~1.8MB API output to ~70KB)
-        run: sudo apt-get update && sudo apt-get install -y webp
+      - name: Install image tools (cwebp for photos, ImageMagick for OG)
+        run: sudo apt-get update && sudo apt-get install -y webp imagemagick
 
       - name: Generate photos for recipes missing one
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: node scripts/generate-photos.mjs
 
+      - name: Generate OG link-preview images for any new photos
+        run: node scripts/og-images.mjs
+
       - name: Push a branch + PR link if any photos were generated
         run: |
-          if [ -z "$(git status --porcelain docs/images)" ]; then
+          if [ -z "$(git status --porcelain docs/images docs/og)" ]; then
             echo "No new photos — nothing to do." | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
@@ -100,8 +103,8 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git add docs/images
-          git commit -m "Add AI-generated photos for recipes missing one"
+          git add docs/images docs/og
+          git commit -m "Add AI-generated photos + OG previews for recipes missing one"
           git push origin "$branch"
           url="${{ github.server_url }}/${{ github.repository }}/compare/main...$branch?expand=1"
           {
