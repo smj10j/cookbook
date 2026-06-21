@@ -398,6 +398,8 @@
       "freshly ground black pepper",
       "ground black pepper",
       "cracked black pepper",
+      "black peppercorns",
+      "peppercorns",
       "pepper"
     ]
   },
@@ -3023,6 +3025,25 @@
       "vegetable stock"
     ]
   },
+  "beef broth": {
+    "unit": "cup",
+    "g": 240,
+    "density": 1,
+    "n": {
+      "kcal": 17,
+      "protein": 2.7,
+      "carb": 0.1,
+      "fat": 0.5,
+      "satfat": 0.2,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 890
+    },
+    "aliases": [
+      "beef stock",
+      "low-sodium beef broth"
+    ]
+  },
   "chicken broth": {
     "unit": "cup",
     "g": 240,
@@ -3343,6 +3364,24 @@
     },
     "aliases": [
       "bénédictine"
+    ]
+  },
+  "cognac": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 69,
+      "protein": 0,
+      "carb": 0.5,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.2,
+      "sodium": 0
+    },
+    "aliases": [
+      "brandy",
+      "vsop cognac"
     ]
   },
   "cherry brandy": {
