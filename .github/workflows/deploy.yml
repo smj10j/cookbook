@@ -63,13 +63,44 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
 
-  # Generate AI photos for any recipe/drink missing one, push them to a branch, and
-  # surface a one-click "open a PR" link in the run summary. We do NOT push to `main`
+  # Cheap, dependency-free pre-flight: is any recipe/drink missing its photo, or any
+  # photo its OG preview? Pure bash on the checkout — no npm ci, no apt installs — so the
+  # common "nothing's missing" case costs seconds. Mirrors generate-photos.mjs /
+  # og-images.mjs (slug == filename; _preview -> _home). Gates the expensive `photos` job.
+  photos-check:
+    runs-on: ubuntu-latest
+    outputs:
+      work: ${{ steps.check.outputs.work }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: check
+        run: |
+          work=false
+          for f in recipes/*.md drinks/*.md; do
+            [ -e "$f" ] || continue
+            [ -e "docs/images/$(basename "$f" .md).webp" ] || { work=true; break; }
+          done
+          if [ "$work" = false ]; then
+            for w in docs/images/*.webp; do
+              [ -e "$w" ] || continue
+              slug=$(basename "$w" .webp); name=$slug
+              [ "$slug" = _preview ] && name=_home
+              [ -e "docs/og/$name.jpg" ] || { work=true; break; }
+            done
+          fi
+          echo "Photos/OG generation needed: $work"
+          echo "work=$work" >> "$GITHUB_OUTPUT"
+
+  # Generate AI photos + OG previews for any recipe/drink missing one, push them to a
+  # branch, and surface a one-click "open a PR" link in the run summary. Skipped entirely
+  # when photos-check finds nothing to do (so no installs run). We do NOT push to `main`
   # (the ruleset requires a PR you approve) and we do NOT auto-create the PR (that needs
   # a repo toggle that also lets Actions approve PRs). You open + approve + merge it;
   # merging triggers a fresh deploy that attaches the new heroes. Runs independently of
   # the deploy gate — a photo hiccup never blocks publishing.
   photos:
+    needs: photos-check
+    if: needs.photos-check.outputs.work == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: write   # push the ci/photos-* branch (NOT main, which the ruleset protects)
