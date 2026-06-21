@@ -3173,7 +3173,11 @@
       "fiber": 0,
       "sugar": 0.1,
       "sodium": 1
-    }
+    },
+    "aliases": [
+      "cane vinegar",
+      "coconut vinegar"
+    ]
   },
   "white wine vinegar": {
     "unit": "tbsp",
