@@ -2704,6 +2704,28 @@
       "sodium": 3
     }
   },
+  "pita": {
+    "unit": "pita",
+    "g": 60,
+    "n": {
+      "kcal": 165,
+      "protein": 5.5,
+      "carb": 33,
+      "fat": 0.7,
+      "satfat": 0.1,
+      "fiber": 1.3,
+      "sugar": 0.8,
+      "sodium": 320
+    },
+    "aliases": [
+      "pita bread",
+      "pita breads",
+      "flatbread",
+      "flatbreads",
+      "naan"
+    ],
+    "each": 60
+  },
   "corn tortilla": {
     "unit": "tortilla",
     "g": 26,
