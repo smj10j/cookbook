@@ -121,7 +121,8 @@
     "aliases": [
       "light brown sugar",
       "dark brown sugar",
-      "packed brown sugar"
+      "packed brown sugar",
+      "palm sugar"
     ]
   },
   "honey": {
@@ -1745,7 +1746,11 @@
     },
     "aliases": [
       "tenderloin",
-      "sirloin"
+      "sirloin",
+      "flank steak",
+      "flank",
+      "skirt steak",
+      "skirt"
     ]
   },
   "new york strip steak": {
@@ -2247,6 +2252,24 @@
     "aliases": [
       "flour",
       "whole wheat flour"
+    ]
+  },
+  "toasted rice powder": {
+    "unit": "tbsp",
+    "g": 8,
+    "n": {
+      "kcal": 29,
+      "protein": 0.6,
+      "carb": 6.4,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "khao khua",
+      "roasted rice powder"
     ]
   },
   "white rice": {
