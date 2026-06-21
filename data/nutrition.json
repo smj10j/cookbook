@@ -1815,6 +1815,20 @@
       "red cherry tomatoes"
     ]
   },
+  "tomato paste": {
+    "unit": "tbsp",
+    "g": 16,
+    "n": {
+      "kcal": 13,
+      "protein": 0.7,
+      "carb": 3.1,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.7,
+      "sugar": 1.9,
+      "sodium": 98
+    }
+  },
   "canned tomatoes": {
     "unit": "can",
     "g": 411,
@@ -1834,6 +1848,85 @@
       "whole tomatoes",
       "whole peeled tomatoes",
       "diced tomatoes"
+    ]
+  },
+  "clams": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 4,
+      "protein": 0.7,
+      "carb": 0.1,
+      "fat": 0.05,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 18
+    },
+    "aliases": [
+      "clam",
+      "littleneck clams",
+      "littleneck clam",
+      "manila clams"
+    ],
+    "each": 12
+  },
+  "mussels": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 8,
+      "protein": 1.1,
+      "carb": 0.4,
+      "fat": 0.2,
+      "satfat": 0.04,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 36
+    },
+    "aliases": [
+      "mussel"
+    ],
+    "each": 12
+  },
+  "crab": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 24,
+      "protein": 5,
+      "carb": 0,
+      "fat": 0.3,
+      "satfat": 0.05,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 90
+    },
+    "aliases": [
+      "lump crab",
+      "lump crab meat",
+      "crab meat",
+      "crabmeat",
+      "dungeness crab"
+    ]
+  },
+  "calamari": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 26,
+      "protein": 4.4,
+      "carb": 0.9,
+      "fat": 0.4,
+      "satfat": 0.1,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 13
+    },
+    "aliases": [
+      "squid",
+      "calamari rings",
+      "squid rings"
     ]
   },
   "sirloin steak": {
@@ -3213,6 +3306,27 @@
     "aliases": [
       "beef stock",
       "low-sodium beef broth"
+    ]
+  },
+  "fish stock": {
+    "unit": "cup",
+    "g": 240,
+    "density": 1,
+    "n": {
+      "kcal": 40,
+      "protein": 5,
+      "carb": 0,
+      "fat": 1.5,
+      "satfat": 0.4,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 700
+    },
+    "aliases": [
+      "seafood stock",
+      "fish broth",
+      "seafood broth",
+      "clam juice"
     ]
   },
   "chicken broth": {
