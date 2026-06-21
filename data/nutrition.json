@@ -1390,6 +1390,49 @@
       "fennel bulb"
     ]
   },
+  "eggplant": {
+    "unit": "eggplant",
+    "g": 450,
+    "density": 0.4,
+    "n": {
+      "kcal": 115,
+      "protein": 4.6,
+      "carb": 27,
+      "fat": 0.8,
+      "satfat": 0.2,
+      "fiber": 14,
+      "sugar": 16,
+      "sodium": 9
+    },
+    "aliases": [
+      "eggplants",
+      "aubergine",
+      "aubergines"
+    ],
+    "each": 450
+  },
+  "roasted red pepper": {
+    "unit": "cup",
+    "g": 140,
+    "density": 1,
+    "n": {
+      "kcal": 42,
+      "protein": 1.4,
+      "carb": 9,
+      "fat": 0.3,
+      "satfat": 0,
+      "fiber": 2,
+      "sugar": 6,
+      "sodium": 300
+    },
+    "aliases": [
+      "roasted red peppers",
+      "jarred roasted red peppers",
+      "piquillo peppers",
+      "roasted red bell peppers"
+    ],
+    "each": 75
+  },
   "zucchini": {
     "unit": "cup",
     "g": 113,
