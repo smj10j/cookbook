@@ -92,18 +92,23 @@ jobs:
           echo "work=$work" >> "$GITHUB_OUTPUT"
 
   # Generate AI photos + OG previews for any recipe/drink missing one, push them to a
-  # branch, and surface a one-click "open a PR" link in the run summary. Skipped entirely
-  # when photos-check finds nothing to do (so no installs run). We do NOT push to `main`
-  # (the ruleset requires a PR you approve) and we do NOT auto-create the PR (that needs
-  # a repo toggle that also lets Actions approve PRs). You open + approve + merge it;
-  # merging triggers a fresh deploy that attaches the new heroes. Runs independently of
-  # the deploy gate — a photo hiccup never blocks publishing.
+  # branch, and open a PR with them. Skipped entirely when photos-check finds nothing to
+  # do (so no installs run). We do NOT push to `main` (the ruleset requires a PR you
+  # approve) — instead CI opens the PR for you to approve + merge; merging triggers a
+  # fresh deploy that attaches the new heroes. Runs independently of the deploy gate — a
+  # photo hiccup never blocks publishing.
+  #
+  # NOTE: opening a PR with the built-in GITHUB_TOKEN requires the repo/org setting
+  # "Allow GitHub Actions to create and approve pull requests" (Settings → Actions →
+  # General → Workflow permissions). If it's disabled, PR creation fails and we fall back
+  # to surfacing a one-click compare link in the run summary instead.
   photos:
     needs: photos-check
     if: needs.photos-check.outputs.work == 'true'
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # push the ci/photos-* branch (NOT main, which the ruleset protects)
+      contents: write        # push the ci/photos-* branch (NOT main, which the ruleset protects)
+      pull-requests: write   # open the PR for those photos
     steps:
       - uses: actions/checkout@v4
 
@@ -124,7 +129,9 @@ jobs:
       - name: Generate OG link-preview images for any new photos
         run: node scripts/og-images.mjs
 
-      - name: Push a branch + PR link if any photos were generated
+      - name: Push a branch + open a PR if any photos were generated
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ -z "$(git status --porcelain docs/images docs/og)" ]; then
             echo "No new photos — nothing to do." | tee -a "$GITHUB_STEP_SUMMARY"
@@ -137,13 +144,33 @@ jobs:
           git add docs/images docs/og
           git commit -m "Add AI-generated photos + OG previews for recipes missing one"
           git push origin "$branch"
-          url="${{ github.server_url }}/${{ github.repository }}/compare/main...$branch?expand=1"
-          {
-            echo "### 📸 New recipe photos ready for review"
-            echo ""
-            echo "CI generated photos on branch \`$branch\`. Review them, then:"
-            echo ""
-            echo "**[→ Open a PR to publish them]($url)**"
-            echo ""
-            echo "Approve + merge and the next deploy attaches them as recipe heroes."
-          } >> "$GITHUB_STEP_SUMMARY"
+
+          title="📸 Add AI-generated photos + OG previews for recipes missing one"
+          body=$'CI generated recipe photos + OG link-preview images on this branch.\n\nReview the images, then approve + merge — the next deploy attaches them as recipe heroes.\n\n_Opened automatically by the `photos` job._'
+
+          # Try to open the PR with the built-in token. This needs the repo/org setting
+          # "Allow GitHub Actions to create and approve pull requests"; if it's off, gh
+          # fails and we fall back to a one-click compare link.
+          if pr_url=$(gh pr create --base main --head "$branch" --title "$title" --body "$body" 2>pr_err); then
+            {
+              echo "### 📸 New recipe photos — PR opened"
+              echo ""
+              echo "**[→ Review the PR]($pr_url)**"
+              echo ""
+              echo "Approve + merge and the next deploy attaches them as recipe heroes."
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning::Could not auto-create the PR (is 'Allow GitHub Actions to create and approve pull requests' enabled?). Falling back to a compare link."
+            cat pr_err
+            url="${{ github.server_url }}/${{ github.repository }}/compare/main...$branch?expand=1"
+            {
+              echo "### 📸 New recipe photos ready for review"
+              echo ""
+              echo "CI generated photos on branch \`$branch\` but couldn't open the PR automatically."
+              echo "Enable **Settings → Actions → General → Allow GitHub Actions to create and approve pull requests**, or open it manually:"
+              echo ""
+              echo "**[→ Open a PR to publish them]($url)**"
+              echo ""
+              echo "Approve + merge and the next deploy attaches them as recipe heroes."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
