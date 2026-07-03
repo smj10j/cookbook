@@ -397,6 +397,7 @@
       "picnic",
       "quick",
       "refreshing",
+      "restaurant-copycat",
       "roasted",
       "salsa",
       "seafood",
@@ -1073,138 +1074,6 @@
       }
     },
     {
-      "title": "Brown Sugar Glazed Salmon with Lemon Arugula Salad",
-      "slug": "brown-sugar-glazed-salmon-arugula-salad",
-      "tagline": "Sticky brown-sugar-and-soy salmon caramelized under the broiler, over a bright peppery arugula salad.",
-      "pitch": "This is the weeknight move that eats like a restaurant plate. Salmon marinates in a quick brown-sugar, soy, garlic, and ginger glaze, bakes until just barely set, then takes ninety seconds under a screaming broiler where the sugars seize into a dark, sticky lacquer with lightly charred edges. Underneath, a cool tangle of peppery arugula, crisp cucumber, and burst-sweet tomatoes tossed in a sharp lemon-Dijon vinaigrette cuts straight through the sweet-salty richness. *The broiler is the whole trick — bake the fish gently first, then finish hot so the glaze caramelizes before the inside ever overcooks.* Sweet, savory, bright, and on the table in half an hour.",
-      "serves": 2,
-      "times": {
-        "prep": 15,
-        "cook": 15,
-        "total": 45
-      },
-      "difficulty": "easy",
-      "protein": "fish",
-      "methods": [
-        "oven",
-        "broiler"
-      ],
-      "cuisine": "American",
-      "course": "main",
-      "heat": "none",
-      "tags": [
-        "weeknight",
-        "quick",
-        "gluten-free",
-        "date-night",
-        "garden"
-      ],
-      "ingredients": [
-        {
-          "section": "Salmon & glaze",
-          "items": [
-            "2 salmon fillets (about 6 oz each), skin-on",
-            "3 tbsp brown sugar, packed",
-            "2 tbsp soy sauce",
-            "1 tbsp Dijon mustard",
-            "1 tbsp olive oil",
-            "2 cloves garlic, minced",
-            "1 tsp grated fresh ginger",
-            "1 tbsp fresh lemon juice",
-            "Salt and freshly ground black pepper"
-          ]
-        },
-        {
-          "section": "Lemon arugula salad",
-          "items": [
-            "4 cups arugula",
-            "1 cup cucumber, thinly sliced",
-            "1 cup cherry tomatoes, halved",
-            "¼ red onion, thinly sliced"
-          ]
-        },
-        {
-          "section": "Lemon-Dijon vinaigrette",
-          "items": [
-            "3 tbsp extra-virgin olive oil",
-            "1 tbsp fresh lemon juice",
-            "1 tsp Dijon mustard",
-            "1 tsp honey",
-            "Pinch of salt and pepper"
-          ]
-        }
-      ],
-      "steps": [
-        {
-          "section": "Marinate",
-          "items": [
-            "Whisk the brown sugar, soy sauce, Dijon, olive oil, garlic, ginger, and lemon juice into a glaze. Season the salmon with salt and pepper.",
-            "Pour about two-thirds of the glaze over the salmon and let it marinate 15–20 minutes at room temperature. Reserve the rest for finishing."
-          ]
-        },
-        {
-          "section": "Bake & broil",
-          "items": [
-            "Heat the oven to 400°F and line a small sheet pan with foil. Lay the salmon skin-side down and bake 8–10 minutes, until it flakes at the edges but the center is just shy of done.",
-            "Switch to high broil. Brush the fillets with the reserved glaze and broil 2–3 minutes, watching closely, until the top is dark, bubbling, and lightly charred at the edges."
-          ]
-        },
-        {
-          "section": "Salad & plate",
-          "items": [
-            "While the salmon bakes, shake or whisk the vinaigrette until emulsified. Soak the sliced red onion in ice water for 10 minutes, then drain.",
-            "Toss the arugula, cucumber, tomatoes, and onion with just enough vinaigrette to coat.",
-            "Bed each plate with the salad and lay a glazed fillet alongside. Spoon any pan glaze over the fish and finish with a squeeze of lemon."
-          ]
-        }
-      ],
-      "tips": [
-        "Broilers vary wildly — stay at the oven door and pull the fish the moment the glaze turns glossy-dark, since brown sugar goes from caramelized to burnt in seconds.",
-        "For clean, tender flakes, cook to 125–130°F at the thickest point; carryover heat finishes it to a silky medium as it rests.",
-        "Pat the fillets dry before glazing so the marinade clings and the broiler caramelizes instead of steams.",
-        "Dress the salad at the last second and only lightly — you want crisp, peppery leaves to contrast the sticky fish, not a wilted pile."
-      ],
-      "extras": [
-        {
-          "label": "From the garden",
-          "note": "Garden arugula, cucumber, and cherry tomatoes are made for this salad; a few torn basil or mint leaves in the greens play nicely off the sweet glaze."
-        },
-        {
-          "label": "Make it a sheet-pan dinner",
-          "note": "Roast broccoli or green beans on the same pan while the salmon bakes, then broil everything together for the last few minutes."
-        },
-        {
-          "label": "Pairs with",
-          "note": "A crisp, off-dry Riesling or a dry rosé — enough fruit to echo the glaze without fighting the char."
-        }
-      ],
-      "source": {
-        "name": "Adapted from Stephen's ChatGPT recipe notes",
-        "url": null
-      },
-      "created": "2026-07-03T00:00:00.000Z",
-      "updated": "2026-07-03T00:00:00.000Z",
-      "kind": "food",
-      "category": "main",
-      "headnote": "Brown sugar salmon is the archetypal fast win — a four-ingredient glaze that\ncaramelizes into something that tastes slow-cooked. The peppery lemon salad is\nthe counterweight: keep it sharp and barely dressed so it resets your palate\nbetween rich, sticky bites of fish.",
-      "equipment": [],
-      "nutrition": {
-        "perServing": {
-          "kcal": 743,
-          "protein": 38.4,
-          "carb": 35.1,
-          "fat": 51.1,
-          "satfat": 8.5,
-          "fiber": 2.8,
-          "sugar": 28.1,
-          "sodium": 1220
-        },
-        "confidence": "high",
-        "matched": 16,
-        "considered": 16
-      }
-    },
-    {
       "title": "Brown Sugar Sweet Potato Casserole",
       "slug": "sweet-potato-casserole",
       "category": "side",
@@ -1469,6 +1338,146 @@
         "confidence": "high",
         "matched": 25,
         "considered": 25
+      }
+    },
+    {
+      "title": "Cedar Plank Brown Sugar Salmon Salad with Raspberry Vinaigrette",
+      "slug": "cedar-plank-brown-sugar-salmon-salad",
+      "tagline": "Brown-sugar-and-ancho crusted salmon smoked on a cedar plank over mixed greens, orange, goat cheese, and almonds in raspberry vinaigrette.",
+      "pitch": "A love letter to the Brown Sugar Salmon Salad at Cafe Blue out in Bee Cave. Atlantic salmon gets a sweet-smoky crust of brown sugar and ancho chile, then roasts skin-side down on a soaked cedar plank until the sugars set into a burnished bark and the wood breathes gentle smoke up into the fish. It lands warm over a big cool tangle of mixed greens, shredded red cabbage and carrot, cucumber, and cherry tomatoes, finished with fresh orange segments, toasted almonds, and crumbled goat cheese. A bright raspberry vinaigrette ties the sweet crust to the tart-creamy toppings. *The cedar plank is the secret — it perfumes the salmon with campfire smoke while shielding it from direct flame, so the crust caramelizes without ever scorching.*",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 15,
+        "total": 95
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "grill"
+      ],
+      "cuisine": "American",
+      "course": "salad",
+      "heat": "mild",
+      "equipment": [
+        "grill",
+        "cedar grilling plank"
+      ],
+      "tags": [
+        "restaurant-copycat",
+        "summer",
+        "gluten-free",
+        "date-night",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Salmon & brown sugar-ancho crust",
+          "items": [
+            "2 salmon fillets (about 6 oz each), skin-on",
+            "2 tbsp brown sugar, packed",
+            "2 tsp ancho chile powder",
+            "1 tsp kosher salt",
+            "½ tsp smoked paprika",
+            "¼ tsp freshly ground black pepper",
+            "1 tbsp olive oil",
+            "1 cedar grilling plank, soaked 1–2 hours"
+          ]
+        },
+        {
+          "section": "Salad",
+          "items": [
+            "5 cups mixed greens",
+            "1 cup shredded red cabbage",
+            "½ cup shredded carrots",
+            "1 cup cucumber, sliced",
+            "1 cup cherry tomatoes, halved",
+            "1 orange, segmented",
+            "⅓ cup sliced almonds, toasted",
+            "¼ cup crumbled goat cheese"
+          ]
+        },
+        {
+          "section": "Raspberry vinaigrette",
+          "items": [
+            "¼ cup extra-virgin olive oil",
+            "2 tbsp raspberry preserves",
+            "2 tbsp red wine vinegar",
+            "1 tsp Dijon mustard",
+            "1 tsp honey",
+            "Pinch of salt and pepper"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Submerge the cedar plank in water and weight it down so it stays under; soak at least 1 hour (2 is better). This keeps it from catching fire and lets it steam-smoke the fish.",
+            "Toast the sliced almonds in a dry skillet over medium heat until golden and fragrant, about 3–4 minutes; set aside. Cut the orange into segments over a bowl to catch the juice.",
+            "Mix the brown sugar, ancho chile powder, salt, smoked paprika, and pepper. Pat the salmon dry, rub lightly with olive oil, and press the crust evenly onto the flesh side."
+          ]
+        },
+        {
+          "section": "Cedar plank grill",
+          "items": [
+            "Heat the grill to medium (~375–400°F). Set the soaked plank on the grate and close the lid for 3–4 minutes until it crackles and just starts to smoke.",
+            "Lay the salmon skin-side down on the hot plank, close the lid, and grill 12–15 minutes without flipping, until the crust is glossy and the thickest part reads 125–130°F.",
+            "Let the salmon rest on the plank a couple of minutes; carryover heat finishes it to a silky medium."
+          ]
+        },
+        {
+          "section": "Salad & plate",
+          "items": [
+            "Shake or whisk the vinaigrette (add a splash of the reserved orange juice) until emulsified.",
+            "Toss the greens, red cabbage, carrot, cucumber, and tomatoes with just enough vinaigrette to coat, then divide between two plates.",
+            "Scatter the orange segments, toasted almonds, and goat cheese over the greens. Lay a salmon fillet on each and drizzle with a little more vinaigrette."
+          ]
+        }
+      ],
+      "tips": [
+        "Ancho chile is smoky and mild, not hot — for real heat, swap in chipotle powder or add a pinch of cayenne to the crust.",
+        "No grill or plank? Roast the crusted salmon at 400°F on parchment for 12–14 minutes; you lose the smoke, so lean on the smoked paprika (or a single drop of liquid smoke in the crust).",
+        "Cook to 125–130°F at the thickest point and let it rest — salmon climbs a few degrees off the heat and stays moist.",
+        "No raspberry preserves? Mash ¼ cup fresh or thawed raspberries into the dressing and strain out the seeds for the same tart-sweet result."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden arugula bumps up the peppery bite in the greens, and garden cucumber and cherry tomatoes are right at home here."
+        },
+        {
+          "label": "Cafe Blue's entrée version",
+          "note": "The restaurant also plates this salmon as a main with rice pilaf and a mint-cucumber slaw under a blue crab butter sauce — an easy upgrade for a heartier night."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A dry rosé or an off-dry Riesling — enough fruit to echo the raspberry and orange without fighting the smoke."
+        }
+      ],
+      "source": {
+        "name": "Inspired by Cafe Blue, Bee Cave/Lakeway, TX (Brown Sugar Salmon Salad)",
+        "url": "https://cafebluetx.com"
+      },
+      "created": "2026-07-03T00:00:00.000Z",
+      "updated": "2026-07-03T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Stephen and Lauren's homage to a Cafe Blue favorite out on Lake Travis: the\nsweet-smoky ancho-and-brown-sugar salmon is the star, but the salad around it —\noranges, goat cheese, toasted almonds, and a raspberry vinaigrette — is what\nmakes it feel like a night out. The cedar plank does the heavy lifting on flavor.",
+      "nutrition": {
+        "perServing": {
+          "kcal": 1026,
+          "protein": 47.2,
+          "carb": 46.7,
+          "fat": 75,
+          "satfat": 13.9,
+          "fiber": 11.4,
+          "sugar": 31.2,
+          "sodium": 1249
+        },
+        "confidence": "high",
+        "matched": 20,
+        "considered": 21
       }
     },
     {

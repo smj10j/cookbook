@@ -2556,6 +2556,26 @@
       "crumbled feta"
     ]
   },
+  "goat cheese": {
+    "unit": "cup",
+    "g": 135,
+    "density": 0.56,
+    "n": {
+      "kcal": 491,
+      "protein": 29.2,
+      "carb": 3.4,
+      "fat": 40.2,
+      "satfat": 27.8,
+      "fiber": 0,
+      "sugar": 3.4,
+      "sodium": 560
+    },
+    "aliases": [
+      "crumbled goat cheese",
+      "chevre",
+      "goat cheese (chevre)"
+    ]
+  },
   "blue cheese": {
     "unit": "cup",
     "g": 135,
