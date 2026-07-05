@@ -5,7 +5,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { EATING_PLANS, evaluatePlans } from '../docs/lib.js';
+import { EATING_PLANS, evaluatePlans, buildPlanVerdicts } from '../docs/lib.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const html = readFileSync(join(root, 'docs/index.html'), 'utf8');
@@ -310,6 +310,45 @@ test('the nutrition panel carries the eating-plan fit table with linked plans', 
     assert.ok(row.querySelector('.plan-icon').textContent.trim(), 'every plan shows its icon');
     assert.match(row.querySelector('.plan-fit').textContent, /Great fit|Okay|Poor fit/);
   }
+});
+
+test('the Good-for filter cycles off → friendly → great-only → off and badges cards', async () => {
+  const { $, $$, app } = await boot();
+  const verdicts = buildPlanVerdicts(foodRecipes);
+  const chip = $$('.chip').find((c) => c.dataset.key === 'plan' && c.dataset.val === 'kidney');
+  assert.ok(chip, 'a Good-for chip renders for the kidney plan');
+  const all = $$('.card').length;
+
+  chip.click();                                        // tap 1: great + okay
+  const friendly = foodRecipes.filter((r) => verdicts.get(r.slug).kidney !== 'avoid').length;
+  assert.equal($$('.card').length, friendly, 'poor fits are hidden');
+  assert.equal(chip.getAttribute('aria-pressed'), 'true');
+  assert.ok($$('.tag-plan').length > 0, 'visible cards carry the contextual verdict badge');
+
+  chip.click();                                        // tap 2: great only
+  const great = foodRecipes.filter((r) => verdicts.get(r.slug).kidney === 'optimal').length;
+  assert.equal($$('.card').length, great, 'strict mode keeps only great fits');
+  assert.ok(chip.classList.contains('is-strict'));
+  assert.ok($$('.tag-plan.is-great').length > 0, 'badges show the ✓ tier');
+
+  chip.click();                                        // tap 3: off
+  assert.equal($$('.card').length, all, 'third tap clears the plan filter');
+  assert.equal(chip.getAttribute('aria-pressed'), 'false');
+  assert.ok(!chip.classList.contains('is-strict'));
+  assert.equal($$('.tag-plan').length, 0, 'badges vanish when no plan filter is active');
+  assert.equal(app.state.filters.plan.size, 0);
+});
+
+test('plan filters AND together across two selected plans', async () => {
+  const { $$ } = await boot();
+  const verdicts = buildPlanVerdicts(foodRecipes);
+  $$('.chip').find((c) => c.dataset.key === 'plan' && c.dataset.val === 'kidney').click();
+  $$('.chip').find((c) => c.dataset.key === 'plan' && c.dataset.val === 'heart').click();
+  const expected = foodRecipes.filter((r) => {
+    const v = verdicts.get(r.slug);
+    return v.kidney !== 'avoid' && v.heart !== 'avoid';
+  }).length;
+  assert.equal($$('.card').length, expected, 'both plans must fit (AND, not OR)');
 });
 
 test('a plan-unfriendly recipe shows red-ringed icons in the nutrition flag column', async () => {

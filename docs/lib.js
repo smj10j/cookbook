@@ -281,8 +281,17 @@ export function bucketMatch(total, bucket) {
   return total > lo && total <= hi;
 }
 
-// filters: { category, protein, course, methods, heat, cuisine, time } each a Set.
-export function recipeMatches(r, { q, filters, cuisineGroups = {}, timeBuckets = [] }) {
+// filters: { category, protein, course, methods, heat, cuisine, time } each a Set,
+// plus `plan` — a Map of plan id -> 'ok' (great + okay) | 'great' (great fits only).
+// Plan selections AND together ("kidney AND heart friendly"), unlike the OR-within-
+// group behavior of the other facets — that's the useful health question.
+export function recipeMatches(r, { q, filters, cuisineGroups = {}, timeBuckets = [], planVerdicts = null }) {
+  if (filters.plan?.size) {
+    for (const [id, mode] of filters.plan) {
+      const v = planVerdicts?.get(r.slug)?.[id];
+      if (!v || v === 'avoid' || (mode === 'great' && v !== 'optimal')) return false;
+    }
+  }
   // Food facets
   if (filters.category?.size && !filters.category.has(r.category)) return false;
   if (filters.protein?.size && !filters.protein.has(r.protein)) return false;
@@ -379,7 +388,7 @@ export function hasNutrition(r) {
 // caveat) and it appears in every plan-fit table + flag column automatically.
 export const EATING_PLANS = [
   { // NHLBI DASH trials: sodium 2300 standard / 1500 strict, sat fat 6% kcal, sweets ≤5/wk, fiber 30 g/day
-    id: 'dash', name: 'DASH', icon: '🩺',
+    id: 'dash', name: 'DASH', short: 'DASH', icon: '🩺',
     url: 'https://www.nhlbi.nih.gov/education/dash-eating-plan',
     focus: 'Blood pressure (hypertension)',
     caveat: 'NIH-trial pattern — sodium is the headline; the stricter 1,500 mg/day tier sets the ideal.',
@@ -387,14 +396,14 @@ export const EATING_PLANS = [
     goals: [{ key: 'fiber', min: 6 }],
   },
   { // Rush/NIA MIND score: butter/cheese/fried-food + sweets limits proxied via sat fat & sugars
-    id: 'mind', name: 'MIND', icon: '🧠',
+    id: 'mind', name: 'MIND', short: 'MIND', icon: '🧠',
     url: 'https://www.nia.nih.gov/news/mind-and-mediterranean-diets-linked-fewer-signs-alzheimers-brain-pathology',
     focus: 'Brain health & memory',
     caveat: 'Food-pattern score (leafy greens, berries, olive oil) — sat fat & sweets limits are the computable proxy.',
     limits: [{ key: 'satfat', optimal: 4.5, ok: 9 }, { key: 'sugar', optimal: 8, ok: 20 }],
   },
   { // PREDIMED-style pattern: olive-oil-forward, so total fat is NOT restricted; sat fat ~7–10% kcal
-    id: 'mediterranean', name: 'Mediterranean', icon: '🫒',
+    id: 'mediterranean', name: 'Mediterranean', short: 'Med', icon: '🫒',
     url: 'https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/nutrition-basics/mediterranean-diet',
     focus: 'Heart health & longevity',
     caveat: 'Food-pattern diet — favors olive oil over butter; total fat is deliberately not restricted.',
@@ -402,7 +411,7 @@ export const EATING_PLANS = [
     goals: [{ key: 'fiber', min: 5 }],
   },
   { // NHLBI/ATP III TLC: sat fat <7% kcal (~15 g/day), sodium ≤2,300 mg/day
-    id: 'tlc', name: 'TLC', icon: '📉',
+    id: 'tlc', name: 'TLC', short: 'TLC', icon: '📉',
     url: 'https://www.nhlbi.nih.gov/health/TLC-Therapeutic-Lifestyle-Changes-Lower-Cholesterol',
     focus: 'Lowering LDL cholesterol',
     caveat: 'Sat fat is the defining limit (<7% of calories); dietary cholesterol is not tracked here.',
@@ -410,14 +419,14 @@ export const EATING_PLANS = [
     goals: [{ key: 'fiber', min: 5 }],
   },
   { // AHA: optimal tier = published Heart-Check per-serving recipe limits for a main dish
-    id: 'heart', name: 'AHA Heart-Healthy', icon: '❤️',
+    id: 'heart', name: 'AHA Heart-Healthy', short: 'Heart', icon: '❤️',
     url: 'https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/nutrition-basics/aha-diet-and-lifestyle-recommendations',
     focus: 'Heart disease & stroke prevention',
     caveat: 'Ideal tier follows AHA Heart-Check per-serving recipe limits (≤600 mg sodium, ≤3.5 g sat fat).',
     limits: [{ key: 'sodium', optimal: 600, ok: 920 }, { key: 'satfat', optimal: 3.5, ok: 9 }, { key: 'sugar', optimal: 8, ok: 14 }],
   },
   { // ADA carb counting: 45–60 g carbs/meal typical, 30–45 g tighter; sodium <2,300 mg/day; fiber 14 g/1,000 kcal
-    id: 'diabetes', name: 'Diabetes Plate', icon: '🩸',
+    id: 'diabetes', name: 'Diabetes Plate', short: 'Diabetes', icon: '🩸',
     url: 'https://diabetes.org/food-nutrition/eating-healthy',
     focus: 'Blood sugar (diabetes & prediabetes)',
     caveat: 'Uses ADA carb-counting bands: 45–60 g carbs per meal, 30–45 g for tighter control.',
@@ -425,28 +434,28 @@ export const EATING_PLANS = [
     goals: [{ key: 'fiber', min: 6 }],
   },
   { // NKF/KDOQI 2020, stages 3–4 non-dialysis: protein 0.55–0.8 g/kg/day (~75 kg adult), sodium <2,300 mg/day
-    id: 'kidney', name: 'Kidney-Friendly', icon: '🫘',
+    id: 'kidney', name: 'Kidney-Friendly', short: 'Kidney', icon: '🫘',
     url: 'https://www.kidney.org/kidney-topics/nutrition-and-kidney-disease-stages-1-5-not-dialysis',
     focus: 'Chronic kidney disease (stages 3–4)',
     caveat: 'Also watch potassium & phosphorus — not tracked here. Protein share assumes a ~75 kg adult; CKD diets are individualized.',
     limits: [{ key: 'protein', optimal: 15, ok: 24 }, { key: 'sodium', optimal: 500, ok: 920 }],
   },
   { // ADA consensus tiers: very-low-carb <26% kcal (~20–50 g/day net); low-carb ~130 g/day
-    id: 'lowcarb', name: 'Low-Carb', icon: '🥑',
+    id: 'lowcarb', name: 'Low-Carb', short: 'Low-Carb', icon: '🥑',
     url: 'https://diabetesfoodhub.org/blog/all-about-low-carb-and-very-low-carb-eating-patterns',
     focus: 'Carb reduction (blood sugar & weight)',
     caveat: 'Ideal ≈ a very-low-carb (keto) meal share; okay ≈ a low-carb (130 g/day) share.',
     limits: [{ key: 'carb', optimal: 15, ok: 45 }],
   },
   { // AHA added-sugar budget: ≤25 g/day women, ≤36 g/day men — compared against TOTAL sugars
-    id: 'lowsugar', name: 'Low Added Sugar', icon: '🍬',
+    id: 'lowsugar', name: 'Low Added Sugar', short: 'Low Sugar', icon: '🍬',
     url: 'https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/how-much-sugar-is-too-much',
     focus: 'Metabolic health & weight',
     caveat: 'Compares total sugars against an added-sugar budget — fruit-forward dishes can over-flag.',
     limits: [{ key: 'sugar', optimal: 8, ok: 14 }],
   },
   { // CDC/NIH weight management on a 2,000-kcal reference day; protein goal = satiety
-    id: 'balance', name: 'Calorie-Smart', icon: '⚖️',
+    id: 'balance', name: 'Calorie-Smart', short: 'Cal-Smart', icon: '⚖️',
     url: 'https://www.cdc.gov/healthy-weight-growth/about/tips-for-balancing-food-activity.html',
     focus: 'Weight management',
     caveat: 'Assumes a 2,000-calorie reference day with dinner as its biggest meal.',
@@ -496,8 +505,27 @@ export function evaluatePlans(r, plans = EATING_PLANS) {
       e.alcohol = true;
       if (e.verdict === 'optimal') e.verdict = 'ok';
     }
+    // A documented planSwaps variant (build-computed nutrition) may lift the
+    // verdict — surface it only when it genuinely improves the tier.
+    const swappedPer = r.nutrition.withSwaps?.[p.id];
+    if (swappedPer) {
+      const s = evaluatePlan(swappedPer, p, { judgeGoals });
+      if (alcoholic && s.verdict === 'optimal') s.verdict = 'ok';
+      if (TIER_RANK[s.verdict] < TIER_RANK[e.verdict]) {
+        e.swapped = s;
+        e.swapText = (r.planSwaps || []).filter((x) => x.for.includes(p.id))
+          .map((x) => x.note || `${x.with} (for ${x.replace})`).join('; ');
+      }
+    }
     return e;
   });
+}
+
+// slug -> { planId: verdict } for every recipe — precomputed once at boot so the
+// "Good for" filter doesn't re-evaluate plans on every keystroke.
+export function buildPlanVerdicts(recipes) {
+  return new Map(recipes.map((r) => [r.slug,
+    Object.fromEntries(evaluatePlans(r).map((e) => [e.plan.id, e.verdict]))]));
 }
 
 const nutrientUnit = (key) => NUTRIENT_DISPLAY.find((d) => d.key === key)?.unit || '';
@@ -543,11 +571,13 @@ function planRowHtml(e) {
   const reasons = planReasons(e);
   const why = e.verdict !== 'optimal' && reasons.length
     ? `<span class="plan-why">${esc(reasons.join(' · '))}</span>` : '';
+  const swap = e.swapped
+    ? `<span class="plan-swap">⇄ ${PLAN_FIT_LABEL[e.swapped.verdict]} with ${esc(e.swapText)}</span>` : '';
   return `
         <div class="plan-row is-${e.verdict}">
           <span class="plan-icon" aria-hidden="true">${e.plan.icon}</span>
           <span class="plan-name"><a href="${esc(e.plan.url)}" target="_blank" rel="noopener" title="${esc(e.plan.caveat || e.plan.focus)}">${esc(e.plan.name)}</a>
-            <span class="plan-focus">${esc(e.plan.focus)}</span>${why}</span>
+            <span class="plan-focus">${esc(e.plan.focus)}</span>${why}${swap}</span>
           <span class="plan-fit is-${e.verdict}">${PLAN_FIT_LABEL[e.verdict]}</span>
         </div>`;
 }

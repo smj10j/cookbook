@@ -56,7 +56,12 @@ source:
   name: Whole Foods Market
   url: https://www.wholefoodsmarket.com/recipes/how-cook-broiled-fish-citrus-and-herbs
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [heart, lowsugar]
+    replace: 1½ cups orange juice
+    with: ¾ cup orange juice
+    note: half the orange juice, reduced harder
+updated: 2026-07-05
 ---
 
 A no-fuss broiled fillet that earns its keep with a reduced orange-tarragon sauce.

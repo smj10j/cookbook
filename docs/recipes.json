@@ -1,7 +1,7 @@
 {
-  "count": 97,
+  "count": 107,
   "counts": {
-    "food": 65,
+    "food": 75,
     "drink": 32
   },
   "vocab": {
@@ -336,6 +336,7 @@
       "Asian",
       "Asian-American",
       "Cajun",
+      "Chinese",
       "Filipino",
       "French",
       "Greek",
@@ -596,6 +597,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "Stephen's home version of the Fresa's plate he and Lauren order on South First: a\nwhole bird stained deep red with achiote and fresh citrus, grilled over wood, and\nserved the family-style way — with beans, tomato-stained rice, blistered onions and\njalapeños, warm tortillas, and that creamy green salsa. One chicken feeds both the\nwhite-meat and the dark-meat camp.",
+      "hero": "images/achiote-citrus-wood-fired-chicken.webp",
       "nutrition": {
         "perServing": {
           "kcal": 1244,
@@ -922,7 +924,18 @@
         "url": "https://www.wholefoodsmarket.com/recipes/how-cook-broiled-fish-citrus-and-herbs"
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "1½ cups orange juice",
+          "with": "¾ cup orange juice",
+          "note": "half the orange juice, reduced harder"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A no-fuss broiled fillet that earns its keep with a reduced orange-tarragon sauce.\nSimmer the juice down until it's glossy, broil the fish fast, and dinner's on the\ntable in 25 minutes.",
@@ -941,7 +954,29 @@
         },
         "confidence": "high",
         "matched": 8,
-        "considered": 8
+        "considered": 8,
+        "withSwaps": {
+          "heart": {
+            "kcal": 202,
+            "protein": 22.7,
+            "carb": 14.4,
+            "fat": 6.1,
+            "satfat": 1,
+            "fiber": 1.3,
+            "sugar": 9.4,
+            "sodium": 683
+          },
+          "lowsugar": {
+            "kcal": 202,
+            "protein": 22.7,
+            "carb": 14.4,
+            "fat": 6.1,
+            "satfat": 1,
+            "fiber": 1.3,
+            "sugar": 9.4,
+            "sodium": 683
+          }
+        }
       }
     },
     {
@@ -1021,7 +1056,17 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 sea bass fillets (about 5 oz each), skin on",
+          "with": "8 oz sea bass fillets, skin on",
+          "note": "two 4-oz fillets instead of 5-oz"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Liza Schoenfein's quick broiler method, scaled for two: preheat the pan blazing hot,\nbroil the fish six minutes, and finish with a raw sauce of lemon, oregano, capers, and\nKalamata. Bright, briny, and on the table in 25 minutes.",
@@ -1039,7 +1084,19 @@
         },
         "confidence": "high",
         "matched": 8,
-        "considered": 8
+        "considered": 8,
+        "withSwaps": {
+          "kidney": {
+            "kcal": 196,
+            "protein": 21.4,
+            "carb": 4.1,
+            "fat": 11,
+            "satfat": 1.5,
+            "fiber": 1.5,
+            "sugar": 0.8,
+            "sodium": 757
+          }
+        }
       }
     },
     {
@@ -1802,6 +1859,118 @@
         "confidence": "high",
         "matched": 15,
         "considered": 15
+      }
+    },
+    {
+      "title": "Chicken & Ginger Lettuce Wraps with Sesame-Lime Drizzle",
+      "slug": "chicken-ginger-lettuce-wraps",
+      "tagline": "Hot gingery chicken crumbles in cold butter-lettuce cups, built at the table.",
+      "pitch": "These are takeout lettuce wraps with the hoisin syrup deleted and the ginger turned up. Ground chicken sears in a ripping-hot skillet with a full tablespoon of ginger, garlic, and scallion whites until the crumbles brown at the edges; celery and carrot go in at the end so they stay snappy. Everything spoons into cold butter-lettuce cups with a sesame-lime drizzle. *Let the chicken sit untouched for the first two minutes — the browned crust is where all the flavor lives.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 10,
+        "total": 25
+      },
+      "difficulty": "easy",
+      "protein": "chicken",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Chinese",
+      "course": "main",
+      "heat": "mild",
+      "tags": [
+        "weeknight",
+        "low-carb"
+      ],
+      "ingredients": [
+        {
+          "section": "Filling",
+          "items": [
+            "8 oz ground chicken",
+            "2 tsp neutral oil",
+            "1 tbsp fresh ginger, minced",
+            "2 cloves garlic, minced",
+            "4 scallions, whites minced and greens sliced",
+            "2 stalks celery, finely diced",
+            "1 carrot, finely diced"
+          ]
+        },
+        {
+          "section": "Sesame-lime drizzle",
+          "items": [
+            "1 tbsp low-sodium soy sauce",
+            "1 tbsp lime juice",
+            "1 tsp toasted sesame oil",
+            "1 tsp honey",
+            "Pinch of white pepper"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "1 head butter lettuce, leaves separated and chilled",
+            "1 tsp toasted sesame seeds"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Whisk the drizzle ingredients together and set aside.",
+            "Heat the oil in a large skillet until shimmering. Add the chicken, press it flat, and leave it alone 2 minutes to brown.",
+            "Break it into crumbles; add the ginger, garlic, and scallion whites and stir-fry 1 minute until fragrant.",
+            "Add the celery and carrot and toss 2 minutes — they should stay bright and crunchy.",
+            "Off the heat, stir in half the drizzle. Serve the filling in the cold lettuce cups, topped with scallion greens, sesame seeds, and the rest of the drizzle."
+          ]
+        }
+      ],
+      "tips": [
+        "Chill the lettuce cups in ice water and spin them dry — the cold snap against the hot filling is the dish.",
+        "Do not crowd the pan; a wet pile of chicken steams gray instead of browning.",
+        "Ground chicken thigh has far more flavor than breast — ask the butcher to grind to order if you can."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A few thin serrano rings in the drizzle, and cilantro leaves tucked into each cup."
+        },
+        {
+          "label": "Make it a rice night",
+          "note": "Spoon the filling over steamed jasmine rice instead — same flavors, chopstick format."
+        },
+        {
+          "label": "Pairs with",
+          "note": "Cold green tea or a sessionable lager."
+        }
+      ],
+      "source": {
+        "name": "Original — developed for Tonight's Menu",
+        "url": null
+      },
+      "created": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-05T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "One tablespoon of low-sodium soy is the entire salt budget, and it shows up in\nthe plan table — this one lands friendly across nearly every column, including\nlow-carb.",
+      "equipment": [],
+      "hero": "images/chicken-ginger-lettuce-wraps.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 291,
+          "protein": 23.1,
+          "carb": 14.2,
+          "fat": 17.1,
+          "satfat": 3.4,
+          "fiber": 3.6,
+          "sugar": 6.5,
+          "sodium": 418
+        },
+        "confidence": "high",
+        "matched": 13,
+        "considered": 13
       }
     },
     {
@@ -3923,7 +4092,17 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "½ tsp kosher salt",
+          "with": "¼ tsp kosher salt",
+          "note": "half the marinade salt"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The taco that conquered Southern California, in its lighter grilled form. Hot charred fish\nagainst cold crunchy slaw is the entire point — and the crispy variation is one tip away.",
@@ -3941,7 +4120,19 @@
         },
         "confidence": "high",
         "matched": 17,
-        "considered": 17
+        "considered": 17,
+        "withSwaps": {
+          "diabetes": {
+            "kcal": 965,
+            "protein": 63.9,
+            "carb": 53.3,
+            "fat": 58,
+            "satfat": 13.9,
+            "fiber": 12.4,
+            "sugar": 5.3,
+            "sodium": 738
+          }
+        }
       }
     },
     {
@@ -4428,6 +4619,220 @@
       }
     },
     {
+      "title": "Grilled Shrimp & Summer Squash Skewers with Charred Lime",
+      "slug": "grilled-shrimp-squash-skewers",
+      "tagline": "Snappy shrimp and squash off a hot grill, finished with smoky charred lime.",
+      "pitch": "Shrimp cook in the time it takes to close the grill lid, so the trick is building the skewer for the shrimp's schedule — squash cut thin enough to char in the same three minutes, everything slicked with smoked-paprika oil. The limes go on the grill too, cut side down, until the sugars blacken. *Squeeze the charred lime over everything at the table — warm, smoky citrus is a sauce you didn't have to make.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 8,
+        "total": 30
+      },
+      "difficulty": "easy",
+      "protein": "seafood",
+      "methods": [
+        "grill"
+      ],
+      "cuisine": "American",
+      "course": "main",
+      "heat": "none",
+      "equipment": [
+        "grill",
+        "skewers"
+      ],
+      "tags": [
+        "summer",
+        "garden",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Skewers",
+          "items": [
+            "6 oz large shrimp, peeled and deveined",
+            "1 small zucchini, in ¼-inch half-moons",
+            "1 small yellow squash, in ¼-inch half-moons",
+            "1 tbsp olive oil",
+            "1 tsp smoked paprika",
+            "¼ tsp kosher salt",
+            "Freshly ground black pepper"
+          ]
+        },
+        {
+          "section": "To finish",
+          "items": [
+            "2 limes, halved",
+            "2 tbsp cilantro, chopped"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Soak wooden skewers 15 minutes (or use metal). Heat the grill to high.",
+            "Toss the shrimp and squash with the oil, paprika, salt, and pepper.",
+            "Thread, alternating shrimp and squash, packing the pieces snugly so they support each other.",
+            "Grill 2–3 minutes a side, until the shrimp turn opaque and the squash chars at the edges; set the lime halves cut side down alongside until blackened.",
+            "Shower with cilantro and squeeze the charred limes over everything."
+          ]
+        }
+      ],
+      "tips": [
+        "Buy shrimp labeled \"shell-on, untreated\" when you can — treated shrimp carry extra sodium and a rubbery snap.",
+        "Shrimp are done the moment they curl into a loose C; a tight O is overcooked.",
+        "For Stephen's plate, thread a second skewer with swordfish or halibut chunks (or extra-firm tofu) in the same oil — same timing, same char."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Thread cherry tomatoes between the shrimp, and use garden basil instead of cilantro for an Italian lean."
+        },
+        {
+          "label": "Make it dinner-sized",
+          "note": "Serve over herbed couscous or the sesame rice from the eggplant recipe."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A dry rosé or sparkling water with the spare charred lime."
+        }
+      ],
+      "source": {
+        "name": "Original — developed for Tonight's Menu",
+        "url": null
+      },
+      "created": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-05T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Lauren's skewer night — with the fish swap built in so Stephen eats the same\ndinner. Six ounces of shrimp between two plates is exactly what the kidney\ncolumn wants to see.",
+      "hero": "images/grilled-shrimp-squash-skewers.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 179,
+          "protein": 14.7,
+          "carb": 15.4,
+          "fat": 8.5,
+          "satfat": 1.3,
+          "fiber": 4.4,
+          "sugar": 5.8,
+          "sodium": 384
+        },
+        "confidence": "high",
+        "matched": 8,
+        "considered": 8
+      }
+    },
+    {
+      "title": "Grilled Snapper with Charred Pineapple-Jalapeño Salsa",
+      "slug": "grilled-snapper-pineapple-jalapeno-salsa",
+      "tagline": "Blistered snapper under a smoky-sweet pineapple salsa with garden jalapeño heat.",
+      "pitch": "The salsa gets grilled before the fish does — pineapple planks go over the hottest part of the fire until their edges blacken and the sugars turn to caramel, then get chopped with jalapeño, red onion, lime, and cilantro. The snapper follows, skin down on a clean oiled grate until it crisps and releases on its own. *Charred pineapple is the seasoning here — its bittersweet smoke does what a heavy spice rub usually would.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 12,
+        "total": 27
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "grill"
+      ],
+      "cuisine": "Mexican",
+      "course": "main",
+      "heat": "medium",
+      "equipment": [
+        "grill"
+      ],
+      "tags": [
+        "summer",
+        "garden",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Salsa",
+          "items": [
+            "¾ cup fresh pineapple, in thick planks",
+            "1 jalapeño, seeded and minced",
+            "¼ small red onion, finely diced",
+            "2 tbsp cilantro, chopped",
+            "Juice of 1 lime",
+            "Pinch of salt"
+          ]
+        },
+        {
+          "section": "Snapper",
+          "items": [
+            "8 oz snapper fillets, skin on",
+            "1 tbsp olive oil",
+            "½ tsp ground cumin",
+            "¼ tsp kosher salt",
+            "Freshly ground black pepper"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Heat the grill to high and scrub the grate clean — a dirty grate is why fish sticks.",
+            "Grill the pineapple planks 2–3 minutes a side until well charred; dice and toss with the jalapeño, onion, cilantro, lime, and the pinch of salt.",
+            "Pat the fillets very dry; rub with the oil, cumin, salt, and pepper.",
+            "Oil the grate, lay the fish skin side down over direct heat, and leave it alone 3–4 minutes until the skin releases without a fight; flip for 1–2 minutes to finish.",
+            "Plate skin side up and spoon the warm salsa over."
+          ]
+        }
+      ],
+      "tips": [
+        "If the fish resists the flip, it is not ready — give it 30 more seconds and it will let go.",
+        "A fish spatula (thin, flexible, long) earns its keep here.",
+        "Make the salsa first; it only improves while the fish cooks.",
+        "Mahi-mahi or halibut swap cleanly if snapper is not at the counter."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "The jalapeño and cilantro both come from the bed — swap in serrano when you want it hotter."
+        },
+        {
+          "label": "Make it a bowl",
+          "note": "Serve over cilantro-lime rice with shredded cabbage for crunch."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A cold Mexican lager with lime, or agua fresca."
+        }
+      ],
+      "source": {
+        "name": "Original — developed for Tonight's Menu",
+        "url": null
+      },
+      "created": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-05T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Lean fish in four-ounce portions, fruit doing the seasoning — this is the\ntemplate for eating toward the heart and kidney columns without giving up the\ngrill.",
+      "hero": "images/grilled-snapper-pineapple-jalapeno-salsa.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 213,
+          "protein": 23.9,
+          "carb": 10.2,
+          "fat": 8.5,
+          "satfat": 1.2,
+          "fiber": 1.4,
+          "sugar": 6.9,
+          "sodium": 312
+        },
+        "confidence": "high",
+        "matched": 8,
+        "considered": 8
+      }
+    },
+    {
       "title": "Hainanese Chicken Rice",
       "slug": "hainanese-chicken-rice",
       "tagline": "Gently poached silky chicken with fragrant schmaltz rice and a trio of bright sauces.",
@@ -4709,6 +5114,112 @@
       }
     },
     {
+      "title": "Herbed Rice Pilaf with Blistered Green Beans & a Jammy Egg",
+      "slug": "herbed-pilaf-green-beans-jammy-egg",
+      "tagline": "A golden shallot pilaf under charred green beans, crowned with a seven-minute egg.",
+      "pitch": "This is bistro logic applied to a pantry dinner. The rice toasts in olive oil with shallot until it smells like popcorn, then steams in broth while green beans blister hard in a dry skillet. A seven-minute egg goes on top and the yolk becomes the sauce. *Slice the egg at the table — the slow gold spill over the herbs is the dinner bell.*",
+      "serves": 2,
+      "times": {
+        "prep": 10,
+        "cook": 25,
+        "total": 35
+      },
+      "difficulty": "easy",
+      "protein": "vegetarian",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "French",
+      "course": "main",
+      "heat": "none",
+      "tags": [
+        "weeknight",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Pilaf",
+          "items": [
+            "1 tbsp olive oil",
+            "1 shallot, minced",
+            "½ cup long-grain rice",
+            "1 cup low-sodium vegetable broth",
+            "¼ tsp kosher salt",
+            "1 tsp fresh thyme leaves",
+            "2 tbsp parsley, chopped",
+            "1 tbsp chives, snipped",
+            "Zest of ½ lemon"
+          ]
+        },
+        {
+          "section": "Beans & egg",
+          "items": [
+            "8 oz green beans, trimmed",
+            "2 tsp olive oil",
+            "2 large eggs",
+            "Freshly ground black pepper"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Warm the 1 tbsp oil in a small pot, soften the shallot 2 minutes, then toast the rice in it until the grains turn chalky and smell nutty.",
+            "Add the broth and salt, cover, and simmer on low 15 minutes; rest 5 off the heat, then fork in the thyme, parsley, chives, and lemon zest.",
+            "Meanwhile lower the eggs into boiling water for 7 minutes, then shock in ice water and peel.",
+            "Blister the green beans in the 2 tsp oil over high heat, mostly undisturbed, until deeply spotted and just tender, 5–6 minutes.",
+            "Pile the beans over the pilaf, halve the eggs on top, and finish with black pepper."
+          ]
+        }
+      ],
+      "tips": [
+        "Toasting the rice before the liquid is what separates pilaf from plain rice — wait for the popcorn smell.",
+        "Seven minutes is the jammy line; eight gets fudgy, nine is hard. Set a real timer.",
+        "Let the beans sit still in the pan — moving them steals the blister."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Thyme and chives from the bed; a handful of arugula wilted under the beans is excellent."
+        },
+        {
+          "label": "Make it bigger",
+          "note": "Add a second egg per plate or a spoon of toasted almonds for crunch."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A glass of unoaked Chardonnay or sparkling water with lemon."
+        }
+      ],
+      "source": {
+        "name": "Original — developed for Tonight's Menu",
+        "url": null
+      },
+      "created": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-05T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "One egg per plate keeps this gentle on the kidney plan's protein math while the\nyolk still does rich-sauce duty.",
+      "equipment": [],
+      "hero": "images/herbed-pilaf-green-beans-jammy-egg.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 399,
+          "protein": 12.5,
+          "carb": 50.3,
+          "fat": 16.7,
+          "satfat": 3.2,
+          "fiber": 5,
+          "sugar": 5.7,
+          "sodium": 392
+        },
+        "confidence": "high",
+        "matched": 11,
+        "considered": 11
+      }
+    },
+    {
       "title": "Korean Gochujang-Glazed Salmon with Sesame Bok Choy",
       "slug": "korean-gochujang-salmon-bok-choy",
       "tagline": "Broiled salmon lacquered in sweet-spicy gochujang over fast sesame-charred bok choy.",
@@ -4933,6 +5444,129 @@
         "confidence": "high",
         "matched": 7,
         "considered": 7
+      }
+    },
+    {
+      "title": "Lemongrass Chicken Rice-Noodle Bowls with Garden Herbs",
+      "slug": "lemongrass-chicken-noodle-bowls",
+      "tagline": "Grilled lemongrass chicken over cool noodles, crisp vegetables, and a light nuoc cham.",
+      "pitch": "Bún-style bowls are the best warm-night dinner format there is — cold rice noodles, a pile of herbs and cucumber, and hot-off-the-grill chicken that has spent an hour in lemongrass, lime, and fish sauce. The dressing is a deliberately light nuoc cham, more lime than salt, splashed over everything at the table. *Char the chicken hard at the edges — those blackened lemongrass bits perfume the entire bowl.*",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 10,
+        "total": 60
+      },
+      "difficulty": "medium",
+      "protein": "chicken",
+      "methods": [
+        "grill",
+        "stove"
+      ],
+      "cuisine": "Vietnamese",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "grill"
+      ],
+      "tags": [
+        "summer",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Chicken & marinade",
+          "items": [
+            "7 oz boneless skinless chicken thighs",
+            "1 stalk lemongrass, tender core minced",
+            "1 clove garlic, grated",
+            "1½ tsp fish sauce",
+            "1½ tsp brown sugar",
+            "1 tbsp lime juice",
+            "1 tsp neutral oil",
+            "Freshly ground black pepper"
+          ]
+        },
+        {
+          "section": "Light nuoc cham",
+          "items": [
+            "2 tbsp lime juice",
+            "2 tbsp water",
+            "½ tsp fish sauce",
+            "1 tsp sugar",
+            "1 serrano, thinly sliced"
+          ]
+        },
+        {
+          "section": "Bowls",
+          "items": [
+            "3 oz dry rice vermicelli",
+            "1 cup cucumber, cut into matchsticks",
+            "1 carrot, shaved into ribbons",
+            "1 cup mint, cilantro, and basil leaves, torn"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Whisk the marinade, coat the chicken, and refrigerate 30–60 minutes.",
+            "Stir the nuoc cham ingredients until the sugar dissolves; set aside so the serrano steeps.",
+            "Cook the vermicelli per the package, rinse cold, and drain well.",
+            "Grill the chicken over high heat 3–4 minutes a side until charred at the edges and cooked through; rest, then slice.",
+            "Build the bowls — noodles, cucumber, carrot, herbs, chicken — and splash the nuoc cham over at the table."
+          ]
+        }
+      ],
+      "tips": [
+        "Only the pale, tender core of the lemongrass goes in the marinade; the woody tops can flavor the grill as smoke.",
+        "Rinse the noodles until fully cold and shake them truly dry — watery noodles dilute the sauce.",
+        "Thighs shrug off the high heat that would dry out breasts; keep the portion modest and let the bowl carry the volume.",
+        "A grill pan indoors works fine — get it nearly smoking first."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Mint, cilantro, basil, cucumber, and the serrano can all come from the bed — this bowl is half garden."
+        },
+        {
+          "label": "Make it Lauren's",
+          "note": "Swap the chicken for grilled shrimp in the same marinade (Stephen keeps the chicken half)."
+        },
+        {
+          "label": "Add crunch",
+          "note": "A spoon of chopped roasted peanuts on top — skip it when the kidney column is the priority."
+        },
+        {
+          "label": "Pairs with",
+          "note": "An ice-cold pilsner or limeade over crushed ice."
+        }
+      ],
+      "source": {
+        "name": "Original — developed for Tonight's Menu",
+        "url": null
+      },
+      "created": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-05T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "The marinade and sauce share a single tablespoon of fish sauce between them —\nbright over salty on purpose, which is what keeps these bowls in the heart and\nkidney columns.",
+      "hero": "images/lemongrass-chicken-noodle-bowls.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 417,
+          "protein": 22.7,
+          "carb": 50.5,
+          "fat": 13.9,
+          "satfat": 3.4,
+          "fiber": 2.8,
+          "sugar": 8.4,
+          "sodium": 538
+        },
+        "confidence": "high",
+        "matched": 16,
+        "considered": 16
       }
     },
     {
@@ -5540,6 +6174,114 @@
       }
     },
     {
+      "title": "Miso-Glazed Eggplant with Sesame Rice (Nasu Dengaku)",
+      "slug": "miso-glazed-eggplant-sesame-rice",
+      "tagline": "Broiler-lacquered eggplant, custardy inside, under a sweet-savory miso glaze.",
+      "pitch": "Nasu dengaku is proof that a broiler is a lacquer machine. Halved eggplants get a deep crosshatch, a slick of oil, and a slow broil until the flesh turns custard; then a miso-mirin glaze goes on and bubbles into a glossy, burnished amber shell. Sesame rice underneath catches every drip. *The crosshatch is the whole trick — it lets the heat melt the eggplant from the inside and gives the glaze somewhere to sink.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "easy",
+      "protein": "vegan",
+      "methods": [
+        "broiler",
+        "stove"
+      ],
+      "cuisine": "Japanese",
+      "course": "main",
+      "heat": "none",
+      "equipment": [
+        "rimmed baking sheet"
+      ],
+      "tags": [
+        "weeknight",
+        "summer"
+      ],
+      "ingredients": [
+        {
+          "section": "Eggplant & glaze",
+          "items": [
+            "12 oz Japanese eggplant (about 2 slender ones)",
+            "1 tbsp neutral oil",
+            "1 tbsp white miso",
+            "1 tbsp mirin",
+            "2 tsp sake (or water)",
+            "1½ tsp sugar",
+            "1 tsp toasted sesame oil"
+          ]
+        },
+        {
+          "section": "Sesame rice",
+          "items": [
+            "½ cup short-grain rice",
+            "1 tsp toasted sesame seeds",
+            "2 scallions, thinly sliced"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Rinse the rice until the water runs clear, then cook it by your usual method and keep it warm.",
+            "Halve the eggplants lengthwise (trim to fit the pan if needed) and score the cut faces in a deep ½-inch crosshatch, stopping just shy of the skin.",
+            "Brush the cut faces with the neutral oil and broil, cut side up, 8–10 minutes until deeply golden and tender all the way through.",
+            "Meanwhile whisk the miso, mirin, sake, sugar, and sesame oil into a smooth glaze.",
+            "Spoon the glaze over the eggplant and broil 1–2 minutes more, watching constantly, until it bubbles and caramelizes at the edges.",
+            "Serve over the rice, scattered with sesame seeds and scallions."
+          ]
+        }
+      ],
+      "tips": [
+        "Score deeper than feels safe — a shallow crosshatch steams; a deep one turns the center to custard.",
+        "The glaze goes from lacquered to scorched in under a minute; park yourself at the oven door for the second broil.",
+        "White (shiro) miso keeps the glaze gentle and sweet; red miso works but halve it, as it is saltier and sharper.",
+        "No sake on hand — a splash of water loosens the glaze just as well."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A few thin serrano coins over the top cut the sweetness with clean heat."
+        },
+        {
+          "label": "Make it a spread",
+          "note": "Add a quick cucumber sunomono — the cold crunch against the hot eggplant is the point."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A crisp lager or cold barley tea."
+        }
+      ],
+      "source": {
+        "name": "Original — developed for Tonight's Menu",
+        "url": null
+      },
+      "created": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-05T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Built for nights when the answer is vegetables that eat like a main. The miso is\nmeasured, not poured, so the glaze reads deep rather than salty — this one keeps\nsodium honest without tasting like it.",
+      "hero": "images/miso-glazed-eggplant-sesame-rice.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 365,
+          "protein": 6.7,
+          "carb": 59.2,
+          "fat": 10.8,
+          "satfat": 1.3,
+          "fiber": 7,
+          "sugar": 13.9,
+          "sodium": 325
+        },
+        "confidence": "high",
+        "matched": 10,
+        "considered": 10
+      }
+    },
+    {
       "title": "Moroccan Chicken Tagine with Green Olives & Preserved Lemon",
       "slug": "moroccan-chicken-tagine",
       "tagline": "Spice-rubbed chicken thighs braised with saffron, green olives, and preserved lemon over couscous.",
@@ -5672,6 +6414,121 @@
         "confidence": "high",
         "matched": 18,
         "considered": 18
+      }
+    },
+    {
+      "title": "Moroccan Vegetable Tagine with Apricots over Couscous",
+      "slug": "moroccan-vegetable-tagine-apricots",
+      "tagline": "An Instant Pot tagine — warm-spiced vegetables gone glossy, with slivers of apricot.",
+      "pitch": "A tagine's magic is spice bloomed in oil and vegetables left alone to go silky, and the Instant Pot gets there in a quarter of the time. Cumin, coriander, cinnamon, and paprika toast against the onion before carrots, cauliflower, zucchini, and chickpeas go in with a modest pour of broth; six minutes under pressure and the pot smells like a Marrakech stall. *Three slivered apricots melt into the sauce and season it the way salt can't — from the sweet side.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "easy",
+      "protein": "vegan",
+      "methods": [
+        "instant-pot",
+        "stove"
+      ],
+      "cuisine": "Moroccan",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "instant pot"
+      ],
+      "tags": [
+        "weeknight",
+        "make-ahead"
+      ],
+      "ingredients": [
+        {
+          "section": "Tagine",
+          "items": [
+            "1 tbsp olive oil",
+            "1 small yellow onion, sliced",
+            "2 cloves garlic, minced",
+            "1 tsp ground cumin",
+            "1 tsp ground coriander",
+            "½ tsp ground cinnamon",
+            "½ tsp sweet paprika",
+            "Pinch of cayenne",
+            "2 carrots, cut into thick coins",
+            "1 cup cauliflower florets",
+            "1 small zucchini, cut into half-moons",
+            "¾ cup canned chickpeas, drained and rinsed",
+            "3 dried apricots, slivered",
+            "⅔ cup low-sodium vegetable broth",
+            "¼ tsp kosher salt"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "⅓ cup couscous",
+            "2 tbsp cilantro or mint, chopped",
+            "Lemon wedges"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "On sauté mode, warm the oil and soften the onion 3–4 minutes; add the garlic and all the spices and stir 30 seconds until fragrant.",
+            "Add the carrots, cauliflower, zucchini, chickpeas, apricots, broth, and salt; scrape the bottom well.",
+            "Pressure cook 4 minutes, then quick-release. If the sauce is thin, simmer it a minute on sauté to gloss.",
+            "Meanwhile hydrate the couscous per the package with boiling water; fluff with a fork.",
+            "Spoon the tagine over the couscous and finish with herbs and a squeeze of lemon."
+          ]
+        }
+      ],
+      "tips": [
+        "Blooming the spices in the oil before the liquid goes in is non-negotiable — raw spice never recovers.",
+        "Cut the carrots thick; they should arrive tender, not blown out.",
+        "No Instant Pot mood — a covered Dutch oven at a low simmer for 25 minutes lands in the same place.",
+        "It reheats beautifully; the spices settle in overnight."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Finish with torn mint and a few thin serrano rings for a fresh-hot edge."
+        },
+        {
+          "label": "Make it richer",
+          "note": "A spoon of toasted slivered almonds on top, or a dollop of plain yogurt off-plan."
+        },
+        {
+          "label": "Pairs with",
+          "note": "Warm flatbread and sweet mint tea."
+        }
+      ],
+      "source": {
+        "name": "Original — developed for Tonight's Menu",
+        "url": null
+      },
+      "created": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-05T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "The apricots carry the seasoning here, which keeps the salt at a quarter\nteaspoon for the whole pot — a tagine that fits the health plans without\napologizing for it.",
+      "hero": "images/moroccan-vegetable-tagine-apricots.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 394,
+          "protein": 13.9,
+          "carb": 66.9,
+          "fat": 9.8,
+          "satfat": 1.2,
+          "fiber": 13,
+          "sugar": 18.5,
+          "sodium": 365
+        },
+        "confidence": "high",
+        "matched": 16,
+        "considered": 16
       }
     },
     {
@@ -6277,6 +7134,119 @@
       }
     },
     {
+      "title": "Roasted Poblanos Stuffed with Cilantro-Lime Rice & Corn",
+      "slug": "stuffed-poblanos-cilantro-lime-rice",
+      "tagline": "Blistered poblanos packed with citrusy rice, sweet corn, and a whisper of queso fresco.",
+      "pitch": "Poblanos are the rare pepper that gets silkier as it roasts, and these are roasted twice — once naked until the skins blister, once stuffed until the filling steams into the flesh. Inside is rice folded with charred corn, a handful of cilantro, and enough lime zest to make the whole thing hum. *Queso fresco goes on as a garnish, not a filling — one crumbled ounce reads as abundance without turning it into a cheese dish.*",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 35,
+        "total": 55
+      },
+      "difficulty": "medium",
+      "protein": "vegetarian",
+      "methods": [
+        "oven",
+        "stove"
+      ],
+      "cuisine": "Mexican",
+      "course": "main",
+      "heat": "mild",
+      "tags": [
+        "garden",
+        "weeknight"
+      ],
+      "ingredients": [
+        {
+          "section": "Poblanos",
+          "items": [
+            "2 large poblano peppers, halved lengthwise and seeded",
+            "2 tsp olive oil"
+          ]
+        },
+        {
+          "section": "Cilantro-lime rice & corn",
+          "items": [
+            "⅓ cup long-grain rice",
+            "⅔ cup low-sodium vegetable broth",
+            "1 tbsp olive oil",
+            "¾ cup fresh or frozen corn kernels",
+            "2 scallions, thinly sliced",
+            "½ cup cilantro, chopped",
+            "Zest and juice of 1 lime",
+            "½ tsp ground cumin",
+            "Salt to taste (the queso and lime usually carry it)"
+          ]
+        },
+        {
+          "section": "To finish",
+          "items": [
+            "1 oz queso fresco, crumbled",
+            "Lime wedges, for serving"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Heat the oven to 425°F. Rub the poblano halves with the olive oil, set them cut side down on a sheet pan, and roast 12–15 minutes until the skins blister and the flesh slumps.",
+            "Meanwhile simmer the rice in the broth, covered, until tender and the liquid is absorbed, about 15 minutes.",
+            "Char the corn in a dry skillet over high heat until it pops and catches color in spots, 3–4 minutes.",
+            "Fold the corn, scallions, cilantro, lime zest and juice, cumin, salt, and the 1 tbsp olive oil into the rice.",
+            "Flip the poblanos cut side up, mound the filling in, and roast 8–10 minutes more until the tops toast.",
+            "Shower with queso fresco and serve with lime wedges."
+          ]
+        }
+      ],
+      "tips": [
+        "Pick poblanos that sit flat when halved — they hold the filling instead of tipping it onto the pan.",
+        "Charring the corn dry (no oil) is what gets the toasty, esquites-like flavor.",
+        "If a pepper tears, overlap the split — the filling glues it shut as it bakes."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Cilantro from the bed, and a minced jalapeño folded into the rice if you want it louder."
+        },
+        {
+          "label": "Make it heartier",
+          "note": "Fold in ½ cup rinsed black beans with the corn."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A tomatillo salsa on the side, or the creamy jalapeño-cilantro salsa already in this book."
+        }
+      ],
+      "source": {
+        "name": "Original — developed for Tonight's Menu",
+        "url": null
+      },
+      "created": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-05T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "A vegetable main that leans on char and citrus instead of the salt shaker — the\nlime zest does what a second pinch of salt usually would.",
+      "equipment": [],
+      "hero": "images/stuffed-poblanos-cilantro-lime-rice.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 346,
+          "protein": 8.7,
+          "carb": 43,
+          "fat": 16.8,
+          "satfat": 4.3,
+          "fiber": 4.4,
+          "sugar": 7.3,
+          "sodium": 256
+        },
+        "confidence": "high",
+        "matched": 10,
+        "considered": 10
+      }
+    },
+    {
       "title": "Seared Scallops over Silky Potato Purée with Brown Butter & Charred Lemon",
       "slug": "seared-scallops-potato-puree",
       "tagline": "Caramel-crusted sea scallops on a buttery potato purée, with nutty brown butter and charred lemon.",
@@ -6724,6 +7694,109 @@
       }
     },
     {
+      "title": "Slow-Roasted Cod with Melted Leeks & Tarragon",
+      "slug": "slow-roasted-cod-melted-leeks",
+      "tagline": "Cod roasted low until it barely holds together, over leeks cooked to silk.",
+      "pitch": "Low heat is the most forgiving way to cook fish, and cod rewards it more than most. The leeks go first — sliced into ribbons and stewed in olive oil with a splash of wine until they collapse into silk. The cod sits on top and roasts at 300°F until it turns opaque and barely flakes, never seizing, never dry. *There is no minute when this overcooks fast — the low oven gives you a five-minute grace window instead of thirty seconds.* Tarragon and lemon finish it like a beurre blanc that never needed the butter.",
+      "serves": 2,
+      "times": {
+        "prep": 10,
+        "cook": 35,
+        "total": 45
+      },
+      "difficulty": "easy",
+      "protein": "fish",
+      "methods": [
+        "oven",
+        "stove"
+      ],
+      "cuisine": "French",
+      "course": "main",
+      "heat": "none",
+      "tags": [
+        "date-night",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Leeks",
+          "items": [
+            "2 leeks, white and light green parts, halved and sliced thin",
+            "1½ tbsp olive oil",
+            "2 tbsp dry white wine (or broth)",
+            "¼ tsp kosher salt"
+          ]
+        },
+        {
+          "section": "Cod",
+          "items": [
+            "8 oz cod fillet, cut into 2 portions",
+            "1 tsp olive oil",
+            "Freshly ground black pepper",
+            "1 tbsp fresh tarragon, chopped",
+            "½ lemon, in wedges"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Heat the oven to 300°F. Wash the sliced leeks well — grit hides between the layers.",
+            "In an ovenproof skillet, stew the leeks in the olive oil over medium-low with the salt until completely soft and sweet, 10–12 minutes; add the wine and let it bubble out.",
+            "Pat the cod dry, rub with the 1 tsp oil, and season with pepper. Nestle the portions on the leeks.",
+            "Roast 15–18 minutes, until the fish is opaque and a knife slides through without resistance.",
+            "Shower with tarragon and serve from the skillet with lemon wedges."
+          ]
+        }
+      ],
+      "tips": [
+        "Cod is done at 130°F in the center — with a 300°F oven you can check twice without penalty.",
+        "If your fillets are thin tail pieces, fold them double so they cook at the thick-piece pace.",
+        "Tarragon is the classic here, but garden thyme stewed with the leeks is just as good."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Add thyme sprigs to the leeks while they stew, and finish with minced chives."
+        },
+        {
+          "label": "Round it out",
+          "note": "Steamed baby potatoes or the herbed pilaf from this book — dressed with lemon, not butter."
+        },
+        {
+          "label": "Pairs with",
+          "note": "Chablis or a dry Chenin Blanc."
+        }
+      ],
+      "source": {
+        "name": "Original — developed for Tonight's Menu",
+        "url": null
+      },
+      "created": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-05T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Four-ounce portions and leeks-as-sauce keep this inside the kidney plan's\nprotein lane and the heart plan's fat lane at the same time — by design, not\nby accident.",
+      "equipment": [],
+      "hero": "images/slow-roasted-cod-melted-leeks.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 275,
+          "protein": 21.6,
+          "carb": 14.7,
+          "fat": 13.6,
+          "satfat": 1.7,
+          "fiber": 2.1,
+          "sugar": 4,
+          "sodium": 317
+        },
+        "confidence": "high",
+        "matched": 8,
+        "considered": 8
+      }
+    },
+    {
       "title": "Smoky Sous-Vide Chicken Tinga Tacos",
       "slug": "chicken-tinga-tacos",
       "tagline": "Silky sous-vide chicken in a glossy chipotle-tomato glaze, crisped and piled into warm tortillas.",
@@ -6891,6 +7964,121 @@
         "confidence": "high",
         "matched": 23,
         "considered": 23
+      }
+    },
+    {
+      "title": "Sous-Vide Halibut with Cucumber-Herb Salad & Lemon Oil",
+      "slug": "sous-vide-halibut-cucumber-herb-salad",
+      "tagline": "Halibut at a perfect 130°F with a cold, crackly cucumber salad and bright lemon oil.",
+      "pitch": "Halibut is the fish that punishes a hot pan — lean enough to turn to chalk in the sixty seconds you look away. Sous vide deletes the risk entirely. Forty minutes at 130°F and it emerges pearl-white, seamed into thick petals, set just past translucent. Against it goes a cold salad of smashed cucumber, dill, and mint in rice vinegar, and a spoon of lemon-zest olive oil instead of a butter sauce. *The temperature contrast — warm silk, cold crunch — is the whole plate.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 40,
+        "total": 55
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "sous-vide"
+      ],
+      "cuisine": "American",
+      "course": "main",
+      "heat": "none",
+      "equipment": [
+        "sous-vide",
+        "vacuum sealer"
+      ],
+      "tags": [
+        "date-night",
+        "summer",
+        "garden",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Halibut",
+          "items": [
+            "7 oz halibut fillet, cut into 2 portions",
+            "1 tsp olive oil",
+            "Freshly ground black pepper"
+          ]
+        },
+        {
+          "section": "Cucumber-herb salad",
+          "items": [
+            "1 English cucumber",
+            "1 tbsp rice vinegar",
+            "¼ tsp kosher salt",
+            "1 tbsp fresh dill, chopped",
+            "1 tbsp fresh mint, torn"
+          ]
+        },
+        {
+          "section": "Lemon oil",
+          "items": [
+            "1½ tbsp extra-virgin olive oil",
+            "Zest of 1 lemon",
+            "Squeeze of lemon juice"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": null,
+          "items": [
+            "Set the sous-vide bath to 130°F. Rub the halibut with the 1 tsp oil and a few grinds of pepper, seal in a bag, and cook 40 minutes.",
+            "Meanwhile smash the cucumber with the flat of a knife, tear into ragged bites, and toss with the vinegar and salt; chill.",
+            "Stir the lemon zest and juice into the olive oil and let it steep.",
+            "Just before serving, fold the dill and mint into the cucumbers.",
+            "Lift the halibut from the bag onto plates — no sear needed — spoon the lemon oil over, and pile the cold salad alongside."
+          ]
+        }
+      ],
+      "tips": [
+        "130°F gives a just-set, silky center; run 125°F if you like it closer to sashimi-tender.",
+        "Smashed (not sliced) cucumber sheds water and drinks the dressing — ragged edges are the point.",
+        "If you want a crust, a 30-second kiss in a screaming skillet after the bath works, but pat the fish bone-dry first.",
+        "The bagged fish holds at temperature an extra 20 minutes without penalty — dinner can wait for you."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Cucumber, dill, and mint can all come straight from the bed in summer."
+        },
+        {
+          "label": "Round it out",
+          "note": "A scoop of chilled couscous tossed in the same lemon oil, or torn flatbread."
+        },
+        {
+          "label": "Pairs with",
+          "note": "Albariño or a dry Riesling — something with its own acidity."
+        }
+      ],
+      "source": {
+        "name": "Original — developed for Tonight's Menu",
+        "url": null
+      },
+      "created": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-05T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "A sous-vide showcase that also happens to be the gentlest dinner in the book —\nlean fish, one measured pinch of salt, and oil where the butter would be.",
+      "hero": "images/sous-vide-halibut-cucumber-herb-salad.webp",
+      "nutrition": {
+        "perServing": {
+          "kcal": 248,
+          "protein": 23.4,
+          "carb": 4.9,
+          "fat": 15.3,
+          "satfat": 2,
+          "fiber": 0.9,
+          "sugar": 2.2,
+          "sodium": 305
+        },
+        "confidence": "high",
+        "matched": 8,
+        "considered": 8
       }
     },
     {
@@ -9702,7 +10890,7 @@
       "hero": "images/espresso-martini.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 247,
+          "kcal": 244,
           "protein": 0.1,
           "carb": 18.8,
           "fat": 0.2,
@@ -9711,8 +10899,8 @@
           "sugar": 17.3,
           "sodium": 7
         },
-        "confidence": "high",
-        "matched": 5,
+        "confidence": "partial",
+        "matched": 4,
         "considered": 5
       }
     },

@@ -200,6 +200,35 @@ How it works (mirror of nutrition itself — computed, not authored):
   `npm run plans -- <slug>` shows one recipe's verdicts with the why (run after a build).
 - It's a screening aid, not medical advice — the site's footnote says so; keep it that way.
 
+### planSwaps — documented swaps that flip a verdict
+
+When ONE ingredient swap genuinely lifts a plan verdict (✗→~ or ~→✓), encode it as
+structured data instead of a prose tip, and the fit table shows both readings
+("✗ Poor fit ⇄ ~ Okay with half the marinade salt"):
+
+```yaml
+planSwaps:
+  - for: [heart, lowsugar]        # plan ids (validated against EATING_PLANS)
+    replace: 1½ cups orange juice  # must EXACTLY match a current ingredient line
+    with: ¾ cup orange juice       # swap line — must carry a PARSEABLE quantity
+    note: half the orange juice, reduced harder   # short display text (optional)
+```
+
+The build validates ids + the `replace` line (so edits can't silently strand a swap),
+computes a per-plan "with swaps" nutrition variant, and the site only surfaces a swap
+that actually improves the tier. Authoring rules:
+
+- **Only near-misses.** `npm run plans -- --near-miss` lists verdicts one swap could
+  flip. Never compromise the dish to chase a green row — a steak au poivre is allowed
+  to be bad for the kidney plan.
+- **The `with` line must parse.** The nutrition engine ignores parenthetical size notes
+  — "2 fillets (about 4 oz each)" reads the same as 5 oz ones; write "8 oz sea bass
+  fillets" instead. After building, confirm the ⇄ line appears in `npm run plans -- <slug>`.
+- The recipe's printed ingredient list is unchanged — the swap is guidance, shown in the
+  fit table only. Bump `updated:` when adding swaps.
+- **Future (1C):** an interactive per-plan variant toggle building on this same data —
+  see `ROADMAP.md` before extending the mechanism.
+
 ## Drinks (cocktails)
 
 Drinks live in **`drinks/`** (one `.md` each) and use the same file format with a few

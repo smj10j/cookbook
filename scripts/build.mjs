@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { readAllRecipes } from './lib/parse.mjs';
 import {
-  validateRecipe, VOCAB, PROTEIN_META, METHOD_META, TIME_BUCKETS, CUISINE_GROUPS,
+  validateRecipe, applyPlanSwaps, VOCAB, PROTEIN_META, METHOD_META, TIME_BUCKETS, CUISINE_GROUPS,
   BASE_META, FAMILY_META, STRENGTH_META,
 } from './lib/schema.mjs';
 import { recipeStubHtml, ogImageUrl } from './lib/stub.mjs';
@@ -64,6 +64,20 @@ for (const r of recipes) {
     considered: nut.considered,
   };
   for (const name of nut.unmatched) unmatchedAll.set(name, (unmatchedAll.get(name) || 0) + 1);
+  // Recipes with planSwaps also get a "with swaps" per-serving estimate per plan, so
+  // the site can show "✗ as written → ~ with the swap" without recomputing nutrition
+  // client-side. All swaps naming a plan apply together for that plan's variant.
+  if (Array.isArray(r.planSwaps) && r.planSwaps.length) {
+    const withSwaps = {};
+    for (const id of new Set(r.planSwaps.flatMap((s) => s.for))) {
+      const swaps = r.planSwaps.filter((s) => s.for.includes(id));
+      const variant = { ...r, ingredients: applyPlanSwaps(r.ingredients, swaps) };
+      const vn = recipeNutrition(variant, nutritionDb, nutritionIndex);
+      withSwaps[id] = vn.perServing;
+      for (const name of vn.unmatched) unmatchedAll.set(name, (unmatchedAll.get(name) || 0) + 1);
+    }
+    r.nutrition.withSwaps = withSwaps;
+  }
 }
 if (unmatchedAll.size) {
   const sorted = [...unmatchedAll.entries()].sort((a, b) => b[1] - a[1]);

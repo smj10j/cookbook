@@ -18,6 +18,424 @@
       "achiote"
     ]
   },
+  "adobo sauce": {
+    "unit": "tsp",
+    "g": 5,
+    "n": {
+      "kcal": 5,
+      "protein": 0.1,
+      "carb": 0.9,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.2,
+      "sugar": 0.4,
+      "sodium": 70
+    }
+  },
+  "agave syrup": {
+    "unit": "tsp",
+    "g": 6.9,
+    "n": {
+      "kcal": 21,
+      "protein": 0,
+      "carb": 5.3,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 4.9,
+      "sodium": 0
+    },
+    "aliases": [
+      "agave"
+    ]
+  },
+  "aleppo pepper": {
+    "unit": "tsp",
+    "g": 2,
+    "n": {
+      "kcal": 6,
+      "protein": 0.2,
+      "carb": 1.1,
+      "fat": 0.3,
+      "satfat": 0,
+      "fiber": 0.6,
+      "sugar": 0.2,
+      "sodium": 25
+    }
+  },
+  "all-purpose flour": {
+    "unit": "cup",
+    "g": 125,
+    "density": 0.53,
+    "n": {
+      "kcal": 455,
+      "protein": 13,
+      "carb": 95,
+      "fat": 1.2,
+      "satfat": 0.2,
+      "fiber": 3.4,
+      "sugar": 0.3,
+      "sodium": 3
+    },
+    "aliases": [
+      "flour",
+      "whole wheat flour"
+    ]
+  },
+  "almonds": {
+    "unit": "cup",
+    "g": 143,
+    "density": 0.6,
+    "n": {
+      "kcal": 822,
+      "protein": 30,
+      "carb": 31,
+      "fat": 71,
+      "satfat": 5.4,
+      "fiber": 18,
+      "sugar": 6.2,
+      "sodium": 1
+    }
+  },
+  "angostura bitters": {
+    "unit": "tsp",
+    "g": 4,
+    "n": {
+      "kcal": 10,
+      "protein": 0,
+      "carb": 1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 1
+    },
+    "aliases": [
+      "bitters"
+    ]
+  },
+  "aperol": {
+    "unit": "oz",
+    "g": 31,
+    "n": {
+      "kcal": 45,
+      "protein": 0,
+      "carb": 7,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 7,
+      "sodium": 1
+    },
+    "aliases": [
+      "aperitivo"
+    ]
+  },
+  "apple cider vinegar": {
+    "unit": "tbsp",
+    "g": 15,
+    "n": {
+      "kcal": 3,
+      "protein": 0,
+      "carb": 0.1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.1,
+      "sodium": 1
+    },
+    "aliases": [
+      "cane vinegar",
+      "coconut vinegar"
+    ]
+  },
+  "arborio rice": {
+    "unit": "cup",
+    "g": 200,
+    "density": 0.85,
+    "n": {
+      "kcal": 716,
+      "protein": 13,
+      "carb": 158,
+      "fat": 1,
+      "satfat": 0.2,
+      "fiber": 3.5,
+      "sugar": 0,
+      "sodium": 3
+    },
+    "aliases": [
+      "risotto rice"
+    ]
+  },
+  "arugula": {
+    "unit": "cup",
+    "g": 20,
+    "density": 0.1,
+    "n": {
+      "kcal": 5,
+      "protein": 0.5,
+      "carb": 0.7,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.3,
+      "sugar": 0.4,
+      "sodium": 5
+    }
+  },
+  "asparagus": {
+    "unit": "bunch",
+    "g": 340,
+    "density": 0.4,
+    "n": {
+      "kcal": 68,
+      "protein": 7.5,
+      "carb": 13,
+      "fat": 0.4,
+      "satfat": 0.1,
+      "fiber": 7,
+      "sugar": 6.3,
+      "sodium": 7
+    }
+  },
+  "avocado": {
+    "unit": "avocado",
+    "g": 150,
+    "density": 0.6,
+    "n": {
+      "kcal": 240,
+      "protein": 3,
+      "carb": 12.8,
+      "fat": 22,
+      "satfat": 3.2,
+      "fiber": 10,
+      "sugar": 1,
+      "sodium": 11
+    }
+  },
+  "baby bok choy": {
+    "unit": "head",
+    "g": 100,
+    "density": 0.3,
+    "n": {
+      "kcal": 13,
+      "protein": 1.5,
+      "carb": 2.2,
+      "fat": 0.2,
+      "satfat": 0,
+      "fiber": 1,
+      "sugar": 1.2,
+      "sodium": 65
+    },
+    "aliases": [
+      "bok choy"
+    ]
+  },
+  "baileys irish cream": {
+    "unit": "oz",
+    "g": 31,
+    "n": {
+      "kcal": 95,
+      "protein": 0.8,
+      "carb": 6,
+      "fat": 4.5,
+      "satfat": 2.8,
+      "fiber": 0,
+      "sugar": 6,
+      "sodium": 12
+    },
+    "aliases": [
+      "baileys",
+      "irish cream"
+    ]
+  },
+  "baking powder": {
+    "unit": "tsp",
+    "g": 4.6,
+    "n": {
+      "kcal": 2,
+      "protein": 0,
+      "carb": 1.1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 488
+    }
+  },
+  "baking soda": {
+    "unit": "tsp",
+    "g": 4.6,
+    "n": {
+      "kcal": 0,
+      "protein": 0,
+      "carb": 0,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 1259
+    }
+  },
+  "balsamic vinegar": {
+    "unit": "tbsp",
+    "g": 16,
+    "n": {
+      "kcal": 14,
+      "protein": 0.1,
+      "carb": 2.7,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 2.4,
+      "sodium": 4
+    }
+  },
+  "banana": {
+    "unit": "banana",
+    "g": 118,
+    "density": 0.65,
+    "n": {
+      "kcal": 105,
+      "protein": 1.3,
+      "carb": 27,
+      "fat": 0.4,
+      "satfat": 0.1,
+      "fiber": 3.1,
+      "sugar": 14,
+      "sodium": 1
+    }
+  },
+  "banana pepper": {
+    "unit": "pepper",
+    "g": 33,
+    "density": 0.6,
+    "n": {
+      "kcal": 9,
+      "protein": 0.6,
+      "carb": 1.8,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 1.2,
+      "sugar": 1.2,
+      "sodium": 4
+    }
+  },
+  "basil": {
+    "unit": "tbsp",
+    "g": 2.6,
+    "n": {
+      "kcal": 1,
+      "protein": 0.1,
+      "carb": 0.1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "fresh basil",
+      "basil leaves",
+      "fresh basil leaves"
+    ],
+    "each": 0.5
+  },
+  "bay leaf": {
+    "unit": "leaf",
+    "g": 0.6,
+    "n": {
+      "kcal": 2,
+      "protein": 0,
+      "carb": 0.4,
+      "fat": 0.05,
+      "satfat": 0,
+      "fiber": 0.2,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "bay leaves"
+    ]
+  },
+  "beef": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 71,
+      "protein": 6.4,
+      "carb": 0,
+      "fat": 5,
+      "satfat": 2,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 18
+    },
+    "aliases": [
+      "chuck",
+      "beef chuck",
+      "short rib",
+      "short ribs",
+      "beef shank",
+      "beef short rib"
+    ]
+  },
+  "beef broth": {
+    "unit": "cup",
+    "g": 240,
+    "density": 1,
+    "n": {
+      "kcal": 17,
+      "protein": 2.7,
+      "carb": 0.1,
+      "fat": 0.5,
+      "satfat": 0.2,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 890
+    },
+    "aliases": [
+      "beef stock",
+      "low-sodium beef broth"
+    ]
+  },
+  "bell pepper": {
+    "unit": "pepper",
+    "g": 120,
+    "density": 0.6,
+    "n": {
+      "kcal": 31,
+      "protein": 1.2,
+      "carb": 7.2,
+      "fat": 0.4,
+      "satfat": 0.1,
+      "fiber": 2.5,
+      "sugar": 4.3,
+      "sodium": 5
+    },
+    "aliases": [
+      "green bell pepper",
+      "red bell pepper",
+      "yellow bell pepper",
+      "orange bell pepper"
+    ]
+  },
+  "benedictine": {
+    "unit": "oz",
+    "g": 32,
+    "n": {
+      "kcal": 104,
+      "protein": 0,
+      "carb": 11,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 11,
+      "sodium": 0
+    },
+    "aliases": [
+      "bénédictine"
+    ]
+  },
   "black beans": {
     "unit": "cup",
     "g": 172,
@@ -39,411 +457,25 @@
       "drained black beans"
     ]
   },
-  "olive oil": {
-    "unit": "tsp",
-    "g": 4.5,
+  "black cod": {
+    "unit": "oz",
+    "g": 28,
     "n": {
-      "kcal": 40,
-      "protein": 0,
+      "kcal": 55,
+      "protein": 3.8,
       "carb": 0,
-      "fat": 4.5,
-      "satfat": 0.6,
+      "fat": 4.3,
+      "satfat": 0.9,
       "fiber": 0,
       "sugar": 0,
-      "sodium": 0
+      "sodium": 17
     },
     "aliases": [
-      "extra-virgin olive oil",
-      "extra virgin olive oil",
-      "good olive oil",
-      "high-quality olive oil",
-      "best-quality olive oil",
-      "light olive oil",
-      "avocado or light olive oil"
-    ]
-  },
-  "neutral oil": {
-    "unit": "tsp",
-    "g": 4.5,
-    "n": {
-      "kcal": 40,
-      "protein": 0,
-      "carb": 0,
-      "fat": 4.5,
-      "satfat": 0.4,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "canola oil",
-      "grapeseed oil",
-      "vegetable oil",
-      "avocado oil",
-      "neutral oil (avocado or grapeseed)",
-      "neutral oil (grapeseed or avocado)",
-      "neutral oil (canola or grapeseed)",
-      "melted coconut oil",
-      "coconut oil"
-    ]
-  },
-  "sesame oil": {
-    "unit": "tsp",
-    "g": 4.5,
-    "n": {
-      "kcal": 40,
-      "protein": 0,
-      "carb": 0,
-      "fat": 4.5,
-      "satfat": 0.6,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "toasted sesame oil"
-    ]
-  },
-  "butter": {
-    "unit": "tsp",
-    "g": 4.7,
-    "n": {
-      "kcal": 34,
-      "protein": 0.04,
-      "carb": 0,
-      "fat": 3.8,
-      "satfat": 2.4,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 27
-    },
-    "aliases": [
-      "unsalted butter",
-      "cold butter",
-      "softened butter",
-      "melted butter",
-      "garlic-herb butter",
-      "garlic herb butter"
-    ]
-  },
-  "granulated sugar": {
-    "unit": "tsp",
-    "g": 4.2,
-    "n": {
-      "kcal": 16,
-      "protein": 0,
-      "carb": 4.2,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 4.2,
-      "sodium": 0
-    },
-    "aliases": [
-      "sugar",
-      "white sugar",
-      "rock sugar"
-    ]
-  },
-  "brown sugar": {
-    "unit": "tsp",
-    "g": 4.6,
-    "n": {
-      "kcal": 17,
-      "protein": 0,
-      "carb": 4.5,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 4.5,
-      "sodium": 1
-    },
-    "aliases": [
-      "light brown sugar",
-      "dark brown sugar",
-      "packed brown sugar",
-      "palm sugar"
-    ]
-  },
-  "honey": {
-    "unit": "tsp",
-    "g": 7,
-    "n": {
-      "kcal": 21,
-      "protein": 0,
-      "carb": 5.8,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 5.8,
-      "sodium": 0
-    }
-  },
-  "maple syrup": {
-    "unit": "tsp",
-    "g": 6.7,
-    "n": {
-      "kcal": 17,
-      "protein": 0,
-      "carb": 4.5,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 4,
-      "sodium": 1
-    }
-  },
-  "agave syrup": {
-    "unit": "tsp",
-    "g": 6.9,
-    "n": {
-      "kcal": 21,
-      "protein": 0,
-      "carb": 5.3,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 4.9,
-      "sodium": 0
-    },
-    "aliases": [
-      "agave"
-    ]
-  },
-  "simple syrup": {
-    "unit": "oz",
-    "g": 33,
-    "n": {
-      "kcal": 50,
-      "protein": 0,
-      "carb": 13,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 13,
-      "sodium": 0
-    }
-  },
-  "brown sugar syrup": {
-    "unit": "oz",
-    "g": 33,
-    "n": {
-      "kcal": 52,
-      "protein": 0,
-      "carb": 13.5,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 13.5,
-      "sodium": 1
-    }
-  },
-  "honey syrup": {
-    "unit": "oz",
-    "g": 34,
-    "n": {
-      "kcal": 53,
-      "protein": 0,
-      "carb": 14,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 14,
-      "sodium": 0
-    },
-    "aliases": [
-      "honey-ginger syrup",
-      "ginger-honey syrup",
-      "ginger syrup"
-    ]
-  },
-  "grenadine": {
-    "unit": "oz",
-    "g": 33,
-    "n": {
-      "kcal": 72,
-      "protein": 0,
-      "carb": 18,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 17,
-      "sodium": 5
-    }
-  },
-  "passion fruit syrup": {
-    "unit": "oz",
-    "g": 33,
-    "n": {
-      "kcal": 60,
-      "protein": 0,
-      "carb": 15,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 14,
-      "sodium": 2
-    }
-  },
-  "chocolate syrup": {
-    "unit": "oz",
-    "g": 38,
-    "n": {
-      "kcal": 100,
-      "protein": 0.8,
-      "carb": 24,
-      "fat": 0.4,
-      "satfat": 0.2,
-      "fiber": 1,
-      "sugar": 19,
-      "sodium": 28
-    }
-  },
-  "cream of coconut": {
-    "unit": "oz",
-    "g": 35,
-    "n": {
-      "kcal": 130,
-      "protein": 0.6,
-      "carb": 18,
-      "fat": 6.5,
-      "satfat": 5.7,
-      "fiber": 0,
-      "sugar": 17,
-      "sodium": 6
-    },
-    "aliases": [
-      "coco lopez",
-      "coco lópez"
-    ]
-  },
-  "coconut cream": {
-    "unit": "oz",
-    "g": 30,
-    "n": {
-      "kcal": 100,
-      "protein": 1,
-      "carb": 2.5,
-      "fat": 10,
-      "satfat": 9,
-      "fiber": 0.5,
-      "sugar": 1.5,
-      "sodium": 4
-    }
-  },
-  "kosher salt": {
-    "unit": "tsp",
-    "g": 4.8,
-    "n": {
-      "kcal": 0,
-      "protein": 0,
-      "carb": 0,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 1900
-    },
-    "aliases": [
-      "salt",
-      "sea salt",
-      "fine sea salt",
-      "flaky salt",
-      "flaky sea salt",
-      "coarse salt",
-      "table salt",
-      "fleur de sel",
-      "maldon"
-    ]
-  },
-  "smoked salt": {
-    "unit": "tsp",
-    "g": 5,
-    "n": {
-      "kcal": 0,
-      "protein": 0,
-      "carb": 0,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 1950
-    }
-  },
-  "garlic salt": {
-    "unit": "tsp",
-    "g": 5,
-    "n": {
-      "kcal": 4,
-      "protein": 0.2,
-      "carb": 0.9,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0,
-      "sodium": 1480
-    }
-  },
-  "baking soda": {
-    "unit": "tsp",
-    "g": 4.6,
-    "n": {
-      "kcal": 0,
-      "protein": 0,
-      "carb": 0,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 1259
-    }
-  },
-  "baking powder": {
-    "unit": "tsp",
-    "g": 4.6,
-    "n": {
-      "kcal": 2,
-      "protein": 0,
-      "carb": 1.1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 488
-    }
-  },
-  "cornstarch": {
-    "unit": "tbsp",
-    "g": 8,
-    "n": {
-      "kcal": 30,
-      "protein": 0,
-      "carb": 7,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0,
-      "sodium": 1
-    },
-    "aliases": [
-      "corn starch",
-      "potato starch",
-      "tapioca starch"
-    ]
-  },
-  "vanilla extract": {
-    "unit": "tsp",
-    "g": 4.2,
-    "n": {
-      "kcal": 12,
-      "protein": 0,
-      "carb": 0.5,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0.5,
-      "sodium": 0
-    }
+      "sablefish",
+      "black cod fillet",
+      "black cod fillets"
+    ],
+    "each": 170
   },
   "black pepper": {
     "unit": "tsp",
@@ -467,344 +499,31 @@
       "pepper"
     ]
   },
-  "white pepper": {
-    "unit": "tsp",
-    "g": 2.4,
+  "blue cheese": {
+    "unit": "cup",
+    "g": 135,
+    "density": 0.56,
     "n": {
-      "kcal": 7,
-      "protein": 0.2,
-      "carb": 1.7,
-      "fat": 0.05,
-      "satfat": 0,
-      "fiber": 0.6,
-      "sugar": 0,
-      "sodium": 0
-    }
-  },
-  "cayenne": {
-    "unit": "tsp",
-    "g": 1.8,
-    "n": {
-      "kcal": 6,
-      "protein": 0.2,
-      "carb": 1,
-      "fat": 0.3,
-      "satfat": 0.1,
-      "fiber": 0.5,
-      "sugar": 0.2,
-      "sodium": 1
+      "kcal": 477,
+      "protein": 29,
+      "carb": 3.1,
+      "fat": 39,
+      "satfat": 25,
+      "fiber": 0,
+      "sugar": 0.7,
+      "sodium": 1880
     },
     "aliases": [
-      "cayenne pepper"
+      "crumbled blue cheese"
     ]
   },
-  "chili powder": {
-    "unit": "tsp",
-    "g": 2.6,
+  "brewed coffee": {
+    "unit": "oz",
+    "g": 28,
     "n": {
-      "kcal": 8,
-      "protein": 0.3,
-      "carb": 1.4,
-      "fat": 0.4,
-      "satfat": 0.1,
-      "fiber": 0.9,
-      "sugar": 0.2,
-      "sodium": 26
-    },
-    "aliases": [
-      "chile powder",
-      "ancho chili powder"
-    ]
-  },
-  "paprika": {
-    "unit": "tsp",
-    "g": 2.3,
-    "n": {
-      "kcal": 6,
-      "protein": 0.3,
-      "carb": 1.2,
-      "fat": 0.3,
-      "satfat": 0,
-      "fiber": 0.8,
-      "sugar": 0.2,
-      "sodium": 1
-    }
-  },
-  "smoked paprika": {
-    "unit": "tsp",
-    "g": 2.3,
-    "n": {
-      "kcal": 6,
-      "protein": 0.3,
-      "carb": 1.2,
-      "fat": 0.3,
-      "satfat": 0,
-      "fiber": 0.8,
-      "sugar": 0.2,
-      "sodium": 1
-    }
-  },
-  "cinnamon": {
-    "unit": "tsp",
-    "g": 2.6,
-    "n": {
-      "kcal": 6,
+      "kcal": 1,
       "protein": 0.1,
-      "carb": 2.1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 1.4,
-      "sugar": 0.1,
-      "sodium": 0
-    },
-    "aliases": [
-      "ground cinnamon"
-    ]
-  },
-  "nutmeg": {
-    "unit": "tsp",
-    "g": 2.2,
-    "n": {
-      "kcal": 12,
-      "protein": 0.1,
-      "carb": 1.1,
-      "fat": 0.8,
-      "satfat": 0.6,
-      "fiber": 0.5,
-      "sugar": 0.6,
-      "sodium": 0
-    },
-    "aliases": [
-      "ground nutmeg",
-      "grated nutmeg"
-    ]
-  },
-  "cumin": {
-    "unit": "tsp",
-    "g": 2.1,
-    "n": {
-      "kcal": 8,
-      "protein": 0.4,
-      "carb": 0.9,
-      "fat": 0.5,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 0,
-      "sodium": 4
-    },
-    "aliases": [
-      "ground cumin"
-    ]
-  },
-  "turmeric": {
-    "unit": "tsp",
-    "g": 3,
-    "n": {
-      "kcal": 9,
-      "protein": 0.3,
-      "carb": 1.4,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.5,
-      "sugar": 0.1,
-      "sodium": 1
-    },
-    "aliases": [
-      "ground turmeric"
-    ]
-  },
-  "ground coriander": {
-    "unit": "tsp",
-    "g": 1.8,
-    "n": {
-      "kcal": 5,
-      "protein": 0.2,
-      "carb": 1,
-      "fat": 0.3,
-      "satfat": 0,
-      "fiber": 0.8,
-      "sugar": 0,
-      "sodium": 1
-    },
-    "aliases": [
-      "coriander"
-    ]
-  },
-  "ground ginger": {
-    "unit": "tsp",
-    "g": 1.8,
-    "n": {
-      "kcal": 6,
-      "protein": 0.2,
-      "carb": 1.3,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 0.1,
-      "sodium": 1
-    }
-  },
-  "ground cloves": {
-    "unit": "tsp",
-    "g": 2.1,
-    "n": {
-      "kcal": 6,
-      "protein": 0.1,
-      "carb": 1.3,
-      "fat": 0.3,
-      "satfat": 0.1,
-      "fiber": 0.7,
-      "sugar": 0,
-      "sodium": 5
-    },
-    "aliases": [
-      "cloves"
-    ]
-  },
-  "cardamom": {
-    "unit": "tsp",
-    "g": 2,
-    "n": {
-      "kcal": 6,
-      "protein": 0.2,
-      "carb": 1.4,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.6,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "ground cardamom"
-    ]
-  },
-  "garam masala": {
-    "unit": "tsp",
-    "g": 2.3,
-    "n": {
-      "kcal": 8,
-      "protein": 0.3,
-      "carb": 1.4,
-      "fat": 0.3,
-      "satfat": 0.1,
-      "fiber": 0.7,
-      "sugar": 0.1,
-      "sodium": 2
-    },
-    "aliases": [
-      "curry powder"
-    ]
-  },
-  "pumpkin pie spice": {
-    "unit": "tsp",
-    "g": 2.1,
-    "n": {
-      "kcal": 6,
-      "protein": 0.1,
-      "carb": 1.2,
-      "fat": 0.2,
-      "satfat": 0.1,
-      "fiber": 0.7,
-      "sugar": 0.1,
-      "sodium": 1
-    }
-  },
-  "red pepper flakes": {
-    "unit": "tsp",
-    "g": 1.8,
-    "n": {
-      "kcal": 6,
-      "protein": 0.2,
-      "carb": 1.1,
-      "fat": 0.3,
-      "satfat": 0.1,
-      "fiber": 0.5,
-      "sugar": 0.2,
-      "sodium": 2
-    },
-    "aliases": [
-      "crushed red pepper flakes",
-      "crushed red pepper",
-      "red chili flakes",
-      "chili flakes",
-      "chile flakes",
-      "dried chile flakes",
-      "chili flake",
-      "gochugaru",
-      "korean chili flakes"
-    ]
-  },
-  "aleppo pepper": {
-    "unit": "tsp",
-    "g": 2,
-    "n": {
-      "kcal": 6,
-      "protein": 0.2,
-      "carb": 1.1,
-      "fat": 0.3,
-      "satfat": 0,
-      "fiber": 0.6,
-      "sugar": 0.2,
-      "sodium": 25
-    }
-  },
-  "sichuan peppercorns": {
-    "unit": "tsp",
-    "g": 2.5,
-    "n": {
-      "kcal": 7,
-      "protein": 0.3,
-      "carb": 1.6,
-      "fat": 0.2,
-      "satfat": 0,
-      "fiber": 1,
-      "sugar": 0,
-      "sodium": 1
-    },
-    "aliases": [
-      "sichuan peppercorn",
-      "szechuan peppercorns"
-    ]
-  },
-  "star anise": {
-    "unit": "tsp",
-    "g": 2,
-    "n": {
-      "kcal": 7,
-      "protein": 0.3,
-      "carb": 1.1,
-      "fat": 0.3,
-      "satfat": 0,
-      "fiber": 0.3,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "each": 0.5
-  },
-  "fennel seeds": {
-    "unit": "tsp",
-    "g": 2,
-    "n": {
-      "kcal": 7,
-      "protein": 0.3,
-      "carb": 1,
-      "fat": 0.3,
-      "satfat": 0,
-      "fiber": 0.8,
-      "sugar": 0,
-      "sodium": 1
-    },
-    "aliases": [
-      "fennel seed"
-    ]
-  },
-  "saffron threads": {
-    "unit": "tsp",
-    "g": 0.7,
-    "n": {
-      "kcal": 2,
-      "protein": 0.1,
-      "carb": 0.5,
+      "carb": 0,
       "fat": 0,
       "satfat": 0,
       "fiber": 0,
@@ -812,718 +531,12 @@
       "sodium": 1
     },
     "aliases": [
-      "saffron"
+      "coffee",
+      "hot coffee",
+      "drip coffee",
+      "strong brewed coffee",
+      "hot brewed coffee"
     ]
-  },
-  "mexican oregano": {
-    "unit": "tsp",
-    "g": 1,
-    "n": {
-      "kcal": 3,
-      "protein": 0.1,
-      "carb": 0.7,
-      "fat": 0.05,
-      "satfat": 0,
-      "fiber": 0.4,
-      "sugar": 0,
-      "sodium": 0
-    }
-  },
-  "dried oregano": {
-    "unit": "tsp",
-    "g": 1,
-    "n": {
-      "kcal": 3,
-      "protein": 0.1,
-      "carb": 0.7,
-      "fat": 0.05,
-      "satfat": 0,
-      "fiber": 0.4,
-      "sugar": 0,
-      "sodium": 0
-    }
-  },
-  "dried thyme": {
-    "unit": "tsp",
-    "g": 1,
-    "n": {
-      "kcal": 3,
-      "protein": 0.1,
-      "carb": 0.6,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.4,
-      "sugar": 0,
-      "sodium": 1
-    }
-  },
-  "dried tarragon": {
-    "unit": "tsp",
-    "g": 1.6,
-    "n": {
-      "kcal": 5,
-      "protein": 0.4,
-      "carb": 0.8,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0,
-      "sodium": 1
-    }
-  },
-  "onion powder": {
-    "unit": "tsp",
-    "g": 2.4,
-    "n": {
-      "kcal": 8,
-      "protein": 0.2,
-      "carb": 1.9,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 0.9,
-      "sodium": 1
-    }
-  },
-  "garlic powder": {
-    "unit": "tsp",
-    "g": 3,
-    "n": {
-      "kcal": 10,
-      "protein": 0.5,
-      "carb": 2.2,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.3,
-      "sugar": 0.1,
-      "sodium": 2
-    }
-  },
-  "sesame seeds": {
-    "unit": "tsp",
-    "g": 3,
-    "n": {
-      "kcal": 17,
-      "protein": 0.5,
-      "carb": 0.7,
-      "fat": 1.5,
-      "satfat": 0.2,
-      "fiber": 0.4,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "toasted sesame seeds",
-      "sesame seed"
-    ]
-  },
-  "garlic": {
-    "unit": "clove",
-    "g": 3,
-    "density": 0.55,
-    "n": {
-      "kcal": 4,
-      "protein": 0.2,
-      "carb": 1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0,
-      "sodium": 1
-    },
-    "aliases": [
-      "garlic clove",
-      "cloves garlic",
-      "garlic cloves"
-    ]
-  },
-  "ginger": {
-    "unit": "tbsp",
-    "g": 6,
-    "n": {
-      "kcal": 5,
-      "protein": 0.1,
-      "carb": 1.1,
-      "fat": 0.05,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0.1,
-      "sodium": 1
-    },
-    "aliases": [
-      "fresh ginger",
-      "grated ginger"
-    ],
-    "each": 5
-  },
-  "parsley": {
-    "unit": "tbsp",
-    "g": 3.8,
-    "n": {
-      "kcal": 1,
-      "protein": 0.1,
-      "carb": 0.2,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0,
-      "sodium": 2
-    },
-    "aliases": [
-      "fresh parsley",
-      "chopped parsley"
-    ]
-  },
-  "cilantro": {
-    "unit": "cup",
-    "g": 16,
-    "n": {
-      "kcal": 4,
-      "protein": 0.3,
-      "carb": 0.6,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.4,
-      "sugar": 0.1,
-      "sodium": 7
-    },
-    "aliases": [
-      "fresh cilantro",
-      "chopped cilantro"
-    ]
-  },
-  "basil": {
-    "unit": "tbsp",
-    "g": 2.6,
-    "n": {
-      "kcal": 1,
-      "protein": 0.1,
-      "carb": 0.1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "fresh basil",
-      "basil leaves",
-      "fresh basil leaves"
-    ],
-    "each": 0.5
-  },
-  "oregano": {
-    "unit": "tbsp",
-    "g": 6,
-    "n": {
-      "kcal": 2,
-      "protein": 0.1,
-      "carb": 0.4,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.3,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "fresh oregano"
-    ]
-  },
-  "rosemary": {
-    "unit": "tbsp",
-    "g": 1.7,
-    "n": {
-      "kcal": 2,
-      "protein": 0.1,
-      "carb": 0.4,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 0,
-      "sodium": 1
-    },
-    "aliases": [
-      "fresh rosemary",
-      "chopped rosemary"
-    ]
-  },
-  "thyme": {
-    "unit": "tbsp",
-    "g": 2.4,
-    "n": {
-      "kcal": 2,
-      "protein": 0.1,
-      "carb": 0.6,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.3,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "fresh thyme",
-      "fresh thyme leaves",
-      "chopped thyme"
-    ]
-  },
-  "dill": {
-    "unit": "tbsp",
-    "g": 3,
-    "n": {
-      "kcal": 1,
-      "protein": 0.1,
-      "carb": 0.2,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0,
-      "sodium": 2
-    },
-    "aliases": [
-      "fresh dill"
-    ]
-  },
-  "mint": {
-    "unit": "tbsp",
-    "g": 1.9,
-    "n": {
-      "kcal": 1,
-      "protein": 0.1,
-      "carb": 0.1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0,
-      "sodium": 1
-    },
-    "aliases": [
-      "fresh mint",
-      "mint leaves",
-      "mint sprig"
-    ],
-    "each": 0.4
-  },
-  "chives": {
-    "unit": "tbsp",
-    "g": 3,
-    "n": {
-      "kcal": 1,
-      "protein": 0.1,
-      "carb": 0.1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "fresh chives"
-    ]
-  },
-  "lemongrass": {
-    "unit": "stalk",
-    "g": 20,
-    "n": {
-      "kcal": 20,
-      "protein": 0.4,
-      "carb": 5.1,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 1
-    }
-  },
-  "scallion": {
-    "unit": "stalk",
-    "g": 15,
-    "density": 0.6,
-    "n": {
-      "kcal": 5,
-      "protein": 0.3,
-      "carb": 1.1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.4,
-      "sugar": 0.3,
-      "sodium": 2
-    },
-    "aliases": [
-      "green onion",
-      "green onions",
-      "scallions"
-    ]
-  },
-  "shallot": {
-    "unit": "shallot",
-    "g": 40,
-    "density": 0.6,
-    "n": {
-      "kcal": 29,
-      "protein": 1,
-      "carb": 6.7,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 1.3,
-      "sugar": 3.1,
-      "sodium": 5
-    }
-  },
-  "bay leaf": {
-    "unit": "leaf",
-    "g": 0.6,
-    "n": {
-      "kcal": 2,
-      "protein": 0,
-      "carb": 0.4,
-      "fat": 0.05,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "bay leaves"
-    ]
-  },
-  "red onion": {
-    "unit": "onion",
-    "g": 110,
-    "density": 0.6,
-    "n": {
-      "kcal": 44,
-      "protein": 1.2,
-      "carb": 10.3,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 1.9,
-      "sugar": 4.7,
-      "sodium": 4
-    }
-  },
-  "yellow onion": {
-    "unit": "onion",
-    "g": 110,
-    "density": 0.6,
-    "n": {
-      "kcal": 44,
-      "protein": 1.2,
-      "carb": 10.3,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 1.9,
-      "sugar": 4.7,
-      "sodium": 4
-    }
-  },
-  "onion": {
-    "unit": "onion",
-    "g": 110,
-    "density": 0.6,
-    "n": {
-      "kcal": 44,
-      "protein": 1.2,
-      "carb": 10.3,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 1.9,
-      "sugar": 4.7,
-      "sodium": 4
-    },
-    "aliases": [
-      "white onion",
-      "diced white onion"
-    ]
-  },
-  "cucumber": {
-    "unit": "cup",
-    "g": 120,
-    "density": 0.5,
-    "n": {
-      "kcal": 16,
-      "protein": 0.7,
-      "carb": 3.8,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.6,
-      "sugar": 1.7,
-      "sodium": 2
-    },
-    "aliases": [
-      "english cucumber",
-      "persian cucumber"
-    ],
-    "each": 300
-  },
-  "bell pepper": {
-    "unit": "pepper",
-    "g": 120,
-    "density": 0.6,
-    "n": {
-      "kcal": 31,
-      "protein": 1.2,
-      "carb": 7.2,
-      "fat": 0.4,
-      "satfat": 0.1,
-      "fiber": 2.5,
-      "sugar": 4.3,
-      "sodium": 5
-    },
-    "aliases": [
-      "green bell pepper",
-      "red bell pepper",
-      "yellow bell pepper",
-      "orange bell pepper"
-    ]
-  },
-  "banana pepper": {
-    "unit": "pepper",
-    "g": 33,
-    "density": 0.6,
-    "n": {
-      "kcal": 9,
-      "protein": 0.6,
-      "carb": 1.8,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 1.2,
-      "sugar": 1.2,
-      "sodium": 4
-    }
-  },
-  "jalapeno": {
-    "unit": "jalapeno",
-    "g": 14,
-    "density": 0.6,
-    "n": {
-      "kcal": 4,
-      "protein": 0.1,
-      "carb": 0.8,
-      "fat": 0.05,
-      "satfat": 0,
-      "fiber": 0.4,
-      "sugar": 0.6,
-      "sodium": 0
-    },
-    "aliases": [
-      "jalapeño",
-      "jalapeños",
-      "jalapeno pepper",
-      "fresh jalapeño",
-      "fresh jalapeno"
-    ]
-  },
-  "serrano": {
-    "unit": "serrano",
-    "g": 6,
-    "density": 0.6,
-    "n": {
-      "kcal": 2,
-      "protein": 0.1,
-      "carb": 0.4,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 0.2,
-      "sodium": 1
-    },
-    "aliases": [
-      "serrano pepper",
-      "serranos",
-      "serrano chile",
-      "thai chile",
-      "thai chili"
-    ]
-  },
-  "habanero": {
-    "unit": "habanero",
-    "g": 8,
-    "density": 0.6,
-    "n": {
-      "kcal": 3,
-      "protein": 0.1,
-      "carb": 0.6,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0.4,
-      "sodium": 0
-    }
-  },
-  "chipotle in adobo": {
-    "unit": "tbsp",
-    "g": 16,
-    "n": {
-      "kcal": 14,
-      "protein": 0.5,
-      "carb": 2.8,
-      "fat": 0.3,
-      "satfat": 0,
-      "fiber": 1,
-      "sugar": 1,
-      "sodium": 200
-    },
-    "aliases": [
-      "chipotle peppers in adobo",
-      "chipotle pepper in adobo"
-    ],
-    "each": 15
-  },
-  "adobo sauce": {
-    "unit": "tsp",
-    "g": 5,
-    "n": {
-      "kcal": 5,
-      "protein": 0.1,
-      "carb": 0.9,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 0.4,
-      "sodium": 70
-    }
-  },
-  "carrot": {
-    "unit": "carrot",
-    "g": 60,
-    "density": 0.6,
-    "n": {
-      "kcal": 25,
-      "protein": 0.6,
-      "carb": 5.8,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 1.7,
-      "sugar": 2.9,
-      "sodium": 42
-    }
-  },
-  "celery": {
-    "unit": "stalk",
-    "g": 40,
-    "density": 0.5,
-    "n": {
-      "kcal": 6,
-      "protein": 0.3,
-      "carb": 1.2,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.6,
-      "sugar": 0.5,
-      "sodium": 32
-    },
-    "aliases": [
-      "celery stalk",
-      "celery stalks"
-    ]
-  },
-  "fennel": {
-    "unit": "bulb",
-    "g": 234,
-    "density": 0.5,
-    "n": {
-      "kcal": 73,
-      "protein": 2.9,
-      "carb": 17.1,
-      "fat": 0.5,
-      "satfat": 0,
-      "fiber": 7.3,
-      "sugar": 0,
-      "sodium": 122
-    },
-    "aliases": [
-      "fennel bulb"
-    ]
-  },
-  "eggplant": {
-    "unit": "eggplant",
-    "g": 450,
-    "density": 0.4,
-    "n": {
-      "kcal": 115,
-      "protein": 4.6,
-      "carb": 27,
-      "fat": 0.8,
-      "satfat": 0.2,
-      "fiber": 14,
-      "sugar": 16,
-      "sodium": 9
-    },
-    "aliases": [
-      "eggplants",
-      "aubergine",
-      "aubergines"
-    ],
-    "each": 450
-  },
-  "roasted red pepper": {
-    "unit": "cup",
-    "g": 140,
-    "density": 1,
-    "n": {
-      "kcal": 42,
-      "protein": 1.4,
-      "carb": 9,
-      "fat": 0.3,
-      "satfat": 0,
-      "fiber": 2,
-      "sugar": 6,
-      "sodium": 300
-    },
-    "aliases": [
-      "roasted red peppers",
-      "jarred roasted red peppers",
-      "piquillo peppers",
-      "roasted red bell peppers"
-    ],
-    "each": 75
-  },
-  "zucchini": {
-    "unit": "cup",
-    "g": 113,
-    "density": 0.5,
-    "n": {
-      "kcal": 19,
-      "protein": 1.4,
-      "carb": 3.5,
-      "fat": 0.4,
-      "satfat": 0.1,
-      "fiber": 1.1,
-      "sugar": 2.7,
-      "sodium": 9
-    },
-    "each": 200
-  },
-  "yellow squash": {
-    "unit": "cup",
-    "g": 113,
-    "density": 0.5,
-    "n": {
-      "kcal": 21,
-      "protein": 1.2,
-      "carb": 4.3,
-      "fat": 0.3,
-      "satfat": 0.1,
-      "fiber": 1.3,
-      "sugar": 2.5,
-      "sodium": 2
-    },
-    "each": 200
-  },
-  "brussels sprouts": {
-    "unit": "cup",
-    "g": 88,
-    "density": 0.5,
-    "n": {
-      "kcal": 38,
-      "protein": 3,
-      "carb": 8,
-      "fat": 0.3,
-      "satfat": 0.1,
-      "fiber": 3.3,
-      "sugar": 1.9,
-      "sodium": 22
-    }
   },
   "broccoli": {
     "unit": "head",
@@ -1573,6 +586,1548 @@
       "sodium": 60
     }
   },
+  "brown sugar": {
+    "unit": "tsp",
+    "g": 4.6,
+    "n": {
+      "kcal": 17,
+      "protein": 0,
+      "carb": 4.5,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 4.5,
+      "sodium": 1
+    },
+    "aliases": [
+      "light brown sugar",
+      "dark brown sugar",
+      "packed brown sugar",
+      "palm sugar"
+    ]
+  },
+  "brown sugar syrup": {
+    "unit": "oz",
+    "g": 33,
+    "n": {
+      "kcal": 52,
+      "protein": 0,
+      "carb": 13.5,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 13.5,
+      "sodium": 1
+    }
+  },
+  "brussels sprouts": {
+    "unit": "cup",
+    "g": 88,
+    "density": 0.5,
+    "n": {
+      "kcal": 38,
+      "protein": 3,
+      "carb": 8,
+      "fat": 0.3,
+      "satfat": 0.1,
+      "fiber": 3.3,
+      "sugar": 1.9,
+      "sodium": 22
+    }
+  },
+  "butter": {
+    "unit": "tsp",
+    "g": 4.7,
+    "n": {
+      "kcal": 34,
+      "protein": 0.04,
+      "carb": 0,
+      "fat": 3.8,
+      "satfat": 2.4,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 27
+    },
+    "aliases": [
+      "unsalted butter",
+      "cold butter",
+      "softened butter",
+      "melted butter",
+      "garlic-herb butter",
+      "garlic herb butter"
+    ]
+  },
+  "butter lettuce": {
+    "unit": "head",
+    "g": 163,
+    "each": 163,
+    "n": {
+      "kcal": 21,
+      "protein": 2.2,
+      "carb": 3.6,
+      "fat": 0.4,
+      "satfat": 0.05,
+      "fiber": 1.8,
+      "sugar": 1.5,
+      "sodium": 8
+    },
+    "aliases": [
+      "butterhead lettuce",
+      "bibb lettuce",
+      "boston lettuce"
+    ]
+  },
+  "cabbage": {
+    "unit": "cup",
+    "g": 70,
+    "density": 0.4,
+    "n": {
+      "kcal": 18,
+      "protein": 0.9,
+      "carb": 4.1,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 1.8,
+      "sugar": 2.2,
+      "sodium": 13
+    },
+    "aliases": [
+      "green cabbage",
+      "red cabbage",
+      "shredded cabbage",
+      "coleslaw mix",
+      "napa cabbage",
+      "savoy cabbage"
+    ],
+    "each": 900
+  },
+  "calamari": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 26,
+      "protein": 4.4,
+      "carb": 0.9,
+      "fat": 0.4,
+      "satfat": 0.1,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 13
+    },
+    "aliases": [
+      "squid",
+      "calamari rings",
+      "squid rings"
+    ]
+  },
+  "canned tomatoes": {
+    "unit": "can",
+    "g": 411,
+    "density": 1,
+    "n": {
+      "kcal": 82,
+      "protein": 4.1,
+      "carb": 18.5,
+      "fat": 0.4,
+      "satfat": 0,
+      "fiber": 4.5,
+      "sugar": 11,
+      "sodium": 250
+    },
+    "aliases": [
+      "crushed tomatoes",
+      "whole tomatoes",
+      "whole peeled tomatoes",
+      "diced tomatoes"
+    ]
+  },
+  "capers": {
+    "unit": "tbsp",
+    "g": 9,
+    "n": {
+      "kcal": 2,
+      "protein": 0.2,
+      "carb": 0.4,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.3,
+      "sugar": 0.1,
+      "sodium": 238
+    }
+  },
+  "caramel sauce": {
+    "unit": "tbsp",
+    "g": 19,
+    "n": {
+      "kcal": 60,
+      "protein": 0.3,
+      "carb": 14,
+      "fat": 1.5,
+      "satfat": 0.9,
+      "fiber": 0,
+      "sugar": 11,
+      "sodium": 60
+    },
+    "aliases": [
+      "salted caramel sauce",
+      "dulce de leche",
+      "caramel"
+    ]
+  },
+  "cardamom": {
+    "unit": "tsp",
+    "g": 2,
+    "n": {
+      "kcal": 6,
+      "protein": 0.2,
+      "carb": 1.4,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.6,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "ground cardamom"
+    ]
+  },
+  "carrot": {
+    "unit": "carrot",
+    "g": 60,
+    "density": 0.6,
+    "n": {
+      "kcal": 25,
+      "protein": 0.6,
+      "carb": 5.8,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 1.7,
+      "sugar": 2.9,
+      "sodium": 42
+    }
+  },
+  "cauliflower": {
+    "unit": "cup",
+    "g": 107,
+    "density": 0.43,
+    "n": {
+      "kcal": 27,
+      "protein": 2.1,
+      "carb": 5.3,
+      "fat": 0.3,
+      "satfat": 0.07,
+      "fiber": 2.1,
+      "sugar": 2.0,
+      "sodium": 32
+    },
+    "aliases": [
+      "cauliflower florets"
+    ]
+  },
+  "cayenne": {
+    "unit": "tsp",
+    "g": 1.8,
+    "n": {
+      "kcal": 6,
+      "protein": 0.2,
+      "carb": 1,
+      "fat": 0.3,
+      "satfat": 0.1,
+      "fiber": 0.5,
+      "sugar": 0.2,
+      "sodium": 1
+    },
+    "aliases": [
+      "cayenne pepper"
+    ]
+  },
+  "celery": {
+    "unit": "stalk",
+    "g": 40,
+    "density": 0.5,
+    "n": {
+      "kcal": 6,
+      "protein": 0.3,
+      "carb": 1.2,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.6,
+      "sugar": 0.5,
+      "sodium": 32
+    },
+    "aliases": [
+      "celery stalk",
+      "celery stalks"
+    ]
+  },
+  "chambord": {
+    "unit": "oz",
+    "g": 32,
+    "n": {
+      "kcal": 88,
+      "protein": 0,
+      "carb": 11,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 11,
+      "sodium": 0
+    },
+    "aliases": [
+      "raspberry liqueur"
+    ]
+  },
+  "cherry": {
+    "unit": "cherry",
+    "g": 8,
+    "n": {
+      "kcal": 6,
+      "protein": 0.1,
+      "carb": 1.5,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.2,
+      "sugar": 1.2,
+      "sodium": 0
+    },
+    "aliases": [
+      "maraschino cherry"
+    ]
+  },
+  "cherry brandy": {
+    "unit": "oz",
+    "g": 32,
+    "n": {
+      "kcal": 80,
+      "protein": 0,
+      "carb": 9,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 9,
+      "sodium": 0
+    },
+    "aliases": [
+      "cherry liqueur",
+      "cherry heering"
+    ]
+  },
+  "cherry tomato": {
+    "unit": "tomato",
+    "g": 17,
+    "density": 0.67,
+    "n": {
+      "kcal": 3,
+      "protein": 0.15,
+      "carb": 0.65,
+      "fat": 0.03,
+      "satfat": 0.004,
+      "fiber": 0.2,
+      "sugar": 0.43,
+      "sodium": 1
+    },
+    "aliases": [
+      "cherry tomatoes",
+      "grape tomato",
+      "grape tomatoes",
+      "green cherry tomato",
+      "green cherry tomatoes",
+      "red cherry tomato",
+      "red cherry tomatoes"
+    ]
+  },
+  "chicken breast": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 33,
+      "protein": 6.2,
+      "carb": 0,
+      "fat": 0.7,
+      "satfat": 0.2,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 21
+    },
+    "aliases": [
+      "chicken breasts",
+      "boneless skinless chicken breasts",
+      "boneless skinless chicken breast",
+      "chicken"
+    ],
+    "each": 170
+  },
+  "chicken broth": {
+    "unit": "cup",
+    "g": 240,
+    "density": 1,
+    "n": {
+      "kcal": 15,
+      "protein": 1.5,
+      "carb": 1,
+      "fat": 0.5,
+      "satfat": 0.1,
+      "fiber": 0,
+      "sugar": 0.5,
+      "sodium": 860
+    },
+    "aliases": [
+      "chicken stock",
+      "low-sodium chicken broth",
+      "low-sodium chicken stock",
+      "poaching broth",
+      "reserved poaching broth",
+      "chicken poaching broth"
+    ]
+  },
+  "chicken thigh": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 49,
+      "protein": 5,
+      "carb": 0,
+      "fat": 3.2,
+      "satfat": 0.9,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 24
+    },
+    "aliases": [
+      "chicken thighs",
+      "bone-in chicken thighs",
+      "bone-in skin-on chicken thighs",
+      "boneless chicken thighs",
+      "boneless skinless chicken thighs",
+      "skinless chicken thighs"
+    ],
+    "each": 95
+  },
+  "chickpeas": {
+    "unit": "cup",
+    "g": 164,
+    "density": 0.69,
+    "n": {
+      "kcal": 269,
+      "protein": 14.5,
+      "carb": 45,
+      "fat": 4.2,
+      "satfat": 0.4,
+      "fiber": 12.5,
+      "sugar": 8,
+      "sodium": 11
+    },
+    "aliases": [
+      "canned chickpeas",
+      "garbanzo beans"
+    ]
+  },
+  "chili powder": {
+    "unit": "tsp",
+    "g": 2.6,
+    "n": {
+      "kcal": 8,
+      "protein": 0.3,
+      "carb": 1.4,
+      "fat": 0.4,
+      "satfat": 0.1,
+      "fiber": 0.9,
+      "sugar": 0.2,
+      "sodium": 26
+    },
+    "aliases": [
+      "chile powder",
+      "ancho chili powder"
+    ]
+  },
+  "chipotle in adobo": {
+    "unit": "tbsp",
+    "g": 16,
+    "n": {
+      "kcal": 14,
+      "protein": 0.5,
+      "carb": 2.8,
+      "fat": 0.3,
+      "satfat": 0,
+      "fiber": 1,
+      "sugar": 1,
+      "sodium": 200
+    },
+    "aliases": [
+      "chipotle peppers in adobo",
+      "chipotle pepper in adobo"
+    ],
+    "each": 15
+  },
+  "chives": {
+    "unit": "tbsp",
+    "g": 3,
+    "n": {
+      "kcal": 1,
+      "protein": 0.1,
+      "carb": 0.1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "fresh chives"
+    ]
+  },
+  "chocolate syrup": {
+    "unit": "oz",
+    "g": 38,
+    "n": {
+      "kcal": 100,
+      "protein": 0.8,
+      "carb": 24,
+      "fat": 0.4,
+      "satfat": 0.2,
+      "fiber": 1,
+      "sugar": 19,
+      "sodium": 28
+    }
+  },
+  "cilantro": {
+    "unit": "cup",
+    "g": 16,
+    "n": {
+      "kcal": 4,
+      "protein": 0.3,
+      "carb": 0.6,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.4,
+      "sugar": 0.1,
+      "sodium": 7
+    },
+    "aliases": [
+      "fresh cilantro",
+      "chopped cilantro"
+    ]
+  },
+  "cinnamon": {
+    "unit": "tsp",
+    "g": 2.6,
+    "n": {
+      "kcal": 6,
+      "protein": 0.1,
+      "carb": 2.1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 1.4,
+      "sugar": 0.1,
+      "sodium": 0
+    },
+    "aliases": [
+      "ground cinnamon"
+    ]
+  },
+  "clams": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 4,
+      "protein": 0.7,
+      "carb": 0.1,
+      "fat": 0.05,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 18
+    },
+    "aliases": [
+      "clam",
+      "littleneck clams",
+      "littleneck clam",
+      "manila clams"
+    ],
+    "each": 12
+  },
+  "club soda": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 0,
+      "protein": 0,
+      "carb": 0,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 2
+    },
+    "aliases": [
+      "soda water",
+      "seltzer",
+      "sparkling water",
+      "club soda to top"
+    ]
+  },
+  "coconut cream": {
+    "unit": "oz",
+    "g": 30,
+    "n": {
+      "kcal": 100,
+      "protein": 1,
+      "carb": 2.5,
+      "fat": 10,
+      "satfat": 9,
+      "fiber": 0.5,
+      "sugar": 1.5,
+      "sodium": 4
+    }
+  },
+  "coconut milk": {
+    "unit": "cup",
+    "g": 240,
+    "density": 1,
+    "n": {
+      "kcal": 445,
+      "protein": 4.6,
+      "carb": 6.4,
+      "fat": 48,
+      "satfat": 43,
+      "fiber": 0,
+      "sugar": 6.4,
+      "sodium": 29
+    },
+    "aliases": [
+      "full-fat coconut milk"
+    ]
+  },
+  "coconut tequila": {
+    "unit": "oz",
+    "g": 29,
+    "n": {
+      "kcal": 72,
+      "protein": 0,
+      "carb": 2,
+      "fat": 0.2,
+      "satfat": 0.2,
+      "fiber": 0,
+      "sugar": 2,
+      "sodium": 1
+    }
+  },
+  "cod": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 23,
+      "protein": 5,
+      "carb": 0,
+      "fat": 0.2,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 15
+    },
+    "aliases": [
+      "cod fillet",
+      "cod fillets",
+      "skinless cod fillets"
+    ],
+    "each": 145
+  },
+  "coffee beans": {
+    "unit": "bean",
+    "g": 0.2,
+    "n": {
+      "kcal": 1,
+      "protein": 0,
+      "carb": 0,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "coffee bean"
+    ]
+  },
+  "coffee liqueur": {
+    "unit": "oz",
+    "g": 35,
+    "n": {
+      "kcal": 100,
+      "protein": 0,
+      "carb": 15,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 14,
+      "sodium": 3
+    },
+    "aliases": [
+      "kahlua",
+      "kahlúa",
+      "mr black"
+    ]
+  },
+  "cognac": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 69,
+      "protein": 0,
+      "carb": 0.5,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.2,
+      "sodium": 0
+    },
+    "aliases": [
+      "brandy",
+      "vsop cognac"
+    ]
+  },
+  "cointreau": {
+    "unit": "oz",
+    "g": 30,
+    "n": {
+      "kcal": 95,
+      "protein": 0,
+      "carb": 7,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 7,
+      "sodium": 0
+    }
+  },
+  "corn": {
+    "unit": "ear",
+    "g": 90,
+    "density": 0.6,
+    "n": {
+      "kcal": 77,
+      "protein": 2.9,
+      "carb": 17,
+      "fat": 1.1,
+      "satfat": 0.2,
+      "fiber": 2.4,
+      "sugar": 5.9,
+      "sodium": 14
+    }
+  },
+  "corn tortilla": {
+    "unit": "tortilla",
+    "g": 26,
+    "n": {
+      "kcal": 58,
+      "protein": 1.5,
+      "carb": 12,
+      "fat": 0.7,
+      "satfat": 0.1,
+      "fiber": 1.6,
+      "sugar": 0.3,
+      "sodium": 12
+    },
+    "aliases": [
+      "corn tortillas",
+      "flour tortilla",
+      "flour tortillas",
+      "tortilla",
+      "tortillas"
+    ]
+  },
+  "cornstarch": {
+    "unit": "tbsp",
+    "g": 8,
+    "n": {
+      "kcal": 30,
+      "protein": 0,
+      "carb": 7,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 1
+    },
+    "aliases": [
+      "corn starch",
+      "potato starch",
+      "tapioca starch"
+    ]
+  },
+  "cotija": {
+    "unit": "cup",
+    "g": 130,
+    "density": 0.55,
+    "n": {
+      "kcal": 480,
+      "protein": 27,
+      "carb": 5,
+      "fat": 39,
+      "satfat": 24,
+      "fiber": 0,
+      "sugar": 1,
+      "sodium": 1750
+    },
+    "aliases": [
+      "queso fresco",
+      "cotija cheese"
+    ]
+  },
+  "couscous": {
+    "unit": "cup",
+    "g": 173,
+    "density": 0.73,
+    "n": {
+      "kcal": 650,
+      "protein": 22,
+      "carb": 134,
+      "fat": 1.1,
+      "satfat": 0.2,
+      "fiber": 8.7,
+      "sugar": 0,
+      "sodium": 17
+    }
+  },
+  "crab": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 24,
+      "protein": 5,
+      "carb": 0,
+      "fat": 0.3,
+      "satfat": 0.05,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 90
+    },
+    "aliases": [
+      "lump crab",
+      "lump crab meat",
+      "crab meat",
+      "crabmeat",
+      "dungeness crab"
+    ]
+  },
+  "cream of coconut": {
+    "unit": "oz",
+    "g": 35,
+    "n": {
+      "kcal": 130,
+      "protein": 0.6,
+      "carb": 18,
+      "fat": 6.5,
+      "satfat": 5.7,
+      "fiber": 0,
+      "sugar": 17,
+      "sodium": 6
+    },
+    "aliases": [
+      "coco lopez",
+      "coco lópez"
+    ]
+  },
+  "creme de cacao": {
+    "unit": "oz",
+    "g": 33,
+    "n": {
+      "kcal": 100,
+      "protein": 0,
+      "carb": 12,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 12,
+      "sodium": 1
+    },
+    "aliases": [
+      "crème de cacao",
+      "dark creme de cacao",
+      "white creme de cacao"
+    ]
+  },
+  "creme de menthe": {
+    "unit": "oz",
+    "g": 33,
+    "n": {
+      "kcal": 95,
+      "protein": 0,
+      "carb": 14,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 14,
+      "sodium": 1
+    },
+    "aliases": [
+      "crème de menthe",
+      "white creme de menthe",
+      "green creme de menthe"
+    ]
+  },
+  "cucumber": {
+    "unit": "cup",
+    "g": 120,
+    "density": 0.5,
+    "n": {
+      "kcal": 16,
+      "protein": 0.7,
+      "carb": 3.8,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.6,
+      "sugar": 1.7,
+      "sodium": 2
+    },
+    "aliases": [
+      "english cucumber",
+      "persian cucumber"
+    ],
+    "each": 300
+  },
+  "cumin": {
+    "unit": "tsp",
+    "g": 2.1,
+    "n": {
+      "kcal": 8,
+      "protein": 0.4,
+      "carb": 0.9,
+      "fat": 0.5,
+      "satfat": 0,
+      "fiber": 0.2,
+      "sugar": 0,
+      "sodium": 4
+    },
+    "aliases": [
+      "ground cumin"
+    ]
+  },
+  "dark chocolate": {
+    "unit": "cup",
+    "g": 175,
+    "density": 0.74,
+    "n": {
+      "kcal": 938,
+      "protein": 13,
+      "carb": 80,
+      "fat": 67,
+      "satfat": 39,
+      "fiber": 19,
+      "sugar": 42,
+      "sodium": 35
+    },
+    "aliases": [
+      "chopped dark chocolate",
+      "chocolate",
+      "shaved chocolate",
+      "chocolate chunks"
+    ]
+  },
+  "dark soy sauce": {
+    "unit": "tbsp",
+    "g": 18,
+    "n": {
+      "kcal": 15,
+      "protein": 1.3,
+      "carb": 2.2,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 1.5,
+      "sodium": 960
+    }
+  },
+  "dates": {
+    "unit": "date",
+    "g": 8,
+    "density": 0.7,
+    "n": {
+      "kcal": 23,
+      "protein": 0.2,
+      "carb": 6.2,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.6,
+      "sugar": 5.3,
+      "sodium": 0
+    },
+    "aliases": [
+      "date",
+      "medjool dates"
+    ]
+  },
+  "dijon mustard": {
+    "unit": "tsp",
+    "g": 5,
+    "n": {
+      "kcal": 5,
+      "protein": 0.3,
+      "carb": 0.5,
+      "fat": 0.3,
+      "satfat": 0,
+      "fiber": 0.2,
+      "sugar": 0.1,
+      "sodium": 120
+    }
+  },
+  "dill": {
+    "unit": "tbsp",
+    "g": 3,
+    "n": {
+      "kcal": 1,
+      "protein": 0.1,
+      "carb": 0.2,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 2
+    },
+    "aliases": [
+      "fresh dill"
+    ]
+  },
+  "doubanjiang": {
+    "unit": "tbsp",
+    "g": 18,
+    "n": {
+      "kcal": 25,
+      "protein": 1.5,
+      "carb": 3,
+      "fat": 1,
+      "satfat": 0.2,
+      "fiber": 1,
+      "sugar": 1,
+      "sodium": 720
+    },
+    "aliases": [
+      "pixian chile bean paste",
+      "chile bean paste",
+      "fermented black beans",
+      "douchi"
+    ]
+  },
+  "dried apricot": {
+    "unit": "apricot",
+    "g": 8,
+    "each": 8,
+    "n": {
+      "kcal": 19,
+      "protein": 0.27,
+      "carb": 5.0,
+      "fat": 0.04,
+      "satfat": 0,
+      "fiber": 0.6,
+      "sugar": 4.3,
+      "sodium": 1
+    },
+    "aliases": [
+      "dried apricots"
+    ]
+  },
+  "dried oregano": {
+    "unit": "tsp",
+    "g": 1,
+    "n": {
+      "kcal": 3,
+      "protein": 0.1,
+      "carb": 0.7,
+      "fat": 0.05,
+      "satfat": 0,
+      "fiber": 0.4,
+      "sugar": 0,
+      "sodium": 0
+    }
+  },
+  "dried tarragon": {
+    "unit": "tsp",
+    "g": 1.6,
+    "n": {
+      "kcal": 5,
+      "protein": 0.4,
+      "carb": 0.8,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 1
+    }
+  },
+  "dried thyme": {
+    "unit": "tsp",
+    "g": 1,
+    "n": {
+      "kcal": 3,
+      "protein": 0.1,
+      "carb": 0.6,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.4,
+      "sugar": 0,
+      "sodium": 1
+    }
+  },
+  "dry white wine": {
+    "unit": "cup",
+    "g": 235,
+    "density": 0.99,
+    "n": {
+      "kcal": 195,
+      "protein": 0.2,
+      "carb": 6.1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 1.4,
+      "sodium": 12
+    },
+    "aliases": [
+      "white wine",
+      "sauvignon blanc",
+      "pinot grigio"
+    ]
+  },
+  "egg": {
+    "unit": "egg",
+    "g": 50,
+    "density": 1.03,
+    "n": {
+      "kcal": 72,
+      "protein": 6.3,
+      "carb": 0.4,
+      "fat": 4.8,
+      "satfat": 1.6,
+      "fiber": 0,
+      "sugar": 0.2,
+      "sodium": 71
+    },
+    "aliases": [
+      "eggs",
+      "large egg",
+      "large eggs"
+    ]
+  },
+  "egg white": {
+    "unit": "white",
+    "g": 33,
+    "density": 1.03,
+    "n": {
+      "kcal": 17,
+      "protein": 3.6,
+      "carb": 0.2,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.2,
+      "sodium": 55
+    },
+    "aliases": [
+      "egg whites"
+    ]
+  },
+  "egg yolk": {
+    "unit": "yolk",
+    "g": 17,
+    "density": 1.03,
+    "n": {
+      "kcal": 55,
+      "protein": 2.7,
+      "carb": 0.6,
+      "fat": 4.5,
+      "satfat": 1.6,
+      "fiber": 0,
+      "sugar": 0.1,
+      "sodium": 8
+    },
+    "aliases": [
+      "yolk",
+      "egg yolks"
+    ]
+  },
+  "eggplant": {
+    "unit": "eggplant",
+    "g": 450,
+    "density": 0.4,
+    "n": {
+      "kcal": 115,
+      "protein": 4.6,
+      "carb": 27,
+      "fat": 0.8,
+      "satfat": 0.2,
+      "fiber": 14,
+      "sugar": 16,
+      "sodium": 9
+    },
+    "aliases": [
+      "eggplants",
+      "aubergine",
+      "aubergines"
+    ],
+    "each": 450
+  },
+  "espresso": {
+    "unit": "oz",
+    "g": 29,
+    "n": {
+      "kcal": 3,
+      "protein": 0.1,
+      "carb": 0.5,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 4
+    },
+    "aliases": [
+      "coffee beans"
+    ]
+  },
+  "evaporated milk": {
+    "unit": "cup",
+    "g": 252,
+    "density": 1.07,
+    "n": {
+      "kcal": 338,
+      "protein": 17,
+      "carb": 25,
+      "fat": 19,
+      "satfat": 11.6,
+      "fiber": 0,
+      "sugar": 25,
+      "sodium": 267
+    }
+  },
+  "fennel": {
+    "unit": "bulb",
+    "g": 234,
+    "density": 0.5,
+    "n": {
+      "kcal": 73,
+      "protein": 2.9,
+      "carb": 17.1,
+      "fat": 0.5,
+      "satfat": 0,
+      "fiber": 7.3,
+      "sugar": 0,
+      "sodium": 122
+    },
+    "aliases": [
+      "fennel bulb"
+    ]
+  },
+  "fennel seeds": {
+    "unit": "tsp",
+    "g": 2,
+    "n": {
+      "kcal": 7,
+      "protein": 0.3,
+      "carb": 1,
+      "fat": 0.3,
+      "satfat": 0,
+      "fiber": 0.8,
+      "sugar": 0,
+      "sodium": 1
+    },
+    "aliases": [
+      "fennel seed"
+    ]
+  },
+  "feta": {
+    "unit": "cup",
+    "g": 150,
+    "density": 0.63,
+    "n": {
+      "kcal": 396,
+      "protein": 21,
+      "carb": 6,
+      "fat": 32,
+      "satfat": 22,
+      "fiber": 0,
+      "sugar": 6,
+      "sodium": 1674
+    },
+    "aliases": [
+      "feta cheese",
+      "crumbled feta"
+    ]
+  },
+  "fettuccine": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 100,
+      "protein": 3.5,
+      "carb": 20,
+      "fat": 0.5,
+      "satfat": 0.1,
+      "fiber": 0.9,
+      "sugar": 0.8,
+      "sodium": 2
+    }
+  },
+  "fish sauce": {
+    "unit": "tbsp",
+    "g": 16,
+    "n": {
+      "kcal": 6,
+      "protein": 0.9,
+      "carb": 0.6,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.6,
+      "sodium": 1260
+    }
+  },
+  "fish stock": {
+    "unit": "cup",
+    "g": 240,
+    "density": 1,
+    "n": {
+      "kcal": 40,
+      "protein": 5,
+      "carb": 0,
+      "fat": 1.5,
+      "satfat": 0.4,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 700
+    },
+    "aliases": [
+      "seafood stock",
+      "fish broth",
+      "seafood broth",
+      "clam juice"
+    ]
+  },
+  "fresh tarragon": {
+    "unit": "tsp",
+    "g": 0.6,
+    "n": {
+      "kcal": 2,
+      "protein": 0.1,
+      "carb": 0.3,
+      "fat": 0.04,
+      "satfat": 0,
+      "fiber": 0.04,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "tarragon leaves"
+    ]
+  },
+  "garam masala": {
+    "unit": "tsp",
+    "g": 2.3,
+    "n": {
+      "kcal": 8,
+      "protein": 0.3,
+      "carb": 1.4,
+      "fat": 0.3,
+      "satfat": 0.1,
+      "fiber": 0.7,
+      "sugar": 0.1,
+      "sodium": 2
+    },
+    "aliases": [
+      "curry powder"
+    ]
+  },
+  "garlic": {
+    "unit": "clove",
+    "g": 3,
+    "density": 0.55,
+    "n": {
+      "kcal": 4,
+      "protein": 0.2,
+      "carb": 1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 1
+    },
+    "aliases": [
+      "garlic clove",
+      "cloves garlic",
+      "garlic cloves"
+    ]
+  },
+  "garlic powder": {
+    "unit": "tsp",
+    "g": 3,
+    "n": {
+      "kcal": 10,
+      "protein": 0.5,
+      "carb": 2.2,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.3,
+      "sugar": 0.1,
+      "sodium": 2
+    }
+  },
+  "garlic salt": {
+    "unit": "tsp",
+    "g": 5,
+    "n": {
+      "kcal": 4,
+      "protein": 0.2,
+      "carb": 0.9,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 1480
+    }
+  },
+  "gin": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 64,
+      "protein": 0,
+      "carb": 0,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 0
+    }
+  },
+  "ginger": {
+    "unit": "tbsp",
+    "g": 6,
+    "n": {
+      "kcal": 5,
+      "protein": 0.1,
+      "carb": 1.1,
+      "fat": 0.05,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0.1,
+      "sodium": 1
+    },
+    "aliases": [
+      "fresh ginger",
+      "grated ginger"
+    ],
+    "each": 5
+  },
+  "ginger beer": {
+    "unit": "oz",
+    "g": 30,
+    "n": {
+      "kcal": 11,
+      "protein": 0,
+      "carb": 2.8,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 2.8,
+      "sodium": 2
+    },
+    "aliases": [
+      "ginger ale"
+    ]
+  },
+  "goat cheese": {
+    "unit": "cup",
+    "g": 135,
+    "density": 0.56,
+    "n": {
+      "kcal": 491,
+      "protein": 29.2,
+      "carb": 3.4,
+      "fat": 40.2,
+      "satfat": 27.8,
+      "fiber": 0,
+      "sugar": 3.4,
+      "sodium": 560
+    },
+    "aliases": [
+      "crumbled goat cheese",
+      "chevre",
+      "goat cheese (chevre)"
+    ]
+  },
+  "gochujang": {
+    "unit": "tbsp",
+    "g": 18,
+    "n": {
+      "kcal": 30,
+      "protein": 0.8,
+      "carb": 6.5,
+      "fat": 0.3,
+      "satfat": 0,
+      "fiber": 0.4,
+      "sugar": 3,
+      "sodium": 410
+    },
+    "aliases": [
+      "gochujang paste",
+      "korean chili paste",
+      "korean chile paste"
+    ]
+  },
+  "granulated sugar": {
+    "unit": "tsp",
+    "g": 4.2,
+    "n": {
+      "kcal": 16,
+      "protein": 0,
+      "carb": 4.2,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 4.2,
+      "sodium": 0
+    },
+    "aliases": [
+      "sugar",
+      "white sugar",
+      "rock sugar"
+    ]
+  },
+  "grapefruit juice": {
+    "unit": "oz",
+    "g": 30,
+    "n": {
+      "kcal": 12,
+      "protein": 0.2,
+      "carb": 2.9,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 2.9,
+      "sodium": 0
+    },
+    "aliases": [
+      "fresh grapefruit juice",
+      "grapefruit soda"
+    ]
+  },
+  "greek yogurt": {
+    "unit": "cup",
+    "g": 245,
+    "density": 1.04,
+    "n": {
+      "kcal": 220,
+      "protein": 20,
+      "carb": 9,
+      "fat": 11,
+      "satfat": 7,
+      "fiber": 0,
+      "sugar": 9,
+      "sodium": 84
+    },
+    "aliases": [
+      "full-fat greek yogurt",
+      "yogurt"
+    ]
+  },
   "green beans": {
     "unit": "cup",
     "g": 110,
@@ -1594,20 +2149,308 @@
       "snap beans"
     ]
   },
-  "asparagus": {
-    "unit": "bunch",
-    "g": 340,
-    "density": 0.4,
+  "grenadine": {
+    "unit": "oz",
+    "g": 33,
     "n": {
-      "kcal": 68,
-      "protein": 7.5,
-      "carb": 13,
-      "fat": 0.4,
-      "satfat": 0.1,
-      "fiber": 7,
-      "sugar": 6.3,
-      "sodium": 7
+      "kcal": 72,
+      "protein": 0,
+      "carb": 18,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 17,
+      "sodium": 5
     }
+  },
+  "ground chicken": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 40,
+      "protein": 4.9,
+      "carb": 0,
+      "fat": 2.3,
+      "satfat": 0.65,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 17
+    },
+    "aliases": [
+      "ground chicken thigh",
+      "minced chicken"
+    ]
+  },
+  "ground cloves": {
+    "unit": "tsp",
+    "g": 2.1,
+    "n": {
+      "kcal": 6,
+      "protein": 0.1,
+      "carb": 1.3,
+      "fat": 0.3,
+      "satfat": 0.1,
+      "fiber": 0.7,
+      "sugar": 0,
+      "sodium": 5
+    },
+    "aliases": [
+      "cloves"
+    ]
+  },
+  "ground coriander": {
+    "unit": "tsp",
+    "g": 1.8,
+    "n": {
+      "kcal": 5,
+      "protein": 0.2,
+      "carb": 1,
+      "fat": 0.3,
+      "satfat": 0,
+      "fiber": 0.8,
+      "sugar": 0,
+      "sodium": 1
+    },
+    "aliases": [
+      "coriander"
+    ]
+  },
+  "ground ginger": {
+    "unit": "tsp",
+    "g": 1.8,
+    "n": {
+      "kcal": 6,
+      "protein": 0.2,
+      "carb": 1.3,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.2,
+      "sugar": 0.1,
+      "sodium": 1
+    }
+  },
+  "habanero": {
+    "unit": "habanero",
+    "g": 8,
+    "density": 0.6,
+    "n": {
+      "kcal": 3,
+      "protein": 0.1,
+      "carb": 0.6,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0.4,
+      "sodium": 0
+    }
+  },
+  "halibut": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 33,
+      "protein": 6.4,
+      "carb": 0,
+      "fat": 0.8,
+      "satfat": 0.11,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 18
+    },
+    "aliases": [
+      "halibut fillet",
+      "halibut fillets",
+      "halibut steak",
+      "halibut steaks"
+    ],
+    "each": 170
+  },
+  "heavy cream": {
+    "unit": "cup",
+    "g": 238,
+    "density": 1,
+    "n": {
+      "kcal": 809,
+      "protein": 6.6,
+      "carb": 6.6,
+      "fat": 86,
+      "satfat": 54,
+      "fiber": 0,
+      "sugar": 6.6,
+      "sodium": 91
+    },
+    "aliases": [
+      "cream"
+    ]
+  },
+  "herbs": {
+    "unit": "tbsp",
+    "g": 3,
+    "n": {
+      "kcal": 1,
+      "protein": 0.1,
+      "carb": 0.2,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 1
+    },
+    "aliases": [
+      "mixed herbs",
+      "fresh herbs",
+      "mixed fresh herbs",
+      "chopped fresh herbs",
+      "herb",
+      "fresh herb",
+      "dried fenugreek leaves",
+      "kasuri methi",
+      "curry leaves",
+      "curry leaf"
+    ]
+  },
+  "hoisin sauce": {
+    "unit": "tbsp",
+    "g": 16,
+    "n": {
+      "kcal": 35,
+      "protein": 0.5,
+      "carb": 7,
+      "fat": 0.5,
+      "satfat": 0.1,
+      "fiber": 0.4,
+      "sugar": 5,
+      "sodium": 258
+    }
+  },
+  "honey": {
+    "unit": "tsp",
+    "g": 7,
+    "n": {
+      "kcal": 21,
+      "protein": 0,
+      "carb": 5.8,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 5.8,
+      "sodium": 0
+    }
+  },
+  "honey syrup": {
+    "unit": "oz",
+    "g": 34,
+    "n": {
+      "kcal": 53,
+      "protein": 0,
+      "carb": 14,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 14,
+      "sodium": 0
+    },
+    "aliases": [
+      "honey-ginger syrup",
+      "ginger-honey syrup",
+      "ginger syrup"
+    ]
+  },
+  "hot sauce": {
+    "unit": "tsp",
+    "g": 5,
+    "n": {
+      "kcal": 1,
+      "protein": 0.1,
+      "carb": 0.1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 124
+    }
+  },
+  "ice": {
+    "unit": "cup",
+    "g": 120,
+    "n": {
+      "kcal": 0,
+      "protein": 0,
+      "carb": 0,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "crushed ice",
+      "cube ice"
+    ]
+  },
+  "jalapeno": {
+    "unit": "jalapeno",
+    "g": 14,
+    "density": 0.6,
+    "n": {
+      "kcal": 4,
+      "protein": 0.1,
+      "carb": 0.8,
+      "fat": 0.05,
+      "satfat": 0,
+      "fiber": 0.4,
+      "sugar": 0.6,
+      "sodium": 0
+    },
+    "aliases": [
+      "jalapeño",
+      "jalapeños",
+      "jalapeno pepper",
+      "fresh jalapeño",
+      "fresh jalapeno"
+    ]
+  },
+  "jasmine rice": {
+    "unit": "cup",
+    "g": 185,
+    "density": 0.78,
+    "n": {
+      "kcal": 678,
+      "protein": 13,
+      "carb": 148,
+      "fat": 1.2,
+      "satfat": 0.3,
+      "fiber": 2.4,
+      "sugar": 0,
+      "sodium": 9
+    }
+  },
+  "kalamata olives": {
+    "unit": "cup",
+    "g": 135,
+    "density": 0.57,
+    "n": {
+      "kcal": 188,
+      "protein": 1.4,
+      "carb": 10,
+      "fat": 18,
+      "satfat": 2.4,
+      "fiber": 4.4,
+      "sugar": 0,
+      "sodium": 1556
+    },
+    "aliases": [
+      "kalamata olive",
+      "olives",
+      "black olives",
+      "oil-cured black olives",
+      "oil-cured olives",
+      "green olives",
+      "castelvetrano olives",
+      "cracked green olives",
+      "manzanilla olives"
+    ],
+    "each": 4
   },
   "kale": {
     "unit": "bunch",
@@ -1629,49 +2472,326 @@
       "tuscan kale"
     ]
   },
-  "swiss chard": {
-    "unit": "bunch",
-    "g": 200,
-    "density": 0.25,
-    "n": {
-      "kcal": 38,
-      "protein": 3.6,
-      "carb": 7.2,
-      "fat": 0.4,
-      "satfat": 0.1,
-      "fiber": 3.2,
-      "sugar": 2.2,
-      "sodium": 426
-    }
-  },
-  "watercress": {
+  "kidney beans": {
     "unit": "cup",
-    "g": 34,
-    "density": 0.15,
+    "g": 184,
+    "density": 0.78,
     "n": {
-      "kcal": 4,
-      "protein": 0.8,
-      "carb": 0.4,
+      "kcal": 620,
+      "protein": 41,
+      "carb": 110,
+      "fat": 1.6,
+      "satfat": 0.2,
+      "fiber": 46,
+      "sugar": 4,
+      "sodium": 44
+    },
+    "aliases": [
+      "red kidney beans",
+      "dried red kidney beans"
+    ]
+  },
+  "kosher salt": {
+    "unit": "tsp",
+    "g": 4.8,
+    "n": {
+      "kcal": 0,
+      "protein": 0,
+      "carb": 0,
       "fat": 0,
       "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 0.1,
-      "sodium": 14
-    }
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 1900
+    },
+    "aliases": [
+      "salt",
+      "sea salt",
+      "fine sea salt",
+      "flaky salt",
+      "flaky sea salt",
+      "coarse salt",
+      "table salt",
+      "fleur de sel",
+      "maldon"
+    ]
   },
-  "arugula": {
-    "unit": "cup",
-    "g": 20,
-    "density": 0.1,
+  "leek": {
+    "unit": "leek",
+    "g": 89,
+    "each": 89,
     "n": {
-      "kcal": 5,
-      "protein": 0.5,
-      "carb": 0.7,
+      "kcal": 54,
+      "protein": 1.3,
+      "carb": 12.5,
+      "fat": 0.27,
+      "satfat": 0.04,
+      "fiber": 1.6,
+      "sugar": 3.5,
+      "sodium": 18
+    },
+    "aliases": [
+      "leeks"
+    ]
+  },
+  "lemon": {
+    "unit": "lemon",
+    "g": 60,
+    "density": 0.6,
+    "n": {
+      "kcal": 17,
+      "protein": 0.6,
+      "carb": 5.4,
+      "fat": 0.2,
+      "satfat": 0,
+      "fiber": 1.6,
+      "sugar": 1.5,
+      "sodium": 1
+    },
+    "aliases": [
+      "lemon zest",
+      "lemon wedge",
+      "lemon wedges",
+      "lemon slice",
+      "lemon slices",
+      "lemon twist"
+    ]
+  },
+  "lemon juice": {
+    "unit": "tbsp",
+    "g": 15,
+    "n": {
+      "kcal": 4,
+      "protein": 0.1,
+      "carb": 1.3,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0.4,
+      "sodium": 0
+    },
+    "aliases": [
+      "fresh lemon juice"
+    ]
+  },
+  "lemongrass": {
+    "unit": "stalk",
+    "g": 20,
+    "n": {
+      "kcal": 20,
+      "protein": 0.4,
+      "carb": 5.1,
       "fat": 0.1,
       "satfat": 0,
-      "fiber": 0.3,
-      "sugar": 0.4,
-      "sodium": 5
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 1
+    }
+  },
+  "lime": {
+    "unit": "lime",
+    "g": 67,
+    "density": 0.6,
+    "n": {
+      "kcal": 20,
+      "protein": 0.5,
+      "carb": 7,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 1.9,
+      "sugar": 1.1,
+      "sodium": 1
+    },
+    "aliases": [
+      "lime zest",
+      "lime wedge",
+      "lime wedges",
+      "lime wheel",
+      "lime slice"
+    ]
+  },
+  "lime juice": {
+    "unit": "tbsp",
+    "g": 15,
+    "n": {
+      "kcal": 4,
+      "protein": 0.1,
+      "carb": 1.3,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0.2,
+      "sodium": 0
+    },
+    "aliases": [
+      "fresh lime juice"
+    ]
+  },
+  "low-sodium soy sauce": {
+    "unit": "tbsp",
+    "g": 16,
+    "n": {
+      "kcal": 8,
+      "protein": 1.3,
+      "carb": 1.2,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0.3,
+      "sodium": 575
+    },
+    "aliases": [
+      "reduced-sodium soy sauce",
+      "lite soy sauce",
+      "low sodium soy sauce"
+    ]
+  },
+  "low-sodium vegetable broth": {
+    "unit": "cup",
+    "g": 240,
+    "density": 1,
+    "n": {
+      "kcal": 12,
+      "protein": 0.5,
+      "carb": 2,
+      "fat": 0.2,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 1,
+      "sodium": 140
+    },
+    "aliases": [
+      "low sodium vegetable broth",
+      "low-sodium vegetable stock",
+      "unsalted vegetable broth"
+    ]
+  },
+  "mango": {
+    "unit": "mango",
+    "g": 200,
+    "density": 0.65,
+    "n": {
+      "kcal": 120,
+      "protein": 1.6,
+      "carb": 30,
+      "fat": 0.8,
+      "satfat": 0.2,
+      "fiber": 3.2,
+      "sugar": 27,
+      "sodium": 2
+    }
+  },
+  "maple syrup": {
+    "unit": "tsp",
+    "g": 6.7,
+    "n": {
+      "kcal": 17,
+      "protein": 0,
+      "carb": 4.5,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 4,
+      "sodium": 1
+    }
+  },
+  "mayonnaise": {
+    "unit": "tbsp",
+    "g": 14,
+    "n": {
+      "kcal": 94,
+      "protein": 0.1,
+      "carb": 0.1,
+      "fat": 10,
+      "satfat": 1.6,
+      "fiber": 0,
+      "sugar": 0.1,
+      "sodium": 88
+    },
+    "aliases": [
+      "mayo"
+    ]
+  },
+  "mexican oregano": {
+    "unit": "tsp",
+    "g": 1,
+    "n": {
+      "kcal": 3,
+      "protein": 0.1,
+      "carb": 0.7,
+      "fat": 0.05,
+      "satfat": 0,
+      "fiber": 0.4,
+      "sugar": 0,
+      "sodium": 0
+    }
+  },
+  "mezcal": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 64,
+      "protein": 0,
+      "carb": 0,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 0
+    }
+  },
+  "milk": {
+    "unit": "cup",
+    "g": 244,
+    "density": 1.03,
+    "n": {
+      "kcal": 149,
+      "protein": 8,
+      "carb": 12,
+      "fat": 8,
+      "satfat": 4.6,
+      "fiber": 0,
+      "sugar": 12,
+      "sodium": 105
+    },
+    "aliases": [
+      "whole milk",
+      "2% milk",
+      "reduced-fat milk"
+    ]
+  },
+  "mint": {
+    "unit": "tbsp",
+    "g": 1.9,
+    "n": {
+      "kcal": 1,
+      "protein": 0.1,
+      "carb": 0.1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 1
+    },
+    "aliases": [
+      "fresh mint",
+      "mint leaves",
+      "mint sprig"
+    ],
+    "each": 0.4
+  },
+  "mirin": {
+    "unit": "tbsp",
+    "g": 18,
+    "n": {
+      "kcal": 43,
+      "protein": 0.1,
+      "carb": 8.6,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 7.8,
+      "sodium": 3
     }
   },
   "mixed greens": {
@@ -1695,6 +2815,45 @@
       "baby greens",
       "romaine",
       "spinach"
+    ]
+  },
+  "mixed nuts": {
+    "unit": "cup",
+    "g": 137,
+    "density": 0.58,
+    "n": {
+      "kcal": 814,
+      "protein": 24,
+      "carb": 28,
+      "fat": 72,
+      "satfat": 10,
+      "fiber": 12,
+      "sugar": 5,
+      "sodium": 3
+    },
+    "aliases": [
+      "toasted nuts",
+      "hazelnuts",
+      "chopped nuts"
+    ]
+  },
+  "mozzarella": {
+    "unit": "cup",
+    "g": 130,
+    "density": 0.55,
+    "n": {
+      "kcal": 366,
+      "protein": 24,
+      "carb": 4,
+      "fat": 28,
+      "satfat": 16,
+      "fiber": 0,
+      "sugar": 1,
+      "sodium": 690
+    },
+    "aliases": [
+      "fresh mozzarella",
+      "mozzarella pearls"
     ]
   },
   "mushrooms": {
@@ -1725,46 +2884,450 @@
       "mushroom"
     ]
   },
-  "cabbage": {
-    "unit": "cup",
-    "g": 70,
-    "density": 0.4,
+  "mussels": {
+    "unit": "oz",
+    "g": 28,
     "n": {
-      "kcal": 18,
-      "protein": 0.9,
-      "carb": 4.1,
+      "kcal": 8,
+      "protein": 1.1,
+      "carb": 0.4,
+      "fat": 0.2,
+      "satfat": 0.04,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 36
+    },
+    "aliases": [
+      "mussel"
+    ],
+    "each": 12
+  },
+  "neutral oil": {
+    "unit": "tsp",
+    "g": 4.5,
+    "n": {
+      "kcal": 40,
+      "protein": 0,
+      "carb": 0,
+      "fat": 4.5,
+      "satfat": 0.4,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "canola oil",
+      "grapeseed oil",
+      "vegetable oil",
+      "avocado oil",
+      "neutral oil (avocado or grapeseed)",
+      "neutral oil (grapeseed or avocado)",
+      "neutral oil (canola or grapeseed)",
+      "melted coconut oil",
+      "coconut oil"
+    ]
+  },
+  "new york strip steak": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 60,
+      "protein": 6.9,
+      "carb": 0,
+      "fat": 3.4,
+      "satfat": 1.4,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 14
+    },
+    "aliases": [
+      "new york strip",
+      "ny strip steak",
+      "strip steak"
+    ],
+    "each": 280
+  },
+  "nutmeg": {
+    "unit": "tsp",
+    "g": 2.2,
+    "n": {
+      "kcal": 12,
+      "protein": 0.1,
+      "carb": 1.1,
+      "fat": 0.8,
+      "satfat": 0.6,
+      "fiber": 0.5,
+      "sugar": 0.6,
+      "sodium": 0
+    },
+    "aliases": [
+      "ground nutmeg",
+      "grated nutmeg"
+    ]
+  },
+  "olive oil": {
+    "unit": "tsp",
+    "g": 4.5,
+    "n": {
+      "kcal": 40,
+      "protein": 0,
+      "carb": 0,
+      "fat": 4.5,
+      "satfat": 0.6,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "extra-virgin olive oil",
+      "extra virgin olive oil",
+      "good olive oil",
+      "high-quality olive oil",
+      "best-quality olive oil",
+      "light olive oil",
+      "avocado or light olive oil"
+    ]
+  },
+  "onion": {
+    "unit": "onion",
+    "g": 110,
+    "density": 0.6,
+    "n": {
+      "kcal": 44,
+      "protein": 1.2,
+      "carb": 10.3,
       "fat": 0.1,
       "satfat": 0,
-      "fiber": 1.8,
-      "sugar": 2.2,
-      "sodium": 13
+      "fiber": 1.9,
+      "sugar": 4.7,
+      "sodium": 4
     },
     "aliases": [
-      "green cabbage",
-      "red cabbage",
-      "shredded cabbage",
-      "coleslaw mix",
-      "napa cabbage",
-      "savoy cabbage"
-    ],
-    "each": 900
+      "white onion",
+      "diced white onion"
+    ]
   },
-  "baby bok choy": {
-    "unit": "head",
-    "g": 100,
-    "density": 0.3,
+  "onion powder": {
+    "unit": "tsp",
+    "g": 2.4,
     "n": {
-      "kcal": 13,
-      "protein": 1.5,
-      "carb": 2.2,
+      "kcal": 8,
+      "protein": 0.2,
+      "carb": 1.9,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.2,
+      "sugar": 0.9,
+      "sodium": 1
+    }
+  },
+  "orange": {
+    "unit": "orange",
+    "g": 130,
+    "density": 0.6,
+    "n": {
+      "kcal": 62,
+      "protein": 1.2,
+      "carb": 15.4,
       "fat": 0.2,
       "satfat": 0,
-      "fiber": 1,
-      "sugar": 1.2,
-      "sodium": 65
+      "fiber": 3.1,
+      "sugar": 12.2,
+      "sodium": 0
     },
     "aliases": [
-      "bok choy"
+      "orange zest"
+    ]
+  },
+  "orange juice": {
+    "unit": "cup",
+    "g": 248,
+    "density": 1,
+    "n": {
+      "kcal": 112,
+      "protein": 1.7,
+      "carb": 26,
+      "fat": 0.5,
+      "satfat": 0.1,
+      "fiber": 0.5,
+      "sugar": 21,
+      "sodium": 2
+    }
+  },
+  "oregano": {
+    "unit": "tbsp",
+    "g": 6,
+    "n": {
+      "kcal": 2,
+      "protein": 0.1,
+      "carb": 0.4,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.3,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "fresh oregano"
+    ]
+  },
+  "orzo": {
+    "unit": "cup",
+    "g": 200,
+    "density": 0.85,
+    "n": {
+      "kcal": 700,
+      "protein": 24,
+      "carb": 142,
+      "fat": 3,
+      "satfat": 0.5,
+      "fiber": 6,
+      "sugar": 4,
+      "sodium": 4
+    },
+    "aliases": [
+      "orecchiette"
+    ]
+  },
+  "oyster sauce": {
+    "unit": "tbsp",
+    "g": 18,
+    "n": {
+      "kcal": 9,
+      "protein": 0.2,
+      "carb": 2,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.8,
+      "sodium": 492
+    }
+  },
+  "paprika": {
+    "unit": "tsp",
+    "g": 2.3,
+    "n": {
+      "kcal": 6,
+      "protein": 0.3,
+      "carb": 1.2,
+      "fat": 0.3,
+      "satfat": 0,
+      "fiber": 0.8,
+      "sugar": 0.2,
+      "sodium": 1
+    }
+  },
+  "parmesan": {
+    "unit": "cup",
+    "g": 90,
+    "density": 0.38,
+    "n": {
+      "kcal": 392,
+      "protein": 36,
+      "carb": 3.2,
+      "fat": 26,
+      "satfat": 16,
+      "fiber": 0,
+      "sugar": 0.7,
+      "sodium": 1530
+    },
+    "aliases": [
+      "parmesan cheese",
+      "grated parmesan",
+      "shaved parmesan"
+    ]
+  },
+  "parsley": {
+    "unit": "tbsp",
+    "g": 3.8,
+    "n": {
+      "kcal": 1,
+      "protein": 0.1,
+      "carb": 0.2,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 2
+    },
+    "aliases": [
+      "fresh parsley",
+      "chopped parsley"
+    ]
+  },
+  "passion fruit syrup": {
+    "unit": "oz",
+    "g": 33,
+    "n": {
+      "kcal": 60,
+      "protein": 0,
+      "carb": 15,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 14,
+      "sodium": 2
+    }
+  },
+  "pasta water": {
+    "unit": "cup",
+    "g": 240,
+    "density": 1,
+    "n": {
+      "kcal": 5,
+      "protein": 0.2,
+      "carb": 1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 200
+    },
+    "aliases": [
+      "reserved pasta water"
+    ]
+  },
+  "peach nectar": {
+    "unit": "oz",
+    "g": 31,
+    "n": {
+      "kcal": 17,
+      "protein": 0.1,
+      "carb": 4.3,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.2,
+      "sugar": 4,
+      "sodium": 2
+    },
+    "aliases": [
+      "peach slice",
+      "peach slices"
+    ]
+  },
+  "pecans": {
+    "unit": "cup",
+    "g": 109,
+    "density": 0.46,
+    "n": {
+      "kcal": 753,
+      "protein": 10,
+      "carb": 15,
+      "fat": 78,
+      "satfat": 6.7,
+      "fiber": 10,
+      "sugar": 4.3,
+      "sodium": 0
+    }
+  },
+  "pepitas": {
+    "unit": "cup",
+    "g": 129,
+    "density": 0.54,
+    "n": {
+      "kcal": 721,
+      "protein": 38,
+      "carb": 14,
+      "fat": 63,
+      "satfat": 11,
+      "fiber": 8.5,
+      "sugar": 1.7,
+      "sodium": 9
+    },
+    "aliases": [
+      "pumpkin seeds",
+      "hulled pumpkin seeds"
+    ]
+  },
+  "pine nuts": {
+    "unit": "cup",
+    "g": 135,
+    "density": 0.57,
+    "n": {
+      "kcal": 909,
+      "protein": 18,
+      "carb": 18,
+      "fat": 92,
+      "satfat": 6.6,
+      "fiber": 5,
+      "sugar": 4.6,
+      "sodium": 3
+    }
+  },
+  "pineapple": {
+    "unit": "cup",
+    "g": 165,
+    "density": 0.7,
+    "n": {
+      "kcal": 83,
+      "protein": 0.9,
+      "carb": 22,
+      "fat": 0.2,
+      "satfat": 0,
+      "fiber": 2.3,
+      "sugar": 16,
+      "sodium": 2
+    },
+    "aliases": [
+      "pineapple slice",
+      "pineapple wedge"
+    ]
+  },
+  "pineapple juice": {
+    "unit": "oz",
+    "g": 31,
+    "n": {
+      "kcal": 17,
+      "protein": 0.1,
+      "carb": 4.2,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 3.3,
+      "sodium": 0
+    }
+  },
+  "pita": {
+    "unit": "pita",
+    "g": 60,
+    "n": {
+      "kcal": 165,
+      "protein": 5.5,
+      "carb": 33,
+      "fat": 0.7,
+      "satfat": 0.1,
+      "fiber": 1.3,
+      "sugar": 0.8,
+      "sodium": 320
+    },
+    "aliases": [
+      "pita bread",
+      "pita breads",
+      "flatbread",
+      "flatbreads",
+      "naan"
+    ],
+    "each": 60
+  },
+  "poblano pepper": {
+    "unit": "pepper",
+    "g": 120,
+    "each": 120,
+    "n": {
+      "kcal": 24,
+      "protein": 1.2,
+      "carb": 5.6,
+      "fat": 0.2,
+      "satfat": 0.03,
+      "fiber": 2.0,
+      "sugar": 3.0,
+      "sodium": 4
+    },
+    "aliases": [
+      "poblano",
+      "poblanos",
+      "poblano peppers",
+      "large poblano peppers"
     ]
   },
   "potato": {
@@ -1792,20 +3355,61 @@
     ],
     "each": 170
   },
-  "sweet potato": {
-    "unit": "potato",
-    "g": 130,
-    "density": 0.6,
+  "prepared horseradish": {
+    "unit": "tbsp",
+    "g": 15,
     "n": {
-      "kcal": 112,
-      "protein": 2,
-      "carb": 26,
+      "kcal": 7,
+      "protein": 0.2,
+      "carb": 1.7,
       "fat": 0.1,
       "satfat": 0,
-      "fiber": 3.9,
-      "sugar": 5.4,
-      "sodium": 72
-    }
+      "fiber": 0.5,
+      "sugar": 1.2,
+      "sodium": 47
+    },
+    "aliases": [
+      "horseradish"
+    ]
+  },
+  "preserved lemon": {
+    "unit": "preserved lemon",
+    "g": 30,
+    "n": {
+      "kcal": 10,
+      "protein": 0.3,
+      "carb": 3,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 1.3,
+      "sugar": 0.5,
+      "sodium": 500
+    },
+    "aliases": [
+      "preserved lemons",
+      "preserved lemon rind"
+    ]
+  },
+  "prosecco": {
+    "unit": "oz",
+    "g": 29,
+    "n": {
+      "kcal": 24,
+      "protein": 0,
+      "carb": 1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.4,
+      "sodium": 1
+    },
+    "aliases": [
+      "champagne",
+      "cava",
+      "sparkling wine",
+      "brut",
+      "dry sparkling wine"
+    ]
   },
   "pumpkin": {
     "unit": "cup",
@@ -1830,989 +3434,18 @@
       "pumpkin purée"
     ]
   },
-  "corn": {
-    "unit": "ear",
-    "g": 90,
-    "density": 0.6,
+  "pumpkin pie spice": {
+    "unit": "tsp",
+    "g": 2.1,
     "n": {
-      "kcal": 77,
-      "protein": 2.9,
-      "carb": 17,
-      "fat": 1.1,
-      "satfat": 0.2,
-      "fiber": 2.4,
-      "sugar": 5.9,
-      "sodium": 14
-    }
-  },
-  "mango": {
-    "unit": "mango",
-    "g": 200,
-    "density": 0.65,
-    "n": {
-      "kcal": 120,
-      "protein": 1.6,
-      "carb": 30,
-      "fat": 0.8,
-      "satfat": 0.2,
-      "fiber": 3.2,
-      "sugar": 27,
-      "sodium": 2
-    }
-  },
-  "banana": {
-    "unit": "banana",
-    "g": 118,
-    "density": 0.65,
-    "n": {
-      "kcal": 105,
-      "protein": 1.3,
-      "carb": 27,
-      "fat": 0.4,
-      "satfat": 0.1,
-      "fiber": 3.1,
-      "sugar": 14,
-      "sodium": 1
-    }
-  },
-  "dates": {
-    "unit": "date",
-    "g": 8,
-    "density": 0.7,
-    "n": {
-      "kcal": 23,
-      "protein": 0.2,
-      "carb": 6.2,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.6,
-      "sugar": 5.3,
-      "sodium": 0
-    },
-    "aliases": [
-      "date",
-      "medjool dates"
-    ]
-  },
-  "radish": {
-    "unit": "radish",
-    "g": 4.5,
-    "density": 0.6,
-    "n": {
-      "kcal": 1,
-      "protein": 0,
-      "carb": 0.2,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0.1,
-      "sodium": 2
-    }
-  },
-  "avocado": {
-    "unit": "avocado",
-    "g": 150,
-    "density": 0.6,
-    "n": {
-      "kcal": 240,
-      "protein": 3,
-      "carb": 12.8,
-      "fat": 22,
-      "satfat": 3.2,
-      "fiber": 10,
-      "sugar": 1,
-      "sodium": 11
-    }
-  },
-  "tomato": {
-    "unit": "tomato",
-    "g": 110,
-    "density": 0.65,
-    "n": {
-      "kcal": 20,
-      "protein": 1,
-      "carb": 4.3,
-      "fat": 0.2,
-      "satfat": 0,
-      "fiber": 1.3,
-      "sugar": 2.9,
-      "sodium": 6
-    },
-    "aliases": [
-      "fresh tomato",
-      "fresh tomatoes",
-      "raw tomato"
-    ]
-  },
-  "cherry tomato": {
-    "unit": "tomato",
-    "g": 17,
-    "density": 0.67,
-    "n": {
-      "kcal": 3,
-      "protein": 0.15,
-      "carb": 0.65,
-      "fat": 0.03,
-      "satfat": 0.004,
-      "fiber": 0.2,
-      "sugar": 0.43,
-      "sodium": 1
-    },
-    "aliases": [
-      "cherry tomatoes",
-      "grape tomato",
-      "grape tomatoes",
-      "green cherry tomato",
-      "green cherry tomatoes",
-      "red cherry tomato",
-      "red cherry tomatoes"
-    ]
-  },
-  "tomato paste": {
-    "unit": "tbsp",
-    "g": 16,
-    "n": {
-      "kcal": 13,
-      "protein": 0.7,
-      "carb": 3.1,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.7,
-      "sugar": 1.9,
-      "sodium": 98
-    }
-  },
-  "canned tomatoes": {
-    "unit": "can",
-    "g": 411,
-    "density": 1,
-    "n": {
-      "kcal": 82,
-      "protein": 4.1,
-      "carb": 18.5,
-      "fat": 0.4,
-      "satfat": 0,
-      "fiber": 4.5,
-      "sugar": 11,
-      "sodium": 250
-    },
-    "aliases": [
-      "crushed tomatoes",
-      "whole tomatoes",
-      "whole peeled tomatoes",
-      "diced tomatoes"
-    ]
-  },
-  "clams": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 4,
-      "protein": 0.7,
-      "carb": 0.1,
-      "fat": 0.05,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 18
-    },
-    "aliases": [
-      "clam",
-      "littleneck clams",
-      "littleneck clam",
-      "manila clams"
-    ],
-    "each": 12
-  },
-  "mussels": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 8,
-      "protein": 1.1,
-      "carb": 0.4,
-      "fat": 0.2,
-      "satfat": 0.04,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 36
-    },
-    "aliases": [
-      "mussel"
-    ],
-    "each": 12
-  },
-  "crab": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 24,
-      "protein": 5,
-      "carb": 0,
-      "fat": 0.3,
-      "satfat": 0.05,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 90
-    },
-    "aliases": [
-      "lump crab",
-      "lump crab meat",
-      "crab meat",
-      "crabmeat",
-      "dungeness crab"
-    ]
-  },
-  "calamari": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 26,
-      "protein": 4.4,
-      "carb": 0.9,
-      "fat": 0.4,
-      "satfat": 0.1,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 13
-    },
-    "aliases": [
-      "squid",
-      "calamari rings",
-      "squid rings"
-    ]
-  },
-  "sirloin steak": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 57,
-      "protein": 7,
-      "carb": 0,
-      "fat": 3,
-      "satfat": 1.2,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 15
-    },
-    "aliases": [
-      "tenderloin",
-      "sirloin",
-      "flank steak",
-      "flank",
-      "skirt steak",
-      "skirt"
-    ]
-  },
-  "new york strip steak": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 60,
-      "protein": 6.9,
-      "carb": 0,
-      "fat": 3.4,
-      "satfat": 1.4,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 14
-    },
-    "aliases": [
-      "new york strip",
-      "ny strip steak",
-      "strip steak"
-    ],
-    "each": 280
-  },
-  "beef": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 71,
-      "protein": 6.4,
-      "carb": 0,
-      "fat": 5,
-      "satfat": 2,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 18
-    },
-    "aliases": [
-      "chuck",
-      "beef chuck",
-      "short rib",
-      "short ribs",
-      "beef shank",
-      "beef short rib"
-    ]
-  },
-  "whole chicken": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 42,
-      "protein": 3.6,
-      "carb": 0,
-      "fat": 2.9,
-      "satfat": 0.8,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 20
-    },
-    "aliases": [
-      "spatchcocked chicken",
-      "whole chicken spatchcocked",
-      "chicken legs",
-      "chicken drumsticks"
-    ]
-  },
-  "chicken breast": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 33,
-      "protein": 6.2,
-      "carb": 0,
-      "fat": 0.7,
-      "satfat": 0.2,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 21
-    },
-    "aliases": [
-      "chicken breasts",
-      "boneless skinless chicken breasts",
-      "boneless skinless chicken breast",
-      "chicken"
-    ],
-    "each": 170
-  },
-  "chicken thigh": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 49,
-      "protein": 5,
-      "carb": 0,
-      "fat": 3.2,
-      "satfat": 0.9,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 24
-    },
-    "aliases": [
-      "chicken thighs",
-      "bone-in chicken thighs",
-      "bone-in skin-on chicken thighs",
-      "boneless chicken thighs",
-      "boneless skinless chicken thighs",
-      "skinless chicken thighs"
-    ],
-    "each": 95
-  },
-  "salmon": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 58,
-      "protein": 5.6,
-      "carb": 0,
-      "fat": 3.8,
-      "satfat": 0.8,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 13
-    },
-    "aliases": [
-      "salmon fillet",
-      "salmon fillets"
-    ],
-    "each": 170
-  },
-  "sea bass": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 27,
-      "protein": 5.2,
-      "carb": 0,
-      "fat": 0.6,
-      "satfat": 0.1,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 19
-    },
-    "aliases": [
-      "sea bass fillet",
-      "sea bass fillets"
-    ],
-    "each": 145
-  },
-  "black cod": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 55,
-      "protein": 3.8,
-      "carb": 0,
-      "fat": 4.3,
-      "satfat": 0.9,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 17
-    },
-    "aliases": [
-      "sablefish",
-      "black cod fillet",
-      "black cod fillets"
-    ],
-    "each": 170
-  },
-  "cod": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 23,
-      "protein": 5,
-      "carb": 0,
-      "fat": 0.2,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 15
-    },
-    "aliases": [
-      "cod fillet",
-      "cod fillets",
-      "skinless cod fillets"
-    ],
-    "each": 145
-  },
-  "tilapia": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 26,
-      "protein": 5.4,
-      "carb": 0,
-      "fat": 0.5,
-      "satfat": 0.2,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 14
-    },
-    "aliases": [
-      "tilapia fillet",
-      "tilapia fillets"
-    ],
-    "each": 185
-  },
-  "swordfish": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 40,
-      "protein": 5.5,
-      "carb": 0,
-      "fat": 1.8,
-      "satfat": 0.5,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 25
-    },
-    "aliases": [
-      "swordfish steak",
-      "swordfish steaks"
-    ],
-    "each": 170
-  },
-  "tuna steak": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 31,
-      "protein": 6.6,
-      "carb": 0,
-      "fat": 0.3,
-      "satfat": 0.1,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 11
-    },
-    "aliases": [
-      "tuna steaks",
-      "tuna",
-      "fresh tuna steaks"
-    ],
-    "each": 160
-  },
-  "halibut": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 33,
-      "protein": 6.4,
-      "carb": 0,
-      "fat": 0.8,
-      "satfat": 0.11,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 18
-    },
-    "aliases": [
-      "halibut fillet",
-      "halibut fillets",
-      "halibut steak",
-      "halibut steaks"
-    ],
-    "each": 170
-  },
-  "white fish": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 26,
-      "protein": 5.2,
-      "carb": 0,
-      "fat": 0.5,
-      "satfat": 0.1,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 16
-    },
-    "aliases": [
-      "mild white fish",
-      "fish fillet",
-      "fish fillets",
-      "mild fish fillets",
-      "sole",
-      "arctic char"
-    ],
-    "each": 115
-  },
-  "scallops": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 25,
-      "protein": 4.6,
-      "carb": 0.7,
-      "fat": 0.2,
-      "satfat": 0.05,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 90
-    },
-    "aliases": [
-      "scallop",
-      "sea scallops",
-      "sea scallop",
-      "dry sea scallops",
-      "dry-packed scallops",
-      "bay scallops"
-    ],
-    "each": 30
-  },
-  "egg": {
-    "unit": "egg",
-    "g": 50,
-    "density": 1.03,
-    "n": {
-      "kcal": 72,
-      "protein": 6.3,
-      "carb": 0.4,
-      "fat": 4.8,
-      "satfat": 1.6,
-      "fiber": 0,
-      "sugar": 0.2,
-      "sodium": 71
-    },
-    "aliases": [
-      "eggs",
-      "large egg",
-      "large eggs"
-    ]
-  },
-  "egg yolk": {
-    "unit": "yolk",
-    "g": 17,
-    "density": 1.03,
-    "n": {
-      "kcal": 55,
-      "protein": 2.7,
-      "carb": 0.6,
-      "fat": 4.5,
-      "satfat": 1.6,
-      "fiber": 0,
-      "sugar": 0.1,
-      "sodium": 8
-    },
-    "aliases": [
-      "yolk",
-      "egg yolks"
-    ]
-  },
-  "egg white": {
-    "unit": "white",
-    "g": 33,
-    "density": 1.03,
-    "n": {
-      "kcal": 17,
-      "protein": 3.6,
-      "carb": 0.2,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0.2,
-      "sodium": 55
-    },
-    "aliases": [
-      "egg whites"
-    ]
-  },
-  "heavy cream": {
-    "unit": "cup",
-    "g": 238,
-    "density": 1,
-    "n": {
-      "kcal": 809,
-      "protein": 6.6,
-      "carb": 6.6,
-      "fat": 86,
-      "satfat": 54,
-      "fiber": 0,
-      "sugar": 6.6,
-      "sodium": 91
-    },
-    "aliases": [
-      "cream"
-    ]
-  },
-  "evaporated milk": {
-    "unit": "cup",
-    "g": 252,
-    "density": 1.07,
-    "n": {
-      "kcal": 338,
-      "protein": 17,
-      "carb": 25,
-      "fat": 19,
-      "satfat": 11.6,
-      "fiber": 0,
-      "sugar": 25,
-      "sodium": 267
-    }
-  },
-  "coconut milk": {
-    "unit": "cup",
-    "g": 240,
-    "density": 1,
-    "n": {
-      "kcal": 445,
-      "protein": 4.6,
-      "carb": 6.4,
-      "fat": 48,
-      "satfat": 43,
-      "fiber": 0,
-      "sugar": 6.4,
-      "sodium": 29
-    },
-    "aliases": [
-      "full-fat coconut milk"
-    ]
-  },
-  "sour cream": {
-    "unit": "tbsp",
-    "g": 14,
-    "n": {
-      "kcal": 30,
-      "protein": 0.4,
-      "carb": 0.7,
-      "fat": 2.9,
-      "satfat": 1.7,
-      "fiber": 0,
-      "sugar": 0.4,
-      "sodium": 8
-    },
-    "aliases": [
-      "mexican crema",
-      "crema",
-      "creme fraiche",
-      "crème fraîche"
-    ]
-  },
-  "greek yogurt": {
-    "unit": "cup",
-    "g": 245,
-    "density": 1.04,
-    "n": {
-      "kcal": 220,
-      "protein": 20,
-      "carb": 9,
-      "fat": 11,
-      "satfat": 7,
-      "fiber": 0,
-      "sugar": 9,
-      "sodium": 84
-    },
-    "aliases": [
-      "full-fat greek yogurt",
-      "yogurt"
-    ]
-  },
-  "mayonnaise": {
-    "unit": "tbsp",
-    "g": 14,
-    "n": {
-      "kcal": 94,
+      "kcal": 6,
       "protein": 0.1,
-      "carb": 0.1,
-      "fat": 10,
-      "satfat": 1.6,
-      "fiber": 0,
+      "carb": 1.2,
+      "fat": 0.2,
+      "satfat": 0.1,
+      "fiber": 0.7,
       "sugar": 0.1,
-      "sodium": 88
-    },
-    "aliases": [
-      "mayo"
-    ]
-  },
-  "feta": {
-    "unit": "cup",
-    "g": 150,
-    "density": 0.63,
-    "n": {
-      "kcal": 396,
-      "protein": 21,
-      "carb": 6,
-      "fat": 32,
-      "satfat": 22,
-      "fiber": 0,
-      "sugar": 6,
-      "sodium": 1674
-    },
-    "aliases": [
-      "feta cheese",
-      "crumbled feta"
-    ]
-  },
-  "goat cheese": {
-    "unit": "cup",
-    "g": 135,
-    "density": 0.56,
-    "n": {
-      "kcal": 491,
-      "protein": 29.2,
-      "carb": 3.4,
-      "fat": 40.2,
-      "satfat": 27.8,
-      "fiber": 0,
-      "sugar": 3.4,
-      "sodium": 560
-    },
-    "aliases": [
-      "crumbled goat cheese",
-      "chevre",
-      "goat cheese (chevre)"
-    ]
-  },
-  "blue cheese": {
-    "unit": "cup",
-    "g": 135,
-    "density": 0.56,
-    "n": {
-      "kcal": 477,
-      "protein": 29,
-      "carb": 3.1,
-      "fat": 39,
-      "satfat": 25,
-      "fiber": 0,
-      "sugar": 0.7,
-      "sodium": 1880
-    },
-    "aliases": [
-      "crumbled blue cheese"
-    ]
-  },
-  "parmesan": {
-    "unit": "cup",
-    "g": 90,
-    "density": 0.38,
-    "n": {
-      "kcal": 392,
-      "protein": 36,
-      "carb": 3.2,
-      "fat": 26,
-      "satfat": 16,
-      "fiber": 0,
-      "sugar": 0.7,
-      "sodium": 1530
-    },
-    "aliases": [
-      "parmesan cheese",
-      "grated parmesan",
-      "shaved parmesan"
-    ]
-  },
-  "mozzarella": {
-    "unit": "cup",
-    "g": 130,
-    "density": 0.55,
-    "n": {
-      "kcal": 366,
-      "protein": 24,
-      "carb": 4,
-      "fat": 28,
-      "satfat": 16,
-      "fiber": 0,
-      "sugar": 1,
-      "sodium": 690
-    },
-    "aliases": [
-      "fresh mozzarella",
-      "mozzarella pearls"
-    ]
-  },
-  "cotija": {
-    "unit": "cup",
-    "g": 130,
-    "density": 0.55,
-    "n": {
-      "kcal": 480,
-      "protein": 27,
-      "carb": 5,
-      "fat": 39,
-      "satfat": 24,
-      "fiber": 0,
-      "sugar": 1,
-      "sodium": 1750
-    },
-    "aliases": [
-      "queso fresco",
-      "cotija cheese"
-    ]
-  },
-  "all-purpose flour": {
-    "unit": "cup",
-    "g": 125,
-    "density": 0.53,
-    "n": {
-      "kcal": 455,
-      "protein": 13,
-      "carb": 95,
-      "fat": 1.2,
-      "satfat": 0.2,
-      "fiber": 3.4,
-      "sugar": 0.3,
-      "sodium": 3
-    },
-    "aliases": [
-      "flour",
-      "whole wheat flour"
-    ]
-  },
-  "toasted rice powder": {
-    "unit": "tbsp",
-    "g": 8,
-    "n": {
-      "kcal": 29,
-      "protein": 0.6,
-      "carb": 6.4,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "khao khua",
-      "roasted rice powder"
-    ]
-  },
-  "white rice": {
-    "unit": "cup",
-    "g": 185,
-    "density": 0.78,
-    "n": {
-      "kcal": 675,
-      "protein": 13,
-      "carb": 148,
-      "fat": 1.2,
-      "satfat": 0.3,
-      "fiber": 2.4,
-      "sugar": 0,
-      "sodium": 9
-    },
-    "aliases": [
-      "long-grain white rice",
-      "rice"
-    ]
-  },
-  "sushi rice": {
-    "unit": "cup",
-    "g": 195,
-    "density": 0.82,
-    "n": {
-      "kcal": 685,
-      "protein": 13,
-      "carb": 151,
-      "fat": 1,
-      "satfat": 0.3,
-      "fiber": 2.6,
-      "sugar": 0,
-      "sodium": 5
-    },
-    "aliases": [
-      "short-grain rice",
-      "short grain rice"
-    ]
-  },
-  "arborio rice": {
-    "unit": "cup",
-    "g": 200,
-    "density": 0.85,
-    "n": {
-      "kcal": 716,
-      "protein": 13,
-      "carb": 158,
-      "fat": 1,
-      "satfat": 0.2,
-      "fiber": 3.5,
-      "sugar": 0,
-      "sodium": 3
-    },
-    "aliases": [
-      "risotto rice"
-    ]
-  },
-  "jasmine rice": {
-    "unit": "cup",
-    "g": 185,
-    "density": 0.78,
-    "n": {
-      "kcal": 678,
-      "protein": 13,
-      "carb": 148,
-      "fat": 1.2,
-      "satfat": 0.3,
-      "fiber": 2.4,
-      "sugar": 0,
-      "sodium": 9
-    }
-  },
-  "couscous": {
-    "unit": "cup",
-    "g": 173,
-    "density": 0.73,
-    "n": {
-      "kcal": 650,
-      "protein": 22,
-      "carb": 134,
-      "fat": 1.1,
-      "satfat": 0.2,
-      "fiber": 8.7,
-      "sugar": 0,
-      "sodium": 17
+      "sodium": 1
     }
   },
   "quinoa": {
@@ -2830,361 +3463,37 @@
       "sodium": 9
     }
   },
-  "orzo": {
-    "unit": "cup",
-    "g": 200,
-    "density": 0.85,
-    "n": {
-      "kcal": 700,
-      "protein": 24,
-      "carb": 142,
-      "fat": 3,
-      "satfat": 0.5,
-      "fiber": 6,
-      "sugar": 4,
-      "sodium": 4
-    },
-    "aliases": [
-      "orecchiette"
-    ]
-  },
-  "fettuccine": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 100,
-      "protein": 3.5,
-      "carb": 20,
-      "fat": 0.5,
-      "satfat": 0.1,
-      "fiber": 0.9,
-      "sugar": 0.8,
-      "sodium": 2
-    }
-  },
-  "spaghetti": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 100,
-      "protein": 3.5,
-      "carb": 20,
-      "fat": 0.5,
-      "satfat": 0.1,
-      "fiber": 0.9,
-      "sugar": 0.8,
-      "sodium": 2
-    },
-    "aliases": [
-      "thin spaghetti",
-      "linguine",
-      "bucatini"
-    ]
-  },
-  "wheat noodles": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 100,
-      "protein": 3.4,
-      "carb": 20,
-      "fat": 0.6,
-      "satfat": 0.1,
-      "fiber": 0.9,
-      "sugar": 0.6,
-      "sodium": 3
-    }
-  },
-  "pita": {
-    "unit": "pita",
-    "g": 60,
-    "n": {
-      "kcal": 165,
-      "protein": 5.5,
-      "carb": 33,
-      "fat": 0.7,
-      "satfat": 0.1,
-      "fiber": 1.3,
-      "sugar": 0.8,
-      "sodium": 320
-    },
-    "aliases": [
-      "pita bread",
-      "pita breads",
-      "flatbread",
-      "flatbreads",
-      "naan"
-    ],
-    "each": 60
-  },
-  "corn tortilla": {
-    "unit": "tortilla",
-    "g": 26,
-    "n": {
-      "kcal": 58,
-      "protein": 1.5,
-      "carb": 12,
-      "fat": 0.7,
-      "satfat": 0.1,
-      "fiber": 1.6,
-      "sugar": 0.3,
-      "sodium": 12
-    },
-    "aliases": [
-      "corn tortillas",
-      "flour tortilla",
-      "flour tortillas",
-      "tortilla",
-      "tortillas"
-    ]
-  },
-  "tofu": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 20,
-      "protein": 2.2,
-      "carb": 0.5,
-      "fat": 1.1,
-      "satfat": 0.2,
-      "fiber": 0.3,
-      "sugar": 0.2,
-      "sodium": 4
-    },
-    "aliases": [
-      "silken tofu",
-      "soft tofu",
-      "firm tofu",
-      "extra-firm tofu",
-      "medium tofu",
-      "block tofu"
-    ],
-    "each": 396
-  },
-  "chickpeas": {
-    "unit": "cup",
-    "g": 164,
-    "density": 0.69,
-    "n": {
-      "kcal": 269,
-      "protein": 14.5,
-      "carb": 45,
-      "fat": 4.2,
-      "satfat": 0.4,
-      "fiber": 12.5,
-      "sugar": 8,
-      "sodium": 11
-    },
-    "aliases": [
-      "canned chickpeas",
-      "garbanzo beans"
-    ]
-  },
-  "kidney beans": {
-    "unit": "cup",
-    "g": 184,
-    "density": 0.78,
-    "n": {
-      "kcal": 620,
-      "protein": 41,
-      "carb": 110,
-      "fat": 1.6,
-      "satfat": 0.2,
-      "fiber": 46,
-      "sugar": 4,
-      "sodium": 44
-    },
-    "aliases": [
-      "red kidney beans",
-      "dried red kidney beans"
-    ]
-  },
-  "walnuts": {
-    "unit": "cup",
-    "g": 117,
-    "density": 0.49,
-    "n": {
-      "kcal": 765,
-      "protein": 18,
-      "carb": 16,
-      "fat": 76,
-      "satfat": 7.1,
-      "fiber": 7.8,
-      "sugar": 3,
-      "sodium": 2
-    }
-  },
-  "pecans": {
-    "unit": "cup",
-    "g": 109,
-    "density": 0.46,
-    "n": {
-      "kcal": 753,
-      "protein": 10,
-      "carb": 15,
-      "fat": 78,
-      "satfat": 6.7,
-      "fiber": 10,
-      "sugar": 4.3,
-      "sodium": 0
-    }
-  },
-  "almonds": {
-    "unit": "cup",
-    "g": 143,
+  "radish": {
+    "unit": "radish",
+    "g": 4.5,
     "density": 0.6,
     "n": {
-      "kcal": 822,
-      "protein": 30,
-      "carb": 31,
-      "fat": 71,
-      "satfat": 5.4,
-      "fiber": 18,
-      "sugar": 6.2,
-      "sodium": 1
-    }
-  },
-  "pine nuts": {
-    "unit": "cup",
-    "g": 135,
-    "density": 0.57,
-    "n": {
-      "kcal": 909,
-      "protein": 18,
-      "carb": 18,
-      "fat": 92,
-      "satfat": 6.6,
-      "fiber": 5,
-      "sugar": 4.6,
-      "sodium": 3
-    }
-  },
-  "pepitas": {
-    "unit": "cup",
-    "g": 129,
-    "density": 0.54,
-    "n": {
-      "kcal": 721,
-      "protein": 38,
-      "carb": 14,
-      "fat": 63,
-      "satfat": 11,
-      "fiber": 8.5,
-      "sugar": 1.7,
-      "sodium": 9
-    },
-    "aliases": [
-      "pumpkin seeds",
-      "hulled pumpkin seeds"
-    ]
-  },
-  "shredded coconut": {
-    "unit": "tbsp",
-    "g": 5,
-    "n": {
-      "kcal": 33,
-      "protein": 0.3,
-      "carb": 1.2,
-      "fat": 3.2,
-      "satfat": 2.8,
-      "fiber": 0.8,
-      "sugar": 0.2,
-      "sodium": 1
-    },
-    "aliases": [
-      "unsweetened shredded coconut",
-      "toasted coconut"
-    ]
-  },
-  "mixed nuts": {
-    "unit": "cup",
-    "g": 137,
-    "density": 0.58,
-    "n": {
-      "kcal": 814,
-      "protein": 24,
-      "carb": 28,
-      "fat": 72,
-      "satfat": 10,
-      "fiber": 12,
-      "sugar": 5,
-      "sodium": 3
-    },
-    "aliases": [
-      "toasted nuts",
-      "hazelnuts",
-      "chopped nuts"
-    ]
-  },
-  "oyster sauce": {
-    "unit": "tbsp",
-    "g": 18,
-    "n": {
-      "kcal": 9,
-      "protein": 0.2,
-      "carb": 2,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0.8,
-      "sodium": 492
-    }
-  },
-  "soy sauce": {
-    "unit": "tbsp",
-    "g": 16,
-    "n": {
-      "kcal": 8,
-      "protein": 1.3,
-      "carb": 0.8,
+      "kcal": 1,
+      "protein": 0,
+      "carb": 0.2,
       "fat": 0,
       "satfat": 0,
       "fiber": 0.1,
       "sugar": 0.1,
-      "sodium": 879
+      "sodium": 2
     }
   },
-  "dark soy sauce": {
-    "unit": "tbsp",
-    "g": 18,
+  "raspberries": {
+    "unit": "raspberry",
+    "g": 4,
     "n": {
-      "kcal": 15,
-      "protein": 1.3,
-      "carb": 2.2,
+      "kcal": 2,
+      "protein": 0,
+      "carb": 0.5,
       "fat": 0,
       "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 1.5,
-      "sodium": 960
-    }
-  },
-  "hoisin sauce": {
-    "unit": "tbsp",
-    "g": 16,
-    "n": {
-      "kcal": 35,
-      "protein": 0.5,
-      "carb": 7,
-      "fat": 0.5,
-      "satfat": 0.1,
-      "fiber": 0.4,
-      "sugar": 5,
-      "sodium": 258
-    }
-  },
-  "fish sauce": {
-    "unit": "tbsp",
-    "g": 16,
-    "n": {
-      "kcal": 6,
-      "protein": 0.9,
-      "carb": 0.6,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0.6,
-      "sodium": 1260
-    }
+      "fiber": 0.3,
+      "sugar": 0.2,
+      "sodium": 0
+    },
+    "aliases": [
+      "raspberry"
+    ]
   },
   "red curry paste": {
     "unit": "tbsp",
@@ -3207,190 +3516,45 @@
       "panang curry paste"
     ]
   },
-  "thai chili paste": {
-    "unit": "tbsp",
-    "g": 16,
+  "red onion": {
+    "unit": "onion",
+    "g": 110,
+    "density": 0.6,
     "n": {
-      "kcal": 25,
-      "protein": 0.5,
-      "carb": 4,
-      "fat": 0.8,
-      "satfat": 0.1,
-      "fiber": 0.5,
-      "sugar": 2.5,
-      "sodium": 380
-    },
-    "aliases": [
-      "oyster sauce",
-      "chili paste"
-    ]
-  },
-  "gochujang": {
-    "unit": "tbsp",
-    "g": 18,
-    "n": {
-      "kcal": 30,
-      "protein": 0.8,
-      "carb": 6.5,
-      "fat": 0.3,
-      "satfat": 0,
-      "fiber": 0.4,
-      "sugar": 3,
-      "sodium": 410
-    },
-    "aliases": [
-      "gochujang paste",
-      "korean chili paste",
-      "korean chile paste"
-    ]
-  },
-  "doubanjiang": {
-    "unit": "tbsp",
-    "g": 18,
-    "n": {
-      "kcal": 25,
-      "protein": 1.5,
-      "carb": 3,
-      "fat": 1,
-      "satfat": 0.2,
-      "fiber": 1,
-      "sugar": 1,
-      "sodium": 720
-    },
-    "aliases": [
-      "pixian chile bean paste",
-      "chile bean paste",
-      "fermented black beans",
-      "douchi"
-    ]
-  },
-  "sriracha": {
-    "unit": "tsp",
-    "g": 5,
-    "n": {
-      "kcal": 5,
-      "protein": 0.1,
-      "carb": 1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0.8,
-      "sodium": 95
-    }
-  },
-  "hot sauce": {
-    "unit": "tsp",
-    "g": 5,
-    "n": {
-      "kcal": 1,
-      "protein": 0.1,
-      "carb": 0.1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 124
-    }
-  },
-  "dijon mustard": {
-    "unit": "tsp",
-    "g": 5,
-    "n": {
-      "kcal": 5,
-      "protein": 0.3,
-      "carb": 0.5,
-      "fat": 0.3,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 0.1,
-      "sodium": 120
-    }
-  },
-  "yellow mustard": {
-    "unit": "tsp",
-    "g": 5,
-    "n": {
-      "kcal": 3,
-      "protein": 0.2,
-      "carb": 0.3,
-      "fat": 0.2,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 0,
-      "sodium": 57
-    }
-  },
-  "prepared horseradish": {
-    "unit": "tbsp",
-    "g": 15,
-    "n": {
-      "kcal": 7,
-      "protein": 0.2,
-      "carb": 1.7,
+      "kcal": 44,
+      "protein": 1.2,
+      "carb": 10.3,
       "fat": 0.1,
       "satfat": 0,
-      "fiber": 0.5,
-      "sugar": 1.2,
-      "sodium": 47
-    },
-    "aliases": [
-      "horseradish"
-    ]
-  },
-  "capers": {
-    "unit": "tbsp",
-    "g": 9,
-    "n": {
-      "kcal": 2,
-      "protein": 0.2,
-      "carb": 0.4,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0.3,
-      "sugar": 0.1,
-      "sodium": 238
-    }
-  },
-  "kalamata olives": {
-    "unit": "cup",
-    "g": 135,
-    "density": 0.57,
-    "n": {
-      "kcal": 188,
-      "protein": 1.4,
-      "carb": 10,
-      "fat": 18,
-      "satfat": 2.4,
-      "fiber": 4.4,
-      "sugar": 0,
-      "sodium": 1556
-    },
-    "aliases": [
-      "kalamata olive",
-      "olives",
-      "black olives",
-      "oil-cured black olives",
-      "oil-cured olives",
-      "green olives",
-      "castelvetrano olives",
-      "cracked green olives",
-      "manzanilla olives"
-    ],
-    "each": 4
-  },
-  "balsamic vinegar": {
-    "unit": "tbsp",
-    "g": 16,
-    "n": {
-      "kcal": 14,
-      "protein": 0.1,
-      "carb": 2.7,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 2.4,
+      "fiber": 1.9,
+      "sugar": 4.7,
       "sodium": 4
     }
+  },
+  "red pepper flakes": {
+    "unit": "tsp",
+    "g": 1.8,
+    "n": {
+      "kcal": 6,
+      "protein": 0.2,
+      "carb": 1.1,
+      "fat": 0.3,
+      "satfat": 0.1,
+      "fiber": 0.5,
+      "sugar": 0.2,
+      "sodium": 2
+    },
+    "aliases": [
+      "crushed red pepper flakes",
+      "crushed red pepper",
+      "red chili flakes",
+      "chili flakes",
+      "chile flakes",
+      "dried chile flakes",
+      "chili flake",
+      "gochugaru",
+      "korean chili flakes"
+    ]
   },
   "red wine vinegar": {
     "unit": "tbsp",
@@ -3420,60 +3584,558 @@
       "sodium": 1
     }
   },
-  "apple cider vinegar": {
-    "unit": "tbsp",
-    "g": 15,
+  "roasted red pepper": {
+    "unit": "cup",
+    "g": 140,
+    "density": 1,
     "n": {
-      "kcal": 3,
-      "protein": 0,
-      "carb": 0.1,
-      "fat": 0,
+      "kcal": 42,
+      "protein": 1.4,
+      "carb": 9,
+      "fat": 0.3,
       "satfat": 0,
-      "fiber": 0,
-      "sugar": 0.1,
+      "fiber": 2,
+      "sugar": 6,
+      "sodium": 300
+    },
+    "aliases": [
+      "roasted red peppers",
+      "jarred roasted red peppers",
+      "piquillo peppers",
+      "roasted red bell peppers"
+    ],
+    "each": 75
+  },
+  "rosemary": {
+    "unit": "tbsp",
+    "g": 1.7,
+    "n": {
+      "kcal": 2,
+      "protein": 0.1,
+      "carb": 0.4,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.2,
+      "sugar": 0,
       "sodium": 1
     },
     "aliases": [
-      "cane vinegar",
-      "coconut vinegar"
+      "fresh rosemary",
+      "chopped rosemary"
     ]
   },
-  "white wine vinegar": {
-    "unit": "tbsp",
-    "g": 15,
+  "rum": {
+    "unit": "oz",
+    "g": 28,
     "n": {
-      "kcal": 3,
+      "kcal": 64,
       "protein": 0,
-      "carb": 0.1,
+      "carb": 0,
       "fat": 0,
       "satfat": 0,
       "fiber": 0,
-      "sugar": 0.1,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "white rum",
+      "light rum",
+      "gold rum",
+      "dark rum",
+      "aged rum",
+      "spiced rum",
+      "amber rum",
+      "black rum"
+    ]
+  },
+  "saffron threads": {
+    "unit": "tsp",
+    "g": 0.7,
+    "n": {
+      "kcal": 2,
+      "protein": 0.1,
+      "carb": 0.5,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
       "sodium": 1
     },
     "aliases": [
-      "champagne vinegar",
-      "white vinegar"
+      "saffron"
     ]
   },
-  "white miso paste": {
+  "sake": {
     "unit": "tbsp",
-    "g": 17,
+    "g": 15,
     "n": {
-      "kcal": 34,
-      "protein": 2.2,
-      "carb": 4.3,
-      "fat": 1,
+      "kcal": 20,
+      "protein": 0.1,
+      "carb": 0.7,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 1
+    }
+  },
+  "salmon": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 58,
+      "protein": 5.6,
+      "carb": 0,
+      "fat": 3.8,
+      "satfat": 0.8,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 13
+    },
+    "aliases": [
+      "salmon fillet",
+      "salmon fillets"
+    ],
+    "each": 170
+  },
+  "scallion": {
+    "unit": "stalk",
+    "g": 15,
+    "density": 0.6,
+    "n": {
+      "kcal": 5,
+      "protein": 0.3,
+      "carb": 1.1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.4,
+      "sugar": 0.3,
+      "sodium": 2
+    },
+    "aliases": [
+      "green onion",
+      "green onions",
+      "scallions"
+    ]
+  },
+  "scallops": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 25,
+      "protein": 4.6,
+      "carb": 0.7,
+      "fat": 0.2,
+      "satfat": 0.05,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 90
+    },
+    "aliases": [
+      "scallop",
+      "sea scallops",
+      "sea scallop",
+      "dry sea scallops",
+      "dry-packed scallops",
+      "bay scallops"
+    ],
+    "each": 30
+  },
+  "sea bass": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 27,
+      "protein": 5.2,
+      "carb": 0,
+      "fat": 0.6,
+      "satfat": 0.1,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 19
+    },
+    "aliases": [
+      "sea bass fillet",
+      "sea bass fillets"
+    ],
+    "each": 145
+  },
+  "serrano": {
+    "unit": "serrano",
+    "g": 6,
+    "density": 0.6,
+    "n": {
+      "kcal": 2,
+      "protein": 0.1,
+      "carb": 0.4,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.2,
+      "sugar": 0.2,
+      "sodium": 1
+    },
+    "aliases": [
+      "serrano pepper",
+      "serranos",
+      "serrano chile",
+      "thai chile",
+      "thai chili"
+    ]
+  },
+  "sesame oil": {
+    "unit": "tsp",
+    "g": 4.5,
+    "n": {
+      "kcal": 40,
+      "protein": 0,
+      "carb": 0,
+      "fat": 4.5,
+      "satfat": 0.6,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "toasted sesame oil"
+    ]
+  },
+  "sesame seeds": {
+    "unit": "tsp",
+    "g": 3,
+    "n": {
+      "kcal": 17,
+      "protein": 0.5,
+      "carb": 0.7,
+      "fat": 1.5,
       "satfat": 0.2,
-      "fiber": 0.9,
-      "sugar": 1.1,
-      "sodium": 634
+      "fiber": 0.4,
+      "sugar": 0,
+      "sodium": 0
     },
     "aliases": [
-      "miso",
-      "white miso",
-      "miso paste"
+      "toasted sesame seeds",
+      "sesame seed"
     ]
+  },
+  "shallot": {
+    "unit": "shallot",
+    "g": 40,
+    "density": 0.6,
+    "n": {
+      "kcal": 29,
+      "protein": 1,
+      "carb": 6.7,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 1.3,
+      "sugar": 3.1,
+      "sodium": 5
+    }
+  },
+  "shaoxing wine": {
+    "unit": "tbsp",
+    "g": 15,
+    "n": {
+      "kcal": 15,
+      "protein": 0.1,
+      "carb": 0.9,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.3,
+      "sodium": 4
+    }
+  },
+  "shredded coconut": {
+    "unit": "tbsp",
+    "g": 5,
+    "n": {
+      "kcal": 33,
+      "protein": 0.3,
+      "carb": 1.2,
+      "fat": 3.2,
+      "satfat": 2.8,
+      "fiber": 0.8,
+      "sugar": 0.2,
+      "sodium": 1
+    },
+    "aliases": [
+      "unsweetened shredded coconut",
+      "toasted coconut"
+    ]
+  },
+  "shrimp": {
+    "unit": "oz",
+    "g": 28,
+    "each": 13,
+    "n": {
+      "kcal": 20,
+      "protein": 3.9,
+      "carb": 0.3,
+      "fat": 0.3,
+      "satfat": 0.08,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 45
+    },
+    "aliases": [
+      "large shrimp",
+      "jumbo shrimp",
+      "medium shrimp",
+      "prawns"
+    ]
+  },
+  "sichuan peppercorns": {
+    "unit": "tsp",
+    "g": 2.5,
+    "n": {
+      "kcal": 7,
+      "protein": 0.3,
+      "carb": 1.6,
+      "fat": 0.2,
+      "satfat": 0,
+      "fiber": 1,
+      "sugar": 0,
+      "sodium": 1
+    },
+    "aliases": [
+      "sichuan peppercorn",
+      "szechuan peppercorns"
+    ]
+  },
+  "simple syrup": {
+    "unit": "oz",
+    "g": 33,
+    "n": {
+      "kcal": 50,
+      "protein": 0,
+      "carb": 13,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 13,
+      "sodium": 0
+    }
+  },
+  "sirloin steak": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 57,
+      "protein": 7,
+      "carb": 0,
+      "fat": 3,
+      "satfat": 1.2,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 15
+    },
+    "aliases": [
+      "tenderloin",
+      "sirloin",
+      "flank steak",
+      "flank",
+      "skirt steak",
+      "skirt"
+    ]
+  },
+  "smoked paprika": {
+    "unit": "tsp",
+    "g": 2.3,
+    "n": {
+      "kcal": 6,
+      "protein": 0.3,
+      "carb": 1.2,
+      "fat": 0.3,
+      "satfat": 0,
+      "fiber": 0.8,
+      "sugar": 0.2,
+      "sodium": 1
+    }
+  },
+  "smoked salt": {
+    "unit": "tsp",
+    "g": 5,
+    "n": {
+      "kcal": 0,
+      "protein": 0,
+      "carb": 0,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 1950
+    }
+  },
+  "snapper": {
+    "unit": "oz",
+    "g": 28,
+    "each": 170,
+    "n": {
+      "kcal": 28,
+      "protein": 5.8,
+      "carb": 0,
+      "fat": 0.38,
+      "satfat": 0.08,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 18
+    },
+    "aliases": [
+      "snapper fillets",
+      "snapper fillet",
+      "red snapper"
+    ]
+  },
+  "sour cream": {
+    "unit": "tbsp",
+    "g": 14,
+    "n": {
+      "kcal": 30,
+      "protein": 0.4,
+      "carb": 0.7,
+      "fat": 2.9,
+      "satfat": 1.7,
+      "fiber": 0,
+      "sugar": 0.4,
+      "sodium": 8
+    },
+    "aliases": [
+      "mexican crema",
+      "crema",
+      "creme fraiche",
+      "crème fraîche"
+    ]
+  },
+  "soy sauce": {
+    "unit": "tbsp",
+    "g": 16,
+    "n": {
+      "kcal": 8,
+      "protein": 1.3,
+      "carb": 0.8,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0.1,
+      "sodium": 879
+    }
+  },
+  "spaghetti": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 100,
+      "protein": 3.5,
+      "carb": 20,
+      "fat": 0.5,
+      "satfat": 0.1,
+      "fiber": 0.9,
+      "sugar": 0.8,
+      "sodium": 2
+    },
+    "aliases": [
+      "thin spaghetti",
+      "linguine",
+      "bucatini"
+    ]
+  },
+  "sriracha": {
+    "unit": "tsp",
+    "g": 5,
+    "n": {
+      "kcal": 5,
+      "protein": 0.1,
+      "carb": 1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0.8,
+      "sodium": 95
+    }
+  },
+  "star anise": {
+    "unit": "tsp",
+    "g": 2,
+    "n": {
+      "kcal": 7,
+      "protein": 0.3,
+      "carb": 1.1,
+      "fat": 0.3,
+      "satfat": 0,
+      "fiber": 0.3,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "each": 0.5
+  },
+  "sushi rice": {
+    "unit": "cup",
+    "g": 195,
+    "density": 0.82,
+    "n": {
+      "kcal": 685,
+      "protein": 13,
+      "carb": 151,
+      "fat": 1,
+      "satfat": 0.3,
+      "fiber": 2.6,
+      "sugar": 0,
+      "sodium": 5
+    },
+    "aliases": [
+      "short-grain rice",
+      "short grain rice"
+    ]
+  },
+  "sweet potato": {
+    "unit": "potato",
+    "g": 130,
+    "density": 0.6,
+    "n": {
+      "kcal": 112,
+      "protein": 2,
+      "carb": 26,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 3.9,
+      "sugar": 5.4,
+      "sodium": 72
+    }
+  },
+  "swiss chard": {
+    "unit": "bunch",
+    "g": 200,
+    "density": 0.25,
+    "n": {
+      "kcal": 38,
+      "protein": 3.6,
+      "carb": 7.2,
+      "fat": 0.4,
+      "satfat": 0.1,
+      "fiber": 3.2,
+      "sugar": 2.2,
+      "sodium": 426
+    }
+  },
+  "swordfish": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 40,
+      "protein": 5.5,
+      "carb": 0,
+      "fat": 1.8,
+      "satfat": 0.5,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 25
+    },
+    "aliases": [
+      "swordfish steak",
+      "swordfish steaks"
+    ],
+    "each": 170
   },
   "tahini": {
     "unit": "tbsp",
@@ -3492,67 +4154,255 @@
       "lemon-tahini sauce"
     ]
   },
-  "mirin": {
-    "unit": "tbsp",
-    "g": 18,
+  "tajin": {
+    "unit": "tsp",
+    "g": 4,
     "n": {
-      "kcal": 43,
+      "kcal": 2,
       "protein": 0.1,
-      "carb": 8.6,
+      "carb": 0.5,
       "fat": 0,
       "satfat": 0,
-      "fiber": 0,
-      "sugar": 7.8,
-      "sodium": 3
-    }
+      "fiber": 0.2,
+      "sugar": 0,
+      "sodium": 190
+    },
+    "aliases": [
+      "tajín"
+    ]
   },
-  "sake": {
-    "unit": "tbsp",
-    "g": 15,
+  "tequila": {
+    "unit": "oz",
+    "g": 28,
     "n": {
-      "kcal": 20,
-      "protein": 0.1,
-      "carb": 0.7,
+      "kcal": 64,
+      "protein": 0,
+      "carb": 0,
       "fat": 0,
       "satfat": 0,
       "fiber": 0,
       "sugar": 0,
-      "sodium": 1
-    }
-  },
-  "shaoxing wine": {
-    "unit": "tbsp",
-    "g": 15,
-    "n": {
-      "kcal": 15,
-      "protein": 0.1,
-      "carb": 0.9,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0.3,
-      "sodium": 4
-    }
-  },
-  "dry white wine": {
-    "unit": "cup",
-    "g": 235,
-    "density": 0.99,
-    "n": {
-      "kcal": 195,
-      "protein": 0.2,
-      "carb": 6.1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 1.4,
-      "sodium": 12
+      "sodium": 0
     },
     "aliases": [
-      "white wine",
-      "sauvignon blanc",
-      "pinot grigio"
+      "blanco tequila"
     ]
+  },
+  "thai chili paste": {
+    "unit": "tbsp",
+    "g": 16,
+    "n": {
+      "kcal": 25,
+      "protein": 0.5,
+      "carb": 4,
+      "fat": 0.8,
+      "satfat": 0.1,
+      "fiber": 0.5,
+      "sugar": 2.5,
+      "sodium": 380
+    },
+    "aliases": [
+      "oyster sauce",
+      "chili paste"
+    ]
+  },
+  "thyme": {
+    "unit": "tbsp",
+    "g": 2.4,
+    "n": {
+      "kcal": 2,
+      "protein": 0.1,
+      "carb": 0.6,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.3,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "fresh thyme",
+      "fresh thyme leaves",
+      "chopped thyme"
+    ]
+  },
+  "tilapia": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 26,
+      "protein": 5.4,
+      "carb": 0,
+      "fat": 0.5,
+      "satfat": 0.2,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 14
+    },
+    "aliases": [
+      "tilapia fillet",
+      "tilapia fillets"
+    ],
+    "each": 185
+  },
+  "toasted rice powder": {
+    "unit": "tbsp",
+    "g": 8,
+    "n": {
+      "kcal": 29,
+      "protein": 0.6,
+      "carb": 6.4,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "khao khua",
+      "roasted rice powder"
+    ]
+  },
+  "tofu": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 20,
+      "protein": 2.2,
+      "carb": 0.5,
+      "fat": 1.1,
+      "satfat": 0.2,
+      "fiber": 0.3,
+      "sugar": 0.2,
+      "sodium": 4
+    },
+    "aliases": [
+      "silken tofu",
+      "soft tofu",
+      "firm tofu",
+      "extra-firm tofu",
+      "medium tofu",
+      "block tofu"
+    ],
+    "each": 396
+  },
+  "tomato": {
+    "unit": "tomato",
+    "g": 110,
+    "density": 0.65,
+    "n": {
+      "kcal": 20,
+      "protein": 1,
+      "carb": 4.3,
+      "fat": 0.2,
+      "satfat": 0,
+      "fiber": 1.3,
+      "sugar": 2.9,
+      "sodium": 6
+    },
+    "aliases": [
+      "fresh tomato",
+      "fresh tomatoes",
+      "raw tomato"
+    ]
+  },
+  "tomato paste": {
+    "unit": "tbsp",
+    "g": 16,
+    "n": {
+      "kcal": 13,
+      "protein": 0.7,
+      "carb": 3.1,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.7,
+      "sugar": 1.9,
+      "sodium": 98
+    }
+  },
+  "triple sec": {
+    "unit": "oz",
+    "g": 30,
+    "n": {
+      "kcal": 103,
+      "protein": 0,
+      "carb": 11,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 11,
+      "sodium": 0
+    }
+  },
+  "tuna steak": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 31,
+      "protein": 6.6,
+      "carb": 0,
+      "fat": 0.3,
+      "satfat": 0.1,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 11
+    },
+    "aliases": [
+      "tuna steaks",
+      "tuna",
+      "fresh tuna steaks"
+    ],
+    "each": 160
+  },
+  "turmeric": {
+    "unit": "tsp",
+    "g": 3,
+    "n": {
+      "kcal": 9,
+      "protein": 0.3,
+      "carb": 1.4,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.5,
+      "sugar": 0.1,
+      "sodium": 1
+    },
+    "aliases": [
+      "ground turmeric"
+    ]
+  },
+  "vanilla extract": {
+    "unit": "tsp",
+    "g": 4.2,
+    "n": {
+      "kcal": 12,
+      "protein": 0,
+      "carb": 0.5,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.5,
+      "sodium": 0
+    }
+  },
+  "vanilla ice cream": {
+    "unit": "cup",
+    "g": 132,
+    "density": 0.56,
+    "n": {
+      "kcal": 273,
+      "protein": 4.6,
+      "carb": 31,
+      "fat": 14.5,
+      "satfat": 9,
+      "fiber": 0.8,
+      "sugar": 28,
+      "sodium": 106
+    },
+    "aliases": [
+      "ice cream",
+      "vanilla bean ice cream"
+    ],
+    "each": 66
   },
   "vegetable broth": {
     "unit": "cup",
@@ -3572,86 +4422,34 @@
       "vegetable stock"
     ]
   },
-  "beef broth": {
-    "unit": "cup",
-    "g": 240,
-    "density": 1,
+  "vodka": {
+    "unit": "oz",
+    "g": 28,
     "n": {
-      "kcal": 17,
-      "protein": 2.7,
-      "carb": 0.1,
-      "fat": 0.5,
-      "satfat": 0.2,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 890
-    },
-    "aliases": [
-      "beef stock",
-      "low-sodium beef broth"
-    ]
-  },
-  "fish stock": {
-    "unit": "cup",
-    "g": 240,
-    "density": 1,
-    "n": {
-      "kcal": 40,
-      "protein": 5,
+      "kcal": 64,
+      "protein": 0,
       "carb": 0,
-      "fat": 1.5,
-      "satfat": 0.4,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 700
-    },
-    "aliases": [
-      "seafood stock",
-      "fish broth",
-      "seafood broth",
-      "clam juice"
-    ]
-  },
-  "chicken broth": {
-    "unit": "cup",
-    "g": 240,
-    "density": 1,
-    "n": {
-      "kcal": 15,
-      "protein": 1.5,
-      "carb": 1,
-      "fat": 0.5,
-      "satfat": 0.1,
-      "fiber": 0,
-      "sugar": 0.5,
-      "sodium": 860
-    },
-    "aliases": [
-      "chicken stock",
-      "low-sodium chicken broth",
-      "low-sodium chicken stock",
-      "poaching broth",
-      "reserved poaching broth",
-      "chicken poaching broth"
-    ]
-  },
-  "pasta water": {
-    "unit": "cup",
-    "g": 240,
-    "density": 1,
-    "n": {
-      "kcal": 5,
-      "protein": 0.2,
-      "carb": 1,
       "fat": 0,
       "satfat": 0,
       "fiber": 0,
       "sugar": 0,
-      "sodium": 200
-    },
-    "aliases": [
-      "reserved pasta water"
-    ]
+      "sodium": 0
+    }
+  },
+  "walnuts": {
+    "unit": "cup",
+    "g": 117,
+    "density": 0.49,
+    "n": {
+      "kcal": 765,
+      "protein": 18,
+      "carb": 16,
+      "fat": 76,
+      "satfat": 7.1,
+      "fiber": 7.8,
+      "sugar": 3,
+      "sodium": 2
+    }
   },
   "water": {
     "unit": "cup",
@@ -3671,148 +4469,47 @@
       "ice water"
     ]
   },
-  "lemon juice": {
-    "unit": "tbsp",
-    "g": 15,
-    "n": {
-      "kcal": 4,
-      "protein": 0.1,
-      "carb": 1.3,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0.4,
-      "sodium": 0
-    },
-    "aliases": [
-      "fresh lemon juice"
-    ]
-  },
-  "lime juice": {
-    "unit": "tbsp",
-    "g": 15,
-    "n": {
-      "kcal": 4,
-      "protein": 0.1,
-      "carb": 1.3,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0.2,
-      "sodium": 0
-    },
-    "aliases": [
-      "fresh lime juice"
-    ]
-  },
-  "orange juice": {
+  "watercress": {
     "unit": "cup",
-    "g": 248,
-    "density": 1,
+    "g": 34,
+    "density": 0.15,
     "n": {
-      "kcal": 112,
-      "protein": 1.7,
-      "carb": 26,
-      "fat": 0.5,
-      "satfat": 0.1,
-      "fiber": 0.5,
-      "sugar": 21,
-      "sodium": 2
+      "kcal": 4,
+      "protein": 0.8,
+      "carb": 0.4,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.2,
+      "sugar": 0.1,
+      "sodium": 14
     }
   },
-  "preserved lemon": {
-    "unit": "preserved lemon",
-    "g": 30,
-    "n": {
-      "kcal": 10,
-      "protein": 0.3,
-      "carb": 3,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 1.3,
-      "sugar": 0.5,
-      "sodium": 500
-    },
-    "aliases": [
-      "preserved lemons",
-      "preserved lemon rind"
-    ]
-  },
-  "lemon": {
-    "unit": "lemon",
-    "g": 60,
-    "density": 0.6,
-    "n": {
-      "kcal": 17,
-      "protein": 0.6,
-      "carb": 5.4,
-      "fat": 0.2,
-      "satfat": 0,
-      "fiber": 1.6,
-      "sugar": 1.5,
-      "sodium": 1
-    },
-    "aliases": [
-      "lemon zest",
-      "lemon wedge",
-      "lemon wedges",
-      "lemon slice",
-      "lemon slices",
-      "lemon twist"
-    ]
-  },
-  "lime": {
-    "unit": "lime",
-    "g": 67,
-    "density": 0.6,
-    "n": {
-      "kcal": 20,
-      "protein": 0.5,
-      "carb": 7,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 1.9,
-      "sugar": 1.1,
-      "sodium": 1
-    },
-    "aliases": [
-      "lime zest",
-      "lime wedge",
-      "lime wedges",
-      "lime wheel",
-      "lime slice"
-    ]
-  },
-  "orange": {
-    "unit": "orange",
-    "g": 130,
-    "density": 0.6,
-    "n": {
-      "kcal": 62,
-      "protein": 1.2,
-      "carb": 15.4,
-      "fat": 0.2,
-      "satfat": 0,
-      "fiber": 3.1,
-      "sugar": 12.2,
-      "sodium": 0
-    },
-    "aliases": [
-      "orange zest"
-    ]
-  },
-  "vodka": {
+  "wheat noodles": {
     "unit": "oz",
     "g": 28,
     "n": {
-      "kcal": 64,
-      "protein": 0,
-      "carb": 0,
-      "fat": 0,
-      "satfat": 0,
+      "kcal": 100,
+      "protein": 3.4,
+      "carb": 20,
+      "fat": 0.6,
+      "satfat": 0.1,
+      "fiber": 0.9,
+      "sugar": 0.6,
+      "sodium": 3
+    }
+  },
+  "whipped cream": {
+    "unit": "tbsp",
+    "g": 4,
+    "n": {
+      "kcal": 13,
+      "protein": 0.1,
+      "carb": 0.7,
+      "fat": 1.1,
+      "satfat": 0.7,
       "fiber": 0,
-      "sugar": 0,
-      "sodium": 0
+      "sugar": 0.7,
+      "sodium": 3
     }
   },
   "whiskey": {
@@ -3840,665 +4537,178 @@
       "whisky"
     ]
   },
-  "aperol": {
-    "unit": "oz",
-    "g": 31,
-    "n": {
-      "kcal": 45,
-      "protein": 0,
-      "carb": 7,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 7,
-      "sodium": 1
-    },
-    "aliases": [
-      "aperitivo"
-    ]
-  },
-  "prosecco": {
-    "unit": "oz",
-    "g": 29,
-    "n": {
-      "kcal": 24,
-      "protein": 0,
-      "carb": 1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0.4,
-      "sodium": 1
-    },
-    "aliases": [
-      "champagne",
-      "cava",
-      "sparkling wine",
-      "brut",
-      "dry sparkling wine"
-    ]
-  },
-  "creme de menthe": {
-    "unit": "oz",
-    "g": 33,
-    "n": {
-      "kcal": 95,
-      "protein": 0,
-      "carb": 14,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 14,
-      "sodium": 1
-    },
-    "aliases": [
-      "crème de menthe",
-      "white creme de menthe",
-      "green creme de menthe"
-    ]
-  },
-  "creme de cacao": {
-    "unit": "oz",
-    "g": 33,
-    "n": {
-      "kcal": 100,
-      "protein": 0,
-      "carb": 12,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 12,
-      "sodium": 1
-    },
-    "aliases": [
-      "crème de cacao",
-      "dark creme de cacao",
-      "white creme de cacao"
-    ]
-  },
-  "gin": {
+  "white fish": {
     "unit": "oz",
     "g": 28,
     "n": {
-      "kcal": 64,
-      "protein": 0,
+      "kcal": 26,
+      "protein": 5.2,
       "carb": 0,
-      "fat": 0,
-      "satfat": 0,
+      "fat": 0.5,
+      "satfat": 0.1,
       "fiber": 0,
       "sugar": 0,
-      "sodium": 0
-    }
-  },
-  "rum": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 64,
-      "protein": 0,
-      "carb": 0,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 0
+      "sodium": 16
     },
     "aliases": [
-      "white rum",
-      "light rum",
-      "gold rum",
-      "dark rum",
-      "aged rum",
-      "spiced rum",
-      "amber rum",
-      "black rum"
-    ]
+      "mild white fish",
+      "fish fillet",
+      "fish fillets",
+      "mild fish fillets",
+      "sole",
+      "arctic char"
+    ],
+    "each": 115
   },
-  "tequila": {
-    "unit": "oz",
-    "g": 28,
+  "white miso paste": {
+    "unit": "tbsp",
+    "g": 17,
     "n": {
-      "kcal": 64,
-      "protein": 0,
-      "carb": 0,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "blanco tequila"
-    ]
-  },
-  "coconut tequila": {
-    "unit": "oz",
-    "g": 29,
-    "n": {
-      "kcal": 72,
-      "protein": 0,
-      "carb": 2,
-      "fat": 0.2,
-      "satfat": 0.2,
-      "fiber": 0,
-      "sugar": 2,
-      "sodium": 1
-    }
-  },
-  "mezcal": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 64,
-      "protein": 0,
-      "carb": 0,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 0
-    }
-  },
-  "triple sec": {
-    "unit": "oz",
-    "g": 30,
-    "n": {
-      "kcal": 103,
-      "protein": 0,
-      "carb": 11,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 11,
-      "sodium": 0
-    }
-  },
-  "cointreau": {
-    "unit": "oz",
-    "g": 30,
-    "n": {
-      "kcal": 95,
-      "protein": 0,
-      "carb": 7,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 7,
-      "sodium": 0
-    }
-  },
-  "chambord": {
-    "unit": "oz",
-    "g": 32,
-    "n": {
-      "kcal": 88,
-      "protein": 0,
-      "carb": 11,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 11,
-      "sodium": 0
-    },
-    "aliases": [
-      "raspberry liqueur"
-    ]
-  },
-  "benedictine": {
-    "unit": "oz",
-    "g": 32,
-    "n": {
-      "kcal": 104,
-      "protein": 0,
-      "carb": 11,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 11,
-      "sodium": 0
-    },
-    "aliases": [
-      "bénédictine"
-    ]
-  },
-  "cognac": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 69,
-      "protein": 0,
-      "carb": 0.5,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0.2,
-      "sodium": 0
-    },
-    "aliases": [
-      "brandy",
-      "vsop cognac"
-    ]
-  },
-  "cherry brandy": {
-    "unit": "oz",
-    "g": 32,
-    "n": {
-      "kcal": 80,
-      "protein": 0,
-      "carb": 9,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 9,
-      "sodium": 0
-    },
-    "aliases": [
-      "cherry liqueur",
-      "cherry heering"
-    ]
-  },
-  "coffee liqueur": {
-    "unit": "oz",
-    "g": 35,
-    "n": {
-      "kcal": 100,
-      "protein": 0,
-      "carb": 15,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 14,
-      "sodium": 3
-    },
-    "aliases": [
-      "kahlua",
-      "kahlúa",
-      "mr black"
-    ]
-  },
-  "baileys irish cream": {
-    "unit": "oz",
-    "g": 31,
-    "n": {
-      "kcal": 95,
-      "protein": 0.8,
-      "carb": 6,
-      "fat": 4.5,
-      "satfat": 2.8,
-      "fiber": 0,
-      "sugar": 6,
-      "sodium": 12
-    },
-    "aliases": [
-      "baileys",
-      "irish cream"
-    ]
-  },
-  "pineapple juice": {
-    "unit": "oz",
-    "g": 31,
-    "n": {
-      "kcal": 17,
-      "protein": 0.1,
-      "carb": 4.2,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 3.3,
-      "sodium": 0
-    }
-  },
-  "peach nectar": {
-    "unit": "oz",
-    "g": 31,
-    "n": {
-      "kcal": 17,
-      "protein": 0.1,
+      "kcal": 34,
+      "protein": 2.2,
       "carb": 4.3,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 4,
-      "sodium": 2
+      "fat": 1,
+      "satfat": 0.2,
+      "fiber": 0.9,
+      "sugar": 1.1,
+      "sodium": 634
     },
     "aliases": [
-      "peach slice",
-      "peach slices"
+      "miso",
+      "white miso",
+      "miso paste"
     ]
   },
-  "espresso": {
-    "unit": "oz",
-    "g": 29,
+  "white pepper": {
+    "unit": "tsp",
+    "g": 2.4,
+    "n": {
+      "kcal": 7,
+      "protein": 0.2,
+      "carb": 1.7,
+      "fat": 0.05,
+      "satfat": 0,
+      "fiber": 0.6,
+      "sugar": 0,
+      "sodium": 0
+    }
+  },
+  "white rice": {
+    "unit": "cup",
+    "g": 185,
+    "density": 0.78,
+    "n": {
+      "kcal": 675,
+      "protein": 13,
+      "carb": 148,
+      "fat": 1.2,
+      "satfat": 0.3,
+      "fiber": 2.4,
+      "sugar": 0,
+      "sodium": 9
+    },
+    "aliases": [
+      "long-grain white rice",
+      "rice"
+    ]
+  },
+  "white wine vinegar": {
+    "unit": "tbsp",
+    "g": 15,
     "n": {
       "kcal": 3,
-      "protein": 0.1,
-      "carb": 0.5,
-      "fat": 0.1,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 4
-    },
-    "aliases": [
-      "coffee beans"
-    ]
-  },
-  "brewed coffee": {
-    "unit": "oz",
-    "g": 28,
-    "n": {
-      "kcal": 1,
-      "protein": 0.1,
-      "carb": 0,
+      "protein": 0,
+      "carb": 0.1,
       "fat": 0,
       "satfat": 0,
       "fiber": 0,
-      "sugar": 0,
+      "sugar": 0.1,
       "sodium": 1
     },
     "aliases": [
-      "coffee",
-      "hot coffee",
-      "drip coffee",
-      "strong brewed coffee",
-      "hot brewed coffee"
+      "champagne vinegar",
+      "white vinegar"
     ]
   },
-  "club soda": {
+  "whole chicken": {
     "unit": "oz",
     "g": 28,
     "n": {
-      "kcal": 0,
-      "protein": 0,
+      "kcal": 42,
+      "protein": 3.6,
       "carb": 0,
-      "fat": 0,
-      "satfat": 0,
+      "fat": 2.9,
+      "satfat": 0.8,
       "fiber": 0,
       "sugar": 0,
-      "sodium": 2
+      "sodium": 20
     },
     "aliases": [
-      "soda water",
-      "seltzer",
-      "sparkling water",
-      "club soda to top"
+      "spatchcocked chicken",
+      "whole chicken spatchcocked",
+      "chicken legs",
+      "chicken drumsticks"
     ]
   },
-  "ginger beer": {
-    "unit": "oz",
-    "g": 30,
+  "yellow mustard": {
+    "unit": "tsp",
+    "g": 5,
     "n": {
-      "kcal": 11,
-      "protein": 0,
-      "carb": 2.8,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 2.8,
-      "sodium": 2
-    },
-    "aliases": [
-      "ginger ale"
-    ]
-  },
-  "grapefruit juice": {
-    "unit": "oz",
-    "g": 30,
-    "n": {
-      "kcal": 12,
+      "kcal": 3,
       "protein": 0.2,
-      "carb": 2.9,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 2.9,
-      "sodium": 0
-    },
-    "aliases": [
-      "fresh grapefruit juice",
-      "grapefruit soda"
-    ]
-  },
-  "caramel sauce": {
-    "unit": "tbsp",
-    "g": 19,
-    "n": {
-      "kcal": 60,
-      "protein": 0.3,
-      "carb": 14,
-      "fat": 1.5,
-      "satfat": 0.9,
-      "fiber": 0,
-      "sugar": 11,
-      "sodium": 60
-    },
-    "aliases": [
-      "salted caramel sauce",
-      "dulce de leche",
-      "caramel"
-    ]
-  },
-  "milk": {
-    "unit": "cup",
-    "g": 244,
-    "density": 1.03,
-    "n": {
-      "kcal": 149,
-      "protein": 8,
-      "carb": 12,
-      "fat": 8,
-      "satfat": 4.6,
-      "fiber": 0,
-      "sugar": 12,
-      "sodium": 105
-    },
-    "aliases": [
-      "whole milk",
-      "2% milk",
-      "reduced-fat milk"
-    ]
-  },
-  "vanilla ice cream": {
-    "unit": "cup",
-    "g": 132,
-    "density": 0.56,
-    "n": {
-      "kcal": 273,
-      "protein": 4.6,
-      "carb": 31,
-      "fat": 14.5,
-      "satfat": 9,
-      "fiber": 0.8,
-      "sugar": 28,
-      "sodium": 106
-    },
-    "aliases": [
-      "ice cream",
-      "vanilla bean ice cream"
-    ],
-    "each": 66
-  },
-  "angostura bitters": {
-    "unit": "tsp",
-    "g": 4,
-    "n": {
-      "kcal": 10,
-      "protein": 0,
-      "carb": 1,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 1
-    },
-    "aliases": [
-      "bitters"
-    ]
-  },
-  "tajin": {
-    "unit": "tsp",
-    "g": 4,
-    "n": {
-      "kcal": 2,
-      "protein": 0.1,
-      "carb": 0.5,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 0,
-      "sodium": 190
-    },
-    "aliases": [
-      "tajín"
-    ]
-  },
-  "raspberries": {
-    "unit": "raspberry",
-    "g": 4,
-    "n": {
-      "kcal": 2,
-      "protein": 0,
-      "carb": 0.5,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.3,
-      "sugar": 0.2,
-      "sodium": 0
-    },
-    "aliases": [
-      "raspberry"
-    ]
-  },
-  "cherry": {
-    "unit": "cherry",
-    "g": 8,
-    "n": {
-      "kcal": 6,
-      "protein": 0.1,
-      "carb": 1.5,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.2,
-      "sugar": 1.2,
-      "sodium": 0
-    },
-    "aliases": [
-      "maraschino cherry"
-    ]
-  },
-  "pineapple": {
-    "unit": "cup",
-    "g": 165,
-    "density": 0.7,
-    "n": {
-      "kcal": 83,
-      "protein": 0.9,
-      "carb": 22,
+      "carb": 0.3,
       "fat": 0.2,
       "satfat": 0,
-      "fiber": 2.3,
-      "sugar": 16,
-      "sodium": 2
-    },
-    "aliases": [
-      "pineapple slice",
-      "pineapple wedge"
-    ]
-  },
-  "whipped cream": {
-    "unit": "tbsp",
-    "g": 4,
-    "n": {
-      "kcal": 13,
-      "protein": 0.1,
-      "carb": 0.7,
-      "fat": 1.1,
-      "satfat": 0.7,
-      "fiber": 0,
-      "sugar": 0.7,
-      "sodium": 3
+      "fiber": 0.2,
+      "sugar": 0,
+      "sodium": 57
     }
   },
-  "dark chocolate": {
+  "yellow onion": {
+    "unit": "onion",
+    "g": 110,
+    "density": 0.6,
+    "n": {
+      "kcal": 44,
+      "protein": 1.2,
+      "carb": 10.3,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 1.9,
+      "sugar": 4.7,
+      "sodium": 4
+    }
+  },
+  "yellow squash": {
     "unit": "cup",
-    "g": 175,
-    "density": 0.74,
+    "g": 113,
+    "density": 0.5,
     "n": {
-      "kcal": 938,
-      "protein": 13,
-      "carb": 80,
-      "fat": 67,
-      "satfat": 39,
-      "fiber": 19,
-      "sugar": 42,
-      "sodium": 35
+      "kcal": 21,
+      "protein": 1.2,
+      "carb": 4.3,
+      "fat": 0.3,
+      "satfat": 0.1,
+      "fiber": 1.3,
+      "sugar": 2.5,
+      "sodium": 2
     },
-    "aliases": [
-      "chopped dark chocolate",
-      "chocolate",
-      "shaved chocolate",
-      "chocolate chunks"
-    ]
+    "each": 200
   },
-  "herbs": {
-    "unit": "tbsp",
-    "g": 3,
-    "n": {
-      "kcal": 1,
-      "protein": 0.1,
-      "carb": 0.2,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0.1,
-      "sugar": 0,
-      "sodium": 1
-    },
-    "aliases": [
-      "mixed herbs",
-      "fresh herbs",
-      "mixed fresh herbs",
-      "chopped fresh herbs",
-      "herb",
-      "fresh herb",
-      "dried fenugreek leaves",
-      "kasuri methi",
-      "curry leaves",
-      "curry leaf"
-    ]
-  },
-  "ice": {
+  "zucchini": {
     "unit": "cup",
-    "g": 120,
+    "g": 113,
+    "density": 0.5,
     "n": {
-      "kcal": 0,
-      "protein": 0,
-      "carb": 0,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 0
+      "kcal": 19,
+      "protein": 1.4,
+      "carb": 3.5,
+      "fat": 0.4,
+      "satfat": 0.1,
+      "fiber": 1.1,
+      "sugar": 2.7,
+      "sodium": 9
     },
-    "aliases": [
-      "crushed ice",
-      "cube ice"
-    ]
-  },
-  "coffee beans": {
-    "unit": "bean",
-    "g": 0.2,
-    "n": {
-      "kcal": 1,
-      "protein": 0,
-      "carb": 0,
-      "fat": 0,
-      "satfat": 0,
-      "fiber": 0,
-      "sugar": 0,
-      "sodium": 0
-    },
-    "aliases": [
-      "coffee bean"
-    ]
+    "each": 200
   }
 }

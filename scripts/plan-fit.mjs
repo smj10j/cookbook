@@ -14,7 +14,23 @@ const data = JSON.parse(readFileSync(join(root, 'docs/recipes.json'), 'utf8'));
 const GLYPH = { optimal: '✓ great', ok: '~ okay ', avoid: '✗ poor ' };
 
 const slug = process.argv[2];
-if (slug) {
+if (slug === '--near-miss') {
+  // Authoring aid for planSwaps: verdicts that ONE swap could plausibly flip —
+  // a single blown limit within 35% of its cap. See CLAUDE.md → planSwaps.
+  console.log('\nNear-miss ✗ verdicts (one limit blown, within 35% of the cap):\n');
+  for (const r of data.recipes) {
+    const hits = [];
+    for (const e of evaluatePlans(r)) {
+      if (e.verdict !== 'avoid' || e.swapped) continue;
+      const blown = e.limits.filter((l) => l.tier === 'avoid');
+      if (blown.length === 1 && blown[0].value <= blown[0].ok * 1.35) {
+        hits.push(`${e.plan.icon} ${e.plan.id}: ${blown[0].key} ${Math.round(blown[0].value)} (cap ${blown[0].ok})`);
+      }
+    }
+    if (hits.length) console.log(`  ${r.slug}\n    ${hits.join('\n    ')}`);
+  }
+  console.log('');
+} else if (slug) {
   const r = data.recipes.find((x) => x.slug === slug);
   if (!r) { console.error(`No recipe with slug "${slug}".`); process.exit(1); }
   console.log(`\n${r.title} — eating-plan fit (per serving, serves ${r.serves})\n`);
@@ -23,6 +39,7 @@ if (slug) {
   for (const e of evals) {
     const why = planReasons(e).join(' · ');
     console.log(`  ${e.plan.icon} ${GLYPH[e.verdict]}  ${e.plan.name.padEnd(18)}${why}`);
+    if (e.swapped) console.log(`       ⇄ ${GLYPH[e.swapped.verdict].trim()} with ${e.swapText}`);
   }
   console.log('');
 } else {

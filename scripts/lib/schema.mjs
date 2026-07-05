@@ -1,6 +1,11 @@
 // The single source of truth for the recipe format.
 // Both build.mjs and validate.mjs import this so the site and the linter never drift.
 
+// Plan ids come from the site's eating-plan definitions so `planSwaps` can never
+// name a plan that doesn't exist (docs/lib.js is pure ESM — safe to import here).
+import { EATING_PLANS } from '../../docs/lib.js';
+const PLAN_IDS = new Set(EATING_PLANS.map((p) => p.id));
+
 // Controlled vocabularies — these drive the site's filter dropdowns.
 // Keep them tight; add a value here (and document it in CLAUDE.md) before using it in a recipe.
 export const VOCAB = {
@@ -236,5 +241,44 @@ export function validateRecipe(r, filename = '?') {
       }
     }
   }
+
+  // planSwaps: optional, structured ingredient swaps that flip an eating-plan verdict.
+  // Each entry: { for: [plan ids], replace: "<existing ingredient line>", with: "<line>",
+  // note?: "…" }. `replace` must EXACTLY match a current ingredient line so the swap
+  // can't silently drift when the recipe is edited.
+  if (r.planSwaps !== undefined) {
+    if (!Array.isArray(r.planSwaps)) {
+      fail('planSwaps must be a list');
+    } else {
+      const lines = new Set(
+        normalizeSections(r.ingredients).flatMap((s) => s.items)
+          .filter((it) => typeof it === 'string').map((it) => it.trim()),
+      );
+      for (const s of r.planSwaps) {
+        if (!s || !Array.isArray(s.for) || s.for.length === 0) {
+          fail(`a planSwaps entry needs a non-empty "for" list of plan ids (got ${JSON.stringify(s)})`);
+          continue;
+        }
+        for (const id of s.for) {
+          if (!PLAN_IDS.has(id)) fail(`planSwaps "for" names unknown plan "${id}" (valid: ${[...PLAN_IDS].join(', ')})`);
+        }
+        if (typeof s.replace !== 'string' || !s.replace.trim()) fail('planSwaps "replace" must be a non-empty string');
+        else if (!lines.has(s.replace.trim())) fail(`planSwaps "replace" line not found among ingredients: "${s.replace}"`);
+        if (typeof s.with !== 'string' || !s.with.trim()) fail('planSwaps "with" must be a non-empty string');
+        if (s.note !== undefined && typeof s.note !== 'string') fail('planSwaps "note" must be a string');
+      }
+    }
+  }
   return errs;
+}
+
+// Apply a set of planSwaps entries to normalized ingredient sections, returning a new
+// sections array with each `replace` line substituted by its `with` line. Used by the
+// build to compute the "with swaps" nutrition variant per plan.
+export function applyPlanSwaps(sections, swaps) {
+  const bySource = new Map(swaps.map((s) => [s.replace.trim(), s.with]));
+  return sections.map((sec) => ({
+    section: sec.section,
+    items: sec.items.map((it) => bySource.get(String(it).trim()) ?? it),
+  }));
 }
