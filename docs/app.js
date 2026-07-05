@@ -7,6 +7,7 @@ import {
   scaleDisplay, classify, clampServes,
   buildShoppingList, formatShoppingList, recipeMatches, cuisineChipValues, shopSectionsForRecipe,
   hashForKind, parseHash, nutritionPanelHtml, EATING_PLANS, buildPlanVerdicts,
+  recipeVariants, applyVariantToSections, variantLabel, variantTitle,
 } from './lib.js';
 
 const PLAN_BY_ID = Object.fromEntries(EATING_PLANS.map((p) => [p.id, p]));
@@ -28,6 +29,7 @@ const state = {
   selected: new Set(),     // slugs picked for the shopping list (persisted)
   shop: { items: [] },     // current overlay item rows
   copyFormat: 'dash',      // 'dash' | 'checkbox' (persisted)
+  variants: new Map(),     // slug -> active planSwaps variant key (persisted)
 };
 
 // Curated flavor tags that become the Drinks "Flavor" filter (kept tight on purpose).
@@ -49,12 +51,21 @@ const HERO = {
 
 const SELECT_KEY = 'tm-selected';
 const FORMAT_KEY = 'tm-copyformat';
+const VARIANT_KEY = 'tm-variant';
 function loadSelected() {
   try { JSON.parse(localStorage.getItem(SELECT_KEY) || '[]').forEach((s) => state.selected.add(s)); } catch {}
   try { const f = localStorage.getItem(FORMAT_KEY); if (f === 'dash' || f === 'checkbox') state.copyFormat = f; } catch {}
+  try { Object.entries(JSON.parse(localStorage.getItem(VARIANT_KEY) || '{}')).forEach(([s, k]) => state.variants.set(s, k)); } catch {}
 }
 function saveSelected() {
   try { localStorage.setItem(SELECT_KEY, JSON.stringify([...state.selected])); } catch {}
+}
+function saveVariants() {
+  try { localStorage.setItem(VARIANT_KEY, JSON.stringify(Object.fromEntries(state.variants))); } catch {}
+}
+// The active planSwaps variant for a recipe (null = as written).
+function activeVariant(r) {
+  return recipeVariants(r).find((v) => v.key === state.variants.get(r.slug)) || null;
 }
 
 const $ = (sel) => document.querySelector(sel);
@@ -220,6 +231,21 @@ function bindEvents() {
   $('#reader-close').addEventListener('click', closeReader);
   $('#reader-share').addEventListener('click', shareCurrentRecipe);
   $('#spread').addEventListener('click', (e) => {
+    const vbtn = e.target.closest('.vchip');
+    if (vbtn) {
+      const r = state.reader.list[state.reader.index];
+      if (!r) return;
+      if (vbtn.dataset.variant) state.variants.set(r.slug, vbtn.dataset.variant);
+      else state.variants.delete(r.slug);
+      saveVariants();
+      // Re-render the spread in place, keeping the reader's scroll position.
+      const scroller = $('#spread .spread-scroll');
+      const top = scroller ? scroller.scrollTop : 0;
+      renderSpread(0);
+      const after = $('#spread .spread-scroll');
+      if (after) after.scrollTop = top;
+      return;
+    }
     const sel = e.target.closest('.spread-select');
     if (!sel) return;
     e.stopPropagation();
@@ -473,6 +499,27 @@ function sectionsHtml(sections, kind) {
   }).join('');
 }
 
+// Ingredients with the active variant applied — swapped lines are highlighted
+// and carry the as-written line in their tooltip.
+function ingredientsHtml(r, variant) {
+  return applyVariantToSections(r.ingredients, variant).map((s) => {
+    const head = s.section ? `<h4 class="subsection-h">${esc(s.section)}</h4>` : '';
+    return head + `<ul class="ing-list">${s.items.map((i) =>
+      `<li${i.swapped ? ` class="is-swapped" title="${esc(`as written: ${i.original}`)}"` : ''}>${esc(i.text)}</li>`).join('')}</ul>`;
+  }).join('');
+}
+
+// The 1C variant toggle — shown only when a recipe has planSwaps variants.
+function variantToggleHtml(r, variants, active) {
+  if (!variants.length) return '';
+  return `
+    <div class="variant-toggle" role="group" aria-label="Recipe variants">
+      <button class="vchip" type="button" data-variant="" aria-pressed="${!active}">As written</button>
+      ${variants.map((v) => `<button class="vchip" type="button" data-variant="${esc(v.key)}"
+        aria-pressed="${active?.key === v.key}" title="${esc(variantTitle(v))}">⇄ ${variantLabel(v)}</button>`).join('')}
+    </div>`;
+}
+
 // The 5-cell spec block — kitchen timings for food, bar spec for a drink.
 function metaCells(r) {
   const M = state.data.meta;
@@ -505,6 +552,8 @@ function chipsHtml(r) {
 }
 
 function spreadHtml(r) {
+  const variants = recipeVariants(r);
+  const variant = activeVariant(r);
   const heroPlaceholder = `<div class="placeholder"><div class="placeholder-plate">${esc(r.title)}</div>
         <div class="placeholder-sub">${subline(r)}</div></div>`;
   const heroInner = r.hero
@@ -546,12 +595,12 @@ function spreadHtml(r) {
       <div class="spread-chips">${chips}</div>
       <p class="spread-pitch">${inlineMd(r.pitch)}</p>
       <div class="spread-columns">
-        <div class="col-ingredients"><div class="section-h">Ingredients</div>${sectionsHtml(r.ingredients, 'ing')}</div>
+        <div class="col-ingredients"><div class="section-h">Ingredients</div>${variantToggleHtml(r, variants, variant)}${ingredientsHtml(r, variant)}</div>
         <div class="col-steps"><div class="section-h">Method</div>${sectionsHtml(r.steps, 'step')}${tips}${extras}</div>
       </div>
       ${headnote}
       ${source}
-      ${nutritionPanelHtml(r)}
+      ${nutritionPanelHtml(r, { variant })}
     </div>
     </div>`;
 }
@@ -659,7 +708,8 @@ function renderShopList() {
   const items = [];
   let idx = 0;
   const html = recipes.map((r) => {
-    const body = shopSectionsForRecipe(r, target).map((sec) => {
+    const variant = activeVariant(r);
+    const body = shopSectionsForRecipe(r, target, variant).map((sec) => {
       const head = sec.section ? `<div class="shop-section">${esc(sec.section)}</div>` : '';
       const rows = sec.items.map((it) => {
         const i = idx++;
@@ -677,7 +727,8 @@ function renderShopList() {
       return head + rows;
     }).join('');
     const note = r.serves ? `<span class="shop-recipe-serves"> · scaled from ${r.serves}</span>` : '';
-    return `<div class="shop-recipe"><div class="shop-recipe-title">${esc(r.title)}${note}</div>${body}</div>`;
+    const vnote = variant ? ` <span class="shop-variant" title="${esc(variantTitle(variant))}">⇄ ${variantLabel(variant)} variant</span>` : '';
+    return `<div class="shop-recipe"><div class="shop-recipe-title">${esc(r.title)}${vnote}${note}</div>${body}</div>`;
   }).join('');
   $('#shoplist-body').innerHTML = html || '<p style="color:var(--stone)">No recipes selected.</p>';
   state.shop.items = items;

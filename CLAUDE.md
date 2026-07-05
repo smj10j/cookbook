@@ -218,16 +218,27 @@ The build validates ids + the `replace` line (so edits can't silently strand a s
 computes a per-plan "with swaps" nutrition variant, and the site only surfaces a swap
 that actually improves the tier. Authoring rules:
 
-- **Only near-misses.** `npm run plans -- --near-miss` lists verdicts one swap could
-  flip. Never compromise the dish to chase a green row — a steak au poivre is allowed
-  to be bad for the kidney plan.
+- **Only near-misses.** `npm run plans -- --near-miss` lists ✗ verdicts swaps could
+  plausibly flip (every blown limit within 50% of its cap — several entries per plan
+  are fine, one per blown limit). Never compromise the dish to chase a green row — a
+  steak au poivre is allowed to be bad for the kidney plan, and vegetable sugars
+  (eggplant, carrots) are not fixable, only explainable.
 - **The `with` line must parse.** The nutrition engine ignores parenthetical size notes
   — "2 fillets (about 4 oz each)" reads the same as 5 oz ones; write "8 oz sea bass
   fillets" instead. After building, confirm the ⇄ line appears in `npm run plans -- <slug>`.
-- The recipe's printed ingredient list is unchanged — the swap is guidance, shown in the
-  fit table only. Bump `updated:` when adding swaps.
-- **Future (1C):** an interactive per-plan variant toggle building on this same data —
-  see `ROADMAP.md` before extending the mechanism.
+- **The test suite enforces liveness:** a declared swap that doesn't actually lift its
+  plan's verdict FAILS `npm test` (the no-dead-swaps data gate) — so editing a recipe's
+  ingredients means re-checking its swaps.
+- Bump `updated:` when adding swaps.
+
+**The variant toggle (1C).** Recipes with planSwaps get a toggle row above their
+ingredient list — "As written" plus one ⇄ chip per variant (plans sharing an identical
+swap set share a chip). Applying a variant re-renders the swapped ingredient lines in
+place (highlighted, original in the tooltip), switches the nutrition table + fit table
+to the variant's build-computed numbers, and the **shopping list shops for the variant**
+(the overlay marks it). The choice persists per recipe in localStorage (`tm-variant`).
+The "Good for" filter always judges the as-written recipe — variants are a reader-level
+choice, not a filter input.
 
 ## Drinks (cocktails)
 

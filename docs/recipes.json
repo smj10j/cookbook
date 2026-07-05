@@ -739,7 +739,33 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "lowsugar"
+          ],
+          "replace": "1 tsp honey",
+          "with": "½ tsp honey",
+          "note": "half the honey in the dressing"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "1 lb sirloin steak (or tenderloin)",
+          "with": "12 oz sirloin steak (or tenderloin)",
+          "note": "a 12-oz steak"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "¼ cup extra-virgin olive oil",
+          "with": "2 tbsp extra-virgin olive oil",
+          "note": "a leaner dressing"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A house favorite that Stephen has dialed in over several rounds: the brown sugar in\nthe rub caramelizes against the cayenne for a sweet-hot crust, and blistering the\ntomatoes on the same grill turns this from a plain steak salad into something with\nreal restaurant contrast. The blue cheese is the upgrade from the original feta.",
@@ -757,7 +783,29 @@
         },
         "confidence": "high",
         "matched": 21,
-        "considered": 21
+        "considered": 21,
+        "withSwaps": {
+          "lowsugar": {
+            "kcal": 1007,
+            "protein": 65.4,
+            "carb": 23.3,
+            "fat": 72.4,
+            "satfat": 19.4,
+            "fiber": 5.3,
+            "sugar": 13.8,
+            "sodium": 2101
+          },
+          "balance": {
+            "kcal": 773,
+            "protein": 50.7,
+            "carb": 24.8,
+            "fat": 52.6,
+            "satfat": 15.1,
+            "fiber": 5.3,
+            "sugar": 15.3,
+            "sodium": 2070
+          }
+        }
       }
     },
     {
@@ -1194,7 +1242,53 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc"
+          ],
+          "replace": "½ cup (1 stick) unsalted butter",
+          "with": "6 tbsp unsalted butter",
+          "note": "three-quarters of the butter"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc"
+          ],
+          "replace": "¾ cup chopped dark chocolate or chunks, a little reserved for the top",
+          "with": "½ cup chopped dark chocolate",
+          "note": "a lighter hand with the chocolate"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "lowcarb"
+          ],
+          "replace": "½ cup brown sugar, packed",
+          "with": "⅓ cup brown sugar, packed",
+          "note": "a third-cup of brown sugar"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "lowcarb"
+          ],
+          "replace": "3 tbsp granulated sugar",
+          "with": "2 tbsp granulated sugar",
+          "note": "less sugar on top"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "headnote": "Brown butter is the cheat code for banana bread — five extra minutes at the stove for a\nloaf that tastes like it came from a very good bakery.",
       "equipment": [],
@@ -1212,7 +1306,59 @@
         },
         "confidence": "high",
         "matched": 16,
-        "considered": 16
+        "considered": 16,
+        "withSwaps": {
+          "dash": {
+            "kcal": 327,
+            "protein": 5.7,
+            "carb": 41.1,
+            "fat": 16.4,
+            "satfat": 8,
+            "fiber": 3.1,
+            "sugar": 17.7,
+            "sodium": 289
+          },
+          "mind": {
+            "kcal": 327,
+            "protein": 5.7,
+            "carb": 41.1,
+            "fat": 16.4,
+            "satfat": 8,
+            "fiber": 3.1,
+            "sugar": 17.7,
+            "sodium": 289
+          },
+          "mediterranean": {
+            "kcal": 327,
+            "protein": 5.7,
+            "carb": 41.1,
+            "fat": 16.4,
+            "satfat": 8,
+            "fiber": 3.1,
+            "sugar": 17.7,
+            "sodium": 289
+          },
+          "tlc": {
+            "kcal": 345,
+            "protein": 5.7,
+            "carb": 46,
+            "fat": 16.4,
+            "satfat": 8,
+            "fiber": 3.1,
+            "sugar": 22.5,
+            "sodium": 289
+          },
+          "lowcarb": {
+            "kcal": 371,
+            "protein": 6,
+            "carb": 43.1,
+            "fat": 20.4,
+            "satfat": 10.4,
+            "fiber": 3.6,
+            "sugar": 18.7,
+            "sodium": 306
+          }
+        }
       }
     },
     {
@@ -1425,7 +1571,18 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "¼ cup brown sugar",
+          "with": "2 tbsp brown sugar",
+          "note": "half the brown sugar in filling and topping"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "headnote": "The sweet potato side Lauren remembered from past holidays, dialed in for Stephen's\nturkey-free Thanksgiving: a smooth, vanilla-scented base under a brown-sugar pecan\nstreusel that bakes into a candied, crunchy crown.",
       "hero": "images/sweet-potato-casserole.webp",
@@ -1442,7 +1599,29 @@
         },
         "confidence": "high",
         "matched": 11,
-        "considered": 11
+        "considered": 11,
+        "withSwaps": {
+          "heart": {
+            "kcal": 246,
+            "protein": 2.3,
+            "carb": 24.2,
+            "fat": 16.2,
+            "satfat": 7.5,
+            "fiber": 3,
+            "sugar": 10.3,
+            "sodium": 224
+          },
+          "lowsugar": {
+            "kcal": 246,
+            "protein": 2.3,
+            "carb": 24.2,
+            "fat": 16.2,
+            "satfat": 7.5,
+            "fiber": 3,
+            "sugar": 10.3,
+            "sodium": 224
+          }
+        }
       }
     },
     {
@@ -1709,7 +1888,50 @@
         "url": "https://cafebluetx.com"
       },
       "created": "2026-07-03T00:00:00.000Z",
-      "updated": "2026-07-03T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "1 tsp kosher salt",
+          "with": "½ tsp kosher salt",
+          "note": "half the salt"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "2 salmon fillets (about 6 oz each), skin-on",
+          "with": "10 oz salmon fillets, skin-on",
+          "note": "two 5-oz fillets"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "¼ cup extra-virgin olive oil",
+          "with": "2 tbsp extra-virgin olive oil",
+          "note": "a leaner dressing"
+        },
+        {
+          "for": [
+            "balance",
+            "lowcarb"
+          ],
+          "replace": "2 tbsp brown sugar, packed",
+          "with": "1 tbsp brown sugar, packed",
+          "note": "half the brown-sugar rub"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "⅓ cup sliced almonds, toasted",
+          "with": "3 tbsp sliced almonds, toasted",
+          "note": "fewer almonds"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen and Lauren's homage to a Cafe Blue favorite out on Lake Travis: the\nsweet-smoky ancho-and-brown-sugar salmon is the star, but the salad around it —\noranges, goat cheese, toasted almonds, and a raspberry vinaigrette — is what\nmakes it feel like a night out. The cedar plank does the heavy lifting on flavor.",
@@ -1727,7 +1949,39 @@
         },
         "confidence": "high",
         "matched": 20,
-        "considered": 21
+        "considered": 21,
+        "withSwaps": {
+          "diabetes": {
+            "kcal": 1026,
+            "protein": 47.2,
+            "carb": 46.7,
+            "fat": 75,
+            "satfat": 13.9,
+            "fiber": 11.4,
+            "sugar": 31.2,
+            "sodium": 774
+          },
+          "balance": {
+            "kcal": 759,
+            "protein": 39,
+            "carb": 37.7,
+            "fat": 52.2,
+            "satfat": 10.8,
+            "fiber": 10.1,
+            "sugar": 24,
+            "sodium": 1233
+          },
+          "lowcarb": {
+            "kcal": 1001,
+            "protein": 47.2,
+            "carb": 39.9,
+            "fat": 75,
+            "satfat": 13.9,
+            "fiber": 11.4,
+            "sugar": 24.5,
+            "sodium": 1247
+          }
+        }
       }
     },
     {
@@ -2091,7 +2345,26 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "diabetes",
+            "balance"
+          ],
+          "replace": "4 oz thin spaghetti",
+          "with": "3 oz thin spaghetti",
+          "note": "a lighter tangle of pasta"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "3 tbsp cold butter, cubed",
+          "with": "2 tbsp cold butter, cubed",
+          "note": "two tablespoons of butter"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The piccata Stephen has refined across a few rounds: a wine-and-lemon pan sauce\nfinished with cold butter for gloss, plus crispy fried capers on top for crunch.\nThin spaghetti is the perfect tangle to carry the bright, briny sauce.",
@@ -2105,11 +2378,33 @@
           "satfat": 17.7,
           "fiber": 3.2,
           "sugar": 2.1,
-          "sodium": 752
+          "sodium": 572
         },
         "confidence": "high",
         "matched": 11,
-        "considered": 11
+        "considered": 11,
+        "withSwaps": {
+          "diabetes": {
+            "kcal": 823,
+            "protein": 47.3,
+            "carb": 56.4,
+            "fat": 41.8,
+            "satfat": 17.6,
+            "fiber": 2.7,
+            "sugar": 1.7,
+            "sodium": 571
+          },
+          "balance": {
+            "kcal": 772,
+            "protein": 47.2,
+            "carb": 56.4,
+            "fat": 36.1,
+            "satfat": 14,
+            "fiber": 2.7,
+            "sugar": 1.7,
+            "sodium": 530
+          }
+        }
       }
     },
     {
@@ -2225,7 +2520,57 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart",
+            "balance"
+          ],
+          "replace": "1 cup neutral oil",
+          "with": "½ cup neutral oil",
+          "note": "a half-batch of toum"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart",
+            "balance"
+          ],
+          "replace": "1.5 lb boneless skinless chicken thighs",
+          "with": "1.25 lb boneless skinless chicken thighs",
+          "note": "a bit less chicken"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "1 tsp kosher salt",
+          "with": "½ tsp kosher salt",
+          "note": "half the marinade salt"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "½ tsp salt",
+          "with": "¼ tsp salt",
+          "note": "half the toum salt"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The home version of the shawarma spit: a hard, spice-crusted char in the oven, and a garlic\nsauce so good you'll find excuses to make it.",
@@ -2243,7 +2588,79 @@
         },
         "confidence": "high",
         "matched": 22,
-        "considered": 22
+        "considered": 22,
+        "withSwaps": {
+          "dash": {
+            "kcal": 789,
+            "protein": 32.8,
+            "carb": 43.8,
+            "fat": 54.6,
+            "satfat": 8.4,
+            "fiber": 3.7,
+            "sugar": 3.1,
+            "sodium": 809
+          },
+          "mind": {
+            "kcal": 789,
+            "protein": 32.8,
+            "carb": 43.8,
+            "fat": 54.6,
+            "satfat": 8.4,
+            "fiber": 3.7,
+            "sugar": 3.1,
+            "sodium": 1165
+          },
+          "mediterranean": {
+            "kcal": 789,
+            "protein": 32.8,
+            "carb": 43.8,
+            "fat": 54.6,
+            "satfat": 8.4,
+            "fiber": 3.7,
+            "sugar": 3.1,
+            "sodium": 1165
+          },
+          "tlc": {
+            "kcal": 789,
+            "protein": 32.8,
+            "carb": 43.8,
+            "fat": 54.6,
+            "satfat": 8.4,
+            "fiber": 3.7,
+            "sugar": 3.1,
+            "sodium": 809
+          },
+          "heart": {
+            "kcal": 789,
+            "protein": 32.8,
+            "carb": 43.8,
+            "fat": 54.6,
+            "satfat": 8.4,
+            "fiber": 3.7,
+            "sugar": 3.1,
+            "sodium": 809
+          },
+          "balance": {
+            "kcal": 789,
+            "protein": 32.8,
+            "carb": 43.8,
+            "fat": 54.6,
+            "satfat": 8.4,
+            "fiber": 3.7,
+            "sugar": 3.1,
+            "sodium": 1165
+          },
+          "diabetes": {
+            "kcal": 1079,
+            "protein": 37.9,
+            "carb": 43.8,
+            "fat": 84.9,
+            "satfat": 11.7,
+            "fiber": 3.7,
+            "sugar": 3.1,
+            "sodium": 833
+          }
+        }
       }
     },
     {
@@ -2593,7 +3010,21 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "1 tbsp olive oil or butter",
+          "with": "1 tbsp olive oil",
+          "note": "olive oil, not butter, on the asparagus"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The salmon that earns a permanent spot in the weeknight rotation: a fast\ncitrus-garlic marinade, a crisp skin from the cast iron, and asparagus blistered\nin the very same pan. Lemon keeps it bright on the stove or in the oven; swap in\norange and the grill for a sweeter, smokier summer version.",
@@ -2611,7 +3042,59 @@
         },
         "confidence": "high",
         "matched": 7,
-        "considered": 7
+        "considered": 7,
+        "withSwaps": {
+          "dash": {
+            "kcal": 575,
+            "protein": 38.2,
+            "carb": 8.6,
+            "fat": 43.5,
+            "satfat": 7.6,
+            "fiber": 3.8,
+            "sugar": 3.2,
+            "sodium": 85
+          },
+          "mind": {
+            "kcal": 575,
+            "protein": 38.2,
+            "carb": 8.6,
+            "fat": 43.5,
+            "satfat": 7.6,
+            "fiber": 3.8,
+            "sugar": 3.2,
+            "sodium": 85
+          },
+          "mediterranean": {
+            "kcal": 575,
+            "protein": 38.2,
+            "carb": 8.6,
+            "fat": 43.5,
+            "satfat": 7.6,
+            "fiber": 3.8,
+            "sugar": 3.2,
+            "sodium": 85
+          },
+          "tlc": {
+            "kcal": 575,
+            "protein": 38.2,
+            "carb": 8.6,
+            "fat": 43.5,
+            "satfat": 7.6,
+            "fiber": 3.8,
+            "sugar": 3.2,
+            "sodium": 85
+          },
+          "heart": {
+            "kcal": 575,
+            "protein": 38.2,
+            "carb": 8.6,
+            "fat": 43.5,
+            "satfat": 7.6,
+            "fiber": 3.8,
+            "sugar": 3.2,
+            "sodium": 85
+          }
+        }
       }
     },
     {
@@ -2710,7 +3193,17 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "¾ cup brown sugar",
+          "with": "½ cup brown sugar",
+          "note": "a less-sweet custard"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "headnote": "The whole pie hinges on the purée — roast a real sugar pumpkin and you'll taste the\ndifference in every forkful.",
       "equipment": [],
@@ -2728,7 +3221,19 @@
         },
         "confidence": "high",
         "matched": 17,
-        "considered": 18
+        "considered": 18,
+        "withSwaps": {
+          "lowcarb": {
+            "kcal": 395,
+            "protein": 4,
+            "carb": 39.7,
+            "fat": 25.2,
+            "satfat": 14.6,
+            "fiber": 1,
+            "sugar": 23.2,
+            "sodium": 336
+          }
+        }
       }
     },
     {
@@ -2848,7 +3353,7 @@
           "satfat": 37.8,
           "fiber": 1.3,
           "sugar": 10.9,
-          "sodium": 2060
+          "sodium": 1340
         },
         "confidence": "high",
         "matched": 12,
@@ -3332,7 +3837,17 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 skin-on sea bass fillets (about 6 oz each), boneless",
+          "with": "8 oz skin-on sea bass fillets",
+          "note": "two 4-oz fillets"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A restaurant-style plate with very little fuss: a low, slow tomato-jalapeño confit\ndoes its thing hands-off while you chill a herby cucumber salad, then the fish gets\nits moment in a screaming pan for that signature crackling skin. Garden tomatoes\nand peppers make it sing.",
@@ -3350,7 +3865,19 @@
         },
         "confidence": "high",
         "matched": 12,
-        "considered": 12
+        "considered": 12,
+        "withSwaps": {
+          "kidney": {
+            "kcal": 692,
+            "protein": 23.3,
+            "carb": 11.9,
+            "fat": 62.5,
+            "satfat": 8.4,
+            "fiber": 2.9,
+            "sugar": 6.5,
+            "sodium": 89
+          }
+        }
       }
     },
     {
@@ -3568,7 +4095,17 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "1 cup granulated sugar",
+          "with": "¾ cup granulated sugar",
+          "note": "a quarter less sugar"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "headnote": "Roasting your own pumpkin takes an extra half hour and pays you back tenfold — the purée\nis sweeter, darker, and worlds away from the can.",
       "equipment": [],
@@ -3586,7 +4123,19 @@
         },
         "confidence": "high",
         "matched": 15,
-        "considered": 16
+        "considered": 16,
+        "withSwaps": {
+          "lowcarb": {
+            "kcal": 327,
+            "protein": 4.7,
+            "carb": 43.6,
+            "fat": 15.6,
+            "satfat": 2.4,
+            "fiber": 1.5,
+            "sugar": 26.9,
+            "sodium": 263
+          }
+        }
       }
     },
     {
@@ -3683,7 +4232,17 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "6 oz orzo (orecchiette also works beautifully)",
+          "with": "4 oz orzo",
+          "note": "a lighter orzo base"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen landed on a Greek salad — dressed just before serving so it stays crisp\nand distinct — then made it more substantial by folding in pasta boiled in salted\nwater. Orzo keeps it light and forkable; orecchiette gives it more chew if you\nwant it.",
@@ -3702,7 +4261,19 @@
         },
         "confidence": "high",
         "matched": 12,
-        "considered": 12
+        "considered": 12,
+        "withSwaps": {
+          "diabetes": {
+            "kcal": 540,
+            "protein": 13.6,
+            "carb": 56.1,
+            "fat": 30.1,
+            "satfat": 6.9,
+            "fiber": 5.9,
+            "sugar": 9.1,
+            "sodium": 590
+          }
+        }
       }
     },
     {
@@ -3815,7 +4386,45 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "2 salmon fillets (6–7 oz each, skin on or off)",
+          "with": "10 oz salmon fillets, skin on",
+          "note": "two 5-oz fillets"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "⅓ cup feta cheese, crumbled",
+          "with": "3 tbsp feta cheese, crumbled",
+          "note": "a lighter feta hand"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "3 tbsp extra-virgin olive oil",
+          "with": "2 tbsp extra-virgin olive oil",
+          "note": "a bit less oil"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The Greek-salad-meets-salmon version: a classic horiatiki given backbone with warm,\noregano-rubbed fish flaked on top. Pan-searing keeps it weeknight-fast and crisps\nthe fillet, while the lemon-oregano dressing and good feta keep it firmly,\nunapologetically Greek.",
@@ -3833,7 +4442,59 @@
         },
         "confidence": "high",
         "matched": 11,
-        "considered": 11
+        "considered": 11,
+        "withSwaps": {
+          "dash": {
+            "kcal": 529,
+            "protein": 33,
+            "carb": 13.3,
+            "fat": 39,
+            "satfat": 8.3,
+            "fiber": 4.2,
+            "sugar": 5.2,
+            "sodium": 509
+          },
+          "mind": {
+            "kcal": 529,
+            "protein": 33,
+            "carb": 13.3,
+            "fat": 39,
+            "satfat": 8.3,
+            "fiber": 4.2,
+            "sugar": 5.2,
+            "sodium": 509
+          },
+          "mediterranean": {
+            "kcal": 529,
+            "protein": 33,
+            "carb": 13.3,
+            "fat": 39,
+            "satfat": 8.3,
+            "fiber": 4.2,
+            "sugar": 5.2,
+            "sodium": 509
+          },
+          "tlc": {
+            "kcal": 529,
+            "protein": 33,
+            "carb": 13.3,
+            "fat": 39,
+            "satfat": 8.3,
+            "fiber": 4.2,
+            "sugar": 5.2,
+            "sodium": 509
+          },
+          "heart": {
+            "kcal": 529,
+            "protein": 33,
+            "carb": 13.3,
+            "fat": 39,
+            "satfat": 8.3,
+            "fiber": 4.2,
+            "sugar": 5.2,
+            "sodium": 509
+          }
+        }
       }
     },
     {
@@ -4095,6 +4756,31 @@
       "planSwaps": [
         {
           "for": [
+            "lowcarb",
+            "balance"
+          ],
+          "replace": "6 corn tortillas, warmed",
+          "with": "4 corn tortillas, warmed",
+          "note": "four tortillas"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "1 lb cod or halibut fillets",
+          "with": "12 oz cod or halibut fillets",
+          "note": "12 oz of fish"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "2 tbsp olive oil",
+          "with": "1 tbsp olive oil",
+          "note": "half the marinade oil"
+        },
+        {
+          "for": [
             "diabetes"
           ],
           "replace": "½ tsp kosher salt",
@@ -4122,6 +4808,26 @@
         "matched": 17,
         "considered": 17,
         "withSwaps": {
+          "lowcarb": {
+            "kcal": 907,
+            "protein": 62.4,
+            "carb": 41.3,
+            "fat": 57.3,
+            "satfat": 13.8,
+            "fiber": 10.8,
+            "sugar": 5,
+            "sodium": 963
+          },
+          "balance": {
+            "kcal": 777,
+            "protein": 49,
+            "carb": 41.3,
+            "fat": 48.9,
+            "satfat": 12.6,
+            "fiber": 10.8,
+            "sugar": 5,
+            "sodium": 926
+          },
           "diabetes": {
             "kcal": 965,
             "protein": 63.9,
@@ -4345,7 +5051,20 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "1 tsp kosher salt",
+          "with": "½ tsp kosher salt",
+          "note": "half the salt"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The grilled chicken Stephen comes back to all summer: a lemon-and-herb marinade\ndoes the heavy lifting, and the garden vegetables char right alongside on\nskewers for a clean, healthy plate that still tastes like a cookout.",
@@ -4363,7 +5082,49 @@
         },
         "confidence": "high",
         "matched": 11,
-        "considered": 11
+        "considered": 11,
+        "withSwaps": {
+          "dash": {
+            "kcal": 556,
+            "protein": 40.6,
+            "carb": 12.1,
+            "fat": 38.8,
+            "satfat": 5.9,
+            "fiber": 3.7,
+            "sugar": 6.5,
+            "sodium": 620
+          },
+          "tlc": {
+            "kcal": 556,
+            "protein": 40.6,
+            "carb": 12.1,
+            "fat": 38.8,
+            "satfat": 5.9,
+            "fiber": 3.7,
+            "sugar": 6.5,
+            "sodium": 620
+          },
+          "heart": {
+            "kcal": 556,
+            "protein": 40.6,
+            "carb": 12.1,
+            "fat": 38.8,
+            "satfat": 5.9,
+            "fiber": 3.7,
+            "sugar": 6.5,
+            "sodium": 620
+          },
+          "diabetes": {
+            "kcal": 556,
+            "protein": 40.6,
+            "carb": 12.1,
+            "fat": 38.8,
+            "satfat": 5.9,
+            "fiber": 3.7,
+            "sugar": 6.5,
+            "sodium": 620
+          }
+        }
       }
     },
     {
@@ -4473,7 +5234,17 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "2 tbsp butter, plus more for finishing",
+          "with": "1 tbsp butter",
+          "note": "one pat of butter"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The classic backyard pairing, run like a line cook would: corn on the cool zone,\nsteaks on the fire, and a two-zone setup that keeps everything moving without a\nsingle flare-up. Pull the steaks early and let the foil tent finish them.",
@@ -4491,7 +5262,19 @@
         },
         "confidence": "high",
         "matched": 4,
-        "considered": 4
+        "considered": 4,
+        "withSwaps": {
+          "balance": {
+            "kcal": 788,
+            "protein": 72,
+            "carb": 17,
+            "fat": 47.6,
+            "satfat": 18.7,
+            "fiber": 2.4,
+            "sugar": 5.9,
+            "sodium": 195
+          }
+        }
       }
     },
     {
@@ -4597,7 +5380,33 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "4 tbsp extra-virgin olive oil",
+          "with": "2 tbsp extra-virgin olive oil",
+          "note": "half the dressing oil"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "¼ cup feta cheese, crumbled",
+          "with": "2 tbsp feta cheese, crumbled",
+          "note": "a lighter feta hand"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A dinner salad that came together from a full garden haul: cucumber and cherry\ntomatoes from the bed, spring mix and red onion from the store, and a Dijon-\nbalsamic vinaigrette shaken in a jar. Kalamata olives and feta nudge it\nMediterranean, and the warm grilled salmon over cool greens is the contrast that\nmakes it dinner, not a side.",
@@ -4615,7 +5424,59 @@
         },
         "confidence": "high",
         "matched": 11,
-        "considered": 11
+        "considered": 11,
+        "withSwaps": {
+          "dash": {
+            "kcal": 604,
+            "protein": 39,
+            "carb": 17.7,
+            "fat": 42.3,
+            "satfat": 8.4,
+            "fiber": 4.3,
+            "sugar": 9.4,
+            "sodium": 713
+          },
+          "mind": {
+            "kcal": 604,
+            "protein": 39,
+            "carb": 17.7,
+            "fat": 42.3,
+            "satfat": 8.4,
+            "fiber": 4.3,
+            "sugar": 9.4,
+            "sodium": 713
+          },
+          "mediterranean": {
+            "kcal": 604,
+            "protein": 39,
+            "carb": 17.7,
+            "fat": 42.3,
+            "satfat": 8.4,
+            "fiber": 4.3,
+            "sugar": 9.4,
+            "sodium": 713
+          },
+          "tlc": {
+            "kcal": 604,
+            "protein": 39,
+            "carb": 17.7,
+            "fat": 42.3,
+            "satfat": 8.4,
+            "fiber": 4.3,
+            "sugar": 9.4,
+            "sodium": 713
+          },
+          "heart": {
+            "kcal": 604,
+            "protein": 39,
+            "carb": 17.7,
+            "fat": 42.3,
+            "satfat": 8.4,
+            "fiber": 4.3,
+            "sugar": 9.4,
+            "sodium": 713
+          }
+        }
       }
     },
     {
@@ -5197,6 +6058,16 @@
         "url": null
       },
       "created": "2026-07-05T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "½ cup long-grain rice",
+          "with": "⅓ cup long-grain rice",
+          "note": "a scant rice base"
+        }
+      ],
       "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
@@ -5216,7 +6087,19 @@
         },
         "confidence": "high",
         "matched": 11,
-        "considered": 11
+        "considered": 11,
+        "withSwaps": {
+          "lowcarb": {
+            "kcal": 343,
+            "protein": 11.4,
+            "carb": 38,
+            "fat": 16.6,
+            "satfat": 3.2,
+            "fiber": 4.8,
+            "sugar": 5.7,
+            "sodium": 392
+          }
+        }
       }
     },
     {
@@ -5328,7 +6211,17 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "lowsugar"
+          ],
+          "replace": "1 tbsp honey",
+          "with": "1½ tsp honey",
+          "note": "half the honey"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A fast, fiery weeknight salmon that leans on one great Korean pantry staple — and proves\nthe broiler is the most underused tool for a caramelized glaze.",
@@ -5346,7 +6239,19 @@
         },
         "confidence": "high",
         "matched": 15,
-        "considered": 15
+        "considered": 15,
+        "withSwaps": {
+          "lowsugar": {
+            "kcal": 573,
+            "protein": 40.6,
+            "carb": 20.4,
+            "fat": 37.3,
+            "satfat": 6.4,
+            "fiber": 3.7,
+            "sugar": 10.2,
+            "sodium": 1503
+          }
+        }
       }
     },
     {
@@ -5548,6 +6453,16 @@
         "url": null
       },
       "created": "2026-07-05T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "3 oz dry rice vermicelli",
+          "with": "2 oz dry rice vermicelli",
+          "note": "a lighter noodle nest"
+        }
+      ],
       "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
@@ -5566,7 +6481,19 @@
         },
         "confidence": "high",
         "matched": 16,
-        "considered": 16
+        "considered": 16,
+        "withSwaps": {
+          "lowcarb": {
+            "kcal": 365,
+            "protein": 21.7,
+            "carb": 39.2,
+            "fat": 13.8,
+            "satfat": 3.4,
+            "fiber": 2.6,
+            "sugar": 8.4,
+            "sodium": 538
+          }
+        }
       }
     },
     {
@@ -5661,7 +6588,48 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart",
+            "balance"
+          ],
+          "replace": "2 tbsp butter",
+          "with": "1 tbsp butter",
+          "note": "half the butter"
+        },
+        {
+          "for": [
+            "kidney",
+            "balance"
+          ],
+          "replace": "12 oz linguine",
+          "with": "8 oz linguine",
+          "note": "a standard 8-oz pasta portion"
+        },
+        {
+          "for": [
+            "kidney",
+            "balance"
+          ],
+          "replace": "2 lb littleneck clams, scrubbed",
+          "with": "1¼ lb littleneck clams, scrubbed",
+          "note": "a smaller clam pot"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "¼ cup olive oil",
+          "with": "2 tbsp olive oil",
+          "note": "half the oil"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Naples in a bowl: clams, garlic, wine, good oil, and pasta cooked right in the brine. Lauren\nloves it — and the swap tip keeps Stephen at the same table with a fillet of fish.",
@@ -5679,7 +6647,79 @@
         },
         "confidence": "high",
         "matched": 10,
-        "considered": 10
+        "considered": 10,
+        "withSwaps": {
+          "dash": {
+            "kcal": 1030,
+            "protein": 33.6,
+            "carb": 129.8,
+            "fat": 36.7,
+            "satfat": 7.8,
+            "fiber": 6.8,
+            "sugar": 6,
+            "sodium": 405
+          },
+          "mind": {
+            "kcal": 1030,
+            "protein": 33.6,
+            "carb": 129.8,
+            "fat": 36.7,
+            "satfat": 7.8,
+            "fiber": 6.8,
+            "sugar": 6,
+            "sodium": 405
+          },
+          "mediterranean": {
+            "kcal": 1030,
+            "protein": 33.6,
+            "carb": 129.8,
+            "fat": 36.7,
+            "satfat": 7.8,
+            "fiber": 6.8,
+            "sugar": 6,
+            "sodium": 405
+          },
+          "tlc": {
+            "kcal": 1030,
+            "protein": 33.6,
+            "carb": 129.8,
+            "fat": 36.7,
+            "satfat": 7.8,
+            "fiber": 6.8,
+            "sugar": 6,
+            "sodium": 405
+          },
+          "heart": {
+            "kcal": 1030,
+            "protein": 33.6,
+            "carb": 129.8,
+            "fat": 36.7,
+            "satfat": 7.8,
+            "fiber": 6.8,
+            "sugar": 6,
+            "sodium": 405
+          },
+          "balance": {
+            "kcal": 685,
+            "protein": 22.4,
+            "carb": 89.2,
+            "fat": 21.9,
+            "satfat": 5.8,
+            "fiber": 5,
+            "sugar": 4.4,
+            "sodium": 292
+          },
+          "kidney": {
+            "kcal": 856,
+            "protein": 22.5,
+            "carb": 89.2,
+            "fat": 41.1,
+            "satfat": 11.2,
+            "fiber": 5,
+            "sugar": 4.4,
+            "sodium": 332
+          }
+        }
       }
     },
     {
@@ -5987,7 +7027,27 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "heart",
+            "lowsugar",
+            "diabetes"
+          ],
+          "replace": "1 cup canned chickpeas, drained and rinsed",
+          "with": "⅔ cup canned chickpeas, drained and rinsed",
+          "note": "two-thirds the chickpeas"
+        },
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "½ cup quinoa, rinsed",
+          "with": "⅓ cup quinoa, rinsed",
+          "note": "a scant quinoa base"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Of the vegetarian Mediterranean options Stephen weighed, the stuffed peppers were\nthe one to build out fully: a one-dish dinner that holds together, travels well as\nleftovers, and leans on pantry staples brightened with lemon and herbs.",
@@ -6005,7 +7065,39 @@
         },
         "confidence": "high",
         "matched": 14,
-        "considered": 14
+        "considered": 14,
+        "withSwaps": {
+          "heart": {
+            "kcal": 558,
+            "protein": 19.4,
+            "carb": 62.5,
+            "fat": 27.4,
+            "satfat": 8,
+            "fiber": 12.3,
+            "sugar": 13.3,
+            "sodium": 827
+          },
+          "lowsugar": {
+            "kcal": 558,
+            "protein": 19.4,
+            "carb": 62.5,
+            "fat": 27.4,
+            "satfat": 8,
+            "fiber": 12.3,
+            "sugar": 13.3,
+            "sodium": 827
+          },
+          "diabetes": {
+            "kcal": 506,
+            "protein": 17.4,
+            "carb": 53.4,
+            "fat": 26.5,
+            "satfat": 7.9,
+            "fiber": 11.3,
+            "sugar": 13.3,
+            "sodium": 827
+          }
+        }
       }
     },
     {
@@ -6260,6 +7352,16 @@
         "url": null
       },
       "created": "2026-07-05T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "½ cup short-grain rice",
+          "with": "¼ cup short-grain rice",
+          "note": "eggplant-forward, rice as a garnish"
+        }
+      ],
       "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
@@ -6278,7 +7380,19 @@
         },
         "confidence": "high",
         "matched": 10,
-        "considered": 10
+        "considered": 10,
+        "withSwaps": {
+          "lowcarb": {
+            "kcal": 280,
+            "protein": 5.1,
+            "carb": 40.4,
+            "fat": 10.7,
+            "satfat": 1.2,
+            "fiber": 6.7,
+            "sugar": 13.9,
+            "sodium": 325
+          }
+        }
       }
     },
     {
@@ -6395,7 +7509,41 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "1 tsp kosher salt",
+          "with": "½ tsp kosher salt",
+          "note": "half the salt"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "1½ cups chicken broth",
+          "with": "1½ cups low-sodium chicken broth",
+          "note": "low-sodium broth"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "6 bone-in skin-on chicken thighs (about 2 lb)",
+          "with": "5 bone-in skin-on chicken thighs",
+          "note": "five thighs"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The classic Moroccan pairing — salt-cured lemon and green olives against saffron and warm\nspice — does all the work here. Bone-in thighs stay juicy through the long braise and make\ntheir own rich sauce.",
@@ -6413,7 +7561,59 @@
         },
         "confidence": "high",
         "matched": 18,
-        "considered": 18
+        "considered": 18,
+        "withSwaps": {
+          "dash": {
+            "kcal": 379,
+            "protein": 27.3,
+            "carb": 8.8,
+            "fat": 27,
+            "satfat": 6,
+            "fiber": 2.7,
+            "sugar": 1.6,
+            "sodium": 836
+          },
+          "tlc": {
+            "kcal": 379,
+            "protein": 27.3,
+            "carb": 8.8,
+            "fat": 27,
+            "satfat": 6,
+            "fiber": 2.7,
+            "sugar": 1.6,
+            "sodium": 836
+          },
+          "heart": {
+            "kcal": 379,
+            "protein": 27.3,
+            "carb": 8.8,
+            "fat": 27,
+            "satfat": 6,
+            "fiber": 2.7,
+            "sugar": 1.6,
+            "sodium": 836
+          },
+          "diabetes": {
+            "kcal": 379,
+            "protein": 27.3,
+            "carb": 8.8,
+            "fat": 27,
+            "satfat": 6,
+            "fiber": 2.7,
+            "sugar": 1.6,
+            "sodium": 836
+          },
+          "kidney": {
+            "kcal": 338,
+            "protein": 23.1,
+            "carb": 8.8,
+            "fat": 24.3,
+            "satfat": 5.2,
+            "fiber": 2.7,
+            "sugar": 1.6,
+            "sodium": 815
+          }
+        }
       }
     },
     {
@@ -6510,6 +7710,24 @@
         "url": null
       },
       "created": "2026-07-05T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "⅓ cup couscous",
+          "with": "¼ cup couscous",
+          "note": "a smaller couscous bed"
+        },
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "¾ cup canned chickpeas, drained and rinsed",
+          "with": "½ cup canned chickpeas, drained and rinsed",
+          "note": "fewer chickpeas"
+        }
+      ],
       "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
@@ -6528,7 +7746,19 @@
         },
         "confidence": "high",
         "matched": 16,
-        "considered": 16
+        "considered": 16,
+        "withSwaps": {
+          "diabetes": {
+            "kcal": 333,
+            "protein": 11.1,
+            "carb": 55.7,
+            "fat": 9.2,
+            "satfat": 1.1,
+            "fiber": 11,
+            "sugar": 17.5,
+            "sodium": 363
+          }
+        }
       }
     },
     {
@@ -6780,7 +8010,25 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "½ cup mayonnaise",
+          "with": "¼ cup mayonnaise",
+          "note": "half the aji verde mayo"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "3.5 lb whole chicken, spatchcocked",
+          "with": "3 lb whole chicken, spatchcocked",
+          "note": "a smaller bird"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Lima's most famous dish: charcoal-blasted marinated chicken with a creamy, herby, gently\nfiery green sauce. The oven gets you most of the way there; the ají verde gets you all the\nway.",
@@ -6798,7 +8046,19 @@
         },
         "confidence": "high",
         "matched": 18,
-        "considered": 18
+        "considered": 18,
+        "withSwaps": {
+          "balance": {
+            "kcal": 772,
+            "protein": 46.8,
+            "carb": 6.4,
+            "fat": 60.7,
+            "satfat": 13.9,
+            "fiber": 2,
+            "sugar": 0.9,
+            "sodium": 1527
+          }
+        }
       }
     },
     {
@@ -6879,7 +8139,17 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 skinless cod fillets (about 5 oz each)",
+          "with": "8 oz skinless cod fillets",
+          "note": "two 4-oz fillets"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Alison Roman's gentle tomato poach: garlic and Aleppo bloomed in oil, a saffron-scented\nbroth, and cod cooked at a bare simmer until it flakes. Easy, elegant, and built for\ncrusty bread.",
@@ -6897,7 +8167,19 @@
         },
         "confidence": "high",
         "matched": 9,
-        "considered": 9
+        "considered": 9,
+        "withSwaps": {
+          "kidney": {
+            "kcal": 224,
+            "protein": 22.3,
+            "carb": 11.5,
+            "fat": 7.9,
+            "satfat": 0.9,
+            "fiber": 2.6,
+            "sugar": 5.7,
+            "sodium": 194
+          }
+        }
       }
     },
     {
@@ -7019,7 +8301,33 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "2 tbsp unsalted butter",
+          "with": "1 tbsp unsalted butter",
+          "note": "half the basting butter"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "2 New York strip steaks (about 1.5 inches thick)",
+          "with": "14 oz New York strip steaks (two 7-oz)",
+          "note": "7-oz steaks"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "2 tbsp olive oil",
+          "with": "1 tbsp olive oil",
+          "note": "half the oil"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen has run this technique enough times to trust it cold: the gentle oven does\nthe cooking, and the cast-iron does only the crust. The garden thyme and a hard\nchar on the broccoli turn a weeknight strip into something that eats like a\nsteakhouse plate.",
@@ -7037,7 +8345,19 @@
         },
         "confidence": "high",
         "matched": 16,
-        "considered": 16
+        "considered": 16,
+        "withSwaps": {
+          "balance": {
+            "kcal": 767,
+            "protein": 53.9,
+            "carb": 15.5,
+            "fat": 55.1,
+            "satfat": 22.2,
+            "fiber": 5.3,
+            "sugar": 2.8,
+            "sodium": 2177
+          }
+        }
       }
     },
     {
@@ -7351,7 +8671,52 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "diabetes",
+            "balance"
+          ],
+          "replace": "1 lb large dry sea scallops (about 10–12)",
+          "with": "12 oz dry sea scallops",
+          "note": "12 oz of scallops"
+        },
+        {
+          "for": [
+            "diabetes",
+            "balance"
+          ],
+          "replace": "4 tbsp butter",
+          "with": "2 tbsp butter",
+          "note": "half the puree butter"
+        },
+        {
+          "for": [
+            "diabetes",
+            "balance"
+          ],
+          "replace": "3 tbsp butter",
+          "with": "2 tbsp butter",
+          "note": "less basting butter"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "½ cup heavy cream, warmed",
+          "with": "¼ cup heavy cream, warmed",
+          "note": "half the cream"
+        },
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "1 lb Yukon gold potatoes, peeled and cubed",
+          "with": "12 oz Yukon gold potatoes, peeled and cubed",
+          "note": "a smaller puree"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Shellfish belongs in this book — Lauren loves scallops — and they're the most\nrestaurant-feeling thing you can make in half an hour. The swap tip keeps Stephen on the\nsame plate with a fillet of fish.",
@@ -7369,7 +8734,39 @@
         },
         "confidence": "high",
         "matched": 10,
-        "considered": 10
+        "considered": 10,
+        "withSwaps": {
+          "diabetes": {
+            "kcal": 851,
+            "protein": 34.7,
+            "carb": 48.9,
+            "fat": 58.4,
+            "satfat": 32.5,
+            "fiber": 4,
+            "sugar": 4.1,
+            "sodium": 898
+          },
+          "balance": {
+            "kcal": 750,
+            "protein": 33.9,
+            "carb": 48,
+            "fat": 47.6,
+            "satfat": 25.8,
+            "fiber": 4,
+            "sugar": 3.2,
+            "sodium": 887
+          },
+          "lowcarb": {
+            "kcal": 1013,
+            "protein": 43.4,
+            "carb": 40.3,
+            "fat": 75.8,
+            "satfat": 43.4,
+            "fiber": 3.3,
+            "sugar": 3.7,
+            "sodium": 1205
+          }
+        }
       }
     },
     {
@@ -7499,7 +8896,18 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "4–6 dates, pitted and chopped",
+          "with": "2 dates, pitted and chopped",
+          "note": "two dates"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A pantry-raid dinner that turned into a keeper: dates and toasted almonds make\nthe rice taste Levantine, garden peppers thread heat and sweetness through every\nlayer, and a cool lemon-tahini drizzle pulls it all together.",
@@ -7517,7 +8925,29 @@
         },
         "confidence": "high",
         "matched": 19,
-        "considered": 19
+        "considered": 19,
+        "withSwaps": {
+          "heart": {
+            "kcal": 1057,
+            "protein": 55.3,
+            "carb": 101.7,
+            "fat": 48.7,
+            "satfat": 6.7,
+            "fiber": 9.8,
+            "sugar": 12,
+            "sodium": 898
+          },
+          "lowsugar": {
+            "kcal": 1057,
+            "protein": 55.3,
+            "carb": 101.7,
+            "fat": 48.7,
+            "satfat": 6.7,
+            "fiber": 9.8,
+            "sugar": 12,
+            "sodium": 898
+          }
+        }
       }
     },
     {
@@ -7592,7 +9022,7 @@
         {
           "section": "Liquid",
           "items": [
-            "6 cups vegetable broth (low-sodium)",
+            "6 cups low-sodium vegetable broth",
             "2 cups water (enough to fill the pot about ⅔ full)"
           ]
         },
@@ -7672,7 +9102,31 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart",
+            "balance"
+          ],
+          "replace": "3 lb beef (ideally 1.5 lb short ribs plus 1.5 lb beef shank, or 3 lb chuck)",
+          "with": "2 lb beef (1 lb short ribs plus 1 lb beef shank)",
+          "note": "2 lb of beef"
+        },
+        {
+          "for": [
+            "diabetes",
+            "balance"
+          ],
+          "replace": "24 oz dried wheat noodles (or 2 lb fresh)",
+          "with": "16 oz dried wheat noodles",
+          "note": "2 oz noodles per bowl"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A killer Sichuan bowl Stephen and Lauren have chased for years, scaled up to eight\nservings and engineered for leftovers. Cook the beef and broth together, store them\napart, and assemble each bowl to order with fresh noodles, greens, and a table-side\nmala station.",
@@ -7686,11 +9140,83 @@
           "satfat": 13.1,
           "fiber": 5.5,
           "sugar": 7.1,
-          "sodium": 1220
+          "sodium": 890
         },
         "confidence": "high",
         "matched": 22,
-        "considered": 22
+        "considered": 22,
+        "withSwaps": {
+          "dash": {
+            "kcal": 701,
+            "protein": 39.8,
+            "carb": 72.6,
+            "fat": 27.8,
+            "satfat": 9,
+            "fiber": 5.5,
+            "sugar": 7.1,
+            "sodium": 853
+          },
+          "mind": {
+            "kcal": 701,
+            "protein": 39.8,
+            "carb": 72.6,
+            "fat": 27.8,
+            "satfat": 9,
+            "fiber": 5.5,
+            "sugar": 7.1,
+            "sodium": 853
+          },
+          "mediterranean": {
+            "kcal": 701,
+            "protein": 39.8,
+            "carb": 72.6,
+            "fat": 27.8,
+            "satfat": 9,
+            "fiber": 5.5,
+            "sugar": 7.1,
+            "sodium": 853
+          },
+          "tlc": {
+            "kcal": 701,
+            "protein": 39.8,
+            "carb": 72.6,
+            "fat": 27.8,
+            "satfat": 9,
+            "fiber": 5.5,
+            "sugar": 7.1,
+            "sodium": 853
+          },
+          "heart": {
+            "kcal": 701,
+            "protein": 39.8,
+            "carb": 72.6,
+            "fat": 27.8,
+            "satfat": 9,
+            "fiber": 5.5,
+            "sugar": 7.1,
+            "sodium": 853
+          },
+          "balance": {
+            "kcal": 601,
+            "protein": 36.4,
+            "carb": 52.6,
+            "fat": 27.2,
+            "satfat": 8.9,
+            "fiber": 4.6,
+            "sugar": 6.5,
+            "sodium": 850
+          },
+          "diabetes": {
+            "kcal": 745,
+            "protein": 49.4,
+            "carb": 52.6,
+            "fat": 37.4,
+            "satfat": 13,
+            "fiber": 4.6,
+            "sugar": 6.5,
+            "sodium": 887
+          }
+        }
       }
     },
     {
@@ -7945,7 +9471,18 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "lowsugar",
+            "balance"
+          ],
+          "replace": "1 tbsp sugar",
+          "with": "¼ tsp sugar",
+          "note": "just a pinch of sugar"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen dialed this in over a long thread: sous-vide breasts at 125°F for silk,\na chipotle sauce reduced to a glossy glaze, and a hard crisp in the pan for the\ncraggy edges that make tinga sing. Quick pickled onions are non-negotiable.",
@@ -7963,7 +9500,29 @@
         },
         "confidence": "high",
         "matched": 23,
-        "considered": 23
+        "considered": 23,
+        "withSwaps": {
+          "lowsugar": {
+            "kcal": 782,
+            "protein": 67.9,
+            "carb": 82.5,
+            "fat": 19.7,
+            "satfat": 4.1,
+            "fiber": 13.9,
+            "sugar": 13,
+            "sodium": 2855
+          },
+          "balance": {
+            "kcal": 782,
+            "protein": 67.9,
+            "carb": 82.5,
+            "fat": 19.7,
+            "satfat": 4.1,
+            "fiber": 13.9,
+            "sugar": 13,
+            "sodium": 2855
+          }
+        }
       }
     },
     {
@@ -8206,7 +9765,26 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "diabetes",
+            "balance"
+          ],
+          "replace": "1 cup couscous",
+          "with": "½ cup couscous",
+          "note": "half the couscous"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "4 tbsp unsalted butter",
+          "with": "2 tbsp unsalted butter",
+          "note": "half the brown butter"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The elegant entry in the salmon rotation: sous-vide for an unbroken, custardy\nflake, then a beurre noisette brightened with orange and lemon. The original lemon-\nbutter-caper idea grew into a proper brown-butter glaze, and the herbed couscous\nand charred asparagus turn it into a full, restaurant-grade plate for two.",
@@ -8224,7 +9802,29 @@
         },
         "confidence": "high",
         "matched": 14,
-        "considered": 14
+        "considered": 14,
+        "withSwaps": {
+          "diabetes": {
+            "kcal": 868,
+            "protein": 45.3,
+            "carb": 56.1,
+            "fat": 52.4,
+            "satfat": 23,
+            "fiber": 8.6,
+            "sugar": 13.7,
+            "sodium": 775
+          },
+          "balance": {
+            "kcal": 766,
+            "protein": 45.1,
+            "carb": 56.1,
+            "fat": 41,
+            "satfat": 15.8,
+            "fiber": 8.6,
+            "sugar": 13.7,
+            "sodium": 694
+          }
+        }
       }
     },
     {
@@ -8334,7 +9934,17 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "1 lb sirloin steak, cut into 1.5-inch cubes",
+          "with": "12 oz sirloin steak, cut into 1.5-inch cubes",
+          "note": "a 12-oz steak"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The source was just a marinade, but it's a good one — soy and hoisin doing the\nheavy lifting, sesame and ginger rounding it out. Built into proper skewers with\ngarden peppers and a last-minute glaze, it eats like takeout you'd actually pay\nfor.",
@@ -8352,7 +9962,19 @@
         },
         "confidence": "high",
         "matched": 16,
-        "considered": 16
+        "considered": 16,
+        "withSwaps": {
+          "balance": {
+            "kcal": 732,
+            "protein": 48.7,
+            "carb": 40.5,
+            "fat": 42,
+            "satfat": 10.5,
+            "fiber": 5.8,
+            "sugar": 25.9,
+            "sodium": 2375
+          }
+        }
       }
     },
     {
@@ -8466,7 +10088,43 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "½–¾ tsp garlic salt",
+          "with": "¼ tsp garlic salt",
+          "note": "a quarter-teaspoon of garlic salt"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "1 tbsp soy sauce",
+          "with": "1 tbsp low-sodium soy sauce",
+          "note": "low-sodium soy"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "2 tbsp honey",
+          "with": "1 tbsp honey",
+          "note": "half the honey"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A NASA-flavor-division build that Stephen dialed in across a few rounds: sous-vide\nsets the protein at a precise 125°F so the grill can do nothing but char and\nlacquer. The kale keeps his garlic-salt, paprika, and cayenne profile but roasts\nlow to stay crisp and bitter-free — a savory, crackling foil to the sticky\nsweet-heat fish.",
@@ -8484,7 +10142,79 @@
         },
         "confidence": "high",
         "matched": 13,
-        "considered": 13
+        "considered": 13,
+        "withSwaps": {
+          "dash": {
+            "kcal": 550,
+            "protein": 38.1,
+            "carb": 17.3,
+            "fat": 36.3,
+            "satfat": 6.6,
+            "fiber": 4.2,
+            "sugar": 12.1,
+            "sodium": 804
+          },
+          "tlc": {
+            "kcal": 581,
+            "protein": 38.1,
+            "carb": 26,
+            "fat": 36.3,
+            "satfat": 6.6,
+            "fiber": 4.2,
+            "sugar": 20.8,
+            "sodium": 804
+          },
+          "heart": {
+            "kcal": 550,
+            "protein": 38.1,
+            "carb": 17.3,
+            "fat": 36.3,
+            "satfat": 6.6,
+            "fiber": 4.2,
+            "sugar": 12.1,
+            "sodium": 804
+          },
+          "diabetes": {
+            "kcal": 581,
+            "protein": 38.1,
+            "carb": 26,
+            "fat": 36.3,
+            "satfat": 6.6,
+            "fiber": 4.2,
+            "sugar": 20.8,
+            "sodium": 804
+          },
+          "mind": {
+            "kcal": 550,
+            "protein": 38.2,
+            "carb": 17.2,
+            "fat": 36.3,
+            "satfat": 6.6,
+            "fiber": 4.2,
+            "sugar": 12,
+            "sodium": 1234
+          },
+          "mediterranean": {
+            "kcal": 550,
+            "protein": 38.2,
+            "carb": 17.2,
+            "fat": 36.3,
+            "satfat": 6.6,
+            "fiber": 4.2,
+            "sugar": 12,
+            "sodium": 1234
+          },
+          "lowsugar": {
+            "kcal": 550,
+            "protein": 38.2,
+            "carb": 17.2,
+            "fat": 36.3,
+            "satfat": 6.6,
+            "fiber": 4.2,
+            "sugar": 12,
+            "sodium": 1234
+          }
+        }
       }
     },
     {
@@ -8586,7 +10316,17 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "½ cup heavy cream",
+          "with": "⅓ cup heavy cream",
+          "note": "a lighter cream pour"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The dish that taught a generation of home cooks how to build a pan sauce — sear, deglaze,\nreduce, mount with butter — using nothing but the brown bits left in the pan.",
@@ -8604,7 +10344,19 @@
         },
         "confidence": "high",
         "matched": 10,
-        "considered": 10
+        "considered": 10,
+        "withSwaps": {
+          "balance": {
+            "kcal": 759,
+            "protein": 45,
+            "carb": 9.6,
+            "fat": 53.7,
+            "satfat": 25.4,
+            "fiber": 2.6,
+            "sugar": 2.9,
+            "sodium": 469
+          }
+        }
       }
     },
     {
@@ -8723,7 +10475,53 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "kidney",
+            "balance"
+          ],
+          "replace": "¾–1 cup mozzarella pearls (or 1 ball fresh mozzarella, torn)",
+          "with": "½ cup mozzarella pearls",
+          "note": "half the mozzarella"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "balance"
+          ],
+          "replace": "6–7 tbsp olive oil, divided",
+          "with": "4 tbsp olive oil, divided",
+          "note": "four tablespoons of oil"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "½ cup balsamic vinegar",
+          "with": "¼ cup balsamic vinegar",
+          "note": "half the balsamic"
+        },
+        {
+          "for": [
+            "kidney",
+            "balance"
+          ],
+          "replace": "8 oz spaghetti (or linguine or bucatini)",
+          "with": "6 oz spaghetti",
+          "note": "six ounces of pasta"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen circled through a lot of summer pasta pitches — scallops, peaches,\nputtanesca — before settling on the squash-tomato-basil-mozzarella combination, a\ntrue summer classic, then scaling it for two and folding in a homemade balsamic\nglaze. Meatless, garden-forward, and best when the tomatoes are at their peak.",
@@ -8741,7 +10539,69 @@
         },
         "confidence": "high",
         "matched": 10,
-        "considered": 10
+        "considered": 10,
+        "withSwaps": {
+          "dash": {
+            "kcal": 831,
+            "protein": 23.9,
+            "carb": 101.2,
+            "fat": 36.5,
+            "satfat": 8.1,
+            "fiber": 7.7,
+            "sugar": 16.6,
+            "sodium": 251
+          },
+          "mind": {
+            "kcal": 831,
+            "protein": 23.9,
+            "carb": 101.2,
+            "fat": 36.5,
+            "satfat": 8.1,
+            "fiber": 7.7,
+            "sugar": 16.6,
+            "sodium": 251
+          },
+          "mediterranean": {
+            "kcal": 831,
+            "protein": 23.9,
+            "carb": 101.2,
+            "fat": 36.5,
+            "satfat": 8.1,
+            "fiber": 7.7,
+            "sugar": 16.6,
+            "sodium": 251
+          },
+          "tlc": {
+            "kcal": 859,
+            "protein": 24.1,
+            "carb": 106.6,
+            "fat": 36.5,
+            "satfat": 8.1,
+            "fiber": 7.7,
+            "sugar": 21.4,
+            "sodium": 259
+          },
+          "kidney": {
+            "kcal": 909,
+            "protein": 20.6,
+            "carb": 86.6,
+            "fat": 52.9,
+            "satfat": 10.3,
+            "fiber": 6.8,
+            "sugar": 20.6,
+            "sodium": 257
+          },
+          "balance": {
+            "kcal": 759,
+            "protein": 20.6,
+            "carb": 86.6,
+            "fat": 36,
+            "satfat": 8,
+            "fiber": 6.8,
+            "sugar": 20.6,
+            "sodium": 257
+          }
+        }
       }
     },
     {
@@ -9129,7 +10989,25 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "6 oz fettuccine",
+          "with": "4 oz fettuccine",
+          "note": "four ounces of pasta"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "2 tbsp olive oil",
+          "with": "1 tbsp olive oil",
+          "note": "half the oil"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen worked this one through a couple of rounds — first sorting out a rogue\nlemon slice that kept appearing from nowhere, then folding the fettuccine cleanly\ninto the sauce. The result eats like a restaurant lemon-caper trio: crisp fish,\nsilky sauce, and deeply seared broccoli, all in one skillet.",
@@ -9147,7 +11025,19 @@
         },
         "confidence": "high",
         "matched": 13,
-        "considered": 13
+        "considered": 13,
+        "withSwaps": {
+          "balance": {
+            "kcal": 784,
+            "protein": 50.7,
+            "carb": 75.5,
+            "fat": 29.4,
+            "satfat": 13.3,
+            "fiber": 9.7,
+            "sugar": 7.4,
+            "sodium": 567
+          }
+        }
       }
     },
     {
@@ -9249,7 +11139,31 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart",
+            "balance"
+          ],
+          "replace": "4 oz fresh mozzarella, cut into small cubes",
+          "with": "2 oz fresh mozzarella, cut into small cubes",
+          "note": "half the mozzarella"
+        },
+        {
+          "for": [
+            "diabetes",
+            "balance"
+          ],
+          "replace": "8 oz fettuccine (thin spaghetti also works)",
+          "with": "5 oz fettuccine",
+          "note": "five ounces of pasta"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A bright, fast Italian dinner Stephen landed on after weighing a whole flight of\nchicken pastas: fresh tomatoes cooked down to a loose sauce, fettuccine to carry\nit, and cubes of fresh mozzarella that melt into creamy pockets as you toss.",
@@ -9267,7 +11181,79 @@
         },
         "confidence": "high",
         "matched": 7,
-        "considered": 7
+        "considered": 7,
+        "withSwaps": {
+          "dash": {
+            "kcal": 865,
+            "protein": 58.3,
+            "carb": 88.5,
+            "fat": 29.4,
+            "satfat": 7.4,
+            "fiber": 5.1,
+            "sugar": 7.5,
+            "sodium": 296
+          },
+          "mind": {
+            "kcal": 865,
+            "protein": 58.3,
+            "carb": 88.5,
+            "fat": 29.4,
+            "satfat": 7.4,
+            "fiber": 5.1,
+            "sugar": 7.5,
+            "sodium": 296
+          },
+          "mediterranean": {
+            "kcal": 865,
+            "protein": 58.3,
+            "carb": 88.5,
+            "fat": 29.4,
+            "satfat": 7.4,
+            "fiber": 5.1,
+            "sugar": 7.5,
+            "sodium": 296
+          },
+          "tlc": {
+            "kcal": 865,
+            "protein": 58.3,
+            "carb": 88.5,
+            "fat": 29.4,
+            "satfat": 7.4,
+            "fiber": 5.1,
+            "sugar": 7.5,
+            "sodium": 296
+          },
+          "heart": {
+            "kcal": 865,
+            "protein": 58.3,
+            "carb": 88.5,
+            "fat": 29.4,
+            "satfat": 7.4,
+            "fiber": 5.1,
+            "sugar": 7.5,
+            "sodium": 296
+          },
+          "balance": {
+            "kcal": 715,
+            "protein": 53.1,
+            "carb": 58.5,
+            "fat": 28.7,
+            "satfat": 7.2,
+            "fiber": 3.8,
+            "sugar": 6.3,
+            "sodium": 293
+          },
+          "diabetes": {
+            "kcal": 795,
+            "protein": 58.3,
+            "carb": 59.4,
+            "fat": 34.8,
+            "satfat": 10.7,
+            "fiber": 3.8,
+            "sugar": 6.5,
+            "sodium": 443
+          }
+        }
       }
     },
     {
@@ -9516,7 +11502,17 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "½ lb dried red kidney beans, soaked overnight (or quick-soaked)",
+          "with": "6 oz dried red kidney beans, soaked overnight",
+          "note": "a smaller bean pot"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "headnote": "Stephen's red beans skip the andouille and turkey entirely and lean on smoked\npaprika, a hard-browned trinity, and a long, low simmer for that signature Cajun\ndepth. Mashing some of the beans back into the pot gives you the creamy gravy with\nno cream — and an optional chicken-sausage version is right there if you want it.",
       "hero": "images/red-beans-and-rice.webp",
@@ -9533,7 +11529,19 @@
         },
         "confidence": "high",
         "matched": 18,
-        "considered": 18
+        "considered": 18,
+        "withSwaps": {
+          "balance": {
+            "kcal": 753,
+            "protein": 28.3,
+            "carb": 140.2,
+            "fat": 8.8,
+            "satfat": 1.2,
+            "fiber": 27.2,
+            "sugar": 7.3,
+            "sodium": 204
+          }
+        }
       }
     },
     {
@@ -9868,7 +11876,33 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "1 cup arborio rice",
+          "with": "¾ cup arborio rice",
+          "note": "a slightly smaller risotto"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "3 tbsp butter",
+          "with": "2 tbsp butter",
+          "note": "less mounting butter"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "2 tbsp olive oil",
+          "with": "1 tbsp olive oil",
+          "note": "half the oil"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The dish that teaches patience: toast, deglaze, ladle, stir, repeat. No cream — just rice,\nbroth, and time turning into something silky and rich.",
@@ -9886,7 +11920,19 @@
         },
         "confidence": "high",
         "matched": 13,
-        "considered": 13
+        "considered": 13,
+        "withSwaps": {
+          "balance": {
+            "kcal": 757,
+            "protein": 19.5,
+            "carb": 74.2,
+            "fat": 38.2,
+            "satfat": 16.7,
+            "fiber": 3.4,
+            "sugar": 6.3,
+            "sodium": 1680
+          }
+        }
       }
     },
     {
@@ -9961,7 +12007,18 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "2 oz Aperol",
+          "with": "1½ oz Aperol",
+          "note": "a lighter Aperol pour"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "The 3-2-1 of the Venetian aperitivo: three parts prosecco, two Aperol, one soda. Sunset in a\nglass, and the easiest thing on the whole list to make.",
       "equipment": [],
       "hero": "images/aperol-spritz.webp",
@@ -9978,7 +12035,29 @@
         },
         "confidence": "high",
         "matched": 3,
-        "considered": 3
+        "considered": 3,
+        "withSwaps": {
+          "heart": {
+            "kcal": 140,
+            "protein": 0,
+            "carb": 13.5,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0,
+            "sugar": 11.7,
+            "sodium": 7
+          },
+          "lowsugar": {
+            "kcal": 140,
+            "protein": 0,
+            "carb": 13.5,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0,
+            "sugar": 11.7,
+            "sodium": 7
+          }
+        }
       }
     },
     {
@@ -10237,7 +12316,18 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "½ oz brown sugar syrup (1:1 brown sugar and water)",
+          "with": "¼ oz brown sugar syrup (1:1 brown sugar and water)",
+          "note": "half the syrup"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "A daiquiri that tastes like dessert without ever touching a blender — all the warmth of\nbanana bread, shaken bone-cold.",
       "equipment": [],
       "hero": "images/brown-sugar-banana-daiquiri.webp",
@@ -10254,7 +12344,29 @@
         },
         "confidence": "high",
         "matched": 4,
-        "considered": 4
+        "considered": 4,
+        "withSwaps": {
+          "heart": {
+            "kcal": 202,
+            "protein": 0.9,
+            "carb": 19.7,
+            "fat": 0.2,
+            "satfat": 0.1,
+            "fiber": 1.8,
+            "sugar": 10.9,
+            "sodium": 1
+          },
+          "lowsugar": {
+            "kcal": 202,
+            "protein": 0.9,
+            "carb": 19.7,
+            "fat": 0.2,
+            "satfat": 0.1,
+            "fiber": 1.8,
+            "sugar": 10.9,
+            "sodium": 1
+          }
+        }
       }
     },
     {
@@ -10331,7 +12443,29 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "¾ oz triple sec",
+          "with": "½ oz triple sec",
+          "note": "less triple sec"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "½ oz passion fruit syrup",
+          "with": "¼ oz passion fruit syrup",
+          "note": "half the syrup"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "Smoke in the background, passion fruit and citrus out front — a gateway mezcal margarita\nthat still tastes like the real thing.",
       "equipment": [],
       "hero": "images/citrus-passion-mezcal-margarita.webp",
@@ -10348,7 +12482,39 @@
         },
         "confidence": "high",
         "matched": 7,
-        "considered": 7
+        "considered": 7,
+        "withSwaps": {
+          "dash": {
+            "kcal": 234,
+            "protein": 0.2,
+            "carb": 19.8,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.2,
+            "sugar": 16.8,
+            "sodium": 1
+          },
+          "mind": {
+            "kcal": 234,
+            "protein": 0.2,
+            "carb": 19.8,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.2,
+            "sugar": 16.8,
+            "sodium": 1
+          },
+          "mediterranean": {
+            "kcal": 234,
+            "protein": 0.2,
+            "carb": 19.8,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.2,
+            "sugar": 16.8,
+            "sodium": 1
+          }
+        }
       }
     },
     {
@@ -10599,7 +12765,29 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "¾ oz Kahlúa",
+          "with": "½ oz Kahlúa",
+          "note": "a lighter Kahlúa pour"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "½ oz simple syrup (optional)",
+          "with": "¼ oz simple syrup (optional)",
+          "note": "half the syrup"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "Unapologetic dessert — serve it after dinner in place of pudding and skip the spoons.",
       "equipment": [],
       "hero": "images/coconut-cream-martini.webp",
@@ -10616,7 +12804,39 @@
         },
         "confidence": "high",
         "matched": 6,
-        "considered": 6
+        "considered": 6,
+        "withSwaps": {
+          "dash": {
+            "kcal": 294,
+            "protein": 0.8,
+            "carb": 18.8,
+            "fat": 4.8,
+            "satfat": 3,
+            "fiber": 0,
+            "sugar": 18.3,
+            "sodium": 253
+          },
+          "mind": {
+            "kcal": 294,
+            "protein": 0.8,
+            "carb": 18.8,
+            "fat": 4.8,
+            "satfat": 3,
+            "fiber": 0,
+            "sugar": 18.3,
+            "sodium": 253
+          },
+          "mediterranean": {
+            "kcal": 294,
+            "protein": 0.8,
+            "carb": 18.8,
+            "fat": 4.8,
+            "satfat": 3,
+            "fiber": 0,
+            "sugar": 18.3,
+            "sodium": 253
+          }
+        }
       }
     },
     {
@@ -10884,7 +13104,18 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "1 oz coffee liqueur (Kahlúa or Mr Black)",
+          "with": "¾ oz coffee liqueur (Kahlúa or Mr Black)",
+          "note": "a lighter liqueur pour"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "The bartender's benchmark — three ingredients, no cream, and a foam cap that says you\ndid it right. Master this one before you go riffing.",
       "equipment": [],
       "hero": "images/espresso-martini.webp",
@@ -10901,7 +13132,29 @@
         },
         "confidence": "partial",
         "matched": 4,
-        "considered": 5
+        "considered": 5,
+        "withSwaps": {
+          "heart": {
+            "kcal": 219,
+            "protein": 0.1,
+            "carb": 15,
+            "fat": 0.2,
+            "satfat": 0,
+            "fiber": 0,
+            "sugar": 13.8,
+            "sodium": 6
+          },
+          "lowsugar": {
+            "kcal": 219,
+            "protein": 0.1,
+            "carb": 15,
+            "fat": 0.2,
+            "satfat": 0,
+            "fiber": 0,
+            "sugar": 13.8,
+            "sodium": 6
+          }
+        }
       }
     },
     {
@@ -11152,7 +13405,29 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "1 oz creme de menthe",
+          "with": "½ oz creme de menthe",
+          "note": "half-pours of both liqueurs"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "1 oz creme de cacao",
+          "with": "½ oz creme de cacao",
+          "note": "half-pours of both liqueurs"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "A New Orleans classic from the 1910s — and the original mint-chocolate dessert in a glass.\nEqual parts, shaken cold, and don't skip the chocolate on top.",
       "equipment": [],
       "hero": "images/grasshopper.webp",
@@ -11169,7 +13444,39 @@
         },
         "confidence": "high",
         "matched": 3,
-        "considered": 3
+        "considered": 3,
+        "withSwaps": {
+          "dash": {
+            "kcal": 199,
+            "protein": 0.8,
+            "carb": 13.8,
+            "fat": 10.8,
+            "satfat": 6.8,
+            "fiber": 0,
+            "sugar": 13.8,
+            "sodium": 12
+          },
+          "mind": {
+            "kcal": 199,
+            "protein": 0.8,
+            "carb": 13.8,
+            "fat": 10.8,
+            "satfat": 6.8,
+            "fiber": 0,
+            "sugar": 13.8,
+            "sodium": 12
+          },
+          "mediterranean": {
+            "kcal": 199,
+            "protein": 0.8,
+            "carb": 13.8,
+            "fat": 10.8,
+            "satfat": 6.8,
+            "fiber": 0,
+            "sugar": 13.8,
+            "sodium": 12
+          }
+        }
       }
     },
     {
@@ -11330,7 +13637,18 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "½–¾ oz simple syrup",
+          "with": "¼ oz simple syrup",
+          "note": "a quarter-ounce of syrup"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "The cocktail that taught a generation that a martini glass could hold something\nsweet — sharp lemon, a sugar crust, and zero apology.",
       "equipment": [],
       "hero": "images/lemon-drop-martini.webp",
@@ -11347,7 +13665,29 @@
         },
         "confidence": "high",
         "matched": 4,
-        "considered": 4
+        "considered": 4,
+        "withSwaps": {
+          "heart": {
+            "kcal": 226,
+            "protein": 0.2,
+            "carb": 14.1,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.2,
+            "sugar": 12.3,
+            "sodium": 0
+          },
+          "lowsugar": {
+            "kcal": 226,
+            "protein": 0.2,
+            "carb": 14.1,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.2,
+            "sugar": 12.3,
+            "sodium": 0
+          }
+        }
       }
     },
     {
@@ -11608,7 +13948,18 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "1 oz coffee liqueur (such as Kahlúa)",
+          "with": "½ oz coffee liqueur (such as Kahlúa)",
+          "note": "half the Kahlúa"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "The dessert cart's answer to a nightcap — blend it after dinner and call it both courses at once.",
       "equipment": [],
       "hero": "images/mudslide.webp",
@@ -11625,7 +13976,29 @@
         },
         "confidence": "high",
         "matched": 4,
-        "considered": 4
+        "considered": 4,
+        "withSwaps": {
+          "heart": {
+            "kcal": 209,
+            "protein": 0.8,
+            "carb": 13.5,
+            "fat": 4.6,
+            "satfat": 2.8,
+            "fiber": 0,
+            "sugar": 13,
+            "sodium": 14
+          },
+          "lowsugar": {
+            "kcal": 209,
+            "protein": 0.8,
+            "carb": 13.5,
+            "fat": 4.6,
+            "satfat": 2.8,
+            "fiber": 0,
+            "sugar": 13,
+            "sodium": 14
+          }
+        }
       }
     },
     {
@@ -11705,7 +14078,29 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "½ oz honey syrup",
+          "with": "¼ oz honey syrup",
+          "note": "half the honey syrup"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "½ oz ginger syrup",
+          "with": "¼ oz ginger syrup",
+          "note": "half the ginger syrup"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "Proof that \"no proof\" doesn't mean no flavor — chili, ginger, lime, and pineapple carry the\nwhole thing. The Tajín rim makes it feel like a real cocktail.",
       "equipment": [],
       "hero": "images/na-spiced-pineapple-ginger-cooler.webp",
@@ -11722,7 +14117,39 @@
         },
         "confidence": "high",
         "matched": 5,
-        "considered": 5
+        "considered": 5,
+        "withSwaps": {
+          "dash": {
+            "kcal": 81,
+            "protein": 0.4,
+            "carb": 20.9,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.4,
+            "sugar": 17.1,
+            "sodium": 6
+          },
+          "mind": {
+            "kcal": 81,
+            "protein": 0.4,
+            "carb": 20.9,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.4,
+            "sugar": 17.1,
+            "sodium": 6
+          },
+          "mediterranean": {
+            "kcal": 81,
+            "protein": 0.4,
+            "carb": 20.9,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.4,
+            "sugar": 17.1,
+            "sodium": 6
+          }
+        }
       }
     },
     {
@@ -12264,7 +14691,29 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "1 oz coffee liqueur",
+          "with": "¾ oz coffee liqueur",
+          "note": "a lighter Kahlúa pour"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "½ oz caramel sauce",
+          "with": "¼ oz caramel sauce",
+          "note": "half the caramel"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "The Dude's drink, dressed up — salted caramel turns the White Russian from a simple\nnightcap into a proper dessert.",
       "equipment": [],
       "hero": "images/salted-caramel-white-russian.webp",
@@ -12281,7 +14730,39 @@
         },
         "confidence": "high",
         "matched": 4,
-        "considered": 4
+        "considered": 4,
+        "withSwaps": {
+          "dash": {
+            "kcal": 302,
+            "protein": 1,
+            "carb": 19.1,
+            "fat": 11.6,
+            "satfat": 7.2,
+            "fiber": 0,
+            "sugar": 16.8,
+            "sodium": 44
+          },
+          "mind": {
+            "kcal": 302,
+            "protein": 1,
+            "carb": 19.1,
+            "fat": 11.6,
+            "satfat": 7.2,
+            "fiber": 0,
+            "sugar": 16.8,
+            "sodium": 44
+          },
+          "mediterranean": {
+            "kcal": 302,
+            "protein": 1,
+            "carb": 19.1,
+            "fat": 11.6,
+            "satfat": 7.2,
+            "fiber": 0,
+            "sugar": 16.8,
+            "sodium": 44
+          }
+        }
       }
     },
     {
@@ -12447,7 +14928,39 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "4 oz pineapple juice",
+          "with": "2½ oz pineapple juice",
+          "note": "less pineapple juice"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "⅓ oz grenadine",
+          "with": "¼ oz grenadine",
+          "note": "a bar spoon of grenadine"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "½ oz cherry brandy (cherry liqueur, such as Cherry Heering)",
+          "with": "¼ oz cherry brandy (cherry liqueur, such as Cherry Heering)",
+          "note": "less cherry liqueur"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "A century-old crowd-pleaser that still earns its place — equal parts cocktail and tropical\nholiday in a glass.",
       "equipment": [],
       "hero": "images/singapore-sling.webp",
@@ -12464,7 +14977,39 @@
         },
         "confidence": "high",
         "matched": 8,
-        "considered": 8
+        "considered": 8,
+        "withSwaps": {
+          "dash": {
+            "kcal": 232,
+            "protein": 0.3,
+            "carb": 23.2,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.3,
+            "sugar": 19.4,
+            "sodium": 1
+          },
+          "mind": {
+            "kcal": 232,
+            "protein": 0.3,
+            "carb": 23.2,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.3,
+            "sugar": 19.4,
+            "sodium": 1
+          },
+          "mediterranean": {
+            "kcal": 232,
+            "protein": 0.3,
+            "carb": 23.2,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.3,
+            "sugar": 19.4,
+            "sodium": 1
+          }
+        }
       }
     },
     {
@@ -12800,7 +15345,18 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "1 oz coffee liqueur (such as Kahlúa)",
+          "with": "¾ oz coffee liqueur (such as Kahlúa)",
+          "note": "a lighter Kahlúa pour"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "headnote": "The Dude's drink — three things over ice, a slow pour of cream, and the most\nforgiving cocktail you'll ever build at the end of a long night.",
       "equipment": [],
       "hero": "images/white-russian.webp",
@@ -12817,7 +15373,29 @@
         },
         "confidence": "high",
         "matched": 3,
-        "considered": 3
+        "considered": 3,
+        "withSwaps": {
+          "heart": {
+            "kcal": 304,
+            "protein": 0.8,
+            "carb": 12.1,
+            "fat": 10.8,
+            "satfat": 6.8,
+            "fiber": 0,
+            "sugar": 11.3,
+            "sodium": 14
+          },
+          "lowsugar": {
+            "kcal": 304,
+            "protein": 0.8,
+            "carb": 12.1,
+            "fat": 10.8,
+            "satfat": 6.8,
+            "fiber": 0,
+            "sugar": 11.3,
+            "sodium": 14
+          }
+        }
       }
     }
   ]
