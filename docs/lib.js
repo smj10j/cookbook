@@ -365,24 +365,229 @@ export function hasNutrition(r) {
   return !!(r?.nutrition?.perServing && r.nutrition.confidence !== 'none');
 }
 
+// ── eating-plan fit (research-backed dietary patterns, judged per serving) ──
+// Ten doctor/nutritionist-backed eating plans, each compared against ONE
+// SERVING of a recipe. Thresholds are per-meal shares of each plan's published
+// targets: `optimal` ≈ 1/3 of the plan's strict daily target (or the plan's own
+// per-serving standard where one exists — AHA Heart-Check, ADA carb bands);
+// `ok` ≈ 40% of its lenient daily cap (dinner is usually the day's biggest
+// meal). Past `ok`, the serving genuinely blows the plan's daily budget.
+//   limits — ceilings, tiered optimal / ok / avoid.
+//   goals  — encouragements (fiber, protein); missing one only downgrades a
+//            verdict from optimal to ok, never to avoid.
+// Extensible: add an entry here (id, name, icon, url, focus, limits/goals,
+// caveat) and it appears in every plan-fit table + flag column automatically.
+export const EATING_PLANS = [
+  { // NHLBI DASH trials: sodium 2300 standard / 1500 strict, sat fat 6% kcal, sweets ≤5/wk, fiber 30 g/day
+    id: 'dash', name: 'DASH', icon: '🩺',
+    url: 'https://www.nhlbi.nih.gov/education/dash-eating-plan',
+    focus: 'Blood pressure (hypertension)',
+    caveat: 'NIH-trial pattern — sodium is the headline; the stricter 1,500 mg/day tier sets the ideal.',
+    limits: [{ key: 'sodium', optimal: 500, ok: 920 }, { key: 'satfat', optimal: 4.5, ok: 9 }, { key: 'sugar', optimal: 8, ok: 20 }],
+    goals: [{ key: 'fiber', min: 6 }],
+  },
+  { // Rush/NIA MIND score: butter/cheese/fried-food + sweets limits proxied via sat fat & sugars
+    id: 'mind', name: 'MIND', icon: '🧠',
+    url: 'https://www.nia.nih.gov/news/mind-and-mediterranean-diets-linked-fewer-signs-alzheimers-brain-pathology',
+    focus: 'Brain health & memory',
+    caveat: 'Food-pattern score (leafy greens, berries, olive oil) — sat fat & sweets limits are the computable proxy.',
+    limits: [{ key: 'satfat', optimal: 4.5, ok: 9 }, { key: 'sugar', optimal: 8, ok: 20 }],
+  },
+  { // PREDIMED-style pattern: olive-oil-forward, so total fat is NOT restricted; sat fat ~7–10% kcal
+    id: 'mediterranean', name: 'Mediterranean', icon: '🫒',
+    url: 'https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/nutrition-basics/mediterranean-diet',
+    focus: 'Heart health & longevity',
+    caveat: 'Food-pattern diet — favors olive oil over butter; total fat is deliberately not restricted.',
+    limits: [{ key: 'satfat', optimal: 5, ok: 9 }, { key: 'sugar', optimal: 10, ok: 20 }],
+    goals: [{ key: 'fiber', min: 5 }],
+  },
+  { // NHLBI/ATP III TLC: sat fat <7% kcal (~15 g/day), sodium ≤2,300 mg/day
+    id: 'tlc', name: 'TLC', icon: '📉',
+    url: 'https://www.nhlbi.nih.gov/health/TLC-Therapeutic-Lifestyle-Changes-Lower-Cholesterol',
+    focus: 'Lowering LDL cholesterol',
+    caveat: 'Sat fat is the defining limit (<7% of calories); dietary cholesterol is not tracked here.',
+    limits: [{ key: 'satfat', optimal: 5, ok: 9 }, { key: 'sodium', optimal: 767, ok: 920 }],
+    goals: [{ key: 'fiber', min: 5 }],
+  },
+  { // AHA: optimal tier = published Heart-Check per-serving recipe limits for a main dish
+    id: 'heart', name: 'AHA Heart-Healthy', icon: '❤️',
+    url: 'https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/nutrition-basics/aha-diet-and-lifestyle-recommendations',
+    focus: 'Heart disease & stroke prevention',
+    caveat: 'Ideal tier follows AHA Heart-Check per-serving recipe limits (≤600 mg sodium, ≤3.5 g sat fat).',
+    limits: [{ key: 'sodium', optimal: 600, ok: 920 }, { key: 'satfat', optimal: 3.5, ok: 9 }, { key: 'sugar', optimal: 8, ok: 14 }],
+  },
+  { // ADA carb counting: 45–60 g carbs/meal typical, 30–45 g tighter; sodium <2,300 mg/day; fiber 14 g/1,000 kcal
+    id: 'diabetes', name: 'Diabetes Plate', icon: '🩸',
+    url: 'https://diabetes.org/food-nutrition/eating-healthy',
+    focus: 'Blood sugar (diabetes & prediabetes)',
+    caveat: 'Uses ADA carb-counting bands: 45–60 g carbs per meal, 30–45 g for tighter control.',
+    limits: [{ key: 'carb', optimal: 45, ok: 60 }, { key: 'sodium', optimal: 500, ok: 920 }],
+    goals: [{ key: 'fiber', min: 6 }],
+  },
+  { // NKF/KDOQI 2020, stages 3–4 non-dialysis: protein 0.55–0.8 g/kg/day (~75 kg adult), sodium <2,300 mg/day
+    id: 'kidney', name: 'Kidney-Friendly', icon: '🫘',
+    url: 'https://www.kidney.org/kidney-topics/nutrition-and-kidney-disease-stages-1-5-not-dialysis',
+    focus: 'Chronic kidney disease (stages 3–4)',
+    caveat: 'Also watch potassium & phosphorus — not tracked here. Protein share assumes a ~75 kg adult; CKD diets are individualized.',
+    limits: [{ key: 'protein', optimal: 15, ok: 24 }, { key: 'sodium', optimal: 500, ok: 920 }],
+  },
+  { // ADA consensus tiers: very-low-carb <26% kcal (~20–50 g/day net); low-carb ~130 g/day
+    id: 'lowcarb', name: 'Low-Carb', icon: '🥑',
+    url: 'https://diabetesfoodhub.org/blog/all-about-low-carb-and-very-low-carb-eating-patterns',
+    focus: 'Carb reduction (blood sugar & weight)',
+    caveat: 'Ideal ≈ a very-low-carb (keto) meal share; okay ≈ a low-carb (130 g/day) share.',
+    limits: [{ key: 'carb', optimal: 15, ok: 45 }],
+  },
+  { // AHA added-sugar budget: ≤25 g/day women, ≤36 g/day men — compared against TOTAL sugars
+    id: 'lowsugar', name: 'Low Added Sugar', icon: '🍬',
+    url: 'https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/how-much-sugar-is-too-much',
+    focus: 'Metabolic health & weight',
+    caveat: 'Compares total sugars against an added-sugar budget — fruit-forward dishes can over-flag.',
+    limits: [{ key: 'sugar', optimal: 8, ok: 14 }],
+  },
+  { // CDC/NIH weight management on a 2,000-kcal reference day; protein goal = satiety
+    id: 'balance', name: 'Calorie-Smart', icon: '⚖️',
+    url: 'https://www.cdc.gov/healthy-weight-growth/about/tips-for-balancing-food-activity.html',
+    focus: 'Weight management',
+    caveat: 'Assumes a 2,000-calorie reference day with dinner as its biggest meal.',
+    limits: [{ key: 'kcal', optimal: 600, ok: 800 }],
+    goals: [{ key: 'protein', min: 20 }],
+  },
+];
+
+// Tier a value against one limit rule: within `optimal` → 'optimal', within
+// `ok` → 'ok', past it → 'avoid'. Missing values count as 0 (a plan can't
+// object to a nutrient the dish doesn't have).
+export function planTier(value, { optimal, ok }) {
+  const v = value ?? 0;
+  if (v <= optimal) return 'optimal';
+  if (v <= ok) return 'ok';
+  return 'avoid';
+}
+
+const TIER_RANK = { optimal: 0, ok: 1, avoid: 2 };
+
+// Evaluate one plan against per-serving nutrition. The verdict is the worst
+// limit tier; an unmet goal downgrades optimal → ok (never to avoid). Pass
+// judgeGoals: false to skip goals for dishes that aren't a whole meal.
+export function evaluatePlan(per, plan, { judgeGoals = true } = {}) {
+  const limits = (plan.limits || []).map((l) => ({ ...l, value: per[l.key] ?? 0, tier: planTier(per[l.key], l) }));
+  const goals = judgeGoals
+    ? (plan.goals || []).map((g) => ({ ...g, value: per[g.key] ?? 0, met: (per[g.key] ?? 0) >= g.min }))
+    : [];
+  let verdict = 'optimal';
+  for (const l of limits) if (TIER_RANK[l.tier] > TIER_RANK[verdict]) verdict = l.tier;
+  if (verdict === 'optimal' && goals.some((g) => !g.met)) verdict = 'ok';
+  return { plan, verdict, limits, goals };
+}
+
+// All plan verdicts for a recipe (empty when there's no usable estimate).
+// Meal-building goals (fiber, protein) are only a fair demand of a MAIN — a
+// salsa, a dessert or a cocktail isn't the meal's fiber source. And no plan
+// considers alcohol optimal, so boozy drinks cap at "okay".
+export function evaluatePlans(r, plans = EATING_PLANS) {
+  if (!hasNutrition(r)) return [];
+  const kind = r.kind || 'food';
+  const judgeGoals = kind === 'food' && (r.category || 'main') === 'main';
+  const alcoholic = kind === 'drink' && r.base !== 'non-alcoholic';
+  return plans.map((p) => {
+    const e = evaluatePlan(r.nutrition.perServing, p, { judgeGoals });
+    if (alcoholic) {
+      e.alcohol = true;
+      if (e.verdict === 'optimal') e.verdict = 'ok';
+    }
+    return e;
+  });
+}
+
+const nutrientUnit = (key) => NUTRIENT_DISPLAY.find((d) => d.key === key)?.unit || '';
+const PLAN_NUTRIENT = { kcal: 'calories', fat: 'fat', satfat: 'sat fat', sodium: 'sodium', carb: 'carbs', fiber: 'fiber', sugar: 'sugars', protein: 'protein' };
+const planAmt = (v, key) => `${Math.round(v * 10) / 10}${nutrientUnit(key)}`;
+
+// Human reasons a plan isn't a great fit: "sodium 1150mg (cap 920mg)" for a
+// blown limit, "(ideal ≤500mg)" when merely over the ideal, "fiber 4g (aim
+// 9g+)" for an unmet goal.
+export function planReasons({ limits, goals, alcohol }) {
+  const out = [];
+  for (const l of limits) {
+    if (l.tier === 'ok') out.push(`${PLAN_NUTRIENT[l.key]} ${planAmt(l.value, l.key)} (ideal ≤${planAmt(l.optimal, l.key)})`);
+    else if (l.tier === 'avoid') out.push(`${PLAN_NUTRIENT[l.key]} ${planAmt(l.value, l.key)} (cap ${planAmt(l.ok, l.key)})`);
+  }
+  for (const g of goals) if (!g.met) out.push(`${PLAN_NUTRIENT[g.key]} ${planAmt(g.value, g.key)} (aim ${planAmt(g.min, g.key)}+)`);
+  if (!out.length && alcohol) out.push('contains alcohol — every plan advises moderation');
+  return out;
+}
+
+// nutrient key -> plans whose LIMIT on that nutrient this serving breaches —
+// feeds the flag column at the end of the nutrition table. tier 'ok' renders
+// muted, 'avoid' gets the red ring.
+export function nutrientFlags(evals) {
+  const flags = {};
+  for (const e of evals) {
+    for (const l of e.limits) {
+      if (l.tier === 'optimal') continue;
+      const reason = l.tier === 'ok'
+        ? `${PLAN_NUTRIENT[l.key]} ${planAmt(l.value, l.key)} is over the ideal ${planAmt(l.optimal, l.key)}`
+        : `${PLAN_NUTRIENT[l.key]} ${planAmt(l.value, l.key)} is over the ${planAmt(l.ok, l.key)} per-meal cap`;
+      (flags[l.key] ||= []).push({ id: e.plan.id, icon: e.plan.icon, name: e.plan.name, tier: l.tier, reason });
+    }
+  }
+  return flags;
+}
+
+const PLAN_FIT_LABEL = { optimal: '✓ Great fit', ok: '~ Okay', avoid: '✗ Poor fit' };
+
+// One plan-fit table row: icon, linked name + focus (+ reasons when not
+// optimal), and the verdict chip.
+function planRowHtml(e) {
+  const reasons = planReasons(e);
+  const why = e.verdict !== 'optimal' && reasons.length
+    ? `<span class="plan-why">${esc(reasons.join(' · '))}</span>` : '';
+  return `
+        <div class="plan-row is-${e.verdict}">
+          <span class="plan-icon" aria-hidden="true">${e.plan.icon}</span>
+          <span class="plan-name"><a href="${esc(e.plan.url)}" target="_blank" rel="noopener" title="${esc(e.plan.caveat || e.plan.focus)}">${esc(e.plan.name)}</a>
+            <span class="plan-focus">${esc(e.plan.focus)}</span>${why}</span>
+          <span class="plan-fit is-${e.verdict}">${PLAN_FIT_LABEL[e.verdict]}</span>
+        </div>`;
+}
+
 // The nutrition panel, rendered at the very bottom of a spread — always shown
 // in full (no collapse). Built here (pure) so it can be unit-tested; app.js just
-// drops the string in.
+// drops the string in. Includes the eating-plan fit: a flag column on each
+// nutrient row (plans that nutrient runs past) and a per-plan verdict table.
 export function nutritionPanelHtml(r) {
   if (!hasNutrition(r)) return '';
   const rows = nutritionRows(r);
   const n = r.nutrition;
+  // Plan verdicts from a thin estimate would mislead (missing ingredients bias
+  // every limit toward "fits") — only judge plans on high-confidence numbers.
+  const evals = n.confidence === 'high' ? evaluatePlans(r) : [];
+  const flags = nutrientFlags(evals);
   const kcal = rows.find((x) => x.key === 'kcal');
-  const body = rows.map((x) => `
+  const body = rows.map((x) => {
+    const fl = (flags[x.key] || []).map((f) =>
+      `<span class="plan-flag is-${f.tier}" title="${esc(`${f.name} — ${f.reason}`)}" role="img" aria-label="${esc(`${f.name}: ${f.reason}`)}">${f.icon}</span>`).join('');
+    return `
         <div class="nutri-row${x.indent ? ' is-sub' : ''}">
           <span class="nutri-name">${esc(x.label)}</span>
           <span class="nutri-amt">${esc(x.amount)}</span>
           <span class="nutri-dv">${x.pct == null ? '' : esc(x.pct + '%')}</span>
-        </div>`).join('');
+          <span class="nutri-flags">${fl}</span>
+        </div>`;
+  }).join('');
   // A short caveat when coverage is thin, so the estimate is never oversold.
   const note = n.confidence === 'high'
     ? 'Estimated from ingredients — per serving.'
     : `Rough estimate — ${n.matched} of ${n.considered} ingredients matched.`;
+  const flagFoot = evals.length
+    ? ' <span class="nutrition-foot">†Plan icons mark a nutrient running past that plan’s per-meal share — red ring = over its cap.</span>' : '';
+  const plans = evals.length ? `
+      <div class="plans">
+        <div class="plans-head"><span>Eating-plan fit</span><span class="plans-sub">this serving vs. a per-meal share</span></div>
+        ${evals.map(planRowHtml).join('')}
+        <p class="plans-note">Fit weighs one serving against each plan’s published targets (≈⅓ of the strict daily target to rate <em>great</em>, ≤40% of its cap to rate <em>okay</em>) — a screening aid, not medical advice. Cocktails cap at <em>okay</em>: no plan considers alcohol optimal.</p>
+      </div>` : '';
   return `
     <section class="nutrition">
       <div class="nutrition-summary">
@@ -390,10 +595,10 @@ export function nutritionPanelHtml(r) {
         <span class="nutrition-kcal">${kcal ? esc(kcal.amount) : ''} cal</span>
       </div>
       <div class="nutrition-panel">
-        <div class="nutri-head"><span>Amount per serving · serves ${esc(r.serves)}</span><span class="nutri-dv-head">% DV*</span></div>
+        <div class="nutri-head"><span>Amount per serving · serves ${esc(r.serves)}</span><span class="nutri-dv-head">% DV*</span><span class="nutri-flag-head">${evals.length ? 'Plans†' : ''}</span></div>
         ${body}
-        <p class="nutrition-note">${esc(note)} <span class="nutrition-foot">*Percent of a 2,000-calorie daily value.</span></p>
-      </div>
+        <p class="nutrition-note">${esc(note)} <span class="nutrition-foot">*Percent of a 2,000-calorie daily value.</span>${flagFoot}</p>
+      </div>${plans}
     </section>`;
 }
 

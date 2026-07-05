@@ -169,6 +169,37 @@ liquids** (fluid oz); count nouns (`clove`, `egg`, `fillet`) for discrete pieces
 weight/volume items that recipes **count by piece** an `each` (grams/piece), or the count
 can't be resolved.
 
+### Eating-plan fit (computed — never authored per recipe)
+
+Below the nutrition table every card shows an **Eating-plan fit** table: ten
+research-backed dietary patterns — DASH 🩺, MIND 🧠, Mediterranean 🫒, TLC 📉,
+AHA Heart-Healthy ❤️, Diabetes Plate 🩸, Kidney-Friendly 🫘, Low-Carb 🥑,
+Low Added Sugar 🍬, Calorie-Smart ⚖️ — each with its icon, a link to the sponsoring
+organization (NHLBI, AHA, ADA, NKF, CDC/NIA…), and a per-serving verdict:
+
+- **✓ Great fit** — within ≈⅓ of the plan's *strict* daily target (or its own published
+  per-serving standard, e.g. AHA Heart-Check recipe limits, ADA carbs-per-meal bands).
+- **~ Okay** — within 40% of the plan's *lenient* daily cap (dinner is the day's big meal).
+- **✗ Poor fit** — past the cap; the serving genuinely blows the plan's daily budget.
+
+The nutrition table's last column flags, per nutrient, the plans it runs past (muted icon
+= over the ideal; **red-ringed icon** = over the cap), with the numbers in the tooltip.
+
+How it works (mirror of nutrition itself — computed, not authored):
+
+- Plan definitions live in **`EATING_PLANS` in `docs/lib.js`** — id, name, icon, url,
+  focus, tiered `limits`, optional `goals`, and a `caveat`; each entry cites the source of
+  its thresholds in a comment. **To add or tune a plan, edit that array** — the fit table,
+  flag column, report and tests all pick it up automatically. Keep thresholds sourced.
+- `limits` are ceilings (optimal/ok/avoid). `goals` (fiber, protein) apply **only to food
+  mains** and only downgrade great → okay — a salsa or a cocktail isn't the meal's fiber
+  source. **Alcoholic drinks cap at "okay"** — no plan considers alcohol optimal.
+- Verdicts render only for **high-confidence** estimates (a thin estimate biases every
+  limit toward "fits"), so DB coverage (`npm run nutrition`) is what keeps them honest.
+- **`npm run plans`** prints the cookbook-wide verdict distribution;
+  `npm run plans -- <slug>` shows one recipe's verdicts with the why (run after a build).
+- It's a screening aid, not medical advice — the site's footnote says so; keep it that way.
+
 ## Drinks (cocktails)
 
 Drinks live in **`drinks/`** (one `.md` each) and use the same file format with a few

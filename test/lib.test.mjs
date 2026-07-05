@@ -9,6 +9,7 @@ import {
   clampServes, bucketMatch, recipeMatches, cuisineChipValues, shopSectionsForRecipe, inlineMd, esc,
   parseHash, hashForKind,
   pctOfDV, nutritionRows, hasNutrition, nutritionPanelHtml, NUTRIENT_DISPLAY,
+  EATING_PLANS, planTier, evaluatePlan, evaluatePlans, planReasons, nutrientFlags,
 } from '../docs/lib.js';
 import {
   parseLine, normalizeName, buildIndex, matchName, toBaseUnits, lineNutrition, recipeNutrition, NUTRIENT_KEYS,
@@ -337,6 +338,102 @@ test('nutritionPanelHtml adds a caveat when coverage is thin', () => {
     perServing: { kcal: 200, protein: 5, carb: 10, fat: 8, satfat: 2, fiber: 1, sugar: 3, sodium: 300 },
   } }));
   assert.match(html, /4 of 8 ingredients/);
+  // A thin estimate biases every plan limit toward "fits" — never judge plans on it.
+  assert.doesNotMatch(html, /plans-head|plan-row|plan-flag/);
+});
+
+// ── EATING-PLAN FIT (pure) ───────────────────────────────────────────────────
+test('EATING_PLANS data sanity: 10 plans, unique ids/icons, real links, valid rules', () => {
+  assert.equal(EATING_PLANS.length, 10);
+  const keys = new Set(NUTRIENT_DISPLAY.map((d) => d.key));
+  assert.equal(new Set(EATING_PLANS.map((p) => p.id)).size, EATING_PLANS.length, 'ids unique');
+  assert.equal(new Set(EATING_PLANS.map((p) => p.icon)).size, EATING_PLANS.length, 'icons unique');
+  for (const p of EATING_PLANS) {
+    assert.ok(p.name && p.focus && p.caveat, `${p.id} carries name/focus/caveat`);
+    assert.match(p.url, /^https:\/\//, `${p.id} links to more information`);
+    assert.ok(p.limits.length >= 1, `${p.id} has at least one limit`);
+    for (const l of p.limits) {
+      assert.ok(keys.has(l.key), `${p.id} limit ${l.key} is a tracked nutrient`);
+      assert.ok(l.optimal <= l.ok, `${p.id} ${l.key}: optimal ≤ ok`);
+    }
+    for (const g of p.goals || []) assert.ok(keys.has(g.key), `${p.id} goal ${g.key} is tracked`);
+  }
+});
+
+test('planTier: the three tiers, inclusive at each boundary', () => {
+  const rule = { optimal: 140, ok: 300 };            // the MIND-sodium worked example
+  assert.equal(planTier(120, rule), 'optimal');      // meets the plan → no icon
+  assert.equal(planTier(140, rule), 'optimal');
+  assert.equal(planTier(200, rule), 'ok');           // fine, but not optimal
+  assert.equal(planTier(300, rule), 'ok');
+  assert.equal(planTier(301, rule), 'avoid');        // over the cap → red ring
+  assert.equal(planTier(null, rule), 'optimal');     // absent nutrient can't offend
+});
+
+test('evaluatePlan: worst limit wins; an unmet goal only downgrades optimal → ok', () => {
+  const plan = { id: 'x', name: 'X', icon: '🧪', url: 'https://example.com', focus: 't',
+    limits: [{ key: 'sodium', optimal: 500, ok: 920 }], goals: [{ key: 'fiber', min: 10 }] };
+  assert.equal(evaluatePlan({ sodium: 400, fiber: 12 }, plan).verdict, 'optimal');
+  assert.equal(evaluatePlan({ sodium: 400, fiber: 2 }, plan).verdict, 'ok');       // goal miss
+  assert.equal(evaluatePlan({ sodium: 700, fiber: 12 }, plan).verdict, 'ok');      // limit ok-tier
+  assert.equal(evaluatePlan({ sodium: 1500, fiber: 12 }, plan).verdict, 'avoid');  // limit blown
+  const short = evaluatePlan({ sodium: 400, fiber: 2 }, plan);
+  assert.ok(planReasons(short).some((s) => /fiber 2g \(aim 10g\+\)/.test(s)), 'unmet goal explained');
+  assert.equal(evaluatePlan({ sodium: 400, fiber: 2 }, plan, { judgeGoals: false }).verdict, 'optimal',
+    'goals are waived for dishes that are not a whole meal');
+});
+
+test('evaluatePlans judges the sample dinner sensibly (salty → poor DASH fit)', () => {
+  const evals = evaluatePlans(sampleRecipe());       // sodium 1150, satfat 6, carb 40, kcal 500
+  assert.equal(evals.length, EATING_PLANS.length);
+  const by = (id) => evals.find((e) => e.plan.id === id);
+  assert.equal(by('dash').verdict, 'avoid', '1150mg sodium blows the DASH per-meal cap');
+  assert.equal(by('balance').verdict, 'optimal', '500 kcal + 25g protein is calorie-smart');
+  assert.equal(by('lowsugar').verdict, 'ok', '9g sugars is over the ideal but under the cap');
+  assert.equal(by('kidney').verdict, 'avoid', '25g protein exceeds the CKD per-meal share');
+  assert.deepEqual(evaluatePlans({}), [], 'no nutrition → no verdicts');
+  const reasons = planReasons(by('dash'));
+  assert.ok(reasons.some((s) => /sodium 1150mg \(cap 920mg\)/.test(s)), `cap reason: ${reasons}`);
+});
+
+test('sides/desserts skip meal-building goals; boozy drinks cap at okay', () => {
+  const salsa = sampleRecipe({ category: 'side', nutrition: { confidence: 'high', matched: 5, considered: 5,
+    perServing: { kcal: 60, protein: 1, carb: 6, fat: 2, satfat: 0.3, fiber: 1, sugar: 3, sodium: 150 } } });
+  const dash = evaluatePlans(salsa).find((e) => e.plan.id === 'dash');
+  assert.equal(dash.verdict, 'optimal', 'a low-sodium salsa is not dinged for lacking fiber');
+  const daiquiri = sampleRecipe({ kind: 'drink', base: 'rum', serves: 1,
+    nutrition: { confidence: 'high', matched: 4, considered: 4,
+      perServing: { kcal: 200, protein: 0, carb: 8, fat: 0, satfat: 0, fiber: 0, sugar: 7, sodium: 5 } } });
+  const evals = evaluatePlans(daiquiri);
+  assert.ok(evals.every((e) => e.verdict !== 'optimal'), 'no plan rates alcohol optimal');
+  const balance = evals.find((e) => e.plan.id === 'balance');
+  assert.equal(balance.verdict, 'ok');
+  assert.ok(planReasons(balance).some((s) => /alcohol/.test(s)), 'the cap is explained');
+  const mocktail = evaluatePlans({ ...daiquiri, base: 'non-alcoholic' });
+  assert.ok(mocktail.some((e) => e.verdict === 'optimal'), 'zero-proof drinks can still rate great');
+});
+
+test('nutrientFlags groups breached limits by nutrient with tier + reason', () => {
+  const flags = nutrientFlags(evaluatePlans(sampleRecipe()));
+  const sodium = flags.sodium.map((f) => f.id);
+  assert.ok(sodium.includes('dash') && sodium.includes('heart') && sodium.includes('kidney'));
+  assert.ok(flags.sodium.every((f) => f.tier === 'avoid'), '1150mg is past every sodium cap');
+  assert.ok(flags.satfat.every((f) => f.tier === 'ok'), '6g sat fat is ok-tier everywhere');
+  assert.equal(flags.kcal, undefined, '500 kcal offends no plan — no icon at all');
+  assert.match(flags.sodium[0].reason, /per-meal cap/);
+});
+
+test('nutritionPanelHtml renders the flag column and the eating-plan fit table', () => {
+  const html = nutritionPanelHtml(sampleRecipe());
+  assert.match(html, /Eating-plan fit/);
+  assert.equal([...html.matchAll(/class="plan-row/g)].length, EATING_PLANS.length, 'one row per plan');
+  assert.equal([...html.matchAll(/href="https:\/\//g)].length, EATING_PLANS.length, 'every plan links out');
+  assert.match(html, /plan-flag is-avoid/);          // red-ringed icon on the sodium row
+  assert.match(html, /plan-flag is-ok/);             // muted icon for merely-over-ideal
+  assert.match(html, /✓ Great fit/);
+  assert.match(html, /~ Okay/);
+  assert.match(html, /✗ Poor fit/);
+  assert.match(html, /not medical advice/);
 });
 
 // ── DATA REGRESSION: every recipe must render shopping rows without throwing ──
