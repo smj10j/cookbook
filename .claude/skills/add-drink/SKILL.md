@@ -102,6 +102,22 @@ from the estimate. The build prints a `⚠ Nutrition:` warning for anything miss
 4. Rebuild and re-run `npm run nutrition` until the drink is **high** confidence. Commit
    `data/nutrition.json` with the rest.
 
+## 4.6 Eating-plan fit — review the verdicts (they ship with the card)
+
+Drink cards also render the **Eating-plan fit** table (see `CLAUDE.md` → *Eating-plan
+fit*), computed from the same per-serving estimate — nothing to author, but review it:
+
+1. Run `npm run plans -- <slug>` once the DB is complete (the table only renders at
+   **high** confidence).
+2. Know the drink rules: **alcoholic drinks cap at "~ Okay"** (no plan rates alcohol
+   optimal; only a `base: non-alcoholic` drink can score "✓ Great fit"), and **sugar
+   drives most flags** — a syrup-heavy tiki drink going red for DASH/AHA/Low-Sugar is
+   honest, not a bug. A wall of red on a *simple* sour usually means a mis-scaled
+   nutrition entry (per-cup values stored per oz) — fix the data, not the verdict.
+3. Mention a notable verdict in your summary when it's useful ("sessionable and
+   plan-friendly as cocktails go" / "a dessert drink — flags every sugar cap"), and when
+   one swap would genuinely soften it (half-syrup, a lighter pour), offer it as a bar tip.
+
 ## 5. Photo (standard step — every card gets one)
 
 A photo is **part of adding a drink**, not optional. Same pipeline as food

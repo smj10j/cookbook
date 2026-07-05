@@ -5,6 +5,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { EATING_PLANS, evaluatePlans } from '../docs/lib.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const html = readFileSync(join(root, 'docs/index.html'), 'utf8');
@@ -293,6 +294,34 @@ test('drinks also get a nutrition panel (calories from the spec)', async () => {
   $$('.card')[0].click();
   assert.ok($('#spread .nutrition'), 'drinks carry a nutrition estimate too');
   assert.match($('#spread .nutrition-kcal').textContent, /\d+\s*cal/);
+});
+
+test('the nutrition panel carries the eating-plan fit table with linked plans', async () => {
+  const { $, $$ } = await boot();
+  $$('.card')[0].click();
+  const plans = $('#spread .nutrition .plans');
+  assert.ok(plans, 'the eating-plan fit table renders inside the nutrition section');
+  const rows = $$('#spread .plan-row');
+  assert.equal(rows.length, EATING_PLANS.length, 'one row per plan');
+  for (const row of rows) {
+    const a = row.querySelector('.plan-name a');
+    assert.match(a.href, /^https:\/\//, 'every plan links to more information');
+    assert.equal(a.target, '_blank');
+    assert.ok(row.querySelector('.plan-icon').textContent.trim(), 'every plan shows its icon');
+    assert.match(row.querySelector('.plan-fit').textContent, /Great fit|Okay|Poor fit/);
+  }
+});
+
+test('a plan-unfriendly recipe shows red-ringed icons in the nutrition flag column', async () => {
+  // Find a shipped recipe that genuinely blows some plan's per-meal cap.
+  const salty = recipes.recipes.find((r) =>
+    evaluatePlans(r).some((e) => e.limits.some((l) => l.tier === 'avoid')));
+  assert.ok(salty, 'the cookbook contains at least one plan-cap-busting dish');
+  const { $, $$ } = await boot(`https://example.com/#/${salty.slug}`);
+  assert.ok($$('#spread .plan-flag.is-avoid').length > 0, 'red-ringed plan icon rendered');
+  const flag = $$('#spread .plan-flag.is-avoid')[0];
+  assert.match(flag.title, /over the .*per-meal cap/, 'tooltip explains the breach');
+  assert.ok(flag.closest('.nutri-row'), 'flags sit in the nutrition table rows');
 });
 
 test('filters narrow the menu', async () => {

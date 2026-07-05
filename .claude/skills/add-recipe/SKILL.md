@@ -144,6 +144,28 @@ from the estimate. The build prints a `⚠ Nutrition:` warning listing anything 
    confidence with no unmatched ingredients (a stray garnish like a whole pie pumpkin that
    would double-count is fine to leave out). Commit `data/nutrition.json` alongside the rest.
 
+### 3.6 Eating-plan fit — review the verdicts (they ship with the card)
+
+Every card also renders an **Eating-plan fit** table (DASH, MIND, Mediterranean, TLC,
+AHA Heart-Healthy, Diabetes Plate, Kidney-Friendly, Low-Carb, Low Added Sugar,
+Calorie-Smart) plus per-nutrient plan flags — computed from the same per-serving estimate
+(see `CLAUDE.md` → *Eating-plan fit*). You author nothing, but you must **review it**:
+
+1. After the nutrition DB is complete, run:
+   ```bash
+   npm run plans -- <slug>
+   ```
+   High confidence is required — the fit table is hidden for thin estimates, so step 3.5
+   is what turns it on.
+2. **Sanity-check the verdicts against the dish.** A surprising wall of red usually means
+   a data bug, not an unhealthy dish — a mis-scaled DB entry (per-cup values stored per
+   tsp), a brine or marinade counted as fully consumed, or a "serves" mismatch. Fix the
+   data, not the verdict.
+3. **Mention notable fits/misfits in your summary to Stephen** — e.g. "DASH/heart-friendly
+   as written" or "blows every sodium cap; a low-sodium soy swap in the tips fixes most of
+   it". When one swap would genuinely flip a verdict (halve the salt, swap the butter),
+   offer it as a chef's tip — don't compromise the dish to chase a green row.
+
 ## 4. Photo (standard step — every card gets one)
 
 A photo is **part of adding a recipe**, not an afterthought — generate one so the card never
