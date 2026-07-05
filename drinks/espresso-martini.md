@@ -56,7 +56,12 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [heart, lowsugar]
+    replace: "1 oz coffee liqueur (Kahlúa or Mr Black)"
+    with: "¾ oz coffee liqueur (Kahlúa or Mr Black)"
+    note: "a lighter liqueur pour"
+updated: 2026-07-05
 ---
 
 The bartender's benchmark — three ingredients, no cream, and a foam cap that says you

@@ -51,7 +51,12 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [heart, lowsugar]
+    replace: "2 oz Aperol"
+    with: "1½ oz Aperol"
+    note: "a lighter Aperol pour"
+updated: 2026-07-05
 ---
 
 The 3-2-1 of the Venetian aperitivo: three parts prosecco, two Aperol, one soda. Sunset in a

@@ -95,7 +95,28 @@ source:
   name: Inspired by Cafe Blue, Bee Cave/Lakeway, TX (Brown Sugar Salmon Salad)
   url: https://cafebluetx.com
 created: 2026-07-03
-updated: 2026-07-03
+planSwaps:
+  - for: [diabetes]
+    replace: "1 tsp kosher salt"
+    with: "½ tsp kosher salt"
+    note: "half the salt"
+  - for: [balance]
+    replace: "2 salmon fillets (about 6 oz each), skin-on"
+    with: "10 oz salmon fillets, skin-on"
+    note: "two 5-oz fillets"
+  - for: [balance]
+    replace: "¼ cup extra-virgin olive oil"
+    with: "2 tbsp extra-virgin olive oil"
+    note: "a leaner dressing"
+  - for: [balance, lowcarb]
+    replace: "2 tbsp brown sugar, packed"
+    with: "1 tbsp brown sugar, packed"
+    note: "half the brown-sugar rub"
+  - for: [balance]
+    replace: "⅓ cup sliced almonds, toasted"
+    with: "3 tbsp sliced almonds, toasted"
+    note: "fewer almonds"
+updated: 2026-07-05
 ---
 
 Stephen and Lauren's homage to a Cafe Blue favorite out on Lake Travis: the

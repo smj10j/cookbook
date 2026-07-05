@@ -46,7 +46,12 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [heart, lowsugar]
+    replace: "1 oz coffee liqueur (such as Kahlúa)"
+    with: "¾ oz coffee liqueur (such as Kahlúa)"
+    note: "a lighter Kahlúa pour"
+updated: 2026-07-05
 ---
 
 The Dude's drink — three things over ice, a slow pour of cream, and the most

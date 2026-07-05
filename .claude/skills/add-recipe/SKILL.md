@@ -163,13 +163,19 @@ Calorie-Smart) plus per-nutrient plan flags — computed from the same per-servi
    data, not the verdict.
 3. **Mention notable fits/misfits in your summary to Stephen** — e.g. "DASH/heart-friendly
    as written" or "blows every sodium cap; the low-sodium soy swap fixes most of it".
-4. **When ONE swap genuinely flips a verdict** (halve the salt, smaller fillets, less
-   honey), encode it as a **`planSwaps`** entry instead of a prose tip — the fit table
-   then shows "✗ ⇄ ~ with the swap". Follow `CLAUDE.md` → *planSwaps* exactly: `replace`
-   must match an ingredient line verbatim, `with` must carry a parseable quantity (the
-   parser ignores parenthetical sizes), and you must confirm the ⇄ line appears in
-   `npm run plans -- <slug>` after rebuilding. Check `npm run plans -- --near-miss` for
-   candidates. Never compromise the dish as written to chase a green row.
+4. **Author `planSwaps` for every fixable ✗ verdict — this is a standard step, not an
+   extra.** Run `npm run plans -- --near-miss` (it lists ✗ verdicts where every blown
+   limit is within 50% of its cap); for each hit on your new recipe, encode the fix as
+   `planSwaps` entries instead of prose tips (halve the salt, low-sodium soy, smaller
+   fillets, lighter cheese/oil — one entry per blown limit is fine). The fit table then
+   shows "✗ ⇄ ~ with the swap" and the reader gets an **interactive variant toggle**
+   that swaps the ingredient lines, nutrition, verdicts, and shopping list. Follow
+   `CLAUDE.md` → *planSwaps* exactly: `replace` must match an ingredient line verbatim,
+   `with` must carry a parseable quantity (the parser ignores parenthetical sizes), and
+   confirm the ⇄ line appears in `npm run plans -- <slug>` after rebuilding — **a
+   declared swap that doesn't lift its verdict fails `npm test`** (the no-dead-swaps
+   gate). Skip only what's genuinely unfixable (a steak's sat fat, a vegetable's own
+   sugars) — never compromise the dish as written to chase a green row.
 
 ## 4. Photo (standard step — every card gets one)
 

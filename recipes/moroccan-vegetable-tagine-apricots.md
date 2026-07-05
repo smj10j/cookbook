@@ -73,6 +73,15 @@ source:
   name: Original — developed for Tonight's Menu
   url: null
 created: 2026-07-05
+planSwaps:
+  - for: [diabetes]
+    replace: "⅓ cup couscous"
+    with: "¼ cup couscous"
+    note: "a smaller couscous bed"
+  - for: [diabetes]
+    replace: "¾ cup canned chickpeas, drained and rinsed"
+    with: "½ cup canned chickpeas, drained and rinsed"
+    note: "fewer chickpeas"
 updated: 2026-07-05
 ---
 

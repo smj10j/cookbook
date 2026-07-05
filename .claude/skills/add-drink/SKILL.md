@@ -115,10 +115,15 @@ fit*), computed from the same per-serving estimate — nothing to author, but re
    honest, not a bug. A wall of red on a *simple* sour usually means a mis-scaled
    nutrition entry (per-cup values stored per oz) — fix the data, not the verdict.
 3. Mention a notable verdict in your summary when it's useful ("sessionable and
-   plan-friendly as cocktails go" / "a dessert drink — flags every sugar cap"). When one
-   swap genuinely lifts a verdict (half-syrup, a lighter pour), encode it as a
-   **`planSwaps`** entry (see `CLAUDE.md` → *planSwaps*) so the fit table shows the
-   "⇄ with the swap" reading — confirm it appears via `npm run plans -- <slug>`.
+   plan-friendly as cocktails go" / "a dessert drink — flags every sugar cap").
+4. **Author `planSwaps` for every fixable ✗ verdict — standard step.** Run
+   `npm run plans -- --near-miss`; for hits on your new drink, encode the "skinny"
+   variant as `planSwaps` entries (a lighter liqueur pour, half the syrup, less juice —
+   classic bar practice). The fit table shows "✗ ⇄ ~ with the swap" and the reader gets
+   the variant toggle. Follow `CLAUDE.md` → *planSwaps*: `replace` verbatim, `with`
+   parseable, ⇄ confirmed via `npm run plans -- <slug>` — **a swap that doesn't lift its
+   verdict fails `npm test`**. Remember boozy drinks cap at "~ Okay" regardless; a swap
+   can still lift ✗ → ~.
 
 ## 5. Photo (standard step — every card gets one)
 

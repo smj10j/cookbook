@@ -80,7 +80,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [lowsugar]
+    replace: "1 tbsp honey"
+    with: "1½ tsp honey"
+    note: "half the honey"
+updated: 2026-07-05
 ---
 
 A fast, fiery weeknight salmon that leans on one great Korean pantry staple — and proves

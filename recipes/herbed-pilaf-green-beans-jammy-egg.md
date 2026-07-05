@@ -62,6 +62,11 @@ source:
   name: Original — developed for Tonight's Menu
   url: null
 created: 2026-07-05
+planSwaps:
+  - for: [lowcarb]
+    replace: "½ cup long-grain rice"
+    with: "⅓ cup long-grain rice"
+    note: "a scant rice base"
 updated: 2026-07-05
 ---
 

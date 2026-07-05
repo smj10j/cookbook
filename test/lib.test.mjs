@@ -10,6 +10,7 @@ import {
   parseHash, hashForKind,
   pctOfDV, nutritionRows, hasNutrition, nutritionPanelHtml, NUTRIENT_DISPLAY,
   EATING_PLANS, planTier, evaluatePlan, evaluatePlans, planReasons, nutrientFlags, buildPlanVerdicts,
+  recipeVariants, applyVariantToSections, variantLabel, variantTitle,
 } from '../docs/lib.js';
 import {
   parseLine, normalizeName, buildIndex, matchName, toBaseUnits, lineNutrition, recipeNutrition, NUTRIENT_KEYS,
@@ -470,6 +471,86 @@ test('a planSwaps variant lifts the verdict and renders in the fit table', () =>
   // A swap that does not improve the tier is not surfaced.
   const noGain = sampleRecipe({ nutrition: { confidence: 'high', matched: 8, considered: 8, perServing: per, withSwaps: { dash: per } } });
   assert.equal(evaluatePlans(noGain).find((e) => e.plan.id === 'dash').swapped, undefined);
+});
+
+// ── RECIPE VARIANTS (1C: the interactive planSwaps toggle) ───────────────────
+const swapRecipe = () => sampleRecipe({
+  slug: 'swap-test',
+  ingredients: [{ section: 'Sauce', items: ['1½ cups orange juice', '1 lemon'] }],
+  planSwaps: [
+    { for: ['heart', 'lowsugar'], replace: '1½ cups orange juice', with: '¾ cup orange juice', note: 'half the OJ' },
+    { for: ['kidney'], replace: '1 lemon', with: '½ lemon', note: 'half the lemon' },
+  ],
+  nutrition: { confidence: 'high', matched: 8, considered: 8,
+    perServing: { kcal: 500, protein: 25, carb: 40, fat: 22, satfat: 3, fiber: 7, sugar: 16, sodium: 400 },
+    withSwaps: {
+      heart: { kcal: 460, protein: 25, carb: 32, fat: 22, satfat: 3, fiber: 7, sugar: 8, sodium: 400 },
+      lowsugar: { kcal: 460, protein: 25, carb: 32, fat: 22, satfat: 3, fiber: 7, sugar: 8, sodium: 400 },
+      kidney: { kcal: 495, protein: 20, carb: 39, fat: 22, satfat: 3, fiber: 7, sugar: 15, sodium: 380 },
+    } },
+});
+
+test('recipeVariants groups plans that share an identical swap set', () => {
+  const vs = recipeVariants(swapRecipe());
+  assert.equal(vs.length, 2, 'heart+lowsugar share a variant; kidney gets its own');
+  const shared = vs.find((v) => v.plans.length === 2);
+  assert.deepEqual(shared.plans.map((p) => p.id).sort(), ['heart', 'lowsugar']);
+  assert.equal(shared.swaps.length, 1);
+  assert.equal(shared.perServing.sugar, 8);
+  assert.match(variantLabel(shared), /❤️/);
+  assert.match(variantTitle(shared), /half the OJ/);
+  assert.deepEqual(recipeVariants(sampleRecipe()), [], 'no swaps → no variants');
+});
+
+test('applyVariantToSections swaps exactly the named lines and marks them', () => {
+  const r = swapRecipe();
+  const v = recipeVariants(r).find((x) => x.plans.length === 2);
+  const secs = applyVariantToSections(r.ingredients, v);
+  assert.deepEqual(secs[0].items[0], { text: '¾ cup orange juice', swapped: true, original: '1½ cups orange juice' });
+  assert.equal(secs[0].items[1].swapped, false, 'the kidney-only swap is not in this variant');
+  const plain = applyVariantToSections(r.ingredients, null);
+  assert.ok(plain[0].items.every((i) => !i.swapped));
+});
+
+test('a variant re-judges every plan against its numbers (no ⇄ hints inside)', () => {
+  const r = swapRecipe();
+  const v = recipeVariants(r).find((x) => x.plans.length === 2);
+  const base = evaluatePlans(r).find((e) => e.plan.id === 'lowsugar');
+  assert.equal(base.verdict, 'avoid');
+  assert.ok(base.swapped, 'as-written view hints at the swap');
+  const inVariant = evaluatePlans(r, EATING_PLANS, v.perServing).find((e) => e.plan.id === 'lowsugar');
+  assert.equal(inVariant.verdict, 'optimal', '8g sugars fits the plan');
+  assert.equal(inVariant.swapped, undefined, 'no hint once the variant is applied');
+  const html = nutritionPanelHtml(r, { variant: v });
+  assert.match(html, /460 cal/);
+  assert.match(html, /nutrition-variant/);
+  assert.doesNotMatch(html, /plan-swap/);
+});
+
+test('shopSectionsForRecipe shops for the active variant', () => {
+  const r = swapRecipe();
+  const v = recipeVariants(r).find((x) => x.plans.length === 2);
+  const rows = shopSectionsForRecipe(r, 2, v)[0].items.map((i) => i.display);
+  assert.ok(rows[0].includes('cup orange juice') && rows[0].startsWith('¾'), `swapped: ${rows[0]}`);
+  const plain = shopSectionsForRecipe(r, 2)[0].items.map((i) => i.display);
+  assert.ok(plain[0].startsWith('1½'), 'as-written without a variant');
+});
+
+// DATA GATE: an authored swap that stops lifting its verdict is dead weight —
+// fail the build so recipe edits can't silently strand planSwaps.
+test('every authored planSwap genuinely lifts its declared plan verdicts', () => {
+  let recipesWithSwaps = 0;
+  for (const r of data.recipes) {
+    if (!r.planSwaps?.length) continue;
+    recipesWithSwaps++;
+    const evals = evaluatePlans(r);
+    for (const id of new Set(r.planSwaps.flatMap((s) => s.for))) {
+      const e = evals.find((x) => x.plan.id === id);
+      assert.ok(e?.swapped, `${r.slug}: the ${id} swap no longer improves the verdict (still ${e?.verdict})`);
+    }
+    assert.ok(recipeVariants(r).length >= 1, `${r.slug} exposes a toggleable variant`);
+  }
+  assert.ok(recipesWithSwaps >= 40, `the cookbook stays broadly tweakable (${recipesWithSwaps} recipes with swaps)`);
 });
 
 // ── GOOD-FOR FILTER (plan facet: AND semantics, ok/great modes) ─────────────

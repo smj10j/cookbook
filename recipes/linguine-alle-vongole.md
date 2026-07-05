@@ -69,7 +69,24 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart, balance]
+    replace: "2 tbsp butter"
+    with: "1 tbsp butter"
+    note: "half the butter"
+  - for: [kidney, balance]
+    replace: "12 oz linguine"
+    with: "8 oz linguine"
+    note: "a standard 8-oz pasta portion"
+  - for: [kidney, balance]
+    replace: "2 lb littleneck clams, scrubbed"
+    with: "1¼ lb littleneck clams, scrubbed"
+    note: "a smaller clam pot"
+  - for: [balance]
+    replace: "¼ cup olive oil"
+    with: "2 tbsp olive oil"
+    note: "half the oil"
+updated: 2026-07-05
 ---
 
 Naples in a bowl: clams, garlic, wine, good oil, and pasta cooked right in the brine. Lauren

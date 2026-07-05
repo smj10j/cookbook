@@ -61,7 +61,12 @@ source:
   name: Epicurious / Bon Appétit — Alison Roman
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [kidney]
+    replace: "2 skinless cod fillets (about 5 oz each)"
+    with: "8 oz skinless cod fillets"
+    note: "two 4-oz fillets"
+updated: 2026-07-05
 ---
 
 Alison Roman's gentle tomato poach: garlic and Aleppo bloomed in oil, a saffron-scented

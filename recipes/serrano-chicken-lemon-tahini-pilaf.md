@@ -95,7 +95,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [heart, lowsugar]
+    replace: "4–6 dates, pitted and chopped"
+    with: "2 dates, pitted and chopped"
+    note: "two dates"
+updated: 2026-07-05
 ---
 
 A pantry-raid dinner that turned into a keeper: dates and toasted almonds make

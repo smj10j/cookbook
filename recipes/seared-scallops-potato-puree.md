@@ -76,7 +76,28 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [diabetes, balance]
+    replace: "1 lb large dry sea scallops (about 10–12)"
+    with: "12 oz dry sea scallops"
+    note: "12 oz of scallops"
+  - for: [diabetes, balance]
+    replace: "4 tbsp butter"
+    with: "2 tbsp butter"
+    note: "half the puree butter"
+  - for: [diabetes, balance]
+    replace: "3 tbsp butter"
+    with: "2 tbsp butter"
+    note: "less basting butter"
+  - for: [balance]
+    replace: "½ cup heavy cream, warmed"
+    with: "¼ cup heavy cream, warmed"
+    note: "half the cream"
+  - for: [lowcarb]
+    replace: "1 lb Yukon gold potatoes, peeled and cubed"
+    with: "12 oz Yukon gold potatoes, peeled and cubed"
+    note: "a smaller puree"
+updated: 2026-07-05
 ---
 
 Shellfish belongs in this book — Lauren loves scallops — and they're the most

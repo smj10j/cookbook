@@ -74,7 +74,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [diabetes]
+    replace: "6 oz orzo (orecchiette also works beautifully)"
+    with: "4 oz orzo"
+    note: "a lighter orzo base"
+updated: 2026-07-05
 ---
 
 Stephen landed on a Greek salad — dressed just before serving so it stays crisp

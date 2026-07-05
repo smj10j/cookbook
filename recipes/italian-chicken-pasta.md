@@ -73,7 +73,16 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart, balance]
+    replace: "4 oz fresh mozzarella, cut into small cubes"
+    with: "2 oz fresh mozzarella, cut into small cubes"
+    note: "half the mozzarella"
+  - for: [diabetes, balance]
+    replace: "8 oz fettuccine (thin spaghetti also works)"
+    with: "5 oz fettuccine"
+    note: "five ounces of pasta"
+updated: 2026-07-05
 ---
 
 A bright, fast Italian dinner Stephen landed on after weighing a whole flight of

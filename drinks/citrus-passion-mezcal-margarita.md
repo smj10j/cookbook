@@ -56,7 +56,16 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [dash, mind, mediterranean]
+    replace: "¾ oz triple sec"
+    with: "½ oz triple sec"
+    note: "less triple sec"
+  - for: [dash, mind, mediterranean]
+    replace: "½ oz passion fruit syrup"
+    with: "¼ oz passion fruit syrup"
+    note: "half the syrup"
+updated: 2026-07-05
 ---
 
 Smoke in the background, passion fruit and citrus out front — a gateway mezcal margarita

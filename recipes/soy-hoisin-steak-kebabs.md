@@ -82,7 +82,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [balance]
+    replace: "1 lb sirloin steak, cut into 1.5-inch cubes"
+    with: "12 oz sirloin steak, cut into 1.5-inch cubes"
+    note: "a 12-oz steak"
+updated: 2026-07-05
 ---
 
 The source was just a marinade, but it's a good one — soy and hoisin doing the

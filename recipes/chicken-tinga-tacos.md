@@ -110,7 +110,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [lowsugar, balance]
+    replace: "1 tbsp sugar"
+    with: "¼ tsp sugar"
+    note: "just a pinch of sugar"
+updated: 2026-07-05
 ---
 
 Stephen dialed this in over a long thread: sous-vide breasts at 125°F for silk,

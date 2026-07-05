@@ -50,7 +50,12 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [heart, lowsugar]
+    replace: "½–¾ oz simple syrup"
+    with: "¼ oz simple syrup"
+    note: "a quarter-ounce of syrup"
+updated: 2026-07-05
 ---
 
 The cocktail that taught a generation that a martini glass could hold something

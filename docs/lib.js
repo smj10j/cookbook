@@ -262,14 +262,18 @@ export function formatShoppingList({ lines, optional }, format = 'dash') {
 }
 
 // Per-recipe scaled shopping rows (pure; used by the overlay and by tests).
-export function shopSectionsForRecipe(recipe, target) {
+// When a variant is active (the 1C toggle), the list shops for the variant's
+// swapped lines, not the as-written ones.
+export function shopSectionsForRecipe(recipe, target, variant = null) {
   const factor = target / (recipe.serves || target);
-  return (recipe.ingredients || []).map((sec) => ({
+  const sections = variant ? applyVariantToSections(recipe.ingredients, variant) : null;
+  return (recipe.ingredients || []).map((sec, si) => ({
     section: sec.section || null,
-    items: (sec.items || []).map((line) => {
-      const p = parseQty(line);
-      const cat = classify(line);
-      const item = { qty: p.qty, hi: p.hi, rest: p.rest, serves: recipe.serves || target, cat, optional: isOptional(line) };
+    items: (sec.items || []).map((line, ii) => {
+      const text = sections ? sections[si].items[ii].text : line;
+      const p = parseQty(text);
+      const cat = classify(text);
+      const item = { qty: p.qty, hi: p.hi, rest: p.rest, serves: recipe.serves || target, cat, optional: isOptional(text) };
       return { ...item, display: scaleDisplay(item, factor) };
     }),
   }));
@@ -357,8 +361,8 @@ const fmtAmount = (v, decimals) => {
 
 // Turn a recipe's stored nutrition into display rows:
 //   { key, label, indent, amount: "12.3g", pct: 18 | null }
-export function nutritionRows(r) {
-  const per = r?.nutrition?.perServing;
+// Pass `per` to render a variant's numbers instead of the as-written estimate.
+export function nutritionRows(r, per = r?.nutrition?.perServing) {
   if (!per) return [];
   return NUTRIENT_DISPLAY.map((d) => ({
     key: d.key,
@@ -494,20 +498,22 @@ export function evaluatePlan(per, plan, { judgeGoals = true } = {}) {
 // Meal-building goals (fiber, protein) are only a fair demand of a MAIN — a
 // salsa, a dessert or a cocktail isn't the meal's fiber source. And no plan
 // considers alcohol optimal, so boozy drinks cap at "okay".
-export function evaluatePlans(r, plans = EATING_PLANS) {
+// Pass perOverride to judge every plan against a VARIANT's numbers (the 1C
+// toggle) — the ⇄ hints are skipped there, since you're already in the variant.
+export function evaluatePlans(r, plans = EATING_PLANS, perOverride = null) {
   if (!hasNutrition(r)) return [];
   const kind = r.kind || 'food';
   const judgeGoals = kind === 'food' && (r.category || 'main') === 'main';
   const alcoholic = kind === 'drink' && r.base !== 'non-alcoholic';
   return plans.map((p) => {
-    const e = evaluatePlan(r.nutrition.perServing, p, { judgeGoals });
+    const e = evaluatePlan(perOverride || r.nutrition.perServing, p, { judgeGoals });
     if (alcoholic) {
       e.alcohol = true;
       if (e.verdict === 'optimal') e.verdict = 'ok';
     }
     // A documented planSwaps variant (build-computed nutrition) may lift the
     // verdict — surface it only when it genuinely improves the tier.
-    const swappedPer = r.nutrition.withSwaps?.[p.id];
+    const swappedPer = perOverride ? null : r.nutrition.withSwaps?.[p.id];
     if (swappedPer) {
       const s = evaluatePlan(swappedPer, p, { judgeGoals });
       if (alcoholic && s.verdict === 'optimal') s.verdict = 'ok';
@@ -519,6 +525,49 @@ export function evaluatePlans(r, plans = EATING_PLANS) {
     }
     return e;
   });
+}
+
+// ── recipe variants (the 1C toggle) ──────────────────────────────────────────
+// Group a recipe's planSwaps into toggleable variants: plans that share an
+// identical swap set share one variant (their build-computed nutrition is
+// identical). Returns [{ key, plans, swaps, perServing }] — empty when the
+// recipe has no swaps or no usable variant nutrition.
+export function recipeVariants(r, plans = EATING_PLANS) {
+  const swaps = r?.planSwaps || [];
+  if (!swaps.length || !r?.nutrition?.withSwaps) return [];
+  const byKey = new Map();
+  for (const p of plans) {
+    const mine = swaps.map((s, i) => (s.for.includes(p.id) ? i : -1)).filter((i) => i >= 0);
+    const per = r.nutrition.withSwaps[p.id];
+    if (!mine.length || !per) continue;
+    const key = mine.join('.');
+    if (!byKey.has(key)) byKey.set(key, { key, plans: [], swaps: mine.map((i) => swaps[i]), perServing: per });
+    byKey.get(key).plans.push(p);
+  }
+  return [...byKey.values()];
+}
+
+// Ingredient sections with a variant's swaps applied, each item marked so the
+// UI can highlight what changed: { text, swapped, original? }.
+export function applyVariantToSections(sections, variant) {
+  const map = variant ? new Map(variant.swaps.map((s) => [s.replace.trim(), s.with])) : new Map();
+  return (sections || []).map((sec) => ({
+    section: sec.section,
+    items: (sec.items || []).map((t) => {
+      const w = map.get(String(t).trim());
+      return w ? { text: w, swapped: true, original: t } : { text: String(t), swapped: false };
+    }),
+  }));
+}
+
+// Short human label for a variant chip: its plans' icons (details go in title).
+export function variantLabel(v) {
+  return v.plans.map((p) => p.icon).join('');
+}
+export function variantTitle(v) {
+  const who = v.plans.map((p) => p.short).join(' · ');
+  const what = v.swaps.map((s) => s.note || s.with).join('; ');
+  return `${who}-friendly: ${what}`;
 }
 
 // slug -> { planId: verdict } for every recipe — precomputed once at boot so the
@@ -586,13 +635,14 @@ function planRowHtml(e) {
 // in full (no collapse). Built here (pure) so it can be unit-tested; app.js just
 // drops the string in. Includes the eating-plan fit: a flag column on each
 // nutrient row (plans that nutrient runs past) and a per-plan verdict table.
-export function nutritionPanelHtml(r) {
+export function nutritionPanelHtml(r, { variant = null } = {}) {
   if (!hasNutrition(r)) return '';
-  const rows = nutritionRows(r);
+  const rows = nutritionRows(r, variant ? variant.perServing : undefined);
   const n = r.nutrition;
   // Plan verdicts from a thin estimate would mislead (missing ingredients bias
   // every limit toward "fits") — only judge plans on high-confidence numbers.
-  const evals = n.confidence === 'high' ? evaluatePlans(r) : [];
+  // With a variant active, every plan is judged against the variant's numbers.
+  const evals = n.confidence === 'high' ? evaluatePlans(r, EATING_PLANS, variant?.perServing || null) : [];
   const flags = nutrientFlags(evals);
   const kcal = rows.find((x) => x.key === 'kcal');
   const body = rows.map((x) => {
@@ -618,10 +668,12 @@ export function nutritionPanelHtml(r) {
         ${evals.map(planRowHtml).join('')}
         <p class="plans-note">Fit weighs one serving against each plan’s published targets (≈⅓ of the strict daily target to rate <em>great</em>, ≤40% of its cap to rate <em>okay</em>) — a screening aid, not medical advice. Cocktails cap at <em>okay</em>: no plan considers alcohol optimal.</p>
       </div>` : '';
+  const variantBadge = variant
+    ? ` <span class="nutrition-variant" title="${esc(variantTitle(variant))}">⇄ ${variantLabel(variant)} variant</span>` : '';
   return `
     <section class="nutrition">
       <div class="nutrition-summary">
-        <span class="nutrition-label">Nutrition <span class="nutrition-est">(estimated, per serving)</span></span>
+        <span class="nutrition-label">Nutrition <span class="nutrition-est">(estimated, per serving)</span>${variantBadge}</span>
         <span class="nutrition-kcal">${kcal ? esc(kcal.amount) : ''} cal</span>
       </div>
       <div class="nutrition-panel">

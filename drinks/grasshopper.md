@@ -50,7 +50,16 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [dash, mind, mediterranean]
+    replace: "1 oz creme de menthe"
+    with: "½ oz creme de menthe"
+    note: "half-pours of both liqueurs"
+  - for: [dash, mind, mediterranean]
+    replace: "1 oz creme de cacao"
+    with: "½ oz creme de cacao"
+    note: "half-pours of both liqueurs"
+updated: 2026-07-05
 ---
 
 A New Orleans classic from the 1910s — and the original mint-chocolate dessert in a glass.

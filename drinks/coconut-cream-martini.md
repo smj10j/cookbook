@@ -52,7 +52,16 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [dash, mind, mediterranean]
+    replace: "¾ oz Kahlúa"
+    with: "½ oz Kahlúa"
+    note: "a lighter Kahlúa pour"
+  - for: [dash, mind, mediterranean]
+    replace: "½ oz simple syrup (optional)"
+    with: "¼ oz simple syrup (optional)"
+    note: "half the syrup"
+updated: 2026-07-05
 ---
 
 Unapologetic dessert — serve it after dinner in place of pudding and skip the spoons.

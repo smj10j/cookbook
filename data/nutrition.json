@@ -973,8 +973,6 @@
     },
     "aliases": [
       "chicken stock",
-      "low-sodium chicken broth",
-      "low-sodium chicken stock",
       "poaching broth",
       "reserved poaching broth",
       "chicken poaching broth"
@@ -2625,6 +2623,27 @@
     },
     "aliases": [
       "fresh lime juice"
+    ]
+  },
+  "low-sodium chicken broth": {
+    "unit": "cup",
+    "g": 240,
+    "density": 1,
+    "n": {
+      "kcal": 15,
+      "protein": 1.5,
+      "carb": 1,
+      "fat": 0.5,
+      "satfat": 0.1,
+      "fiber": 0,
+      "sugar": 0.5,
+      "sodium": 140
+    },
+    "aliases": [
+      "low sodium chicken broth",
+      "low-sodium chicken stock",
+      "unsalted chicken broth",
+      "unsalted chicken stock"
     ]
   },
   "low-sodium soy sauce": {

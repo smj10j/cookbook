@@ -91,7 +91,16 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [balance]
+    replace: "6 oz fettuccine"
+    with: "4 oz fettuccine"
+    note: "four ounces of pasta"
+  - for: [balance]
+    replace: "2 tbsp olive oil"
+    with: "1 tbsp olive oil"
+    note: "half the oil"
+updated: 2026-07-05
 ---
 
 Stephen worked this one through a couple of rounds — first sorting out a rogue

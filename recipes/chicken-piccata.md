@@ -88,7 +88,16 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [diabetes, balance]
+    replace: "4 oz thin spaghetti"
+    with: "3 oz thin spaghetti"
+    note: "a lighter tangle of pasta"
+  - for: [balance]
+    replace: "3 tbsp cold butter, cubed"
+    with: "2 tbsp cold butter, cubed"
+    note: "two tablespoons of butter"
+updated: 2026-07-05
 ---
 
 The piccata Stephen has refined across a few rounds: a wine-and-lemon pan sauce

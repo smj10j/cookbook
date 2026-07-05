@@ -55,7 +55,20 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [dash, mind, mediterranean]
+    replace: "4 oz pineapple juice"
+    with: "2½ oz pineapple juice"
+    note: "less pineapple juice"
+  - for: [dash, mind, mediterranean]
+    replace: "⅓ oz grenadine"
+    with: "¼ oz grenadine"
+    note: "a bar spoon of grenadine"
+  - for: [dash, mind, mediterranean]
+    replace: "½ oz cherry brandy (cherry liqueur, such as Cherry Heering)"
+    with: "¼ oz cherry brandy (cherry liqueur, such as Cherry Heering)"
+    note: "less cherry liqueur"
+updated: 2026-07-05
 ---
 
 A century-old crowd-pleaser that still earns its place — equal parts cocktail and tropical

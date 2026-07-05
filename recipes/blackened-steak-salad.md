@@ -94,7 +94,20 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [lowsugar]
+    replace: "1 tsp honey"
+    with: "½ tsp honey"
+    note: "half the honey in the dressing"
+  - for: [balance]
+    replace: "1 lb sirloin steak (or tenderloin)"
+    with: "12 oz sirloin steak (or tenderloin)"
+    note: "a 12-oz steak"
+  - for: [balance]
+    replace: "¼ cup extra-virgin olive oil"
+    with: "2 tbsp extra-virgin olive oil"
+    note: "a leaner dressing"
+updated: 2026-07-05
 ---
 
 A house favorite that Stephen has dialed in over several rounds: the brown sugar in

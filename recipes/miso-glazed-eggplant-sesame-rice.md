@@ -65,6 +65,11 @@ source:
   name: Original — developed for Tonight's Menu
   url: null
 created: 2026-07-05
+planSwaps:
+  - for: [lowcarb]
+    replace: "½ cup short-grain rice"
+    with: "¼ cup short-grain rice"
+    note: "eggplant-forward, rice as a garnish"
 updated: 2026-07-05
 ---
 

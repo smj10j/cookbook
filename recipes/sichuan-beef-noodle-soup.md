@@ -61,7 +61,7 @@ ingredients:
       - 2–3 tsp sugar (or 1½ tsp rock sugar)
   - section: Liquid
     items:
-      - 6 cups vegetable broth (low-sodium)
+      - 6 cups low-sodium vegetable broth
       - 2 cups water (enough to fill the pot about ⅔ full)
   - section: To serve (per bowl)
     items:
@@ -110,7 +110,16 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart, balance]
+    replace: "3 lb beef (ideally 1.5 lb short ribs plus 1.5 lb beef shank, or 3 lb chuck)"
+    with: "2 lb beef (1 lb short ribs plus 1 lb beef shank)"
+    note: "2 lb of beef"
+  - for: [diabetes, balance]
+    replace: "24 oz dried wheat noodles (or 2 lb fresh)"
+    with: "16 oz dried wheat noodles"
+    note: "2 oz noodles per bowl"
+updated: 2026-07-05
 ---
 
 A killer Sichuan bowl Stephen and Lauren have chased for years, scaled up to eight

@@ -351,6 +351,49 @@ test('plan filters AND together across two selected plans', async () => {
   assert.equal($$('.card').length, expected, 'both plans must fit (AND, not OR)');
 });
 
+test('the 1C variant toggle swaps ingredients, nutrition, and verdicts in place', async () => {
+  const { $, $$ } = await boot('https://example.com/#/broiled-fish-citrus-herbs');
+  const toggle = $('#spread .variant-toggle');
+  assert.ok(toggle, 'a variant toggle renders for a recipe with planSwaps');
+  const chips = $$('#spread .vchip');
+  assert.equal(chips[0].textContent.trim(), 'As written');
+  assert.ok(chips.length >= 2, 'at least one variant chip');
+  assert.equal(chips[0].getAttribute('aria-pressed'), 'true', 'as-written is the default');
+  const kcalBefore = $('#spread .nutrition-kcal').textContent;
+
+  chips[1].click();
+  const swapped = $$('#spread .ing-list li.is-swapped');
+  assert.ok(swapped.length >= 1, 'the swapped ingredient line is highlighted');
+  assert.match(swapped[0].textContent, /¾ cup orange juice/);
+  assert.match(swapped[0].title, /as written/, 'tooltip keeps the original line');
+  assert.notEqual($('#spread .nutrition-kcal').textContent, kcalBefore, 'nutrition switches to the variant');
+  assert.ok($('#spread .nutrition-variant'), 'the panel is badged as a variant view');
+  assert.ok(!$('#spread .plan-swap'), 'no ⇄ hints inside the variant view');
+  const heartRow = $$('#spread .plan-row').find((row) => /AHA Heart/.test(row.textContent));
+  assert.match(heartRow.querySelector('.plan-fit').textContent, /Okay/, 'the verdict chip reflects the variant');
+
+  // The choice persists across leaving and reopening the recipe.
+  $('#reader-close').click();
+  $$('.card').find((c) => c.dataset.slug === 'broiled-fish-citrus-herbs').click();
+  assert.equal($$('#spread .vchip')[1].getAttribute('aria-pressed'), 'true', 'variant persisted');
+
+  $$('#spread .vchip')[0].click();                   // back to as-written
+  assert.equal($$('#spread .ing-list li.is-swapped').length, 0);
+  assert.ok(!$('#spread .nutrition-variant'));
+});
+
+test('the shopping list shops for the active variant', async () => {
+  const { $, $$ } = await boot('https://example.com/#/broiled-fish-citrus-herbs');
+  $$('#spread .vchip')[1].click();                   // apply the variant
+  $('#spread .spread-select').click();               // add to the list
+  $('#reader-close').click();
+  $('#shopbar').click();
+  assert.ok($('#shoplist .shop-variant'), 'the overlay marks the variant');
+  const rows = $$('#shoplist .shop-qty').map((e) => e.textContent);
+  assert.ok(rows.some((t) => /¾ cup orange juice/.test(t)), 'the swapped line is what gets shopped');
+  assert.ok(!rows.some((t) => /1½ cups orange juice/.test(t)), 'the as-written line is replaced');
+});
+
 test('a plan-unfriendly recipe shows red-ringed icons in the nutrition flag column', async () => {
   // Find a shipped recipe that genuinely blows some plan's per-meal cap.
   const salty = recipes.recipes.find((r) =>

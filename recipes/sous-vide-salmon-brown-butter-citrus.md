@@ -95,7 +95,16 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [diabetes, balance]
+    replace: "1 cup couscous"
+    with: "½ cup couscous"
+    note: "half the couscous"
+  - for: [balance]
+    replace: "4 tbsp unsalted butter"
+    with: "2 tbsp unsalted butter"
+    note: "half the brown butter"
+updated: 2026-07-05
 ---
 
 The elegant entry in the salmon rotation: sous-vide for an unbroken, custardy

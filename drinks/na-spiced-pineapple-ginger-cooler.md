@@ -57,7 +57,16 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [dash, mind, mediterranean]
+    replace: "½ oz honey syrup"
+    with: "¼ oz honey syrup"
+    note: "half the honey syrup"
+  - for: [dash, mind, mediterranean]
+    replace: "½ oz ginger syrup"
+    with: "¼ oz ginger syrup"
+    note: "half the ginger syrup"
+updated: 2026-07-05
 ---
 
 Proof that "no proof" doesn't mean no flavor — chili, ginger, lime, and pineapple carry the

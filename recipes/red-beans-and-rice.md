@@ -91,7 +91,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [balance]
+    replace: "½ lb dried red kidney beans, soaked overnight (or quick-soaked)"
+    with: "6 oz dried red kidney beans, soaked overnight"
+    note: "a smaller bean pot"
+updated: 2026-07-05
 ---
 
 Stephen's red beans skip the andouille and turkey entirely and lean on smoked
