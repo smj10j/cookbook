@@ -1956,6 +1956,7 @@
       "category": "main",
       "headnote": "One tablespoon of low-sodium soy is the entire salt budget, and it shows up in\nthe plan table — this one lands friendly across nearly every column, including\nlow-carb.",
       "equipment": [],
+      "hero": "images/chicken-ginger-lettuce-wraps.webp",
       "nutrition": {
         "perServing": {
           "kcal": 291,
@@ -4706,6 +4707,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "Lauren's skewer night — with the fish swap built in so Stephen eats the same\ndinner. Six ounces of shrimp between two plates is exactly what the kidney\ncolumn wants to see.",
+      "hero": "images/grilled-shrimp-squash-skewers.webp",
       "nutrition": {
         "perServing": {
           "kcal": 179,
@@ -4813,6 +4815,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "Lean fish in four-ounce portions, fruit doing the seasoning — this is the\ntemplate for eating toward the heart and kidney columns without giving up the\ngrill.",
+      "hero": "images/grilled-snapper-pineapple-jalapeno-salsa.webp",
       "nutrition": {
         "perServing": {
           "kcal": 213,
@@ -5199,6 +5202,7 @@
       "category": "main",
       "headnote": "One egg per plate keeps this gentle on the kidney plan's protein math while the\nyolk still does rich-sauce duty.",
       "equipment": [],
+      "hero": "images/herbed-pilaf-green-beans-jammy-egg.webp",
       "nutrition": {
         "perServing": {
           "kcal": 399,
@@ -5548,6 +5552,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "The marinade and sauce share a single tablespoon of fish sauce between them —\nbright over salty on purpose, which is what keeps these bowls in the heart and\nkidney columns.",
+      "hero": "images/lemongrass-chicken-noodle-bowls.webp",
       "nutrition": {
         "perServing": {
           "kcal": 417,
@@ -6259,6 +6264,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "Built for nights when the answer is vegetables that eat like a main. The miso is\nmeasured, not poured, so the glaze reads deep rather than salty — this one keeps\nsodium honest without tasting like it.",
+      "hero": "images/miso-glazed-eggplant-sesame-rice.webp",
       "nutrition": {
         "perServing": {
           "kcal": 365,
@@ -6508,6 +6514,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "The apricots carry the seasoning here, which keeps the salt at a quarter\nteaspoon for the whole pot — a tagine that fits the health plans without\napologizing for it.",
+      "hero": "images/moroccan-vegetable-tagine-apricots.webp",
       "nutrition": {
         "perServing": {
           "kcal": 394,
@@ -7222,6 +7229,7 @@
       "category": "main",
       "headnote": "A vegetable main that leans on char and citrus instead of the salt shaker — the\nlime zest does what a second pinch of salt usually would.",
       "equipment": [],
+      "hero": "images/stuffed-poblanos-cilantro-lime-rice.webp",
       "nutrition": {
         "perServing": {
           "kcal": 346,
@@ -7771,6 +7779,7 @@
       "category": "main",
       "headnote": "Four-ounce portions and leeks-as-sauce keep this inside the kidney plan's\nprotein lane and the heart plan's fat lane at the same time — by design, not\nby accident.",
       "equipment": [],
+      "hero": "images/slow-roasted-cod-melted-leeks.webp",
       "nutrition": {
         "perServing": {
           "kcal": 275,
@@ -8055,6 +8064,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "A sous-vide showcase that also happens to be the gentlest dinner in the book —\nlean fish, one measured pinch of salt, and oil where the butter would be.",
+      "hero": "images/sous-vide-halibut-cucumber-herb-salad.webp",
       "nutrition": {
         "perServing": {
           "kcal": 248,
