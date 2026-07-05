@@ -596,6 +596,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "Stephen's home version of the Fresa's plate he and Lauren order on South First: a\nwhole bird stained deep red with achiote and fresh citrus, grilled over wood, and\nserved the family-style way — with beans, tomato-stained rice, blistered onions and\njalapeños, warm tortillas, and that creamy green salsa. One chicken feeds both the\nwhite-meat and the dark-meat camp.",
+      "hero": "images/achiote-citrus-wood-fired-chicken.webp",
       "nutrition": {
         "perServing": {
           "kcal": 1244,
@@ -922,7 +923,18 @@
         "url": "https://www.wholefoodsmarket.com/recipes/how-cook-broiled-fish-citrus-and-herbs"
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "1½ cups orange juice",
+          "with": "¾ cup orange juice",
+          "note": "half the orange juice, reduced harder"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A no-fuss broiled fillet that earns its keep with a reduced orange-tarragon sauce.\nSimmer the juice down until it's glossy, broil the fish fast, and dinner's on the\ntable in 25 minutes.",
@@ -941,7 +953,29 @@
         },
         "confidence": "high",
         "matched": 8,
-        "considered": 8
+        "considered": 8,
+        "withSwaps": {
+          "heart": {
+            "kcal": 202,
+            "protein": 22.7,
+            "carb": 14.4,
+            "fat": 6.1,
+            "satfat": 1,
+            "fiber": 1.3,
+            "sugar": 9.4,
+            "sodium": 683
+          },
+          "lowsugar": {
+            "kcal": 202,
+            "protein": 22.7,
+            "carb": 14.4,
+            "fat": 6.1,
+            "satfat": 1,
+            "fiber": 1.3,
+            "sugar": 9.4,
+            "sodium": 683
+          }
+        }
       }
     },
     {
@@ -1021,7 +1055,17 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 sea bass fillets (about 5 oz each), skin on",
+          "with": "8 oz sea bass fillets, skin on",
+          "note": "two 4-oz fillets instead of 5-oz"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Liza Schoenfein's quick broiler method, scaled for two: preheat the pan blazing hot,\nbroil the fish six minutes, and finish with a raw sauce of lemon, oregano, capers, and\nKalamata. Bright, briny, and on the table in 25 minutes.",
@@ -1039,7 +1083,19 @@
         },
         "confidence": "high",
         "matched": 8,
-        "considered": 8
+        "considered": 8,
+        "withSwaps": {
+          "kidney": {
+            "kcal": 196,
+            "protein": 21.4,
+            "carb": 4.1,
+            "fat": 11,
+            "satfat": 1.5,
+            "fiber": 1.5,
+            "sugar": 0.8,
+            "sodium": 757
+          }
+        }
       }
     },
     {
@@ -3923,7 +3979,17 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "½ tsp kosher salt",
+          "with": "¼ tsp kosher salt",
+          "note": "half the marinade salt"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The taco that conquered Southern California, in its lighter grilled form. Hot charred fish\nagainst cold crunchy slaw is the entire point — and the crispy variation is one tip away.",
@@ -3941,7 +4007,19 @@
         },
         "confidence": "high",
         "matched": 17,
-        "considered": 17
+        "considered": 17,
+        "withSwaps": {
+          "diabetes": {
+            "kcal": 965,
+            "protein": 63.9,
+            "carb": 53.3,
+            "fat": 58,
+            "satfat": 13.9,
+            "fiber": 12.4,
+            "sugar": 5.3,
+            "sodium": 738
+          }
+        }
       }
     },
     {

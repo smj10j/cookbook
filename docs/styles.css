@@ -543,6 +543,7 @@ body.has-cart .reader-share { right: 114px; }   /* make room for the cart betwee
 .plan-focus { display: block; font-size: 11px; font-weight: 400; color: var(--stone); }
 .plan-why { display: block; font-size: 11px; font-weight: 400; color: #8a5a2b; font-variant-numeric: tabular-nums; }
 .plan-row.is-avoid .plan-why { color: #a13a30; }
+.plan-swap { display: block; font-size: 11px; font-weight: 600; color: var(--olive); font-variant-numeric: tabular-nums; }
 .plan-fit {
   justify-self: end; white-space: nowrap; font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
   padding: 2.5px 9px; border-radius: 999px; border: 1px solid;
@@ -551,6 +552,12 @@ body.has-cart .reader-share { right: 114px; }   /* make room for the cart betwee
 .plan-fit.is-ok { color: #8a6a1f; border-color: rgba(138, 106, 31, 0.45); background: rgba(138, 106, 31, 0.08); }
 .plan-fit.is-avoid { color: #b3261e; border-color: rgba(179, 38, 30, 0.4); background: rgba(179, 38, 30, 0.07); }
 .plans-note { margin: 10px 0 0; font-size: 11px; line-height: 1.5; color: var(--stone); }
+
+/* "Good for" plan filter chips: second tap = great-only ("strict") mode */
+.chip.is-strict::after { content: " ✓"; font-weight: 800; }
+/* Contextual per-card verdict badge, shown only while a plan filter is active */
+.tag-plan { font-variant-numeric: tabular-nums; color: #8a6a1f; }
+.tag-plan.is-great { color: var(--olive); }
 
 /* ░░ CARD SELECTION (shopping list) ░░ */
 /* container-type lets the ✓ button anchor to the bottom of the 4:3 hero via cqw units. */

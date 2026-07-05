@@ -6,8 +6,10 @@ import {
   esc, inlineMd, cap, fmtMin, VEG,
   scaleDisplay, classify, clampServes,
   buildShoppingList, formatShoppingList, recipeMatches, cuisineChipValues, shopSectionsForRecipe,
-  hashForKind, parseHash, nutritionPanelHtml,
+  hashForKind, parseHash, nutritionPanelHtml, EATING_PLANS, buildPlanVerdicts,
 } from './lib.js';
+
+const PLAN_BY_ID = Object.fromEntries(EATING_PLANS.map((p) => [p.id, p]));
 
 const state = {
   all: [],
@@ -19,7 +21,9 @@ const state = {
     category: new Set(), protein: new Set(), course: new Set(), methods: new Set(),
     heat: new Set(), cuisine: new Set(), time: new Set(),
     base: new Set(), family: new Set(), strength: new Set(), tags: new Set(),  // drink facets
+    plan: new Map(),         // eating plans: id -> 'ok' | 'great' (3-tap cycle)
   },
+  planVerdicts: new Map(),   // slug -> { planId: verdict }, precomputed at boot
   reader: { list: [], index: -1 },
   selected: new Set(),     // slugs picked for the shopping list (persisted)
   shop: { items: [] },     // current overlay item rows
@@ -66,6 +70,7 @@ export async function init() {
     return;
   }
   state.all = state.data.recipes;
+  state.planVerdicts = buildPlanVerdicts(state.all);
   loadSelected();
   // drop any persisted slugs that no longer exist
   const valid = new Set(state.all.map((r) => r.slug));
@@ -125,6 +130,9 @@ function buildFilters() {
     return vocab.filter((v) => found.has(v));
   };
   const flavorsPresent = new Set(kindRecipes.flatMap((r) => r.tags || []));
+  // "Good for" (eating plans) applies to both kinds. Tap cycle per chip:
+  // off -> great+okay -> great-only (✓) -> off. Selections AND together.
+  const planGroup = { key: 'plan', label: 'Good for', values: EATING_PLANS.map((p) => p.id), labelFor: (id) => `${PLAN_BY_ID[id].icon} ${PLAN_BY_ID[id].short}` };
   const groups = state.kind === 'drink'
     ? [
         { key: 'base', label: 'Base', values: present(data.vocab.base, (r) => r.base), labelFor: (v) => data.meta.base[v]?.label || cap(v) },
@@ -132,6 +140,7 @@ function buildFilters() {
         { key: 'strength', label: 'Strength', values: present(data.vocab.strength, (r) => r.strength), labelFor: (v) => data.meta.strength[v]?.label || cap(v) },
         { key: 'tags', label: 'Flavor', values: DRINK_FLAVORS.filter((f) => flavorsPresent.has(f)), labelFor: cap },
         { key: 'heat', label: 'Heat', values: present(data.vocab.heat, (r) => r.heat).filter((h) => h !== 'none'), labelFor: cap },
+        planGroup,
       ]
     : [
         { key: 'category', label: 'Course', values: present(data.vocab.category, (r) => r.category), labelFor: cap },
@@ -141,6 +150,7 @@ function buildFilters() {
         { key: 'time', label: 'Time', values: data.timeBuckets.map((b) => b.key), labelFor: (k) => data.timeBuckets.find((b) => b.key === k).label },
         { key: 'heat', label: 'Heat', values: present(data.vocab.heat, (r) => r.heat).filter((h) => h !== 'none'), labelFor: cap },
         { key: 'cuisine', label: 'Cuisine', values: cuisineChipValues(kindRecipes, data.cuisineGroups || {}), labelFor: (v) => v },
+        planGroup,
       ];
   $('#filter-groups').innerHTML = groups
     .filter((g) => g.values.length > 1 || g.key === 'time')
@@ -166,6 +176,18 @@ function bindEvents() {
     const btn = e.target.closest('.chip');
     if (!btn) return;
     const { key, val } = btn.dataset;
+    if (key === 'plan') {
+      // 3-tap cycle: off -> 'ok' (great + okay) -> 'great' (great only) -> off.
+      const m = state.filters.plan;
+      const cur = m.get(val);
+      if (!cur) m.set(val, 'ok'); else if (cur === 'ok') m.set(val, 'great'); else m.delete(val);
+      btn.setAttribute('aria-pressed', String(m.has(val)));
+      btn.classList.toggle('is-strict', m.get(val) === 'great');
+      btn.title = m.get(val) === 'great' ? 'Great fits only — tap again to clear'
+        : m.has(val) ? 'Great + okay fits — tap again for great fits only' : '';
+      apply();
+      return;
+    }
     const set = state.filters[key];
     if (set.has(val)) set.delete(val); else set.add(val);
     btn.setAttribute('aria-pressed', set.has(val));
@@ -221,11 +243,15 @@ function clearFilters() {
   $('#search').value = '';
   Object.values(state.filters).forEach((s) => s.clear());
   document.querySelectorAll('.chip[aria-pressed="true"]').forEach((c) => c.setAttribute('aria-pressed', 'false'));
+  document.querySelectorAll('.chip.is-strict').forEach((c) => c.classList.remove('is-strict'));
   apply();
 }
 
 function apply() {
-  const ctx = { q: state.q, filters: state.filters, cuisineGroups: state.data.cuisineGroups || {}, timeBuckets: state.data.timeBuckets || [] };
+  const ctx = {
+    q: state.q, filters: state.filters, cuisineGroups: state.data.cuisineGroups || {},
+    timeBuckets: state.data.timeBuckets || [], planVerdicts: state.planVerdicts,
+  };
   state.filtered = state.all.filter((r) => (r.kind || 'food') === state.kind && recipeMatches(r, ctx));
   renderMenu();
 }
@@ -243,6 +269,19 @@ function renderMenu() {
 }
 
 // Card eyebrow tags — protein/method/heat for food; base/style/heat for a drink.
+// When a "Good for" plan filter is active, each card also shows that plan's
+// verdict (✓ great / ~ okay) — contextual only, so cards stay clean otherwise.
+function planBadges(r) {
+  if (!state.filters.plan.size) return [];
+  return [...state.filters.plan.keys()].map((id) => {
+    const p = PLAN_BY_ID[id];
+    const v = state.planVerdicts.get(r.slug)?.[id];
+    if (!p || !v || v === 'avoid') return '';
+    const great = v === 'optimal';
+    return `<span class="tag tag-plan${great ? ' is-great' : ''}" title="${esc(`${p.name}: ${great ? 'great fit' : 'okay in moderation'}`)}">${p.icon}${great ? '✓' : '~'}</span>`;
+  });
+}
+
 function cardTags(r) {
   const M = state.data.meta;
   if (r.kind === 'drink') {
@@ -250,12 +289,14 @@ function cardTags(r) {
       `<span class="tag tag-protein">${esc(M.base[r.base]?.label || r.base)}</span>`,
       `<span class="tag">${esc(M.family[r.family]?.label || r.family)}</span>`,
       r.heat !== 'none' ? `<span class="tag tag-hot">${esc(cap(r.heat))} heat</span>` : '',
+      ...planBadges(r),
     ].filter(Boolean).join('');
   }
   return [
     `<span class="tag tag-protein">${esc(M.protein[r.protein]?.label || r.protein)}</span>`,
     ...(r.methods || []).slice(0, 2).map((m) => `<span class="tag">${esc(M.method[m]?.label || m)}</span>`),
     r.heat !== 'none' ? `<span class="tag tag-hot">${esc(cap(r.heat))} heat</span>` : '',
+    ...planBadges(r),
   ].filter(Boolean).join('');
 }
 

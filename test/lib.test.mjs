@@ -9,11 +9,12 @@ import {
   clampServes, bucketMatch, recipeMatches, cuisineChipValues, shopSectionsForRecipe, inlineMd, esc,
   parseHash, hashForKind,
   pctOfDV, nutritionRows, hasNutrition, nutritionPanelHtml, NUTRIENT_DISPLAY,
-  EATING_PLANS, planTier, evaluatePlan, evaluatePlans, planReasons, nutrientFlags,
+  EATING_PLANS, planTier, evaluatePlan, evaluatePlans, planReasons, nutrientFlags, buildPlanVerdicts,
 } from '../docs/lib.js';
 import {
   parseLine, normalizeName, buildIndex, matchName, toBaseUnits, lineNutrition, recipeNutrition, NUTRIENT_KEYS,
 } from '../scripts/lib/nutrition.mjs';
+import { validateRecipe, applyPlanSwaps } from '../scripts/lib/schema.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const data = JSON.parse(readFileSync(join(root, 'docs/recipes.json'), 'utf8'));
@@ -349,7 +350,7 @@ test('EATING_PLANS data sanity: 10 plans, unique ids/icons, real links, valid ru
   assert.equal(new Set(EATING_PLANS.map((p) => p.id)).size, EATING_PLANS.length, 'ids unique');
   assert.equal(new Set(EATING_PLANS.map((p) => p.icon)).size, EATING_PLANS.length, 'icons unique');
   for (const p of EATING_PLANS) {
-    assert.ok(p.name && p.focus && p.caveat, `${p.id} carries name/focus/caveat`);
+    assert.ok(p.name && p.focus && p.caveat && p.short, `${p.id} carries name/short/focus/caveat`);
     assert.match(p.url, /^https:\/\//, `${p.id} links to more information`);
     assert.ok(p.limits.length >= 1, `${p.id} has at least one limit`);
     for (const l of p.limits) {
@@ -421,6 +422,73 @@ test('nutrientFlags groups breached limits by nutrient with tier + reason', () =
   assert.ok(flags.satfat.every((f) => f.tier === 'ok'), '6g sat fat is ok-tier everywhere');
   assert.equal(flags.kcal, undefined, '500 kcal offends no plan — no icon at all');
   assert.match(flags.sodium[0].reason, /per-meal cap/);
+});
+
+// ── PLAN SWAPS (1B: structured swaps that flip a verdict) ────────────────────
+const minimalFood = (over = {}) => ({
+  title: 'T', slug: 't', tagline: 'x', pitch: 'x', serves: 2,
+  times: { prep: 1, cook: 1, total: 2 }, difficulty: 'easy', heat: 'none',
+  protein: 'fish', methods: ['stove'], cuisine: 'American', course: 'main',
+  ingredients: [{ section: null, items: ['1 tbsp soy sauce', '1 lemon'] }],
+  steps: [{ section: null, items: ['cook'] }],
+  ...over,
+});
+
+test('planSwaps validation: unknown plan, missing line, and bad shape are build errors', () => {
+  assert.deepEqual(validateRecipe(minimalFood(), 'f'), []);
+  const good = minimalFood({ planSwaps: [{ for: ['kidney'], replace: '1 tbsp soy sauce', with: '1 tbsp low-sodium soy sauce' }] });
+  assert.deepEqual(validateRecipe(good, 'f'), []);
+  const badPlan = minimalFood({ planSwaps: [{ for: ['atkins'], replace: '1 tbsp soy sauce', with: 'x' }] });
+  assert.ok(validateRecipe(badPlan, 'f').some((e) => /unknown plan "atkins"/.test(e)));
+  const badLine = minimalFood({ planSwaps: [{ for: ['dash'], replace: '2 tbsp soy sauce', with: 'x' }] });
+  assert.ok(validateRecipe(badLine, 'f').some((e) => /not found among ingredients/.test(e)), 'replace must match a real line');
+  const badShape = minimalFood({ planSwaps: [{ replace: '1 tbsp soy sauce', with: 'y' }] });
+  assert.ok(validateRecipe(badShape, 'f').some((e) => /non-empty "for"/.test(e)));
+});
+
+test('applyPlanSwaps substitutes exactly the named lines, without mutating input', () => {
+  const secs = [{ section: 'A', items: ['1 tbsp soy sauce', '1 lemon'] }];
+  const out = applyPlanSwaps(secs, [{ for: ['dash'], replace: '1 tbsp soy sauce', with: '1 tbsp low-sodium soy sauce' }]);
+  assert.deepEqual(out[0].items, ['1 tbsp low-sodium soy sauce', '1 lemon']);
+  assert.equal(secs[0].items[0], '1 tbsp soy sauce', 'input untouched');
+});
+
+test('a planSwaps variant lifts the verdict and renders in the fit table', () => {
+  const per = { kcal: 500, protein: 25, carb: 40, fat: 22, satfat: 4, fiber: 7, sugar: 7, sodium: 1150 };
+  const r = sampleRecipe({
+    planSwaps: [{ for: ['dash'], replace: '3 tbsp soy sauce', with: '3 tbsp low-sodium soy sauce', note: 'low-sodium soy sauce' }],
+    nutrition: { confidence: 'high', matched: 8, considered: 8, perServing: per,
+      withSwaps: { dash: { ...per, sodium: 600 } } },
+  });
+  const dash = evaluatePlans(r).find((e) => e.plan.id === 'dash');
+  assert.equal(dash.verdict, 'avoid', 'as written, sodium blows the cap');
+  assert.equal(dash.swapped.verdict, 'ok', 'the swap brings it under');
+  assert.match(dash.swapText, /low-sodium soy sauce/);
+  const html = nutritionPanelHtml(r);
+  assert.match(html, /plan-swap/);
+  assert.match(html, /with low-sodium soy sauce/);
+  // A swap that does not improve the tier is not surfaced.
+  const noGain = sampleRecipe({ nutrition: { confidence: 'high', matched: 8, considered: 8, perServing: per, withSwaps: { dash: per } } });
+  assert.equal(evaluatePlans(noGain).find((e) => e.plan.id === 'dash').swapped, undefined);
+});
+
+// ── GOOD-FOR FILTER (plan facet: AND semantics, ok/great modes) ─────────────
+test('recipeMatches plan facet: AND across plans, great-only mode, needs verdicts', () => {
+  const mk = (slug, per) => sampleRecipe({ slug, nutrition: { confidence: 'high', matched: 8, considered: 8, perServing: per } });
+  const great = mk('fit-great', { kcal: 450, protein: 12, carb: 30, fat: 10, satfat: 2, fiber: 7, sugar: 5, sodium: 300 });
+  const okay = mk('fit-okay', { kcal: 450, protein: 20, carb: 30, fat: 10, satfat: 2, fiber: 7, sugar: 5, sodium: 300 });
+  const poor = mk('fit-poor', { kcal: 450, protein: 40, carb: 30, fat: 10, satfat: 2, fiber: 7, sugar: 5, sodium: 300 });
+  const verdicts = buildPlanVerdicts([great, okay, poor]);
+  const match = (r, plan) => recipeMatches(r, { q: '', filters: { plan }, planVerdicts: verdicts });
+  const both = new Map([['kidney', 'ok'], ['heart', 'ok']]);
+  assert.equal(match(great, both), true, '12g protein + 300mg sodium fits kidney AND heart');
+  assert.equal(match(okay, both), true, '20g protein is kidney-okay');
+  assert.equal(match(poor, both), false, '40g protein blows the kidney cap');
+  const strict = new Map([['kidney', 'great'], ['heart', 'ok']]);
+  assert.equal(match(great, strict), true);
+  assert.equal(match(okay, strict), false, 'great-only mode drops merely-okay fits');
+  assert.equal(recipeMatches(great, { q: '', filters: { plan: both } }), false, 'no verdicts context → no false positives');
+  assert.equal(match(great, new Map()), true, 'empty plan filter matches everything');
 });
 
 test('nutritionPanelHtml renders the flag column and the eating-plan fit table', () => {

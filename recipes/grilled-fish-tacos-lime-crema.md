@@ -83,7 +83,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [diabetes]
+    replace: ½ tsp kosher salt
+    with: ¼ tsp kosher salt
+    note: half the marinade salt
+updated: 2026-07-05
 ---
 
 The taco that conquered Southern California, in its lighter grilled form. Hot charred fish

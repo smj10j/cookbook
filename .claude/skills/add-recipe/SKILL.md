@@ -162,9 +162,14 @@ Calorie-Smart) plus per-nutrient plan flags — computed from the same per-servi
    tsp), a brine or marinade counted as fully consumed, or a "serves" mismatch. Fix the
    data, not the verdict.
 3. **Mention notable fits/misfits in your summary to Stephen** — e.g. "DASH/heart-friendly
-   as written" or "blows every sodium cap; a low-sodium soy swap in the tips fixes most of
-   it". When one swap would genuinely flip a verdict (halve the salt, swap the butter),
-   offer it as a chef's tip — don't compromise the dish to chase a green row.
+   as written" or "blows every sodium cap; the low-sodium soy swap fixes most of it".
+4. **When ONE swap genuinely flips a verdict** (halve the salt, smaller fillets, less
+   honey), encode it as a **`planSwaps`** entry instead of a prose tip — the fit table
+   then shows "✗ ⇄ ~ with the swap". Follow `CLAUDE.md` → *planSwaps* exactly: `replace`
+   must match an ingredient line verbatim, `with` must carry a parseable quantity (the
+   parser ignores parenthetical sizes), and you must confirm the ⇄ line appears in
+   `npm run plans -- <slug>` after rebuilding. Check `npm run plans -- --near-miss` for
+   candidates. Never compromise the dish as written to chase a green row.
 
 ## 4. Photo (standard step — every card gets one)
 
