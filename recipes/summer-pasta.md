@@ -87,7 +87,24 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, kidney, balance]
+    replace: "¾–1 cup mozzarella pearls (or 1 ball fresh mozzarella, torn)"
+    with: "½ cup mozzarella pearls"
+    note: "half the mozzarella"
+  - for: [dash, mind, mediterranean, tlc, balance]
+    replace: "6–7 tbsp olive oil, divided"
+    with: "4 tbsp olive oil, divided"
+    note: "four tablespoons of oil"
+  - for: [dash, mind, mediterranean]
+    replace: "½ cup balsamic vinegar"
+    with: "¼ cup balsamic vinegar"
+    note: "half the balsamic"
+  - for: [kidney, balance]
+    replace: "8 oz spaghetti (or linguine or bucatini)"
+    with: "6 oz spaghetti"
+    note: "six ounces of pasta"
+updated: 2026-07-05
 ---
 
 Stephen circled through a lot of summer pasta pitches — scallops, peaches,

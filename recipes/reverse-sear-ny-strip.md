@@ -92,7 +92,20 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [balance]
+    replace: "2 tbsp unsalted butter"
+    with: "1 tbsp unsalted butter"
+    note: "half the basting butter"
+  - for: [balance]
+    replace: "2 New York strip steaks (about 1.5 inches thick)"
+    with: "14 oz New York strip steaks (two 7-oz)"
+    note: "7-oz steaks"
+  - for: [balance]
+    replace: "2 tbsp olive oil"
+    with: "1 tbsp olive oil"
+    note: "half the oil"
+updated: 2026-07-05
 ---
 
 Stephen has run this technique enough times to trust it cold: the gentle oven does

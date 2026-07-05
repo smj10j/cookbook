@@ -15,16 +15,17 @@ const GLYPH = { optimal: '✓ great', ok: '~ okay ', avoid: '✗ poor ' };
 
 const slug = process.argv[2];
 if (slug === '--near-miss') {
-  // Authoring aid for planSwaps: verdicts that ONE swap could plausibly flip —
-  // a single blown limit within 35% of its cap. See CLAUDE.md → planSwaps.
-  console.log('\nNear-miss ✗ verdicts (one limit blown, within 35% of the cap):\n');
+  // Authoring aid for planSwaps: ✗ verdicts that swaps could plausibly flip —
+  // EVERY blown limit within 50% of its cap (one swap per blown limit is fair
+  // game; the schema takes several entries per plan). See CLAUDE.md → planSwaps.
+  console.log('\nNear-miss ✗ verdicts (every blown limit within 50% of its cap):\n');
   for (const r of data.recipes) {
     const hits = [];
     for (const e of evaluatePlans(r)) {
       if (e.verdict !== 'avoid' || e.swapped) continue;
       const blown = e.limits.filter((l) => l.tier === 'avoid');
-      if (blown.length === 1 && blown[0].value <= blown[0].ok * 1.35) {
-        hits.push(`${e.plan.icon} ${e.plan.id}: ${blown[0].key} ${Math.round(blown[0].value)} (cap ${blown[0].ok})`);
+      if (blown.every((l) => l.value <= l.ok * 1.5)) {
+        hits.push(`${e.plan.icon} ${e.plan.id}: ${blown.map((l) => `${l.key} ${Math.round(l.value)} (cap ${l.ok})`).join(' + ')}`);
       }
     }
     if (hits.length) console.log(`  ${r.slug}\n    ${hits.join('\n    ')}`);

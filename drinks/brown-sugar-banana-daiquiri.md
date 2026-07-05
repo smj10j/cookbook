@@ -52,7 +52,12 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [heart, lowsugar]
+    replace: "½ oz brown sugar syrup (1:1 brown sugar and water)"
+    with: "¼ oz brown sugar syrup (1:1 brown sugar and water)"
+    note: "half the syrup"
+updated: 2026-07-05
 ---
 
 A daiquiri that tastes like dessert without ever touching a blender — all the warmth of

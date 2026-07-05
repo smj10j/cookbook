@@ -84,7 +84,24 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart, balance]
+    replace: "1 cup neutral oil"
+    with: "½ cup neutral oil"
+    note: "a half-batch of toum"
+  - for: [dash, mind, mediterranean, tlc, heart, balance]
+    replace: "1.5 lb boneless skinless chicken thighs"
+    with: "1.25 lb boneless skinless chicken thighs"
+    note: "a bit less chicken"
+  - for: [dash, tlc, heart, diabetes]
+    replace: "1 tsp kosher salt"
+    with: "½ tsp kosher salt"
+    note: "half the marinade salt"
+  - for: [dash, tlc, heart, diabetes]
+    replace: "½ tsp salt"
+    with: "¼ tsp salt"
+    note: "half the toum salt"
+updated: 2026-07-05
 ---
 
 The home version of the shawarma spit: a hard, spice-crusted char in the oven, and a garlic

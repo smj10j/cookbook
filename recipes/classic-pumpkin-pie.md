@@ -74,7 +74,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [lowcarb]
+    replace: "¾ cup brown sugar"
+    with: "½ cup brown sugar"
+    note: "a less-sweet custard"
+updated: 2026-07-05
 ---
 
 The whole pie hinges on the purée — roast a real sugar pumpkin and you'll taste the

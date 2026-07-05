@@ -85,7 +85,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [dash, tlc, heart, diabetes]
+    replace: "1 tsp kosher salt"
+    with: "½ tsp kosher salt"
+    note: "half the salt"
+updated: 2026-07-05
 ---
 
 The grilled chicken Stephen comes back to all summer: a lemon-and-herb marinade

@@ -49,7 +49,12 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [heart, lowsugar]
+    replace: "1 oz coffee liqueur (such as Kahlúa)"
+    with: "½ oz coffee liqueur (such as Kahlúa)"
+    note: "half the Kahlúa"
+updated: 2026-07-05
 ---
 
 The dessert cart's answer to a nightcap — blend it after dinner and call it both courses at once.

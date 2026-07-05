@@ -74,7 +74,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [balance]
+    replace: "½ cup heavy cream"
+    with: "⅓ cup heavy cream"
+    note: "a lighter cream pour"
+updated: 2026-07-05
 ---
 
 The dish that taught a generation of home cooks how to build a pan sauce — sear, deglaze,

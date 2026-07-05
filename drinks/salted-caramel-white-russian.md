@@ -51,7 +51,16 @@ source:
   name: Adapted from Stephen's ChatGPT bar notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [dash, mind, mediterranean]
+    replace: "1 oz coffee liqueur"
+    with: "¾ oz coffee liqueur"
+    note: "a lighter Kahlúa pour"
+  - for: [dash, mind, mediterranean]
+    replace: "½ oz caramel sauce"
+    with: "¼ oz caramel sauce"
+    note: "half the caramel"
+updated: 2026-07-05
 ---
 
 The Dude's drink, dressed up — salted caramel turns the White Russian from a simple

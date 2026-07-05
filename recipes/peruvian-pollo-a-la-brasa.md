@@ -84,7 +84,16 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [balance]
+    replace: "½ cup mayonnaise"
+    with: "¼ cup mayonnaise"
+    note: "half the aji verde mayo"
+  - for: [balance]
+    replace: "3.5 lb whole chicken, spatchcocked"
+    with: "3 lb whole chicken, spatchcocked"
+    note: "a smaller bird"
+updated: 2026-07-05
 ---
 
 Lima's most famous dish: charcoal-blasted marinated chicken with a creamy, herby, gently

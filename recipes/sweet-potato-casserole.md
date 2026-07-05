@@ -78,7 +78,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [heart, lowsugar]
+    replace: "¼ cup brown sugar"
+    with: "2 tbsp brown sugar"
+    note: "half the brown sugar in filling and topping"
+updated: 2026-07-05
 ---
 
 The sweet potato side Lauren remembered from past holidays, dialed in for Stephen's

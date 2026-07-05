@@ -78,7 +78,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [lowcarb]
+    replace: "1 cup granulated sugar"
+    with: "¾ cup granulated sugar"
+    note: "a quarter less sugar"
+updated: 2026-07-05
 ---
 
 Roasting your own pumpkin takes an extra half hour and pays you back tenfold — the purée

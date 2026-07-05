@@ -82,7 +82,20 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "2 salmon fillets (6–7 oz each, skin on or off)"
+    with: "10 oz salmon fillets, skin on"
+    note: "two 5-oz fillets"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "⅓ cup feta cheese, crumbled"
+    with: "3 tbsp feta cheese, crumbled"
+    note: "a lighter feta hand"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "3 tbsp extra-virgin olive oil"
+    with: "2 tbsp extra-virgin olive oil"
+    note: "a bit less oil"
+updated: 2026-07-05
 ---
 
 The Greek-salad-meets-salmon version: a classic horiatiki given backbone with warm,

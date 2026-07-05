@@ -79,7 +79,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [balance]
+    replace: "2 tbsp butter, plus more for finishing"
+    with: "1 tbsp butter"
+    note: "one pat of butter"
+updated: 2026-07-05
 ---
 
 The classic backyard pairing, run like a line cook would: corn on the cool zone,

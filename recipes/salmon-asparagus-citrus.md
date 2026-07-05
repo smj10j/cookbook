@@ -81,7 +81,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "1 tbsp olive oil or butter"
+    with: "1 tbsp olive oil"
+    note: "olive oil, not butter, on the asparagus"
+updated: 2026-07-05
 ---
 
 The salmon that earns a permanent spot in the weeknight rotation: a fast

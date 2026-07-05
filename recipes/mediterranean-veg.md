@@ -89,7 +89,16 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [heart, lowsugar, diabetes]
+    replace: "1 cup canned chickpeas, drained and rinsed"
+    with: "⅔ cup canned chickpeas, drained and rinsed"
+    note: "two-thirds the chickpeas"
+  - for: [diabetes]
+    replace: "½ cup quinoa, rinsed"
+    with: "⅓ cup quinoa, rinsed"
+    note: "a scant quinoa base"
+updated: 2026-07-05
 ---
 
 Of the vegetarian Mediterranean options Stephen weighed, the stuffed peppers were

@@ -84,6 +84,18 @@ source:
   url: null
 created: 2026-06-20
 planSwaps:
+  - for: [lowcarb, balance]
+    replace: "6 corn tortillas, warmed"
+    with: "4 corn tortillas, warmed"
+    note: "four tortillas"
+  - for: [balance]
+    replace: "1 lb cod or halibut fillets"
+    with: "12 oz cod or halibut fillets"
+    note: "12 oz of fish"
+  - for: [balance]
+    replace: "2 tbsp olive oil"
+    with: "1 tbsp olive oil"
+    note: "half the marinade oil"
   - for: [diabetes]
     replace: ½ tsp kosher salt
     with: ¼ tsp kosher salt

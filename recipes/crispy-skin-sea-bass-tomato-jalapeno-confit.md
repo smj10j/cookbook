@@ -92,7 +92,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [kidney]
+    replace: "2 skin-on sea bass fillets (about 6 oz each), boneless"
+    with: "8 oz skin-on sea bass fillets"
+    note: "two 4-oz fillets"
+updated: 2026-07-05
 ---
 
 A restaurant-style plate with very little fuss: a low, slow tomato-jalapeño confit

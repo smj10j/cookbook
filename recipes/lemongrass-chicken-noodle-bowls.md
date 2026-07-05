@@ -75,6 +75,11 @@ source:
   name: Original — developed for Tonight's Menu
   url: null
 created: 2026-07-05
+planSwaps:
+  - for: [lowcarb]
+    replace: "3 oz dry rice vermicelli"
+    with: "2 oz dry rice vermicelli"
+    note: "a lighter noodle nest"
 updated: 2026-07-05
 ---
 

@@ -79,7 +79,16 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "4 tbsp extra-virgin olive oil"
+    with: "2 tbsp extra-virgin olive oil"
+    note: "half the dressing oil"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "¼ cup feta cheese, crumbled"
+    with: "2 tbsp feta cheese, crumbled"
+    note: "a lighter feta hand"
+updated: 2026-07-05
 ---
 
 A dinner salad that came together from a full garden haul: cucumber and cherry

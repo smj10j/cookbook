@@ -85,7 +85,20 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [dash, tlc, heart, diabetes, kidney]
+    replace: "1 tsp kosher salt"
+    with: "½ tsp kosher salt"
+    note: "half the salt"
+  - for: [dash, tlc, heart, diabetes, kidney]
+    replace: "1½ cups chicken broth"
+    with: "1½ cups low-sodium chicken broth"
+    note: "low-sodium broth"
+  - for: [kidney]
+    replace: "6 bone-in skin-on chicken thighs (about 2 lb)"
+    with: "5 bone-in skin-on chicken thighs"
+    note: "five thighs"
+updated: 2026-07-05
 ---
 
 The classic Moroccan pairing — salt-cured lemon and green olives against saffron and warm

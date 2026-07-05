@@ -75,7 +75,20 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [balance]
+    replace: "1 cup arborio rice"
+    with: "¾ cup arborio rice"
+    note: "a slightly smaller risotto"
+  - for: [balance]
+    replace: "3 tbsp butter"
+    with: "2 tbsp butter"
+    note: "less mounting butter"
+  - for: [balance]
+    replace: "2 tbsp olive oil"
+    with: "1 tbsp olive oil"
+    note: "half the oil"
+updated: 2026-07-05
 ---
 
 The dish that teaches patience: toast, deglaze, ladle, stir, repeat. No cream — just rice,
