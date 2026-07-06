@@ -90,6 +90,7 @@ heat: ★ none | mild | medium | hot   # spice level
 equipment: [optional special gear, e.g. cast iron, sous-vide, grill]
 tags: [free-form filters: summer, make-ahead, gluten-free, date-night, garden, one-pan…]
 hero: images/<slug>.webp             # optional; omit if no photo yet (placeholder is used)
+photo: "one-line plating hint for the AI photo pipeline"  # optional; never shown on the site — see "Photos"
 ingredients: ★ see "Sections" below
 steps: ★ see "Sections" below
 tips: [chef tips — ALWAYS include 2–4; invent good ones if the source lacks them]
@@ -167,7 +168,9 @@ every build). Conventions: `tsp` for spices/oils/sugars/salt, `tbsp` for condime
 liquids, `cup` for bulk liquids/grains, `oz` for proteins/cheese by weight and **all drink
 liquids** (fluid oz); count nouns (`clove`, `egg`, `fillet`) for discrete pieces. Give
 weight/volume items that recipes **count by piece** an `each` (grams/piece), or the count
-can't be resolved.
+can't be resolved. A line's own **"(about N oz each)"** note beats that default — the
+engine reads it, so `2 salmon fillets (about 5 oz each)` totals 10 oz regardless of the
+DB's `each` — which is what lets a plan swap shrink a portion in natural language.
 
 ### Eating-plan fit (computed — never authored per recipe)
 
@@ -261,9 +264,14 @@ the nutrient it fixes):
   number is a big single portion: 12 oz steak → 8 oz, 6-oz fillet → two 3–4 oz, ¼ cup oil
   → 2 tbsp, 4 oz pasta → 3 oz. Keep the dish recognizable (don't shrink it to a garnish),
   and remember the build combines a portion cut with a flavor swap into one chip.
-- **The `with` line must parse.** The nutrition engine ignores parenthetical size notes
-  — "2 fillets (about 4 oz each)" reads the same as 5 oz ones; write "8 oz sea bass
-  fillets" instead. After building, confirm the ⇄ line appears in `npm run plans -- <slug>`.
+- **The `with` line must parse — and should mirror the as-written line's phrasing.**
+  The nutrition engine reads a per-piece **"(about N oz each)"** note on a counted line,
+  so shrink a portion the natural way: turn `2 salmon fillets (about 6 oz each), skin-on`
+  into `2 salmon fillets (about 5 oz each), skin-on` — NOT `10 oz salmon fillets`. (Match
+  whatever framing the recipe already uses: if the as-written line is by weight, e.g.
+  `1 lb cod fillets`, keep the swap by weight, `12 oz cod fillets`.) The note's size
+  overrides the DB's generic per-piece `each`. After building, confirm the ⇄ line appears
+  in `npm run plans -- <slug>`.
 - **The test suite enforces liveness:** a declared swap that doesn't actually lift its
   plan's verdict FAILS `npm test` (the no-dead-swaps data gate) — so editing a recipe's
   ingredients means re-checking its swaps.
@@ -285,12 +293,25 @@ The "Good for" filter always judges the as-written recipe — variants are a rea
 choice, not a filter input.
 
 **Chips are additive.** Selecting several chips applies their swaps together — the
-build precomputes nutrition for every compatible combination (`withSwaps` is keyed by
-swap-entry-index sets like `"0.2"`, not plan ids). Compatible swaps touch different
-ingredient lines, so selection order can't change the result. Two entries that rewrite
-the SAME line differently (e.g. piccata's "3 oz spaghetti" vs "zoodles") are allowed —
-they become separate chips and the UI grays out the one that conflicts with the current
-selection.
+build precomputes nutrition for every combinable combination (`withSwaps` is keyed by
+swap-entry-index sets like `"0.2"`, not plan ids). Swaps that touch different ingredient
+lines always combine, so selection order can't change the result.
+
+When two swap entries touch the **same** ingredient line, what happens depends on
+whether they're the *same food*:
+
+- **Same-ingredient reductions combine to the smallest portion.** If DASH shrinks the
+  salt to ½ tsp and Diabetes to ¼ tsp, or Kidney takes the beans to 4 oz while
+  Calorie-Smart takes them to 6 oz, both chips can be on at once — the reader lands on
+  the stricter amount (¼ tsp, 4 oz). This is `resolveSwapCollisions` in `docs/lib.js`
+  (shared by the build and the reader); ordering uses `swapMagnitude`, and
+  `swapIngredientName` confirms it's the same food first. **So you can freely give
+  several plans their own reduction of one line** — no need to force a single shared swap.
+- **A substitution to a DIFFERENT food is a genuine either/or and stays a conflict.**
+  Piccata's `zoodles` vs `3 oz spaghetti`, the tagine's `cauliflower rice` vs less
+  couscous, the kebabs' `chicken` vs less `sirloin` — different ingredient (or
+  non-orderable units) on the same line, so they become separate chips and the UI grays
+  out the one that conflicts with the current selection.
 
 ## Drinks (cocktails)
 
@@ -365,6 +386,27 @@ Strength, Flavor (from `tags`), Heat, + search.
   tip so Stephen can eat it too. (`pork` stays in the vocab only for completeness;
   `seafood` is fully in play.)
 - Cooking is usually **dinner for two**.
+
+## Photos (the AI photo pipeline)
+
+`npm run photos` (`scripts/generate-photos.mjs`, needs an image-gen API key) builds each
+prompt from the recipe's own fields. Two rules the pipeline enforces — and that you must
+respect when authoring so a regenerated photo stays honest:
+
+- **The photo must show the dish as actually cooked and served.** Every component in the
+  form the recipe finishes it: if the protein is **sliced, cubed, shredded, or flaked**
+  for serving, it must look that way — not a whole intact piece. (A Vietnamese noodle
+  bowl slices the grilled chicken over the noodles; a Greek salmon salad flakes the fish.)
+- **Only edible food on the plate.** Cooking gear that made the dish — a cedar grilling
+  plank, skewers, toothpicks, twine, parchment — must NOT appear on the serving plate
+  unless the dish is genuinely served on/in it (a kebab on its skewer is fine; a salad is
+  not served on a plank).
+
+When the title or technique would mislead the image (e.g. "Cedar Plank Salmon **Salad**"
+tempts the model to draw the plank), add a one-line **`photo:`** frontmatter hint
+describing the correct plating — it's fed verbatim to the pipeline and never shown on the
+site. Keep it short and concrete: what's on the plate, how the protein is cut, what to
+exclude. After (re)generating, **open the image and check it** against these two rules.
 
 ## Adding a recipe or drink
 

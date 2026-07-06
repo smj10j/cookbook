@@ -104,7 +104,11 @@ planSwaps:
     replace: "1.5 lb boneless skinless chicken thighs, cut into chunks"
     with: "1.25 lb boneless skinless chicken thighs, cut into chunks"
     note: "a bit less chicken"
-updated: 2026-07-05
+  - for: [kidney]
+    replace: "1.5 lb boneless skinless chicken thighs, cut into chunks"
+    with: "12 oz boneless skinless chicken thighs, cut into chunks"
+    note: "a smaller portion of chicken, more sauce"
+updated: 2026-07-06
 ---
 
 Delhi's gift to the world: tandoori chicken reborn in a buttery tomato gravy. The two-step

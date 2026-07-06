@@ -75,23 +75,23 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
-  - for: [dash, mind, mediterranean, tlc]
+  - for: [dash, mind, mediterranean, tlc, heart]
     replace: "½ cup (1 stick) unsalted butter"
     with: "6 tbsp unsalted butter"
     note: "three-quarters of the butter"
-  - for: [dash, mind, mediterranean, tlc]
+  - for: [dash, mind, mediterranean, tlc, heart]
     replace: "¾ cup chopped dark chocolate or chunks, a little reserved for the top"
-    with: "½ cup chopped dark chocolate"
+    with: "⅓ cup chopped dark chocolate"
     note: "a lighter hand with the chocolate"
-  - for: [dash, mind, mediterranean, lowcarb]
+  - for: [dash, mind, mediterranean, lowcarb, heart, lowsugar]
     replace: "½ cup brown sugar, packed"
-    with: "⅓ cup brown sugar, packed"
-    note: "a third-cup of brown sugar"
-  - for: [dash, mind, mediterranean, lowcarb]
+    with: "⅓ cup allulose, packed"
+    note: "allulose for the brown sugar"
+  - for: [dash, mind, mediterranean, lowcarb, heart, lowsugar]
     replace: "3 tbsp granulated sugar"
-    with: "2 tbsp granulated sugar"
-    note: "less sugar on top"
-updated: 2026-07-05
+    with: "2 tbsp allulose"
+    note: "allulose on top"
+updated: 2026-07-06
 ---
 
 Brown butter is the cheat code for banana bread — five extra minutes at the stove for a

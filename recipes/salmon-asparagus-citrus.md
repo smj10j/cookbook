@@ -84,13 +84,13 @@ created: 2026-06-19
 planSwaps:
   - for: [kidney]
     replace: "2 salmon fillets (about 6 oz each), skin-on"
-    with: "7 oz salmon fillets, skin-on"
+    with: "2 salmon fillets (about 3½ oz each), skin-on"
     note: "two 3½-oz fillets"
   - for: [dash, mind, mediterranean, tlc, heart]
     replace: "1 tbsp olive oil or butter"
     with: "1 tbsp olive oil"
     note: "olive oil, not butter, on the asparagus"
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 The salmon that earns a permanent spot in the weeknight rotation: a fast

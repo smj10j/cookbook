@@ -12,6 +12,7 @@ import {
 } from './lib/schema.mjs';
 import { recipeStubHtml, ogImageUrl } from './lib/stub.mjs';
 import { loadDb, buildIndex, recipeNutrition } from './lib/nutrition.mjs';
+import { resolveSwapCollisions } from '../docs/lib.js';
 
 // Absolute site URL, used for canonical + Open Graph image links in the share pages.
 const SITE = (process.env.SITE_URL || 'https://smj10j.github.io/cookbook').replace(/\/+$/, '');
@@ -67,32 +68,26 @@ for (const r of recipes) {
   // Recipes with planSwaps also get "with swaps" per-serving estimates so the site
   // can show "✗ as written → ~ with the swap" and drive the variant toggle without
   // recomputing nutrition client-side. Keys are SWAP-ENTRY-INDEX SETS ("0.2"), not
-  // plan ids: one entry per distinct per-plan swap set, PLUS every compatible union
-  // of those sets so toggle chips can be combined. Two sets conflict (and get no
-  // union) when different entries rewrite the same ingredient line.
+  // plan ids: one entry per distinct per-plan swap set, PLUS every combinable union
+  // of those sets so toggle chips can be combined. A union is dropped only for a
+  // genuine same-line conflict (a substitution either/or, e.g. zoodles vs less
+  // pasta); same-ingredient reductions of one line combine, folded to the
+  // smallest portion by resolveSwapCollisions.
   if (Array.isArray(r.planSwaps) && r.planSwaps.length) {
     const sets = new Map(); // key -> ascending entry indices
     for (const id of new Set(r.planSwaps.flatMap((s) => s.for))) {
       const idx = r.planSwaps.map((s, i) => (s.for.includes(id) ? i : -1)).filter((i) => i >= 0);
       sets.set(idx.join('.'), idx);
     }
-    const chips = [...new Map([...sets].map(([k, v]) => [k, v])).values()];
-    const conflictFree = (idxs) => {
-      const seen = new Map();
-      for (const i of idxs) {
-        const line = r.planSwaps[i].replace.trim();
-        if (seen.has(line) && seen.get(line) !== i) return false;
-        seen.set(line, i);
-      }
-      return true;
-    };
+    const chips = [...sets.values()];
     for (let mask = 1; mask < (1 << chips.length); mask++) {
       const union = [...new Set(chips.filter((_, ci) => mask & (1 << ci)).flat())].sort((a, b) => a - b);
-      if (conflictFree(union)) sets.set(union.join('.'), union);
+      if (resolveSwapCollisions(union.map((i) => r.planSwaps[i])).ok) sets.set(union.join('.'), union);
     }
     const withSwaps = {};
     for (const [key, idx] of sets) {
-      const variant = { ...r, ingredients: applyPlanSwaps(r.ingredients, idx.map((i) => r.planSwaps[i])) };
+      const resolved = resolveSwapCollisions(idx.map((i) => r.planSwaps[i])).swaps;
+      const variant = { ...r, ingredients: applyPlanSwaps(r.ingredients, resolved) };
       const vn = recipeNutrition(variant, nutritionDb, nutritionIndex);
       withSwaps[key] = vn.perServing;
       for (const name of vn.unmatched) unmatchedAll.set(name, (unmatchedAll.get(name) || 0) + 1);
@@ -125,7 +120,8 @@ const payload = {
   timeBuckets: TIME_BUCKETS,
   cuisineGroups: CUISINE_GROUPS,
   facets: { cuisines, tags: allTags },
-  recipes: recipes.map(({ _file, ...r }) => r),
+  // `_file` and `photo` are build-time-only (source path, photo-pipeline hint) — keep them out of the client feed.
+  recipes: recipes.map(({ _file, photo, ...r }) => r),
 };
 
 mkdirSync(dirname(outFile), { recursive: true });

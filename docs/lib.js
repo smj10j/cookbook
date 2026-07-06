@@ -553,18 +553,92 @@ export function recipeVariants(r, plans = EATING_PLANS) {
   return [...byKey.values()];
 }
 
-// Two variants conflict when they rewrite the SAME ingredient line differently
-// — those can't be combined, and the UI grays the second one out. Sharing an
-// identical entry (same line, same swap) is fine; unions dedupe it.
-export function variantsConflict(a, b) {
-  const mine = new Map(a.swaps.map((s) => [s.replace.trim(), s.with]));
-  return b.swaps.some((s) => mine.has(s.replace.trim()) && mine.get(s.replace.trim()) !== s.with);
+// ── combining swaps that touch the same ingredient line ──────────────────────
+// Two swap entries can name the same `replace` line. There are two cases:
+//   • a SUBSTITUTION to a different ingredient (piccata's "zoodles" vs "3 oz
+//     spaghetti", kebabs' "chicken" vs "sirloin") — a real either/or, so the
+//     chips stay mutually exclusive (a conflict);
+//   • a REDUCTION of the SAME ingredient to different amounts (red beans "4 oz"
+//     vs "6 oz") — those aren't a conflict at all: toggling both just lands on
+//     the smaller portion. `resolveSwapCollisions` folds a colliding set to the
+//     stricter (smallest) reduction per line; `ok:false` flags a real conflict.
+//
+// Comparison scales for ordering two reductions of the SAME line — enough to
+// rank mass-vs-mass and volume-vs-volume (the full unit engine is in
+// scripts/lib/nutrition.mjs). oz is treated as mass; both sides of a real
+// collision share a unit, so relative order is what matters, not the dimension.
+const SWAP_MASS_G = { g: 1, gram: 1, grams: 1, mg: 0.001, kg: 1000, kilogram: 1000, oz: 28.3495, ounce: 28.3495, ounces: 28.3495, lb: 453.592, lbs: 453.592, pound: 453.592, pounds: 453.592 };
+const SWAP_VOL_ML = { tsp: 4.92892, teaspoon: 4.92892, teaspoons: 4.92892, tbsp: 14.7868, tablespoon: 14.7868, tablespoons: 14.7868, cup: 236.588, cups: 236.588, ml: 1, l: 1000, liter: 1000, litre: 1000, pint: 473.176, quart: 946.353 };
+const SWAP_UNIT = new Set([...Object.keys(SWAP_MASS_G), ...Object.keys(SWAP_VOL_ML)]);
+const SWAP_DESC = new Set(['fresh', 'dried', 'skin-on', 'skinless', 'boneless', 'thin', 'thick', 'small', 'medium', 'large', 'packed', 'whole', 'ground', 'ripe', 'raw', 'extra', 'virgin', 'lean', 'low-sodium', 'no-salt-added', 'reduced-sodium', 'light']);
+const SWAP_EACH_RE = new RegExp(`(${QTY})(?:\\s*[-–—]\\s*(${QTY}))?\\s*([a-zA-Z]+)\\s+each\\b`, 'i');
+
+// The comparable amount of a swap `with:` line, honoring a "(N unit each)" note
+// exactly as the nutrition engine does. Returns { value, dim } (grams | ml |
+// count) or null when there's no parseable quantity to order by.
+export function swapMagnitude(line) {
+  const t = String(line).trim();
+  const lead = parseQty(t);
+  const em = t.match(SWAP_EACH_RE);
+  if (lead.qty != null && em) {
+    const u = em[3].toLowerCase();
+    const per = em[2] ? (parseNum(em[1]) + parseNum(em[2])) / 2 : parseNum(em[1]);
+    const count = lead.hi != null ? (lead.qty + lead.hi) / 2 : lead.qty;
+    if (per != null && SWAP_MASS_G[u]) return { value: count * per * SWAP_MASS_G[u], dim: 'mass' };
+    if (per != null && SWAP_VOL_ML[u]) return { value: count * per * SWAP_VOL_ML[u], dim: 'vol' };
+  }
+  if (lead.qty == null) return null;
+  const mid = lead.hi != null ? (lead.qty + lead.hi) / 2 : lead.qty;
+  const first = (lead.rest.split(/\s+/)[0] || '').toLowerCase();
+  if (SWAP_MASS_G[first]) return { value: mid * SWAP_MASS_G[first], dim: 'mass' };
+  if (SWAP_VOL_ML[first]) return { value: mid * SWAP_VOL_ML[first], dim: 'vol' };
+  return { value: mid, dim: 'count' };
 }
 
-// Combine selected toggle chips into one applied variant. Compatible swaps
-// touch disjoint ingredient lines, so selection ORDER cannot change the result
-// — the union is the union. Returns null when the combination's nutrition
-// wasn't precomputed (i.e. the chips conflict).
+// The bare ingredient name of a swap line — quantity, unit, "(… each)" note and
+// prep clause stripped — so a reduction ("6 oz beans" → "4 oz beans", same name)
+// is told apart from a substitution ("couscous" → "cauliflower rice").
+export function swapIngredientName(line) {
+  let t = String(line).toLowerCase().replace(/\([^)]*\)/g, ' ').split(',')[0];
+  const q = parseQty(t.trim());
+  const words = (q.qty != null ? q.rest : t).trim().split(/\s+/).filter(Boolean);
+  if (words.length && SWAP_UNIT.has(words[0])) words.shift();
+  const kept = words.filter((w) => !SWAP_DESC.has(w));
+  if (kept.length) kept[kept.length - 1] = singular(kept[kept.length - 1]);
+  return kept.join(' ').trim();
+}
+
+// Fold a set of swap entries to at most one per `replace` line. When several
+// entries reduce the SAME ingredient by different amounts, keep the smallest
+// portion. Returns { swaps, ok } — ok:false when two entries touch a line but
+// aren't orderable reductions of one ingredient (a genuine either/or conflict).
+export function resolveSwapCollisions(swaps) {
+  const byLine = new Map();
+  let ok = true;
+  for (const s of swaps || []) {
+    const line = s.replace.trim();
+    const cur = byLine.get(line);
+    if (!cur) { byLine.set(line, s); continue; }
+    if (cur.with === s.with) continue;                       // identical swap — dedupe
+    const a = swapMagnitude(cur.with), b = swapMagnitude(s.with);
+    const sameFood = swapIngredientName(cur.with) === swapIngredientName(s.with);
+    if (!sameFood || !a || !b || a.dim !== b.dim || a.value === b.value) { ok = false; continue; }
+    if (b.value < a.value) byLine.set(line, s);               // smaller portion wins
+  }
+  return { swaps: [...byLine.values()], ok };
+}
+
+// Two variants conflict only when combining their swaps leaves an unorderable
+// same-line collision — the UI grays the second chip out. Same-ingredient
+// reductions (and identical entries) combine cleanly and are NOT conflicts.
+export function variantsConflict(a, b) {
+  return !resolveSwapCollisions([...(a.swaps || []), ...(b.swaps || [])]).ok;
+}
+
+// Combine selected toggle chips into one applied variant. Same-ingredient
+// reductions of one line fold to the smallest portion, so selection ORDER can't
+// change the result. Returns null when the combination's nutrition wasn't
+// precomputed (i.e. the chips genuinely conflict).
 export function combineVariants(r, chips) {
   if (!chips.length) return null;
   if (chips.length === 1) return chips[0];
@@ -577,9 +651,11 @@ export function combineVariants(r, chips) {
 }
 
 // Ingredient sections with a variant's swaps applied, each item marked so the
-// UI can highlight what changed: { text, swapped, original? }.
+// UI can highlight what changed: { text, swapped, original? }. Same-line
+// reductions are resolved to the smallest portion before applying.
 export function applyVariantToSections(sections, variant) {
-  const map = variant ? new Map(variant.swaps.map((s) => [s.replace.trim(), s.with])) : new Map();
+  const resolved = variant ? resolveSwapCollisions(variant.swaps).swaps : [];
+  const map = new Map(resolved.map((s) => [s.replace.trim(), s.with]));
   return (sections || []).map((sec) => ({
     section: sec.section,
     items: (sec.items || []).map((t) => {
@@ -595,7 +671,7 @@ export function variantLabel(v) {
 }
 export function variantTitle(v) {
   const who = v.plans.map((p) => p.short).join(' · ');
-  const what = v.swaps.map((s) => s.note || s.with).join('; ');
+  const what = resolveSwapCollisions(v.swaps).swaps.map((s) => s.note || s.with).join('; ');
   return `${who}-friendly: ${what}`;
 }
 

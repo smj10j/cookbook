@@ -11,6 +11,7 @@ import {
   pctOfDV, nutritionRows, hasNutrition, nutritionPanelHtml, NUTRIENT_DISPLAY,
   EATING_PLANS, planTier, evaluatePlan, evaluatePlans, planReasons, nutrientFlags, buildPlanVerdicts,
   recipeVariants, applyVariantToSections, variantLabel, variantTitle, variantsConflict, combineVariants, planSetKey,
+  swapMagnitude, swapIngredientName, resolveSwapCollisions,
 } from '../docs/lib.js';
 import {
   parseLine, normalizeName, buildIndex, matchName, toBaseUnits, lineNutrition, recipeNutrition, NUTRIENT_KEYS,
@@ -194,7 +195,7 @@ const NIDX = buildIndex(NDB);
 const near = (a, b, eps = 0.05) => Math.abs(a - b) <= eps;
 
 test('nutrition parseLine: quantity (midpoint of ranges), unit token, name', () => {
-  assert.deepEqual(parseLine('1 tbsp olive oil'), { qty: 1, unit: 'tbsp', name: 'olive oil', rest: 'tbsp olive oil' });
+  assert.deepEqual(parseLine('1 tbsp olive oil'), { qty: 1, unit: 'tbsp', name: 'olive oil', rest: 'tbsp olive oil', each: null });
   assert.deepEqual(parseLine('1½ tsp kosher salt').qty, 1.5);
   assert.equal(parseLine('2–3 cloves garlic').qty, 2.5);              // range → midpoint
   assert.equal(parseLine('2 salmon fillets (about 6 oz each)').unit, '');  // count, not a unit
@@ -549,14 +550,100 @@ test('variant chips combine additively; conflicting chips are detected', () => {
   assert.equal(combo.swaps.length, 2);
   assert.deepEqual(combo.plans.map((p) => p.id).sort(), ['heart', 'kidney', 'lowsugar']);
   assert.equal(combineVariants(r, [a]), a, 'a single chip is itself');
-  // A true conflict: two entries rewriting the SAME line differently.
-  const clash = { ...r, planSwaps: [
+  // Two REDUCTIONS of the same ingredient are NOT a conflict — they fold to the
+  // smaller portion (½ cup wins over ¾ cup), so both chips can be on at once.
+  const reduce = { ...r, planSwaps: [
     { for: ['heart'], replace: '1½ cups orange juice', with: '¾ cup orange juice' },
     { for: ['kidney'], replace: '1½ cups orange juice', with: '½ cup orange juice' },
   ], nutrition: { ...r.nutrition, withSwaps: { '0': r.nutrition.withSwaps['0'], '1': r.nutrition.withSwaps['1'] } } };
+  const rChips = recipeVariants(reduce);
+  assert.equal(variantsConflict(rChips[0], rChips[1]), false, 'same-ingredient reductions combine');
+  assert.deepEqual(resolveSwapCollisions(reduce.planSwaps).swaps.map((s) => s.with), ['½ cup orange juice'], 'folds to the smallest portion');
+  // A true conflict: a SUBSTITUTION to a DIFFERENT ingredient on the same line.
+  const clash = { ...r, planSwaps: [
+    { for: ['heart'], replace: '1½ cups orange juice', with: '¾ cup orange juice' },
+    { for: ['kidney'], replace: '1½ cups orange juice', with: '2 cups diced mango' },
+  ], nutrition: { ...r.nutrition, withSwaps: { '0': r.nutrition.withSwaps['0'], '1': r.nutrition.withSwaps['1'] } } };
   const cChips = recipeVariants(clash);
-  assert.equal(variantsConflict(cChips[0], cChips[1]), true, 'same line, different swap → conflict');
+  assert.equal(variantsConflict(cChips[0], cChips[1]), true, 'different ingredient on the same line → conflict');
   assert.equal(combineVariants(clash, cChips), null, 'no precomputed union for a conflict');
+});
+
+// ── per-piece "(N unit each)" size notes ─────────────────────────────────────
+test('nutrition honors a "(N unit each)" note so a counted portion can be shrunk', () => {
+  const salmon = { unit: 'oz', g: 28, each: 170, n: { kcal: 58, protein: 5.6, carb: 0, fat: 3.8, satfat: 0.8, fiber: 0, sugar: 0, sodium: 13 } };
+  const p = parseLine('2 salmon fillets (about 5 oz each), skin-on');
+  assert.equal(p.unit, '', 'the count is still the quantity, not a unit');
+  assert.equal(p.name, 'salmon fillets', 'the note does not pollute the name');
+  assert.deepEqual(p.each, { qty: 5, unit: 'oz' });
+  assert.ok(near(toBaseUnits(p, salmon), 10, 0.01), '2 × 5 oz = 10 oz total');
+  assert.ok(near(toBaseUnits(parseLine('2 fillets (5–6 oz each)'), salmon), 11, 0.01), 'a range averages');
+  // no note → falls back to the DB per-piece weight (170 g ≈ 12 oz for two)
+  assert.ok(near(toBaseUnits(parseLine('2 salmon fillets'), salmon), 2 * 170 / 28, 0.01));
+  // "each" only fires on a bare count — a real unit token is untouched
+  assert.equal(parseLine('2 tbsp capers').each, null);
+});
+
+// ── combining swaps that touch the same ingredient line ──────────────────────
+test('swapMagnitude / swapIngredientName order reductions and spot substitutions', () => {
+  assert.ok(swapMagnitude('¼ tsp kosher salt').value < swapMagnitude('½ tsp kosher salt').value);
+  assert.equal(swapMagnitude('10 oz salmon fillets').dim, 'mass');
+  // per-piece notes fold into a total before comparison
+  assert.ok(swapMagnitude('2 salmon fillets (about 4 oz each)').value < swapMagnitude('2 salmon fillets (about 5 oz each)').value);
+  assert.equal(swapIngredientName('6 oz dried red kidney beans, soaked overnight'), swapIngredientName('4 oz dried red kidney beans, soaked overnight'));
+  assert.notEqual(swapIngredientName('¼ cup couscous'), swapIngredientName('1½ cups cauliflower rice'));
+});
+
+test('resolveSwapCollisions: reductions fold to the smallest; substitutions conflict', () => {
+  const reduce = resolveSwapCollisions([
+    { replace: 'B', with: '6 oz dried red kidney beans' },
+    { replace: 'B', with: '4 oz dried red kidney beans' },
+  ]);
+  assert.equal(reduce.ok, true);
+  assert.deepEqual(reduce.swaps.map((s) => s.with), ['4 oz dried red kidney beans'], 'smallest portion wins');
+  // couscous → cauliflower rice is an either/or substitution, not a reduction
+  assert.equal(resolveSwapCollisions([
+    { replace: 'C', with: '¼ cup couscous' },
+    { replace: 'C', with: '1½ cups cauliflower rice' },
+  ]).ok, false);
+  // zoodles vs less pasta (different dimensions) is also a real conflict
+  assert.equal(resolveSwapCollisions([
+    { replace: 'S', with: '3 oz thin spaghetti' },
+    { replace: 'S', with: '2 medium zucchini, spiralized' },
+  ]).ok, false);
+  // disjoint lines never collide; identical entries dedupe cleanly
+  assert.equal(resolveSwapCollisions([{ replace: 'A', with: 'x' }, { replace: 'B', with: 'y' }]).ok, true);
+  assert.equal(resolveSwapCollisions([{ replace: 'A', with: 'x' }, { replace: 'A', with: 'x' }]).swaps.length, 1);
+});
+
+// DATA GATE: build.mjs (which precomputes withSwaps) and lib.js (which decides
+// combinability) must agree — a combinable chip pair MUST have a precomputed
+// union, and a conflicting pair must NOT, or a toggle strands or double-counts.
+test('build precomputes exactly the combinable chip unions — no stranded toggles', () => {
+  for (const r of data.recipes) {
+    if (!r.planSwaps?.length) continue;
+    const chips = recipeVariants(r);
+    for (let i = 0; i < chips.length; i++) for (let j = i + 1; j < chips.length; j++) {
+      const idx = [...new Set([...chips[i].swaps, ...chips[j].swaps].map((s) => r.planSwaps.indexOf(s)))].sort((a, b) => a - b).join('.');
+      const combinable = !variantsConflict(chips[i], chips[j]);
+      assert.equal(!!r.nutrition.withSwaps[idx], combinable, `${r.slug}: chips ${chips[i].key}+${chips[j].key} combinable=${combinable} but withSwaps[${idx}]=${!!r.nutrition.withSwaps[idx]}`);
+    }
+  }
+});
+
+test('same-ingredient reduction swaps combine in the cookbook (red-beans-and-rice)', () => {
+  const r = data.recipes.find((x) => x.slug === 'red-beans-and-rice');
+  assert.ok(r, 'red-beans-and-rice exists');
+  const chips = recipeVariants(r);
+  const kidney = chips.find((c) => c.plans.some((p) => p.id === 'kidney'));
+  const balance = chips.find((c) => c.plans.some((p) => p.id === 'balance'));
+  assert.ok(kidney && balance, 'both a kidney and a balance chip exist');
+  assert.equal(variantsConflict(kidney, balance), false, 'both reduce the beans → combinable, not a conflict');
+  const combo = combineVariants(r, [kidney, balance]);
+  assert.ok(combo, 'the union nutrition is precomputed');
+  const smaller = resolveSwapCollisions([...kidney.swaps, ...balance.swaps]).swaps.find((s) => /beans/.test(s.with)).with;
+  const applied = applyVariantToSections(r.ingredients, combo).flatMap((s) => s.items).filter((i) => i.swapped).map((i) => i.text);
+  assert.ok(applied.includes(smaller), `combined applies the smaller bean line "${smaller}" (${applied.join('; ')})`);
 });
 
 // DATA GATE: an authored swap that stops lifting its verdict is dead weight —

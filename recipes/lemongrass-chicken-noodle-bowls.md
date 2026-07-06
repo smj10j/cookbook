@@ -27,6 +27,7 @@ equipment:
 tags:
   - summer
   - garden
+photo: grilled lemongrass chicken thighs rested and SLICED into strips, fanned over a bed of cool rice vermicelli in a wide bowl with julienned carrot, cucumber ribbons, a pile of fresh herbs, and a small dish of nuoc cham — the chicken shown sliced, never as a whole uncut piece
 ingredients:
   - section: Chicken & marinade
     items:
@@ -80,7 +81,7 @@ planSwaps:
     replace: "3 oz dry rice vermicelli"
     with: "2 oz dry rice vermicelli"
     note: "a lighter noodle nest"
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 The marinade and sauce share a single tablespoon of fish sauce between them —

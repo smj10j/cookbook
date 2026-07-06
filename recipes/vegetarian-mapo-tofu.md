@@ -78,19 +78,19 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 planSwaps:
-  - for: [dash, tlc, heart, diabetes]
+  - for: [dash, tlc, heart, diabetes, kidney]
     replace: "1 tbsp soy sauce"
     with: "1 tbsp coconut aminos"
     note: "coconut aminos for the soy"
-  - for: [dash, tlc, heart, diabetes]
+  - for: [dash, tlc, heart, diabetes, kidney]
     replace: "1 cup vegetable broth"
     with: "1 cup low-sodium vegetable broth"
     note: "low-sodium broth"
-  - for: [dash, tlc, heart, diabetes]
+  - for: [dash, tlc, heart, diabetes, kidney]
     replace: "2 tbsp doubanjiang (chili bean paste)"
     with: "1 tbsp doubanjiang (chili bean paste)"
     note: "half the doubanjiang — the red pepper flakes keep the fire"
-  - for: [dash, tlc, heart, diabetes]
+  - for: [dash, tlc, heart, diabetes, kidney]
     replace: "1 tbsp fermented black beans, rinsed and chopped (optional)"
     with: "1 tsp fermented black beans, rinsed and chopped (optional)"
     note: "just a teaspoon of fermented black beans"

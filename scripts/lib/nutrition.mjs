@@ -74,6 +74,11 @@ const UNIT_WORDS = new Set([
 const FRAC = '½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞';
 const NUMTOK = `(?:\\d+\\s+\\d+\\/\\d+|\\d+\\/\\d+|\\d+(?:\\.\\d+)?[${FRAC}]?|[${FRAC}])`;
 const LEAD_RE = new RegExp(`^\\s*(${NUMTOK})(?:\\s*[-–—]\\s*(${NUMTOK}))?\\s*(.*)$`);
+// A per-piece size note — "(about 6 oz each)", "(5–6 oz each)". Lets a counted
+// line ("2 salmon fillets (about 5 oz each)") resolve its total weight from the
+// stated piece size instead of the DB's generic `each`, so an author can shrink
+// a portion by editing the note. Captured only when the head is a bare count.
+const EACH_RE = new RegExp(`(${NUMTOK})(?:\\s*[-–—]\\s*(${NUMTOK}))?\\s*([a-zA-Z]+)\\s+each\\b`, 'i');
 
 export function parseLine(line, kind = 'food') {
   let text = String(line).trim();
@@ -107,7 +112,24 @@ export function parseLine(line, kind = 'food') {
     }
   }
   const name = words.slice(nameStart).join(' ');
-  return { qty, unit, name, rest };
+  // A per-piece size note on a count ("2 (salmon) fillets (about 5 oz each)")
+  // gives the weight of ONE piece; toBaseUnits multiplies it by the count. Honored
+  // whenever the head is a count — no leading MEASURE word (a piece word like
+  // "fillets" is fine and the note overrides its generic weight).
+  let each = null;
+  if (qty != null && !isMass(unit) && !isVol(unit)) {
+    const em = text.match(EACH_RE);
+    if (em) {
+      const eu = singular(em[3].toLowerCase());
+      if (isMass(eu) || isVol(eu)) {
+        const lo = parseNum(em[1]);
+        const hi = em[2] != null ? parseNum(em[2]) : null;
+        const each1 = hi != null && lo != null ? (lo + hi) / 2 : lo;
+        if (each1 != null) each = { qty: each1, unit: eu };
+      }
+    }
+  }
+  return { qty, unit, name, rest, each };
 }
 
 // ── matching a line to a database entry ──────────────────────────────────────
@@ -210,15 +232,20 @@ function lineToMl(qty, unit, kind) {
 
 // Returns the number of `entry.unit` units the line represents, or null if it
 // genuinely can't be converted.
-export function toBaseUnits({ qty, unit }, entry, kind = 'food') {
+export function toBaseUnits({ qty, unit, each }, entry, kind = 'food') {
   if (qty == null) return null;
   const base = entry.unit;
   const g = entry.g;
 
+  // 0. An explicit per-piece size note ("2 fillets (about 5 oz each)") states the
+  //    weight of ONE piece — resolve the total as count × that size, overriding
+  //    both the count-unit path and the DB's generic `each`.
+  if (each) return toBaseUnits({ qty: qty * each.qty, unit: each.unit }, entry, kind);
   // 1. No unit token: a bare count ("6 olives", "2 fillets"). If the base unit is
-  //    itself a piece, that's a direct count. Otherwise the item is stored by
-  //    weight/volume, so we need its per-piece weight (`each`) to convert — without
-  //    it we can't honestly resolve "6 <weight-based thing>", so report it unmatched.
+  //    itself a piece, it's a direct count; otherwise the item is stored by
+  //    weight/volume, so fall back to the DB's per-piece weight (`each`) — and
+  //    without one we can't honestly resolve "6 <weight-based thing>", so report
+  //    it unmatched.
   if (!unit) {
     if (isCountUnit(base)) return qty;
     if (entry.each) return (qty * entry.each) / g;
