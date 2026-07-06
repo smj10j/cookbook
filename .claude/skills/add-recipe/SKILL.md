@@ -171,10 +171,15 @@ Calorie-Smart) plus per-nutrient plan flags — computed from the same per-servi
    the near-miss heuristic calls out of range — aggressive swaps, including protein
    swap-outs, are welcome as long as the variant is still recognizably the dish. The
    fit table then shows "✗ ⇄ ~ with the swap" and the reader gets the **variant
-   toggle** (chips are additive; two swaps of the same line become separate,
-   mutually-exclusive chips). Follow `CLAUDE.md` → *planSwaps* exactly: `replace` must
-   match an ingredient line verbatim, `with` must carry a parseable quantity (the
-   parser ignores parenthetical sizes), and confirm the ⇄ line appears in
+   toggle** (chips are additive). When two swaps touch the same line, they combine if
+   they're the *same food reduced* (Kidney's 4 oz beans + Calorie-Smart's 6 oz land on
+   4 oz) but stay mutually-exclusive chips if one *substitutes a different food*
+   (zoodles vs less pasta) — so it's fine to give several plans their own reduction of
+   one line. Follow `CLAUDE.md` → *planSwaps* exactly: `replace` must match an
+   ingredient line verbatim, and `with` must carry a parseable quantity that **mirrors
+   the as-written phrasing** — shrink `2 salmon fillets (about 6 oz each)` to
+   `2 salmon fillets (about 5 oz each)`, not `10 oz salmon fillets` (the engine reads
+   the per-piece "(N oz each)" note). Confirm the ⇄ line appears in
    `npm run plans -- <slug>` after rebuilding — **a declared swap that doesn't lift its
    verdict fails `npm test`** (the no-dead-swaps gate). Skip only what's genuinely
    unfixable (a steak's sat fat, a vegetable's own sugars) — never fake a green row.
@@ -219,6 +224,15 @@ glistening ingredients, beautiful plating and props, gorgeous light — that is 
 *attainable* (no plastic/CGI/cartoon perfection). It should make you want to cook it
 tonight, while looking like a real photo. Regenerate (optionally `--quality high`) if a
 result drifts toward either failure mode — fake/over-glossy, or real-but-plain.
+
+**Then open the image and check it depicts the REAL dish** (`CLAUDE.md` → *Photos*):
+every component in the form the recipe serves it — protein **sliced / cubed / shredded /
+flaked** if that's how it's plated, not a whole piece — and **only edible food on the
+plate** (no cedar plank, skewers, toothpicks, twine, or parchment unless the dish is
+truly served on/in them). When the title or technique would mislead the model (a "Cedar
+Plank … Salad", a noodle bowl whose chicken must be sliced), add a one-line **`photo:`**
+frontmatter hint spelling out the correct plating — it's fed straight to the pipeline,
+never shown on the site — then regenerate and re-check.
 
 Either way, once `docs/images/<slug>.webp` exists, run `npm run og` to make its JPEG
 link-preview image (used by the `/r/<slug>/` share page so iMessage/Slack unfurl with

@@ -38,6 +38,7 @@ tags:
   - date-night
   - garden
   - make-ahead
+photo: the achiote chicken CARVED into pieces (breast, thigh, drumstick portions — NOT a whole uncut bird), citrus-lacquered mahogany skin, arranged on a platter with black beans, red Mexican rice, charred onions and jalapeños, warm tortillas, lime wedges, and a dish of creamy jalapeño salsa
 ingredients:
   - section: Achiote citrus marinade
     items:

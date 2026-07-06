@@ -1031,28 +1031,28 @@
       "hero": "images/broiled-fish-citrus-herbs.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 244,
-          "protein": 23.4,
+          "kcal": 241,
+          "protein": 22.8,
           "carb": 24.1,
           "fat": 6.3,
           "satfat": 1,
           "fiber": 1.5,
           "sugar": 17.3,
-          "sodium": 683
+          "sodium": 682
         },
         "confidence": "high",
         "matched": 8,
         "considered": 8,
         "withSwaps": {
           "0": {
-            "kcal": 202,
-            "protein": 22.7,
+            "kcal": 199,
+            "protein": 22.2,
             "carb": 14.4,
             "fat": 6.1,
             "satfat": 1,
             "fiber": 1.3,
             "sugar": 9.4,
-            "sodium": 683
+            "sodium": 681
           }
         }
       }
@@ -1140,25 +1140,25 @@
             "kidney"
           ],
           "replace": "2 sea bass fillets (about 5 oz each), skin on",
-          "with": "8 oz sea bass fillets, skin on",
+          "with": "2 sea bass fillets (about 4 oz each), skin on",
           "note": "two 4-oz fillets instead of 5-oz"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Liza Schoenfein's quick broiler method, scaled for two: preheat the pan blazing hot,\nbroil the fish six minutes, and finish with a raw sauce of lemon, oregano, capers, and\nKalamata. Bright, briny, and on the table in 25 minutes.",
       "hero": "images/sea-bass-citrus-olive-caper.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 228,
-          "protein": 27.5,
+          "kcal": 223,
+          "protein": 26.6,
           "carb": 4.1,
-          "fat": 11.7,
+          "fat": 11.6,
           "satfat": 1.6,
           "fiber": 1.5,
           "sugar": 0.8,
-          "sodium": 779
+          "sodium": 776
         },
         "confidence": "high",
         "matched": 8,
@@ -1278,7 +1278,8 @@
             "dash",
             "mind",
             "mediterranean",
-            "tlc"
+            "tlc",
+            "heart"
           ],
           "replace": "½ cup (1 stick) unsalted butter",
           "with": "6 tbsp unsalted butter",
@@ -1289,10 +1290,11 @@
             "dash",
             "mind",
             "mediterranean",
-            "tlc"
+            "tlc",
+            "heart"
           ],
           "replace": "¾ cup chopped dark chocolate or chunks, a little reserved for the top",
-          "with": "½ cup chopped dark chocolate",
+          "with": "⅓ cup chopped dark chocolate",
           "note": "a lighter hand with the chocolate"
         },
         {
@@ -1300,25 +1302,29 @@
             "dash",
             "mind",
             "mediterranean",
-            "lowcarb"
+            "lowcarb",
+            "heart",
+            "lowsugar"
           ],
           "replace": "½ cup brown sugar, packed",
-          "with": "⅓ cup brown sugar, packed",
-          "note": "a third-cup of brown sugar"
+          "with": "⅓ cup allulose, packed",
+          "note": "allulose for the brown sugar"
         },
         {
           "for": [
             "dash",
             "mind",
             "mediterranean",
-            "lowcarb"
+            "lowcarb",
+            "heart",
+            "lowsugar"
           ],
           "replace": "3 tbsp granulated sugar",
-          "with": "2 tbsp granulated sugar",
-          "note": "less sugar on top"
+          "with": "2 tbsp allulose",
+          "note": "allulose on top"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "headnote": "Brown butter is the cheat code for banana bread — five extra minutes at the stove for a\nloaf that tastes like it came from a very good bakery.",
       "equipment": [],
@@ -1339,34 +1345,34 @@
         "considered": 16,
         "withSwaps": {
           "0.1.2.3": {
-            "kcal": 327,
-            "protein": 5.7,
-            "carb": 41.1,
-            "fat": 16.4,
-            "satfat": 8,
-            "fiber": 3.1,
-            "sugar": 17.7,
-            "sodium": 289
+            "kcal": 277,
+            "protein": 5.4,
+            "carb": 30.1,
+            "fat": 15.3,
+            "satfat": 7.4,
+            "fiber": 2.8,
+            "sugar": 7.2,
+            "sodium": 286
           },
           "0.1": {
-            "kcal": 345,
-            "protein": 5.7,
-            "carb": 46,
-            "fat": 16.4,
-            "satfat": 8,
-            "fiber": 3.1,
-            "sugar": 22.5,
+            "kcal": 330,
+            "protein": 5.4,
+            "carb": 44.6,
+            "fat": 15.3,
+            "satfat": 7.4,
+            "fiber": 2.8,
+            "sugar": 21.8,
             "sodium": 289
           },
           "2.3": {
-            "kcal": 371,
+            "kcal": 336,
             "protein": 6,
-            "carb": 43.1,
+            "carb": 33.4,
             "fat": 20.4,
             "satfat": 10.4,
             "fiber": 3.6,
-            "sugar": 18.7,
-            "sodium": 306
+            "sugar": 9,
+            "sodium": 304
           }
         }
       }
@@ -1807,9 +1813,17 @@
           "replace": "1.5 lb boneless skinless chicken thighs, cut into chunks",
           "with": "1.25 lb boneless skinless chicken thighs, cut into chunks",
           "note": "a bit less chicken"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "1.5 lb boneless skinless chicken thighs, cut into chunks",
+          "with": "12 oz boneless skinless chicken thighs, cut into chunks",
+          "note": "a smaller portion of chicken, more sauce"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Delhi's gift to the world: tandoori chicken reborn in a buttery tomato gravy. The two-step\nmethod — char, then simmer — is the whole secret to its depth.",
@@ -1829,6 +1843,16 @@
         "matched": 25,
         "considered": 25,
         "withSwaps": {
+          "3": {
+            "kcal": 416,
+            "protein": 20.9,
+            "carb": 15.7,
+            "fat": 31.2,
+            "satfat": 15.9,
+            "fiber": 3.3,
+            "sugar": 7.4,
+            "sodium": 701
+          },
           "0.1.2": {
             "kcal": 393,
             "protein": 32.8,
@@ -1838,6 +1862,16 @@
             "fiber": 3.3,
             "sugar": 7.7,
             "sodium": 709
+          },
+          "0.1.2.3": {
+            "kcal": 292,
+            "protein": 22.5,
+            "carb": 16,
+            "fat": 16.2,
+            "satfat": 6.4,
+            "fiber": 3.3,
+            "sugar": 7.7,
+            "sodium": 659
           }
         }
       }
@@ -2036,35 +2070,35 @@
       "hero": "images/cedar-plank-brown-sugar-salmon-salad.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 1026,
-          "protein": 47.2,
+          "kcal": 1022,
+          "protein": 46.8,
           "carb": 46.7,
-          "fat": 75,
-          "satfat": 13.9,
+          "fat": 74.7,
+          "satfat": 13.8,
           "fiber": 11.4,
           "sugar": 31.2,
-          "sodium": 1249
+          "sodium": 1248
         },
         "confidence": "high",
         "matched": 20,
         "considered": 21,
         "withSwaps": {
           "0": {
-            "kcal": 1026,
-            "protein": 47.2,
+            "kcal": 1022,
+            "protein": 46.8,
             "carb": 46.7,
-            "fat": 75,
-            "satfat": 13.9,
+            "fat": 74.7,
+            "satfat": 13.8,
             "fiber": 11.4,
             "sugar": 31.2,
-            "sodium": 774
+            "sodium": 773
           },
           "3": {
-            "kcal": 1001,
-            "protein": 47.2,
+            "kcal": 997,
+            "protein": 46.8,
             "carb": 39.9,
-            "fat": 75,
-            "satfat": 13.9,
+            "fat": 74.7,
+            "satfat": 13.8,
             "fiber": 11.4,
             "sugar": 24.5,
             "sodium": 1247
@@ -2100,16 +2134,56 @@
             "sodium": 758
           },
           "0.3": {
-            "kcal": 1001,
-            "protein": 47.2,
+            "kcal": 997,
+            "protein": 46.8,
             "carb": 39.9,
-            "fat": 75,
-            "satfat": 13.9,
+            "fat": 74.7,
+            "satfat": 13.8,
             "fiber": 11.4,
             "sugar": 24.5,
             "sodium": 772
           },
+          "0.5.6.7": {
+            "kcal": 760,
+            "protein": 22.5,
+            "carb": 46.5,
+            "fat": 57,
+            "satfat": 8.9,
+            "fiber": 11.4,
+            "sugar": 31,
+            "sodium": 449
+          },
+          "1.2.3.4.5.6.7": {
+            "kcal": 554,
+            "protein": 20.3,
+            "carb": 37.5,
+            "fat": 38.3,
+            "satfat": 6.7,
+            "fiber": 10.1,
+            "sugar": 23.8,
+            "sodium": 447
+          },
+          "0.1.2.3.4.5.6.7": {
+            "kcal": 554,
+            "protein": 20.3,
+            "carb": 37.5,
+            "fat": 38.3,
+            "satfat": 6.7,
+            "fiber": 10.1,
+            "sugar": 23.8,
+            "sodium": 447
+          },
           "3.5.6.7": {
+            "kcal": 734,
+            "protein": 22.5,
+            "carb": 39.7,
+            "fat": 57,
+            "satfat": 8.9,
+            "fiber": 11.4,
+            "sugar": 24.3,
+            "sodium": 447
+          },
+          "0.3.5.6.7": {
             "kcal": 734,
             "protein": 22.5,
             "carb": 39.7,
@@ -2676,6 +2750,16 @@
             "sugar": 1.7,
             "sodium": 449
           },
+          "1.2.3.4": {
+            "kcal": 730,
+            "protein": 47.1,
+            "carb": 56.4,
+            "fat": 31.5,
+            "satfat": 7.7,
+            "fiber": 2.7,
+            "sugar": 1.7,
+            "sodium": 449
+          },
           "0.5": {
             "kcal": 573,
             "protein": 19.3,
@@ -2727,6 +2811,16 @@
             "sodium": 377
           },
           "1.3.4.5": {
+            "kcal": 596,
+            "protein": 21.9,
+            "carb": 56.4,
+            "fat": 28.6,
+            "satfat": 6.9,
+            "fiber": 2.7,
+            "sugar": 1.7,
+            "sodium": 364
+          },
+          "1.2.3.4.5": {
             "kcal": 596,
             "protein": 21.9,
             "carb": 56.4,
@@ -2968,6 +3062,16 @@
             "carb": 43.8,
             "fat": 75.8,
             "satfat": 9.2,
+            "fiber": 3.7,
+            "sugar": 3.1,
+            "sodium": 766
+          },
+          "0.1.2.3.4": {
+            "kcal": 701,
+            "protein": 23.8,
+            "carb": 43.8,
+            "fat": 48.8,
+            "satfat": 6.8,
             "fiber": 3.7,
             "sugar": 3.1,
             "sodium": 766
@@ -3374,7 +3478,7 @@
             "kidney"
           ],
           "replace": "2 salmon fillets (about 6 oz each), skin-on",
-          "with": "7 oz salmon fillets, skin-on",
+          "with": "2 salmon fillets (about 3½ oz each), skin-on",
           "note": "two 3½-oz fillets"
         },
         {
@@ -3390,21 +3494,21 @@
           "note": "olive oil, not butter, on the asparagus"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The salmon that earns a permanent spot in the weeknight rotation: a fast\ncitrus-garlic marinade, a crisp skin from the cast iron, and asparagus blistered\nin the very same pan. Lemon keeps it bright on the stove or in the oven; swap in\norange and the grill for a sweeter, smokier summer version.",
       "hero": "images/salmon-asparagus-citrus.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 566,
-          "protein": 38.3,
+          "kcal": 562,
+          "protein": 37.9,
           "carb": 8.6,
-          "fat": 42.5,
+          "fat": 42.2,
           "satfat": 10.3,
           "fiber": 3.8,
           "sugar": 3.2,
-          "sodium": 126
+          "sodium": 125
         },
         "confidence": "high",
         "matched": 7,
@@ -3421,10 +3525,10 @@
             "sodium": 93
           },
           "1": {
-            "kcal": 575,
-            "protein": 38.2,
+            "kcal": 571,
+            "protein": 37.8,
             "carb": 8.6,
-            "fat": 43.5,
+            "fat": 43.3,
             "satfat": 7.6,
             "fiber": 3.8,
             "sugar": 3.2,
@@ -4124,28 +4228,28 @@
       "hero": "images/crispy-broiled-salmon-charred-broccoli.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 754,
-          "protein": 40,
+          "kcal": 721,
+          "protein": 36.8,
           "carb": 15.5,
-          "fat": 60.3,
-          "satfat": 21.1,
+          "fat": 58.1,
+          "satfat": 20.7,
           "fiber": 5.7,
           "sugar": 4.8,
-          "sodium": 479
+          "sodium": 471
         },
         "confidence": "high",
         "matched": 9,
         "considered": 9,
         "withSwaps": {
           "0": {
-            "kcal": 670,
-            "protein": 39.7,
+            "kcal": 637,
+            "protein": 36.5,
             "carb": 15.5,
-            "fat": 51,
-            "satfat": 8.5,
+            "fat": 48.8,
+            "satfat": 8.1,
             "fiber": 5.7,
             "sugar": 4.8,
-            "sodium": 317
+            "sodium": 309
           },
           "1": {
             "kcal": 576,
@@ -4416,14 +4520,14 @@
       "hero": "images/crispy-skin-sea-bass-tomato-jalapeno-confit.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 724,
-          "protein": 29.4,
+          "kcal": 746,
+          "protein": 33.7,
           "carb": 11.9,
-          "fat": 63.2,
-          "satfat": 8.5,
+          "fat": 63.7,
+          "satfat": 8.6,
           "fiber": 2.9,
           "sugar": 6.5,
-          "sodium": 111
+          "sodium": 127
         },
         "confidence": "high",
         "matched": 12,
@@ -5081,14 +5185,14 @@
       "hero": "images/greek-salad-with-salmon.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 680,
-          "protein": 40.6,
+          "kcal": 705,
+          "protein": 43,
           "carb": 13.8,
-          "fat": 52.1,
-          "satfat": 11.6,
+          "fat": 53.8,
+          "satfat": 12,
           "fiber": 4.2,
           "sugar": 5.7,
-          "sodium": 645
+          "sodium": 651
         },
         "confidence": "high",
         "matched": 11,
@@ -5113,6 +5217,16 @@
             "fiber": 4.2,
             "sugar": 5.2,
             "sodium": 509
+          },
+          "0.1.2.3": {
+            "kcal": 413,
+            "protein": 21.8,
+            "carb": 13.3,
+            "fat": 31.4,
+            "satfat": 6.7,
+            "fiber": 4.2,
+            "sugar": 5.2,
+            "sodium": 483
           }
         }
       }
@@ -5261,14 +5375,14 @@
       "hero": "images/everything-bagel-tuna-horseradish-broccolini.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 454,
-          "protein": 46.7,
+          "kcal": 463,
+          "protein": 48.6,
           "carb": 19.2,
-          "fat": 22.1,
+          "fat": 22.2,
           "satfat": 4.6,
           "fiber": 5.1,
           "sugar": 8.9,
-          "sodium": 674
+          "sodium": 677
         },
         "confidence": "high",
         "matched": 13,
@@ -6164,14 +6278,14 @@
       "hero": "images/grilled-salmon-salad-dijon-balsamic.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 749,
-          "protein": 40.3,
+          "kcal": 774,
+          "protein": 42.7,
           "carb": 18,
-          "fat": 57.8,
-          "satfat": 11.6,
+          "fat": 59.5,
+          "satfat": 11.9,
           "fiber": 4.3,
           "sugar": 9.7,
-          "sodium": 817
+          "sodium": 823
         },
         "confidence": "high",
         "matched": 11,
@@ -6188,14 +6302,14 @@
             "sodium": 777
           },
           "0.1": {
-            "kcal": 604,
-            "protein": 39,
+            "kcal": 629,
+            "protein": 41.4,
             "carb": 17.7,
-            "fat": 42.3,
-            "satfat": 8.4,
+            "fat": 44,
+            "satfat": 8.7,
             "fiber": 4.3,
             "sugar": 9.4,
-            "sodium": 713
+            "sodium": 718
           },
           "0.1.2": {
             "kcal": 426,
@@ -6735,28 +6849,28 @@
       "hero": "images/herb-butter-swordfish.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 664,
-          "protein": 41.8,
+          "kcal": 661,
+          "protein": 41.5,
           "carb": 23.3,
-          "fat": 46.8,
-          "satfat": 13.7,
+          "fat": 46.7,
+          "satfat": 13.6,
           "fiber": 9,
           "sugar": 4.9,
-          "sodium": 293
+          "sodium": 291
         },
         "confidence": "high",
         "matched": 9,
         "considered": 9,
         "withSwaps": {
           "0": {
-            "kcal": 622,
-            "protein": 41.7,
+            "kcal": 619,
+            "protein": 41.3,
             "carb": 23.3,
-            "fat": 42.2,
-            "satfat": 7.4,
+            "fat": 42,
+            "satfat": 7.3,
             "fiber": 9,
             "sugar": 4.9,
-            "sodium": 212
+            "sodium": 210
           },
           "1": {
             "kcal": 521,
@@ -7048,7 +7162,7 @@
             "kidney"
           ],
           "replace": "2 salmon fillets (about 6 oz each)",
-          "with": "6 oz salmon fillets (two 3-oz portions)",
+          "with": "2 salmon fillets (about 3 oz each)",
           "note": "CKD-size 3-oz portions"
         },
         {
@@ -7061,55 +7175,55 @@
           "note": "half the honey"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A fast, fiery weeknight salmon that leans on one great Korean pantry staple — and proves\nthe broiler is the most underused tool for a caramelized glaze.",
       "hero": "images/korean-gochujang-salmon-bok-choy.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 598,
-          "protein": 40.7,
+          "kcal": 594,
+          "protein": 40.3,
           "carb": 27.3,
-          "fat": 37.3,
-          "satfat": 6.4,
+          "fat": 37,
+          "satfat": 6.3,
           "fiber": 3.8,
           "sugar": 14.6,
-          "sodium": 1573
+          "sodium": 1572
         },
         "confidence": "high",
         "matched": 15,
         "considered": 15,
         "withSwaps": {
           "3": {
-            "kcal": 583,
-            "protein": 40.7,
+            "kcal": 579,
+            "protein": 40.3,
             "carb": 22.9,
-            "fat": 37.3,
-            "satfat": 6.4,
+            "fat": 37,
+            "satfat": 6.3,
             "fiber": 3.8,
             "sugar": 10.2,
-            "sodium": 1573
+            "sodium": 1572
           },
           "0.1": {
-            "kcal": 585,
-            "protein": 39.3,
+            "kcal": 581,
+            "protein": 38.9,
             "carb": 25,
-            "fat": 37.1,
-            "satfat": 6.4,
+            "fat": 36.9,
+            "satfat": 6.3,
             "fiber": 3.5,
             "sugar": 15,
-            "sodium": 724
+            "sodium": 723
           },
           "0.1.3": {
-            "kcal": 570,
-            "protein": 39.3,
+            "kcal": 566,
+            "protein": 38.9,
             "carb": 20.6,
-            "fat": 37.1,
-            "satfat": 6.4,
+            "fat": 36.9,
+            "satfat": 6.3,
             "fiber": 3.5,
             "sugar": 10.6,
-            "sodium": 724
+            "sodium": 723
           },
           "0.1.2": {
             "kcal": 407,
@@ -7343,7 +7457,7 @@
           "note": "a lighter noodle nest"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The marinade and sauce share a single tablespoon of fish sauce between them —\nbright over salty on purpose, which is what keeps these bowls in the heart and\nkidney columns.",
@@ -7787,14 +7901,14 @@
       "hero": "images/mediterranean-tuna-blistered-tomatoes.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 343,
-          "protein": 39.3,
+          "kcal": 321,
+          "protein": 34.6,
           "carb": 7.3,
-          "fat": 17.1,
-          "satfat": 2.6,
+          "fat": 16.9,
+          "satfat": 2.5,
           "fiber": 2.3,
           "sugar": 3.3,
-          "sodium": 210
+          "sodium": 202
         },
         "confidence": "high",
         "matched": 7,
@@ -8188,28 +8302,28 @@
       "hero": "images/miso-black-cod-bok-choy.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 738,
-          "protein": 29.7,
+          "kcal": 734,
+          "protein": 29.5,
           "carb": 23.5,
-          "fat": 57.6,
-          "satfat": 8.5,
+          "fat": 57.3,
+          "satfat": 8.4,
           "fiber": 4,
           "sugar": 14,
-          "sodium": 1496
+          "sodium": 1495
         },
         "confidence": "high",
         "matched": 18,
         "considered": 18,
         "withSwaps": {
           "0.1.2": {
-            "kcal": 722,
-            "protein": 28.5,
+            "kcal": 718,
+            "protein": 28.2,
             "carb": 21.7,
-            "fat": 57.1,
-            "satfat": 8.4,
+            "fat": 56.8,
+            "satfat": 8.3,
             "fiber": 3.5,
             "sugar": 13.7,
-            "sodium": 840
+            "sodium": 839
           },
           "0.1.2.3": {
             "kcal": 636,
@@ -8913,14 +9027,14 @@
       "hero": "images/pan-seared-halibut-corn-succotash.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 639,
-          "protein": 43.6,
+          "kcal": 637,
+          "protein": 43.2,
           "carb": 25.8,
-          "fat": 42.4,
+          "fat": 42.3,
           "satfat": 17.1,
           "fiber": 4.3,
           "sugar": 9.9,
-          "sodium": 293
+          "sodium": 292
         },
         "confidence": "high",
         "matched": 14,
@@ -8937,14 +9051,14 @@
             "sodium": 238
           },
           "0.1": {
-            "kcal": 606,
-            "protein": 43.5,
+            "kcal": 604,
+            "protein": 43,
             "carb": 25.8,
-            "fat": 38.8,
+            "fat": 38.7,
             "satfat": 8.1,
             "fiber": 4.3,
             "sugar": 9.9,
-            "sodium": 172
+            "sodium": 171
           },
           "0.1.2": {
             "kcal": 505,
@@ -9254,14 +9368,14 @@
       "hero": "images/poached-cod-tomato-saffron.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 251,
-          "protein": 28.2,
+          "kcal": 247,
+          "protein": 27.3,
           "carb": 11.5,
           "fat": 8.1,
           "satfat": 0.9,
           "fiber": 2.6,
           "sugar": 5.7,
-          "sodium": 211
+          "sodium": 209
         },
         "confidence": "high",
         "matched": 9,
@@ -9902,6 +10016,26 @@
             "sugar": 2.8,
             "sodium": 883
           },
+          "0.1.2.5": {
+            "kcal": 789,
+            "protein": 23.2,
+            "carb": 47.1,
+            "fat": 57.9,
+            "satfat": 32.4,
+            "fiber": 4,
+            "sugar": 4.1,
+            "sodium": 673
+          },
+          "0.1.2.3.5": {
+            "kcal": 688,
+            "protein": 22.4,
+            "carb": 46.3,
+            "fat": 47.1,
+            "satfat": 25.7,
+            "fiber": 4,
+            "sugar": 3.2,
+            "sodium": 662
+          },
           "4.5": {
             "kcal": 898,
             "protein": 22.2,
@@ -9911,6 +10045,26 @@
             "fiber": 3.3,
             "sugar": 3.7,
             "sodium": 791
+          },
+          "0.1.2.4.5": {
+            "kcal": 745,
+            "protein": 22.1,
+            "carb": 37.1,
+            "fat": 57.8,
+            "satfat": 32.4,
+            "fiber": 3.3,
+            "sugar": 3.7,
+            "sodium": 670
+          },
+          "0.1.2.3.4.5": {
+            "kcal": 644,
+            "protein": 21.2,
+            "carb": 36.3,
+            "fat": 47.1,
+            "satfat": 25.6,
+            "fiber": 3.3,
+            "sugar": 2.8,
+            "sodium": 658
           }
         }
       }
@@ -11013,48 +11167,48 @@
       "hero": "images/sous-vide-salmon-brown-butter-citrus.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 1031,
-          "protein": 50.8,
+          "kcal": 997,
+          "protein": 47.6,
           "carb": 89.6,
-          "fat": 52.7,
-          "satfat": 23,
+          "fat": 50.5,
+          "satfat": 22.6,
           "fiber": 10.7,
           "sugar": 13.7,
-          "sodium": 779
+          "sodium": 772
         },
         "confidence": "high",
         "matched": 14,
         "considered": 14,
         "withSwaps": {
           "0": {
-            "kcal": 868,
-            "protein": 45.3,
+            "kcal": 835,
+            "protein": 42.1,
             "carb": 56.1,
-            "fat": 52.4,
-            "satfat": 23,
+            "fat": 50.3,
+            "satfat": 22.5,
             "fiber": 8.6,
             "sugar": 13.7,
-            "sodium": 775
+            "sodium": 767
           },
           "2": {
-            "kcal": 746,
-            "protein": 42.9,
+            "kcal": 713,
+            "protein": 39.7,
             "carb": 30.5,
-            "fat": 52.6,
-            "satfat": 23,
+            "fat": 50.4,
+            "satfat": 22.6,
             "fiber": 9.5,
             "sugar": 16.7,
-            "sodium": 819
+            "sodium": 811
           },
           "0.1": {
-            "kcal": 766,
-            "protein": 45.1,
+            "kcal": 733,
+            "protein": 41.9,
             "carb": 56.1,
-            "fat": 41,
-            "satfat": 15.8,
+            "fat": 38.9,
+            "satfat": 15.3,
             "fiber": 8.6,
             "sugar": 13.7,
-            "sodium": 694
+            "sodium": 686
           },
           "2.3": {
             "kcal": 510,
@@ -11320,6 +11474,36 @@
             "sugar": 20.2,
             "sodium": 532
           },
+          "3.4.5.6.7": {
+            "kcal": 548,
+            "protein": 31.8,
+            "carb": 27.1,
+            "fat": 35.3,
+            "satfat": 8,
+            "fiber": 5,
+            "sugar": 15.9,
+            "sodium": 470
+          },
+          "3.4.5.7": {
+            "kcal": 564,
+            "protein": 31.8,
+            "carb": 31.4,
+            "fat": 35.3,
+            "satfat": 8,
+            "fiber": 5,
+            "sugar": 20.2,
+            "sodium": 470
+          },
+          "0.1.2.4.5": {
+            "kcal": 588,
+            "protein": 54,
+            "carb": 27.1,
+            "fat": 28.9,
+            "satfat": 4.8,
+            "fiber": 5,
+            "sugar": 15.9,
+            "sodium": 580
+          },
           "3.4.5": {
             "kcal": 678,
             "protein": 45.8,
@@ -11497,48 +11681,48 @@
       "hero": "images/sriracha-honey-salmon-kale-chips.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 582,
-          "protein": 38.2,
+          "kcal": 578,
+          "protein": 37.8,
           "carb": 25.9,
-          "fat": 36.3,
+          "fat": 36,
           "satfat": 6.6,
           "fiber": 4.2,
           "sugar": 20.7,
-          "sodium": 1234
+          "sodium": 1233
         },
         "confidence": "high",
         "matched": 13,
         "considered": 13,
         "withSwaps": {
           "3": {
-            "kcal": 550,
-            "protein": 38.2,
+            "kcal": 546,
+            "protein": 37.8,
             "carb": 17.2,
-            "fat": 36.3,
+            "fat": 36,
             "satfat": 6.6,
             "fiber": 4.2,
             "sugar": 12,
-            "sodium": 1234
+            "sodium": 1233
           },
           "0.1.3": {
-            "kcal": 550,
-            "protein": 38.1,
+            "kcal": 546,
+            "protein": 37.7,
             "carb": 17.3,
-            "fat": 36.3,
+            "fat": 36,
             "satfat": 6.6,
             "fiber": 4.2,
             "sugar": 12.1,
-            "sodium": 804
+            "sodium": 803
           },
           "0.1": {
-            "kcal": 581,
-            "protein": 38.1,
+            "kcal": 577,
+            "protein": 37.7,
             "carb": 26,
-            "fat": 36.3,
+            "fat": 36,
             "satfat": 6.6,
             "fiber": 4.2,
             "sugar": 20.8,
-            "sodium": 804
+            "sodium": 803
           },
           "0.1.2": {
             "kcal": 403,
@@ -11679,28 +11863,28 @@
       "hero": "images/steak-au-poivre.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 826,
-          "protein": 45.6,
+          "kcal": 822,
+          "protein": 45.1,
           "carb": 10.2,
-          "fat": 60.9,
-          "satfat": 29.9,
+          "fat": 60.6,
+          "satfat": 29.8,
           "fiber": 2.6,
           "sugar": 3.4,
-          "sodium": 477
+          "sodium": 476
         },
         "confidence": "high",
         "matched": 10,
         "considered": 10,
         "withSwaps": {
           "0": {
-            "kcal": 759,
-            "protein": 45,
+            "kcal": 754,
+            "protein": 44.5,
             "carb": 9.6,
-            "fat": 53.7,
-            "satfat": 25.4,
+            "fat": 53.5,
+            "satfat": 25.3,
             "fiber": 2.6,
             "sugar": 2.9,
-            "sodium": 469
+            "sodium": 468
           }
         }
       }
@@ -12457,48 +12641,48 @@
       "hero": "images/tilapia-piccata-fettuccine-broccoli.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 944,
-          "protein": 54.2,
+          "kcal": 941,
+          "protein": 53.6,
           "carb": 95.5,
           "fat": 36.6,
           "satfat": 14.3,
           "fiber": 10.6,
           "sugar": 8.2,
-          "sodium": 569
+          "sodium": 568
         },
         "confidence": "high",
         "matched": 13,
         "considered": 13,
         "withSwaps": {
           "4": {
-            "kcal": 694,
-            "protein": 47.4,
+            "kcal": 692,
+            "protein": 46.8,
             "carb": 44.7,
-            "fat": 36.2,
-            "satfat": 14.3,
+            "fat": 36.1,
+            "satfat": 14.2,
             "fiber": 10.8,
             "sugar": 13,
-            "sodium": 587
+            "sodium": 586
           },
           "0.1": {
-            "kcal": 784,
-            "protein": 50.7,
+            "kcal": 781,
+            "protein": 50.1,
             "carb": 75.5,
-            "fat": 29.4,
+            "fat": 29.3,
             "satfat": 13.3,
             "fiber": 9.7,
             "sugar": 7.4,
-            "sodium": 567
+            "sodium": 566
           },
           "2.3": {
-            "kcal": 902,
-            "protein": 54.1,
+            "kcal": 899,
+            "protein": 53.5,
             "carb": 95.5,
-            "fat": 32,
+            "fat": 31.9,
             "satfat": 8,
             "fiber": 10.6,
             "sugar": 8.2,
-            "sodium": 488
+            "sodium": 487
           },
           "4.5": {
             "kcal": 575,
@@ -12511,24 +12695,24 @@
             "sodium": 523
           },
           "0.1.2.3": {
-            "kcal": 742,
-            "protein": 50.6,
+            "kcal": 739,
+            "protein": 50,
             "carb": 75.5,
             "fat": 24.7,
             "satfat": 7,
             "fiber": 9.7,
             "sugar": 7.4,
-            "sodium": 486
+            "sodium": 485
           },
           "2.3.4": {
-            "kcal": 652,
-            "protein": 47.3,
+            "kcal": 650,
+            "protein": 46.7,
             "carb": 44.7,
             "fat": 31.5,
-            "satfat": 8,
+            "satfat": 7.9,
             "fiber": 10.8,
             "sugar": 13,
-            "sodium": 506
+            "sodium": 505
           },
           "2.3.4.5": {
             "kcal": 533,
@@ -12770,6 +12954,16 @@
             "fiber": 4.4,
             "sugar": 11.5,
             "sodium": 312
+          },
+          "0.2.3.4": {
+            "kcal": 381,
+            "protein": 22.8,
+            "carb": 17.8,
+            "fat": 25.6,
+            "satfat": 6.4,
+            "fiber": 4.4,
+            "sugar": 11.5,
+            "sodium": 226
           }
         }
       }
@@ -12886,7 +13080,8 @@
             "dash",
             "tlc",
             "heart",
-            "diabetes"
+            "diabetes",
+            "kidney"
           ],
           "replace": "1 tbsp soy sauce",
           "with": "1 tbsp coconut aminos",
@@ -12897,7 +13092,8 @@
             "dash",
             "tlc",
             "heart",
-            "diabetes"
+            "diabetes",
+            "kidney"
           ],
           "replace": "1 cup vegetable broth",
           "with": "1 cup low-sodium vegetable broth",
@@ -12908,7 +13104,8 @@
             "dash",
             "tlc",
             "heart",
-            "diabetes"
+            "diabetes",
+            "kidney"
           ],
           "replace": "2 tbsp doubanjiang (chili bean paste)",
           "with": "1 tbsp doubanjiang (chili bean paste)",
@@ -12919,7 +13116,8 @@
             "dash",
             "tlc",
             "heart",
-            "diabetes"
+            "diabetes",
+            "kidney"
           ],
           "replace": "1 tbsp fermented black beans, rinsed and chopped (optional)",
           "with": "1 tsp fermented black beans, rinsed and chopped (optional)",
@@ -13134,6 +13332,16 @@
             "fiber": 27.2,
             "sugar": 7.3,
             "sodium": 204
+          },
+          "0.1": {
+            "kcal": 657,
+            "protein": 22,
+            "carb": 123.3,
+            "fat": 8.6,
+            "satfat": 1.2,
+            "fiber": 20.1,
+            "sugar": 6.7,
+            "sodium": 197
           }
         }
       }
@@ -13597,7 +13805,8 @@
         },
         {
           "for": [
-            "diabetes"
+            "diabetes",
+            "kidney"
           ],
           "replace": "4 cups vegetable broth, kept warm",
           "with": "4 cups low-sodium vegetable broth, kept warm",
@@ -13605,7 +13814,8 @@
         },
         {
           "for": [
-            "diabetes"
+            "diabetes",
+            "kidney"
           ],
           "replace": "½ cup grated parmesan",
           "with": "¼ cup grated parmesan",
@@ -13661,6 +13871,26 @@
             "fiber": 6.3,
             "sugar": 10.3,
             "sodium": 712
+          },
+          "4.5": {
+            "kcal": 909,
+            "protein": 16.7,
+            "carb": 93.5,
+            "fat": 47.5,
+            "satfat": 19.2,
+            "fiber": 3.9,
+            "sugar": 6.3,
+            "sodium": 650
+          },
+          "0.1.2.4.5": {
+            "kcal": 708,
+            "protein": 15,
+            "carb": 73.8,
+            "fat": 34.9,
+            "satfat": 14.7,
+            "fiber": 3.4,
+            "sugar": 6.3,
+            "sodium": 609
           }
         }
       }

@@ -78,6 +78,9 @@ function buildPrompt(r) {
     `A mouth-watering, professionally food-styled photograph of "${r.title}", a ${r.cuisine} ${isDessert ? 'dessert' : r.course}.`,
     r.tagline,
     firstItems ? `Featuring ${firstItems}.` : '',
+    // Depict the dish AS COOKED AND SERVED: every component in the exact form the recipe
+    // finishes it (sliced, cubed, shredded, flaked, whole), plated ready to eat.
+    r.photo ? `Plate it exactly like this: ${r.photo}` : 'Show each component prepared and cut exactly as the recipe describes — if the protein is sliced or flaked for serving, show it sliced or flaked, not as a whole piece.',
     `Restaurant-quality plating ${vessel} on a beautifully styled table with tasteful props,`,
     garnishLine,
     'Shot by a top Instagram food photographer on a full-frame DSLR, 50mm at f/2.8:',
@@ -87,6 +90,8 @@ function buildPrompt(r) {
     'that makes you want to make it tonight.',
     'It is still a REAL photograph — photorealistic with natural imperfections — NOT an',
     'illustration, 3D render, CGI, cartoon, painting, or AI art, and never plastic, waxy, or fake.',
+    // Only edible food belongs on the plate — cooking gear used to MAKE the dish must not appear.
+    'On the plate show ONLY edible food and its sauce — never any cooking equipment (cedar plank, wooden skewers, toothpicks, butcher\'s twine, parchment, foil) unless the dish is genuinely served on or in it.',
     'No text, no words, no logos, no hands, no people.',
   ].filter(Boolean).join(' ');
 }
@@ -99,6 +104,7 @@ function buildDrinkPrompt(r) {
     `A mouth-watering, professionally styled cocktail photograph of "${r.title}", a ${r.base} ${r.family} cocktail served in ${glass}.`,
     r.tagline,
     garnish ? `Garnished with ${garnish.toLowerCase()}.` : '',
+    r.photo ? `Style it exactly like this: ${r.photo}` : '',
     'Styled on a bar top or a beautifully set table with tasteful props,',
     'beads of condensation on the glass, glistening ice where it belongs, fresh garnish, and vibrant, appetizing color.',
     'Shot by a top cocktail photographer on a full-frame DSLR, 50mm at f/2.8:',

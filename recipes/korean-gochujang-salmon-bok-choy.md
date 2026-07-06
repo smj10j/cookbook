@@ -91,13 +91,13 @@ planSwaps:
     note: "half the gochujang, gochugaru keeps the fire"
   - for: [kidney]
     replace: "2 salmon fillets (about 6 oz each)"
-    with: "6 oz salmon fillets (two 3-oz portions)"
+    with: "2 salmon fillets (about 3 oz each)"
     note: "CKD-size 3-oz portions"
   - for: [lowsugar, heart]
     replace: "1 tbsp honey"
     with: "1½ tsp honey"
     note: "half the honey"
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 A fast, fiery weeknight salmon that leans on one great Korean pantry staple — and proves

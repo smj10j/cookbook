@@ -121,7 +121,9 @@ fit*), computed from the same per-serving estimate — nothing to author, but re
    variant as `planSwaps` entries (a lighter liqueur pour, half the syrup, less juice —
    classic bar practice; an allulose simple syrup is a fair tip since it's the one
    alt-sweetener that behaves like sugar in a shaker). Chips are additive in the reader,
-   so separate concerns (lighter pour vs less syrup) can be separate entries. Follow
+   so separate concerns (lighter pour vs less syrup) can be separate entries — and two
+   plans that each dial the SAME line down to different amounts now combine to the
+   smallest pour rather than conflicting. Follow
    `CLAUDE.md` → *planSwaps*: `replace` verbatim, `with` parseable, ⇄ confirmed via
    `npm run plans -- <slug>` — **a swap that doesn't lift its verdict fails `npm test`**.
    Remember boozy drinks cap at "~ Okay" regardless; a swap can still lift ✗ → ~.
@@ -132,7 +134,10 @@ A photo is **part of adding a drink**, not optional. Same pipeline as food
 (`npm run photos -- --only <slug>`, then `npm run og`, then rebuild) — the prompt builder
 detects `kind: drink` and styles the cocktail in its glassware. Prefer a real source photo of
 the actual drink if it fits the book's calm, editorial look; otherwise generate one. The bar
-is **consistency** — a coherent set beats one off-brand shot.
+is **consistency** — a coherent set beats one off-brand shot. **Open the result and check it
+shows the right glass, garnish, and build**; if the model needs steering (a specific garnish,
+a layered/blended look), add a one-line **`photo:`** frontmatter hint (`CLAUDE.md` → *Photos*)
+and regenerate.
 
 ## 6. Show & commit
 

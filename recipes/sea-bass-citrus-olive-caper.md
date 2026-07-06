@@ -63,9 +63,9 @@ created: 2026-06-19
 planSwaps:
   - for: [kidney]
     replace: 2 sea bass fillets (about 5 oz each), skin on
-    with: 8 oz sea bass fillets, skin on
+    with: "2 sea bass fillets (about 4 oz each), skin on"
     note: two 4-oz fillets instead of 5-oz
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 Liza Schoenfein's quick broiler method, scaled for two: preheat the pan blazing hot,

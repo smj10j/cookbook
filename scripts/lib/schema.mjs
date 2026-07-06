@@ -242,6 +242,12 @@ export function validateRecipe(r, filename = '?') {
     }
   }
 
+  // photo: optional one-line styling hint for the AI photo pipeline (how the finished
+  // dish is plated/cut) — never rendered on the site, only fed to generate-photos.mjs.
+  if (r.photo !== undefined && (typeof r.photo !== 'string' || !r.photo.trim())) {
+    fail('photo must be a non-empty string (a plating hint for the photo pipeline)');
+  }
+
   // planSwaps: optional, structured ingredient swaps that flip an eating-plan verdict.
   // Each entry: { for: [plan ids], replace: "<existing ingredient line>", with: "<line>",
   // note?: "…" }. `replace` must EXACTLY match a current ingredient line so the swap

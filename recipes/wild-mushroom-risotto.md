@@ -92,11 +92,11 @@ planSwaps:
     replace: "1 cup arborio rice"
     with: "4 cups cauliflower rice"
     note: "cauliflower rice for a low-carb 'risotto'"
-  - for: [diabetes]
+  - for: [diabetes, kidney]
     replace: "4 cups vegetable broth, kept warm"
     with: "4 cups low-sodium vegetable broth, kept warm"
     note: "low-sodium broth"
-  - for: [diabetes]
+  - for: [diabetes, kidney]
     replace: "½ cup grated parmesan"
     with: "¼ cup grated parmesan"
     note: "a lighter hand of parmesan"
