@@ -89,19 +89,23 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
-  - for: [dash, tlc, heart, diabetes]
+  - for: [dash, tlc, heart, diabetes, kidney]
     replace: "½–¾ tsp garlic salt"
     with: "¼ tsp garlic salt"
     note: "a quarter-teaspoon of garlic salt"
-  - for: [dash, tlc, heart, diabetes]
+  - for: [dash, tlc, heart, diabetes, kidney]
     replace: "1 tbsp soy sauce"
     with: "1 tbsp low-sodium soy sauce"
     note: "low-sodium soy"
+  - for: [kidney]
+    replace: "2 salmon fillets, 5–7 oz each, skin removed"
+    with: "6 oz salmon fillets (two 3-oz portions), skin removed"
+    note: "renal-size salmon portions"
   - for: [dash, mind, mediterranean, heart, lowsugar]
     replace: "2 tbsp honey"
     with: "1 tbsp honey"
     note: "half the honey"
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 A NASA-flavor-division build that Stephen dialed in across a few rounds: sous-vide

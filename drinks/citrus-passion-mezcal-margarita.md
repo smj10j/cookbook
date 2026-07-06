@@ -57,15 +57,19 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
-  - for: [dash, mind, mediterranean]
+  - for: [dash, mind, mediterranean, heart, lowsugar]
     replace: "¾ oz triple sec"
     with: "½ oz triple sec"
     note: "less triple sec"
-  - for: [dash, mind, mediterranean]
+  - for: [dash, mind, mediterranean, heart, lowsugar]
     replace: "½ oz passion fruit syrup"
     with: "¼ oz passion fruit syrup"
     note: "half the syrup"
-updated: 2026-07-05
+  - for: [heart, lowsugar]
+    replace: "¼ oz agave syrup (optional, for body)"
+    with: "¼ oz allulose syrup (optional, for body)"
+    note: "allulose for the agave (0 g sugar)"
+updated: 2026-07-06
 ---
 
 Smoke in the background, passion fruit and citrus out front — a gateway mezcal margarita

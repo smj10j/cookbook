@@ -88,7 +88,11 @@ planSwaps:
     replace: "¼ cup feta cheese, crumbled"
     with: "2 tbsp feta cheese, crumbled"
     note: "a lighter feta hand"
-updated: 2026-07-05
+  - for: [kidney]
+    replace: "2 salmon fillets (6–7 oz each, skin on or off)"
+    with: "6 oz salmon fillets (two 3-oz portions, skin on or off)"
+    note: "renal-size salmon portions"
+updated: 2026-07-06
 ---
 
 A dinner salad that came together from a full garden haul: cucumber and cherry

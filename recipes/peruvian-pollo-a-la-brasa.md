@@ -93,7 +93,15 @@ planSwaps:
     replace: "3.5 lb whole chicken, spatchcocked"
     with: "3 lb whole chicken, spatchcocked"
     note: "a smaller bird"
-updated: 2026-07-05
+  - for: [diabetes]
+    replace: "3 tbsp soy sauce"
+    with: "3 tbsp coconut aminos"
+    note: "coconut aminos for the soy"
+  - for: [diabetes]
+    replace: "1 tsp kosher salt"
+    with: "¼ tsp kosher salt"
+    note: "the aminos carry the savor, so less added salt"
+updated: 2026-07-06
 ---
 
 Lima's most famous dish: charcoal-blasted marinated chicken with a creamy, herby, gently

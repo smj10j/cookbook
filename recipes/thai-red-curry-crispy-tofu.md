@@ -77,8 +77,13 @@ extras:
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "1½ cups coconut milk"
+    with: "1½ cups light coconut milk"
+    note: "light coconut milk (thinner — reduce a touch harder)"
 created: 2026-06-20
-updated: 2026-06-20
+updated: 2026-07-06
 ---
 
 One coconut-curry base, endless variations. The crispy tofu is what makes the vegan version

@@ -92,8 +92,13 @@ extras:
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
+planSwaps:
+  - for: [lowcarb]
+    replace: "2 cups jasmine rice, rinsed"
+    with: "3 cups cauliflower rice"
+    note: "cauliflower rice for the chicken rice"
 created: 2026-06-20
-updated: 2026-06-20
+updated: 2026-07-06
 ---
 
 Deceptively simple and deeply technique-driven: the gentlest poach, the most fragrant rice,

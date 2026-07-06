@@ -88,7 +88,19 @@ planSwaps:
     replace: "2 tbsp olive oil"
     with: "1 tbsp olive oil"
     note: "half the oil"
-updated: 2026-07-05
+  - for: [lowcarb, diabetes]
+    replace: "1 cup arborio rice"
+    with: "4 cups cauliflower rice"
+    note: "cauliflower rice for a low-carb 'risotto'"
+  - for: [diabetes]
+    replace: "4 cups vegetable broth, kept warm"
+    with: "4 cups low-sodium vegetable broth, kept warm"
+    note: "low-sodium broth"
+  - for: [diabetes]
+    replace: "½ cup grated parmesan"
+    with: "¼ cup grated parmesan"
+    note: "a lighter hand of parmesan"
+updated: 2026-07-06
 ---
 
 The dish that teaches patience: toast, deglaze, ladle, stir, repeat. No cream — just rice,

@@ -95,7 +95,11 @@ planSwaps:
     replace: "4 tbsp unsalted butter"
     with: "2 tbsp olive oil"
     note: "an olive-oil baste"
-updated: 2026-07-05
+  - for: [kidney]
+    replace: "2 skin-on salmon fillets (5–6 oz each)"
+    with: "6 oz skin-on salmon fillets (two 3-oz portions)"
+    note: "renal-size salmon portions"
+updated: 2026-07-06
 ---
 
 Stephen's weeknight-elevated salmon: the broiler does the work of a restaurant

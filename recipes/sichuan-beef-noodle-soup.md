@@ -119,7 +119,11 @@ planSwaps:
     replace: "24 oz dried wheat noodles (or 2 lb fresh)"
     with: "16 oz dried wheat noodles"
     note: "2 oz noodles per bowl"
-updated: 2026-07-05
+  - for: [lowcarb]
+    replace: "24 oz dried wheat noodles (or 2 lb fresh)"
+    with: "2 lb zucchini, spiralized"
+    note: "zoodles instead of wheat noodles"
+updated: 2026-07-06
 ---
 
 A killer Sichuan bowl Stephen and Lauren have chased for years, scaled up to eight

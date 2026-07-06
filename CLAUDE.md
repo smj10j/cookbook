@@ -230,28 +230,49 @@ that actually improves the tier. Authoring rules:
 the nutrient it fixes):
 
 - *Sodium:* **coconut aminos** for soy sauce (~270 vs ~880 mg/tbsp — brands vary ~2x,
-  say "check label"); low-sodium soy (~575); halve the added salt; **half the gochujang
-  + gochugaru** (0 mg) keeps the heat; low-sodium broths (DB has both); no-salt-added
-  canned tomatoes/beans (or note that rinsing regular beans drops ~40%); fresh-roasted
-  peppers over jarred; goat cheese (~105 mg/oz) or Swiss (~53) for feta (~260); salt-free
-  boosters — citrus, vinegar, MSG (~⅓ the sodium per unit of savor), nutritional yeast.
-  **Never suggest KCl "salt substitutes"** — hyperkalemia risk for the kidney plan.
+  say "check label"; DB entry); low-sodium soy (~575, DB entry); halve the added salt;
+  **half the gochujang + gochugaru** (0 mg) keeps the heat; low-sodium broths (DB has
+  both); no-salt-added canned tomatoes/beans (or note that rinsing regular beans drops
+  ~40%); fresh-roasted peppers over jarred; **Swiss (~53 mg/oz) or goat cheese
+  (~117 mg/oz) for feta (~316 mg/oz)** — both DB entries now, Swiss is the bigger sodium
+  cut; salt-free boosters — citrus, vinegar, MSG (~⅓ the sodium per unit of savor),
+  nutritional yeast. **Never suggest KCl "salt substitutes"** — hyperkalemia risk for the
+  kidney plan. Big single-source sodium is often a sauce/cheese/broth line: swap the
+  computed one and combine entries (chips union) when one swap alone can't clear the cap.
 - *Sat fat:* **Greek yogurt** for sour cream/crema (~0 vs ~1.7 g/tbsp) or as an off-heat
   finish replacing heavy cream (classic lightened murgh makhani); olive oil for butter
-  (1.9 vs 7.2 g/tbsp); light coconut milk (~70% less, thinner — reduce harder);
-  chicken breast for fatty red meat on skewers/stir-fries.
-- *Carbs/sugar:* **zoodles or cauliflower rice** for pasta/couscous (the DB has aliases);
-  halve dried fruit (5x the sugar of fresh by weight); halve honey/syrup; allulose is the
-  only alt-sweetener that caramelizes (browns ~25°F earlier) — fine to suggest in a tip.
+  (1.9 vs 7.2 g/tbsp); **light coconut milk (~13 vs ~43 g sat fat/cup — DB entry now, so
+  it's a computed swap, not just a tip; thinner, reduce harder)**; chicken breast for
+  fatty red meat on skewers/stir-fries; **Swiss adds sat fat vs feta, so use it only for
+  sodium-driven plans, not sat-fat ones.**
+- *Carbs/sugar:* **zoodles or cauliflower rice** for pasta/couscous/rice (the DB has
+  aliases); halve dried fruit (5x the sugar of fresh by weight); halve honey/syrup;
+  **allulose for granulated sugar in baking (DB entry — 0 g sugar/carb, FDA excludes it
+  from Total & Added Sugars; caramelizes, browns ~25°F earlier), so it's a real computed
+  swap for desserts, not only a tip.**
 - *Protein (kidney):* smaller portions are legitimate renal practice (NKF endorses
   plant-forward, smaller-meat swaps) — two 3–4 oz fillets, half the beans, extra
-  vegetables to keep the plate full.
+  vegetables to keep the plate full. Kidney caps protein at 24 g/serving, so a 6-oz
+  steak/fillet (~40+ g) usually needs BOTH a smaller portion AND a sodium swap to clear it.
+- *Portion adjustment (the size lever, works for every nutrient).* When a dish is over on
+  calories, protein, sat fat, or sodium purely because the plated portion is large, a
+  smaller protein/starch/fat quantity is a first-class swap — it scales every nutrient
+  down together. Prefer it (or pair it with an ingredient swap) whenever the "as written"
+  number is a big single portion: 12 oz steak → 8 oz, 6-oz fillet → two 3–4 oz, ¼ cup oil
+  → 2 tbsp, 4 oz pasta → 3 oz. Keep the dish recognizable (don't shrink it to a garnish),
+  and remember the build combines a portion cut with a flavor swap into one chip.
 - **The `with` line must parse.** The nutrition engine ignores parenthetical size notes
   — "2 fillets (about 4 oz each)" reads the same as 5 oz ones; write "8 oz sea bass
   fillets" instead. After building, confirm the ⇄ line appears in `npm run plans -- <slug>`.
 - **The test suite enforces liveness:** a declared swap that doesn't actually lift its
   plan's verdict FAILS `npm test` (the no-dead-swaps data gate) — so editing a recipe's
   ingredients means re-checking its swaps.
+- **Author swaps with `npm run swaps`** (`scripts/swap-sandbox.mjs`, read-only): `npm run
+  swaps -- <slug>` prints a recipe's per-serving numbers and every plan's blown limits
+  (what a swap must fix); `npm run swaps -- <slug> @cand.json` checks a candidate
+  planSwaps array against the exact no-dead-swaps gate (PASS/FAIL per plan); `npm run swaps
+  -- <slug> --self` re-checks the recipe's own authored swaps after editing. Iterate here
+  instead of running a full build+test each time.
 - Bump `updated:` when adding swaps.
 
 **The variant toggle (1C).** Recipes with planSwaps get a toggle row above their

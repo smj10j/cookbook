@@ -104,7 +104,11 @@ planSwaps:
     replace: "8 oz spaghetti (or linguine or bucatini)"
     with: "6 oz spaghetti"
     note: "six ounces of pasta"
-updated: 2026-07-05
+  - for: [lowcarb, diabetes]
+    replace: "8 oz spaghetti (or linguine or bucatini)"
+    with: "3 large zucchini, spiralized"
+    note: "zoodles instead of pasta"
+updated: 2026-07-06
 ---
 
 Stephen circled through a lot of summer pasta pitches — scallops, peaches,

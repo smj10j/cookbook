@@ -86,11 +86,15 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
-  - for: [dash, tlc, heart, diabetes]
+  - for: [dash, tlc, heart, diabetes, kidney]
     replace: "1 tsp kosher salt"
     with: "½ tsp kosher salt"
     note: "half the salt"
-updated: 2026-07-05
+  - for: [kidney]
+    replace: "2 boneless skinless chicken breasts, pounded to even thickness"
+    with: "6 oz boneless skinless chicken breast, pounded to even thickness"
+    note: "a renal-size portion of chicken"
+updated: 2026-07-06
 ---
 
 The grilled chicken Stephen comes back to all summer: a lemon-and-herb marinade

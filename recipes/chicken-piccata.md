@@ -101,7 +101,19 @@ planSwaps:
     replace: "3 tbsp cold butter, cubed"
     with: "2 tbsp cold butter, cubed"
     note: "two tablespoons of butter"
-updated: 2026-07-05
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "1 tbsp butter"
+    with: "1 tbsp olive oil"
+    note: "olive oil to sear"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "3 tbsp cold butter, cubed"
+    with: "1 tbsp cold butter, cubed"
+    note: "just a tablespoon to finish the sauce"
+  - for: [kidney]
+    replace: "2 boneless skinless chicken breasts, sliced horizontally into 4 thin cutlets"
+    with: "4 oz chicken breast, sliced horizontally into thin cutlets"
+    note: "a renal-size portion of chicken"
+updated: 2026-07-06
 ---
 
 The piccata Stephen has refined across a few rounds: a wine-and-lemon pan sauce

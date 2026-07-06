@@ -86,8 +86,17 @@ extras:
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
+planSwaps:
+  - for: [kidney]
+    replace: "2 everything bagel–seasoned tuna steaks, about 6 oz each"
+    with: "5 oz everything bagel–seasoned tuna steaks (two 2.5-oz portions)"
+    note: "renal-size tuna portions"
+  - for: [kidney]
+    replace: "½ cup full-fat Greek yogurt"
+    with: "¼ cup full-fat Greek yogurt"
+    note: "less yogurt in the sauce"
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-07-06
 ---
 
 Those pre-seasoned tuna steaks are a head start to a fast, impressive dinner: the

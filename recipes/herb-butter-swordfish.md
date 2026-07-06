@@ -79,8 +79,17 @@ extras:
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "2 tbsp unsalted butter, plus more for basting"
+    with: "1 tbsp olive oil, plus more for basting"
+    note: "olive oil for the herb butter"
+  - for: [kidney]
+    replace: "2 swordfish steaks (about 6 oz each)"
+    with: "5 oz swordfish steaks (two 2.5-oz portions)"
+    note: "renal-size fish portions"
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-07-06
 ---
 
 Swordfish takes to a sear like a good steak, and a garden-herb compound butter

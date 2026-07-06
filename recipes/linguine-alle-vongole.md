@@ -86,7 +86,11 @@ planSwaps:
     replace: "¼ cup olive oil"
     with: "2 tbsp olive oil"
     note: "half the oil"
-updated: 2026-07-05
+  - for: [diabetes, lowcarb]
+    replace: "12 oz linguine"
+    with: "3 large zucchini, spiralized"
+    note: "zoodles instead of linguine"
+updated: 2026-07-06
 ---
 
 Naples in a bowl: clams, garlic, wine, good oil, and pasta cooked right in the brine. Lauren

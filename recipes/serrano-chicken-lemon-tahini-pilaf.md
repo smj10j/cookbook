@@ -108,11 +108,23 @@ planSwaps:
     replace: "2 boneless skinless chicken breasts, pounded to even thickness"
     with: "1 large boneless skinless chicken breast, pounded to even thickness"
     note: "one big breast, sliced for two"
-  - for: [heart, lowsugar, balance]
+  - for: [heart, lowsugar, balance, lowcarb]
     replace: "4–6 dates, pitted and chopped"
     with: "2 dates, pitted and chopped"
     note: "two dates"
-updated: 2026-07-05
+  - for: [lowcarb, kidney]
+    replace: "1 cup sushi or short-grain rice, rinsed"
+    with: "3 cups cauliflower rice"
+    note: "cauliflower rice for the pilaf"
+  - for: [kidney]
+    replace: "2 boneless skinless chicken breasts, pounded to even thickness"
+    with: "3 oz chicken breast, pounded to even thickness"
+    note: "a renal-size portion of chicken"
+  - for: [kidney]
+    replace: "¼ cup almonds, toasted and chopped"
+    with: "2 tbsp almonds, toasted and chopped"
+    note: "fewer almonds"
+updated: 2026-07-06
 ---
 
 A pantry-raid dinner that turned into a keeper: dates and toasted almonds make

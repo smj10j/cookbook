@@ -79,7 +79,11 @@ planSwaps:
     replace: "6 oz orzo (orecchiette also works beautifully)"
     with: "4 oz orzo"
     note: "a lighter orzo base"
-updated: 2026-07-05
+  - for: [lowcarb]
+    replace: "6 oz orzo (orecchiette also works beautifully)"
+    with: "3 cups cauliflower rice"
+    note: "cauliflower rice for a low-carb, tabbouleh-style bowl"
+updated: 2026-07-06
 ---
 
 Stephen landed on a Greek salad — dressed just before serving so it stays crisp

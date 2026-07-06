@@ -97,7 +97,11 @@ planSwaps:
     replace: "1 lb Yukon gold potatoes, peeled and cubed"
     with: "12 oz Yukon gold potatoes, peeled and cubed"
     note: "a smaller puree"
-updated: 2026-07-05
+  - for: [kidney]
+    replace: "1 lb large dry sea scallops (about 10–12)"
+    with: "7 oz large dry sea scallops (about 4–5)"
+    note: "a renal-size portion of scallops"
+updated: 2026-07-06
 ---
 
 Shellfish belongs in this book — Lauren loves scallops — and they're the most

@@ -82,6 +82,24 @@
       "whole wheat flour"
     ]
   },
+  "allulose": {
+    "unit": "tsp",
+    "g": 4,
+    "n": {
+      "kcal": 1,
+      "protein": 0,
+      "carb": 0,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 0
+    },
+    "aliases": [
+      "allulose sweetener",
+      "granulated allulose"
+    ]
+  },
   "almonds": {
     "unit": "cup",
     "g": 143,
@@ -2606,6 +2624,26 @@
       "sodium": 1
     }
   },
+  "light coconut milk": {
+    "unit": "cup",
+    "g": 240,
+    "density": 1,
+    "n": {
+      "kcal": 150,
+      "protein": 1.4,
+      "carb": 3,
+      "fat": 15,
+      "satfat": 13,
+      "fiber": 0,
+      "sugar": 2,
+      "sodium": 40
+    },
+    "aliases": [
+      "lite coconut milk",
+      "reduced-fat coconut milk",
+      "light coconut cream"
+    ]
+  },
   "lime": {
     "unit": "lime",
     "g": 67,
@@ -4156,6 +4194,24 @@
       "sugar": 2.2,
       "sodium": 426
     }
+  },
+  "swiss cheese": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 111,
+      "protein": 7.9,
+      "carb": 1.5,
+      "fat": 9,
+      "satfat": 5.7,
+      "fiber": 0,
+      "sugar": 0.5,
+      "sodium": 53
+    },
+    "aliases": [
+      "emmental",
+      "emmentaler"
+    ]
   },
   "swordfish": {
     "unit": "oz",

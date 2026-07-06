@@ -100,7 +100,23 @@ planSwaps:
     replace: "2 tbsp olive oil"
     with: "1 tbsp olive oil"
     note: "half the oil"
-updated: 2026-07-05
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "1 tbsp unsalted butter (for searing)"
+    with: "1 tbsp olive oil (for searing)"
+    note: "olive oil to sear"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "2 tbsp unsalted butter (for finishing)"
+    with: "1 tbsp unsalted butter (for finishing)"
+    note: "half the finishing butter"
+  - for: [diabetes, lowcarb, kidney]
+    replace: "6 oz fettuccine"
+    with: "3 large zucchini, spiralized"
+    note: "zoodles instead of fettuccine"
+  - for: [kidney]
+    replace: "2 tilapia fillets (5–8 oz each)"
+    with: "4 oz tilapia fillets (two 2-oz portions)"
+    note: "renal-size fish portions"
+updated: 2026-07-06
 ---
 
 Stephen worked this one through a couple of rounds — first sorting out a rogue

@@ -82,8 +82,25 @@ extras:
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
+planSwaps:
+  - for: [kidney]
+    replace: "1 lb cod or halibut, cut into 2-inch chunks"
+    with: "8 oz cod or halibut, cut into 2-inch chunks"
+    note: "smaller renal seafood portions (extra broth & vegetables keep the bowl full)"
+  - for: [kidney]
+    replace: "½ lb littleneck clams, scrubbed"
+    with: "¼ lb littleneck clams, scrubbed"
+    note: "fewer clams"
+  - for: [kidney]
+    replace: "½ lb mussels, scrubbed and debearded"
+    with: "¼ lb mussels, scrubbed and debearded"
+    note: "fewer mussels"
+  - for: [kidney]
+    replace: "¼ lb lump crab or calamari"
+    with: "2 oz lump crab or calamari"
+    note: "less crab"
 created: 2026-06-20
-updated: 2026-06-20
+updated: 2026-07-06
 ---
 
 San Francisco's great Italian-American fishermen's stew — built to use whatever came off

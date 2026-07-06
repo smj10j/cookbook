@@ -104,7 +104,15 @@ planSwaps:
     replace: "4 tbsp unsalted butter"
     with: "2 tbsp unsalted butter"
     note: "half the brown butter"
-updated: 2026-07-05
+  - for: [lowcarb, kidney]
+    replace: "1 cup couscous"
+    with: "3 cups cauliflower rice"
+    note: "cauliflower rice for the couscous"
+  - for: [kidney]
+    replace: "2 salmon fillets (skin-on or skinless, 5–6 oz each)"
+    with: "4 oz salmon fillets (two 2-oz portions)"
+    note: "renal-size salmon portions"
+updated: 2026-07-06
 ---
 
 The elegant entry in the salmon rotation: sous-vide for an unbroken, custardy

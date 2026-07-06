@@ -130,8 +130,17 @@ extras:
 source:
   name: Inspired by Fresa's Chicken al Carbon
   url: https://www.fresaschicken.com/
+planSwaps:
+  - for: [lowcarb]
+    replace: "1 cup long-grain white rice"
+    with: "3 cups cauliflower rice"
+    note: "cauliflower rice for the Mexican rice"
+  - for: [lowcarb]
+    replace: "3 cups cooked black beans (two 15-oz cans, drained and rinsed)"
+    with: "1½ cups cooked black beans (one 15-oz can, drained and rinsed)"
+    note: "half the beans"
 created: 2026-07-03
-updated: 2026-07-03
+updated: 2026-07-06
 ---
 
 Stephen's home version of the Fresa's plate he and Lauren order on South First: a
