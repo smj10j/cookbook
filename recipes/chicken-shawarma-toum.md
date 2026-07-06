@@ -93,15 +93,19 @@ planSwaps:
     replace: "1.5 lb boneless skinless chicken thighs"
     with: "1.25 lb boneless skinless chicken thighs"
     note: "a bit less chicken"
-  - for: [dash, tlc, heart, diabetes]
+  - for: [dash, tlc, heart, diabetes, kidney]
     replace: "1 tsp kosher salt"
     with: "½ tsp kosher salt"
     note: "half the marinade salt"
-  - for: [dash, tlc, heart, diabetes]
+  - for: [dash, tlc, heart, diabetes, kidney]
     replace: "½ tsp salt"
     with: "¼ tsp salt"
     note: "half the toum salt"
-updated: 2026-07-05
+  - for: [kidney]
+    replace: "1.5 lb boneless skinless chicken thighs"
+    with: "13 oz boneless skinless chicken thighs"
+    note: "a renal-size portion of chicken"
+updated: 2026-07-06
 ---
 
 The home version of the shawarma spit: a hard, spice-crusted char in the oven, and a garlic

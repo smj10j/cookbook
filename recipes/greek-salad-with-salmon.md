@@ -95,7 +95,11 @@ planSwaps:
     replace: "3 tbsp extra-virgin olive oil"
     with: "2 tbsp extra-virgin olive oil"
     note: "a bit less oil"
-updated: 2026-07-05
+  - for: [kidney]
+    replace: "2 salmon fillets (6–7 oz each, skin on or off)"
+    with: "6 oz salmon fillets (two 3-oz portions, skin on or off)"
+    note: "renal-size salmon portions"
+updated: 2026-07-06
 ---
 
 The Greek-salad-meets-salmon version: a classic horiatiki given backbone with warm,
