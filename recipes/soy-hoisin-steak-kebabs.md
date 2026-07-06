@@ -99,7 +99,23 @@ planSwaps:
     replace: "1 lb sirloin steak, cut into 1.5-inch cubes"
     with: "12 oz sirloin steak, cut into 1.5-inch cubes"
     note: "a 12-oz steak"
-updated: 2026-07-05
+  - for: [dash, tlc, diabetes]
+    replace: "¼ cup soy sauce"
+    with: "2 tbsp coconut aminos"
+    note: "coconut aminos for the soy (check label — brands vary)"
+  - for: [dash, tlc, diabetes]
+    replace: "¼ cup hoisin sauce"
+    with: "1 tbsp hoisin sauce"
+    note: "just a tablespoon of hoisin"
+  - for: [dash]
+    replace: "1 tbsp honey"
+    with: "1½ tsp honey"
+    note: "half the honey"
+  - for: [dash, tlc]
+    replace: "1 lb sirloin steak, cut into 1.5-inch cubes"
+    with: "8 oz sirloin steak, cut into 1.5-inch cubes"
+    note: "a leaner 8-oz steak"
+updated: 2026-07-06
 ---
 
 The source was just a marinade, but it's a good one — soy and hoisin doing the

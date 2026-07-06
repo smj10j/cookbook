@@ -11,6 +11,7 @@
     "build": "node scripts/build.mjs",
     "nutrition": "node scripts/nutrition-report.mjs",
     "plans": "node scripts/plan-fit.mjs",
+    "swaps": "node scripts/swap-sandbox.mjs",
     "photos": "node scripts/generate-photos.mjs",
     "og": "node scripts/og-images.mjs",
     "preview": "npm run build && python3 -m http.server 8000 --directory docs",

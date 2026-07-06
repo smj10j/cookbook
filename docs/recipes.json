@@ -10126,9 +10126,46 @@
           "replace": "1 lb sirloin steak, cut into 1.5-inch cubes",
           "with": "12 oz sirloin steak, cut into 1.5-inch cubes",
           "note": "a 12-oz steak"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "diabetes"
+          ],
+          "replace": "¼ cup soy sauce",
+          "with": "2 tbsp coconut aminos",
+          "note": "coconut aminos for the soy (check label — brands vary)"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "diabetes"
+          ],
+          "replace": "¼ cup hoisin sauce",
+          "with": "1 tbsp hoisin sauce",
+          "note": "just a tablespoon of hoisin"
+        },
+        {
+          "for": [
+            "dash"
+          ],
+          "replace": "1 tbsp honey",
+          "with": "1½ tsp honey",
+          "note": "half the honey"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc"
+          ],
+          "replace": "1 lb sirloin steak, cut into 1.5-inch cubes",
+          "with": "8 oz sirloin steak, cut into 1.5-inch cubes",
+          "note": "a leaner 8-oz steak"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The source was just a marinade, but it's a good one — soy and hoisin doing the\nheavy lifting, sesame and ginger rounding it out. Built into proper skewers with\ngarden peppers and a last-minute glaze, it eats like takeout you'd actually pay\nfor.",
@@ -10167,6 +10204,46 @@
             "fiber": 5.4,
             "sugar": 16.6,
             "sodium": 2197
+          },
+          "4.5.6.7": {
+            "kcal": 548,
+            "protein": 31.8,
+            "carb": 27.1,
+            "fat": 35.3,
+            "satfat": 8,
+            "fiber": 5,
+            "sugar": 15.9,
+            "sodium": 470
+          },
+          "4.5.7": {
+            "kcal": 564,
+            "protein": 31.8,
+            "carb": 31.4,
+            "fat": 35.3,
+            "satfat": 8,
+            "fiber": 5,
+            "sugar": 20.2,
+            "sodium": 470
+          },
+          "4.5": {
+            "kcal": 798,
+            "protein": 60.5,
+            "carb": 31.4,
+            "fat": 47.6,
+            "satfat": 12.9,
+            "fiber": 5,
+            "sugar": 20.2,
+            "sodium": 532
+          },
+          "3.4.5": {
+            "kcal": 678,
+            "protein": 45.8,
+            "carb": 31.4,
+            "fat": 41.3,
+            "satfat": 10.4,
+            "fiber": 5,
+            "sugar": 20.2,
+            "sodium": 500
           }
         }
       }
