@@ -81,7 +81,20 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [tlc, diabetes, kidney]
+    replace: "1 tsp kosher salt"
+    with: "½ tsp kosher salt"
+    note: "half the salt"
+  - for: [tlc, diabetes, kidney]
+    replace: "½ tsp salt"
+    with: "¼ tsp salt"
+    note: "half the romesco salt"
+  - for: [tlc, diabetes, kidney]
+    replace: "1 cup roasted red peppers"
+    with: "2 red bell peppers, roasted fresh"
+    note: "fresh-roasted peppers, not brined"
+updated: 2026-07-05
 ---
 
 Catalan romesco — roasted peppers, almonds, smoked paprika — was made for charred vegetables.

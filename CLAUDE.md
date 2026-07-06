@@ -218,11 +218,34 @@ The build validates ids + the `replace` line (so edits can't silently strand a s
 computes a per-plan "with swaps" nutrition variant, and the site only surfaces a swap
 that actually improves the tier. Authoring rules:
 
-- **Only near-misses.** `npm run plans -- --near-miss` lists ✗ verdicts swaps could
-  plausibly flip (every blown limit within 50% of its cap — several entries per plan
-  are fine, one per blown limit). Never compromise the dish to chase a green row — a
-  steak au poivre is allowed to be bad for the kidney plan, and vegetable sugars
-  (eggplant, carrots) are not fixable, only explainable.
+- **Start with near-misses, but go as deep as a real substitution reaches.**
+  `npm run plans -- --near-miss` lists ✗ verdicts within easy range (every blown limit
+  ≤50% over its max), but big substitutions close bigger gaps — check the palette below
+  before writing anything off. Aggressive swaps are welcome (swap the protein, swap the
+  starch) as long as the variant is still recognizably the dish. Never fake it — a steak
+  au poivre is allowed to be bad for the kidney plan, and vegetable sugars (eggplant,
+  carrots) are not fixable, only explainable.
+
+**The substitution palette** (researched July 2026 — USDA/label values; each entry names
+the nutrient it fixes):
+
+- *Sodium:* **coconut aminos** for soy sauce (~270 vs ~880 mg/tbsp — brands vary ~2x,
+  say "check label"); low-sodium soy (~575); halve the added salt; **half the gochujang
+  + gochugaru** (0 mg) keeps the heat; low-sodium broths (DB has both); no-salt-added
+  canned tomatoes/beans (or note that rinsing regular beans drops ~40%); fresh-roasted
+  peppers over jarred; goat cheese (~105 mg/oz) or Swiss (~53) for feta (~260); salt-free
+  boosters — citrus, vinegar, MSG (~⅓ the sodium per unit of savor), nutritional yeast.
+  **Never suggest KCl "salt substitutes"** — hyperkalemia risk for the kidney plan.
+- *Sat fat:* **Greek yogurt** for sour cream/crema (~0 vs ~1.7 g/tbsp) or as an off-heat
+  finish replacing heavy cream (classic lightened murgh makhani); olive oil for butter
+  (1.9 vs 7.2 g/tbsp); light coconut milk (~70% less, thinner — reduce harder);
+  chicken breast for fatty red meat on skewers/stir-fries.
+- *Carbs/sugar:* **zoodles or cauliflower rice** for pasta/couscous (the DB has aliases);
+  halve dried fruit (5x the sugar of fresh by weight); halve honey/syrup; allulose is the
+  only alt-sweetener that caramelizes (browns ~25°F earlier) — fine to suggest in a tip.
+- *Protein (kidney):* smaller portions are legitimate renal practice (NKF endorses
+  plant-forward, smaller-meat swaps) — two 3–4 oz fillets, half the beans, extra
+  vegetables to keep the plate full.
 - **The `with` line must parse.** The nutrition engine ignores parenthetical size notes
   — "2 fillets (about 4 oz each)" reads the same as 5 oz ones; write "8 oz sea bass
   fillets" instead. After building, confirm the ⇄ line appears in `npm run plans -- <slug>`.
@@ -239,6 +262,14 @@ to the variant's build-computed numbers, and the **shopping list shops for the v
 (the overlay marks it). The choice persists per recipe in localStorage (`tm-variant`).
 The "Good for" filter always judges the as-written recipe — variants are a reader-level
 choice, not a filter input.
+
+**Chips are additive.** Selecting several chips applies their swaps together — the
+build precomputes nutrition for every compatible combination (`withSwaps` is keyed by
+swap-entry-index sets like `"0.2"`, not plan ids). Compatible swaps touch different
+ingredient lines, so selection order can't change the result. Two entries that rewrite
+the SAME line differently (e.g. piccata's "3 oz spaghetti" vs "zoodles") are allowed —
+they become separate chips and the UI grays out the one that conflicts with the current
+selection.
 
 ## Drinks (cocktails)
 

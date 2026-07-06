@@ -785,7 +785,7 @@
         "matched": 21,
         "considered": 21,
         "withSwaps": {
-          "lowsugar": {
+          "0": {
             "kcal": 1007,
             "protein": 65.4,
             "carb": 23.3,
@@ -795,7 +795,7 @@
             "sugar": 13.8,
             "sodium": 2101
           },
-          "balance": {
+          "1.2": {
             "kcal": 773,
             "protein": 50.7,
             "carb": 24.8,
@@ -803,6 +803,16 @@
             "satfat": 15.1,
             "fiber": 5.3,
             "sugar": 15.3,
+            "sodium": 2070
+          },
+          "0.1.2": {
+            "kcal": 768,
+            "protein": 50.7,
+            "carb": 23.3,
+            "fat": 52.6,
+            "satfat": 15.1,
+            "fiber": 5.3,
+            "sugar": 13.8,
             "sodium": 2070
           }
         }
@@ -1004,17 +1014,7 @@
         "matched": 8,
         "considered": 8,
         "withSwaps": {
-          "heart": {
-            "kcal": 202,
-            "protein": 22.7,
-            "carb": 14.4,
-            "fat": 6.1,
-            "satfat": 1,
-            "fiber": 1.3,
-            "sugar": 9.4,
-            "sodium": 683
-          },
-          "lowsugar": {
+          "0": {
             "kcal": 202,
             "protein": 22.7,
             "carb": 14.4,
@@ -1134,7 +1134,7 @@
         "matched": 8,
         "considered": 8,
         "withSwaps": {
-          "kidney": {
+          "0": {
             "kcal": 196,
             "protein": 21.4,
             "carb": 4.1,
@@ -1308,7 +1308,7 @@
         "matched": 16,
         "considered": 16,
         "withSwaps": {
-          "dash": {
+          "0.1.2.3": {
             "kcal": 327,
             "protein": 5.7,
             "carb": 41.1,
@@ -1318,27 +1318,7 @@
             "sugar": 17.7,
             "sodium": 289
           },
-          "mind": {
-            "kcal": 327,
-            "protein": 5.7,
-            "carb": 41.1,
-            "fat": 16.4,
-            "satfat": 8,
-            "fiber": 3.1,
-            "sugar": 17.7,
-            "sodium": 289
-          },
-          "mediterranean": {
-            "kcal": 327,
-            "protein": 5.7,
-            "carb": 41.1,
-            "fat": 16.4,
-            "satfat": 8,
-            "fiber": 3.1,
-            "sugar": 17.7,
-            "sodium": 289
-          },
-          "tlc": {
+          "0.1": {
             "kcal": 345,
             "protein": 5.7,
             "carb": 46,
@@ -1348,7 +1328,7 @@
             "sugar": 22.5,
             "sodium": 289
           },
-          "lowcarb": {
+          "2.3": {
             "kcal": 371,
             "protein": 6,
             "carb": 43.1,
@@ -1601,17 +1581,7 @@
         "matched": 11,
         "considered": 11,
         "withSwaps": {
-          "heart": {
-            "kcal": 246,
-            "protein": 2.3,
-            "carb": 24.2,
-            "fat": 16.2,
-            "satfat": 7.5,
-            "fiber": 3,
-            "sugar": 10.3,
-            "sodium": 224
-          },
-          "lowsugar": {
+          "0": {
             "kcal": 246,
             "protein": 2.3,
             "carb": 24.2,
@@ -1747,7 +1717,45 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "½ cup heavy cream",
+          "with": "½ cup Greek yogurt (stirred in off heat)",
+          "note": "a yogurt finish instead of cream"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "3 tbsp butter",
+          "with": "1 tbsp butter",
+          "note": "a single tablespoon of butter"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "1.5 lb boneless skinless chicken thighs, cut into chunks",
+          "with": "1.25 lb boneless skinless chicken thighs, cut into chunks",
+          "note": "a bit less chicken"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Delhi's gift to the world: tandoori chicken reborn in a buttery tomato gravy. The two-step\nmethod — char, then simmer — is the whole secret to its depth.",
@@ -1765,7 +1773,19 @@
         },
         "confidence": "high",
         "matched": 25,
-        "considered": 25
+        "considered": 25,
+        "withSwaps": {
+          "0.1.2": {
+            "kcal": 393,
+            "protein": 32.8,
+            "carb": 16,
+            "fat": 22.8,
+            "satfat": 8.2,
+            "fiber": 3.3,
+            "sugar": 7.7,
+            "sodium": 709
+          }
+        }
       }
     },
     {
@@ -1951,7 +1971,7 @@
         "matched": 20,
         "considered": 21,
         "withSwaps": {
-          "diabetes": {
+          "0": {
             "kcal": 1026,
             "protein": 47.2,
             "carb": 46.7,
@@ -1961,7 +1981,17 @@
             "sugar": 31.2,
             "sodium": 774
           },
-          "balance": {
+          "3": {
+            "kcal": 1001,
+            "protein": 47.2,
+            "carb": 39.9,
+            "fat": 75,
+            "satfat": 13.9,
+            "fiber": 11.4,
+            "sugar": 24.5,
+            "sodium": 1247
+          },
+          "1.2.3.4": {
             "kcal": 759,
             "protein": 39,
             "carb": 37.7,
@@ -1971,7 +2001,17 @@
             "sugar": 24,
             "sodium": 1233
           },
-          "lowcarb": {
+          "0.1.2.3.4": {
+            "kcal": 759,
+            "protein": 39,
+            "carb": 37.7,
+            "fat": 52.2,
+            "satfat": 10.8,
+            "fiber": 10.1,
+            "sugar": 24,
+            "sodium": 758
+          },
+          "0.3": {
             "kcal": 1001,
             "protein": 47.2,
             "carb": 39.9,
@@ -1979,7 +2019,7 @@
             "satfat": 13.9,
             "fiber": 11.4,
             "sugar": 24.5,
-            "sodium": 1247
+            "sodium": 772
           }
         }
       }
@@ -2094,7 +2134,39 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "tlc",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "1 tsp kosher salt",
+          "with": "½ tsp kosher salt",
+          "note": "half the salt"
+        },
+        {
+          "for": [
+            "tlc",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "½ tsp salt",
+          "with": "¼ tsp salt",
+          "note": "half the romesco salt"
+        },
+        {
+          "for": [
+            "tlc",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "1 cup roasted red peppers",
+          "with": "2 red bell peppers, roasted fresh",
+          "note": "fresh-roasted peppers, not brined"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Catalan romesco — roasted peppers, almonds, smoked paprika — was made for charred vegetables.\nEggplant cooked until silky is the perfect meaty-but-meatless canvas for it.",
@@ -2112,7 +2184,19 @@
         },
         "confidence": "high",
         "matched": 15,
-        "considered": 15
+        "considered": 15,
+        "withSwaps": {
+          "0.1.2": {
+            "kcal": 721,
+            "protein": 16,
+            "carb": 47.2,
+            "fat": 57.7,
+            "satfat": 6.5,
+            "fiber": 23.4,
+            "sugar": 22.5,
+            "sodium": 734
+          }
+        }
       }
     },
     {
@@ -2348,6 +2432,14 @@
       "planSwaps": [
         {
           "for": [
+            "lowcarb"
+          ],
+          "replace": "4 oz thin spaghetti",
+          "with": "2 medium zucchini, spiralized",
+          "note": "zoodles under the piccata"
+        },
+        {
+          "for": [
             "diabetes",
             "balance"
           ],
@@ -2384,7 +2476,17 @@
         "matched": 11,
         "considered": 11,
         "withSwaps": {
-          "diabetes": {
+          "0": {
+            "kcal": 707,
+            "protein": 44.5,
+            "carb": 32.6,
+            "fat": 41.8,
+            "satfat": 17.7,
+            "fiber": 3.3,
+            "sugar": 5.3,
+            "sodium": 584
+          },
+          "1": {
             "kcal": 823,
             "protein": 47.3,
             "carb": 56.4,
@@ -2394,7 +2496,7 @@
             "sugar": 1.7,
             "sodium": 571
           },
-          "balance": {
+          "1.2": {
             "kcal": 772,
             "protein": 47.2,
             "carb": 56.4,
@@ -2590,7 +2692,7 @@
         "matched": 22,
         "considered": 22,
         "withSwaps": {
-          "dash": {
+          "0.1.2.3": {
             "kcal": 789,
             "protein": 32.8,
             "carb": 43.8,
@@ -2600,7 +2702,7 @@
             "sugar": 3.1,
             "sodium": 809
           },
-          "mind": {
+          "0.1": {
             "kcal": 789,
             "protein": 32.8,
             "carb": 43.8,
@@ -2610,47 +2712,7 @@
             "sugar": 3.1,
             "sodium": 1165
           },
-          "mediterranean": {
-            "kcal": 789,
-            "protein": 32.8,
-            "carb": 43.8,
-            "fat": 54.6,
-            "satfat": 8.4,
-            "fiber": 3.7,
-            "sugar": 3.1,
-            "sodium": 1165
-          },
-          "tlc": {
-            "kcal": 789,
-            "protein": 32.8,
-            "carb": 43.8,
-            "fat": 54.6,
-            "satfat": 8.4,
-            "fiber": 3.7,
-            "sugar": 3.1,
-            "sodium": 809
-          },
-          "heart": {
-            "kcal": 789,
-            "protein": 32.8,
-            "carb": 43.8,
-            "fat": 54.6,
-            "satfat": 8.4,
-            "fiber": 3.7,
-            "sugar": 3.1,
-            "sodium": 809
-          },
-          "balance": {
-            "kcal": 789,
-            "protein": 32.8,
-            "carb": 43.8,
-            "fat": 54.6,
-            "satfat": 8.4,
-            "fiber": 3.7,
-            "sugar": 3.1,
-            "sodium": 1165
-          },
-          "diabetes": {
+          "2.3": {
             "kcal": 1079,
             "protein": 37.9,
             "carb": 43.8,
@@ -3013,6 +3075,14 @@
       "planSwaps": [
         {
           "for": [
+            "kidney"
+          ],
+          "replace": "2 salmon fillets (about 6 oz each), skin-on",
+          "with": "7 oz salmon fillets, skin-on",
+          "note": "two 3½-oz fillets"
+        },
+        {
+          "for": [
             "dash",
             "mind",
             "mediterranean",
@@ -3044,7 +3114,17 @@
         "matched": 7,
         "considered": 7,
         "withSwaps": {
-          "dash": {
+          "0": {
+            "kcal": 417,
+            "protein": 23.9,
+            "carb": 8.6,
+            "fat": 32.7,
+            "satfat": 8.3,
+            "fiber": 3.8,
+            "sugar": 3.2,
+            "sodium": 93
+          },
+          "1": {
             "kcal": 575,
             "protein": 38.2,
             "carb": 8.6,
@@ -3054,45 +3134,15 @@
             "sugar": 3.2,
             "sodium": 85
           },
-          "mind": {
-            "kcal": 575,
-            "protein": 38.2,
+          "0.1": {
+            "kcal": 426,
+            "protein": 23.8,
             "carb": 8.6,
-            "fat": 43.5,
-            "satfat": 7.6,
+            "fat": 33.8,
+            "satfat": 5.6,
             "fiber": 3.8,
             "sugar": 3.2,
-            "sodium": 85
-          },
-          "mediterranean": {
-            "kcal": 575,
-            "protein": 38.2,
-            "carb": 8.6,
-            "fat": 43.5,
-            "satfat": 7.6,
-            "fiber": 3.8,
-            "sugar": 3.2,
-            "sodium": 85
-          },
-          "tlc": {
-            "kcal": 575,
-            "protein": 38.2,
-            "carb": 8.6,
-            "fat": 43.5,
-            "satfat": 7.6,
-            "fiber": 3.8,
-            "sugar": 3.2,
-            "sodium": 85
-          },
-          "heart": {
-            "kcal": 575,
-            "protein": 38.2,
-            "carb": 8.6,
-            "fat": 43.5,
-            "satfat": 7.6,
-            "fiber": 3.8,
-            "sugar": 3.2,
-            "sodium": 85
+            "sodium": 52
           }
         }
       }
@@ -3223,7 +3273,7 @@
         "matched": 17,
         "considered": 18,
         "withSwaps": {
-          "lowcarb": {
+          "0": {
             "kcal": 395,
             "protein": 4,
             "carb": 39.7,
@@ -3339,7 +3389,17 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "1–2 tbsp fish sauce, to taste",
+          "with": "1½ tbsp coconut aminos (plus lime to finish)",
+          "note": "coconut aminos for the fish sauce"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The cozy bowl Stephen reaches for under the weather: warm, soothing, and just\nspicy enough to clear the sinuses. Coconut milk for richness, lime and fish\nsauce for brightness, and fresh chile to wake it all up.",
@@ -3353,11 +3413,23 @@
           "satfat": 37.8,
           "fiber": 1.3,
           "sugar": 10.9,
-          "sodium": 1340
+          "sodium": 1452
         },
         "confidence": "high",
         "matched": 12,
-        "considered": 12
+        "considered": 12,
+        "withSwaps": {
+          "0": {
+            "kcal": 710,
+            "protein": 46.6,
+            "carb": 19.3,
+            "fat": 52,
+            "satfat": 37.8,
+            "fiber": 1.3,
+            "sugar": 12,
+            "sodium": 597
+          }
+        }
       }
     },
     {
@@ -3587,7 +3659,21 @@
         "url": null
       },
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "4 tbsp unsalted butter",
+          "with": "2 tbsp olive oil",
+          "note": "an olive-oil baste"
+        }
+      ],
+      "updated": "2026-07-05T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen's weeknight-elevated salmon: the broiler does the work of a restaurant\nsalamander, crackling the skin in minutes, while the broccoli chars in the same\noven and garden tomatoes burst alongside. The lemon-caper brown butter is the\nupgrade that turns a simple fish-and-vegetable plate into something worth setting\nthe table for.",
@@ -3605,7 +3691,19 @@
         },
         "confidence": "high",
         "matched": 9,
-        "considered": 9
+        "considered": 9,
+        "withSwaps": {
+          "0": {
+            "kcal": 670,
+            "protein": 39.7,
+            "carb": 15.5,
+            "fat": 51,
+            "satfat": 8.5,
+            "fiber": 5.7,
+            "sugar": 4.8,
+            "sodium": 317
+          }
+        }
       }
     },
     {
@@ -3867,7 +3965,7 @@
         "matched": 12,
         "considered": 12,
         "withSwaps": {
-          "kidney": {
+          "0": {
             "kcal": 692,
             "protein": 23.3,
             "carb": 11.9,
@@ -4125,7 +4223,7 @@
         "matched": 15,
         "considered": 16,
         "withSwaps": {
-          "lowcarb": {
+          "0": {
             "kcal": 327,
             "protein": 4.7,
             "carb": 43.6,
@@ -4263,7 +4361,7 @@
         "matched": 12,
         "considered": 12,
         "withSwaps": {
-          "diabetes": {
+          "0": {
             "kcal": 540,
             "protein": 13.6,
             "carb": 56.1,
@@ -4444,47 +4542,7 @@
         "matched": 11,
         "considered": 11,
         "withSwaps": {
-          "dash": {
-            "kcal": 529,
-            "protein": 33,
-            "carb": 13.3,
-            "fat": 39,
-            "satfat": 8.3,
-            "fiber": 4.2,
-            "sugar": 5.2,
-            "sodium": 509
-          },
-          "mind": {
-            "kcal": 529,
-            "protein": 33,
-            "carb": 13.3,
-            "fat": 39,
-            "satfat": 8.3,
-            "fiber": 4.2,
-            "sugar": 5.2,
-            "sodium": 509
-          },
-          "mediterranean": {
-            "kcal": 529,
-            "protein": 33,
-            "carb": 13.3,
-            "fat": 39,
-            "satfat": 8.3,
-            "fiber": 4.2,
-            "sugar": 5.2,
-            "sodium": 509
-          },
-          "tlc": {
-            "kcal": 529,
-            "protein": 33,
-            "carb": 13.3,
-            "fat": 39,
-            "satfat": 8.3,
-            "fiber": 4.2,
-            "sugar": 5.2,
-            "sodium": 509
-          },
-          "heart": {
+          "0.1.2": {
             "kcal": 529,
             "protein": 33,
             "carb": 13.3,
@@ -4756,6 +4814,30 @@
       "planSwaps": [
         {
           "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "⅓ cup sour cream",
+          "with": "⅓ cup nonfat Greek yogurt",
+          "note": "Greek yogurt crema"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "¼ cup cotija, crumbled",
+          "with": "2 tbsp cotija, crumbled",
+          "note": "half the cotija"
+        },
+        {
+          "for": [
             "lowcarb",
             "balance"
           ],
@@ -4808,7 +4890,7 @@
         "matched": 17,
         "considered": 17,
         "withSwaps": {
-          "lowcarb": {
+          "2": {
             "kcal": 907,
             "protein": 62.4,
             "carb": 41.3,
@@ -4818,7 +4900,27 @@
             "sugar": 5,
             "sodium": 963
           },
-          "balance": {
+          "5": {
+            "kcal": 965,
+            "protein": 63.9,
+            "carb": 53.3,
+            "fat": 58,
+            "satfat": 13.9,
+            "fiber": 12.4,
+            "sugar": 5.3,
+            "sodium": 738
+          },
+          "0.1": {
+            "kcal": 891,
+            "protein": 64.5,
+            "carb": 52.7,
+            "fat": 49.7,
+            "satfat": 9,
+            "fiber": 12.4,
+            "sugar": 5.7,
+            "sodium": 859
+          },
+          "2.3.4": {
             "kcal": 777,
             "protein": 49,
             "carb": 41.3,
@@ -4828,15 +4930,75 @@
             "sugar": 5,
             "sodium": 926
           },
-          "diabetes": {
-            "kcal": 965,
-            "protein": 63.9,
-            "carb": 53.3,
-            "fat": 58,
-            "satfat": 13.9,
+          "0.1.2": {
+            "kcal": 833,
+            "protein": 63,
+            "carb": 40.7,
+            "fat": 49,
+            "satfat": 8.9,
+            "fiber": 10.8,
+            "sugar": 5.4,
+            "sodium": 847
+          },
+          "0.1.2.3.4": {
+            "kcal": 704,
+            "protein": 49.5,
+            "carb": 40.7,
+            "fat": 40.5,
+            "satfat": 7.8,
+            "fiber": 10.8,
+            "sugar": 5.4,
+            "sodium": 809
+          },
+          "0.1.5": {
+            "kcal": 891,
+            "protein": 64.5,
+            "carb": 52.7,
+            "fat": 49.7,
+            "satfat": 9,
             "fiber": 12.4,
-            "sugar": 5.3,
-            "sodium": 738
+            "sugar": 5.7,
+            "sodium": 621
+          },
+          "2.5": {
+            "kcal": 907,
+            "protein": 62.4,
+            "carb": 41.3,
+            "fat": 57.3,
+            "satfat": 13.8,
+            "fiber": 10.8,
+            "sugar": 5,
+            "sodium": 726
+          },
+          "0.1.2.5": {
+            "kcal": 833,
+            "protein": 63,
+            "carb": 40.7,
+            "fat": 49,
+            "satfat": 8.9,
+            "fiber": 10.8,
+            "sugar": 5.4,
+            "sodium": 609
+          },
+          "2.3.4.5": {
+            "kcal": 777,
+            "protein": 49,
+            "carb": 41.3,
+            "fat": 48.9,
+            "satfat": 12.6,
+            "fiber": 10.8,
+            "sugar": 5,
+            "sodium": 688
+          },
+          "0.1.2.3.4.5": {
+            "kcal": 704,
+            "protein": 49.5,
+            "carb": 40.7,
+            "fat": 40.5,
+            "satfat": 7.8,
+            "fiber": 10.8,
+            "sugar": 5.4,
+            "sodium": 571
           }
         }
       }
@@ -5084,37 +5246,7 @@
         "matched": 11,
         "considered": 11,
         "withSwaps": {
-          "dash": {
-            "kcal": 556,
-            "protein": 40.6,
-            "carb": 12.1,
-            "fat": 38.8,
-            "satfat": 5.9,
-            "fiber": 3.7,
-            "sugar": 6.5,
-            "sodium": 620
-          },
-          "tlc": {
-            "kcal": 556,
-            "protein": 40.6,
-            "carb": 12.1,
-            "fat": 38.8,
-            "satfat": 5.9,
-            "fiber": 3.7,
-            "sugar": 6.5,
-            "sodium": 620
-          },
-          "heart": {
-            "kcal": 556,
-            "protein": 40.6,
-            "carb": 12.1,
-            "fat": 38.8,
-            "satfat": 5.9,
-            "fiber": 3.7,
-            "sugar": 6.5,
-            "sodium": 620
-          },
-          "diabetes": {
+          "0": {
             "kcal": 556,
             "protein": 40.6,
             "carb": 12.1,
@@ -5264,7 +5396,7 @@
         "matched": 4,
         "considered": 4,
         "withSwaps": {
-          "balance": {
+          "0": {
             "kcal": 788,
             "protein": 72,
             "carb": 17,
@@ -5426,47 +5558,7 @@
         "matched": 11,
         "considered": 11,
         "withSwaps": {
-          "dash": {
-            "kcal": 604,
-            "protein": 39,
-            "carb": 17.7,
-            "fat": 42.3,
-            "satfat": 8.4,
-            "fiber": 4.3,
-            "sugar": 9.4,
-            "sodium": 713
-          },
-          "mind": {
-            "kcal": 604,
-            "protein": 39,
-            "carb": 17.7,
-            "fat": 42.3,
-            "satfat": 8.4,
-            "fiber": 4.3,
-            "sugar": 9.4,
-            "sodium": 713
-          },
-          "mediterranean": {
-            "kcal": 604,
-            "protein": 39,
-            "carb": 17.7,
-            "fat": 42.3,
-            "satfat": 8.4,
-            "fiber": 4.3,
-            "sugar": 9.4,
-            "sodium": 713
-          },
-          "tlc": {
-            "kcal": 604,
-            "protein": 39,
-            "carb": 17.7,
-            "fat": 42.3,
-            "satfat": 8.4,
-            "fiber": 4.3,
-            "sugar": 9.4,
-            "sodium": 713
-          },
-          "heart": {
+          "0.1": {
             "kcal": 604,
             "protein": 39,
             "carb": 17.7,
@@ -6089,7 +6181,7 @@
         "matched": 11,
         "considered": 11,
         "withSwaps": {
-          "lowcarb": {
+          "0": {
             "kcal": 343,
             "protein": 11.4,
             "carb": 38,
@@ -6214,7 +6306,40 @@
       "planSwaps": [
         {
           "for": [
-            "lowsugar"
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "1 tbsp soy sauce",
+          "with": "1 tbsp coconut aminos",
+          "note": "coconut aminos for the soy (both times)"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "2 tbsp gochujang",
+          "with": "1 tbsp gochujang (add gochugaru for heat)",
+          "note": "half the gochujang, gochugaru keeps the fire"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 salmon fillets (about 6 oz each)",
+          "with": "6 oz salmon fillets (two 3-oz portions)",
+          "note": "CKD-size 3-oz portions"
+        },
+        {
+          "for": [
+            "lowsugar",
+            "heart"
           ],
           "replace": "1 tbsp honey",
           "with": "1½ tsp honey",
@@ -6228,28 +6353,68 @@
       "hero": "images/korean-gochujang-salmon-bok-choy.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 588,
-          "protein": 40.6,
-          "carb": 24.8,
+          "kcal": 598,
+          "protein": 40.7,
+          "carb": 27.3,
           "fat": 37.3,
           "satfat": 6.4,
-          "fiber": 3.7,
+          "fiber": 3.8,
           "sugar": 14.6,
-          "sodium": 1503
+          "sodium": 1573
         },
         "confidence": "high",
         "matched": 15,
         "considered": 15,
         "withSwaps": {
-          "lowsugar": {
-            "kcal": 573,
-            "protein": 40.6,
-            "carb": 20.4,
+          "3": {
+            "kcal": 583,
+            "protein": 40.7,
+            "carb": 22.9,
             "fat": 37.3,
             "satfat": 6.4,
-            "fiber": 3.7,
+            "fiber": 3.8,
             "sugar": 10.2,
-            "sodium": 1503
+            "sodium": 1573
+          },
+          "0.1": {
+            "kcal": 585,
+            "protein": 39.3,
+            "carb": 25,
+            "fat": 37.1,
+            "satfat": 6.4,
+            "fiber": 3.5,
+            "sugar": 15,
+            "sodium": 724
+          },
+          "0.1.3": {
+            "kcal": 570,
+            "protein": 39.3,
+            "carb": 20.6,
+            "fat": 37.1,
+            "satfat": 6.4,
+            "fiber": 3.5,
+            "sugar": 10.6,
+            "sodium": 724
+          },
+          "0.1.2": {
+            "kcal": 407,
+            "protein": 22.1,
+            "carb": 25,
+            "fat": 25.5,
+            "satfat": 3.9,
+            "fiber": 3.5,
+            "sugar": 15,
+            "sodium": 684
+          },
+          "0.1.2.3": {
+            "kcal": 392,
+            "protein": 22.1,
+            "carb": 20.6,
+            "fat": 25.5,
+            "satfat": 3.9,
+            "fiber": 3.5,
+            "sugar": 10.6,
+            "sodium": 684
           }
         }
       }
@@ -6477,13 +6642,13 @@
           "satfat": 3.4,
           "fiber": 2.8,
           "sugar": 8.4,
-          "sodium": 538
+          "sodium": 588
         },
         "confidence": "high",
         "matched": 16,
         "considered": 16,
         "withSwaps": {
-          "lowcarb": {
+          "0": {
             "kcal": 365,
             "protein": 21.7,
             "carb": 39.2,
@@ -6491,7 +6656,7 @@
             "satfat": 3.4,
             "fiber": 2.6,
             "sugar": 8.4,
-            "sodium": 538
+            "sodium": 588
           }
         }
       }
@@ -6649,7 +6814,7 @@
         "matched": 10,
         "considered": 10,
         "withSwaps": {
-          "dash": {
+          "0": {
             "kcal": 1030,
             "protein": 33.6,
             "carb": 129.8,
@@ -6659,47 +6824,7 @@
             "sugar": 6,
             "sodium": 405
           },
-          "mind": {
-            "kcal": 1030,
-            "protein": 33.6,
-            "carb": 129.8,
-            "fat": 36.7,
-            "satfat": 7.8,
-            "fiber": 6.8,
-            "sugar": 6,
-            "sodium": 405
-          },
-          "mediterranean": {
-            "kcal": 1030,
-            "protein": 33.6,
-            "carb": 129.8,
-            "fat": 36.7,
-            "satfat": 7.8,
-            "fiber": 6.8,
-            "sugar": 6,
-            "sodium": 405
-          },
-          "tlc": {
-            "kcal": 1030,
-            "protein": 33.6,
-            "carb": 129.8,
-            "fat": 36.7,
-            "satfat": 7.8,
-            "fiber": 6.8,
-            "sugar": 6,
-            "sodium": 405
-          },
-          "heart": {
-            "kcal": 1030,
-            "protein": 33.6,
-            "carb": 129.8,
-            "fat": 36.7,
-            "satfat": 7.8,
-            "fiber": 6.8,
-            "sugar": 6,
-            "sodium": 405
-          },
-          "balance": {
+          "0.1.2.3": {
             "kcal": 685,
             "protein": 22.4,
             "carb": 89.2,
@@ -6709,7 +6834,7 @@
             "sugar": 4.4,
             "sodium": 292
           },
-          "kidney": {
+          "1.2": {
             "kcal": 856,
             "protein": 22.5,
             "carb": 89.2,
@@ -6718,6 +6843,16 @@
             "fiber": 5,
             "sugar": 4.4,
             "sodium": 332
+          },
+          "0.1.2": {
+            "kcal": 805,
+            "protein": 22.4,
+            "carb": 89.2,
+            "fat": 35.4,
+            "satfat": 7.6,
+            "fiber": 5,
+            "sugar": 4.4,
+            "sodium": 292
           }
         }
       }
@@ -7067,7 +7202,7 @@
         "matched": 14,
         "considered": 14,
         "withSwaps": {
-          "heart": {
+          "0": {
             "kcal": 558,
             "protein": 19.4,
             "carb": 62.5,
@@ -7077,17 +7212,7 @@
             "sugar": 13.3,
             "sodium": 827
           },
-          "lowsugar": {
-            "kcal": 558,
-            "protein": 19.4,
-            "carb": 62.5,
-            "fat": 27.4,
-            "satfat": 8,
-            "fiber": 12.3,
-            "sugar": 13.3,
-            "sodium": 827
-          },
-          "diabetes": {
+          "0.1": {
             "kcal": 506,
             "protein": 17.4,
             "carb": 53.4,
@@ -7382,7 +7507,7 @@
         "matched": 10,
         "considered": 10,
         "withSwaps": {
-          "lowcarb": {
+          "0": {
             "kcal": 280,
             "protein": 5.1,
             "carb": 40.4,
@@ -7563,7 +7688,7 @@
         "matched": 18,
         "considered": 18,
         "withSwaps": {
-          "dash": {
+          "0.1": {
             "kcal": 379,
             "protein": 27.3,
             "carb": 8.8,
@@ -7573,37 +7698,7 @@
             "sugar": 1.6,
             "sodium": 836
           },
-          "tlc": {
-            "kcal": 379,
-            "protein": 27.3,
-            "carb": 8.8,
-            "fat": 27,
-            "satfat": 6,
-            "fiber": 2.7,
-            "sugar": 1.6,
-            "sodium": 836
-          },
-          "heart": {
-            "kcal": 379,
-            "protein": 27.3,
-            "carb": 8.8,
-            "fat": 27,
-            "satfat": 6,
-            "fiber": 2.7,
-            "sugar": 1.6,
-            "sodium": 836
-          },
-          "diabetes": {
-            "kcal": 379,
-            "protein": 27.3,
-            "carb": 8.8,
-            "fat": 27,
-            "satfat": 6,
-            "fiber": 2.7,
-            "sugar": 1.6,
-            "sodium": 836
-          },
-          "kidney": {
+          "0.1.2": {
             "kcal": 338,
             "protein": 23.1,
             "carb": 8.8,
@@ -7713,6 +7808,32 @@
       "planSwaps": [
         {
           "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "3 dried apricots, slivered",
+          "with": "1 dried apricot, slivered",
+          "note": "one apricot — mint at the finish adds the lift"
+        },
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "2 carrots, cut into thick coins",
+          "with": "1 carrot, cut into thick coins",
+          "note": "one carrot"
+        },
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "⅓ cup couscous",
+          "with": "1½ cups cauliflower rice",
+          "note": "cauliflower rice instead of couscous"
+        },
+        {
+          "for": [
             "diabetes"
           ],
           "replace": "⅓ cup couscous",
@@ -7721,7 +7842,8 @@
         },
         {
           "for": [
-            "diabetes"
+            "diabetes",
+            "lowcarb"
           ],
           "replace": "¾ cup canned chickpeas, drained and rinsed",
           "with": "½ cup canned chickpeas, drained and rinsed",
@@ -7748,7 +7870,27 @@
         "matched": 16,
         "considered": 16,
         "withSwaps": {
-          "diabetes": {
+          "0.1": {
+            "kcal": 362,
+            "protein": 13.3,
+            "carb": 59,
+            "fat": 9.7,
+            "satfat": 1.2,
+            "fiber": 11.5,
+            "sugar": 12.7,
+            "sodium": 343
+          },
+          "2.4": {
+            "kcal": 272,
+            "protein": 10,
+            "carb": 43,
+            "fat": 9.3,
+            "satfat": 1.2,
+            "fiber": 11.5,
+            "sugar": 19,
+            "sodium": 385
+          },
+          "3.4": {
             "kcal": 333,
             "protein": 11.1,
             "carb": 55.7,
@@ -7757,6 +7899,26 @@
             "fiber": 11,
             "sugar": 17.5,
             "sodium": 363
+          },
+          "0.1.2.4": {
+            "kcal": 240,
+            "protein": 9.4,
+            "carb": 35.1,
+            "fat": 9.2,
+            "satfat": 1.2,
+            "fiber": 10.1,
+            "sugar": 13.2,
+            "sodium": 363
+          },
+          "0.1.3.4": {
+            "kcal": 301,
+            "protein": 10.6,
+            "carb": 47.8,
+            "fat": 9.1,
+            "satfat": 1.1,
+            "fiber": 9.6,
+            "sugar": 11.7,
+            "sodium": 341
           }
         }
       }
@@ -8048,7 +8210,7 @@
         "matched": 18,
         "considered": 18,
         "withSwaps": {
-          "balance": {
+          "0.1": {
             "kcal": 772,
             "protein": 46.8,
             "carb": 6.4,
@@ -8169,7 +8331,7 @@
         "matched": 9,
         "considered": 9,
         "withSwaps": {
-          "kidney": {
+          "0": {
             "kcal": 224,
             "protein": 22.3,
             "carb": 11.5,
@@ -8347,7 +8509,7 @@
         "matched": 16,
         "considered": 16,
         "withSwaps": {
-          "balance": {
+          "0.1.2": {
             "kcal": 767,
             "protein": 53.9,
             "carb": 15.5,
@@ -8736,7 +8898,17 @@
         "matched": 10,
         "considered": 10,
         "withSwaps": {
-          "diabetes": {
+          "4": {
+            "kcal": 1013,
+            "protein": 43.4,
+            "carb": 40.3,
+            "fat": 75.8,
+            "satfat": 43.4,
+            "fiber": 3.3,
+            "sugar": 3.7,
+            "sodium": 1205
+          },
+          "0.1.2": {
             "kcal": 851,
             "protein": 34.7,
             "carb": 48.9,
@@ -8746,7 +8918,7 @@
             "sugar": 4.1,
             "sodium": 898
           },
-          "balance": {
+          "0.1.2.3": {
             "kcal": 750,
             "protein": 33.9,
             "carb": 48,
@@ -8756,15 +8928,25 @@
             "sugar": 3.2,
             "sodium": 887
           },
-          "lowcarb": {
-            "kcal": 1013,
-            "protein": 43.4,
-            "carb": 40.3,
-            "fat": 75.8,
-            "satfat": 43.4,
+          "0.1.2.4": {
+            "kcal": 808,
+            "protein": 33.6,
+            "carb": 38.9,
+            "fat": 58.3,
+            "satfat": 32.5,
             "fiber": 3.3,
             "sugar": 3.7,
-            "sodium": 1205
+            "sodium": 895
+          },
+          "0.1.2.3.4": {
+            "kcal": 707,
+            "protein": 32.7,
+            "carb": 38,
+            "fat": 47.6,
+            "satfat": 25.8,
+            "fiber": 3.3,
+            "sugar": 2.8,
+            "sodium": 883
           }
         }
       }
@@ -8899,8 +9081,33 @@
       "planSwaps": [
         {
           "for": [
+            "balance"
+          ],
+          "replace": "1 cup sushi or short-grain rice, rinsed",
+          "with": "⅔ cup sushi rice, rinsed",
+          "note": "a smaller pilaf"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "3–4 tbsp lemon-tahini sauce (or tahini thinned with lemon juice)",
+          "with": "2 tbsp lemon-tahini sauce",
+          "note": "a lighter tahini drizzle"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "2 boneless skinless chicken breasts, pounded to even thickness",
+          "with": "1 large boneless skinless chicken breast, pounded to even thickness",
+          "note": "one big breast, sliced for two"
+        },
+        {
+          "for": [
             "heart",
-            "lowsugar"
+            "lowsugar",
+            "balance"
           ],
           "replace": "4–6 dates, pitted and chopped",
           "with": "2 dates, pitted and chopped",
@@ -8927,7 +9134,7 @@
         "matched": 19,
         "considered": 19,
         "withSwaps": {
-          "heart": {
+          "3": {
             "kcal": 1057,
             "protein": 55.3,
             "carb": 101.7,
@@ -8937,15 +9144,15 @@
             "sugar": 12,
             "sodium": 898
           },
-          "lowsugar": {
-            "kcal": 1057,
-            "protein": 55.3,
-            "carb": 101.7,
-            "fat": 48.7,
-            "satfat": 6.7,
-            "fiber": 9.8,
-            "sugar": 12,
-            "sodium": 898
+          "0.1.2.3": {
+            "kcal": 781,
+            "protein": 32.3,
+            "carb": 75.6,
+            "fat": 40.3,
+            "satfat": 5.2,
+            "fiber": 8.4,
+            "sugar": 11.9,
+            "sodium": 818
           }
         }
       }
@@ -9146,7 +9353,7 @@
         "matched": 22,
         "considered": 22,
         "withSwaps": {
-          "dash": {
+          "0": {
             "kcal": 701,
             "protein": 39.8,
             "carb": 72.6,
@@ -9156,57 +9363,7 @@
             "sugar": 7.1,
             "sodium": 853
           },
-          "mind": {
-            "kcal": 701,
-            "protein": 39.8,
-            "carb": 72.6,
-            "fat": 27.8,
-            "satfat": 9,
-            "fiber": 5.5,
-            "sugar": 7.1,
-            "sodium": 853
-          },
-          "mediterranean": {
-            "kcal": 701,
-            "protein": 39.8,
-            "carb": 72.6,
-            "fat": 27.8,
-            "satfat": 9,
-            "fiber": 5.5,
-            "sugar": 7.1,
-            "sodium": 853
-          },
-          "tlc": {
-            "kcal": 701,
-            "protein": 39.8,
-            "carb": 72.6,
-            "fat": 27.8,
-            "satfat": 9,
-            "fiber": 5.5,
-            "sugar": 7.1,
-            "sodium": 853
-          },
-          "heart": {
-            "kcal": 701,
-            "protein": 39.8,
-            "carb": 72.6,
-            "fat": 27.8,
-            "satfat": 9,
-            "fiber": 5.5,
-            "sugar": 7.1,
-            "sodium": 853
-          },
-          "balance": {
-            "kcal": 601,
-            "protein": 36.4,
-            "carb": 52.6,
-            "fat": 27.2,
-            "satfat": 8.9,
-            "fiber": 4.6,
-            "sugar": 6.5,
-            "sodium": 850
-          },
-          "diabetes": {
+          "1": {
             "kcal": 745,
             "protein": 49.4,
             "carb": 52.6,
@@ -9215,6 +9372,16 @@
             "fiber": 4.6,
             "sugar": 6.5,
             "sodium": 887
+          },
+          "0.1": {
+            "kcal": 601,
+            "protein": 36.4,
+            "carb": 52.6,
+            "fat": 27.2,
+            "satfat": 8.9,
+            "fiber": 4.6,
+            "sugar": 6.5,
+            "sodium": 850
           }
         }
       }
@@ -9502,17 +9669,7 @@
         "matched": 23,
         "considered": 23,
         "withSwaps": {
-          "lowsugar": {
-            "kcal": 782,
-            "protein": 67.9,
-            "carb": 82.5,
-            "fat": 19.7,
-            "satfat": 4.1,
-            "fiber": 13.9,
-            "sugar": 13,
-            "sodium": 2855
-          },
-          "balance": {
+          "0": {
             "kcal": 782,
             "protein": 67.9,
             "carb": 82.5,
@@ -9804,7 +9961,7 @@
         "matched": 14,
         "considered": 14,
         "withSwaps": {
-          "diabetes": {
+          "0": {
             "kcal": 868,
             "protein": 45.3,
             "carb": 56.1,
@@ -9814,7 +9971,7 @@
             "sugar": 13.7,
             "sodium": 775
           },
-          "balance": {
+          "0.1": {
             "kcal": 766,
             "protein": 45.1,
             "carb": 56.1,
@@ -9937,6 +10094,33 @@
       "planSwaps": [
         {
           "for": [
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "1 lb sirloin steak, cut into 1.5-inch cubes",
+          "with": "1 lb boneless skinless chicken breast, cut into 1.5-inch chunks",
+          "note": "chicken kebabs instead of steak"
+        },
+        {
+          "for": [
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "¼ cup hoisin sauce",
+          "with": "2 tbsp hoisin sauce",
+          "note": "half the hoisin"
+        },
+        {
+          "for": [
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "1 tbsp honey",
+          "with": "1½ tsp honey",
+          "note": "half the honey"
+        },
+        {
+          "for": [
             "balance"
           ],
           "replace": "1 lb sirloin steak, cut into 1.5-inch cubes",
@@ -9964,7 +10148,7 @@
         "matched": 16,
         "considered": 16,
         "withSwaps": {
-          "balance": {
+          "3": {
             "kcal": 732,
             "protein": 48.7,
             "carb": 40.5,
@@ -9973,6 +10157,16 @@
             "fiber": 5.8,
             "sugar": 25.9,
             "sodium": 2375
+          },
+          "0.1.2": {
+            "kcal": 606,
+            "protein": 56.5,
+            "carb": 29.2,
+            "fat": 29.2,
+            "satfat": 4.8,
+            "fiber": 5.4,
+            "sugar": 16.6,
+            "sodium": 2197
           }
         }
       }
@@ -10144,7 +10338,17 @@
         "matched": 13,
         "considered": 13,
         "withSwaps": {
-          "dash": {
+          "2": {
+            "kcal": 550,
+            "protein": 38.2,
+            "carb": 17.2,
+            "fat": 36.3,
+            "satfat": 6.6,
+            "fiber": 4.2,
+            "sugar": 12,
+            "sodium": 1234
+          },
+          "0.1.2": {
             "kcal": 550,
             "protein": 38.1,
             "carb": 17.3,
@@ -10154,7 +10358,7 @@
             "sugar": 12.1,
             "sodium": 804
           },
-          "tlc": {
+          "0.1": {
             "kcal": 581,
             "protein": 38.1,
             "carb": 26,
@@ -10163,56 +10367,6 @@
             "fiber": 4.2,
             "sugar": 20.8,
             "sodium": 804
-          },
-          "heart": {
-            "kcal": 550,
-            "protein": 38.1,
-            "carb": 17.3,
-            "fat": 36.3,
-            "satfat": 6.6,
-            "fiber": 4.2,
-            "sugar": 12.1,
-            "sodium": 804
-          },
-          "diabetes": {
-            "kcal": 581,
-            "protein": 38.1,
-            "carb": 26,
-            "fat": 36.3,
-            "satfat": 6.6,
-            "fiber": 4.2,
-            "sugar": 20.8,
-            "sodium": 804
-          },
-          "mind": {
-            "kcal": 550,
-            "protein": 38.2,
-            "carb": 17.2,
-            "fat": 36.3,
-            "satfat": 6.6,
-            "fiber": 4.2,
-            "sugar": 12,
-            "sodium": 1234
-          },
-          "mediterranean": {
-            "kcal": 550,
-            "protein": 38.2,
-            "carb": 17.2,
-            "fat": 36.3,
-            "satfat": 6.6,
-            "fiber": 4.2,
-            "sugar": 12,
-            "sodium": 1234
-          },
-          "lowsugar": {
-            "kcal": 550,
-            "protein": 38.2,
-            "carb": 17.2,
-            "fat": 36.3,
-            "satfat": 6.6,
-            "fiber": 4.2,
-            "sugar": 12,
-            "sodium": 1234
           }
         }
       }
@@ -10346,7 +10500,7 @@
         "matched": 10,
         "considered": 10,
         "withSwaps": {
-          "balance": {
+          "0": {
             "kcal": 759,
             "protein": 45,
             "carb": 9.6,
@@ -10541,7 +10695,7 @@
         "matched": 10,
         "considered": 10,
         "withSwaps": {
-          "dash": {
+          "0.1.2": {
             "kcal": 831,
             "protein": 23.9,
             "carb": 101.2,
@@ -10551,27 +10705,7 @@
             "sugar": 16.6,
             "sodium": 251
           },
-          "mind": {
-            "kcal": 831,
-            "protein": 23.9,
-            "carb": 101.2,
-            "fat": 36.5,
-            "satfat": 8.1,
-            "fiber": 7.7,
-            "sugar": 16.6,
-            "sodium": 251
-          },
-          "mediterranean": {
-            "kcal": 831,
-            "protein": 23.9,
-            "carb": 101.2,
-            "fat": 36.5,
-            "satfat": 8.1,
-            "fiber": 7.7,
-            "sugar": 16.6,
-            "sodium": 251
-          },
-          "tlc": {
+          "0.1": {
             "kcal": 859,
             "protein": 24.1,
             "carb": 106.6,
@@ -10581,7 +10715,7 @@
             "sugar": 21.4,
             "sodium": 259
           },
-          "kidney": {
+          "0.3": {
             "kcal": 909,
             "protein": 20.6,
             "carb": 86.6,
@@ -10591,7 +10725,7 @@
             "sugar": 20.6,
             "sodium": 257
           },
-          "balance": {
+          "0.1.3": {
             "kcal": 759,
             "protein": 20.6,
             "carb": 86.6,
@@ -10600,6 +10734,16 @@
             "fiber": 6.8,
             "sugar": 20.6,
             "sodium": 257
+          },
+          "0.1.2.3": {
+            "kcal": 731,
+            "protein": 20.4,
+            "carb": 81.2,
+            "fat": 36,
+            "satfat": 8,
+            "fiber": 6.8,
+            "sugar": 15.8,
+            "sodium": 249
           }
         }
       }
@@ -10733,7 +10877,7 @@
           "satfat": 7.9,
           "fiber": 4.6,
           "sugar": 11.1,
-          "sodium": 2454
+          "sodium": 2679
         },
         "confidence": "high",
         "matched": 19,
@@ -11027,7 +11171,7 @@
         "matched": 13,
         "considered": 13,
         "withSwaps": {
-          "balance": {
+          "0.1": {
             "kcal": 784,
             "protein": 50.7,
             "carb": 75.5,
@@ -11183,7 +11327,7 @@
         "matched": 7,
         "considered": 7,
         "withSwaps": {
-          "dash": {
+          "0": {
             "kcal": 865,
             "protein": 58.3,
             "carb": 88.5,
@@ -11193,57 +11337,7 @@
             "sugar": 7.5,
             "sodium": 296
           },
-          "mind": {
-            "kcal": 865,
-            "protein": 58.3,
-            "carb": 88.5,
-            "fat": 29.4,
-            "satfat": 7.4,
-            "fiber": 5.1,
-            "sugar": 7.5,
-            "sodium": 296
-          },
-          "mediterranean": {
-            "kcal": 865,
-            "protein": 58.3,
-            "carb": 88.5,
-            "fat": 29.4,
-            "satfat": 7.4,
-            "fiber": 5.1,
-            "sugar": 7.5,
-            "sodium": 296
-          },
-          "tlc": {
-            "kcal": 865,
-            "protein": 58.3,
-            "carb": 88.5,
-            "fat": 29.4,
-            "satfat": 7.4,
-            "fiber": 5.1,
-            "sugar": 7.5,
-            "sodium": 296
-          },
-          "heart": {
-            "kcal": 865,
-            "protein": 58.3,
-            "carb": 88.5,
-            "fat": 29.4,
-            "satfat": 7.4,
-            "fiber": 5.1,
-            "sugar": 7.5,
-            "sodium": 296
-          },
-          "balance": {
-            "kcal": 715,
-            "protein": 53.1,
-            "carb": 58.5,
-            "fat": 28.7,
-            "satfat": 7.2,
-            "fiber": 3.8,
-            "sugar": 6.3,
-            "sodium": 293
-          },
-          "diabetes": {
+          "1": {
             "kcal": 795,
             "protein": 58.3,
             "carb": 59.4,
@@ -11252,6 +11346,16 @@
             "fiber": 3.8,
             "sugar": 6.5,
             "sodium": 443
+          },
+          "0.1": {
+            "kcal": 715,
+            "protein": 53.1,
+            "carb": 58.5,
+            "fat": 28.7,
+            "satfat": 7.2,
+            "fiber": 3.8,
+            "sugar": 6.3,
+            "sodium": 293
           }
         }
       }
@@ -11505,6 +11609,14 @@
       "planSwaps": [
         {
           "for": [
+            "kidney"
+          ],
+          "replace": "½ lb dried red kidney beans, soaked overnight (or quick-soaked)",
+          "with": "4 oz dried red kidney beans, soaked overnight",
+          "note": "half the beans, extra trinity"
+        },
+        {
+          "for": [
             "balance"
           ],
           "replace": "½ lb dried red kidney beans, soaked overnight (or quick-soaked)",
@@ -11531,7 +11643,17 @@
         "matched": 18,
         "considered": 18,
         "withSwaps": {
-          "balance": {
+          "0": {
+            "kcal": 657,
+            "protein": 22,
+            "carb": 123.3,
+            "fat": 8.6,
+            "satfat": 1.2,
+            "fiber": 20.1,
+            "sugar": 6.7,
+            "sodium": 197
+          },
+          "1": {
             "kcal": 753,
             "protein": 28.3,
             "carb": 140.2,
@@ -11676,7 +11798,7 @@
           "satfat": 14.9,
           "fiber": 4.1,
           "sugar": 10.8,
-          "sodium": 1515
+          "sodium": 1540
         },
         "confidence": "high",
         "matched": 19,
@@ -11922,7 +12044,7 @@
         "matched": 13,
         "considered": 13,
         "withSwaps": {
-          "balance": {
+          "0.1.2": {
             "kcal": 757,
             "protein": 19.5,
             "carb": 74.2,
@@ -12037,17 +12159,7 @@
         "matched": 3,
         "considered": 3,
         "withSwaps": {
-          "heart": {
-            "kcal": 140,
-            "protein": 0,
-            "carb": 13.5,
-            "fat": 0,
-            "satfat": 0,
-            "fiber": 0,
-            "sugar": 11.7,
-            "sodium": 7
-          },
-          "lowsugar": {
+          "0": {
             "kcal": 140,
             "protein": 0,
             "carb": 13.5,
@@ -12346,17 +12458,7 @@
         "matched": 4,
         "considered": 4,
         "withSwaps": {
-          "heart": {
-            "kcal": 202,
-            "protein": 0.9,
-            "carb": 19.7,
-            "fat": 0.2,
-            "satfat": 0.1,
-            "fiber": 1.8,
-            "sugar": 10.9,
-            "sodium": 1
-          },
-          "lowsugar": {
+          "0": {
             "kcal": 202,
             "protein": 0.9,
             "carb": 19.7,
@@ -12484,27 +12586,7 @@
         "matched": 7,
         "considered": 7,
         "withSwaps": {
-          "dash": {
-            "kcal": 234,
-            "protein": 0.2,
-            "carb": 19.8,
-            "fat": 0,
-            "satfat": 0,
-            "fiber": 0.2,
-            "sugar": 16.8,
-            "sodium": 1
-          },
-          "mind": {
-            "kcal": 234,
-            "protein": 0.2,
-            "carb": 19.8,
-            "fat": 0,
-            "satfat": 0,
-            "fiber": 0.2,
-            "sugar": 16.8,
-            "sodium": 1
-          },
-          "mediterranean": {
+          "0.1": {
             "kcal": 234,
             "protein": 0.2,
             "carb": 19.8,
@@ -12806,27 +12888,7 @@
         "matched": 6,
         "considered": 6,
         "withSwaps": {
-          "dash": {
-            "kcal": 294,
-            "protein": 0.8,
-            "carb": 18.8,
-            "fat": 4.8,
-            "satfat": 3,
-            "fiber": 0,
-            "sugar": 18.3,
-            "sodium": 253
-          },
-          "mind": {
-            "kcal": 294,
-            "protein": 0.8,
-            "carb": 18.8,
-            "fat": 4.8,
-            "satfat": 3,
-            "fiber": 0,
-            "sugar": 18.3,
-            "sodium": 253
-          },
-          "mediterranean": {
+          "0.1": {
             "kcal": 294,
             "protein": 0.8,
             "carb": 18.8,
@@ -13134,17 +13196,7 @@
         "matched": 4,
         "considered": 5,
         "withSwaps": {
-          "heart": {
-            "kcal": 219,
-            "protein": 0.1,
-            "carb": 15,
-            "fat": 0.2,
-            "satfat": 0,
-            "fiber": 0,
-            "sugar": 13.8,
-            "sodium": 6
-          },
-          "lowsugar": {
+          "0": {
             "kcal": 219,
             "protein": 0.1,
             "carb": 15,
@@ -13446,27 +13498,7 @@
         "matched": 3,
         "considered": 3,
         "withSwaps": {
-          "dash": {
-            "kcal": 199,
-            "protein": 0.8,
-            "carb": 13.8,
-            "fat": 10.8,
-            "satfat": 6.8,
-            "fiber": 0,
-            "sugar": 13.8,
-            "sodium": 12
-          },
-          "mind": {
-            "kcal": 199,
-            "protein": 0.8,
-            "carb": 13.8,
-            "fat": 10.8,
-            "satfat": 6.8,
-            "fiber": 0,
-            "sugar": 13.8,
-            "sodium": 12
-          },
-          "mediterranean": {
+          "0.1": {
             "kcal": 199,
             "protein": 0.8,
             "carb": 13.8,
@@ -13667,17 +13699,7 @@
         "matched": 4,
         "considered": 4,
         "withSwaps": {
-          "heart": {
-            "kcal": 226,
-            "protein": 0.2,
-            "carb": 14.1,
-            "fat": 0,
-            "satfat": 0,
-            "fiber": 0.2,
-            "sugar": 12.3,
-            "sodium": 0
-          },
-          "lowsugar": {
+          "0": {
             "kcal": 226,
             "protein": 0.2,
             "carb": 14.1,
@@ -13978,17 +14000,7 @@
         "matched": 4,
         "considered": 4,
         "withSwaps": {
-          "heart": {
-            "kcal": 209,
-            "protein": 0.8,
-            "carb": 13.5,
-            "fat": 4.6,
-            "satfat": 2.8,
-            "fiber": 0,
-            "sugar": 13,
-            "sodium": 14
-          },
-          "lowsugar": {
+          "0": {
             "kcal": 209,
             "protein": 0.8,
             "carb": 13.5,
@@ -14119,27 +14131,7 @@
         "matched": 5,
         "considered": 5,
         "withSwaps": {
-          "dash": {
-            "kcal": 81,
-            "protein": 0.4,
-            "carb": 20.9,
-            "fat": 0,
-            "satfat": 0,
-            "fiber": 0.4,
-            "sugar": 17.1,
-            "sodium": 6
-          },
-          "mind": {
-            "kcal": 81,
-            "protein": 0.4,
-            "carb": 20.9,
-            "fat": 0,
-            "satfat": 0,
-            "fiber": 0.4,
-            "sugar": 17.1,
-            "sodium": 6
-          },
-          "mediterranean": {
+          "0.1": {
             "kcal": 81,
             "protein": 0.4,
             "carb": 20.9,
@@ -14732,27 +14724,7 @@
         "matched": 4,
         "considered": 4,
         "withSwaps": {
-          "dash": {
-            "kcal": 302,
-            "protein": 1,
-            "carb": 19.1,
-            "fat": 11.6,
-            "satfat": 7.2,
-            "fiber": 0,
-            "sugar": 16.8,
-            "sodium": 44
-          },
-          "mind": {
-            "kcal": 302,
-            "protein": 1,
-            "carb": 19.1,
-            "fat": 11.6,
-            "satfat": 7.2,
-            "fiber": 0,
-            "sugar": 16.8,
-            "sodium": 44
-          },
-          "mediterranean": {
+          "0.1": {
             "kcal": 302,
             "protein": 1,
             "carb": 19.1,
@@ -14979,27 +14951,7 @@
         "matched": 8,
         "considered": 8,
         "withSwaps": {
-          "dash": {
-            "kcal": 232,
-            "protein": 0.3,
-            "carb": 23.2,
-            "fat": 0,
-            "satfat": 0,
-            "fiber": 0.3,
-            "sugar": 19.4,
-            "sodium": 1
-          },
-          "mind": {
-            "kcal": 232,
-            "protein": 0.3,
-            "carb": 23.2,
-            "fat": 0,
-            "satfat": 0,
-            "fiber": 0.3,
-            "sugar": 19.4,
-            "sodium": 1
-          },
-          "mediterranean": {
+          "0.1.2": {
             "kcal": 232,
             "protein": 0.3,
             "carb": 23.2,
@@ -15375,17 +15327,7 @@
         "matched": 3,
         "considered": 3,
         "withSwaps": {
-          "heart": {
-            "kcal": 304,
-            "protein": 0.8,
-            "carb": 12.1,
-            "fat": 10.8,
-            "satfat": 6.8,
-            "fiber": 0,
-            "sugar": 11.3,
-            "sodium": 14
-          },
-          "lowsugar": {
+          "0": {
             "kcal": 304,
             "protein": 0.8,
             "carb": 12.1,

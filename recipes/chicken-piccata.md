@@ -89,6 +89,10 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
+  - for: [lowcarb]
+    replace: "4 oz thin spaghetti"
+    with: "2 medium zucchini, spiralized"
+    note: "zoodles under the piccata"
   - for: [diabetes, balance]
     replace: "4 oz thin spaghetti"
     with: "3 oz thin spaghetti"

@@ -79,7 +79,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [diabetes]
+    replace: "1–2 tbsp fish sauce, to taste"
+    with: "1½ tbsp coconut aminos (plus lime to finish)"
+    note: "coconut aminos for the fish sauce"
+updated: 2026-07-05
 ---
 
 The cozy bowl Stephen reaches for under the weather: warm, soothing, and just

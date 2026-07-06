@@ -119,11 +119,12 @@ fit*), computed from the same per-serving estimate — nothing to author, but re
 4. **Author `planSwaps` for every fixable ✗ verdict — standard step.** Run
    `npm run plans -- --near-miss`; for hits on your new drink, encode the "skinny"
    variant as `planSwaps` entries (a lighter liqueur pour, half the syrup, less juice —
-   classic bar practice). The fit table shows "✗ ⇄ ~ with the swap" and the reader gets
-   the variant toggle. Follow `CLAUDE.md` → *planSwaps*: `replace` verbatim, `with`
-   parseable, ⇄ confirmed via `npm run plans -- <slug>` — **a swap that doesn't lift its
-   verdict fails `npm test`**. Remember boozy drinks cap at "~ Okay" regardless; a swap
-   can still lift ✗ → ~.
+   classic bar practice; an allulose simple syrup is a fair tip since it's the one
+   alt-sweetener that behaves like sugar in a shaker). Chips are additive in the reader,
+   so separate concerns (lighter pour vs less syrup) can be separate entries. Follow
+   `CLAUDE.md` → *planSwaps*: `replace` verbatim, `with` parseable, ⇄ confirmed via
+   `npm run plans -- <slug>` — **a swap that doesn't lift its verdict fails `npm test`**.
+   Remember boozy drinks cap at "~ Okay" regardless; a swap can still lift ✗ → ~.
 
 ## 5. Photo (standard step — every card gets one)
 

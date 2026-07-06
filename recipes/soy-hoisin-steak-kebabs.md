@@ -83,6 +83,18 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
+  - for: [mind, mediterranean]
+    replace: "1 lb sirloin steak, cut into 1.5-inch cubes"
+    with: "1 lb boneless skinless chicken breast, cut into 1.5-inch chunks"
+    note: "chicken kebabs instead of steak"
+  - for: [mind, mediterranean]
+    replace: "¼ cup hoisin sauce"
+    with: "2 tbsp hoisin sauce"
+    note: "half the hoisin"
+  - for: [mind, mediterranean]
+    replace: "1 tbsp honey"
+    with: "1½ tsp honey"
+    note: "half the honey"
   - for: [balance]
     replace: "1 lb sirloin steak, cut into 1.5-inch cubes"
     with: "12 oz sirloin steak, cut into 1.5-inch cubes"

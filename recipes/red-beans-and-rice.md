@@ -92,6 +92,10 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
+  - for: [kidney]
+    replace: "½ lb dried red kidney beans, soaked overnight (or quick-soaked)"
+    with: "4 oz dried red kidney beans, soaked overnight"
+    note: "half the beans, extra trinity"
   - for: [balance]
     replace: "½ lb dried red kidney beans, soaked overnight (or quick-soaked)"
     with: "6 oz dried red kidney beans, soaked overnight"

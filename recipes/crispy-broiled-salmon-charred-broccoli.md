@@ -90,7 +90,12 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-19
-updated: 2026-06-19
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "4 tbsp unsalted butter"
+    with: "2 tbsp olive oil"
+    note: "an olive-oil baste"
+updated: 2026-07-05
 ---
 
 Stephen's weeknight-elevated salmon: the broiler does the work of a restaurant
