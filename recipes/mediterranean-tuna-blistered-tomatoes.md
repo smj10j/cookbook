@@ -58,8 +58,13 @@ extras:
 source:
   name: SideChef — The Fit Mediterranean
   url: https://www.sidechef.com/recipes/9991/fresh_tuna_fillet_with_mediterranean_sauce/
+planSwaps:
+  - for: [kidney]
+    replace: "2 fresh tuna steaks (about 5 oz each)"
+    with: "6 oz fresh tuna steaks (two 3-oz portions)"
+    note: "renal-size tuna portions"
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-07-06
 ---
 
 A fast, sunny one-pan supper: fresh tuna gently cooked in a garlicky tomato sauce
