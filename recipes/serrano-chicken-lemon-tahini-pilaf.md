@@ -96,7 +96,19 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
-  - for: [heart, lowsugar]
+  - for: [balance]
+    replace: "1 cup sushi or short-grain rice, rinsed"
+    with: "⅔ cup sushi rice, rinsed"
+    note: "a smaller pilaf"
+  - for: [balance]
+    replace: "3–4 tbsp lemon-tahini sauce (or tahini thinned with lemon juice)"
+    with: "2 tbsp lemon-tahini sauce"
+    note: "a lighter tahini drizzle"
+  - for: [balance]
+    replace: "2 boneless skinless chicken breasts, pounded to even thickness"
+    with: "1 large boneless skinless chicken breast, pounded to even thickness"
+    note: "one big breast, sliced for two"
+  - for: [heart, lowsugar, balance]
     replace: "4–6 dates, pitted and chopped"
     with: "2 dates, pitted and chopped"
     note: "two dates"

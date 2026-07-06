@@ -74,11 +74,23 @@ source:
   url: null
 created: 2026-07-05
 planSwaps:
+  - for: [heart, lowsugar]
+    replace: "3 dried apricots, slivered"
+    with: "1 dried apricot, slivered"
+    note: "one apricot — mint at the finish adds the lift"
+  - for: [heart, lowsugar]
+    replace: "2 carrots, cut into thick coins"
+    with: "1 carrot, cut into thick coins"
+    note: "one carrot"
+  - for: [lowcarb]
+    replace: "⅓ cup couscous"
+    with: "1½ cups cauliflower rice"
+    note: "cauliflower rice instead of couscous"
   - for: [diabetes]
     replace: "⅓ cup couscous"
     with: "¼ cup couscous"
     note: "a smaller couscous bed"
-  - for: [diabetes]
+  - for: [diabetes, lowcarb]
     replace: "¾ cup canned chickpeas, drained and rinsed"
     with: "½ cup canned chickpeas, drained and rinsed"
     note: "fewer chickpeas"

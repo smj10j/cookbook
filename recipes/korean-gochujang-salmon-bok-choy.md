@@ -81,7 +81,19 @@ source:
   url: null
 created: 2026-06-20
 planSwaps:
-  - for: [lowsugar]
+  - for: [dash, tlc, heart, diabetes, kidney]
+    replace: "1 tbsp soy sauce"
+    with: "1 tbsp coconut aminos"
+    note: "coconut aminos for the soy (both times)"
+  - for: [dash, tlc, heart, diabetes, kidney]
+    replace: "2 tbsp gochujang"
+    with: "1 tbsp gochujang (add gochugaru for heat)"
+    note: "half the gochujang, gochugaru keeps the fire"
+  - for: [kidney]
+    replace: "2 salmon fillets (about 6 oz each)"
+    with: "6 oz salmon fillets (two 3-oz portions)"
+    note: "CKD-size 3-oz portions"
+  - for: [lowsugar, heart]
     replace: "1 tbsp honey"
     with: "1½ tsp honey"
     note: "half the honey"

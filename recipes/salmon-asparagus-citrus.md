@@ -82,6 +82,10 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
+  - for: [kidney]
+    replace: "2 salmon fillets (about 6 oz each), skin-on"
+    with: "7 oz salmon fillets, skin-on"
+    note: "two 3½-oz fillets"
   - for: [dash, mind, mediterranean, tlc, heart]
     replace: "1 tbsp olive oil or butter"
     with: "1 tbsp olive oil"

@@ -513,7 +513,7 @@ export function evaluatePlans(r, plans = EATING_PLANS, perOverride = null) {
     }
     // A documented planSwaps variant (build-computed nutrition) may lift the
     // verdict — surface it only when it genuinely improves the tier.
-    const swappedPer = perOverride ? null : r.nutrition.withSwaps?.[p.id];
+    const swappedPer = perOverride ? null : r.nutrition.withSwaps?.[planSetKey(r.planSwaps, p.id)];
     if (swappedPer) {
       const s = evaluatePlan(swappedPer, p, { judgeGoals });
       if (alcoholic && s.verdict === 'optimal') s.verdict = 'ok';
@@ -528,6 +528,13 @@ export function evaluatePlans(r, plans = EATING_PLANS, perOverride = null) {
 }
 
 // ── recipe variants (the 1C toggle) ──────────────────────────────────────────
+// withSwaps is keyed by ascending swap-entry-index sets ("0.2"); a plan's key
+// is the set of entries that name it.
+export function planSetKey(swaps, planId) {
+  const idx = (swaps || []).map((s, i) => (s.for.includes(planId) ? i : -1)).filter((i) => i >= 0);
+  return idx.length ? idx.join('.') : '';
+}
+
 // Group a recipe's planSwaps into toggleable variants: plans that share an
 // identical swap set share one variant (their build-computed nutrition is
 // identical). Returns [{ key, plans, swaps, perServing }] — empty when the
@@ -537,14 +544,36 @@ export function recipeVariants(r, plans = EATING_PLANS) {
   if (!swaps.length || !r?.nutrition?.withSwaps) return [];
   const byKey = new Map();
   for (const p of plans) {
-    const mine = swaps.map((s, i) => (s.for.includes(p.id) ? i : -1)).filter((i) => i >= 0);
-    const per = r.nutrition.withSwaps[p.id];
-    if (!mine.length || !per) continue;
-    const key = mine.join('.');
-    if (!byKey.has(key)) byKey.set(key, { key, plans: [], swaps: mine.map((i) => swaps[i]), perServing: per });
+    const key = planSetKey(swaps, p.id);
+    const per = key && r.nutrition.withSwaps[key];
+    if (!per) continue;
+    if (!byKey.has(key)) byKey.set(key, { key, plans: [], swaps: key.split('.').map((i) => swaps[+i]), perServing: per });
     byKey.get(key).plans.push(p);
   }
   return [...byKey.values()];
+}
+
+// Two variants conflict when they rewrite the SAME ingredient line differently
+// — those can't be combined, and the UI grays the second one out. Sharing an
+// identical entry (same line, same swap) is fine; unions dedupe it.
+export function variantsConflict(a, b) {
+  const mine = new Map(a.swaps.map((s) => [s.replace.trim(), s.with]));
+  return b.swaps.some((s) => mine.has(s.replace.trim()) && mine.get(s.replace.trim()) !== s.with);
+}
+
+// Combine selected toggle chips into one applied variant. Compatible swaps
+// touch disjoint ingredient lines, so selection ORDER cannot change the result
+// — the union is the union. Returns null when the combination's nutrition
+// wasn't precomputed (i.e. the chips conflict).
+export function combineVariants(r, chips) {
+  if (!chips.length) return null;
+  if (chips.length === 1) return chips[0];
+  const idx = [...new Set(chips.flatMap((c) => c.swaps.map((s) => r.planSwaps.indexOf(s))))].sort((a, b) => a - b);
+  const per = r.nutrition.withSwaps?.[idx.join('.')];
+  if (!per) return null;
+  const seen = new Set();
+  const plans = chips.flatMap((c) => c.plans).filter((p) => !seen.has(p.id) && seen.add(p.id));
+  return { key: idx.join('.'), plans, swaps: idx.map((i) => r.planSwaps[i]), perServing: per };
 }
 
 // Ingredient sections with a variant's swaps applied, each item marked so the
@@ -581,16 +610,20 @@ const nutrientUnit = (key) => NUTRIENT_DISPLAY.find((d) => d.key === key)?.unit 
 const PLAN_NUTRIENT = { kcal: 'calories', fat: 'fat', satfat: 'sat fat', sodium: 'sodium', carb: 'carbs', fiber: 'fiber', sugar: 'sugars', protein: 'protein' };
 const planAmt = (v, key) => `${Math.round(v * 10) / 10}${nutrientUnit(key)}`;
 
-// Human reasons a plan isn't a great fit: "sodium 1150mg (cap 920mg)" for a
-// blown limit, "(ideal ≤500mg)" when merely over the ideal, "fiber 4g (aim
-// 9g+)" for an unmet goal.
+// Human reasons a plan isn't a great fit. One consistent vocabulary, matched
+// to the verdict chips: every plan sets an IDEAL (within it → ✓ Great fit)
+// and a per-meal MAX (within it → ~ Okay; over it → ✗ Poor fit). Goals are
+// minimums that only cost the ✓.
+//   avoid: "sodium: 2101mg is over this plan's 920mg-per-meal max"
+//   ok:    "sodium: 683mg is over the 500mg ideal (but under the 920mg max)"
+//   goal:  "fiber: 1.5g is short of the 6g goal"
 export function planReasons({ limits, goals, alcohol }) {
   const out = [];
   for (const l of limits) {
-    if (l.tier === 'ok') out.push(`${PLAN_NUTRIENT[l.key]} ${planAmt(l.value, l.key)} (ideal ≤${planAmt(l.optimal, l.key)})`);
-    else if (l.tier === 'avoid') out.push(`${PLAN_NUTRIENT[l.key]} ${planAmt(l.value, l.key)} (cap ${planAmt(l.ok, l.key)})`);
+    if (l.tier === 'ok') out.push(`${PLAN_NUTRIENT[l.key]}: ${planAmt(l.value, l.key)} is over the ${planAmt(l.optimal, l.key)} ideal (but under the ${planAmt(l.ok, l.key)} max)`);
+    else if (l.tier === 'avoid') out.push(`${PLAN_NUTRIENT[l.key]}: ${planAmt(l.value, l.key)} is over this plan's ${planAmt(l.ok, l.key)}-per-meal max`);
   }
-  for (const g of goals) if (!g.met) out.push(`${PLAN_NUTRIENT[g.key]} ${planAmt(g.value, g.key)} (aim ${planAmt(g.min, g.key)}+)`);
+  for (const g of goals) if (!g.met) out.push(`${PLAN_NUTRIENT[g.key]}: ${planAmt(g.value, g.key)} is short of the ${planAmt(g.min, g.key)} goal`);
   if (!out.length && alcohol) out.push('contains alcohol — every plan advises moderation');
   return out;
 }
@@ -604,8 +637,8 @@ export function nutrientFlags(evals) {
     for (const l of e.limits) {
       if (l.tier === 'optimal') continue;
       const reason = l.tier === 'ok'
-        ? `${PLAN_NUTRIENT[l.key]} ${planAmt(l.value, l.key)} is over the ideal ${planAmt(l.optimal, l.key)}`
-        : `${PLAN_NUTRIENT[l.key]} ${planAmt(l.value, l.key)} is over the ${planAmt(l.ok, l.key)} per-meal cap`;
+        ? `${PLAN_NUTRIENT[l.key]} ${planAmt(l.value, l.key)} is over its ${planAmt(l.optimal, l.key)} ideal (still under the ${planAmt(l.ok, l.key)} max)`
+        : `${PLAN_NUTRIENT[l.key]} ${planAmt(l.value, l.key)} is over its ${planAmt(l.ok, l.key)}-per-meal max`;
       (flags[l.key] ||= []).push({ id: e.plan.id, icon: e.plan.icon, name: e.plan.name, tier: l.tier, reason });
     }
   }
@@ -661,12 +694,12 @@ export function nutritionPanelHtml(r, { variant = null } = {}) {
     ? 'Estimated from ingredients — per serving.'
     : `Rough estimate — ${n.matched} of ${n.considered} ingredients matched.`;
   const flagFoot = evals.length
-    ? ' <span class="nutrition-foot">†Plan icons mark a nutrient running past that plan’s per-meal share — red ring = over its cap.</span>' : '';
+    ? ' <span class="nutrition-foot">†Icons mark plans where this nutrient is over the ideal (faded icon) or over the per-meal max (red ring) — hover one for the numbers.</span>' : '';
   const plans = evals.length ? `
       <div class="plans">
         <div class="plans-head"><span>Eating-plan fit</span><span class="plans-sub">this serving vs. a per-meal share</span></div>
         ${evals.map(planRowHtml).join('')}
-        <p class="plans-note">Fit weighs one serving against each plan’s published targets (≈⅓ of the strict daily target to rate <em>great</em>, ≤40% of its cap to rate <em>okay</em>) — a screening aid, not medical advice. Cocktails cap at <em>okay</em>: no plan considers alcohol optimal.</p>
+        <p class="plans-note">Each plan sets two bars per meal: an <em>ideal</em> (≈⅓ of its strict daily target) and a <em>max</em> (≈40% of its daily cap). <strong>✓ Great fit</strong> — everything is within the ideals. <strong>~ Okay</strong> — something is over an ideal but everything is under the maxes. <strong>✗ Poor fit</strong> — something is over a max, so one serving crowds the plan’s whole day. A screening aid, not medical advice; cocktails top out at <em>okay</em>.</p>
       </div>` : '';
   const variantBadge = variant
     ? ` <span class="nutrition-variant" title="${esc(variantTitle(variant))}">⇄ ${variantLabel(variant)} variant</span>` : '';

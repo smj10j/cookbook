@@ -569,6 +569,7 @@ body.has-cart .reader-share { right: 114px; }   /* make room for the cart betwee
 }
 .vchip:hover { border-color: var(--stone); color: var(--ink); }
 .vchip[aria-pressed="true"] { background: var(--olive); border-color: var(--olive); color: var(--cream); }
+.vchip:disabled { opacity: 0.4; cursor: not-allowed; text-decoration: line-through; }
 .ing-list li.is-swapped { color: var(--olive); font-weight: 600; cursor: help; }
 .ing-list li.is-swapped::after { content: " ⇄"; font-weight: 700; }
 .nutrition-variant {

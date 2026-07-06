@@ -91,7 +91,20 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "½ cup heavy cream"
+    with: "½ cup Greek yogurt (stirred in off heat)"
+    note: "a yogurt finish instead of cream"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "3 tbsp butter"
+    with: "1 tbsp butter"
+    note: "a single tablespoon of butter"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "1.5 lb boneless skinless chicken thighs, cut into chunks"
+    with: "1.25 lb boneless skinless chicken thighs, cut into chunks"
+    note: "a bit less chicken"
+updated: 2026-07-05
 ---
 
 Delhi's gift to the world: tandoori chicken reborn in a buttery tomato gravy. The two-step

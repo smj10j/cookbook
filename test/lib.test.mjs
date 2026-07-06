@@ -10,7 +10,7 @@ import {
   parseHash, hashForKind,
   pctOfDV, nutritionRows, hasNutrition, nutritionPanelHtml, NUTRIENT_DISPLAY,
   EATING_PLANS, planTier, evaluatePlan, evaluatePlans, planReasons, nutrientFlags, buildPlanVerdicts,
-  recipeVariants, applyVariantToSections, variantLabel, variantTitle,
+  recipeVariants, applyVariantToSections, variantLabel, variantTitle, variantsConflict, combineVariants, planSetKey,
 } from '../docs/lib.js';
 import {
   parseLine, normalizeName, buildIndex, matchName, toBaseUnits, lineNutrition, recipeNutrition, NUTRIENT_KEYS,
@@ -380,7 +380,7 @@ test('evaluatePlan: worst limit wins; an unmet goal only downgrades optimal → 
   assert.equal(evaluatePlan({ sodium: 700, fiber: 12 }, plan).verdict, 'ok');      // limit ok-tier
   assert.equal(evaluatePlan({ sodium: 1500, fiber: 12 }, plan).verdict, 'avoid');  // limit blown
   const short = evaluatePlan({ sodium: 400, fiber: 2 }, plan);
-  assert.ok(planReasons(short).some((s) => /fiber 2g \(aim 10g\+\)/.test(s)), 'unmet goal explained');
+  assert.ok(planReasons(short).some((s) => /fiber: 2g is short of the 10g goal/.test(s)), 'unmet goal explained');
   assert.equal(evaluatePlan({ sodium: 400, fiber: 2 }, plan, { judgeGoals: false }).verdict, 'optimal',
     'goals are waived for dishes that are not a whole meal');
 });
@@ -395,7 +395,7 @@ test('evaluatePlans judges the sample dinner sensibly (salty → poor DASH fit)'
   assert.equal(by('kidney').verdict, 'avoid', '25g protein exceeds the CKD per-meal share');
   assert.deepEqual(evaluatePlans({}), [], 'no nutrition → no verdicts');
   const reasons = planReasons(by('dash'));
-  assert.ok(reasons.some((s) => /sodium 1150mg \(cap 920mg\)/.test(s)), `cap reason: ${reasons}`);
+  assert.ok(reasons.some((s) => /sodium: 1150mg is over this plan's 920mg-per-meal max/.test(s)), `max reason: ${reasons}`);
 });
 
 test('sides/desserts skip meal-building goals; boozy drinks cap at okay', () => {
@@ -422,7 +422,7 @@ test('nutrientFlags groups breached limits by nutrient with tier + reason', () =
   assert.ok(flags.sodium.every((f) => f.tier === 'avoid'), '1150mg is past every sodium cap');
   assert.ok(flags.satfat.every((f) => f.tier === 'ok'), '6g sat fat is ok-tier everywhere');
   assert.equal(flags.kcal, undefined, '500 kcal offends no plan — no icon at all');
-  assert.match(flags.sodium[0].reason, /per-meal cap/);
+  assert.match(flags.sodium[0].reason, /over its 920mg-per-meal max/);
 });
 
 // ── PLAN SWAPS (1B: structured swaps that flip a verdict) ────────────────────
@@ -459,7 +459,7 @@ test('a planSwaps variant lifts the verdict and renders in the fit table', () =>
   const r = sampleRecipe({
     planSwaps: [{ for: ['dash'], replace: '3 tbsp soy sauce', with: '3 tbsp low-sodium soy sauce', note: 'low-sodium soy sauce' }],
     nutrition: { confidence: 'high', matched: 8, considered: 8, perServing: per,
-      withSwaps: { dash: { ...per, sodium: 600 } } },
+      withSwaps: { '0': { ...per, sodium: 600 } } },   // key = entry-index set
   });
   const dash = evaluatePlans(r).find((e) => e.plan.id === 'dash');
   assert.equal(dash.verdict, 'avoid', 'as written, sodium blows the cap');
@@ -469,7 +469,7 @@ test('a planSwaps variant lifts the verdict and renders in the fit table', () =>
   assert.match(html, /plan-swap/);
   assert.match(html, /with low-sodium soy sauce/);
   // A swap that does not improve the tier is not surfaced.
-  const noGain = sampleRecipe({ nutrition: { confidence: 'high', matched: 8, considered: 8, perServing: per, withSwaps: { dash: per } } });
+  const noGain = sampleRecipe({ nutrition: { confidence: 'high', matched: 8, considered: 8, perServing: per, withSwaps: { '0': per } } });
   assert.equal(evaluatePlans(noGain).find((e) => e.plan.id === 'dash').swapped, undefined);
 });
 
@@ -483,10 +483,10 @@ const swapRecipe = () => sampleRecipe({
   ],
   nutrition: { confidence: 'high', matched: 8, considered: 8,
     perServing: { kcal: 500, protein: 25, carb: 40, fat: 22, satfat: 3, fiber: 7, sugar: 16, sodium: 400 },
-    withSwaps: {
-      heart: { kcal: 460, protein: 25, carb: 32, fat: 22, satfat: 3, fiber: 7, sugar: 8, sodium: 400 },
-      lowsugar: { kcal: 460, protein: 25, carb: 32, fat: 22, satfat: 3, fiber: 7, sugar: 8, sodium: 400 },
-      kidney: { kcal: 495, protein: 20, carb: 39, fat: 22, satfat: 3, fiber: 7, sugar: 15, sodium: 380 },
+    withSwaps: {   // keyed by entry-index sets: entry 0 = heart+lowsugar, entry 1 = kidney
+      '0': { kcal: 460, protein: 25, carb: 32, fat: 22, satfat: 3, fiber: 7, sugar: 8, sodium: 400 },
+      '1': { kcal: 495, protein: 20, carb: 39, fat: 22, satfat: 3, fiber: 7, sugar: 15, sodium: 380 },
+      '0.1': { kcal: 455, protein: 20, carb: 31, fat: 22, satfat: 3, fiber: 7, sugar: 7, sodium: 380 },
     } },
 });
 
@@ -534,6 +534,29 @@ test('shopSectionsForRecipe shops for the active variant', () => {
   assert.ok(rows[0].includes('cup orange juice') && rows[0].startsWith('¾'), `swapped: ${rows[0]}`);
   const plain = shopSectionsForRecipe(r, 2)[0].items.map((i) => i.display);
   assert.ok(plain[0].startsWith('1½'), 'as-written without a variant');
+});
+
+test('variant chips combine additively; conflicting chips are detected', () => {
+  const r = swapRecipe();
+  const chips = recipeVariants(r);
+  assert.equal(planSetKey(r.planSwaps, 'heart'), '0');
+  assert.equal(planSetKey(r.planSwaps, 'kidney'), '1');
+  const a = chips.find((c) => c.key === '0'), b = chips.find((c) => c.key === '1');
+  assert.equal(variantsConflict(a, b), false, 'disjoint lines can combine');
+  const combo = combineVariants(r, [b, a]);              // selection order is irrelevant
+  assert.equal(combo.key, '0.1', 'the union set drives the lookup');
+  assert.equal(combo.perServing.kcal, 455, 'combined nutrition is the precomputed union');
+  assert.equal(combo.swaps.length, 2);
+  assert.deepEqual(combo.plans.map((p) => p.id).sort(), ['heart', 'kidney', 'lowsugar']);
+  assert.equal(combineVariants(r, [a]), a, 'a single chip is itself');
+  // A true conflict: two entries rewriting the SAME line differently.
+  const clash = { ...r, planSwaps: [
+    { for: ['heart'], replace: '1½ cups orange juice', with: '¾ cup orange juice' },
+    { for: ['kidney'], replace: '1½ cups orange juice', with: '½ cup orange juice' },
+  ], nutrition: { ...r.nutrition, withSwaps: { '0': r.nutrition.withSwaps['0'], '1': r.nutrition.withSwaps['1'] } } };
+  const cChips = recipeVariants(clash);
+  assert.equal(variantsConflict(cChips[0], cChips[1]), true, 'same line, different swap → conflict');
+  assert.equal(combineVariants(clash, cChips), null, 'no precomputed union for a conflict');
 });
 
 // DATA GATE: an authored swap that stops lifting its verdict is dead weight —

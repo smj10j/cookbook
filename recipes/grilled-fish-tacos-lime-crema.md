@@ -84,6 +84,14 @@ source:
   url: null
 created: 2026-06-20
 planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "⅓ cup sour cream"
+    with: "⅓ cup nonfat Greek yogurt"
+    note: "Greek yogurt crema"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "¼ cup cotija, crumbled"
+    with: "2 tbsp cotija, crumbled"
+    note: "half the cotija"
   - for: [lowcarb, balance]
     replace: "6 corn tortillas, warmed"
     with: "4 corn tortillas, warmed"
