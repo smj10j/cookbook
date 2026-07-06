@@ -58,15 +58,15 @@ source:
   url: null
 created: 2026-06-20
 planSwaps:
-  - for: [dash, mind, mediterranean]
+  - for: [dash, mind, mediterranean, heart, lowsugar]
     replace: "½ oz honey syrup"
-    with: "¼ oz honey syrup"
-    note: "half the honey syrup"
-  - for: [dash, mind, mediterranean]
+    with: "½ oz allulose syrup"
+    note: "allulose syrup for the honey syrup (0 g sugar)"
+  - for: [dash, mind, mediterranean, heart, lowsugar]
     replace: "½ oz ginger syrup"
     with: "¼ oz ginger syrup"
     note: "half the ginger syrup"
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 Proof that "no proof" doesn't mean no flavor — chili, ginger, lime, and pineapple carry the
