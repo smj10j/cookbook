@@ -68,8 +68,17 @@ extras:
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
+planSwaps:
+  - for: [dash, tlc, heart, diabetes, kidney]
+    replace: "½ cup soy sauce"
+    with: "½ cup coconut aminos"
+    note: "coconut aminos for the soy (check label — brands vary)"
+  - for: [kidney]
+    replace: "6 bone-in skin-on chicken thighs (about 2 lb)"
+    with: "5 bone-in skin-on chicken thighs (about 1.6 lb)"
+    note: "a smaller renal portion"
 created: 2026-06-20
-updated: 2026-06-20
+updated: 2026-07-06
 ---
 
 The unofficial national dish of the Philippines — and the rare braise that's genuinely
