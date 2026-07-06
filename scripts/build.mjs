@@ -64,16 +64,37 @@ for (const r of recipes) {
     considered: nut.considered,
   };
   for (const name of nut.unmatched) unmatchedAll.set(name, (unmatchedAll.get(name) || 0) + 1);
-  // Recipes with planSwaps also get a "with swaps" per-serving estimate per plan, so
-  // the site can show "✗ as written → ~ with the swap" without recomputing nutrition
-  // client-side. All swaps naming a plan apply together for that plan's variant.
+  // Recipes with planSwaps also get "with swaps" per-serving estimates so the site
+  // can show "✗ as written → ~ with the swap" and drive the variant toggle without
+  // recomputing nutrition client-side. Keys are SWAP-ENTRY-INDEX SETS ("0.2"), not
+  // plan ids: one entry per distinct per-plan swap set, PLUS every compatible union
+  // of those sets so toggle chips can be combined. Two sets conflict (and get no
+  // union) when different entries rewrite the same ingredient line.
   if (Array.isArray(r.planSwaps) && r.planSwaps.length) {
-    const withSwaps = {};
+    const sets = new Map(); // key -> ascending entry indices
     for (const id of new Set(r.planSwaps.flatMap((s) => s.for))) {
-      const swaps = r.planSwaps.filter((s) => s.for.includes(id));
-      const variant = { ...r, ingredients: applyPlanSwaps(r.ingredients, swaps) };
+      const idx = r.planSwaps.map((s, i) => (s.for.includes(id) ? i : -1)).filter((i) => i >= 0);
+      sets.set(idx.join('.'), idx);
+    }
+    const chips = [...new Map([...sets].map(([k, v]) => [k, v])).values()];
+    const conflictFree = (idxs) => {
+      const seen = new Map();
+      for (const i of idxs) {
+        const line = r.planSwaps[i].replace.trim();
+        if (seen.has(line) && seen.get(line) !== i) return false;
+        seen.set(line, i);
+      }
+      return true;
+    };
+    for (let mask = 1; mask < (1 << chips.length); mask++) {
+      const union = [...new Set(chips.filter((_, ci) => mask & (1 << ci)).flat())].sort((a, b) => a - b);
+      if (conflictFree(union)) sets.set(union.join('.'), union);
+    }
+    const withSwaps = {};
+    for (const [key, idx] of sets) {
+      const variant = { ...r, ingredients: applyPlanSwaps(r.ingredients, idx.map((i) => r.planSwaps[i])) };
       const vn = recipeNutrition(variant, nutritionDb, nutritionIndex);
-      withSwaps[id] = vn.perServing;
+      withSwaps[key] = vn.perServing;
       for (const name of vn.unmatched) unmatchedAll.set(name, (unmatchedAll.get(name) || 0) + 1);
     }
     r.nutrition.withSwaps = withSwaps;

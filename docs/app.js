@@ -7,7 +7,7 @@ import {
   scaleDisplay, classify, clampServes,
   buildShoppingList, formatShoppingList, recipeMatches, cuisineChipValues, shopSectionsForRecipe,
   hashForKind, parseHash, nutritionPanelHtml, EATING_PLANS, buildPlanVerdicts,
-  recipeVariants, applyVariantToSections, variantLabel, variantTitle,
+  recipeVariants, applyVariantToSections, variantLabel, variantTitle, variantsConflict, combineVariants,
 } from './lib.js';
 
 const PLAN_BY_ID = Object.fromEntries(EATING_PLANS.map((p) => [p.id, p]));
@@ -29,7 +29,7 @@ const state = {
   selected: new Set(),     // slugs picked for the shopping list (persisted)
   shop: { items: [] },     // current overlay item rows
   copyFormat: 'dash',      // 'dash' | 'checkbox' (persisted)
-  variants: new Map(),     // slug -> active planSwaps variant key (persisted)
+  variants: new Map(),     // slug -> SELECTED variant keys, in tap order (persisted)
 };
 
 // Curated flavor tags that become the Drinks "Flavor" filter (kept tight on purpose).
@@ -55,7 +55,8 @@ const VARIANT_KEY = 'tm-variant';
 function loadSelected() {
   try { JSON.parse(localStorage.getItem(SELECT_KEY) || '[]').forEach((s) => state.selected.add(s)); } catch {}
   try { const f = localStorage.getItem(FORMAT_KEY); if (f === 'dash' || f === 'checkbox') state.copyFormat = f; } catch {}
-  try { Object.entries(JSON.parse(localStorage.getItem(VARIANT_KEY) || '{}')).forEach(([s, k]) => state.variants.set(s, k)); } catch {}
+  // Selections are arrays of chip keys in tap order (older builds stored one string).
+  try { Object.entries(JSON.parse(localStorage.getItem(VARIANT_KEY) || '{}')).forEach(([s, k]) => state.variants.set(s, Array.isArray(k) ? k : [k])); } catch {}
 }
 function saveSelected() {
   try { localStorage.setItem(SELECT_KEY, JSON.stringify([...state.selected])); } catch {}
@@ -63,9 +64,16 @@ function saveSelected() {
 function saveVariants() {
   try { localStorage.setItem(VARIANT_KEY, JSON.stringify(Object.fromEntries(state.variants))); } catch {}
 }
-// The active planSwaps variant for a recipe (null = as written).
+// The selected toggle chips for a recipe, in tap order (stale keys dropped).
+function selectedChips(r) {
+  const chips = recipeVariants(r);
+  return (state.variants.get(r.slug) || []).map((k) => chips.find((c) => c.key === k)).filter(Boolean);
+}
+// The applied variant: all selected chips combined (null = as written).
 function activeVariant(r) {
-  return recipeVariants(r).find((v) => v.key === state.variants.get(r.slug)) || null;
+  const sel = selectedChips(r);
+  if (!sel.length) return null;
+  return combineVariants(r, sel) || sel[sel.length - 1];
 }
 
 const $ = (sel) => document.querySelector(sel);
@@ -234,9 +242,14 @@ function bindEvents() {
     const vbtn = e.target.closest('.vchip');
     if (vbtn) {
       const r = state.reader.list[state.reader.index];
-      if (!r) return;
-      if (vbtn.dataset.variant) state.variants.set(r.slug, vbtn.dataset.variant);
-      else state.variants.delete(r.slug);
+      if (!r || vbtn.disabled) return;
+      const k = vbtn.dataset.variant;
+      const list = state.variants.get(r.slug) || [];
+      if (!k) state.variants.delete(r.slug);                       // "As written" clears all
+      else {
+        const next = list.includes(k) ? list.filter((x) => x !== k) : [...list, k];
+        if (next.length) state.variants.set(r.slug, next); else state.variants.delete(r.slug);
+      }
       saveVariants();
       // Re-render the spread in place, keeping the reader's scroll position.
       const scroller = $('#spread .spread-scroll');
@@ -510,13 +523,22 @@ function ingredientsHtml(r, variant) {
 }
 
 // The 1C variant toggle — shown only when a recipe has planSwaps variants.
-function variantToggleHtml(r, variants, active) {
+// Chips are ADDITIVE: select several and their swaps apply together (compatible
+// swaps touch different lines, so order can't change the result). A chip that
+// would rewrite an already-swapped line differently is grayed out.
+function variantToggleHtml(r, variants, selKeys) {
   if (!variants.length) return '';
+  const selected = selKeys.map((k) => variants.find((c) => c.key === k)).filter(Boolean);
   return `
-    <div class="variant-toggle" role="group" aria-label="Recipe variants">
-      <button class="vchip" type="button" data-variant="" aria-pressed="${!active}">As written</button>
-      ${variants.map((v) => `<button class="vchip" type="button" data-variant="${esc(v.key)}"
-        aria-pressed="${active?.key === v.key}" title="${esc(variantTitle(v))}">⇄ ${variantLabel(v)}</button>`).join('')}
+    <div class="variant-toggle" role="group" aria-label="Recipe variants (combinable)">
+      <button class="vchip" type="button" data-variant="" aria-pressed="${!selected.length}">As written</button>
+      ${variants.map((v) => {
+        const on = selKeys.includes(v.key);
+        const conflict = !on && selected.some((s) => variantsConflict(s, v));
+        return `<button class="vchip" type="button" data-variant="${esc(v.key)}" aria-pressed="${on}"${
+          conflict ? ' disabled title="Conflicts with a selected variant — it swaps the same ingredient differently"'
+                   : ` title="${esc(variantTitle(v))}"`}>⇄ ${variantLabel(v)}</button>`;
+      }).join('')}
     </div>`;
 }
 
@@ -595,7 +617,7 @@ function spreadHtml(r) {
       <div class="spread-chips">${chips}</div>
       <p class="spread-pitch">${inlineMd(r.pitch)}</p>
       <div class="spread-columns">
-        <div class="col-ingredients"><div class="section-h">Ingredients</div>${variantToggleHtml(r, variants, variant)}${ingredientsHtml(r, variant)}</div>
+        <div class="col-ingredients"><div class="section-h">Ingredients</div>${variantToggleHtml(r, variants, state.variants.get(r.slug) || [])}${ingredientsHtml(r, variant)}</div>
         <div class="col-steps"><div class="section-h">Method</div>${sectionsHtml(r.steps, 'step')}${tips}${extras}</div>
       </div>
       ${headnote}

@@ -382,6 +382,28 @@ test('the 1C variant toggle swaps ingredients, nutrition, and verdicts in place'
   assert.ok(!$('#spread .nutrition-variant'));
 });
 
+test('variant chips are ADDITIVE: selecting two applies both swap sets', async () => {
+  // blackened-steak-salad has two disjoint chips: 🍬 (honey) and ⚖️ (steak + oil).
+  const { $, $$ } = await boot('https://example.com/#/blackened-steak-salad');
+  const chips = $$('#spread .vchip').filter((c) => c.dataset.variant);
+  assert.ok(chips.length >= 2, 'two combinable chips render');
+  chips[0].click();
+  const oneSwap = $$('#spread .ing-list li.is-swapped').length;
+  $$('#spread .vchip').filter((c) => c.dataset.variant)[1].click();
+  const bothSwaps = $$('#spread .ing-list li.is-swapped').length;
+  assert.ok(bothSwaps > oneSwap, `both chips' swaps apply together (${oneSwap} → ${bothSwaps})`);
+  const pressed = $$('#spread .vchip').filter((c) => c.getAttribute('aria-pressed') === 'true');
+  assert.equal(pressed.length, 2, 'both chips stay selected');
+  assert.equal($$('#spread .vchip')[0].getAttribute('aria-pressed'), 'false', 'As written is off');
+  assert.ok($('#spread .nutrition-variant'), 'panel badges the combined variant');
+  // deselecting one chip drops back to the other alone
+  $$('#spread .vchip').filter((c) => c.dataset.variant)[0].click();
+  assert.equal($$('#spread .ing-list li.is-swapped').length, bothSwaps - oneSwap);
+  // "As written" clears everything
+  $$('#spread .vchip')[0].click();
+  assert.equal($$('#spread .ing-list li.is-swapped').length, 0);
+});
+
 test('the shopping list shops for the active variant', async () => {
   const { $, $$ } = await boot('https://example.com/#/broiled-fish-citrus-herbs');
   $$('#spread .vchip')[1].click();                   // apply the variant
@@ -402,7 +424,7 @@ test('a plan-unfriendly recipe shows red-ringed icons in the nutrition flag colu
   const { $, $$ } = await boot(`https://example.com/#/${salty.slug}`);
   assert.ok($$('#spread .plan-flag.is-avoid').length > 0, 'red-ringed plan icon rendered');
   const flag = $$('#spread .plan-flag.is-avoid')[0];
-  assert.match(flag.title, /over the .*per-meal cap/, 'tooltip explains the breach');
+  assert.match(flag.title, /over its .*-per-meal max/, 'tooltip explains the breach');
   assert.ok(flag.closest('.nutri-row'), 'flags sit in the nutrition table rows');
 });
 
