@@ -2003,9 +2003,33 @@
           "replace": "⅓ cup sliced almonds, toasted",
           "with": "3 tbsp sliced almonds, toasted",
           "note": "fewer almonds"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 salmon fillets (about 6 oz each), skin-on",
+          "with": "4 oz salmon fillets (two 2-oz portions), skin-on",
+          "note": "renal-size salmon portions"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "1 tsp kosher salt",
+          "with": "¼ tsp kosher salt",
+          "note": "a light hand of salt on the crust"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "¼ cup crumbled goat cheese",
+          "with": "2 tbsp crumbled goat cheese",
+          "note": "less goat cheese"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen and Lauren's homage to a Cafe Blue favorite out on Lake Travis: the\nsweet-smoky ancho-and-brown-sugar salmon is the star, but the salad around it —\noranges, goat cheese, toasted almonds, and a raspberry vinaigrette — is what\nmakes it feel like a night out. The cedar plank does the heavy lifting on flavor.",
@@ -2055,6 +2079,16 @@
             "sugar": 24,
             "sodium": 1233
           },
+          "5.6.7": {
+            "kcal": 760,
+            "protein": 22.5,
+            "carb": 46.5,
+            "fat": 57,
+            "satfat": 8.9,
+            "fiber": 11.4,
+            "sugar": 31,
+            "sodium": 449
+          },
           "0.1.2.3.4": {
             "kcal": 759,
             "protein": 39,
@@ -2074,6 +2108,16 @@
             "fiber": 11.4,
             "sugar": 24.5,
             "sodium": 772
+          },
+          "3.5.6.7": {
+            "kcal": 734,
+            "protein": 22.5,
+            "carb": 39.7,
+            "fat": 57,
+            "satfat": 8.9,
+            "fiber": 11.4,
+            "sugar": 24.3,
+            "sodium": 447
           }
         }
       }
@@ -9044,9 +9088,25 @@
           "replace": "3.5 lb whole chicken, spatchcocked",
           "with": "3 lb whole chicken, spatchcocked",
           "note": "a smaller bird"
+        },
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "3 tbsp soy sauce",
+          "with": "3 tbsp coconut aminos",
+          "note": "coconut aminos for the soy"
+        },
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "1 tsp kosher salt",
+          "with": "¼ tsp kosher salt",
+          "note": "the aminos carry the savor, so less added salt"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Lima's most famous dish: charcoal-blasted marinated chicken with a creamy, herby, gently\nfiery green sauce. The oven gets you most of the way there; the ají verde gets you all the\nway.",
@@ -9075,6 +9135,26 @@
             "fiber": 2,
             "sugar": 0.9,
             "sodium": 1527
+          },
+          "2.3": {
+            "kcal": 956,
+            "protein": 53.5,
+            "carb": 8.2,
+            "fat": 76.6,
+            "satfat": 17.1,
+            "fiber": 1.9,
+            "sugar": 2.4,
+            "sodium": 843
+          },
+          "0.1.2.3": {
+            "kcal": 777,
+            "protein": 46.2,
+            "carb": 8.1,
+            "fat": 60.7,
+            "satfat": 13.9,
+            "fiber": 1.9,
+            "sugar": 2.3,
+            "sodium": 714
           }
         }
       }
@@ -11701,9 +11781,18 @@
           "replace": "8 oz spaghetti (or linguine or bucatini)",
           "with": "6 oz spaghetti",
           "note": "six ounces of pasta"
+        },
+        {
+          "for": [
+            "lowcarb",
+            "diabetes"
+          ],
+          "replace": "8 oz spaghetti (or linguine or bucatini)",
+          "with": "3 large zucchini, spiralized",
+          "note": "zoodles instead of pasta"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen circled through a lot of summer pasta pitches — scallops, peaches,\nputtanesca — before settling on the squash-tomato-basil-mozzarella combination, a\ntrue summer classic, then scaling it for two and folding in a homemade balsamic\nglaze. Meatless, garden-forward, and best when the tomatoes are at their peak.",
@@ -11723,6 +11812,16 @@
         "matched": 10,
         "considered": 10,
         "withSwaps": {
+          "4": {
+            "kcal": 728,
+            "protein": 18.3,
+            "carb": 36.7,
+            "fat": 57.7,
+            "satfat": 13.2,
+            "fiber": 7,
+            "sugar": 25.5,
+            "sodium": 405
+          },
           "0.1.2": {
             "kcal": 831,
             "protein": 23.9,
@@ -11772,6 +11871,26 @@
             "fiber": 6.8,
             "sugar": 15.8,
             "sodium": 249
+          },
+          "0.1.2.4": {
+            "kcal": 481,
+            "protein": 13.6,
+            "carb": 30.5,
+            "fat": 35.6,
+            "satfat": 8,
+            "fiber": 7,
+            "sugar": 20.5,
+            "sodium": 267
+          },
+          "0.1.4": {
+            "kcal": 509,
+            "protein": 13.8,
+            "carb": 35.9,
+            "fat": 35.6,
+            "satfat": 8,
+            "fiber": 7,
+            "sugar": 25.3,
+            "sodium": 275
           }
         }
       }
@@ -13382,9 +13501,34 @@
           "replace": "2 tbsp olive oil",
           "with": "1 tbsp olive oil",
           "note": "half the oil"
+        },
+        {
+          "for": [
+            "lowcarb",
+            "diabetes"
+          ],
+          "replace": "1 cup arborio rice",
+          "with": "4 cups cauliflower rice",
+          "note": "cauliflower rice for a low-carb 'risotto'"
+        },
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "4 cups vegetable broth, kept warm",
+          "with": "4 cups low-sodium vegetable broth, kept warm",
+          "note": "low-sodium broth"
+        },
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "½ cup grated parmesan",
+          "with": "¼ cup grated parmesan",
+          "note": "a lighter hand of parmesan"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The dish that teaches patience: toast, deglaze, ladle, stir, repeat. No cream — just rice,\nbroth, and time turning into something silky and rich.",
@@ -13404,6 +13548,16 @@
         "matched": 13,
         "considered": 13,
         "withSwaps": {
+          "3": {
+            "kcal": 654,
+            "protein": 18.9,
+            "carb": 25.5,
+            "fat": 50.9,
+            "satfat": 21.2,
+            "fiber": 6.3,
+            "sugar": 10.3,
+            "sodium": 1783
+          },
           "0.1.2": {
             "kcal": 757,
             "protein": 19.5,
@@ -13413,6 +13567,16 @@
             "fiber": 3.4,
             "sugar": 6.3,
             "sodium": 1680
+          },
+          "3.4.5": {
+            "kcal": 605,
+            "protein": 14.4,
+            "carb": 25.1,
+            "fat": 47.6,
+            "satfat": 19.2,
+            "fiber": 6.3,
+            "sugar": 10.3,
+            "sodium": 712
           }
         }
       }
