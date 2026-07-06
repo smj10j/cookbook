@@ -89,8 +89,29 @@ extras:
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
+planSwaps:
+  - for: [dash, tlc, heart, diabetes]
+    replace: "1 tbsp soy sauce"
+    with: "1 tbsp coconut aminos"
+    note: "coconut aminos for the soy"
+  - for: [dash, tlc, heart, diabetes]
+    replace: "1 tbsp oyster sauce"
+    with: "1 tsp oyster sauce"
+    note: "just a teaspoon of oyster sauce"
+  - for: [dash, tlc, heart, diabetes]
+    replace: "½ tsp kosher salt"
+    with: "¼ tsp kosher salt"
+    note: "lighter salt in the dip"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "1 tbsp butter"
+    with: "1 tbsp olive oil"
+    note: "olive oil to finish"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "1 lb beef tenderloin (or top sirloin), cut into 1-inch cubes"
+    with: "8 oz beef tenderloin (or top sirloin), cut into 1-inch cubes"
+    note: "a leaner 8-oz portion of beef"
 created: 2026-06-20
-updated: 2026-06-20
+updated: 2026-07-06
 ---
 
 A Vietnamese steakhouse classic that comes together faster than the rice cooker:

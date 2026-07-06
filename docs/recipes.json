@@ -592,8 +592,26 @@
         "name": "Inspired by Fresa's Chicken al Carbon",
         "url": "https://www.fresaschicken.com/"
       },
+      "planSwaps": [
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "1 cup long-grain white rice",
+          "with": "3 cups cauliflower rice",
+          "note": "cauliflower rice for the Mexican rice"
+        },
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "3 cups cooked black beans (two 15-oz cans, drained and rinsed)",
+          "with": "1½ cups cooked black beans (one 15-oz can, drained and rinsed)",
+          "note": "half the beans"
+        }
+      ],
       "created": "2026-07-03T00:00:00.000Z",
-      "updated": "2026-07-03T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen's home version of the Fresa's plate he and Lauren order on South First: a\nwhole bird stained deep red with achiote and fresh citrus, grilled over wood, and\nserved the family-style way — with beans, tomato-stained rice, blistered onions and\njalapeños, warm tortillas, and that creamy green salsa. One chicken feeds both the\nwhite-meat and the dark-meat camp.",
@@ -611,7 +629,19 @@
         },
         "confidence": "high",
         "matched": 30,
-        "considered": 30
+        "considered": 30,
+        "withSwaps": {
+          "0.1": {
+            "kcal": 1013,
+            "protein": 61.9,
+            "carb": 40.6,
+            "fat": 66.9,
+            "satfat": 14.5,
+            "fiber": 11,
+            "sugar": 8.8,
+            "sodium": 2657
+          }
+        }
       }
     },
     {
@@ -2941,8 +2971,42 @@
         "name": "Adapted from Stephen's ChatGPT recipe notes",
         "url": null
       },
+      "planSwaps": [
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "1 lb cod or halibut, cut into 2-inch chunks",
+          "with": "8 oz cod or halibut, cut into 2-inch chunks",
+          "note": "smaller renal seafood portions (extra broth & vegetables keep the bowl full)"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "½ lb littleneck clams, scrubbed",
+          "with": "¼ lb littleneck clams, scrubbed",
+          "note": "fewer clams"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "½ lb mussels, scrubbed and debearded",
+          "with": "¼ lb mussels, scrubbed and debearded",
+          "note": "fewer mussels"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "¼ lb lump crab or calamari",
+          "with": "2 oz lump crab or calamari",
+          "note": "less crab"
+        }
+      ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "San Francisco's great Italian-American fishermen's stew — built to use whatever came off\nthe boat. Here it's a choose-your-own pot: one broth, and everyone's bowl their own way.",
@@ -2960,7 +3024,19 @@
         },
         "confidence": "high",
         "matched": 16,
-        "considered": 16
+        "considered": 16,
+        "withSwaps": {
+          "0.1.2.3": {
+            "kcal": 323,
+            "protein": 23.4,
+            "carb": 17,
+            "fat": 13.7,
+            "satfat": 2,
+            "fiber": 4.2,
+            "sugar": 5.3,
+            "sodium": 771
+          }
+        }
       }
     },
     {
@@ -4069,8 +4145,30 @@
         "name": "Adapted from Stephen's ChatGPT recipe notes",
         "url": null
       },
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "½ cup soy sauce",
+          "with": "½ cup coconut aminos",
+          "note": "coconut aminos for the soy (check label — brands vary)"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "6 bone-in skin-on chicken thighs (about 2 lb)",
+          "with": "5 bone-in skin-on chicken thighs (about 1.6 lb)",
+          "note": "a smaller renal portion"
+        }
+      ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The unofficial national dish of the Philippines — and the rare braise that's genuinely\nhard to mess up. Soy, vinegar, garlic, bay: four things that turn into something far\ngreater than their sum.",
@@ -4088,7 +4186,29 @@
         },
         "confidence": "high",
         "matched": 10,
-        "considered": 10
+        "considered": 10,
+        "withSwaps": {
+          "0": {
+            "kcal": 344,
+            "protein": 26.9,
+            "carb": 13.8,
+            "fat": 19.8,
+            "satfat": 4.9,
+            "fiber": 1.2,
+            "sugar": 7.7,
+            "sodium": 668
+          },
+          "0.1": {
+            "kcal": 303,
+            "protein": 22.7,
+            "carb": 13.8,
+            "fat": 17.1,
+            "satfat": 4.1,
+            "fiber": 1.2,
+            "sugar": 7.7,
+            "sodium": 648
+          }
+        }
       }
     },
     {
@@ -4673,8 +4793,26 @@
         "name": "Adapted from Stephen's ChatGPT recipe notes",
         "url": null
       },
+      "planSwaps": [
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 everything bagel–seasoned tuna steaks, about 6 oz each",
+          "with": "5 oz everything bagel–seasoned tuna steaks (two 2.5-oz portions)",
+          "note": "renal-size tuna portions"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "½ cup full-fat Greek yogurt",
+          "with": "¼ cup full-fat Greek yogurt",
+          "note": "less yogurt in the sauce"
+        }
+      ],
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Those pre-seasoned tuna steaks are a head start to a fast, impressive dinner: the\ngrill toasts the crust, the center stays rare, and a cool horseradish cream plays\nthe role of a steakhouse sauce gone coastal. Char the lemons hard — they're half\nthe flavor and all of the drama.",
@@ -4692,7 +4830,19 @@
         },
         "confidence": "high",
         "matched": 13,
-        "considered": 13
+        "considered": 13,
+        "withSwaps": {
+          "0.1": {
+            "kcal": 327,
+            "protein": 23,
+            "carb": 18.1,
+            "fat": 19.7,
+            "satfat": 3.4,
+            "fiber": 5.1,
+            "sugar": 7.8,
+            "sodium": 628
+          }
+        }
       }
     },
     {
@@ -5915,8 +6065,18 @@
         "name": "Adapted from Stephen's ChatGPT recipe notes",
         "url": null
       },
+      "planSwaps": [
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "2 cups jasmine rice, rinsed",
+          "with": "3 cups cauliflower rice",
+          "note": "cauliflower rice for the chicken rice"
+        }
+      ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Deceptively simple and deeply technique-driven: the gentlest poach, the most fragrant rice,\nand three sauces that turn a plain plate into something you'll crave.",
@@ -5934,7 +6094,19 @@
         },
         "confidence": "high",
         "matched": 21,
-        "considered": 21
+        "considered": 21,
+        "withSwaps": {
+          "0": {
+            "kcal": 870,
+            "protein": 55.7,
+            "carb": 19.6,
+            "fat": 62.3,
+            "satfat": 13.3,
+            "fiber": 3.6,
+            "sugar": 5.2,
+            "sodium": 2548
+          }
+        }
       }
     },
     {
@@ -7025,8 +7197,18 @@
         "name": "SideChef — The Fit Mediterranean",
         "url": "https://www.sidechef.com/recipes/9991/fresh_tuna_fillet_with_mediterranean_sauce/"
       },
+      "planSwaps": [
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 fresh tuna steaks (about 5 oz each)",
+          "with": "6 oz fresh tuna steaks (two 3-oz portions)",
+          "note": "renal-size tuna portions"
+        }
+      ],
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A fast, sunny one-pan supper: fresh tuna gently cooked in a garlicky tomato sauce\nwith Kalamata olives and basil. Take the garlic only to gold and the sauce stays\nsweet — and if you like your tuna pink, just sear it and spoon the sauce over.",
@@ -7044,7 +7226,19 @@
         },
         "confidence": "high",
         "matched": 7,
-        "considered": 7
+        "considered": 7,
+        "withSwaps": {
+          "0": {
+            "kcal": 259,
+            "protein": 21.4,
+            "carb": 7.3,
+            "fat": 16.3,
+            "satfat": 2.3,
+            "fiber": 2.3,
+            "sugar": 3.3,
+            "sodium": 180
+          }
+        }
       }
     },
     {
@@ -7368,8 +7562,54 @@
         "name": "Adapted from Stephen's ChatGPT recipe notes",
         "url": null
       },
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "2 tbsp white miso paste",
+          "with": "1 tbsp white miso paste",
+          "note": "half the miso"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "1 tsp soy sauce",
+          "with": "1 tsp coconut aminos",
+          "note": "coconut aminos for the soy"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "½ tsp salt",
+          "with": "¼ tsp salt",
+          "note": "lighter salt on the pickle"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 black cod (sablefish) fillets, about 6 oz each",
+          "with": "9 oz black cod (sablefish) fillets (two 4.5-oz portions)",
+          "note": "two 4.5-oz renal portions"
+        }
+      ],
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Restaurant elegance from a make-ahead marinade: the miso does its quiet work\novernight, so the night-of is just a fast broil, a hot sizzle of ginger-scallion\noil, and a charred green. The pickled cucumber is the secret — bright acidity to\ncut the buttery, lacquered cod.",
@@ -7387,7 +7627,29 @@
         },
         "confidence": "high",
         "matched": 18,
-        "considered": 18
+        "considered": 18,
+        "withSwaps": {
+          "0.1.2": {
+            "kcal": 722,
+            "protein": 28.5,
+            "carb": 21.7,
+            "fat": 57.1,
+            "satfat": 8.4,
+            "fiber": 3.5,
+            "sugar": 13.7,
+            "sodium": 840
+          },
+          "0.1.2.3": {
+            "kcal": 636,
+            "protein": 22.5,
+            "carb": 21.7,
+            "fat": 50.3,
+            "satfat": 7,
+            "fiber": 3.5,
+            "sugar": 13.7,
+            "sodium": 814
+          }
+        }
       }
     },
     {
@@ -11068,8 +11330,22 @@
         "name": "Adapted from Stephen's ChatGPT recipe notes",
         "url": null
       },
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "1½ cups coconut milk",
+          "with": "1½ cups light coconut milk",
+          "note": "light coconut milk (thinner — reduce a touch harder)"
+        }
+      ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "One coconut-curry base, endless variations. The crispy tofu is what makes the vegan version\nfeel like a treat — but the sauce is happy to carry chicken or fish just as well.",
@@ -11087,7 +11363,19 @@
         },
         "confidence": "high",
         "matched": 13,
-        "considered": 13
+        "considered": 13,
+        "withSwaps": {
+          "0": {
+            "kcal": 265,
+            "protein": 10.8,
+            "carb": 18.5,
+            "fat": 17.4,
+            "satfat": 6.5,
+            "fiber": 4,
+            "sugar": 9,
+            "sodium": 664
+          }
+        }
       }
     },
     {
@@ -11543,8 +11831,54 @@
         "name": "Adapted from Stephen's ChatGPT recipe notes",
         "url": null
       },
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "1 tbsp soy sauce",
+          "with": "1 tbsp coconut aminos",
+          "note": "coconut aminos for the soy"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "1 cup vegetable broth",
+          "with": "1 cup low-sodium vegetable broth",
+          "note": "low-sodium broth"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "2 tbsp doubanjiang (chili bean paste)",
+          "with": "1 tbsp doubanjiang (chili bean paste)",
+          "note": "half the doubanjiang — the red pepper flakes keep the fire"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "1 tbsp fermented black beans, rinsed and chopped (optional)",
+          "with": "1 tsp fermented black beans, rinsed and chopped (optional)",
+          "note": "just a teaspoon of fermented black beans"
+        }
+      ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Mapo tofu without the pork loses nothing — browned mushrooms bring the savory chew, and the\ndoubanjiang-and-Sichuan-pepper sauce does the rest. Numbing, spicy, and deeply comforting\nover rice.",
@@ -11562,7 +11896,19 @@
         },
         "confidence": "high",
         "matched": 15,
-        "considered": 15
+        "considered": 15,
+        "withSwaps": {
+          "0.1.2.3": {
+            "kcal": 340,
+            "protein": 19.7,
+            "carb": 17.5,
+            "fat": 22.4,
+            "satfat": 2.8,
+            "fiber": 4.9,
+            "sugar": 7.6,
+            "sodium": 725
+          }
+        }
       }
     },
     {

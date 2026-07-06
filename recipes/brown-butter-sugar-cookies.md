@@ -64,8 +64,13 @@ extras:
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
+planSwaps:
+  - for: [mediterranean, lowsugar, lowcarb]
+    replace: "1¼ cups granulated sugar, plus more for rolling"
+    with: "1¼ cups allulose, plus more for rolling"
+    note: "allulose for the sugar (browns ~25°F earlier — pull them a touch sooner)"
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-07-06
 ---
 
 Browning the butter is five minutes of work for a sugar cookie that tastes like it has a

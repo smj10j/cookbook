@@ -85,8 +85,21 @@ extras:
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
+planSwaps:
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "1 tbsp butter"
+    with: "1 tbsp olive oil"
+    note: "olive oil instead of the pan butter"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "2 tbsp butter"
+    with: "1 tbsp butter"
+    note: "half the brown butter"
+  - for: [kidney]
+    replace: "2 halibut fillets (about 6 oz each), skinless"
+    with: "6 oz halibut fillets (two 3-oz portions), skinless"
+    note: "renal-size fish portions"
 created: 2026-06-20
-updated: 2026-06-20
+updated: 2026-07-06
 ---
 
 The kind of fast, bright summer plate that feels like a restaurant: a meaty white fish
