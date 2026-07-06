@@ -116,7 +116,19 @@ planSwaps:
     replace: "⅓ cup sliced almonds, toasted"
     with: "3 tbsp sliced almonds, toasted"
     note: "fewer almonds"
-updated: 2026-07-05
+  - for: [kidney]
+    replace: "2 salmon fillets (about 6 oz each), skin-on"
+    with: "4 oz salmon fillets (two 2-oz portions), skin-on"
+    note: "renal-size salmon portions"
+  - for: [kidney]
+    replace: "1 tsp kosher salt"
+    with: "¼ tsp kosher salt"
+    note: "a light hand of salt on the crust"
+  - for: [kidney]
+    replace: "¼ cup crumbled goat cheese"
+    with: "2 tbsp crumbled goat cheese"
+    note: "less goat cheese"
+updated: 2026-07-06
 ---
 
 Stephen and Lauren's homage to a Cafe Blue favorite out on Lake Travis: the

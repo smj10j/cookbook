@@ -2508,9 +2508,41 @@
           "replace": "3 tbsp cold butter, cubed",
           "with": "2 tbsp cold butter, cubed",
           "note": "two tablespoons of butter"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "1 tbsp butter",
+          "with": "1 tbsp olive oil",
+          "note": "olive oil to sear"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "3 tbsp cold butter, cubed",
+          "with": "1 tbsp cold butter, cubed",
+          "note": "just a tablespoon to finish the sauce"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 boneless skinless chicken breasts, sliced horizontally into 4 thin cutlets",
+          "with": "4 oz chicken breast, sliced horizontally into thin cutlets",
+          "note": "a renal-size portion of chicken"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The piccata Stephen has refined across a few rounds: a wine-and-lemon pan sauce\nfinished with cold butter for gloss, plus crispy fried capers on top for crunch.\nThin spaghetti is the perfect tangle to carry the bright, briny sauce.",
@@ -2550,6 +2582,16 @@
             "sugar": 1.7,
             "sodium": 571
           },
+          "5": {
+            "kcal": 739,
+            "protein": 23.8,
+            "carb": 66.4,
+            "fat": 39.2,
+            "satfat": 16.9,
+            "fiber": 3.2,
+            "sugar": 2.1,
+            "sodium": 486
+          },
           "1.2": {
             "kcal": 772,
             "protein": 47.2,
@@ -2559,6 +2601,96 @@
             "fiber": 2.7,
             "sugar": 1.7,
             "sodium": 530
+          },
+          "3.4": {
+            "kcal": 780,
+            "protein": 48.9,
+            "carb": 66.4,
+            "fat": 31.7,
+            "satfat": 7.8,
+            "fiber": 3.2,
+            "sugar": 2.1,
+            "sodium": 450
+          },
+          "0.3.4": {
+            "kcal": 614,
+            "protein": 44.3,
+            "carb": 32.6,
+            "fat": 31.4,
+            "satfat": 7.8,
+            "fiber": 3.3,
+            "sugar": 5.3,
+            "sodium": 462
+          },
+          "1.3.4": {
+            "kcal": 730,
+            "protein": 47.1,
+            "carb": 56.4,
+            "fat": 31.5,
+            "satfat": 7.7,
+            "fiber": 2.7,
+            "sugar": 1.7,
+            "sodium": 449
+          },
+          "0.5": {
+            "kcal": 573,
+            "protein": 19.3,
+            "carb": 32.6,
+            "fat": 38.9,
+            "satfat": 16.9,
+            "fiber": 3.3,
+            "sugar": 5.3,
+            "sodium": 498
+          },
+          "1.5": {
+            "kcal": 689,
+            "protein": 22,
+            "carb": 56.4,
+            "fat": 39,
+            "satfat": 16.8,
+            "fiber": 2.7,
+            "sugar": 1.7,
+            "sodium": 485
+          },
+          "1.2.5": {
+            "kcal": 638,
+            "protein": 22,
+            "carb": 56.4,
+            "fat": 33.3,
+            "satfat": 13.2,
+            "fiber": 2.7,
+            "sugar": 1.7,
+            "sodium": 445
+          },
+          "3.4.5": {
+            "kcal": 646,
+            "protein": 23.6,
+            "carb": 66.4,
+            "fat": 28.9,
+            "satfat": 7,
+            "fiber": 3.2,
+            "sugar": 2.1,
+            "sodium": 365
+          },
+          "0.3.4.5": {
+            "kcal": 480,
+            "protein": 19.1,
+            "carb": 32.6,
+            "fat": 28.6,
+            "satfat": 7,
+            "fiber": 3.3,
+            "sugar": 5.3,
+            "sodium": 377
+          },
+          "1.3.4.5": {
+            "kcal": 596,
+            "protein": 21.9,
+            "carb": 56.4,
+            "fat": 28.6,
+            "satfat": 6.9,
+            "fiber": 2.7,
+            "sugar": 1.7,
+            "sodium": 364
           }
         }
       }
@@ -3366,14 +3498,56 @@
       "planSwaps": [
         {
           "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "heart",
+            "lowsugar",
             "lowcarb"
           ],
           "replace": "¾ cup brown sugar",
-          "with": "½ cup brown sugar",
-          "note": "a less-sweet custard"
+          "with": "¾ cup allulose",
+          "note": "allulose for the brown sugar (browns earlier — tent if it darkens)"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "heart",
+            "lowsugar",
+            "lowcarb"
+          ],
+          "replace": "¼ cup granulated sugar",
+          "with": "¼ cup allulose",
+          "note": "allulose for the granulated sugar"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "1 cup evaporated milk or heavy cream",
+          "with": "1 cup evaporated milk",
+          "note": "evaporated milk, not cream"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "½ cup cold unsalted butter, cubed",
+          "with": "6 tbsp cold unsalted butter, cubed",
+          "note": "a lighter hand of butter in the crust"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "headnote": "The whole pie hinges on the purée — roast a real sugar pumpkin and you'll taste the\ndifference in every forkful.",
       "equipment": [],
@@ -3393,15 +3567,35 @@
         "matched": 17,
         "considered": 18,
         "withSwaps": {
-          "0": {
-            "kcal": 395,
+          "0.1.2.3": {
+            "kcal": 242,
+            "protein": 5.3,
+            "carb": 22.2,
+            "fat": 14,
+            "satfat": 7.5,
+            "fiber": 1,
+            "sugar": 5.7,
+            "sodium": 335
+          },
+          "0.1": {
+            "kcal": 326,
             "protein": 4,
-            "carb": 39.7,
+            "carb": 19.9,
             "fat": 25.2,
             "satfat": 14.6,
             "fiber": 1,
-            "sugar": 23.2,
-            "sodium": 336
+            "sugar": 3.4,
+            "sodium": 333
+          },
+          "2.3": {
+            "kcal": 336,
+            "protein": 5.3,
+            "carb": 48.7,
+            "fat": 14,
+            "satfat": 7.5,
+            "fiber": 1,
+            "sugar": 32.2,
+            "sodium": 339
           }
         }
       }
@@ -3512,14 +3706,52 @@
       "planSwaps": [
         {
           "for": [
-            "diabetes"
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
           ],
           "replace": "1–2 tbsp fish sauce, to taste",
           "with": "1½ tbsp coconut aminos (plus lime to finish)",
           "note": "coconut aminos for the fish sauce"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "1 (13.5 oz) can full-fat coconut milk",
+          "with": "1 cup light coconut milk",
+          "note": "a lighter, broth-forward pour of light coconut milk"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "1 tbsp neutral oil",
+          "with": "1 tsp neutral oil",
+          "note": "just a teaspoon of oil"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 boneless skinless chicken breasts, thinly sliced",
+          "with": "5 oz boneless skinless chicken breast, thinly sliced",
+          "note": "a renal-size portion of chicken"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The cozy bowl Stephen reaches for under the weather: warm, soothing, and just\nspicy enough to clear the sinuses. Coconut milk for richness, lime and fish\nsauce for brightness, and fresh chile to wake it all up.",
@@ -3539,15 +3771,55 @@
         "matched": 12,
         "considered": 12,
         "withSwaps": {
-          "0": {
-            "kcal": 710,
-            "protein": 46.6,
-            "carb": 19.3,
-            "fat": 52,
-            "satfat": 37.8,
+          "0.1.2": {
+            "kcal": 374,
+            "protein": 43.5,
+            "carb": 15.5,
+            "fat": 15,
+            "satfat": 8,
             "fiber": 1.3,
-            "sugar": 12,
-            "sodium": 597
+            "sugar": 7.6,
+            "sodium": 593
+          },
+          "0.1": {
+            "kcal": 414,
+            "protein": 43.5,
+            "carb": 15.5,
+            "fat": 19.5,
+            "satfat": 8.4,
+            "fiber": 1.3,
+            "sugar": 7.6,
+            "sodium": 593
+          },
+          "0.1.3": {
+            "kcal": 296,
+            "protein": 21.3,
+            "carb": 15.5,
+            "fat": 17,
+            "satfat": 7.7,
+            "fiber": 1.3,
+            "sugar": 7.6,
+            "sodium": 518
+          },
+          "1.2": {
+            "kcal": 367,
+            "protein": 43.9,
+            "carb": 13.7,
+            "fat": 15,
+            "satfat": 8,
+            "fiber": 1.3,
+            "sugar": 6.6,
+            "sodium": 1448
+          },
+          "0.1.2.3": {
+            "kcal": 256,
+            "protein": 21.3,
+            "carb": 15.5,
+            "fat": 12.5,
+            "satfat": 7.3,
+            "fiber": 1.3,
+            "sugar": 7.6,
+            "sodium": 518
           }
         }
       }
@@ -4388,14 +4660,32 @@
       "planSwaps": [
         {
           "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "heart",
+            "lowsugar",
             "lowcarb"
           ],
           "replace": "1 cup granulated sugar",
-          "with": "¾ cup granulated sugar",
-          "note": "a quarter less sugar"
+          "with": "1 cup allulose",
+          "note": "allulose for the granulated sugar (browns earlier — tent the loaf if it darkens)"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "heart",
+            "lowsugar",
+            "lowcarb"
+          ],
+          "replace": "½ cup light brown sugar",
+          "with": "½ cup allulose",
+          "note": "allulose for the brown sugar"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "headnote": "Roasting your own pumpkin takes an extra half hour and pays you back tenfold — the purée\nis sweeter, darker, and worlds away from the can.",
       "equipment": [],
@@ -4415,15 +4705,15 @@
         "matched": 15,
         "considered": 16,
         "withSwaps": {
-          "0": {
-            "kcal": 327,
+          "0.1": {
+            "kcal": 236,
             "protein": 4.7,
-            "carb": 43.6,
+            "carb": 17.7,
             "fat": 15.6,
             "satfat": 2.4,
             "fiber": 1.5,
-            "sugar": 26.9,
-            "sodium": 263
+            "sugar": 1,
+            "sodium": 260
           }
         }
       }
@@ -4530,9 +4820,17 @@
           "replace": "6 oz orzo (orecchiette also works beautifully)",
           "with": "4 oz orzo",
           "note": "a lighter orzo base"
+        },
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "6 oz orzo (orecchiette also works beautifully)",
+          "with": "3 cups cauliflower rice",
+          "note": "cauliflower rice for a low-carb, tabbouleh-style bowl"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen landed on a Greek salad — dressed just before serving so it stays crisp\nand distinct — then made it more substantial by folding in pasta boiled in salted\nwater. Orzo keeps it light and forkable; orecchiette gives it more chew if you\nwant it.",
@@ -4562,6 +4860,16 @@
             "fiber": 5.9,
             "sugar": 9.1,
             "sodium": 590
+          },
+          "1": {
+            "kcal": 382,
+            "protein": 10,
+            "carb": 23.8,
+            "fat": 29.7,
+            "satfat": 6.9,
+            "fiber": 7.3,
+            "sugar": 11,
+            "sodium": 637
           }
         }
       }
@@ -7155,9 +7463,18 @@
           "replace": "¼ cup olive oil",
           "with": "2 tbsp olive oil",
           "note": "half the oil"
+        },
+        {
+          "for": [
+            "diabetes",
+            "lowcarb"
+          ],
+          "replace": "12 oz linguine",
+          "with": "3 large zucchini, spiralized",
+          "note": "zoodles instead of linguine"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Naples in a bowl: clams, garlic, wine, good oil, and pasta cooked right in the brine. Lauren\nloves it — and the swap tip keeps Stephen at the same table with a fillet of fish.",
@@ -7186,6 +7503,16 @@
             "fiber": 6.8,
             "sugar": 6,
             "sodium": 405
+          },
+          "4": {
+            "kcal": 531,
+            "protein": 16.4,
+            "carb": 19.1,
+            "fat": 40.4,
+            "satfat": 11.1,
+            "fiber": 4.3,
+            "sugar": 8.3,
+            "sodium": 457
           },
           "0.1.2.3": {
             "kcal": 685,
@@ -7216,6 +7543,16 @@
             "fiber": 5,
             "sugar": 4.4,
             "sodium": 292
+          },
+          "0.4": {
+            "kcal": 480,
+            "protein": 16.4,
+            "carb": 19.1,
+            "fat": 34.7,
+            "satfat": 7.5,
+            "fiber": 4.3,
+            "sugar": 8.3,
+            "sodium": 417
           }
         }
       }
@@ -9395,9 +9732,17 @@
           "replace": "1 lb Yukon gold potatoes, peeled and cubed",
           "with": "12 oz Yukon gold potatoes, peeled and cubed",
           "note": "a smaller puree"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "1 lb large dry sea scallops (about 10–12)",
+          "with": "7 oz large dry sea scallops (about 4–5)",
+          "note": "a renal-size portion of scallops"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Shellfish belongs in this book — Lauren loves scallops — and they're the most\nrestaurant-feeling thing you can make in half an hour. The swap tip keeps Stephen on the\nsame plate with a fillet of fish.",
@@ -9426,6 +9771,16 @@
             "fiber": 3.3,
             "sugar": 3.7,
             "sodium": 1205
+          },
+          "5": {
+            "kcal": 942,
+            "protein": 23.4,
+            "carb": 47.1,
+            "fat": 75,
+            "satfat": 43.2,
+            "fiber": 4,
+            "sugar": 4.1,
+            "sodium": 795
           },
           "0.1.2": {
             "kcal": 851,
@@ -9466,6 +9821,16 @@
             "fiber": 3.3,
             "sugar": 2.8,
             "sodium": 883
+          },
+          "4.5": {
+            "kcal": 898,
+            "protein": 22.2,
+            "carb": 37.1,
+            "fat": 74.9,
+            "satfat": 43.2,
+            "fiber": 3.3,
+            "sugar": 3.7,
+            "sodium": 791
           }
         }
       }
@@ -10458,9 +10823,26 @@
           "replace": "4 tbsp unsalted butter",
           "with": "2 tbsp unsalted butter",
           "note": "half the brown butter"
+        },
+        {
+          "for": [
+            "lowcarb",
+            "kidney"
+          ],
+          "replace": "1 cup couscous",
+          "with": "3 cups cauliflower rice",
+          "note": "cauliflower rice for the couscous"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 salmon fillets (skin-on or skinless, 5–6 oz each)",
+          "with": "4 oz salmon fillets (two 2-oz portions)",
+          "note": "renal-size salmon portions"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The elegant entry in the salmon rotation: sous-vide for an unbroken, custardy\nflake, then a beurre noisette brightened with orange and lemon. The original lemon-\nbutter-caper idea grew into a proper brown-butter glaze, and the herbed couscous\nand charred asparagus turn it into a full, restaurant-grade plate for two.",
@@ -10490,6 +10872,16 @@
             "sugar": 13.7,
             "sodium": 775
           },
+          "2": {
+            "kcal": 746,
+            "protein": 42.9,
+            "carb": 30.5,
+            "fat": 52.6,
+            "satfat": 23,
+            "fiber": 9.5,
+            "sugar": 16.7,
+            "sodium": 819
+          },
           "0.1": {
             "kcal": 766,
             "protein": 45.1,
@@ -10499,6 +10891,16 @@
             "fiber": 8.6,
             "sugar": 13.7,
             "sodium": 694
+          },
+          "2.3": {
+            "kcal": 510,
+            "protein": 20.1,
+            "carb": 30.5,
+            "fat": 37.1,
+            "satfat": 19.8,
+            "fiber": 9.5,
+            "sugar": 16.7,
+            "sodium": 766
           }
         }
       }
@@ -11801,9 +12203,51 @@
           "replace": "2 tbsp olive oil",
           "with": "1 tbsp olive oil",
           "note": "half the oil"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "1 tbsp unsalted butter (for searing)",
+          "with": "1 tbsp olive oil (for searing)",
+          "note": "olive oil to sear"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "2 tbsp unsalted butter (for finishing)",
+          "with": "1 tbsp unsalted butter (for finishing)",
+          "note": "half the finishing butter"
+        },
+        {
+          "for": [
+            "diabetes",
+            "lowcarb",
+            "kidney"
+          ],
+          "replace": "6 oz fettuccine",
+          "with": "3 large zucchini, spiralized",
+          "note": "zoodles instead of fettuccine"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 tilapia fillets (5–8 oz each)",
+          "with": "4 oz tilapia fillets (two 2-oz portions)",
+          "note": "renal-size fish portions"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen worked this one through a couple of rounds — first sorting out a rogue\nlemon slice that kept appearing from nowhere, then folding the fettuccine cleanly\ninto the sauce. The result eats like a restaurant lemon-caper trio: crisp fish,\nsilky sauce, and deeply seared broccoli, all in one skillet.",
@@ -11823,6 +12267,16 @@
         "matched": 13,
         "considered": 13,
         "withSwaps": {
+          "4": {
+            "kcal": 694,
+            "protein": 47.4,
+            "carb": 44.7,
+            "fat": 36.2,
+            "satfat": 14.3,
+            "fiber": 10.8,
+            "sugar": 13,
+            "sodium": 587
+          },
           "0.1": {
             "kcal": 784,
             "protein": 50.7,
@@ -11832,6 +12286,56 @@
             "fiber": 9.7,
             "sugar": 7.4,
             "sodium": 567
+          },
+          "2.3": {
+            "kcal": 902,
+            "protein": 54.1,
+            "carb": 95.5,
+            "fat": 32,
+            "satfat": 8,
+            "fiber": 10.6,
+            "sugar": 8.2,
+            "sodium": 488
+          },
+          "4.5": {
+            "kcal": 575,
+            "protein": 22.5,
+            "carb": 44.7,
+            "fat": 33.9,
+            "satfat": 13.3,
+            "fiber": 10.8,
+            "sugar": 13,
+            "sodium": 523
+          },
+          "0.1.2.3": {
+            "kcal": 742,
+            "protein": 50.6,
+            "carb": 75.5,
+            "fat": 24.7,
+            "satfat": 7,
+            "fiber": 9.7,
+            "sugar": 7.4,
+            "sodium": 486
+          },
+          "2.3.4": {
+            "kcal": 652,
+            "protein": 47.3,
+            "carb": 44.7,
+            "fat": 31.5,
+            "satfat": 8,
+            "fiber": 10.8,
+            "sugar": 13,
+            "sodium": 506
+          },
+          "2.3.4.5": {
+            "kcal": 533,
+            "protein": 22.4,
+            "carb": 44.7,
+            "fat": 29.2,
+            "satfat": 7,
+            "fiber": 10.8,
+            "sugar": 13,
+            "sodium": 442
           }
         }
       }
@@ -11957,9 +12461,34 @@
           "replace": "8 oz fettuccine (thin spaghetti also works)",
           "with": "5 oz fettuccine",
           "note": "five ounces of pasta"
+        },
+        {
+          "for": [
+            "lowcarb",
+            "kidney"
+          ],
+          "replace": "8 oz fettuccine (thin spaghetti also works)",
+          "with": "3 large zucchini, spiralized",
+          "note": "zoodles instead of pasta"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 small chicken breasts (or 1 large), sliced into thin strips",
+          "with": "4 oz chicken breast, sliced into thin strips",
+          "note": "a renal-size portion of chicken"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "4 oz fresh mozzarella, cut into small cubes",
+          "with": "2 oz fresh mozzarella, cut into small cubes",
+          "note": "half the mozzarella"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A bright, fast Italian dinner Stephen landed on after weighing a whole flight of\nchicken pastas: fresh tomatoes cooked down to a loose sauce, fettuccine to carry\nit, and cubes of fresh mozzarella that melt into creamy pockets as you toss.",
@@ -11999,6 +12528,16 @@
             "sugar": 6.5,
             "sodium": 443
           },
+          "2": {
+            "kcal": 595,
+            "protein": 53.3,
+            "carb": 18.7,
+            "fat": 34.6,
+            "satfat": 10.7,
+            "fiber": 4.4,
+            "sugar": 11.7,
+            "sodium": 462
+          },
           "0.1": {
             "kcal": 715,
             "protein": 53.1,
@@ -12008,6 +12547,26 @@
             "fiber": 3.8,
             "sugar": 6.3,
             "sodium": 293
+          },
+          "2.3.4": {
+            "kcal": 381,
+            "protein": 22.8,
+            "carb": 17.8,
+            "fat": 25.6,
+            "satfat": 6.4,
+            "fiber": 4.4,
+            "sugar": 11.5,
+            "sodium": 226
+          },
+          "0.2": {
+            "kcal": 516,
+            "protein": 48,
+            "carb": 17.8,
+            "fat": 28.5,
+            "satfat": 7.2,
+            "fiber": 4.4,
+            "sugar": 11.5,
+            "sodium": 312
           }
         }
       }
