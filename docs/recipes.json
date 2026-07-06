@@ -1456,8 +1456,20 @@
         "name": "Adapted from Stephen's ChatGPT recipe notes",
         "url": null
       },
+      "planSwaps": [
+        {
+          "for": [
+            "mediterranean",
+            "lowsugar",
+            "lowcarb"
+          ],
+          "replace": "1¼ cups granulated sugar, plus more for rolling",
+          "with": "1¼ cups allulose, plus more for rolling",
+          "note": "allulose for the sugar (browns ~25°F earlier — pull them a touch sooner)"
+        }
+      ],
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "headnote": "Browning the butter is five minutes of work for a sugar cookie that tastes like it has a\nsecret — nutty, deep, and impossible to eat just one of.",
       "equipment": [],
@@ -1475,7 +1487,19 @@
         },
         "confidence": "high",
         "matched": 8,
-        "considered": 8
+        "considered": 8,
+        "withSwaps": {
+          "0": {
+            "kcal": 116,
+            "protein": 1.4,
+            "carb": 9,
+            "fat": 7.9,
+            "satfat": 4.9,
+            "fiber": 0.3,
+            "sugar": 0.1,
+            "sodium": 150
+          }
+        }
       }
     },
     {
@@ -2684,7 +2708,8 @@
             "dash",
             "tlc",
             "heart",
-            "diabetes"
+            "diabetes",
+            "kidney"
           ],
           "replace": "1 tsp kosher salt",
           "with": "½ tsp kosher salt",
@@ -2695,14 +2720,23 @@
             "dash",
             "tlc",
             "heart",
-            "diabetes"
+            "diabetes",
+            "kidney"
           ],
           "replace": "½ tsp salt",
           "with": "¼ tsp salt",
           "note": "half the toum salt"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "1.5 lb boneless skinless chicken thighs",
+          "with": "13 oz boneless skinless chicken thighs",
+          "note": "a renal-size portion of chicken"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The home version of the shawarma spit: a hard, spice-crusted char in the oven, and a garlic\nsauce so good you'll find excuses to make it.",
@@ -2751,6 +2785,16 @@
             "fiber": 3.7,
             "sugar": 3.1,
             "sodium": 833
+          },
+          "2.3.4": {
+            "kcal": 941,
+            "protein": 23.8,
+            "carb": 43.8,
+            "fat": 75.8,
+            "satfat": 9.2,
+            "fiber": 3.7,
+            "sugar": 3.1,
+            "sodium": 766
           }
         }
       }
@@ -3747,9 +3791,17 @@
           "replace": "4 tbsp unsalted butter",
           "with": "2 tbsp olive oil",
           "note": "an olive-oil baste"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 skin-on salmon fillets (5–6 oz each)",
+          "with": "6 oz skin-on salmon fillets (two 3-oz portions)",
+          "note": "renal-size salmon portions"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen's weeknight-elevated salmon: the broiler does the work of a restaurant\nsalamander, crackling the skin in minutes, while the broccoli chars in the same\noven and garden tomatoes burst alongside. The lemon-caper brown butter is the\nupgrade that turns a simple fish-and-vegetable plate into something worth setting\nthe table for.",
@@ -3778,6 +3830,26 @@
             "fiber": 5.7,
             "sugar": 4.8,
             "sodium": 317
+          },
+          "1": {
+            "kcal": 576,
+            "protein": 22.8,
+            "carb": 15.5,
+            "fat": 48.6,
+            "satfat": 18.7,
+            "fiber": 5.7,
+            "sugar": 4.8,
+            "sodium": 439
+          },
+          "0.1": {
+            "kcal": 492,
+            "protein": 22.5,
+            "carb": 15.5,
+            "fat": 39.3,
+            "satfat": 6.1,
+            "fiber": 5.7,
+            "sugar": 4.8,
+            "sodium": 277
           }
         }
       }
@@ -4640,9 +4712,17 @@
           "replace": "3 tbsp extra-virgin olive oil",
           "with": "2 tbsp extra-virgin olive oil",
           "note": "a bit less oil"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 salmon fillets (6–7 oz each, skin on or off)",
+          "with": "6 oz salmon fillets (two 3-oz portions, skin on or off)",
+          "note": "renal-size salmon portions"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The Greek-salad-meets-salmon version: a classic horiatiki given backbone with warm,\noregano-rubbed fish flaked on top. Pan-searing keeps it weeknight-fast and crisps\nthe fillet, while the lemon-oregano dressing and good feta keep it firmly,\nunapologetically Greek.",
@@ -4662,6 +4742,16 @@
         "matched": 11,
         "considered": 11,
         "withSwaps": {
+          "3": {
+            "kcal": 502,
+            "protein": 23.4,
+            "carb": 13.8,
+            "fat": 40.5,
+            "satfat": 9.2,
+            "fiber": 4.2,
+            "sugar": 5.7,
+            "sodium": 605
+          },
           "0.1.2": {
             "kcal": 529,
             "protein": 33,
@@ -5369,14 +5459,23 @@
             "dash",
             "tlc",
             "heart",
-            "diabetes"
+            "diabetes",
+            "kidney"
           ],
           "replace": "1 tsp kosher salt",
           "with": "½ tsp kosher salt",
           "note": "half the salt"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 boneless skinless chicken breasts, pounded to even thickness",
+          "with": "6 oz boneless skinless chicken breast, pounded to even thickness",
+          "note": "a renal-size portion of chicken"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The grilled chicken Stephen comes back to all summer: a lemon-and-herb marinade\ndoes the heavy lifting, and the garden vegetables char right alongside on\nskewers for a clean, healthy plate that still tastes like a cookout.",
@@ -5405,6 +5504,16 @@
             "fiber": 3.7,
             "sugar": 6.5,
             "sodium": 620
+          },
+          "0.1": {
+            "kcal": 455,
+            "protein": 21.6,
+            "carb": 12.1,
+            "fat": 36.6,
+            "satfat": 5.3,
+            "fiber": 3.7,
+            "sugar": 6.5,
+            "sodium": 555
           }
         }
       }
@@ -5686,9 +5795,17 @@
           "replace": "¼ cup feta cheese, crumbled",
           "with": "2 tbsp feta cheese, crumbled",
           "note": "a lighter feta hand"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 salmon fillets (6–7 oz each, skin on or off)",
+          "with": "6 oz salmon fillets (two 3-oz portions, skin on or off)",
+          "note": "renal-size salmon portions"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A dinner salad that came together from a full garden haul: cucumber and cherry\ntomatoes from the bed, spring mix and red onion from the store, and a Dijon-\nbalsamic vinaigrette shaken in a jar. Kalamata olives and feta nudge it\nMediterranean, and the warm grilled salmon over cool greens is the contrast that\nmakes it dinner, not a side.",
@@ -5708,6 +5825,16 @@
         "matched": 11,
         "considered": 11,
         "withSwaps": {
+          "2": {
+            "kcal": 571,
+            "protein": 23.1,
+            "carb": 18,
+            "fat": 46.2,
+            "satfat": 9.1,
+            "fiber": 4.3,
+            "sugar": 9.7,
+            "sodium": 777
+          },
           "0.1": {
             "kcal": 604,
             "protein": 39,
@@ -5717,6 +5844,16 @@
             "fiber": 4.3,
             "sugar": 9.4,
             "sodium": 713
+          },
+          "0.1.2": {
+            "kcal": 426,
+            "protein": 21.8,
+            "carb": 17.7,
+            "fat": 30.7,
+            "satfat": 5.9,
+            "fiber": 4.3,
+            "sugar": 9.4,
+            "sodium": 673
           }
         }
       }
@@ -6216,8 +6353,30 @@
         "name": "Adapted from Stephen's ChatGPT recipe notes",
         "url": null
       },
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "2 tbsp unsalted butter, plus more for basting",
+          "with": "1 tbsp olive oil, plus more for basting",
+          "note": "olive oil for the herb butter"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 swordfish steaks (about 6 oz each)",
+          "with": "5 oz swordfish steaks (two 2.5-oz portions)",
+          "note": "renal-size fish portions"
+        }
+      ],
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-06-19T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Swordfish takes to a sear like a good steak, and a garden-herb compound butter\nspooned over the top in the last minute turns it into something restaurant-worthy.\nGarlicky roasted Brussels sprouts with lemon zest make it a complete, easy plate\nfor two.",
@@ -6235,7 +6394,39 @@
         },
         "confidence": "high",
         "matched": 9,
-        "considered": 9
+        "considered": 9,
+        "withSwaps": {
+          "0": {
+            "kcal": 622,
+            "protein": 41.7,
+            "carb": 23.3,
+            "fat": 42.2,
+            "satfat": 7.4,
+            "fiber": 9,
+            "sugar": 4.9,
+            "sodium": 212
+          },
+          "1": {
+            "kcal": 521,
+            "protein": 22.2,
+            "carb": 23.3,
+            "fat": 40.4,
+            "satfat": 11.9,
+            "fiber": 9,
+            "sugar": 4.9,
+            "sodium": 204
+          },
+          "0.1": {
+            "kcal": 479,
+            "protein": 22.1,
+            "carb": 23.3,
+            "fat": 35.7,
+            "satfat": 5.6,
+            "fiber": 9,
+            "sugar": 4.9,
+            "sodium": 123
+          }
+        }
       }
     },
     {
@@ -8299,8 +8490,42 @@
         "name": "Adapted from Stephen's ChatGPT recipe notes",
         "url": null
       },
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "1 tbsp butter",
+          "with": "1 tbsp olive oil",
+          "note": "olive oil instead of the pan butter"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "2 tbsp butter",
+          "with": "1 tbsp butter",
+          "note": "half the brown butter"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 halibut fillets (about 6 oz each), skinless",
+          "with": "6 oz halibut fillets (two 3-oz portions), skinless",
+          "note": "renal-size fish portions"
+        }
+      ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The kind of fast, bright summer plate that feels like a restaurant: a meaty white fish\nseared hard, a sweet-and-jammy corn succotash underneath, and brown butter tying it all\ntogether.",
@@ -8318,7 +8543,39 @@
         },
         "confidence": "high",
         "matched": 14,
-        "considered": 14
+        "considered": 14,
+        "withSwaps": {
+          "2": {
+            "kcal": 538,
+            "protein": 24,
+            "carb": 25.8,
+            "fat": 39.9,
+            "satfat": 16.7,
+            "fiber": 4.3,
+            "sugar": 9.9,
+            "sodium": 238
+          },
+          "0.1": {
+            "kcal": 606,
+            "protein": 43.5,
+            "carb": 25.8,
+            "fat": 38.8,
+            "satfat": 8.1,
+            "fiber": 4.3,
+            "sugar": 9.9,
+            "sodium": 172
+          },
+          "0.1.2": {
+            "kcal": 505,
+            "protein": 23.8,
+            "carb": 25.8,
+            "fat": 36.3,
+            "satfat": 7.7,
+            "fiber": 4.3,
+            "sugar": 9.9,
+            "sodium": 117
+          }
+        }
       }
     },
     {
@@ -10627,7 +10884,8 @@
             "dash",
             "tlc",
             "heart",
-            "diabetes"
+            "diabetes",
+            "kidney"
           ],
           "replace": "½–¾ tsp garlic salt",
           "with": "¼ tsp garlic salt",
@@ -10638,11 +10896,20 @@
             "dash",
             "tlc",
             "heart",
-            "diabetes"
+            "diabetes",
+            "kidney"
           ],
           "replace": "1 tbsp soy sauce",
           "with": "1 tbsp low-sodium soy sauce",
           "note": "low-sodium soy"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 salmon fillets, 5–7 oz each, skin removed",
+          "with": "6 oz salmon fillets (two 3-oz portions), skin removed",
+          "note": "renal-size salmon portions"
         },
         {
           "for": [
@@ -10657,7 +10924,7 @@
           "note": "half the honey"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A NASA-flavor-division build that Stephen dialed in across a few rounds: sous-vide\nsets the protein at a precise 125°F so the grill can do nothing but char and\nlacquer. The kale keeps his garlic-salt, paprika, and cayenne profile but roasts\nlow to stay crisp and bitter-free — a savory, crackling foil to the sticky\nsweet-heat fish.",
@@ -10677,7 +10944,7 @@
         "matched": 13,
         "considered": 13,
         "withSwaps": {
-          "2": {
+          "3": {
             "kcal": 550,
             "protein": 38.2,
             "carb": 17.2,
@@ -10687,7 +10954,7 @@
             "sugar": 12,
             "sodium": 1234
           },
-          "0.1.2": {
+          "0.1.3": {
             "kcal": 550,
             "protein": 38.1,
             "carb": 17.3,
@@ -10706,6 +10973,26 @@
             "fiber": 4.2,
             "sugar": 20.8,
             "sodium": 804
+          },
+          "0.1.2": {
+            "kcal": 403,
+            "protein": 20.9,
+            "carb": 26,
+            "fat": 24.6,
+            "satfat": 4.2,
+            "fiber": 4.2,
+            "sugar": 20.8,
+            "sodium": 764
+          },
+          "0.1.2.3": {
+            "kcal": 372,
+            "protein": 20.9,
+            "carb": 17.3,
+            "fat": 24.6,
+            "satfat": 4.2,
+            "fiber": 4.2,
+            "sugar": 12.1,
+            "sodium": 764
           }
         }
       }
@@ -12206,8 +12493,67 @@
         "name": "Adapted from Stephen's ChatGPT recipe notes",
         "url": null
       },
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "1 tbsp soy sauce",
+          "with": "1 tbsp coconut aminos",
+          "note": "coconut aminos for the soy"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "1 tbsp oyster sauce",
+          "with": "1 tsp oyster sauce",
+          "note": "just a teaspoon of oyster sauce"
+        },
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "½ tsp kosher salt",
+          "with": "¼ tsp kosher salt",
+          "note": "lighter salt in the dip"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "1 tbsp butter",
+          "with": "1 tbsp olive oil",
+          "note": "olive oil to finish"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean",
+            "tlc",
+            "heart"
+          ],
+          "replace": "1 lb beef tenderloin (or top sirloin), cut into 1-inch cubes",
+          "with": "8 oz beef tenderloin (or top sirloin), cut into 1-inch cubes",
+          "note": "a leaner 8-oz portion of beef"
+        }
+      ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A Vietnamese steakhouse classic that comes together faster than the rice cooker:\nthe marinade does the flavor work, and the only real skill is heat management —\nget the pan hot enough that the beef sears instead of stews, and *shake* it like\nyou mean it.",
@@ -12225,7 +12571,39 @@
         },
         "confidence": "high",
         "matched": 19,
-        "considered": 19
+        "considered": 19,
+        "withSwaps": {
+          "0.1.2.3.4": {
+            "kcal": 525,
+            "protein": 32.2,
+            "carb": 22.2,
+            "fat": 34.9,
+            "satfat": 7.2,
+            "fiber": 3.9,
+            "sugar": 10.9,
+            "sodium": 769
+          },
+          "0.1.2": {
+            "kcal": 750,
+            "protein": 60.9,
+            "carb": 22.2,
+            "fat": 46.2,
+            "satfat": 14.9,
+            "fiber": 3.9,
+            "sugar": 10.9,
+            "sodium": 871
+          },
+          "3.4": {
+            "kcal": 530,
+            "protein": 32.8,
+            "carb": 22.5,
+            "fat": 35.2,
+            "satfat": 7.3,
+            "fiber": 4.1,
+            "sugar": 10.8,
+            "sodium": 1438
+          }
+        }
       }
     },
     {

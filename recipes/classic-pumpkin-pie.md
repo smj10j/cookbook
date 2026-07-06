@@ -75,11 +75,23 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
-  - for: [lowcarb]
+  - for: [dash, mind, mediterranean, heart, lowsugar, lowcarb]
     replace: "¾ cup brown sugar"
-    with: "½ cup brown sugar"
-    note: "a less-sweet custard"
-updated: 2026-07-05
+    with: "¾ cup allulose"
+    note: "allulose for the brown sugar (browns earlier — tent if it darkens)"
+  - for: [dash, mind, mediterranean, heart, lowsugar, lowcarb]
+    replace: "¼ cup granulated sugar"
+    with: "¼ cup allulose"
+    note: "allulose for the granulated sugar"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "1 cup evaporated milk or heavy cream"
+    with: "1 cup evaporated milk"
+    note: "evaporated milk, not cream"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "½ cup cold unsalted butter, cubed"
+    with: "6 tbsp cold unsalted butter, cubed"
+    note: "a lighter hand of butter in the crust"
+updated: 2026-07-06
 ---
 
 The whole pie hinges on the purée — roast a real sugar pumpkin and you'll taste the

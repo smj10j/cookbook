@@ -80,11 +80,23 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
-  - for: [diabetes]
+  - for: [dash, tlc, heart, diabetes, kidney]
     replace: "1–2 tbsp fish sauce, to taste"
     with: "1½ tbsp coconut aminos (plus lime to finish)"
     note: "coconut aminos for the fish sauce"
-updated: 2026-07-05
+  - for: [dash, mind, mediterranean, tlc, heart, diabetes, kidney]
+    replace: "1 (13.5 oz) can full-fat coconut milk"
+    with: "1 cup light coconut milk"
+    note: "a lighter, broth-forward pour of light coconut milk"
+  - for: [dash, mind, mediterranean, tlc, heart]
+    replace: "1 tbsp neutral oil"
+    with: "1 tsp neutral oil"
+    note: "just a teaspoon of oil"
+  - for: [kidney]
+    replace: "2 boneless skinless chicken breasts, thinly sliced"
+    with: "5 oz boneless skinless chicken breast, thinly sliced"
+    note: "a renal-size portion of chicken"
+updated: 2026-07-06
 ---
 
 The cozy bowl Stephen reaches for under the weather: warm, soothing, and just

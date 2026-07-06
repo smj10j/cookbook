@@ -79,11 +79,15 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
-  - for: [lowcarb]
+  - for: [dash, mind, mediterranean, heart, lowsugar, lowcarb]
     replace: "1 cup granulated sugar"
-    with: "¾ cup granulated sugar"
-    note: "a quarter less sugar"
-updated: 2026-07-05
+    with: "1 cup allulose"
+    note: "allulose for the granulated sugar (browns earlier — tent the loaf if it darkens)"
+  - for: [dash, mind, mediterranean, heart, lowsugar, lowcarb]
+    replace: "½ cup light brown sugar"
+    with: "½ cup allulose"
+    note: "allulose for the brown sugar"
+updated: 2026-07-06
 ---
 
 Roasting your own pumpkin takes an extra half hour and pays you back tenfold — the purée
