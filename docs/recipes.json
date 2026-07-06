@@ -10071,14 +10071,40 @@
           "for": [
             "heart",
             "lowsugar",
-            "balance"
+            "balance",
+            "lowcarb"
           ],
           "replace": "4–6 dates, pitted and chopped",
           "with": "2 dates, pitted and chopped",
           "note": "two dates"
+        },
+        {
+          "for": [
+            "lowcarb",
+            "kidney"
+          ],
+          "replace": "1 cup sushi or short-grain rice, rinsed",
+          "with": "3 cups cauliflower rice",
+          "note": "cauliflower rice for the pilaf"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 boneless skinless chicken breasts, pounded to even thickness",
+          "with": "3 oz chicken breast, pounded to even thickness",
+          "note": "a renal-size portion of chicken"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "¼ cup almonds, toasted and chopped",
+          "with": "2 tbsp almonds, toasted and chopped",
+          "note": "fewer almonds"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A pantry-raid dinner that turned into a keeper: dates and toasted almonds make\nthe rice taste Levantine, garden peppers thread heat and sweetness through every\nlayer, and a cool lemon-tahini drizzle pulls it all together.",
@@ -10117,6 +10143,36 @@
             "fiber": 8.4,
             "sugar": 11.9,
             "sodium": 818
+          },
+          "3.4": {
+            "kcal": 760,
+            "protein": 51.9,
+            "carb": 35.7,
+            "fat": 48.6,
+            "satfat": 6.7,
+            "fiber": 11.8,
+            "sugar": 15,
+            "sodium": 941
+          },
+          "4.5.6": {
+            "kcal": 592,
+            "protein": 22,
+            "carb": 43,
+            "fat": 40.9,
+            "satfat": 5.4,
+            "fiber": 11.6,
+            "sugar": 22.5,
+            "sodium": 845
+          },
+          "3.4.5.6": {
+            "kcal": 557,
+            "protein": 21.7,
+            "carb": 33.7,
+            "fat": 40.9,
+            "satfat": 5.4,
+            "fiber": 10.7,
+            "sugar": 14.6,
+            "sodium": 845
           }
         }
       }
@@ -10295,9 +10351,17 @@
           "replace": "24 oz dried wheat noodles (or 2 lb fresh)",
           "with": "16 oz dried wheat noodles",
           "note": "2 oz noodles per bowl"
+        },
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "24 oz dried wheat noodles (or 2 lb fresh)",
+          "with": "2 lb zucchini, spiralized",
+          "note": "zoodles instead of wheat noodles"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A killer Sichuan bowl Stephen and Lauren have chased for years, scaled up to eight\nservings and engineered for leftovers. Cook the beef and broth together, store them\napart, and assemble each bowl to order with fresh noodles, greens, and a table-side\nmala station.",
@@ -10337,6 +10401,16 @@
             "sugar": 6.5,
             "sodium": 887
           },
+          "2": {
+            "kcal": 564,
+            "protein": 44,
+            "carb": 16.1,
+            "fat": 36.6,
+            "satfat": 12.9,
+            "fiber": 3.9,
+            "sugar": 8,
+            "sodium": 890
+          },
           "0.1": {
             "kcal": 601,
             "protein": 36.4,
@@ -10346,6 +10420,16 @@
             "fiber": 4.6,
             "sugar": 6.5,
             "sodium": 850
+          },
+          "0.2": {
+            "kcal": 420,
+            "protein": 31,
+            "carb": 16.1,
+            "fat": 26.4,
+            "satfat": 8.8,
+            "fiber": 3.9,
+            "sugar": 8,
+            "sodium": 853
           }
         }
       }
@@ -14074,7 +14158,9 @@
           "for": [
             "dash",
             "mind",
-            "mediterranean"
+            "mediterranean",
+            "heart",
+            "lowsugar"
           ],
           "replace": "¾ oz triple sec",
           "with": "½ oz triple sec",
@@ -14084,14 +14170,25 @@
           "for": [
             "dash",
             "mind",
-            "mediterranean"
+            "mediterranean",
+            "heart",
+            "lowsugar"
           ],
           "replace": "½ oz passion fruit syrup",
           "with": "¼ oz passion fruit syrup",
           "note": "half the syrup"
+        },
+        {
+          "for": [
+            "heart",
+            "lowsugar"
+          ],
+          "replace": "¼ oz agave syrup (optional, for body)",
+          "with": "¼ oz allulose syrup (optional, for body)",
+          "note": "allulose for the agave (0 g sugar)"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "headnote": "Smoke in the background, passion fruit and citrus out front — a gateway mezcal margarita\nthat still tastes like the real thing.",
       "equipment": [],
       "hero": "images/citrus-passion-mezcal-margarita.webp",
@@ -14118,6 +14215,16 @@
             "satfat": 0,
             "fiber": 0.2,
             "sugar": 16.8,
+            "sodium": 1
+          },
+          "0.1.2": {
+            "kcal": 204,
+            "protein": 0.2,
+            "carb": 11.8,
+            "fat": 0,
+            "satfat": 0,
+            "fiber": 0.2,
+            "sugar": 9.5,
             "sodium": 1
           }
         }
@@ -15619,24 +15726,28 @@
           "for": [
             "dash",
             "mind",
-            "mediterranean"
+            "mediterranean",
+            "heart",
+            "lowsugar"
           ],
           "replace": "½ oz honey syrup",
-          "with": "¼ oz honey syrup",
-          "note": "half the honey syrup"
+          "with": "½ oz allulose syrup",
+          "note": "allulose syrup for the honey syrup (0 g sugar)"
         },
         {
           "for": [
             "dash",
             "mind",
-            "mediterranean"
+            "mediterranean",
+            "heart",
+            "lowsugar"
           ],
           "replace": "½ oz ginger syrup",
           "with": "¼ oz ginger syrup",
           "note": "half the ginger syrup"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
       "headnote": "Proof that \"no proof\" doesn't mean no flavor — chili, ginger, lime, and pineapple carry the\nwhole thing. The Tajín rim makes it feel like a real cocktail.",
       "equipment": [],
       "hero": "images/na-spiced-pineapple-ginger-cooler.webp",
@@ -15656,13 +15767,13 @@
         "considered": 5,
         "withSwaps": {
           "0.1": {
-            "kcal": 81,
+            "kcal": 71,
             "protein": 0.4,
-            "carb": 20.9,
+            "carb": 17.4,
             "fat": 0,
             "satfat": 0,
             "fiber": 0.4,
-            "sugar": 17.1,
+            "sugar": 13.6,
             "sodium": 6
           }
         }
