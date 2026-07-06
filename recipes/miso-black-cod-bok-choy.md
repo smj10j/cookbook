@@ -101,8 +101,25 @@ extras:
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
+planSwaps:
+  - for: [dash, tlc, heart, diabetes, kidney]
+    replace: "2 tbsp white miso paste"
+    with: "1 tbsp white miso paste"
+    note: "half the miso"
+  - for: [dash, tlc, heart, diabetes, kidney]
+    replace: "1 tsp soy sauce"
+    with: "1 tsp coconut aminos"
+    note: "coconut aminos for the soy"
+  - for: [dash, tlc, heart, diabetes, kidney]
+    replace: "½ tsp salt"
+    with: "¼ tsp salt"
+    note: "lighter salt on the pickle"
+  - for: [kidney]
+    replace: "2 black cod (sablefish) fillets, about 6 oz each"
+    with: "9 oz black cod (sablefish) fillets (two 4.5-oz portions)"
+    note: "two 4.5-oz renal portions"
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-07-06
 ---
 
 Restaurant elegance from a make-ahead marinade: the miso does its quiet work
