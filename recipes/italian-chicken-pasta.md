@@ -82,7 +82,19 @@ planSwaps:
     replace: "8 oz fettuccine (thin spaghetti also works)"
     with: "5 oz fettuccine"
     note: "five ounces of pasta"
-updated: 2026-07-05
+  - for: [lowcarb, kidney]
+    replace: "8 oz fettuccine (thin spaghetti also works)"
+    with: "3 large zucchini, spiralized"
+    note: "zoodles instead of pasta"
+  - for: [kidney]
+    replace: "2 small chicken breasts (or 1 large), sliced into thin strips"
+    with: "4 oz chicken breast, sliced into thin strips"
+    note: "a renal-size portion of chicken"
+  - for: [kidney]
+    replace: "4 oz fresh mozzarella, cut into small cubes"
+    with: "2 oz fresh mozzarella, cut into small cubes"
+    note: "half the mozzarella"
+updated: 2026-07-06
 ---
 
 A bright, fast Italian dinner Stephen landed on after weighing a whole flight of
