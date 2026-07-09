@@ -4805,5 +4805,32 @@
       "sodium": 9
     },
     "each": 200
+  },
+  "sourdough bread": {
+    "unit": "oz",
+    "g": 28.35,
+    "n": {
+      "kcal": 80,
+      "protein": 2.7,
+      "carb": 13.6,
+      "fat": 0.9,
+      "satfat": 0.2,
+      "fiber": 0.74,
+      "sugar": 1.1,
+      "sodium": 164
+    },
+    "aliases": [
+      "sourdough",
+      "ciabatta",
+      "ciabatta bread",
+      "crusty bread",
+      "day-old sourdough",
+      "day-old ciabatta",
+      "rustic bread",
+      "country bread",
+      "artisan bread",
+      "crusty sourdough or ciabatta",
+      "day-old sourdough or ciabatta"
+    ]
   }
 }
