@@ -352,6 +352,15 @@ Korean…). The specific cuisines still appear as their own filters. When you ad
 whose cuisine should roll up under an umbrella, make sure that cuisine is listed in the
 relevant group.
 
+**Protein umbrellas.** `PROTEIN_GROUPS` in `schema.mjs` works the same way for the
+Protein filter: the **Seafood** umbrella matches both the `fish` lane (finfish — salmon,
+cod, tuna…) and the `seafood` lane (labeled **Shellfish** — clams, shrimp, scallops, and
+mixed stews like cioppino). The Protein row shows the umbrella chip first, then **Fish**
+and **Shellfish** as their own narrow chips, so "seafood" catches everything from the sea
+while the specific lanes stay selectable. Keep `fish` and `seafood` as distinct `protein`
+values on recipes (don't collapse them) — the umbrella is a filter convenience, not a new
+vocab value, and both lanes must stay populated for it to mean anything.
+
 **Two sections, behind tabs at the top — Food and Drinks — each with its own filters.**
 Food: Course (Main/Side/Dessert, from `category`), Protein, Dish (granular `course`),
 Method, Time, Heat, Cuisine (with umbrellas), + search. Drinks: Base, Style (`family`),

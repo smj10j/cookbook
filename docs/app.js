@@ -5,7 +5,7 @@
 import {
   esc, inlineMd, cap, fmtMin, VEG,
   scaleDisplay, classify, clampServes,
-  buildShoppingList, formatShoppingList, recipeMatches, cuisineChipValues, shopSectionsForRecipe,
+  buildShoppingList, formatShoppingList, recipeMatches, cuisineChipValues, proteinChipValues, shopSectionsForRecipe,
   hashForKind, parseHash, nutritionPanelHtml, EATING_PLANS, buildPlanVerdicts,
   recipeVariants, applyVariantToSections, variantLabel, variantTitle, variantsConflict, combineVariants,
 } from './lib.js';
@@ -163,7 +163,7 @@ function buildFilters() {
       ]
     : [
         { key: 'category', label: 'Course', values: present(data.vocab.category, (r) => r.category), labelFor: cap },
-        { key: 'protein', label: 'Protein', values: present(data.vocab.protein, (r) => r.protein), labelFor: (v) => data.meta.protein[v]?.label || cap(v) },
+        { key: 'protein', label: 'Protein', values: proteinChipValues(kindRecipes, data.vocab.protein, data.proteinGroups || {}), labelFor: (v) => data.meta.protein[v]?.label || cap(v) },
         { key: 'course', label: 'Dish', values: present(data.vocab.course, (r) => r.course).filter((c) => !['main', 'side', 'dessert'].includes(c)), labelFor: cap },
         { key: 'methods', label: 'Method', values: present(data.vocab.methods, (r) => r.methods), labelFor: (v) => data.meta.method[v]?.label || cap(v) },
         { key: 'time', label: 'Time', values: data.timeBuckets.map((b) => b.key), labelFor: (k) => data.timeBuckets.find((b) => b.key === k).label },
@@ -289,6 +289,7 @@ function clearFilters() {
 function apply() {
   const ctx = {
     q: state.q, filters: state.filters, cuisineGroups: state.data.cuisineGroups || {},
+    proteinGroups: state.data.proteinGroups || {},
     timeBuckets: state.data.timeBuckets || [], planVerdicts: state.planVerdicts,
   };
   state.filtered = state.all.filter((r) => (r.kind || 'food') === state.kind && recipeMatches(r, ctx));

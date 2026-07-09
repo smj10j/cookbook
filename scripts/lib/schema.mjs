@@ -53,7 +53,7 @@ export const PROTEIN_META = {
   beef: { label: 'Beef', color: 'accent' },
   chicken: { label: 'Chicken', color: 'accent' },
   fish: { label: 'Fish', color: 'ink' },
-  seafood: { label: 'Seafood', color: 'ink' },
+  seafood: { label: 'Shellfish', color: 'ink' },
   vegetarian: { label: 'Vegetarian', color: 'olive' },
   vegan: { label: 'Vegan', color: 'olive' },
   pork: { label: 'Pork', color: 'accent' },
@@ -108,6 +108,14 @@ export const STRENGTH_META = {
   sessionable: { label: 'Sessionable' },
   medium: { label: 'Balanced' },
   'spirit-forward': { label: 'Spirit-Forward' },
+};
+
+// Protein umbrella groups. Selecting the umbrella (e.g. "Seafood") matches any member
+// protein, while each specific protein stays available as its own filter. Fish (finfish
+// like salmon/cod) and shellfish/mixed (labeled "Shellfish") are distinct lanes, but a
+// reader thinking "seafood" wants both — the umbrella gives them one chip that catches all.
+export const PROTEIN_GROUPS = {
+  Seafood: ['fish', 'seafood'],
 };
 
 // Cuisine umbrella groups. Selecting the umbrella (e.g. "Asian") matches any member

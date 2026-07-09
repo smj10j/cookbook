@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { readAllRecipes } from './lib/parse.mjs';
 import {
-  validateRecipe, applyPlanSwaps, VOCAB, PROTEIN_META, METHOD_META, TIME_BUCKETS, CUISINE_GROUPS,
+  validateRecipe, applyPlanSwaps, VOCAB, PROTEIN_META, METHOD_META, TIME_BUCKETS, CUISINE_GROUPS, PROTEIN_GROUPS,
   BASE_META, FAMILY_META, STRENGTH_META,
 } from './lib/schema.mjs';
 import { recipeStubHtml, ogImageUrl } from './lib/stub.mjs';
@@ -119,6 +119,7 @@ const payload = {
   meta: { protein: PROTEIN_META, method: METHOD_META, base: BASE_META, family: FAMILY_META, strength: STRENGTH_META },
   timeBuckets: TIME_BUCKETS,
   cuisineGroups: CUISINE_GROUPS,
+  proteinGroups: PROTEIN_GROUPS,
   facets: { cuisines, tags: allTags },
   // `_file` and `photo` are build-time-only (source path, photo-pipeline hint) — keep them out of the client feed.
   recipes: recipes.map(({ _file, photo, ...r }) => r),
