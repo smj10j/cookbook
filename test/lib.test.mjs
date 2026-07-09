@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
   parseQty, fmtQty, scaleDisplay, classify, normalizeIngredient, buildShoppingList, formatShoppingList, isOptional,
-  clampServes, bucketMatch, recipeMatches, cuisineChipValues, shopSectionsForRecipe, inlineMd, esc,
+  clampServes, bucketMatch, recipeMatches, cuisineChipValues, proteinChipValues, shopSectionsForRecipe, inlineMd, esc,
   parseHash, hashForKind,
   pctOfDV, nutritionRows, hasNutrition, nutritionPanelHtml, NUTRIENT_DISPLAY,
   EATING_PLANS, planTier, evaluatePlan, evaluatePlans, planReasons, nutrientFlags, buildPlanVerdicts,
@@ -174,6 +174,36 @@ test('Asian cuisine umbrella matches member cuisines', () => {
   const matched = data.recipes.filter((r) => recipeMatches(r, ctx)).map((r) => r.cuisine);
   assert.ok(matched.length > 1);
   assert.ok(matched.every((c) => data.cuisineGroups.Asian.includes(c)));
+});
+
+test('Seafood protein umbrella matches both fish and shellfish', () => {
+  const filters = { category: new Set(), protein: new Set(['Seafood']), course: new Set(), methods: new Set(), heat: new Set(), cuisine: new Set(), time: new Set() };
+  const ctx = { q: '', filters, cuisineGroups: data.cuisineGroups, proteinGroups: data.proteinGroups, timeBuckets: data.timeBuckets };
+  const matched = data.recipes.filter((r) => (r.kind || 'food') === 'food' && recipeMatches(r, ctx)).map((r) => r.protein);
+  assert.ok(matched.length > 1, 'umbrella should match several recipes');
+  // every match is a member protein, and BOTH member lanes are actually represented
+  assert.ok(matched.every((p) => data.proteinGroups.Seafood.includes(p)));
+  assert.ok(matched.includes('fish'), 'Seafood umbrella must include fish (salmon, cod, …)');
+  assert.ok(matched.includes('seafood'), 'Seafood umbrella must include shellfish/mixed');
+});
+
+test('specific fish/seafood protein filters stay narrow under the umbrella', () => {
+  const base = { category: new Set(), course: new Set(), methods: new Set(), heat: new Set(), cuisine: new Set(), time: new Set() };
+  const ctx = (protein) => ({ q: '', filters: { ...base, protein: new Set([protein]) }, proteinGroups: data.proteinGroups, timeBuckets: data.timeBuckets });
+  const fishOnly = data.recipes.filter((r) => recipeMatches(r, ctx('fish'))).map((r) => r.protein);
+  assert.ok(fishOnly.length > 0 && fishOnly.every((p) => p === 'fish'), 'Fish chip = finfish only');
+  const shellOnly = data.recipes.filter((r) => recipeMatches(r, ctx('seafood'))).map((r) => r.protein);
+  assert.ok(shellOnly.length > 0 && shellOnly.every((p) => p === 'seafood'), 'Shellfish chip = shellfish only');
+});
+
+test('proteinChipValues lists the umbrella first, then present specifics in vocab order', () => {
+  const recipes = [{ protein: 'chicken' }, { protein: 'fish' }, { protein: 'seafood' }, { protein: 'beef' }];
+  const chips = proteinChipValues(recipes, data.vocab.protein, data.proteinGroups);
+  assert.equal(chips[0], 'Seafood', 'umbrella leads');
+  assert.deepEqual(chips, ['Seafood', 'beef', 'chicken', 'fish', 'seafood']);
+  // umbrella is suppressed when no member protein is present
+  const noSea = proteinChipValues([{ protein: 'beef' }, { protein: 'chicken' }], data.vocab.protein, data.proteinGroups);
+  assert.ok(!noSea.includes('Seafood'));
 });
 
 test('inlineMd italicizes and escapes', () => {

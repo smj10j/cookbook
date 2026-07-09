@@ -289,7 +289,7 @@ export function bucketMatch(total, bucket) {
 // plus `plan` — a Map of plan id -> 'ok' (great + okay) | 'great' (great fits only).
 // Plan selections AND together ("kidney AND heart friendly"), unlike the OR-within-
 // group behavior of the other facets — that's the useful health question.
-export function recipeMatches(r, { q, filters, cuisineGroups = {}, timeBuckets = [], planVerdicts = null }) {
+export function recipeMatches(r, { q, filters, cuisineGroups = {}, proteinGroups = {}, timeBuckets = [], planVerdicts = null }) {
   if (filters.plan?.size) {
     for (const [id, mode] of filters.plan) {
       const v = planVerdicts?.get(r.slug)?.[id];
@@ -298,7 +298,10 @@ export function recipeMatches(r, { q, filters, cuisineGroups = {}, timeBuckets =
   }
   // Food facets
   if (filters.category?.size && !filters.category.has(r.category)) return false;
-  if (filters.protein?.size && !filters.protein.has(r.protein)) return false;
+  if (filters.protein?.size) {
+    const ok = filters.protein.has(r.protein) || [...filters.protein].some((s) => proteinGroups[s]?.includes(r.protein));
+    if (!ok) return false;
+  }
   if (filters.course?.size && !filters.course.has(r.course)) return false;
   if (filters.cuisine?.size) {
     const ok = filters.cuisine.has(r.cuisine) || [...filters.cuisine].some((s) => cuisineGroups[s]?.includes(r.cuisine));
@@ -820,4 +823,13 @@ export function cuisineChipValues(recipes, cuisineGroups = {}) {
   const present = new Set(recipes.map((r) => r.cuisine));
   const groupKeys = Object.keys(cuisineGroups).filter((g) => cuisineGroups[g].some((c) => present.has(c)));
   return [...groupKeys, ...[...present].filter((c) => !groupKeys.includes(c)).sort()];
+}
+
+// Protein chips: umbrella groups (e.g. "Seafood") first, then the specific proteins in
+// their vocab order. An umbrella only appears when ≥1 member protein is actually present,
+// and a member protein isn't dropped just because its umbrella shows — both are offered.
+export function proteinChipValues(recipes, vocabOrder = [], proteinGroups = {}) {
+  const present = new Set(recipes.map((r) => r.protein));
+  const groupKeys = Object.keys(proteinGroups).filter((g) => proteinGroups[g].some((p) => present.has(p)));
+  return [...groupKeys, ...vocabOrder.filter((p) => present.has(p) && !groupKeys.includes(p))];
 }
