@@ -254,11 +254,24 @@ export function buildShoppingList(entries) {
 // Format the shopping list for the clipboard.
 //   'dash'     -> "- item"          (universal: plaintext / RTF / markdown)
 //   'checkbox' -> "- [ ] item"      (markdown task list)
+//   'plain'    -> "item"            (no bullets — one reminder/line per item, for
+//                                     handoff to Shortcuts or the share sheet)
 export function formatShoppingList({ lines, optional }, format = 'dash') {
+  if (format === 'plain') return [...lines, ...optional.map((l) => `${l} (optional)`)].join('\n');
   const bullet = format === 'checkbox' ? '- [ ] ' : '- ';
   const out = lines.map((l) => bullet + l);
   if (optional.length) out.push('', 'Optional:', ...optional.map((l) => bullet + l));
   return out.join('\n');
+}
+
+// Detects iOS/iPadOS Safari — the only platform with the `shortcuts://` deep link
+// used to hand the shopping list to Apple Reminders. iPadOS Safari reports its
+// platform as 'MacIntel', so a touch-capable "Mac" is treated as an iPad.
+export function isIOSSafari(nav) {
+  if (!nav) return false;
+  const ua = nav.userAgent || '';
+  if (/iPad|iPhone|iPod/.test(ua)) return true;
+  return nav.platform === 'MacIntel' && nav.maxTouchPoints > 1;
 }
 
 // Per-recipe scaled shopping rows (pure; used by the overlay and by tests).
