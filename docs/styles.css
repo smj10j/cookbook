@@ -772,6 +772,11 @@ body.has-cart .reader-share { right: 114px; }   /* make room for the cart betwee
 .reminders-help-panel p { font-size: 13.5px; line-height: 1.55; color: #3b342e; margin: 0 0 12px; }
 .reminders-help-panel ol { margin: 0 0 12px; padding-left: 20px; font-size: 13.5px; line-height: 1.65; }
 .reminders-help-panel .shoplist-close { position: absolute; top: 14px; right: 14px; }
+.reminders-help-shot { margin: 0 0 14px; }
+.reminders-help-shot img {
+  display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 6px;
+}
+.reminders-help-shot figcaption { font-size: 12px; line-height: 1.5; color: #6b615a; margin-top: 8px; }
 
 /* ░░ RESPONSIVE ░░ */
 @media (max-width: 720px) {
