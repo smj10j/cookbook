@@ -141,6 +141,12 @@
         </div>
         <span class="copied-msg" id="shop-copied" hidden>Copied ✓</span>
       </div>
+      <!-- iOS/iPadOS Safari only (shown via JS): send checked items straight into Apple Reminders. -->
+      <div class="ios-reminders" id="ios-reminders" hidden>
+        <button class="copy-btn secondary" id="shop-reminders" type="button" title="Send checked items to your Groceries list in Reminders (needs a one-time Shortcut — tap ⓘ)">Add to Reminders</button>
+        <button class="link-btn" id="shop-share" type="button" title="Open the iOS share sheet with the checked items">Share…</button>
+        <button class="help-btn" id="shop-reminders-help" type="button" aria-label="How Add to Reminders works" title="One-time setup">ⓘ</button>
+      </div>
       <p class="shoplist-note">
         Quantities scale to your serving count and <strong>identical ingredients merge</strong> across
         recipes (garlic by the bulb, citrus by the fruit, bitters by the bottle).<br>
@@ -153,6 +159,27 @@
         <button class="link-btn" id="shop-clear" type="button">Clear selection</button>
         <span class="shoplist-summary" id="shop-summary"></span>
       </footer>
+    </div>
+  </div>
+
+  <div class="reminders-help" id="reminders-help" hidden aria-modal="true" role="dialog" aria-label="Set up Add to Reminders">
+    <div class="reminders-help-panel">
+      <button class="shoplist-close" id="reminders-help-close" aria-label="Close">✕</button>
+      <h3>Add to Reminders — one-time setup</h3>
+      <p>
+        <strong>Add to Reminders</strong> hands checked items to a Shortcut, which drops each one into
+        your <strong>Groceries</strong> list as its own reminder. Takes about a minute, once:
+      </p>
+      <ol>
+        <li>Open the <strong>Shortcuts</strong> app → tap <strong>+</strong> for a new shortcut.</li>
+        <li>Add action <strong>Split Text</strong> → input <em>Shortcut Input</em>, separator <em>New Lines</em>.</li>
+        <li>Add action <strong>Add New Reminders</strong> → reminders: the Split Text result → list: <strong>Groceries</strong>.</li>
+        <li>Tap the shortcut's settings (⋯), rename it exactly <strong>"Add to Groceries"</strong>, then <strong>Done</strong>.</li>
+      </ol>
+      <p>
+        Don't want to set that up? Tap <strong>Share…</strong> instead — same list, no setup, but Reminders
+        will file it as one reminder with everything in its notes rather than separate checkable items.
+      </p>
     </div>
   </div>
 

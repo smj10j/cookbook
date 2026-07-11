@@ -7,7 +7,7 @@ import { dirname, join } from 'node:path';
 import {
   parseQty, fmtQty, scaleDisplay, classify, normalizeIngredient, buildShoppingList, formatShoppingList, isOptional,
   clampServes, bucketMatch, recipeMatches, cuisineChipValues, proteinChipValues, shopSectionsForRecipe, inlineMd, esc,
-  parseHash, hashForKind,
+  parseHash, hashForKind, isIOSSafari,
   pctOfDV, nutritionRows, hasNutrition, nutritionPanelHtml, NUTRIENT_DISPLAY,
   EATING_PLANS, planTier, evaluatePlan, evaluatePlans, planReasons, nutrientFlags, buildPlanVerdicts,
   recipeVariants, applyVariantToSections, variantLabel, variantTitle, variantsConflict, combineVariants, planSetKey,
@@ -153,6 +153,26 @@ test('optional items get their own section; copy format toggles', () => {
   assert.ok(dash.startsWith('- 1 bulb garlic'));
   assert.ok(/\nOptional:\n- garlic powder/.test(dash));                                               // #4 section placement
   assert.ok(formatShoppingList(res, 'checkbox').includes('- [ ] 1 bulb garlic'));                     // #5 checklist format
+});
+
+test('shopping list "plain" format has no bullets (one line per reminder/share item)', () => {
+  const res = buildShoppingList([
+    { qty: 2, rest: 'cloves garlic' },
+    { qty: null, rest: 'Optional: fresh rosemary sprigs' },
+  ]);
+  const plain = formatShoppingList(res, 'plain');
+  assert.equal(plain, '1 bulb garlic (≈2 cloves)\nfresh rosemary sprigs (optional)');
+});
+
+test('isIOSSafari detects iPhone/iPad UAs and touch-capable "MacIntel" (iPadOS), not desktop/other', () => {
+  assert.equal(isIOSSafari({ userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15' }), true);
+  assert.equal(isIOSSafari({ userAgent: 'Mozilla/5.0 (iPad; CPU OS 17_5 like Mac OS X) AppleWebKit/605.1.15' }), true);
+  // iPadOS Safari reports platform 'MacIntel' but is touch-capable, unlike a real Mac.
+  assert.equal(isIOSSafari({ userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15', platform: 'MacIntel', maxTouchPoints: 5 }), true);
+  assert.equal(isIOSSafari({ userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15', platform: 'MacIntel', maxTouchPoints: 0 }), false);
+  assert.equal(isIOSSafari({ userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' }), false);
+  assert.equal(isIOSSafari({ userAgent: 'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36' }), false);
+  assert.equal(isIOSSafari(undefined), false);
 });
 
 test('filtering: bucketMatch + recipeMatches', () => {

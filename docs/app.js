@@ -8,7 +8,12 @@ import {
   buildShoppingList, formatShoppingList, recipeMatches, cuisineChipValues, proteinChipValues, shopSectionsForRecipe,
   hashForKind, parseHash, nutritionPanelHtml, EATING_PLANS, buildPlanVerdicts,
   recipeVariants, applyVariantToSections, variantLabel, variantTitle, variantsConflict, combineVariants,
+  isIOSSafari,
 } from './lib.js';
+
+// Must exactly match the name of the Shortcut Stephen creates in the Shortcuts app
+// (see the in-app setup panel) — shortcuts:// looks shortcuts up by name.
+const REMINDERS_SHORTCUT_NAME = 'Add to Groceries';
 
 const PLAN_BY_ID = Object.fromEntries(EATING_PLANS.map((p) => [p.id, p]));
 
@@ -227,6 +232,12 @@ function bindEvents() {
   $('#shoplist').addEventListener('click', (e) => { if (e.target === $('#shoplist')) closeShopList(); });
   $('#shop-serves').addEventListener('input', updateQuantities);
   $('#shop-copy').addEventListener('click', copyShoppingList);
+  if (isIOSSafari(navigator)) $('#ios-reminders').hidden = false;
+  $('#shop-reminders').addEventListener('click', sendToReminders);
+  $('#shop-share').addEventListener('click', shareShoppingList);
+  $('#shop-reminders-help').addEventListener('click', () => toggleRemindersHelp(true));
+  $('#reminders-help-close').addEventListener('click', () => toggleRemindersHelp(false));
+  $('#reminders-help').addEventListener('click', (e) => { if (e.target === $('#reminders-help')) toggleRemindersHelp(false); });
   $('#shop-clear').addEventListener('click', clearSelection);
   $('#format-toggle').addEventListener('click', (e) => {
     const b = e.target.closest('.fmt-btn');
@@ -774,20 +785,56 @@ function updateSummary() {
     `${recipes} recipe${recipes !== 1 ? 's' : ''} · ${checked} item${checked !== 1 ? 's' : ''} checked`;
 }
 
-function copyShoppingList() {
+// Scaled { qty, rest } entries for every checked shopping-list row, or null if
+// nothing's checked — shared by the clipboard, Reminders, and Share actions.
+function checkedEntries() {
   const checks = [...document.querySelectorAll('.shoplist-body input[type=checkbox]:checked')];
-  if (!checks.length) { flashCopied('Nothing checked'); return; }
+  if (!checks.length) return null;
   const target = clampServes($('#shop-serves').value) || 2;
-  const entries = checks.map((cb) => {
+  return checks.map((cb) => {
     const item = state.shop.items[+cb.dataset.idx];
     const qty = item.qty != null ? item.qty * (target / (item.serves || target)) : null;
     return { qty, rest: item.rest };
   });
+}
+
+function copyShoppingList() {
+  const entries = checkedEntries();
+  if (!entries) { flashCopied('Nothing checked'); return; }
   const text = formatShoppingList(buildShoppingList(entries), state.copyFormat);
   const done = (msg) => flashCopied(msg);
   if (navigator.clipboard?.writeText) {
     navigator.clipboard.writeText(text).then(() => done('Copied ✓')).catch(() => fallbackCopy(text, done));
   } else fallbackCopy(text, done);
+}
+
+// Hands checked items to a Shortcut (installed once by Stephen) that adds each
+// one as its own reminder in the Groceries list. There's no web API into
+// Reminders — shortcuts:// is Apple's sanctioned bridge for this.
+function sendToReminders() {
+  const entries = checkedEntries();
+  if (!entries) { flashCopied('Nothing checked'); return; }
+  const text = formatShoppingList(buildShoppingList(entries), 'plain');
+  const url = `shortcuts://run-shortcut?name=${encodeURIComponent(REMINDERS_SHORTCUT_NAME)}&input=text&text=${encodeURIComponent(text)}`;
+  flashCopied('Opening Shortcuts…');
+  location.assign(url);
+}
+
+// No-setup fallback: hands the list to the iOS share sheet. Reminders will file
+// it as a single reminder with the items in its notes, not separate checkable
+// items — that's the tradeoff for skipping the Shortcut setup.
+function shareShoppingList() {
+  const entries = checkedEntries();
+  if (!entries) { flashCopied('Nothing checked'); return; }
+  const text = formatShoppingList(buildShoppingList(entries), 'plain');
+  if (navigator.share) { navigator.share({ title: 'Grocery list', text }).catch(() => {}); return; }
+  const done = (msg) => flashCopied(msg);
+  if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(() => done('Copied ✓')).catch(() => fallbackCopy(text, done));
+  else fallbackCopy(text, done);
+}
+
+function toggleRemindersHelp(show) {
+  $('#reminders-help').hidden = !show;
 }
 
 function fallbackCopy(text, done) {

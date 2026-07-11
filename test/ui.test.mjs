@@ -21,7 +21,22 @@ async function boot(url = 'https://example.com/') {
   set('document', window.document);
   set('localStorage', window.localStorage);
   set('history', window.history);
-  set('location', window.location);
+  // jsdom's Location.assign is a non-configurable, non-writable own property, so
+  // it can't be shadowed via defineProperty or a Proxy get-trap (both violate the
+  // proxy invariant for that kind of property) — and real navigation is
+  // unimplemented in jsdom anyway. Stand in a plain object instead: reads for the
+  // bits app.js actually uses forward live to the real location, and assign() is
+  // captured rather than navigating.
+  let navigatedTo = null;
+  const realLoc = window.location;
+  set('location', {
+    get hash() { return realLoc.hash; },
+    get pathname() { return realLoc.pathname; },
+    get search() { return realLoc.search; },
+    get origin() { return realLoc.origin; },
+    get href() { return realLoc.href; },
+    assign: (u) => { navigatedTo = u; },
+  });
   set('CSS', window.CSS && window.CSS.escape ? window.CSS : { escape: (s) => String(s) });
   set('matchMedia', () => ({ matches: false }));
   window.matchMedia = globalThis.matchMedia;
@@ -40,7 +55,7 @@ async function boot(url = 'https://example.com/') {
   await app.init();
   const $ = (s) => window.document.querySelector(s);
   const $$ = (s) => [...window.document.querySelectorAll(s)];
-  return { window, doc: window.document, app, $, $$, getCopied: () => copied };
+  return { window, doc: window.document, app, $, $$, getCopied: () => copied, getNavigated: () => navigatedTo };
 }
 
 const foodRecipes = recipes.recipes.filter((r) => (r.kind || 'food') === 'food');
@@ -209,6 +224,58 @@ test('copy: checklist format toggle produces "- [ ]" lines', async () => {
   await Promise.resolve();
   const text = getCopied();
   assert.ok(text.split('\n').some((l) => l.startsWith('- [ ] ')), 'checklist lines present');
+});
+
+test('iOS "Add to Reminders" controls stay hidden on a non-iOS UA (no clutter for other users)', async () => {
+  const { $ } = await boot();
+  assert.equal($('#ios-reminders').hidden, true, 'reminders row hidden by default test/Node UA');
+});
+
+test('Add to Reminders sends checked items to the Shortcut via shortcuts:// deep link', async () => {
+  const { $, $$, getNavigated } = await boot();
+  $$('.card-select').find((b) => b.dataset.select === 'blackened-steak-salad').click();
+  $('#shopbar').click();
+  $('#ios-reminders').hidden = false;   // simulate iOS — visibility itself is covered by the UA test above
+  $('#shop-reminders').click();
+  const url = getNavigated();
+  assert.ok(url && url.startsWith('shortcuts://run-shortcut?'), 'navigates to a shortcuts:// deep link');
+  assert.ok(url.includes(encodeURIComponent('Add to Groceries')), 'names the exact Shortcut to run');
+  assert.ok(/[?&]input=text/.test(url), 'passes the list as text input');
+  const text = decodeURIComponent(url.split('text=')[1]);
+  assert.ok(!text.includes('- '), 'plain format has no bullets — one line per reminder');
+  assert.ok(/sirloin/i.test(text), 'includes a checked ingredient');
+});
+
+test('Add to Reminders flashes "Nothing checked" instead of navigating when nothing is checked', async () => {
+  const { $, $$, getNavigated } = await boot();
+  $$('.card-select').find((b) => b.dataset.select === 'blackened-steak-salad').click();
+  $('#shopbar').click();
+  $$('.shop-item input[type=checkbox]').forEach((cb) => { if (cb.checked) cb.click(); });
+  $('#ios-reminders').hidden = false;
+  $('#shop-reminders').click();
+  assert.equal(getNavigated(), null, 'no navigation when nothing is checked');
+  assert.equal($('#shop-copied').textContent, 'Nothing checked');
+});
+
+test('Share… falls back to clipboard copy when the Web Share API is unavailable', async () => {
+  const { $, $$, getCopied } = await boot();
+  $$('.card-select').find((b) => b.dataset.select === 'blackened-steak-salad').click();
+  $('#shopbar').click();
+  $('#ios-reminders').hidden = false;
+  $('#shop-share').click();
+  await Promise.resolve();
+  const text = getCopied();
+  assert.ok(text && /sirloin/i.test(text), 'shared/copied text includes a checked ingredient');
+  assert.ok(!text.includes('- '), 'plain format has no bullets');
+});
+
+test('Add to Reminders help panel opens and closes', async () => {
+  const { $ } = await boot();
+  assert.equal($('#reminders-help').hidden, true);
+  $('#shop-reminders-help').click();
+  assert.equal($('#reminders-help').hidden, false);
+  $('#reminders-help-close').click();
+  assert.equal($('#reminders-help').hidden, true);
 });
 
 test('reader Share button copies the /r/<slug>/ preview link', async () => {
