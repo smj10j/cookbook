@@ -11,6 +11,7 @@ import {
   BASE_META, FAMILY_META, STRENGTH_META,
 } from './lib/schema.mjs';
 import { recipeStubHtml, ogImageUrl } from './lib/stub.mjs';
+import { themeCss } from './lib/theme.mjs';
 import { loadDb, buildIndex, recipeNutrition } from './lib/nutrition.mjs';
 import { resolveSwapCollisions } from '../docs/lib.js';
 
@@ -128,6 +129,10 @@ const payload = {
 mkdirSync(dirname(outFile), { recursive: true });
 writeFileSync(outFile, JSON.stringify(payload, null, 2) + '\n');
 console.log(`✓ Built ${recipes.length} recipes -> docs/recipes.json`);
+
+// Generate the palette stylesheet from the single-source-of-truth token file.
+writeFileSync(join(root, 'docs', 'theme.css'), themeCss());
+console.log('✓ Wrote palette -> docs/theme.css');
 
 // Per-recipe share pages (/r/<slug>/) carrying Open Graph link-preview tags.
 const rDir = join(root, 'docs', 'r');
