@@ -83,6 +83,22 @@ generate AI food photography for every recipe that's missing one:
 
 See `scripts/generate-photos.mjs` for options (`--only <slug>`, `--force`).
 
+## Site icon (AI-generated favicon + home-screen app icon)
+
+The favicon and the icon used when someone adds the site to their phone's home screen come
+from one AI-generated master image, described in **`branding/icon-brief.md`** (plain
+English — edit it to change the design). To regenerate:
+
+1. Put an OpenAI key in `.env` (see above) — same key the photo pipeline uses.
+2. Run `npm run icon`. It only calls the image API if `icon-brief.md` changed since the
+   last run (tracked in `branding/icon.meta.json`); use `npm run icon -- --force` to
+   regenerate anyway. Needs ImageMagick installed to derive the favicon/app-icon sizes.
+3. Commit the regenerated files under `docs/icons/`, `docs/favicon.ico`,
+   `docs/site.webmanifest`, and `branding/icon.meta.json`.
+
+CI does this automatically too — an `icon` job (mirroring the photos job above) fires only
+when `icon-brief.md` changes and opens a PR with the new icon for review.
+
 ## Local development
 
 ```bash

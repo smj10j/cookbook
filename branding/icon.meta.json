@@ -1,0 +1,7 @@
+{
+  "hash": "4fed862a351435ba9f65e90c079091cf86e83f73ee78b6c3b3f3dcab0226b035",
+  "model": "imagemagick-placeholder",
+  "size": "1024x1024",
+  "generatedAt": "2026-07-19T18:52:56.205Z",
+  "note": "Bootstrap placeholder drawn with ImageMagick (no OPENAI_API_KEY available at authoring time). Run npm run icon -- --force once a key is configured to replace it with the AI-generated version described in icon-brief.md."
+}
