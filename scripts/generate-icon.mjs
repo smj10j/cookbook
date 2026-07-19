@@ -29,13 +29,18 @@ const iconsDir = join(root, 'docs', 'icons');
 
 const force = process.argv.includes('--force');
 
+const MODEL = 'gpt-image-1';
+
 // ── brief + change detection ──
 const brief = readFileSync(briefPath, 'utf8');
 const hash = createHash('sha256').update(brief).digest('hex');
 const meta = existsSync(metaPath) ? JSON.parse(readFileSync(metaPath, 'utf8')) : null;
 const masterPath = join(iconsDir, 'icon-master.png');
 
-if (!force && meta?.hash === hash && existsSync(masterPath)) {
+// meta.model must also match the real image model — a placeholder or hand-authored
+// meta.json (e.g. bootstrapped without an API key) must never be mistaken for a real
+// generation just because its hash happens to match the current brief.
+if (!force && meta?.hash === hash && meta?.model === MODEL && existsSync(masterPath)) {
   console.log('✓ Icon brief unchanged — skipping (use `npm run icon -- --force` to regenerate anyway).');
   process.exit(0);
 }
@@ -63,7 +68,6 @@ if (!IM) {
   process.exit(1);
 }
 
-const MODEL = 'gpt-image-1';
 const SIZE = '1024x1024';
 
 async function generateMaster() {
