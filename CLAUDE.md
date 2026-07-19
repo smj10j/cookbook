@@ -18,6 +18,12 @@ docs/                 The published static site (GitHub Pages serves from here)
   images/             Recipe photos (<slug>.webp)
   og/                 JPEG link-preview images (<slug>.jpg) — run `npm run og` to (re)make
   r/<slug>/           GENERATED share pages with Open Graph preview tags (do not hand-edit)
+  icons/              GENERATED favicon + home-screen app icon set — do not hand-edit; see branding/
+  favicon.ico          GENERATED multi-res favicon — do not hand-edit
+  site.webmanifest    GENERATED PWA/home-screen manifest — do not hand-edit
+branding/
+  icon-brief.md       SOURCE OF TRUTH for the site icon — plain-English brief; edit this, then `npm run icon`
+  icon.meta.json      GENERATED — hash of the brief + generation params, used to skip no-op regenerations
 data/
   nutrition.json      HAND-MAINTAINED ingredient nutrition DB (per smallest unit) — the add-* skills grow it
 scripts/
@@ -25,6 +31,7 @@ scripts/
   validate.mjs        Lint recipes against the schema
   nutrition-report.mjs `npm run nutrition` — coverage report; lists ingredients missing from the DB
   generate-photos.mjs AI photo pipeline (needs an image-gen API key; see README)
+  generate-icon.mjs   AI site-icon pipeline — regenerates docs/icons/ + favicon.ico only when branding/icon-brief.md changes
   lib/theme.mjs       SINGLE SOURCE OF TRUTH for the color palette — build renders it to docs/theme.css + the share stubs
   lib/schema.mjs      Controlled vocabularies + validation rules (the contract)
   lib/parse.mjs       Frontmatter parser
@@ -418,6 +425,36 @@ tempts the model to draw the plank), add a one-line **`photo:`** frontmatter hin
 describing the correct plating — it's fed verbatim to the pipeline and never shown on the
 site. Keep it short and concrete: what's on the plate, how the protein is cut, what to
 exclude. After (re)generating, **open the image and check it** against these two rules.
+
+## Site icon (favicon + home-screen app icon)
+
+The browser favicon and the icon shown when someone adds the site to their phone's home
+screen (iOS "Add to Home Screen", Android/PWA install) come from **one AI-generated square
+master image**, resized down into the whole set. Unlike recipe photos, this asset changes
+rarely — there's no per-recipe variation — so it's driven by a single hand-maintained brief
+instead of build-time frontmatter:
+
+- **`branding/icon-brief.md`** is the source of truth: a plain-English description of what
+  the icon should look like (style, colors, motif), the same spirit as a recipe's `photo:`
+  hint. Edit it directly to change the icon's design.
+- **`npm run icon`** (`scripts/generate-icon.mjs`, needs an image-gen API key and
+  ImageMagick) hashes the brief and compares it to the hash recorded in
+  **`branding/icon.meta.json`** — if unchanged, it's a no-op. Only an edited brief (or
+  `npm run icon -- --force`) triggers a real regeneration, so routine builds never re-hit
+  the image API for an asset that changes "infrequently."
+- On a real regeneration it calls the image API for one 1024×1024 master
+  (`docs/icons/icon-master.png`, committed — the analog of a recipe's hero image), then
+  uses ImageMagick to derive `docs/favicon.ico` plus the PNGs in `docs/icons/`
+  (16/32/48 favicons, the 180×180 iOS apple-touch-icon, and the 192/512 sizes
+  `docs/site.webmanifest` points at for Android/PWA installs). All of these are generated
+  files — do not hand-edit them, edit the brief and regenerate instead.
+- `docs/index.html`'s `<link rel="icon">` / `<link rel="apple-touch-icon">` /
+  `<link rel="manifest">` tags point at these stable filenames and don't need to change
+  when the icon itself is regenerated.
+- CI mirrors the photo pipeline: a cheap `icon-check` job compares the brief's hash to
+  `branding/icon.meta.json` and only runs the expensive `icon` job (which calls the image
+  API) when they differ, opening a PR with the new assets for you to review and merge
+  (same reasoning as `photos` — it can't push straight to protected `main`).
 
 ## Adding a recipe or drink
 

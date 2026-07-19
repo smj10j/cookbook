@@ -1,0 +1,7 @@
+{
+  "hash": "22c3261c4526dd895b46989245f3abd1a51e3ef4454054c59d525357968c67b3",
+  "model": "imagemagick-placeholder",
+  "size": "1024x1024",
+  "generatedAt": "2026-07-19T19:03:10.959Z",
+  "note": "Bootstrap placeholder (an ampersand glyph standing in for the fork+pasta-twirl mark) drawn with ImageMagick — no OPENAI_API_KEY available at authoring time. Run npm run icon -- --force once a key is configured to replace it with the real AI-generated fork/pasta/ampersand mashup described in icon-brief.md."
+}

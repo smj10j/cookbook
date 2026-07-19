@@ -7,6 +7,11 @@ name: Build, test & deploy
 # A separate `photos` job generates AI photos for any recipe missing one and opens a PR
 # with them (it cannot push to protected `main` directly — the ruleset requires a PR you
 # approve). Merging that PR triggers a fresh deploy that attaches the new heroes.
+#
+# An `icon` job does the same for the site favicon / home-screen app icon: it only runs
+# when branding/icon-brief.md's content hash no longer matches the one recorded in
+# branding/icon.meta.json (i.e. someone edited the brief), so it changes infrequently and
+# costs nothing on ordinary pushes.
 
 on:
   push:
@@ -172,5 +177,94 @@ jobs:
               echo "**[→ Open a PR to publish them]($url)**"
               echo ""
               echo "Approve + merge and the next deploy attaches them as recipe heroes."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  # Cheap pre-flight for the site icon: does branding/icon-brief.md's current hash still
+  # match the one recorded in branding/icon.meta.json? If so nothing changed and the
+  # (expensive, API-calling) `icon` job below is skipped entirely.
+  icon-check:
+    runs-on: ubuntu-latest
+    outputs:
+      work: ${{ steps.check.outputs.work }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: check
+        run: |
+          current=$(sha256sum branding/icon-brief.md | cut -d' ' -f1)
+          recorded=$(node -pe 'JSON.parse(require("fs").readFileSync("branding/icon.meta.json","utf8")).hash' 2>/dev/null || echo "")
+          work=true
+          [ "$current" = "$recorded" ] && work=false
+          echo "Icon regeneration needed: $work"
+          echo "work=$work" >> "$GITHUB_OUTPUT"
+
+  # Regenerate the site icon (favicon + home-screen app icon set) only when the brief in
+  # branding/icon-brief.md changed, push it to a branch, and open a PR — same pattern as
+  # the `photos` job above (can't push straight to protected `main`). Merging that PR
+  # triggers a fresh deploy that ships the new icon.
+  icon:
+    needs: icon-check
+    if: needs.icon-check.outputs.work == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+
+      - name: Install ImageMagick (derives favicon/app-icon sizes from the AI master image)
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+      - name: Regenerate the site icon from branding/icon-brief.md
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node scripts/generate-icon.mjs
+
+      - name: Push a branch + open a PR with the new icon
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(git status --porcelain docs/icons docs/favicon.ico docs/site.webmanifest branding/icon.meta.json)" ]; then
+            echo "No icon changes — nothing to do." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          branch="ci/icon-${{ github.run_id }}"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add docs/icons docs/favicon.ico docs/site.webmanifest branding/icon.meta.json
+          git commit -m "Regenerate site icon from branding/icon-brief.md"
+          git push origin "$branch"
+
+          title="🎨 Regenerate site icon from branding/icon-brief.md"
+          body=$'CI regenerated the favicon + home-screen app icon set because branding/icon-brief.md changed.\n\nReview the new icons, then approve + merge — the next deploy ships them.\n\n_Opened automatically by the `icon` job._'
+
+          if pr_url=$(gh pr create --base main --head "$branch" --title "$title" --body "$body" 2>pr_err); then
+            {
+              echo "### 🎨 New site icon — PR opened"
+              echo ""
+              echo "**[→ Review the PR]($pr_url)**"
+              echo ""
+              echo "Approve + merge and the next deploy ships the new icon."
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning::Could not auto-create the PR (is 'Allow GitHub Actions to create and approve pull requests' enabled?). Falling back to a compare link."
+            cat pr_err
+            url="${{ github.server_url }}/${{ github.repository }}/compare/main...$branch?expand=1"
+            {
+              echo "### 🎨 New site icon ready for review"
+              echo ""
+              echo "CI regenerated the icon on branch \`$branch\` but couldn't open the PR automatically."
+              echo "Enable **Settings → Actions → General → Allow GitHub Actions to create and approve pull requests**, or open it manually:"
+              echo ""
+              echo "**[→ Open a PR to publish it]($url)**"
+              echo ""
+              echo "Approve + merge and the next deploy ships the new icon."
             } >> "$GITHUB_STEP_SUMMARY"
           fi
