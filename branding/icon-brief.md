@@ -15,14 +15,19 @@
   reads best at every size.
 -->
 
-A bold, flat, vector-style monogram badge for "Tonight's Menu," a recipe
-flipbook app — NOT a photograph, NOT 3D, NOT photorealistic. A single elegant
-serif monogram combining the letters "T" and "M" (like a hand-stamped menu
-crest), centered on a full-bleed square, deep brick-red background
-(#9c3620). Render the monogram in warm parchment cream (#ece3cd), with a
-thin brass-gold (#9a7223) ring inset just inside the square's edge. Generous
-padding around the letterforms so the mark still reads clearly as a tiny
-16px favicon and as a rounded iOS home-screen icon — no fine detail, no
-extra text, no photorealism, no gradients, no drop shadows, no textures.
-Confident, warm, a little playful — like an embossed stamp on the cover of
-a well-loved menu.
+A bold, flat, vector-style emblem for "Tonight's Menu," a recipe flipbook app
+for Stephen & Lauren — NOT a photograph, NOT 3D, NOT photorealistic, NOT any
+literal lettering or wordmark. A single fork, tines pointing up, with one
+glossy twirled curl of spaghetti wound around the top of the tines — but
+twirl the pasta so its loop and tail deliberately trace the shape of a big
+ampersand ("&"): the fork's handle and tines form the ampersand's lower
+diagonal stroke, and the twirled noodle forms its upper loop. A clever
+sight-gag double-read — read it as a forkful of pasta, or as "&" (a nod to
+"Stephen & Lauren") — not literal text or typography. Centered full-bleed on
+a deep brick-red background (#9c3620). Render the fork and pasta twirl in
+warm parchment cream (#ece3cd), with a thin brass-gold (#9a7223) ring inset
+just inside the square's edge. Generous padding around the mark so it still
+reads clearly as a tiny 16px favicon and as a rounded iOS home-screen icon —
+no fine detail, no extra text or letters, no photorealism, no gradients, no
+drop shadows, no textures. Confident, warm, a little playful and clever —
+like a hand-stamped emblem on the cover of a well-loved menu.
