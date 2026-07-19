@@ -53,7 +53,7 @@ tips:
   - If the fish resists the flip, it is not ready — give it 30 more seconds and it will let go.
   - A fish spatula (thin, flexible, long) earns its keep here.
   - Make the salsa first; it only improves while the fish cooks.
-  - Mahi-mahi or halibut swap cleanly if snapper is not at the counter.
+  - Swapping in mahi-mahi? Brine it, skip the skin, and pull at 130–135°F rather than judging by flake — it goes cottony past 140°F.
 extras:
   - label: From the garden
     note: The jalapeño and cilantro both come from the bed — swap in serrano when you want it hotter.
@@ -61,11 +61,25 @@ extras:
     note: Serve over cilantro-lime rice with shredded cabbage for crunch.
   - label: Pairs with
     note: A cold Mexican lager with lime, or agua fresca.
+  - label: Swap in mahi-mahi
+    note: >-
+      Mahi runs thicker, leaner, and denser than snapper, so a few things
+      change. Remove the skin (mahi's is tough), then brine 15 minutes in a
+      5% salt solution (50g salt per liter water) for moisture insurance, pat
+      bone-dry, and oil the fish itself, not just the grates. Sear flesh side
+      down over medium-high, 4–5 minutes for a 1" fillet, and don't move it —
+      mahi's density makes it stick if you rush the crust; flip to finish.
+      Judge doneness by firmness and a thermometer, not flake: pull at
+      130–135°F, since it goes from translucent to cottony fast past 140°F.
+      Its mild sweetness loves the char even more than snapper does — a
+      squeeze of lime and a pinch of chile into the salsa right at the end
+      cuts through the denser flesh nicely. Zero-risk option: sous vide at
+      130°F for 30–40 minutes, then sear just 45 seconds a side for char.
 source:
   name: Original — developed for Tonight's Menu
   url: null
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-07-19
 ---
 
 Lean fish in four-ounce portions, fruit doing the seasoning — this is the
