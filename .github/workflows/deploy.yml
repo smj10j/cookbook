@@ -181,8 +181,12 @@ jobs:
           fi
 
   # Cheap pre-flight for the site icon: does branding/icon-brief.md's current hash still
-  # match the one recorded in branding/icon.meta.json? If so nothing changed and the
-  # (expensive, API-calling) `icon` job below is skipped entirely.
+  # match the one recorded in branding/icon.meta.json, AND was that recorded entry an
+  # actual AI generation (model: gpt-image-1) rather than a placeholder/hand-authored
+  # bootstrap? If both hold, nothing needs to change and the (expensive, API-calling)
+  # `icon` job below is skipped entirely. Mirrors the same guard in generate-icon.mjs so a
+  # placeholder meta.json can never masquerade as "already generated" just because its
+  # hash happens to match the current brief.
   icon-check:
     runs-on: ubuntu-latest
     outputs:
@@ -193,8 +197,9 @@ jobs:
         run: |
           current=$(sha256sum branding/icon-brief.md | cut -d' ' -f1)
           recorded=$(node -pe 'JSON.parse(require("fs").readFileSync("branding/icon.meta.json","utf8")).hash' 2>/dev/null || echo "")
+          model=$(node -pe 'JSON.parse(require("fs").readFileSync("branding/icon.meta.json","utf8")).model' 2>/dev/null || echo "")
           work=true
-          [ "$current" = "$recorded" ] && work=false
+          [ "$current" = "$recorded" ] && [ "$model" = "gpt-image-1" ] && work=false
           echo "Icon regeneration needed: $work"
           echo "work=$work" >> "$GITHUB_OUTPUT"
 
