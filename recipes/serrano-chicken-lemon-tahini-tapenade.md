@@ -1,6 +1,6 @@
 ---
 title: Serrano-Spiced Chicken with Lemon-Tahini & Date-Almond Tapenade
-slug: serrano-chicken-lemon-tahini-pilaf
+slug: serrano-chicken-lemon-tahini-tapenade
 tagline: Spice-rubbed chicken under a sweet-savory date-almond tapenade, drizzled with cool lemon-tahini.
 pitch: >-
   This plate plays sweet, savory, nutty, and bright all at once. Chicken
@@ -32,7 +32,7 @@ tags:
   - date-night
   - garden
   - meal-prep
-photo: "Sliced seared chicken breast fanned on a plate, topped with a chunky date-and-almond tapenade (visible bits of chopped dates, toasted almonds, and green olives), drizzled with lemon-tahini, with blistered bell and banana pepper strips and diced cucumber alongside. No rice or grains on the plate."
+photo: "Sliced seared chicken breast fanned on a plate, topped with a chunky date-and-almond tapenade (visible bits of chopped dates, toasted almonds, and green olives), drizzled with lemon-tahini, with a small pile of blistered green beans and roasted bell and banana pepper strips and diced cucumber alongside. No rice or grains on the plate."
 ingredients:
   - section: Chicken & rub
     items:
@@ -54,11 +54,12 @@ ingredients:
       - 2 tbsp olive oil
       - Zest and juice of ½ lemon
       - Kosher salt and black pepper
-  - section: Roasted peppers & finish
+  - section: Roasted vegetables & finish
     items:
       - 1 bell pepper, sliced into strips
       - 1 banana pepper, sliced into strips
-      - 1 tbsp olive oil
+      - ½ lb green beans, trimmed
+      - 1½ tbsp olive oil
       - 3–4 tbsp lemon-tahini sauce (or tahini thinned with lemon juice)
       - ½ cucumber, diced
       - Lemon wedges
@@ -70,16 +71,16 @@ steps:
     items:
       - Pile the chopped dates, toasted almonds, olives, capers, jalapeño, garlic, and parsley on a cutting board and chop them together until chunky — you want distinct bits, not a smooth paste (or pulse briefly in a food processor).
       - Scrape into a bowl and stir in the olive oil, lemon zest and juice, and a pinch of salt and pepper. Let it sit so the flavors meld while you cook.
-  - section: Roast the peppers
+  - section: Roast the vegetables
     items:
-      - Toss the bell pepper and banana pepper strips with olive oil and salt on a sheet pan. Roast at 425°F until blistered and tender, about 10 minutes.
+      - Toss the bell pepper and banana pepper strips and the green beans with olive oil and salt on a sheet pan, spreading them in one layer. Roast at 425°F until blistered and crisp-tender, about 12–14 minutes, then squeeze a little lemon over the beans.
   - section: Sear the chicken
     items:
       - Heat a cast-iron skillet over medium-high. Sear the chicken 5–6 minutes per side until golden and 160°F internal; rest 5 minutes (carryover brings it to 165°F).
   - section: Finish & plate
     items:
       - Slice the chicken and fan it across the plates, then spoon the date-almond tapenade generously over and alongside.
-      - Drizzle with lemon-tahini and garnish with the roasted peppers, diced cucumber, and a lemon wedge.
+      - Drizzle with lemon-tahini and add the roasted peppers and green beans, diced cucumber, and a lemon wedge.
 tips:
   - Mince the serrano fine and work it into the rub — it perfumes the meat from the inside as it sears without turning the dish into a chile challenge.
   - Pull the breasts at 160°F and rest them; carryover finishes them at 165°F so they stay juicy instead of drying out.
@@ -97,19 +98,19 @@ source:
   url: null
 created: 2026-06-19
 planSwaps:
-  - for: [dash, mind, mediterranean, lowsugar, heart, balance]
+  - for: [dash, mind, mediterranean, lowsugar, heart, lowcarb, diabetes, balance]
     replace: "⅓ cup dates, pitted and finely chopped"
-    with: "2 tbsp dates, pitted and finely chopped"
+    with: "1 tbsp dates, pitted and finely chopped"
     note: "fewer dates"
   - for: [kidney]
     replace: "2 boneless skinless chicken breasts, pounded to even thickness"
-    with: "2 boneless skinless chicken breasts (about 2½ oz each), pounded to even thickness"
+    with: "2 boneless skinless chicken breasts (about 2¼ oz each), pounded to even thickness"
     note: "a renal-size portion of chicken"
-  - for: [kidney]
+  - for: [kidney, balance]
     replace: "¼ cup almonds, toasted and chopped"
     with: "2 tbsp almonds, toasted and chopped"
     note: "fewer almonds"
-  - for: [kidney]
+  - for: [kidney, balance]
     replace: "3–4 tbsp lemon-tahini sauce (or tahini thinned with lemon juice)"
     with: "2 tbsp lemon-tahini sauce"
     note: "a lighter tahini drizzle"
