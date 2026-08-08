@@ -132,6 +132,54 @@ test('selecting a card shows the shopbar and marks the card', async () => {
   assert.equal($('#shopbar').hidden, true);
 });
 
+test('the "In cart" filter shows only selected recipes and prunes as you remove them', async () => {
+  const { $, $$, app } = await boot();
+  // Hidden until something is in the cart.
+  assert.equal($('#cart-filter').hidden, true, 'no cart toggle on an empty cart');
+  // Select two specific recipes.
+  const slugs = foodRecipes.slice(0, 2).map((r) => r.slug);
+  slugs.forEach((s) => $$('.card-select').find((b) => b.dataset.select === s).click());
+  const cf = $('#cart-filter');
+  assert.equal(cf.hidden, false, 'toggle appears once the section has cart items');
+  assert.equal($('#cart-filter-count').textContent, '2');
+  // Turn the cart view on — only the two selected cards remain.
+  cf.click();
+  assert.equal(app.state.cartOnly, true);
+  assert.equal(cf.getAttribute('aria-pressed'), 'true');
+  assert.equal($$('.card').length, 2, 'grid narrows to the cart');
+  assert.deepEqual($$('.card').map((c) => c.dataset.slug).sort(), [...slugs].sort());
+  // Remove one from within the cart view — it drops out of the grid immediately.
+  $$('.card-select').find((b) => b.dataset.select === slugs[0]).click();
+  assert.equal($$('.card').length, 1, 'removed recipe leaves the cart view');
+  assert.equal($$('.card')[0].dataset.slug, slugs[1]);
+  assert.equal($('#cart-filter-count').textContent, '1');
+  // Remove the last one — the view collapses back to the full grid and the toggle hides.
+  $$('.card-select').find((b) => b.dataset.select === slugs[1]).click();
+  assert.equal(app.state.cartOnly, false, 'cartOnly clears when the cart empties');
+  assert.equal($('#cart-filter').hidden, true);
+  assert.equal($$('.card').length, foodRecipes.length, 'grid returns to all recipes');
+});
+
+test('"In cart" toggle is per-section and clears with Clear filters', async () => {
+  const { $, $$, app } = await boot();
+  $$('.card-select')[0].click();               // one food recipe in the cart
+  $('#cart-filter').click();
+  assert.equal(app.state.cartOnly, true);
+  assert.equal($('#clear-filters').hidden, false, 'cart view counts as an active filter');
+  // Switching to Drinks (no drinks in cart) hides the toggle and shows the full drink set.
+  $$('#tabs .tab').find((t) => t.dataset.kind === 'drink').click();
+  assert.equal($('#cart-filter').hidden, true, 'no toggle when this section has no cart items');
+  assert.equal($$('.card').length, drinkRecipes.length);
+  // Back on Food, re-enable and confirm Clear filters resets it.
+  $$('#tabs .tab').find((t) => t.dataset.kind === 'food').click();
+  $('#cart-filter').click();
+  assert.equal(app.state.cartOnly, true);
+  $('#clear-filters').click();
+  assert.equal(app.state.cartOnly, false, 'Clear filters turns the cart view off');
+  assert.equal($('#cart-filter').getAttribute('aria-pressed'), 'false');
+  assert.equal($$('.card').length, foodRecipes.length);
+});
+
 test('REGRESSION: selecting EVERY visible card renders a non-empty list (no crash)', async () => {
   const { $, $$, app } = await boot();
   $$('.card-select').forEach((b) => b.click());      // every FOOD card on the default tab

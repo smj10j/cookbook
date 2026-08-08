@@ -389,7 +389,10 @@ export function bucketMatch(total, bucket) {
 // plus `plan` — a Map of plan id -> 'ok' (great + okay) | 'great' (great fits only).
 // Plan selections AND together ("kidney AND heart friendly"), unlike the OR-within-
 // group behavior of the other facets — that's the useful health question.
-export function recipeMatches(r, { q, filters, cuisineGroups = {}, proteinGroups = {}, timeBuckets = [], planVerdicts = null }) {
+export function recipeMatches(r, { q, filters, cuisineGroups = {}, proteinGroups = {}, timeBuckets = [], planVerdicts = null, cartOnly = false, selected = null }) {
+  // "In cart" view: narrow the grid to just the selected recipes (for reviewing/pruning
+  // the shopping list without scrolling the whole menu).
+  if (cartOnly && !(selected && selected.has(r.slug))) return false;
   if (filters.plan?.size) {
     for (const [id, mode] of filters.plan) {
       const v = planVerdicts?.get(r.slug)?.[id];

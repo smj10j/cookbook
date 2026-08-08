@@ -212,6 +212,20 @@ test('filtering: bucketMatch + recipeMatches', () => {
   assert.equal(recipeMatches(r, { q: '', filters: filt, cuisineGroups: {}, timeBuckets: [] }), false);
 });
 
+test('cartOnly narrows to the selected recipes', () => {
+  const empty = { category: new Set(), protein: new Set(), course: new Set(), methods: new Set(), heat: new Set(), cuisine: new Set(), time: new Set() };
+  const [a, b] = data.recipes;
+  const selected = new Set([a.slug]);
+  // In-cart view: only the selected slug matches, regardless of other (empty) facets.
+  assert.equal(recipeMatches(a, { q: '', filters: empty, cartOnly: true, selected }), true);
+  assert.equal(recipeMatches(b, { q: '', filters: empty, cartOnly: true, selected }), false);
+  // Off (default), the cart selection has no effect on matching.
+  assert.equal(recipeMatches(b, { q: '', filters: empty, cartOnly: false, selected }), true);
+  // On with no/absent selection can't match anything (guards a null selected set).
+  assert.equal(recipeMatches(a, { q: '', filters: empty, cartOnly: true, selected: null }), false);
+  assert.equal(recipeMatches(a, { q: '', filters: empty, cartOnly: true, selected: new Set() }), false);
+});
+
 test('Asian cuisine umbrella matches member cuisines', () => {
   const filters = { category: new Set(), protein: new Set(), course: new Set(), methods: new Set(), heat: new Set(), cuisine: new Set(['Asian']), time: new Set() };
   const ctx = { q: '', filters, cuisineGroups: data.cuisineGroups, timeBuckets: data.timeBuckets };

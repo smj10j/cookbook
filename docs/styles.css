@@ -178,7 +178,27 @@ a { color: var(--accent); }
   display: flex; align-items: center; gap: 16px;
   margin: 22px 0 0; padding-top: 14px; border-top: 1px solid var(--rule);
 }
+/* "In cart" view toggle — appears only while the current section has cart items,
+   filters the grid down to what you've selected so you can review/prune it fast. */
+.cart-filter {
+  font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 100px; cursor: pointer;
+  color: var(--ink); background: none; border: 1px solid var(--rule);
+  transition: background 0.15s var(--ease), border-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+.cart-filter[hidden] { display: none; }
+.cart-filter:hover { border-color: var(--accent); }
+.cart-filter[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.cart-filter-count {
+  font-variant-numeric: tabular-nums; font-size: 11px;
+  min-width: 18px; height: 18px; padding: 0 5px; border-radius: 100px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #fff; border: 1px solid transparent;
+}
+.cart-filter[aria-pressed="true"] .cart-filter-count { background: #fff; color: var(--accent); }
 .result-count { font-size: 13px; letter-spacing: 0.04em; color: var(--stone); }
+.filter-footer .clear-filters { margin-left: auto; }
 .clear-filters {
   font-family: var(--sans); font-size: 12px; letter-spacing: 0.04em;
   background: none; border: none; color: var(--accent); cursor: pointer; padding: 0;

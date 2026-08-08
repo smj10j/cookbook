@@ -32,6 +32,7 @@ const state = {
   planVerdicts: new Map(),   // slug -> { planId: verdict }, precomputed at boot
   reader: { list: [], index: -1 },
   selected: new Set(),     // slugs picked for the shopping list (persisted)
+  cartOnly: false,         // "In cart" view: show only selected recipes in the current section
   shop: { items: [] },     // current overlay item rows
   copyFormat: 'dash',      // 'dash' | 'checkbox' (persisted)
   variants: new Map(),     // slug -> SELECTED variant keys, in tap order (persisted)
@@ -217,6 +218,10 @@ function bindEvents() {
     btn.setAttribute('aria-pressed', set.has(val));
     apply();
   });
+  $('#cart-filter').addEventListener('click', () => {
+    state.cartOnly = !state.cartOnly;
+    apply();   // apply() re-syncs the toggle's pressed state and re-renders the grid
+  });
   $('#clear-filters').addEventListener('click', clearFilters);
   $('#empty-clear').addEventListener('click', clearFilters);
   $('#menu').addEventListener('click', (e) => {
@@ -291,6 +296,7 @@ function bindEvents() {
 function clearFilters() {
   state.q = '';
   $('#search').value = '';
+  state.cartOnly = false;
   Object.values(state.filters).forEach((s) => s.clear());
   document.querySelectorAll('.chip[aria-pressed="true"]').forEach((c) => c.setAttribute('aria-pressed', 'false'));
   document.querySelectorAll('.chip.is-strict').forEach((c) => c.classList.remove('is-strict'));
@@ -298,13 +304,28 @@ function clearFilters() {
 }
 
 function apply() {
+  syncCartFilter();   // may clear cartOnly if this section has no cart items (keeps the view honest)
   const ctx = {
     q: state.q, filters: state.filters, cuisineGroups: state.data.cuisineGroups || {},
     proteinGroups: state.data.proteinGroups || {},
     timeBuckets: state.data.timeBuckets || [], planVerdicts: state.planVerdicts,
+    cartOnly: state.cartOnly, selected: state.selected,
   };
   state.filtered = state.all.filter((r) => (r.kind || 'food') === state.kind && recipeMatches(r, ctx));
   renderMenu();
+}
+
+// The "In cart" toggle only makes sense when the current section (food/drink) has
+// selected recipes; keep its count/pressed state and visibility in sync, and drop
+// cartOnly when there's nothing to show so the grid never strands on an empty view.
+function syncCartFilter() {
+  const count = state.all.filter((r) => (r.kind || 'food') === state.kind && state.selected.has(r.slug)).length;
+  if (state.cartOnly && count === 0) state.cartOnly = false;
+  const btn = $('#cart-filter');
+  if (!btn) return;
+  btn.hidden = count === 0;
+  $('#cart-filter-count').textContent = count;
+  btn.setAttribute('aria-pressed', String(state.cartOnly));
 }
 
 // ── menu (cards) ─────────────────────────────────────────────────────────────
@@ -312,7 +333,7 @@ function renderMenu() {
   const list = state.filtered;
   const total = state.all.filter((r) => (r.kind || 'food') === state.kind).length;
   const noun = state.kind === 'drink' ? 'drink' : 'recipe';
-  const active = state.q || Object.values(state.filters).some((s) => s.size);
+  const active = state.q || state.cartOnly || Object.values(state.filters).some((s) => s.size);
   $('#clear-filters').hidden = !active;
   $('#result-count').textContent = active ? `${list.length} of ${total} ${noun}s` : `${total} ${noun}s`;
   $('#empty-state').hidden = list.length > 0;
@@ -671,11 +692,15 @@ function shareCurrentRecipe() {
 
 // ── shopping list ────────────────────────────────────────────────────────────
 function toggleSelect(slug) {
+  const wasCartOnly = state.cartOnly;
   const picked = !state.selected.has(slug);
   if (picked) state.selected.add(slug); else state.selected.delete(slug);
   saveSelected();
   reflectSelection(slug, picked);
   renderShopbar();
+  // In the "In cart" view, re-filter so a removed recipe leaves the grid (and the
+  // view collapses gracefully when the last item goes).
+  if (wasCartOnly) apply();
 }
 
 // Keep every control for this recipe in sync — the grid card's ✓ and the in-recipe
@@ -700,6 +725,7 @@ function renderShopbar() {
   // In-reader cart (the floating corner cart is hidden behind the reader overlay)
   const rc = $('#reader-cart');
   if (rc) { rc.hidden = n === 0; $('#reader-cart-count').textContent = n; }
+  syncCartFilter();   // keep the "In cart" toggle's count/visibility current
 }
 
 function syncFormatToggle() {
@@ -720,6 +746,7 @@ function closeShopList() {
 }
 
 function clearSelection() {
+  const wasCartOnly = state.cartOnly;
   state.selected.clear();
   saveSelected();
   state.shop.items = [];
@@ -733,6 +760,7 @@ function clearSelection() {
     b.setAttribute('aria-label', 'Add to shopping list');
   });
   renderShopbar();
+  if (wasCartOnly) apply();   // cart emptied — drop the "In cart" view back to the full grid
   closeShopList();
 }
 
