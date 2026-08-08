@@ -95,7 +95,7 @@ export function classify(text) {
 // NB: slice/wedge/round/fillet are NOT here — they're preparations, handled below.
 const MEASURE = new Set(['cup', 'cups', 'tbsp', 'tablespoon', 'tablespoons', 'tsp', 'teaspoon', 'teaspoons', 'oz', 'ounce', 'ounces', 'lb', 'lbs', 'pound', 'pounds', 'g', 'gram', 'grams', 'kg', 'ml', 'l', 'liter', 'liters', 'clove', 'cloves', 'can', 'cans', 'jar', 'jars', 'bottle', 'bottles', 'pinch', 'pinches', 'dash', 'dashes', 'handful', 'handfuls', 'sprig', 'sprigs', 'stalk', 'stalks', 'bunch', 'bunches', 'head', 'heads', 'ear', 'ears', 'bulb', 'bulbs', 'piece', 'pieces', 'strip', 'strips', 'stick', 'sticks', 'leaf', 'leaves', 'package', 'packages', 'pkg', 'quart', 'quarts', 'pint', 'pints', 'splash', 'splashes', 'barspoon', 'barspoons', 'part', 'parts']);
 // Descriptors + preparations removed anywhere. "baby" is intentionally NOT here (kept distinct).
-const DESC = new Set(['small', 'medium', 'large', 'jumbo', 'mini', 'extra', 'fresh', 'dried', 'ground', 'whole', 'ripe', 'raw', 'cooked', 'skinless', 'boneless', 'skin-on', 'skin', 'peeled', 'seeded', 'deseeded', 'deveined', 'drained', 'rinsed', 'packed', 'toasted', 'softened', 'melted', 'divided', 'plus', 'minced', 'chopped', 'finely', 'coarsely', 'roughly', 'diced', 'sliced', 'thinly', 'thickly', 'halved', 'quartered', 'crumbled', 'grated', 'shredded', 'julienned', 'cubed', 'freshly', 'trimmed', 'torn', 'smashed', 'pitted', 'husked', 'shucked', 'cut', 'into', 'bite', 'size', 'bite-size', 'florets', 'floret', 'fillet', 'fillets', 'filet', 'filets', 'very', 'to', 'taste', 'for', 'garnish', 'serving', 'of', 'a', 'an', 'the', 'and', 'about', 'approximately', 'each', 'more', 'as', 'needed']);
+const DESC = new Set(['small', 'medium', 'large', 'jumbo', 'mini', 'extra', 'fresh', 'dried', 'canned', 'ground', 'whole', 'ripe', 'raw', 'cooked', 'skinless', 'boneless', 'skin-on', 'skin', 'peeled', 'seeded', 'deseeded', 'deveined', 'drained', 'rinsed', 'packed', 'toasted', 'softened', 'melted', 'divided', 'plus', 'minced', 'chopped', 'finely', 'coarsely', 'roughly', 'diced', 'sliced', 'thinly', 'thickly', 'halved', 'quartered', 'crumbled', 'grated', 'shredded', 'julienned', 'cubed', 'freshly', 'trimmed', 'torn', 'smashed', 'pitted', 'husked', 'shucked', 'cut', 'into', 'bite', 'size', 'bite-size', 'florets', 'floret', 'fillet', 'fillets', 'filet', 'filets', 'very', 'to', 'taste', 'for', 'garnish', 'serving', 'of', 'a', 'an', 'the', 'and', 'about', 'approximately', 'each', 'more', 'as', 'needed']);
 // Preparations that imply a derived form: removed from the name; recorded as `prep`.
 const DERIVED = new Set(['juice', 'zest', 'peel', 'rind', 'slice', 'slices', 'wedge', 'wedges', 'round', 'rounds']);
 const GENERIC_TAIL = new Set(['cheese']);                  // "feta cheese" -> feta
@@ -168,9 +168,29 @@ function cleanOptional(line) {
 
 const fmtUnit = (q, unit) => (fmtQty(q) + (unit ? ' ' + unit : '')).trim();
 
+// ── purchasable units ────────────────────────────────────────────────────────
+// A shopping list says what to put in the cart, not how to measure it. You can't
+// buy a tablespoon of cheese or a quarter-cup of onion, so a kitchen sub-measure
+// of a whole good rounds UP to the smallest thing a store actually sells — a bunch
+// of cilantro, a package of feta, one onion. Weight (lb/oz) and real containers
+// (can/jar/bottle/head/bunch…) are already purchasable, so they pass through.
+const WEIGHT_UNITS = new Set(['oz', 'ounce', 'lb', 'pound', 'g', 'gram', 'kg', 'mg', 'ml', 'l', 'liter']);
+const CONTAINER_UNITS = new Set(['can', 'jar', 'bottle', 'package', 'pkg', 'bag', 'box', 'stick',
+  'block', 'carton', 'tub', 'head', 'bunch', 'bulb', 'ear', 'pint', 'quart', 'stalk', 'loaf']);
+// Classify a parsed unit: 'count' (bare number, no unit), 'weight' or 'container'
+// (both purchasable as-is), or 'sub' (a kitchen fraction of some whole good).
+function unitKind(unit) {
+  const u = String(unit || '').replace(/s$/, '').replace(/^loave$/, 'loaf');
+  if (u === '') return 'count';
+  if (WEIGHT_UNITS.has(u)) return 'weight';
+  if (CONTAINER_UNITS.has(u)) return 'container';
+  return 'sub';
+}
+
 function genericLine(g) {
   const byUnit = new Map();
   for (const e of g.entries) {
+    if (unitKind(e.unit) === 'sub') continue;   // drop kitchen fractions — you buy the whole thing
     const uk = (e.unit || '').replace(/s$/, '');
     if (!byUnit.has(uk)) byUnit.set(uk, { qty: 0, unit: e.unit, hasQty: false });
     const u = byUnit.get(uk);
@@ -222,11 +242,78 @@ function bittersRule() {
   return 'bitters';
 }
 
+// Scallions/green onions are sold by the bunch (~7 stalks), like garlic's cloves→bulb.
+function scallionRule(g) {
+  let stalks = 0;
+  for (const e of g.entries) {
+    const k = unitKind(e.unit);
+    if (k === 'count' || k === 'container') stalks += e.qty ?? 1;  // a sliced-tbsp is part of a bunch
+  }
+  const b = Math.max(1, Math.ceil(stalks / 7));
+  return `${b} bunch${b !== 1 ? 'es' : ''} ${g.display}`;
+}
+
+// Purchase profiles: an ingredient's display name → the noun you actually buy it in.
+// '' means the item is itself the count noun (an onion, an avocado). Order matters —
+// the FIRST match wins, so put the specific forms (cherry tomato, canned tomato)
+// before the generic one (tomato). To fix a mis-shopped item, add/adjust a row here.
+const PURCHASE = [
+  [/\b(cauliflower|broccoli(?!ni)|cabbage|lettuce|romaine|radicchio|iceberg|endive)\b/, 'head'],
+  [/\b(cherry|grape)\b.*\btomato|\btomato\w*\b.*\b(cherry|grape)\b|\b(blueberr|raspberr|strawberr|blackberr)\w+/, 'pint'],
+  [/\b(olive|caper|artichoke|sun-?dried tomato|roasted red pepper|pepperoncini|pickle)\w*/, 'jar'],
+  [/\b(coconut milk|chickpea|garbanzo|(black|kidney|cannellini|white|pinto|refried) bean|lentil|tomato (paste|puree|sauce)|(crushed|diced|whole|stewed|canned) tomato|adobo|pumpkin pur)\w*/, 'can'],
+  [/\b(cheese|feta|mozzarella|cheddar|parmesan|parmigiano|gruy|swiss cheese|goat cheese|cotija|queso|ricotta|mascarpone|monterey|provolone|gouda|brie|manchego|pecorino|halloumi|paneer|burrata)\b/, 'package'],
+  [/\b(tortilla|pita|naan|wrap|phyllo|filo|puff pastry|wonton|dumpling wrapper|tofu|tempeh|pasta|spaghetti|linguine|fettuccine|penne|noodle|orzo|couscous|\brice\b|quinoa|farro|barley|almond|walnut|pecan|cashew|peanut|pistachio|pine nut|hazelnut|macadamia|(sesame|sunflower|pumpkin) seed|raisin|date|dried (apricot|cranberr|cherr|fig)|cranberr|shredded coconut)\w*/, 'package'],
+  [/\b(ginger|lemongrass|galangal|turmeric root|horseradish root)\b/, 'piece'],
+  [/\b(asparagus|kale|chard|collard|watercress|spinach|arugula|bok choy|swiss chard)\b/, 'bunch'],
+  [/\b(onion|shallot|leek|bell pepper|banana pepper|jalape|serrano|habanero|poblano|anaheim|(chile|chili) pepper|cucumber|zucchini|squash|eggplant|aubergine|carrot|potato|yam|beet|turnip|radish|parsnip|avocado|apple|pear|mango|peach|nectarine|plum|orange|banana|pineapple|kiwi|tomato|egg)\b/, ''],
+];
+
+// Pluralize a container noun (bunch→bunches) or a count-noun phrase's last word
+// (red onion→red onions, cherry tomato→cherry tomatoes).
+function pluralNoun(n) {
+  return /(s|sh|ch|x|z)$/.test(n) ? n + 'es' : n + 's';
+}
+function pluralize(phrase) {
+  const parts = String(phrase).split(' ');
+  const w = parts[parts.length - 1];
+  const irr = { tomato: 'tomatoes', potato: 'potatoes', leaf: 'leaves', loaf: 'loaves' };
+  parts[parts.length - 1] = irr[w]
+    || (/(s|sh|ch|x|z)$/.test(w) ? w + 'es'
+      : /[^aeiou]y$/.test(w) ? w.slice(0, -1) + 'ies'
+      : w + 's');
+  return parts.join(' ');
+}
+
+// Generic purchasable line for a profiled group: count whole units (bare counts +
+// real containers), while sub-measures (tsp/tbsp/cup…) are a fraction of one unit
+// and floor to a single item — you still have to buy one.
+function purchaseLine(noun) {
+  return (g) => {
+    let whole = 0, saw = false;
+    for (const e of g.entries) {
+      saw = true;
+      const k = unitKind(e.unit);
+      const u = String(e.unit || '').replace(/s$/, '');
+      if (k === 'count' || k === 'container' || u === noun) whole += e.qty ?? 1;
+      else if (noun === 'pint' && u === 'cup') whole += (e.qty ?? 0) / 2;   // ~2 cups per pint
+      // else: a sub-measure — contributes nothing beyond the 1-unit floor below
+    }
+    let n = Math.ceil(whole - 1e-9);
+    if (n < 1) n = saw ? 1 : 0;
+    if (noun === '') return `${n} ${n === 1 ? g.display : pluralize(g.display)}`;
+    return `${n} ${n === 1 ? noun : pluralNoun(noun)} ${g.display}`;
+  };
+}
+
 function ruleFor(key, display) {
   if (key === 'garlic') return garlicRule;
   if (key === 'bitters') return bittersRule;
   if (display === 'lemon' || display === 'lime') return citrusRule;
   if (HERBS.has(key)) return herbRule;
+  if (/\b(scallion|green onion)\b/.test(display)) return scallionRule;
+  const hit = PURCHASE.find(([re]) => re.test(display));
+  if (hit) return purchaseLine(hit[1]);
   return null;
 }
 

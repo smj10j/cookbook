@@ -322,6 +322,38 @@ whether they're the *same food*:
   non-orderable units) on the same line, so they become separate chips and the UI grays
   out the one that conflicts with the current selection.
 
+## Shopping list — purchasable units (the copy / Reminders output)
+
+The overlay's per-recipe rows show the **recipe** measure ("1 tbsp cilantro") — that's
+useful context and stays. But the **copied / "Add to Reminders" / share** output is a
+*grocery* list: it must say **what to put in the cart, in the smallest unit a store
+actually sells**, never a kitchen measure. You can't buy a tablespoon of cheese or a
+quarter-cup of onion, so those round UP to one whole good: `1 bunch cilantro`,
+`1 package feta`, `1 onion`, `1 pint cherry tomatoes`, `1 can coconut milk`.
+
+This lives entirely in **`buildShoppingList` and its helpers in `docs/lib.js`** (pure,
+unit-tested). How it decides:
+
+- **`unitKind(unit)`** buckets every parsed unit: `weight` (lb/oz/g…) and `container`
+  (can/jar/bottle/head/bunch/ear/stalk…) are already purchasable and pass through;
+  a bare number is a `count`; everything else (tsp/tbsp/cup/pinch/slice/sprig…) is a
+  `sub`-measure — a fraction of some whole good.
+- **`PURCHASE`** is an ordered `[regex, noun]` table mapping an ingredient's display
+  name to the noun you buy it in — `head`, `pint`, `jar`, `can`, `package`, `piece`,
+  `bunch`, or `''` (the item is its own count noun: an onion, an avocado). **First match
+  wins**, so specific forms (cherry tomato, canned tomato) sit above the generic one
+  (tomato). **To fix a mis-shopped item, add or reorder a row here** — the tests pick it up.
+- Special rules stay for the cases a flat noun can't express: `garlicRule` (cloves→bulbs),
+  `citrusRule` (juice/zest/whole → whole fruit), `herbRule` (cups→bunches),
+  `scallionRule` (~7 stalks/bunch), `bittersRule` (one bottle).
+- **The default is safe:** an unmapped item measured *only* in a sub-measure degrades to
+  just its name (buy the thing) — it can **never** print "1 tbsp X" again. Weight and
+  container units on unmapped items are kept (so `1 lb chicken`, `2 ears corn` survive).
+
+Regression tests live in `test/lib.test.mjs` ("purchasable units: …" + the merge/yield
+cases) and gate the build. When you add a recipe with a new kind of purchasable good and
+its list line looks wrong, add a `PURCHASE` row **and** a test line.
+
 ## Drinks (cocktails)
 
 Drinks live in **`drinks/`** (one `.md` each) and use the same file format with a few

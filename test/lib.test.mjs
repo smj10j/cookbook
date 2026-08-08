@@ -103,12 +103,12 @@ test('normalizeIngredient strips prep words and keeps the buy-name', () => {
 const lines = (a) => buildShoppingList(a).lines;
 
 test('merge: same ingredient prepared differently becomes one clean line', () => {
-  assert.deepEqual(lines([{ qty: 0.25, rest: 'small red onion, very thinly sliced' }]), ['¼ red onion']);          // #1
-  assert.deepEqual(lines([{ qty: 0.25, rest: 'cup Kalamata olives, pitted and halved' }]), ['¼ cup kalamata olive']); // #2
+  assert.deepEqual(lines([{ qty: 0.25, rest: 'small red onion, very thinly sliced' }]), ['1 red onion']);          // #1
+  assert.deepEqual(lines([{ qty: 0.25, rest: 'cup Kalamata olives, pitted and halved' }]), ['1 jar kalamata olive']); // #2
   assert.deepEqual(lines([{ qty: 1, rest: 'large head broccoli, cut into bite-size florets' }]), ['1 head broccoli']); // #3
   assert.deepEqual(lines([{ qty: 2, rest: 'ears corn, husked' }]), ['2 ears corn']);                              // #8
-  assert.deepEqual(lines([{ qty: 1, rest: 'cup cherry or grape tomatoes' }, { qty: 2, rest: 'cups cherry tomatoes' }]), ['3 cup cherry tomato']); // #7
-  assert.deepEqual(lines([{ qty: 1, rest: 'cup feta' }, { qty: 1, rest: 'cup feta cheese' }]), ['2 cup feta']);
+  assert.deepEqual(lines([{ qty: 1, rest: 'cup cherry or grape tomatoes' }, { qty: 2, rest: 'cups cherry tomatoes' }]), ['2 pints cherry tomato']); // #7
+  assert.deepEqual(lines([{ qty: 1, rest: 'cup feta' }, { qty: 1, rest: 'cup feta cheese' }]), ['1 package feta']);
   assert.deepEqual(lines([{ qty: 2, rest: 'salmon fillets (6 oz each)' }, { qty: 1, rest: 'skin-on salmon filet' }]), ['3 salmon']);
 });
 
@@ -119,6 +119,30 @@ test('yield rules: garlic bulbs, lemon count, herb bunches', () => {
     ['4 lemons']);                                                                                                // #9
   assert.deepEqual(lines([{ qty: 2, rest: 'tbsp lemon juice' }, { qty: 1, rest: 'lemon, sliced' }]), ['2 lemons']);
   assert.deepEqual(lines([{ qty: 5, rest: 'sprigs thyme' }, { qty: 0.5, rest: 'tsp thyme' }]), ['1 bunch thyme']); // #10
+});
+
+test('purchasable units: kitchen measures round up to the smallest thing you can buy', () => {
+  // You can't buy a tablespoon of cheese or a quarter-cup of onion — round to the whole good.
+  assert.deepEqual(lines([{ qty: 0.25, rest: 'cup diced onion' }]), ['1 onion']);
+  assert.deepEqual(lines([{ qty: 1, rest: 'tbsp grated parmesan' }]), ['1 package parmesan']);
+  assert.deepEqual(lines([{ qty: 2, rest: 'cup shredded cheddar cheese' }]), ['1 package cheddar cheese']);
+  assert.deepEqual(lines([{ qty: 1, rest: 'tbsp grated ginger' }]), ['1 piece ginger']);
+  assert.deepEqual(lines([{ qty: 2, rest: 'tbsp capers, drained' }]), ['1 jar caper']);
+  assert.deepEqual(lines([{ qty: 0.5, rest: 'cup sliced almonds' }]), ['1 package almond']);
+  // Cherry tomatoes/berries come in pints (~2 cups); regular tomatoes are counted whole.
+  assert.deepEqual(lines([{ qty: 3, rest: 'cups cherry tomatoes' }]), ['2 pints cherry tomato']);
+  assert.deepEqual(lines([{ qty: 0.5, rest: 'cup diced tomato' }]), ['1 tomato']);
+  // Heads, cans, and scallion bunches (~7 stalks/bunch).
+  assert.deepEqual(lines([{ qty: 1, rest: 'cup chopped cauliflower' }]), ['1 head cauliflower']);
+  assert.deepEqual(lines([{ qty: 1, rest: 'cup coconut milk' }]), ['1 can coconut milk']);
+  assert.deepEqual(lines([{ qty: 11, rest: 'scallions, thinly sliced' }]), ['2 bunches scallion']);
+  // Whole-piece counts pluralize and round up a fractional piece.
+  assert.deepEqual(lines([{ qty: 3, rest: 'bell peppers' }]), ['3 bell peppers']);
+  assert.deepEqual(lines([{ qty: 2, rest: 'avocados, diced' }]), ['2 avocados']);
+  // Weight stays weight (proteins are bought by the pound); an unmapped item measured
+  // only in a kitchen fraction degrades to just its name, never "1 tbsp X".
+  assert.deepEqual(lines([{ qty: 1, rest: 'lb boneless chicken breast' }]), ['1 lb chicken breast']);
+  assert.deepEqual(lines([{ qty: 2, rest: 'tbsp minced fresh horseradish' }]), ['horseradish']);
 });
 
 test('drinks: bitters collapse to one bottle; ice/syrup/spirits classify sanely', () => {
