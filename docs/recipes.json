@@ -10583,7 +10583,7 @@
     },
     {
       "title": "Serrano-Spiced Chicken with Lemon-Tahini & Date-Almond Tapenade",
-      "slug": "serrano-chicken-lemon-tahini-pilaf",
+      "slug": "serrano-chicken-lemon-tahini-tapenade",
       "tagline": "Spice-rubbed chicken under a sweet-savory date-almond tapenade, drizzled with cool lemon-tahini.",
       "pitch": "This plate plays sweet, savory, nutty, and bright all at once. Chicken breasts get a paprika-garlic-serrano rub that perfumes the meat as it sears, then a chunky date-almond tapenade — pitted dates, toasted almonds, briny green olives, and capers chopped down with olive oil and lemon — spoons over the top for little hits of caramel, crunch, and salt. Garden peppers thread the whole dish: minced serrano in the rub, a little jalapeño in the tapenade, and sweet bell and banana pepper strips blistered on top. A cool, lemony tahini drizzle ties it together and cuts the richness. *The dates are the secret — their caramel sweetness against the salty olives and creamy tahini is what makes this taste like a restaurant dish.*",
       "serves": 2,
@@ -10637,11 +10637,12 @@
           ]
         },
         {
-          "section": "Roasted peppers & finish",
+          "section": "Roasted vegetables & finish",
           "items": [
             "1 bell pepper, sliced into strips",
             "1 banana pepper, sliced into strips",
-            "1 tbsp olive oil",
+            "½ lb green beans, trimmed",
+            "1½ tbsp olive oil",
             "3–4 tbsp lemon-tahini sauce (or tahini thinned with lemon juice)",
             "½ cucumber, diced",
             "Lemon wedges"
@@ -10663,9 +10664,9 @@
           ]
         },
         {
-          "section": "Roast the peppers",
+          "section": "Roast the vegetables",
           "items": [
-            "Toss the bell pepper and banana pepper strips with olive oil and salt on a sheet pan. Roast at 425°F until blistered and tender, about 10 minutes."
+            "Toss the bell pepper and banana pepper strips and the green beans with olive oil and salt on a sheet pan, spreading them in one layer. Roast at 425°F until blistered and crisp-tender, about 12–14 minutes, then squeeze a little lemon over the beans."
           ]
         },
         {
@@ -10678,7 +10679,7 @@
           "section": "Finish & plate",
           "items": [
             "Slice the chicken and fan it across the plates, then spoon the date-almond tapenade generously over and alongside.",
-            "Drizzle with lemon-tahini and garnish with the roasted peppers, diced cucumber, and a lemon wedge."
+            "Drizzle with lemon-tahini and add the roasted peppers and green beans, diced cucumber, and a lemon wedge."
           ]
         }
       ],
@@ -10715,10 +10716,12 @@
             "mediterranean",
             "lowsugar",
             "heart",
+            "lowcarb",
+            "diabetes",
             "balance"
           ],
           "replace": "⅓ cup dates, pitted and finely chopped",
-          "with": "2 tbsp dates, pitted and finely chopped",
+          "with": "1 tbsp dates, pitted and finely chopped",
           "note": "fewer dates"
         },
         {
@@ -10726,12 +10729,13 @@
             "kidney"
           ],
           "replace": "2 boneless skinless chicken breasts, pounded to even thickness",
-          "with": "2 boneless skinless chicken breasts (about 2½ oz each), pounded to even thickness",
+          "with": "2 boneless skinless chicken breasts (about 2¼ oz each), pounded to even thickness",
           "note": "a renal-size portion of chicken"
         },
         {
           "for": [
-            "kidney"
+            "kidney",
+            "balance"
           ],
           "replace": "¼ cup almonds, toasted and chopped",
           "with": "2 tbsp almonds, toasted and chopped",
@@ -10739,7 +10743,8 @@
         },
         {
           "for": [
-            "kidney"
+            "kidney",
+            "balance"
           ],
           "replace": "3–4 tbsp lemon-tahini sauce (or tahini thinned with lemon juice)",
           "with": "2 tbsp lemon-tahini sauce",
@@ -10750,51 +10755,60 @@
       "kind": "food",
       "category": "main",
       "headnote": "A pantry-raid dinner that turned into a keeper: a chunky date-and-almond tapenade\nmakes the plate taste Levantine, garden peppers thread heat and sweetness through\nevery layer, and a cool lemon-tahini drizzle pulls it all together.",
-      "hero": "images/serrano-chicken-lemon-tahini-pilaf.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 843,
-          "protein": 48.8,
-          "carb": 41.4,
-          "fat": 56.9,
-          "satfat": 7.8,
-          "fiber": 10.5,
-          "sugar": 23.4,
-          "sodium": 481
+          "kcal": 909,
+          "protein": 50.8,
+          "carb": 49.6,
+          "fat": 60.5,
+          "satfat": 8.2,
+          "fiber": 14,
+          "sugar": 26.9,
+          "sodium": 488
         },
         "confidence": "high",
-        "matched": 18,
-        "considered": 18,
+        "matched": 19,
+        "considered": 19,
         "withSwaps": {
           "0": {
-            "kcal": 793,
-            "protein": 48.3,
-            "carb": 28,
-            "fat": 56.9,
-            "satfat": 7.8,
-            "fiber": 9.2,
+            "kcal": 844,
+            "protein": 50.3,
+            "carb": 32.3,
+            "fat": 60.5,
+            "satfat": 8.2,
+            "fiber": 12.3,
             "sugar": 12,
-            "sodium": 481
+            "sodium": 488
+          },
+          "0.2.3": {
+            "kcal": 726,
+            "protein": 46.4,
+            "carb": 27.9,
+            "fat": 50,
+            "satfat": 7.1,
+            "fiber": 10.1,
+            "sugar": 11.5,
+            "sodium": 475
           },
           "1.2.3": {
-            "kcal": 607,
-            "protein": 22.8,
-            "carb": 37.1,
-            "fat": 44,
-            "satfat": 5.9,
-            "fiber": 8.3,
-            "sugar": 23,
-            "sodium": 393
+            "kcal": 665,
+            "protein": 23.3,
+            "carb": 45.3,
+            "fat": 47.4,
+            "satfat": 6.3,
+            "fiber": 11.8,
+            "sugar": 26.4,
+            "sodium": 395
           },
           "0.1.2.3": {
-            "kcal": 557,
-            "protein": 22.4,
-            "carb": 23.7,
-            "fat": 44,
-            "satfat": 5.9,
-            "fiber": 7,
-            "sugar": 11.6,
-            "sodium": 393
+            "kcal": 600,
+            "protein": 22.8,
+            "carb": 27.9,
+            "fat": 47.4,
+            "satfat": 6.3,
+            "fiber": 10.1,
+            "sugar": 11.5,
+            "sodium": 395
           }
         }
       }
