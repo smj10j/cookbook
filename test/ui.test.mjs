@@ -51,11 +51,22 @@ async function boot(url = 'https://example.com/') {
     try { Object.defineProperty(globalThis.navigator, 'clipboard', { value: clip, configurable: true }); } catch {}
   }
   set('fetch', async () => ({ json: async () => recipes }));
+  // jsdom has no layout, so window.scrollY is a read-only 0 and scrollTo is
+  // unimplemented (it logs noise). Stand in a settable scrollY + a recording
+  // scrollTo so tests can drive and assert scroll-preservation behavior.
+  let scrollY = 0;
+  const scrollCalls = [];
+  Object.defineProperty(window, 'scrollY', { get: () => scrollY, configurable: true });
+  window.scrollTo = (x, y) => { scrollCalls.push([x, y]); scrollY = y; };
   const app = await import(`../docs/app.js?b=${bootCount++}`);
   await app.init();
   const $ = (s) => window.document.querySelector(s);
   const $$ = (s) => [...window.document.querySelectorAll(s)];
-  return { window, doc: window.document, app, $, $$, getCopied: () => copied, getNavigated: () => navigatedTo };
+  return {
+    window, doc: window.document, app, $, $$,
+    getCopied: () => copied, getNavigated: () => navigatedTo,
+    setScrollY: (y) => { scrollY = y; }, getScrollCalls: () => scrollCalls,
+  };
 }
 
 const foodRecipes = recipes.recipes.filter((r) => (r.kind || 'food') === 'food');
@@ -158,6 +169,35 @@ test('the "In cart" filter shows only selected recipes and prunes as you remove 
   assert.equal(app.state.cartOnly, false, 'cartOnly clears when the cart empties');
   assert.equal($('#cart-filter').hidden, true);
   assert.equal($$('.card').length, foodRecipes.length, 'grid returns to all recipes');
+});
+
+test('removing a cart item in the "In cart" view keeps the scroll position', async () => {
+  const { $, $$, app, setScrollY, getScrollCalls } = await boot();
+  const slugs = foodRecipes.slice(0, 3).map((r) => r.slug);
+  slugs.forEach((s) => $$('.card-select').find((b) => b.dataset.select === s).click());
+  $('#cart-filter').click();
+  assert.equal(app.state.cartOnly, true);
+  // Reader has scrolled down the cart list.
+  setScrollY(640);
+  const before = getScrollCalls().length;
+  // Remove one while others remain: the grid re-renders, but scroll is pinned so the
+  // page doesn't snap toward the top.
+  $$('.card-select').find((b) => b.dataset.select === slugs[0]).click();
+  assert.equal(app.state.cartOnly, true, 'still in the cart view');
+  assert.equal($$('.card').length, 2, 'removed card left the grid');
+  assert.deepEqual(getScrollCalls().slice(before).at(-1), [0, 640], 'scroll restored to where it was');
+  // Take the cart down to its last item (still cartOnly), then remove that last one —
+  // the view falls back to the full grid and must NOT pin the stale scroll position.
+  $$('.card-select').find((b) => b.dataset.select === slugs[1]).click();
+  assert.equal(app.state.cartOnly, true, 'one item left keeps the cart view');
+  setScrollY(999);
+  const beforeEmpty = getScrollCalls().length;
+  $$('.card-select').find((b) => b.dataset.select === slugs[2]).click();
+  assert.equal(app.state.cartOnly, false, 'cart emptied -> back to full grid');
+  assert.ok(
+    !getScrollCalls().slice(beforeEmpty).some((c) => c[1] === 999),
+    'no scroll pinning when the cart empties and the full grid returns',
+  );
 });
 
 test('"In cart" toggle is per-section and clears with Clear filters', async () => {

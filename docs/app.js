@@ -697,10 +697,17 @@ function toggleSelect(slug) {
   if (picked) state.selected.add(slug); else state.selected.delete(slug);
   saveSelected();
   reflectSelection(slug, picked);
-  renderShopbar();
+  renderShopbar();   // may flip cartOnly off when that was the last item in the cart
   // In the "In cart" view, re-filter so a removed recipe leaves the grid (and the
-  // view collapses gracefully when the last item goes).
-  if (wasCartOnly) apply();
+  // view collapses gracefully when the last item goes). Preserve the scroll position
+  // across the re-render — a full grid rebuild otherwise snaps the page toward the top
+  // — but only while the cart view stays put; when the cart empties and we fall back
+  // to the full grid, let it settle at the top as usual.
+  if (wasCartOnly) {
+    const keepScroll = state.cartOnly ? window.scrollY : null;
+    apply();
+    if (keepScroll != null) window.scrollTo(0, keepScroll);
+  }
 }
 
 // Keep every control for this recipe in sync — the grid card's ✓ and the in-recipe
