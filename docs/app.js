@@ -5,7 +5,7 @@
 import {
   esc, inlineMd, cap, fmtMin, VEG,
   scaleDisplay, classify, clampServes,
-  buildShoppingList, formatShoppingList, recipeMatches, cuisineChipValues, proteinChipValues, shopSectionsForRecipe,
+  buildShoppingList, formatShoppingList, recipeMatches, searchSuggestions, cuisineChipValues, proteinChipValues, shopSectionsForRecipe,
   hashForKind, parseHash, nutritionPanelHtml, EATING_PLANS, buildPlanVerdicts,
   recipeVariants, applyVariantToSections, variantLabel, variantTitle, variantsConflict, combineVariants,
   isIOSSafari,
@@ -34,6 +34,7 @@ const state = {
   selected: new Set(),     // slugs picked for the shopping list (persisted)
   cartOnly: false,         // "In cart" view: show only selected recipes in the current section
   shop: { items: [] },     // current overlay item rows
+  suggest: { items: [], active: -1 },   // search autocomplete: current suggestions + highlighted row
   copyFormat: 'dash',      // 'dash' | 'checkbox' (persisted)
   variants: new Map(),     // slug -> SELECTED variant keys, in tap order (persisted)
 };
@@ -128,6 +129,7 @@ function setKind(kind, syncHash = true) {
   state.kind = kind;
   state.q = '';
   $('#search').value = '';
+  closeSuggest();
   Object.values(state.filters).forEach((s) => s.clear());
   document.querySelectorAll('#tabs .tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.kind === kind)));
   setHero();
@@ -196,7 +198,24 @@ function bindEvents() {
     const t = e.target.closest('.tab');
     if (t && t.dataset.kind !== state.kind) setKind(t.dataset.kind);
   });
-  $('#search').addEventListener('input', (e) => { state.q = e.target.value.trim().toLowerCase(); apply(); });
+  const search = $('#search');
+  search.addEventListener('input', (e) => { state.q = e.target.value.trim().toLowerCase(); apply(); renderSuggest(); });
+  search.addEventListener('keydown', onSearchKeydown);
+  // Reopen suggestions when refocusing a box that still has a query.
+  search.addEventListener('focus', () => { if (state.q) renderSuggest(); });
+  // Close on blur, but defer so a click on a suggestion row lands first.
+  search.addEventListener('blur', () => setTimeout(closeSuggest, 120));
+  $('#search-suggest').addEventListener('mousedown', (e) => {
+    // mousedown (not click) so it fires before the input's blur closes the list.
+    const row = e.target.closest('.suggest-item');
+    if (!row) return;
+    e.preventDefault();
+    chooseSuggest(row.dataset.slug);
+  });
+  $('#search-suggest').addEventListener('mousemove', (e) => {
+    const row = e.target.closest('.suggest-item');
+    if (row) setActiveSuggest([...$('#search-suggest').children].indexOf(row));
+  });
   $('#filter-groups').addEventListener('click', (e) => {
     const btn = e.target.closest('.chip');
     if (!btn) return;
@@ -296,6 +315,7 @@ function bindEvents() {
 function clearFilters() {
   state.q = '';
   $('#search').value = '';
+  closeSuggest();
   state.cartOnly = false;
   Object.values(state.filters).forEach((s) => s.clear());
   document.querySelectorAll('.chip[aria-pressed="true"]').forEach((c) => c.setAttribute('aria-pressed', 'false'));
@@ -326,6 +346,82 @@ function syncCartFilter() {
   btn.hidden = count === 0;
   $('#cart-filter-count').textContent = count;
   btn.setAttribute('aria-pressed', String(state.cartOnly));
+}
+
+// ── search autocomplete ──────────────────────────────────────────────────────
+// Recipes in the section currently on screen (food or drink) — the search scope.
+function kindRecipes() {
+  return state.all.filter((r) => (r.kind || 'food') === state.kind);
+}
+
+// Highlight every occurrence of the query inside an (escaped) string with <mark>.
+function highlight(text, q) {
+  const safe = esc(text);
+  if (!q) return safe;
+  const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'ig');
+  return safe.replace(re, '<mark>$1</mark>');
+}
+
+// A short "why it matched" line for suggestions that aren't a plain name match,
+// so a recipe surfaced by a tag or an ingredient explains itself.
+function suggestWhy(s, q) {
+  if (s.field === 'name') return '';
+  const label = s.field === 'tag' ? 'Tag' : s.field === 'ingredient' ? 'Ingredient' : 'Match';
+  return `<span class="suggest-why">${label}: ${highlight(s.text, q)}</span>`;
+}
+
+// Rebuild the dropdown from the current query. At most 5, scoped to this section,
+// updated immediately on every input change.
+function renderSuggest() {
+  const box = $('#search-suggest');
+  const items = state.q ? searchSuggestions(kindRecipes(), state.q, 5) : [];
+  state.suggest = { items, active: -1 };
+  if (!items.length) { closeSuggest(); return; }
+  box.innerHTML = items.map((s, i) => `
+    <li class="suggest-item" id="suggest-${i}" role="option" aria-selected="false" data-slug="${esc(s.recipe.slug)}">
+      <span class="suggest-title">${highlight(s.recipe.title, state.q)}</span>
+      ${suggestWhy(s, state.q)}
+    </li>`).join('');
+  box.hidden = false;
+  $('#search').setAttribute('aria-expanded', 'true');
+}
+
+function closeSuggest() {
+  const box = $('#search-suggest');
+  if (box) { box.hidden = true; box.innerHTML = ''; }
+  state.suggest = { items: [], active: -1 };
+  const search = $('#search');
+  if (search) { search.setAttribute('aria-expanded', 'false'); search.setAttribute('aria-activedescendant', ''); }
+}
+
+// Move/paint the keyboard highlight to row `i` (-1 clears it).
+function setActiveSuggest(i) {
+  state.suggest.active = i;
+  const rows = [...$('#search-suggest').children];
+  rows.forEach((row, idx) => {
+    const on = idx === i;
+    row.classList.toggle('is-active', on);
+    row.setAttribute('aria-selected', String(on));
+  });
+  $('#search').setAttribute('aria-activedescendant', i >= 0 ? `suggest-${i}` : '');
+}
+
+// Open the chosen recipe and dismiss the list.
+function chooseSuggest(slug) {
+  if (!slug) return;
+  closeSuggest();
+  openReader(slug);
+}
+
+function onSearchKeydown(e) {
+  const { items, active } = state.suggest;
+  if (e.key === 'Escape') { closeSuggest(); return; }
+  if (!items.length) return;
+  if (e.key === 'ArrowDown') { e.preventDefault(); setActiveSuggest((active + 1) % items.length); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); setActiveSuggest((active - 1 + items.length) % items.length); }
+  else if (e.key === 'Enter') {
+    if (active >= 0 && items[active]) { e.preventDefault(); chooseSuggest(items[active].recipe.slug); }
+  }
 }
 
 // ── menu (cards) ─────────────────────────────────────────────────────────────

@@ -80,7 +80,9 @@
   <section class="filters" id="filters">
     <div class="filter-search">
       <input type="search" id="search" placeholder="Search dishes, ingredients, vibes…"
-        autocomplete="off" aria-label="Search recipes" />
+        autocomplete="off" aria-label="Search recipes" role="combobox" aria-expanded="false"
+        aria-autocomplete="list" aria-controls="search-suggest" aria-activedescendant="" />
+      <ul class="search-suggest" id="search-suggest" role="listbox" aria-label="Recipe suggestions" hidden></ul>
     </div>
     <div class="filter-groups" id="filter-groups">
       <!-- filter chip groups injected by app.js -->

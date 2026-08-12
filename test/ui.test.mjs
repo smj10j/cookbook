@@ -592,3 +592,75 @@ test('filters narrow the menu', async () => {
   assert.ok(after < before && after > 0, 'beef filter narrows');
   assert.ok(app.state.filtered.every((r) => r.protein === 'beef'));
 });
+
+test('search autocomplete: typing shows ≤5 section-scoped suggestions; a click opens the recipe', async () => {
+  const { $, $$, window } = await boot();
+  const input = $('#search');
+  input.value = 'a';
+  input.dispatchEvent(new window.Event('input', { bubbles: true }));
+  const box = $('#search-suggest');
+  assert.equal(box.hidden, false, 'dropdown opens on input');
+  const rows = $$('#search-suggest .suggest-item');
+  assert.ok(rows.length > 0 && rows.length <= 5, 'between 1 and 5 suggestions');
+  assert.equal(input.getAttribute('aria-expanded'), 'true');
+  // Every suggestion is a FOOD recipe (the active section), never a drink.
+  const foodSlugs = new Set(foodRecipes.map((r) => r.slug));
+  rows.forEach((row) => assert.ok(foodSlugs.has(row.dataset.slug), 'suggestions stay in the food section'));
+  // Choosing one (mousedown, which fires before blur) opens that recipe.
+  const slug = rows[0].dataset.slug;
+  rows[0].dispatchEvent(new window.Event('mousedown', { bubbles: true }));
+  assert.equal($('#reader').hidden, false, 'choosing a suggestion opens the reader');
+  assert.match(window.location.hash, new RegExp(`#/${slug}$`), 'reader routes to the chosen recipe');
+  assert.equal(box.hidden, true, 'dropdown closes after choosing');
+});
+
+test('search autocomplete: Drinks suggestions never leak Food recipes', async () => {
+  const { $, $$, window } = await boot('https://example.com/#drinks');
+  const input = $('#search');
+  input.value = 'a';
+  input.dispatchEvent(new window.Event('input', { bubbles: true }));
+  const rows = $$('#search-suggest .suggest-item');
+  assert.ok(rows.length > 0, 'drinks produce suggestions too');
+  const drinkSlugs = new Set(drinkRecipes.map((r) => r.slug));
+  rows.forEach((row) => assert.ok(drinkSlugs.has(row.dataset.slug), 'only drinks are suggested on the Drinks tab'));
+});
+
+test('search autocomplete: switching sections clears the query and closes the dropdown', async () => {
+  const { $, $$, window } = await boot();
+  const input = $('#search');
+  input.value = 'a';
+  input.dispatchEvent(new window.Event('input', { bubbles: true }));
+  assert.ok($$('#search-suggest .suggest-item').length > 0);
+  $$('#tabs .tab').find((t) => t.dataset.kind === 'drink').click();
+  assert.equal($('#search-suggest').hidden, true, 'dropdown closes on section switch');
+  assert.equal(input.value, '', 'search resets for the new section');
+});
+
+test('search autocomplete: arrow keys move the highlight and Enter opens it', async () => {
+  const { $, $$, window } = await boot();
+  const input = $('#search');
+  input.value = 'a';
+  input.dispatchEvent(new window.Event('input', { bubbles: true }));
+  const rows = $$('#search-suggest .suggest-item');
+  assert.ok(rows.length >= 2, 'need at least two suggestions to navigate');
+  input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
+  assert.ok(rows[0].classList.contains('is-active'), 'first ArrowDown highlights row 0');
+  assert.equal(input.getAttribute('aria-activedescendant'), 'suggest-0');
+  input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
+  assert.ok(rows[1].classList.contains('is-active') && !rows[0].classList.contains('is-active'), 'moves to row 1');
+  const slug = rows[1].dataset.slug;
+  input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+  assert.equal($('#reader').hidden, false, 'Enter opens the highlighted recipe');
+  assert.match(window.location.hash, new RegExp(`#/${slug}$`));
+});
+
+test('search autocomplete: Escape closes the dropdown without opening a recipe', async () => {
+  const { $, $$, window } = await boot();
+  const input = $('#search');
+  input.value = 'a';
+  input.dispatchEvent(new window.Event('input', { bubbles: true }));
+  assert.equal($('#search-suggest').hidden, false);
+  input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  assert.equal($('#search-suggest').hidden, true, 'Escape hides the list');
+  assert.equal($('#reader').hidden, true, 'and does not open a recipe');
+});
