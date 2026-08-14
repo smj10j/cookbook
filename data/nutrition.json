@@ -4096,7 +4096,11 @@
       "fiber": 0.1,
       "sugar": 0.1,
       "sodium": 879
-    }
+    },
+    "aliases": [
+      "tamari",
+      "gluten-free tamari"
+    ]
   },
   "spaghetti": {
     "unit": "oz",
@@ -4831,6 +4835,163 @@
       "artisan bread",
       "crusty sourdough or ciabatta",
       "day-old sourdough or ciabatta"
+    ]
+  },
+  "cashews": {
+    "unit": "cup",
+    "g": 137,
+    "density": 0.5,
+    "n": {
+      "kcal": 786,
+      "protein": 21,
+      "carb": 45,
+      "fat": 63.6,
+      "satfat": 12.6,
+      "fiber": 4.1,
+      "sugar": 6.9,
+      "sodium": 22
+    },
+    "aliases": [
+      "cashew",
+      "roasted cashews",
+      "cashew nuts"
+    ]
+  },
+  "lavash": {
+    "unit": "lavash",
+    "g": 90,
+    "each": 90,
+    "n": {
+      "kcal": 240,
+      "protein": 8,
+      "carb": 48,
+      "fat": 1.5,
+      "satfat": 0.3,
+      "fiber": 2,
+      "sugar": 1.5,
+      "sodium": 460
+    },
+    "aliases": [
+      "lavash flatbread",
+      "lavash flatbreads",
+      "lavash bread"
+    ]
+  },
+  "ketchup": {
+    "unit": "tbsp",
+    "g": 17,
+    "n": {
+      "kcal": 17,
+      "protein": 0.2,
+      "carb": 4.5,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0.1,
+      "sugar": 3.7,
+      "sodium": 154
+    }
+  },
+  "gochugaru": {
+    "unit": "tsp",
+    "g": 2,
+    "n": {
+      "kcal": 6,
+      "protein": 0.3,
+      "carb": 1.1,
+      "fat": 0.3,
+      "satfat": 0.05,
+      "fiber": 0.7,
+      "sugar": 0.2,
+      "sodium": 5
+    },
+    "aliases": [
+      "korean chile flakes",
+      "kimchi chile flakes",
+      "gochugaru (korean chile flakes)"
+    ]
+  },
+  "udon noodles": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 36,
+      "protein": 1.1,
+      "carb": 7.8,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.4,
+      "sugar": 0.1,
+      "sodium": 90
+    },
+    "aliases": [
+      "udon",
+      "cooked udon",
+      "cooked udon noodles",
+      "fresh udon"
+    ]
+  },
+  "chickpea flour": {
+    "unit": "tbsp",
+    "g": 7.5,
+    "n": {
+      "kcal": 29,
+      "protein": 1.6,
+      "carb": 4.4,
+      "fat": 0.5,
+      "satfat": 0.05,
+      "fiber": 0.8,
+      "sugar": 0.8,
+      "sodium": 5
+    },
+    "aliases": [
+      "besan",
+      "gram flour",
+      "garbanzo flour"
+    ]
+  },
+  "nectarine": {
+    "unit": "nectarine",
+    "g": 140,
+    "density": 0.6,
+    "each": 140,
+    "n": {
+      "kcal": 63,
+      "protein": 1.5,
+      "carb": 15.1,
+      "fat": 0.5,
+      "satfat": 0.04,
+      "fiber": 2.4,
+      "sugar": 11.2,
+      "sodium": 0
+    },
+    "aliases": [
+      "nectarines",
+      "peach",
+      "peaches",
+      "plum",
+      "plums",
+      "pluot",
+      "pluots",
+      "stone fruit"
+    ]
+  },
+  "spinach": {
+    "unit": "cup",
+    "g": 30,
+    "density": 0.25,
+    "n": {
+      "kcal": 7,
+      "protein": 0.9,
+      "carb": 1.1,
+      "fat": 0.1,
+      "satfat": 0.02,
+      "fiber": 0.7,
+      "sugar": 0.1,
+      "sodium": 24
+    },
+    "aliases": [
+      "baby spinach",
+      "fresh spinach"
     ]
   }
 }
