@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
   parseQty, fmtQty, scaleDisplay, classify, normalizeIngredient, buildShoppingList, formatShoppingList, isOptional,
-  clampServes, bucketMatch, recipeMatches, cuisineChipValues, proteinChipValues, shopSectionsForRecipe, inlineMd, esc,
+  clampServes, bucketMatch, recipeMatches, searchSuggestions, cuisineChipValues, proteinChipValues, shopSectionsForRecipe, inlineMd, esc,
   parseHash, hashForKind, isIOSSafari,
   pctOfDV, nutritionRows, hasNutrition, nutritionPanelHtml, NUTRIENT_DISPLAY,
   EATING_PLANS, planTier, evaluatePlan, evaluatePlans, planReasons, nutrientFlags, buildPlanVerdicts,
@@ -224,6 +224,47 @@ test('cartOnly narrows to the selected recipes', () => {
   // On with no/absent selection can't match anything (guards a null selected set).
   assert.equal(recipeMatches(a, { q: '', filters: empty, cartOnly: true, selected: null }), false);
   assert.equal(recipeMatches(a, { q: '', filters: empty, cartOnly: true, selected: new Set() }), false);
+});
+
+test('searchSuggestions: ranks name > tag > ingredient, caps at limit, reports why', () => {
+  const R = [
+    { slug: 'pan-seared-cod', title: 'Pan-Seared Cod', tags: [], cuisine: 'American', ingredients: [{ items: ['2 cod fillets'] }] },
+    { slug: 'panzanella', title: 'Salmon Panzanella Salad', tags: [], cuisine: 'Italian', ingredients: [{ items: ['bread'] }] },
+    { slug: 'pancetta-pasta', title: 'Rigatoni', tags: [], cuisine: 'Italian', ingredients: [{ items: ['4 oz pancetta'] }] },
+    { slug: 'skillet', title: 'Skillet Chicken', tags: ['one-pan'], cuisine: 'American', ingredients: [{ items: ['chicken'] }] },
+    { slug: 'unrelated', title: 'Tacos', tags: ['spicy'], cuisine: 'Mexican', ingredients: [{ items: ['tortillas'] }] },
+  ];
+  const out = searchSuggestions(R, 'pan', 5);
+  // The unrelated recipe (no "pan" anywhere) is excluded.
+  assert.ok(!out.some((s) => s.recipe.slug === 'unrelated'), 'non-matches are dropped');
+  // Name matches (title contains "pan") all outrank the tag-only and ingredient-only hits.
+  const nameSlugs = out.filter((s) => s.field === 'name').map((s) => s.recipe.slug);
+  assert.deepEqual(new Set(nameSlugs), new Set(['pan-seared-cod', 'panzanella']), 'both title matches surface as name hits');
+  const ranks = out.map((s) => s.recipe.slug);
+  assert.ok(ranks.indexOf('skillet') > ranks.indexOf('pan-seared-cod'), 'tag match ranks below a name match');
+  assert.ok(ranks.indexOf('pancetta-pasta') > ranks.indexOf('skillet'), 'ingredient match ranks below a tag match');
+  // The hint explains non-name matches.
+  assert.equal(out.find((s) => s.recipe.slug === 'skillet').field, 'tag');
+  assert.equal(out.find((s) => s.recipe.slug === 'pancetta-pasta').field, 'ingredient');
+  assert.equal(out.find((s) => s.recipe.slug === 'pancetta-pasta').text, '4 oz pancetta');
+});
+
+test('searchSuggestions: empty query yields nothing; honors the limit', () => {
+  const R = Array.from({ length: 8 }, (_, i) => ({ slug: `r${i}`, title: `Salsa Number ${i}`, tags: [], ingredients: [] }));
+  assert.deepEqual(searchSuggestions(R, '', 5), []);
+  assert.deepEqual(searchSuggestions(R, '   ', 5), []);
+  assert.equal(searchSuggestions(R, 'salsa', 5).length, 5, 'never more than the limit');
+  assert.equal(searchSuggestions(R, 'salsa', 3).length, 3);
+});
+
+test('searchSuggestions: only searches the recipes it is given (section scoping)', () => {
+  // Callers pass just the current section's recipes; a query can only surface those.
+  const food = data.recipes.filter((r) => (r.kind || 'food') === 'food');
+  const drinks = data.recipes.filter((r) => r.kind === 'drink');
+  const foodSlugs = new Set(food.map((r) => r.slug));
+  for (const s of searchSuggestions(food, 'a', 5)) assert.ok(foodSlugs.has(s.recipe.slug), 'food scope stays food');
+  const drinkSlugs = new Set(drinks.map((r) => r.slug));
+  for (const s of searchSuggestions(drinks, 'a', 5)) assert.ok(drinkSlugs.has(s.recipe.slug), 'drink scope stays drink');
 });
 
 test('Asian cuisine umbrella matches member cuisines', () => {

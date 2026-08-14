@@ -430,6 +430,68 @@ export function recipeMatches(r, { q, filters, cuisineGroups = {}, proteinGroups
   return true;
 }
 
+// ── search autocomplete (relevance-ranked suggestions) ───────────────────────
+// Split a string into lowercase word tokens (letters/digits) so "Pan-Seared" and
+// "orange juice" match a query against the START of any word, not just the string.
+function searchWords(s) {
+  return String(s || '').toLowerCase().split(/[^a-z0-9]+/i).filter(Boolean);
+}
+
+// Score one text field against a lowercased query, best (highest) match wins:
+//   exact === q  >  whole field starts with q  >  a word starts with q  >  substring.
+// `tiers` sets the ceiling per field so a name match always outranks a tag match,
+// which outranks a keyword match, which outranks an ingredient match.
+function scoreField(text, q, tiers) {
+  const t = String(text || '').toLowerCase();
+  if (!t) return 0;
+  if (t === q) return tiers.exact;
+  if (t.startsWith(q)) return tiers.prefix;
+  if (searchWords(t).some((w) => w.startsWith(q))) return tiers.word;
+  if (t.includes(q)) return tiers.sub;
+  return 0;
+}
+
+// Field tiers, in descending priority. Ranges never overlap, so the field that
+// produced a recipe's best score also decides which hint ("why it matched") shows.
+const SUGGEST_TIERS = {
+  name: { field: 'name', exact: 100, prefix: 95, word: 90, sub: 80 },
+  tag: { field: 'tag', exact: 68, prefix: 65, word: 62, sub: 58 },
+  keyword: { field: 'keyword', exact: 52, prefix: 50, word: 48, sub: 46 },
+  ingredient: { field: 'ingredient', exact: 42, prefix: 40, word: 38, sub: 35 },
+};
+
+// Best (score, matched field, matched text) for one recipe against query `q`, or
+// null if nothing matched. Checks name, then tags, then keyword facets (cuisine /
+// base / family), then ingredient lines — keeping the single highest-scoring hit.
+function scoreRecipe(r, q) {
+  let best = { score: 0, field: null, text: null };
+  const consider = (score, field, text) => { if (score > best.score) best = { score, field, text }; };
+  consider(scoreField(r.title, q, SUGGEST_TIERS.name), 'name', r.title);
+  for (const tag of r.tags || []) consider(scoreField(tag, q, SUGGEST_TIERS.tag), 'tag', tag);
+  for (const kw of [r.cuisine, r.base, r.family]) if (kw) consider(scoreField(kw, q, SUGGEST_TIERS.keyword), 'keyword', kw);
+  for (const sec of r.ingredients || []) for (const line of sec.items || []) {
+    consider(scoreField(line, q, SUGGEST_TIERS.ingredient), 'ingredient', line);
+  }
+  return best.score > 0 ? best : null;
+}
+
+// Autocomplete for the search box. Given the recipes of the CURRENT section
+// (caller filters food vs drink), returns up to `limit` suggestions ranked by
+// relevance: name matches first, then tag/keyword matches, then ingredient
+// matches; ties broken alphabetically by title. Each result carries the recipe
+// plus { field, text } describing why it matched, for the dropdown hint.
+export function searchSuggestions(recipes, query, limit = 5) {
+  const q = String(query || '').trim().toLowerCase();
+  if (!q) return [];
+  const scored = [];
+  for (const r of recipes || []) {
+    const m = scoreRecipe(r, q);
+    if (m) scored.push({ recipe: r, score: m.score, field: m.field, text: m.text });
+  }
+  scored.sort((a, b) => b.score - a.score || a.recipe.title.localeCompare(b.recipe.title));
+  return scored.slice(0, Math.max(0, limit));
+}
+
 // ── nutrition (per-serving estimate + %DV) ───────────────────────────────────
 // FDA Daily Values (2,000-calorie reference) used to express each nutrient as a
 // percentage of recommended daily intake. `sugar` has no official total-sugars
