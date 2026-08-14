@@ -1,7 +1,7 @@
 {
-  "count": 110,
+  "count": 113,
   "counts": {
-    "food": 78,
+    "food": 81,
     "drink": 32
   },
   "vocab": {
@@ -327,7 +327,8 @@
       "Filipino",
       "Malaysian",
       "Indonesian",
-      "Singaporean"
+      "Singaporean",
+      "Burmese"
     ]
   },
   "proteinGroups": {
@@ -341,6 +342,7 @@
       "American",
       "Asian",
       "Asian-American",
+      "Burmese",
       "Cajun",
       "Chinese",
       "Filipino",
@@ -371,6 +373,7 @@
       "boozy",
       "budget",
       "citrusy",
+      "coconut-curry",
       "comfort",
       "comfort-food",
       "cookout",
@@ -388,6 +391,7 @@
       "gluten-free-option",
       "grill",
       "grilling",
+      "handheld",
       "healthy",
       "herbal",
       "high-protein",
@@ -402,6 +406,7 @@
       "meatless",
       "meatless-monday",
       "no-cook",
+      "noodle-bowl",
       "one-pan",
       "party",
       "picnic",
@@ -419,7 +424,9 @@
       "spring",
       "steakhouse",
       "stir-fry",
+      "stone-fruit",
       "summer",
+      "sun-basket",
       "sweet-heat",
       "taco-night",
       "thanksgiving",
@@ -1658,6 +1665,168 @@
             "fiber": 3,
             "sugar": 10.3,
             "sodium": 224
+          }
+        }
+      }
+    },
+    {
+      "title": "Burmese Coconut Curry with Chicken & Udon Noodles",
+      "slug": "burmese-coconut-curry-chicken-udon",
+      "tagline": "Turmeric-gold coconut curry over slippery udon, finished with jammy egg and lime.",
+      "pitch": "Think of this as Burma's answer to a bowl of spaghetti — ohn no khauk swè, the coconut-chicken noodle classic, streamlined for a weeknight. Chicken thighs get a quick dredge of chickpea flour and paprika so they brown into savory little nuggets and, better yet, thicken the broth to a velvety pour. From there it's a fragrant simmer of coconut milk, ginger, garlic, and turmeric loosened with a splash of stock and seasoned with fish sauce and tamari, wilted with spinach at the end. *Ladle it over thick udon and pile on the fixings — halved soft egg, raw onion, cilantro, and a hard squeeze of lime — so every bowl gets built to taste.*",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 20,
+        "total": 40
+      },
+      "difficulty": "easy",
+      "protein": "chicken",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Burmese",
+      "course": "soup",
+      "heat": "mild",
+      "tags": [
+        "noodle-bowl",
+        "coconut-curry",
+        "comfort",
+        "weeknight",
+        "sun-basket"
+      ],
+      "ingredients": [
+        {
+          "section": "Chicken",
+          "items": [
+            "10 oz boneless skinless chicken thighs, cut into 1-inch pieces",
+            "2 tbsp chickpea flour",
+            "1 tsp paprika",
+            "Salt and freshly ground black pepper"
+          ]
+        },
+        {
+          "section": "Coconut curry",
+          "items": [
+            "2 tbsp neutral oil",
+            "1 yellow onion, half thinly sliced, half finely chopped",
+            "3 cloves garlic, minced",
+            "1 tbsp grated fresh ginger",
+            "1 tsp ground turmeric",
+            "1 (13.5-oz) can coconut milk",
+            "1 cup chicken broth",
+            "1 tbsp fish sauce",
+            "1 tbsp tamari",
+            "2 cups baby spinach"
+          ]
+        },
+        {
+          "section": "Noodles & garnish",
+          "items": [
+            "8 oz cooked udon noodles",
+            "2 eggs, soft- or hard-boiled and halved",
+            "¼ cup cilantro leaves",
+            "1 lime, cut into wedges"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Brown the chicken",
+          "items": [
+            "Pat the chicken dry, season with salt and pepper, then sprinkle with the chickpea flour and paprika and toss to coat.",
+            "Warm the neutral oil in a wok or large frying pan over medium-high heat. Add the chicken and cook, stirring occasionally, until browned but not fully cooked through, 2–3 minutes. Transfer to a plate."
+          ]
+        },
+        {
+          "section": "Build the curry",
+          "items": [
+            "Add the chopped onion to the pan and cook until it begins to soften, 2–3 minutes. Stir in the garlic, ginger, and turmeric and cook until fragrant, about 1 minute.",
+            "Pour in the coconut milk and chicken broth, scraping up the browned bits, and bring to a simmer. Return the chicken and simmer until cooked through and the broth thickens slightly, 5–6 minutes.",
+            "Stir in the fish sauce and tamari, then the spinach, cooking just until wilted. Taste and adjust with more fish sauce or a squeeze of lime."
+          ]
+        },
+        {
+          "section": "Assemble the bowls",
+          "items": [
+            "Warm the udon (a quick dip in hot water or a minute in the simmering broth) and divide between two bowls.",
+            "Ladle the coconut chicken curry over the noodles. Top with the halved eggs, the reserved sliced raw onion, and cilantro.",
+            "Serve with lime wedges for squeezing at the table."
+          ]
+        }
+      ],
+      "tips": [
+        "The chickpea-flour dredge does double duty — it crisps the chicken and thickens the broth, so don't skip it (it's also what keeps this gluten-friendly if you use tamari).",
+        "For a jammy 7-minute egg, lower eggs into boiling water, cook 7 minutes, then shock in ice water before peeling.",
+        "Toast the turmeric with the aromatics for a full minute — blooming it in the oil deepens the color and rounds out the raw edge.",
+        "Like it hotter? A spoonful of chili crisp or a pinch of gochugaru stirred in at the end wakes the whole bowl up."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "A handful of garden cilantro and a few thin serrano rings on top nod to Burmese street-stall garnishes."
+        },
+        {
+          "label": "Swap the noodles",
+          "note": "Fresh or dried udon both work; rice noodles or even spaghetti (true to the ohn no khauk swè spirit) are fair game."
+        },
+        {
+          "label": "Make it vegetarian",
+          "note": "Swap the chicken for cubed firm tofu (dredge the same way) and the fish sauce for extra tamari plus a splash of lime."
+        }
+      ],
+      "source": {
+        "name": "Sunbasket",
+        "url": "https://sunbasket.com/recipe/burmese-coconut-curry-with-chicken-and-udon-noodles"
+      },
+      "created": "2026-08-14T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "1 (13.5-oz) can coconut milk",
+          "with": "1 (13.5-oz) can light coconut milk",
+          "note": "light coconut milk"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "2 tbsp neutral oil",
+          "with": "1 tbsp neutral oil",
+          "note": "less oil"
+        }
+      ],
+      "updated": "2026-08-14T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Another of Lauren's Sun Basket picks. It's loosely built on *ohn no khauk swè*, the\nBurmese coconut-chicken noodle bowl — the chickpea-flour dredge is the clever bit,\nbrowning the chicken and silkening the broth in one move.",
+      "equipment": [],
+      "nutrition": {
+        "perServing": {
+          "kcal": 1051,
+          "protein": 45.4,
+          "carb": 55.7,
+          "fat": 75.9,
+          "satfat": 43.3,
+          "fiber": 5.9,
+          "sugar": 10.5,
+          "sodium": 2185
+        },
+        "confidence": "high",
+        "matched": 17,
+        "considered": 17,
+        "withSwaps": {
+          "0.1": {
+            "kcal": 745,
+            "protein": 42.8,
+            "carb": 52.9,
+            "fat": 41.6,
+            "satfat": 17.7,
+            "fiber": 5.9,
+            "sugar": 6.9,
+            "sodium": 2194
           }
         }
       }
@@ -4911,6 +5080,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "Panzanella earns its keep on exactly the kind of night when the tomatoes are too\ngood to cook and the bread is a day past its best. Here it grows up into a real\nsalad: peppery arugula, flakes of crispy salmon folded right through the juicy\nbread, and the shattered skin crumbled on top like savory bacon bits.",
+      "hero": "images/crispy-salmon-panzanella.webp",
       "nutrition": {
         "perServing": {
           "kcal": 984,
@@ -6886,6 +7056,183 @@
         "confidence": "high",
         "matched": 8,
         "considered": 8
+      }
+    },
+    {
+      "title": "Grilled Steak & Stone Fruit Salad with Walnuts and Ginger-Basil Dressing",
+      "slug": "steak-stonefruit-salad",
+      "tagline": "Charred steak and blistered summer stone fruit over greens in a punchy ginger-basil dressing.",
+      "pitch": "Peak-summer stone fruit is the secret ingredient here: nectarines get halved and laid cut-side down on a screaming grill until their sugars caramelize and their edges char, turning them jammy and savory-sweet against a well-rested medium-rare steak. A ginger-basil dressing — grated ginger, torn Thai basil, honey, and lime whisked with olive oil — hits everything with heat and brightness, while toasted walnuts add the crunch. *The play is the temperature contrast: warm sliced steak and hot grilled fruit tumbled over cool, crisp greens.*",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 12,
+        "total": 32
+      },
+      "difficulty": "medium",
+      "protein": "beef",
+      "methods": [
+        "grill",
+        "stove"
+      ],
+      "cuisine": "American",
+      "course": "salad",
+      "heat": "none",
+      "equipment": [
+        "grill",
+        "instant-read thermometer"
+      ],
+      "tags": [
+        "summer",
+        "stone-fruit",
+        "gluten-free",
+        "date-night",
+        "garden",
+        "sun-basket"
+      ],
+      "ingredients": [
+        {
+          "section": "Steak",
+          "items": [
+            "10 oz sirloin or flat iron steak",
+            "1 tsp neutral oil",
+            "Salt and freshly ground black pepper"
+          ]
+        },
+        {
+          "section": "Salad",
+          "items": [
+            "3 oz baby kale (or arugula or mixed greens)",
+            "2 nectarines (or peaches or plums), halved and pitted",
+            "¼ red onion, thinly sliced",
+            "⅓ cup walnuts, toasted and coarsely chopped"
+          ]
+        },
+        {
+          "section": "Ginger-basil dressing",
+          "items": [
+            "1 tbsp grated fresh ginger",
+            "3 tbsp chopped fresh basil (Thai basil if you have it)",
+            "2 tbsp extra-virgin olive oil",
+            "2 tbsp lime juice",
+            "1 tbsp honey",
+            "Salt and freshly ground black pepper"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Heat the grill to high (~500°F) and oil the grates. Pat the steak dry, rub with the neutral oil, and season generously with salt and pepper.",
+            "Whisk together the ginger, basil, olive oil, lime juice, honey, and a pinch of salt and pepper for the dressing. Set aside.",
+            "Toast the walnuts in a dry pan over medium heat until fragrant, 3–4 minutes; chop."
+          ]
+        },
+        {
+          "section": "Grill",
+          "items": [
+            "Grill the steak to a dark crust, 3–4 minutes per side, pulling it at 125°F for medium-rare. Rest 5–10 minutes, then slice thinly against the grain.",
+            "While the steak rests, lay the nectarine halves and red onion cut-side down on the grill and cook until lightly charred, 3–5 minutes. Cut the nectarines into ½-inch wedges."
+          ]
+        },
+        {
+          "section": "Assemble",
+          "items": [
+            "Toss the kale with about half the dressing and spread across two plates.",
+            "Scatter the grilled nectarines and onion over the greens, then fan the sliced steak on top.",
+            "Shower with toasted walnuts and drizzle with the remaining dressing."
+          ]
+        }
+      ],
+      "tips": [
+        "Slice against the grain — find the direction of the muscle fibers and cut perpendicular for the most tender bites.",
+        "Grill the fruit only until grill marks form; go too long and it turns to mush. Firm-ripe (not soft) nectarines hold their shape best.",
+        "Pull the steak 5°F below your target and let carryover finish it during the rest so it stays pink against the cool greens.",
+        "No grill? Sear the steak in a hot cast-iron pan and caramelize the fruit cut-side down in the same skillet."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden basil is the whole dressing here — Thai basil adds an anise note, but sweet basil works beautifully too."
+        },
+        {
+          "label": "Swap the fruit",
+          "note": "Any ripe stone fruit shines — peaches, plums, pluots, or apricots. In a pinch, halved figs are gorgeous."
+        },
+        {
+          "label": "Pairs with",
+          "note": "A chilled light red — Gamay or a cool Pinot Noir — echoes the fruit without fighting the char."
+        }
+      ],
+      "source": {
+        "name": "Sunbasket",
+        "url": "https://sunbasket.com/recipe/grilled-steak-and-peach-salad-with-kale-and-ginger-basil-dressing"
+      },
+      "created": "2026-08-14T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "tlc",
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "10 oz sirloin or flat iron steak",
+          "with": "8 oz sirloin or flat iron steak",
+          "note": "a smaller steak"
+        },
+        {
+          "for": [
+            "dash",
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "1 tbsp honey",
+          "with": "½ tbsp honey",
+          "note": "half the honey in the dressing"
+        }
+      ],
+      "updated": "2026-08-14T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "The third of Lauren's Sun Basket favorites, and a summer natural for the grill: grilling\nthe stone fruit alongside the steak concentrates its sugars into something almost savory,\nand the ginger-basil dressing keeps the whole plate lively.",
+      "nutrition": {
+        "perServing": {
+          "kcal": 675,
+          "protein": 41.2,
+          "carb": 31.7,
+          "fat": 44.3,
+          "satfat": 9.3,
+          "fiber": 5.8,
+          "sugar": 21.8,
+          "sodium": 92
+        },
+        "confidence": "high",
+        "matched": 11,
+        "considered": 11,
+        "withSwaps": {
+          "0": {
+            "kcal": 618,
+            "protein": 34.2,
+            "carb": 31.7,
+            "fat": 41.3,
+            "satfat": 8.1,
+            "fiber": 5.8,
+            "sugar": 21.8,
+            "sodium": 77
+          },
+          "0.1": {
+            "kcal": 603,
+            "protein": 34.2,
+            "carb": 27.3,
+            "fat": 41.3,
+            "satfat": 8.1,
+            "fiber": 5.8,
+            "sugar": 17.4,
+            "sodium": 77
+          }
+        }
       }
     },
     {
@@ -12829,6 +13176,197 @@
             "fiber": 7,
             "sugar": 25.3,
             "sodium": 275
+          }
+        }
+      }
+    },
+    {
+      "title": "Sweet-and-Sour Eggplant Wraps with Spiced Cashews & Bok Choy Slaw",
+      "slug": "sweet-sour-eggplant-wraps",
+      "tagline": "Silky glazed eggplant, crunchy chile cashews, and a lime-bright slaw rolled up in lavash.",
+      "pitch": "The trick is treating eggplant like a steak: cut it into thick spears, sear the cut faces hard until they're bronzed and collapsing, then let them drink up a glossy sweet-and-sour glaze of rice vinegar, tamari, orange juice, and a little ketchup until every piece turns lacquered and jammy. A cool bok choy-and-carrot slaw dressed in lime and Aleppo goes down first for crunch, the eggplant piles on top, and a scatter of cashews tossed with Korean chile flakes brings the heat and the snap. *Roll it tight in soft lavash and the whole thing eats like the best vegetarian burrito you've never had.*",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 15,
+        "total": 35
+      },
+      "difficulty": "easy",
+      "protein": "vegan",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Asian",
+      "course": "main",
+      "heat": "mild",
+      "tags": [
+        "vegan",
+        "vegetarian",
+        "meatless",
+        "weeknight",
+        "handheld",
+        "sun-basket"
+      ],
+      "ingredients": [
+        {
+          "section": "Sweet-and-sour eggplant",
+          "items": [
+            "1 lb Asian eggplant (about 2), cut into ½-inch-thick spears",
+            "2 tbsp neutral oil",
+            "3 tbsp rice vinegar",
+            "2 tbsp tamari",
+            "2 tbsp orange juice",
+            "1 tbsp ketchup",
+            "1 tbsp brown sugar",
+            "2 cloves garlic, minced"
+          ]
+        },
+        {
+          "section": "Spiced cashews",
+          "items": [
+            "⅓ cup roasted cashews, coarsely chopped",
+            "½ tsp gochugaru (Korean chile flakes)",
+            "Pinch of salt"
+          ]
+        },
+        {
+          "section": "Bok choy slaw",
+          "items": [
+            "2 heads baby bok choy, thinly sliced crosswise",
+            "1 carrot, coarsely grated or julienned",
+            "¼ cup chopped cilantro",
+            "2 tbsp lime juice",
+            "1 tbsp neutral oil",
+            "½ tsp Aleppo pepper",
+            "Salt, to taste"
+          ]
+        },
+        {
+          "section": "To wrap",
+          "items": [
+            "2 lavash flatbreads (or large flour tortillas)"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Glaze the eggplant",
+          "items": [
+            "In a small bowl, stir together the rice vinegar, tamari, orange juice, ketchup, brown sugar, and garlic.",
+            "Heat the neutral oil in a large frying pan over medium-high. Add the eggplant cut-side down and cook, turning once, until deeply browned and tender, 6–8 minutes.",
+            "Pour in the sweet-and-sour blend and simmer, tossing to coat, until the glaze reduces and clings and the eggplant is glossy, 2–3 minutes. Remove from the heat."
+          ]
+        },
+        {
+          "section": "Toast the cashews & make the slaw",
+          "items": [
+            "In a dry small pan over medium heat, toast the cashews until fragrant, 2–3 minutes, then toss with the gochugaru and a pinch of salt.",
+            "In a bowl, whisk the lime juice, oil, Aleppo, and a pinch of salt. Add the bok choy, carrot, and cilantro and toss to coat."
+          ]
+        },
+        {
+          "section": "Assemble",
+          "items": [
+            "Warm the lavash briefly in a dry pan or microwave so it rolls without cracking.",
+            "Spoon the slaw across the lower third of each lavash, lay the glazed eggplant spears on top, and shower with the spiced cashews.",
+            "Roll up tightly, tucking the sides, then slice in half on the diagonal."
+          ]
+        }
+      ],
+      "tips": [
+        "Salt the eggplant spears and let them sit 10 minutes, then pat dry — they brown faster and soak up less oil.",
+        "Don't crowd the pan; eggplant steams instead of browning if the pieces touch. Work in two batches if your pan is small.",
+        "Gochugaru is mild and fruity rather than blistering — start with ½ tsp and add more to the cashews if you want more kick.",
+        "Roll the wraps in parchment and halve through the paper for a tidy, hand-held lunch."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Garden cilantro goes straight into the slaw; a few torn mint or basil leaves are lovely tucked in with the eggplant."
+        },
+        {
+          "label": "Make it heartier",
+          "note": "Add a smear of hummus or a handful of cooked rice noodles to the wrap to turn it into a bigger meal."
+        },
+        {
+          "label": "Make ahead",
+          "note": "The slaw and glazed eggplant both keep a day in the fridge; toast the cashews and roll fresh so the lavash stays soft."
+        }
+      ],
+      "source": {
+        "name": "Sunbasket",
+        "url": "https://sunbasket.com/recipe/sweet-and-sour-eggplant-wraps-with-spiced-cashews-and-bok-choy-slaw"
+      },
+      "created": "2026-08-14T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "tlc",
+            "kidney"
+          ],
+          "replace": "2 tbsp tamari",
+          "with": "2 tbsp coconut aminos",
+          "note": "coconut aminos for the tamari"
+        },
+        {
+          "for": [
+            "mind",
+            "mediterranean"
+          ],
+          "replace": "1 tbsp brown sugar",
+          "with": "1 tsp brown sugar",
+          "note": "less brown sugar in the glaze"
+        }
+      ],
+      "updated": "2026-08-14T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "A Sun Basket favorite of Lauren's, reworked for the flipbook. The move that makes it\nsing is reducing the sweet-and-sour glaze *in the pan* so it lacquers onto the eggplant\ninstead of pooling — you want each spear shiny and sticky before it goes into the wrap.",
+      "equipment": [],
+      "nutrition": {
+        "perServing": {
+          "kcal": 699,
+          "protein": 17.6,
+          "carb": 88.7,
+          "fat": 33.2,
+          "satfat": 4.3,
+          "fiber": 12.3,
+          "sugar": 23.8,
+          "sodium": 1523
+        },
+        "confidence": "high",
+        "matched": 17,
+        "considered": 17,
+        "withSwaps": {
+          "0": {
+            "kcal": 706,
+            "protein": 16.7,
+            "carb": 90.9,
+            "fat": 33.2,
+            "satfat": 4.3,
+            "fiber": 12.2,
+            "sugar": 25.7,
+            "sodium": 914
+          },
+          "1": {
+            "kcal": 682,
+            "protein": 17.6,
+            "carb": 84.2,
+            "fat": 33.2,
+            "satfat": 4.3,
+            "fiber": 12.3,
+            "sugar": 19.3,
+            "sodium": 1522
+          },
+          "0.1": {
+            "kcal": 689,
+            "protein": 16.7,
+            "carb": 86.4,
+            "fat": 33.2,
+            "satfat": 4.3,
+            "fiber": 12.2,
+            "sugar": 21.2,
+            "sodium": 913
           }
         }
       }
