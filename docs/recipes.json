@@ -1803,6 +1803,7 @@
       "category": "main",
       "headnote": "Another of Lauren's Sun Basket picks. It's loosely built on *ohn no khauk swè*, the\nBurmese coconut-chicken noodle bowl — the chickpea-flour dredge is the clever bit,\nbrowning the chicken and silkening the broth in one move.",
       "equipment": [],
+      "hero": "images/burmese-coconut-curry-chicken-udon.webp",
       "nutrition": {
         "perServing": {
           "kcal": 1051,
@@ -7197,6 +7198,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "The third of Lauren's Sun Basket favorites, and a summer natural for the grill: grilling\nthe stone fruit alongside the steak concentrates its sugars into something almost savory,\nand the ginger-basil dressing keeps the whole plate lively.",
+      "hero": "images/steak-stonefruit-salad.webp",
       "nutrition": {
         "perServing": {
           "kcal": 675,
@@ -13323,6 +13325,7 @@
       "category": "main",
       "headnote": "A Sun Basket favorite of Lauren's, reworked for the flipbook. The move that makes it\nsing is reducing the sweet-and-sour glaze *in the pan* so it lacquers onto the eggplant\ninstead of pooling — you want each spear shiny and sticky before it goes into the wrap.",
       "equipment": [],
+      "hero": "images/sweet-sour-eggplant-wraps.webp",
       "nutrition": {
         "perServing": {
           "kcal": 699,
