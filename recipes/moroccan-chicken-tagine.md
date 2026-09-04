@@ -19,6 +19,7 @@ protein: chicken
 methods:
   - stove
   - oven
+  - instant-pot
 cuisine: Moroccan
 course: main
 heat: mild
@@ -75,6 +76,23 @@ tips:
   - The salt comes mostly from the olives and preserved lemon, so hold off on adding more until the very end.
   - Like most braises, it's even better the next day — cool, chill, and reheat gently.
 extras:
+  - label: Chicken breast, Instant Pot
+    note: >-
+      Prefer white meat? Cook the breasts *apart* from the sauce so they never dry out.
+      Brown 4 boneless skinless breasts (about 2 lb) on Sauté, then roast them separately at
+      275°F for about 50 minutes — a low oven keeps them silky. Meanwhile build the braise
+      right in the pot: sauté the onion, garlic, ginger, coriander, and saffron, add the broth,
+      olives, and preserved lemon, and pressure-cook on High for ~8 minutes so the liquid turns
+      deep and glossy. Off the heat, fold the roasted breasts (whole or sliced) into the sauce
+      for a few minutes to drink it in, then finish with the herbs. *The split path is the
+      trick — a long braise overcooks lean breast, so you develop the sauce under pressure and
+      marry the two only at the end.*
+  - label: No preserved lemon?
+    note: >-
+      A 2-hour cheat gets you most of the way: toss thin lemon slices with enough fine sea salt
+      to coat in a small bowl and let them sit about 2 hours, until the rinds soften and go
+      translucent. Use the rind and just a little of the pulp. It won't have the month-cured
+      funk, but it brings that bright, salt-cured lemon note the dish is built on.
   - label: From the garden
     note: A big handful of garden cilantro and parsley at the finish; a little thyme in the braise.
   - label: Scale it
@@ -98,7 +116,7 @@ planSwaps:
     replace: "6 bone-in skin-on chicken thighs (about 2 lb)"
     with: "5 bone-in skin-on chicken thighs"
     note: "five thighs"
-updated: 2026-07-05
+updated: 2026-09-04
 ---
 
 The classic Moroccan pairing — salt-cured lemon and green olives against saffron and warm
