@@ -1,7 +1,7 @@
 {
-  "count": 114,
+  "count": 118,
   "counts": {
-    "food": 82,
+    "food": 86,
     "drink": 32
   },
   "vocab": {
@@ -344,6 +344,7 @@
       "Asian-American",
       "Burmese",
       "Cajun",
+      "Caribbean",
       "Chinese",
       "Filipino",
       "French",
@@ -407,6 +408,7 @@
       "meatless-monday",
       "no-cook",
       "noodle-bowl",
+      "one-packet",
       "one-pan",
       "party",
       "picnic",
@@ -415,6 +417,7 @@
       "restaurant-copycat",
       "roasted",
       "salsa",
+      "saucy",
       "seafood",
       "sheet-pan",
       "side",
@@ -2050,6 +2053,239 @@
             "fiber": 3.3,
             "sugar": 7.7,
             "sodium": 659
+          }
+        }
+      }
+    },
+    {
+      "title": "Caribbean Jerk Snapper with Coconut Rice & Black Beans",
+      "slug": "caribbean-jerk-snapper-coconut-rice-black-beans",
+      "tagline": "Jerk-spiced snapper seared crisp over creamy coconut rice and black beans, with an avocado-cucumber salad.",
+      "pitch": "A homemade jerk paste — scallion, thyme, allspice, and enough heat to wake you up — gets rubbed into snapper fillets and left to marinate while the rice cooks. The rice is the sleeper hit: jasmine simmered in light coconut milk until it's fragrant and just-creamy, then folded with black beans and more scallion. The fish sears hard in a screaming skillet so the sugar in the marinade caramelizes into a dark, spicy crust. *A cool avocado-cucumber salad and a hit of lime are the brakes on all that heat — the plate swings from fiery to soothing and back.*",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 20,
+        "total": 50
+      },
+      "difficulty": "medium",
+      "protein": "fish",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Caribbean",
+      "course": "main",
+      "heat": "hot",
+      "tags": [
+        "spicy",
+        "date-night",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Jerk snapper",
+          "items": [
+            "2 red snapper fillets (about 6 oz each)",
+            "2 scallions, roughly chopped",
+            "2 cloves garlic",
+            "1 tbsp fresh thyme (or 1 tsp dried)",
+            "1 tsp ground allspice",
+            "¼ tsp ground cinnamon",
+            "¼ tsp ground nutmeg",
+            "½ tsp cayenne (or 1 habanero, to taste)",
+            "1 tbsp brown sugar",
+            "1 tbsp soy sauce",
+            "1 tbsp olive oil",
+            "Juice of 1 lime"
+          ]
+        },
+        {
+          "section": "Coconut rice & beans",
+          "items": [
+            "¾ cup jasmine rice, rinsed",
+            "¾ cup light coconut milk",
+            "¼ cup water",
+            "1 cup black beans, drained and rinsed",
+            "2 scallions, sliced",
+            "¼ tsp salt"
+          ]
+        },
+        {
+          "section": "Avocado-cucumber salad",
+          "items": [
+            "1 avocado, diced",
+            "½ cucumber, diced",
+            "2 tbsp cilantro, chopped",
+            "Juice of ½ lime",
+            "1 pinch salt"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Marinate",
+          "items": [
+            "Blend the scallions, garlic, thyme, allspice, cinnamon, nutmeg, cayenne, brown sugar, soy sauce, olive oil, and lime juice into a rough paste (a small blender or a good mince by hand both work).",
+            "Coat the snapper all over and let it marinate 20–30 minutes while you cook the rice."
+          ]
+        },
+        {
+          "section": "Coconut rice & beans",
+          "items": [
+            "Combine the rinsed rice, light coconut milk, water, and salt in a saucepan. Bring to a boil, cover, drop to low, and cook 15 minutes until the liquid is absorbed.",
+            "Off the heat, fold in the black beans and scallions, re-cover, and let steam 5 minutes. Fluff with a fork."
+          ]
+        },
+        {
+          "section": "Sear & assemble",
+          "items": [
+            "Heat a cast-iron or heavy skillet over medium-high with a film of oil. Sear the fillets 3–4 minutes per side until the crust is dark and the fish flakes — don't move them until they release.",
+            "Toss the avocado, cucumber, cilantro, lime, and salt. Serve the snapper over the coconut rice and beans with the salad alongside and extra lime."
+          ]
+        }
+      ],
+      "tips": [
+        "Marinate at least 20 minutes but no more than an hour — the lime juice will start to \"cook\" the fish if it sits much longer.",
+        "Wait for the fish to release on its own before flipping; forcing it tears the caramelized jerk crust off the fillet.",
+        "Rinse the jasmine rice until the water runs clear so the coconut rice comes out fluffy, not gummy.",
+        "Control the heat with the cayenne or habanero — a whole habanero is authentically fiery; scale back for a milder plate."
+      ],
+      "extras": [
+        {
+          "label": "Swap the fish",
+          "note": "Jerk loves a firm, meaty fish that stands up to the hard sear. *Mahi-mahi, grouper, or snapper* are the classics; *cod or halibut* work well if you pat them very dry first so the crust forms. Thicker fillets (over ¾ inch) need an extra minute per side or a few minutes in a 400°F oven to finish. *Salmon* takes jerk beautifully — sear it skin-on and expect richer results. Even boneless chicken thighs work if you want to go landward — marinate longer (1–2 hours) and cook through to 165°F. Keep the marinade the same for all of them."
+        },
+        {
+          "label": "From the garden",
+          "note": "A garden habanero or scotch-bonnet in the marinade is the real-deal jerk heat, and garden thyme is central to the paste — use both if you've got them."
+        },
+        {
+          "label": "Make it a swap for Stephen",
+          "note": "This is finfish, so it's already Stephen-friendly — but if you ever build the coconut rice as a base for shrimp instead, keep a couple of snapper or mahi fillets going alongside so both of you are covered."
+        }
+      ],
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes"
+          ],
+          "replace": "1 tbsp soy sauce",
+          "with": "1 tbsp coconut aminos",
+          "note": "coconut aminos for soy sauce (check label; ~270 vs ~880 mg sodium)"
+        },
+        {
+          "for": [
+            "diabetes",
+            "lowcarb"
+          ],
+          "replace": "¾ cup jasmine rice, rinsed",
+          "with": "1½ cups cauliflower rice",
+          "note": "cauliflower rice instead of jasmine"
+        },
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "1 cup black beans, drained and rinsed",
+          "with": "½ cup black beans, drained and rinsed",
+          "note": "fewer black beans"
+        },
+        {
+          "for": [
+            "balance"
+          ],
+          "replace": "¾ cup jasmine rice, rinsed",
+          "with": "½ cup jasmine rice, rinsed",
+          "note": "less rice"
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-09-15T00:00:00.000Z",
+      "updated": "2026-09-15T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Jerk is as much about the aromatics — allspice (Jamaicans call it pimento),\nthyme, and scallion — as it is about the heat. Cooking the rice in coconut milk\nis the cooling counterweight that makes the whole plate sing.",
+      "equipment": [],
+      "nutrition": {
+        "perServing": {
+          "kcal": 830,
+          "protein": 51,
+          "carb": 97.4,
+          "fat": 26.9,
+          "satfat": 8.2,
+          "fiber": 15.5,
+          "sugar": 10.2,
+          "sodium": 938
+        },
+        "confidence": "high",
+        "matched": 21,
+        "considered": 21,
+        "withSwaps": {
+          "0": {
+            "kcal": 833,
+            "protein": 50.6,
+            "carb": 98.5,
+            "fat": 26.9,
+            "satfat": 8.2,
+            "fiber": 15.4,
+            "sugar": 11.1,
+            "sodium": 633
+          },
+          "3": {
+            "kcal": 745,
+            "protein": 49.4,
+            "carb": 78.9,
+            "fat": 26.7,
+            "satfat": 8.2,
+            "fiber": 15.2,
+            "sugar": 10.2,
+            "sodium": 936
+          },
+          "0.1": {
+            "kcal": 599,
+            "protein": 47.3,
+            "carb": 47,
+            "fat": 26.7,
+            "satfat": 8.1,
+            "fiber": 16.1,
+            "sugar": 12.6,
+            "sodium": 654
+          },
+          "1.2": {
+            "kcal": 541,
+            "protein": 44.1,
+            "carb": 35.9,
+            "fat": 26.4,
+            "satfat": 8.1,
+            "fiber": 12.4,
+            "sugar": 11.5,
+            "sodium": 928
+          },
+          "0.1.2": {
+            "kcal": 544,
+            "protein": 43.7,
+            "carb": 37,
+            "fat": 26.4,
+            "satfat": 8.1,
+            "fiber": 12.3,
+            "sugar": 12.5,
+            "sodium": 624
+          },
+          "0.3": {
+            "kcal": 748,
+            "protein": 49,
+            "carb": 80,
+            "fat": 26.7,
+            "satfat": 8.2,
+            "fiber": 15.1,
+            "sugar": 11.1,
+            "sodium": 632
           }
         }
       }
@@ -5744,6 +5980,215 @@
             "fiber": 4.2,
             "sugar": 5.2,
             "sodium": 483
+          }
+        }
+      }
+    },
+    {
+      "title": "Greek Snapper with Lemon-Herb Orzo & Blistered Tomatoes",
+      "slug": "greek-snapper-lemon-orzo-blistered-tomatoes",
+      "tagline": "Pan-seared snapper over lemony orzo with blistered cherry tomatoes and crumbled feta.",
+      "pitch": "Orzo cooked risotto-style is the trick here — you toast the little pasta grains, then simmer them in broth until they're creamy and tender, finished with lemon zest, olive oil, and a fistful of dill and parsley. Cherry tomatoes blister in a hot skillet until their skins split and go jammy, and the snapper sears in the same pan until the outside is golden and the inside just flakes. *Crumble the feta over while everything's hot so it softens at the edges and melts into the lemony orzo.* It's a Greek taverna plate that comes together in one pan and half an hour.",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "easy",
+      "protein": "fish",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Greek",
+      "course": "main",
+      "heat": "none",
+      "tags": [
+        "weeknight",
+        "garden",
+        "date-night"
+      ],
+      "ingredients": [
+        {
+          "section": "Lemon-herb orzo",
+          "items": [
+            "¾ cup orzo",
+            "1 tbsp extra-virgin olive oil",
+            "1½ cups vegetable broth",
+            "Zest and juice of ½ lemon",
+            "2 tbsp fresh dill, chopped",
+            "2 tbsp fresh parsley, chopped"
+          ]
+        },
+        {
+          "section": "Snapper & tomatoes",
+          "items": [
+            "2 red snapper fillets (about 6 oz each)",
+            "1 tbsp olive oil",
+            "½ tsp dried oregano",
+            "Salt and pepper",
+            "1 cup cherry tomatoes",
+            "⅓ cup feta, crumbled",
+            "2 tbsp Kalamata olives, sliced",
+            "½ lemon, cut into wedges"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Orzo",
+          "items": [
+            "Warm the olive oil in a skillet over medium heat and toast the orzo, stirring, until lightly golden, 2–3 minutes.",
+            "Add the broth, bring to a simmer, and cook, stirring often, until the orzo is tender and creamy and the liquid is mostly absorbed, 9–11 minutes. Stir in the lemon zest, juice, dill, and parsley. Scrape into a bowl and cover."
+          ]
+        },
+        {
+          "section": "Tomatoes & fish",
+          "items": [
+            "Wipe the skillet, add a little olive oil, and blister the cherry tomatoes over high heat until the skins split and char in spots, 3–4 minutes. Set aside.",
+            "Pat the snapper dry and season both sides with oregano, salt, and pepper. Add the tablespoon of oil to the hot skillet and sear the fillets 3–4 minutes on the first side until golden, then flip and cook 2–3 minutes more until they flake."
+          ]
+        },
+        {
+          "section": "Assemble",
+          "items": [
+            "Spoon the orzo onto plates and lay a fillet on top. Scatter the blistered tomatoes, Kalamata olives, and crumbled feta around, and serve with lemon wedges."
+          ]
+        }
+      ],
+      "tips": [
+        "Toasting the orzo before it simmers gives it a nutty depth and keeps the grains separate instead of gluey.",
+        "Feta and olives are salty, so go light on salt in the orzo and on the fish — you can always add more at the table.",
+        "Pat the fillets very dry before searing; surface moisture steams the fish and prevents that golden crust.",
+        "Stir the orzo often as it simmers, like a risotto, to release its starch and turn it creamy."
+      ],
+      "extras": [
+        {
+          "label": "Swap the fish",
+          "note": "Any Mediterranean-friendly white fish slots right in. *Branzino, sea bass, cod, or halibut* are naturals — thicker fillets (cod, halibut) need a minute or two longer per side, or finish them in a 400°F oven. *Tilapia or sole* are thin and delicate: sear briefly, 2 minutes a side, and handle gently. *Salmon* works too — sear it skin-on for extra crispness and expect a richer plate against the lemony orzo. Keep the oregano seasoning and the orzo exactly the same; only the sear time shifts with thickness."
+        },
+        {
+          "label": "From the garden",
+          "note": "Use garden cherry tomatoes for blistering and swap the dried oregano for fresh, plus dill or parsley straight from the bed."
+        },
+        {
+          "label": "Make it heartier",
+          "note": "Add a handful of baby spinach or arugula to the orzo off the heat so it just wilts, or fold in a spoonful of the blistered tomatoes for extra brightness."
+        }
+      ],
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "1½ cups vegetable broth",
+          "with": "1½ cups low-sodium vegetable broth",
+          "note": "low-sodium broth"
+        },
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "¾ cup orzo",
+          "with": "½ cup orzo",
+          "note": "less orzo"
+        },
+        {
+          "for": [
+            "lowcarb",
+            "kidney"
+          ],
+          "replace": "¾ cup orzo",
+          "with": "1½ cups cauliflower rice",
+          "note": "cauliflower rice instead of orzo"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 red snapper fillets (about 6 oz each)",
+          "with": "2 red snapper fillets (about 3 oz each)",
+          "note": "smaller 3-oz fillets (renal portion)"
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-09-15T00:00:00.000Z",
+      "updated": "2026-09-15T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "Cooking orzo like a risotto — toasted, then simmered in broth with plenty of\nstirring — turns a bag of pasta into something creamy and restaurant-worthy. It's\nthe perfect bed for a simple pan-seared fillet.",
+      "equipment": [],
+      "nutrition": {
+        "perServing": {
+          "kcal": 658,
+          "protein": 48.8,
+          "carb": 61.3,
+          "fat": 23.7,
+          "satfat": 6.3,
+          "fiber": 4.2,
+          "sugar": 5.6,
+          "sodium": 930
+        },
+        "confidence": "high",
+        "matched": 12,
+        "considered": 12,
+        "withSwaps": {
+          "0": {
+            "kcal": 658,
+            "protein": 48.8,
+            "carb": 61.3,
+            "fat": 23.7,
+            "satfat": 6.3,
+            "fiber": 4.2,
+            "sugar": 5.6,
+            "sodium": 600
+          },
+          "2": {
+            "kcal": 416,
+            "protein": 41.4,
+            "carb": 12.1,
+            "fat": 22.8,
+            "satfat": 6.2,
+            "fiber": 3.5,
+            "sugar": 5.6,
+            "sodium": 952
+          },
+          "0.1": {
+            "kcal": 571,
+            "protein": 45.8,
+            "carb": 43.6,
+            "fat": 23.3,
+            "satfat": 6.2,
+            "fiber": 3.4,
+            "sugar": 5.1,
+            "sodium": 599
+          },
+          "0.2.3": {
+            "kcal": 332,
+            "protein": 24,
+            "carb": 12.1,
+            "fat": 21.7,
+            "satfat": 5.9,
+            "fiber": 3.5,
+            "sugar": 5.6,
+            "sodium": 568
+          },
+          "0.2": {
+            "kcal": 416,
+            "protein": 41.4,
+            "carb": 12.1,
+            "fat": 22.8,
+            "satfat": 6.2,
+            "fiber": 3.5,
+            "sugar": 5.6,
+            "sodium": 622
           }
         }
       }
@@ -11300,6 +11745,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "Stephen's real-deal weeknight salmon, written down: the brown sugar and paprika go\nin equal measure, pressed into the top so they fuse into a sweet-smoky lacquer, and\nthe whole dinner rides one sheet pan with the broccolini pulled early so nothing\novercooks.",
+      "hero": "images/brown-sugar-paprika-salmon-broccolini.webp",
       "nutrition": {
         "perServing": {
           "kcal": 522,
@@ -11887,6 +12333,402 @@
             "fiber": 13.9,
             "sugar": 13,
             "sodium": 2855
+          }
+        }
+      }
+    },
+    {
+      "title": "Snapper en Papillote with Fennel, Cherry Tomato & Lemon Couscous",
+      "slug": "snapper-en-papillote-fennel-couscous",
+      "tagline": "Snapper steamed in parchment over shaved fennel and tomatoes, spooned over lemon couscous.",
+      "pitch": "The whole dinner cooks inside a puffed parchment packet: a snapper fillet laid over ribbons of shaved fennel and halved cherry tomatoes, splashed with white wine, olive oil, and lemon, then folded shut and slid into a hot oven. The sealed pouch traps the steam so the fish turns silky while the fennel softens and the tomatoes collapse into a light, aromatic broth. You tear it open at the table over a bowl of lemon-zested couscous that drinks up every drop. *The theater is the point — cut the packet open and a cloud of anise-and-citrus steam rolls out before the first bite.*",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 18,
+        "total": 33
+      },
+      "difficulty": "easy",
+      "protein": "fish",
+      "methods": [
+        "oven"
+      ],
+      "cuisine": "French",
+      "course": "main",
+      "heat": "none",
+      "tags": [
+        "weeknight",
+        "garden",
+        "date-night",
+        "one-packet"
+      ],
+      "ingredients": [
+        {
+          "section": "Packets",
+          "items": [
+            "2 red snapper fillets (about 6 oz each), skin removed",
+            "1 small fennel bulb, cored and shaved thin",
+            "1 cup cherry tomatoes, halved",
+            "2 cloves garlic, thinly sliced",
+            "3 tbsp dry white wine",
+            "2 tbsp extra-virgin olive oil",
+            "1 lemon (half sliced thin, half juiced)",
+            "2 tbsp fresh parsley, chopped",
+            "Salt and pepper"
+          ]
+        },
+        {
+          "section": "Lemon couscous",
+          "items": [
+            "¾ cup couscous",
+            "¾ cup vegetable broth",
+            "1 tbsp extra-virgin olive oil",
+            "Zest of ½ lemon",
+            "2 tbsp fresh parsley, chopped"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "Heat the oven to 400°F. Cut two large squares of parchment (about 15 inches each).",
+            "Toss the shaved fennel, tomatoes, and garlic with a pinch of salt."
+          ]
+        },
+        {
+          "section": "Build the packets",
+          "items": [
+            "Mound half the fennel mixture on one half of each parchment square. Lay a fillet on top and season with salt and pepper.",
+            "Drizzle each with olive oil, white wine, and a squeeze of lemon juice, then top with a few thin lemon slices.",
+            "Fold the parchment over and crimp the edges in tight, overlapping pleats to seal a closed packet. Set on a sheet pan.",
+            "Bake 15–18 minutes — the packets will puff and brown. The fish is done when it flakes at the thickest point (open one to check)."
+          ]
+        },
+        {
+          "section": "Couscous & serve",
+          "items": [
+            "While the fish bakes, bring the broth to a boil, stir in the couscous, cover, and pull off the heat. Let it sit 5 minutes, then fluff with the olive oil, lemon zest, and parsley.",
+            "Spoon the couscous into bowls. Slide each packet open (watch the steam), tip the fish and its broth over the couscous, and shower with parsley."
+          ]
+        }
+      ],
+      "tips": [
+        "Slice the fennel paper-thin (a mandoline is ideal) so it softens in the same time the fish cooks — thick wedges stay crunchy.",
+        "Crimp the parchment edges tightly; a loose seal lets the steam escape and the fish dries out instead of poaching.",
+        "No parchment? Aluminum foil packets work the same way — just fold the edges over twice to lock in the steam.",
+        "Let the packet rest a minute before opening so the broth settles and the steam doesn't scald you."
+      ],
+      "extras": [
+        {
+          "label": "Swap the fish",
+          "note": "Almost any flaky white fish loves this method. *Cod, halibut, or sea bass* (thicker, ¾–1 inch) need 18–22 minutes — check for flake. *Tilapia, sole, or flounder* (thin) cook fast, 10–12 minutes, so pull them early. *Salmon* works beautifully too but is richer — skip the added olive oil in the packet and add a sprig of dill. For all of them, keep the fennel-tomato-lemon base as-is; just match the bake time to the thickness."
+        },
+        {
+          "label": "From the garden",
+          "note": "Tuck in a few sprigs of garden thyme or a little chopped basil with the tomatoes, and finish with parsley from the bed."
+        },
+        {
+          "label": "Make it a feast",
+          "note": "Swap couscous for orzo or a scoop of rice, or serve with crusty bread to mop the broth. A cold glass of the same white wine you cooked with closes the loop."
+        }
+      ],
+      "planSwaps": [
+        {
+          "for": [
+            "diabetes"
+          ],
+          "replace": "¾ cup couscous",
+          "with": "½ cup couscous",
+          "note": "less couscous"
+        },
+        {
+          "for": [
+            "lowcarb",
+            "kidney"
+          ],
+          "replace": "¾ cup couscous",
+          "with": "1½ cups cauliflower rice",
+          "note": "cauliflower 'couscous' instead of semolina"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 red snapper fillets (about 6 oz each), skin removed",
+          "with": "2 red snapper fillets (about 3 oz each), skin removed",
+          "note": "smaller 3-oz fillets (renal portion)"
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-09-15T00:00:00.000Z",
+      "updated": "2026-09-15T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "En papillote sounds fancy but it's the most forgiving way to cook fish — the\nsealed parchment steams it gently and there's nothing to scrub afterward. Build\nthe packets ahead and bake them straight from the fridge when you're ready.",
+      "equipment": [],
+      "nutrition": {
+        "perServing": {
+          "kcal": 680,
+          "protein": 46.1,
+          "carb": 67.3,
+          "fat": 23.5,
+          "satfat": 3.3,
+          "fiber": 8.9,
+          "sugar": 3.3,
+          "sodium": 404
+        },
+        "confidence": "high",
+        "matched": 12,
+        "considered": 12,
+        "withSwaps": {
+          "0": {
+            "kcal": 598,
+            "protein": 43.4,
+            "carb": 50.5,
+            "fat": 23.4,
+            "satfat": 3.2,
+            "fiber": 7.9,
+            "sugar": 3.3,
+            "sodium": 402
+          },
+          "1": {
+            "kcal": 456,
+            "protein": 39.4,
+            "carb": 21,
+            "fat": 23.3,
+            "satfat": 3.3,
+            "fiber": 7.3,
+            "sugar": 4.8,
+            "sodium": 422
+          },
+          "1.2": {
+            "kcal": 372,
+            "protein": 22,
+            "carb": 21,
+            "fat": 22.2,
+            "satfat": 3,
+            "fiber": 7.3,
+            "sugar": 4.8,
+            "sodium": 368
+          }
+        }
+      }
+    },
+    {
+      "title": "Snapper Veracruz over White Rice",
+      "slug": "snapper-veracruz-white-rice",
+      "tagline": "Snapper braised in a briny tomato sauce of green olives, capers, and pickled jalapeño over rice.",
+      "pitch": "This is the Gulf coast's answer to snapper — a saucy, savory braise that has nothing to do with sweet salsa. You build a quick tomato sauce loaded with sliced green olives, capers, and pickled jalapeño, then warm it with a whisper of cinnamon and clove until it tastes like the Yucatán. The snapper fillets go in skin-side up and poach right in the sauce, spooned over until they flake. *The briny-salty-tangy sauce does all the work — the fish just soaks it up and turns tender.* Serve it over white rice to catch every drop.",
+      "serves": 2,
+      "times": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "easy",
+      "protein": "fish",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Mexican",
+      "course": "main",
+      "heat": "mild",
+      "tags": [
+        "weeknight",
+        "saucy",
+        "gluten-free"
+      ],
+      "ingredients": [
+        {
+          "section": "Veracruz sauce",
+          "items": [
+            "2 tbsp extra-virgin olive oil",
+            "½ white onion, thinly sliced",
+            "3 cloves garlic, minced",
+            "1 can (14 oz) canned tomatoes, with juices",
+            "⅓ cup green olives, sliced",
+            "2 tbsp capers, drained",
+            "2 tbsp pickled jalapeños, sliced",
+            "1 bay leaf",
+            "¼ tsp ground cinnamon",
+            "1 pinch ground cloves",
+            "½ tsp dried oregano"
+          ]
+        },
+        {
+          "section": "Fish & finish",
+          "items": [
+            "2 red snapper fillets (about 6 oz each)",
+            "Salt and pepper",
+            "Juice of ½ lime",
+            "2 tbsp cilantro, chopped"
+          ]
+        },
+        {
+          "section": "To serve",
+          "items": [
+            "¾ cup white rice, cooked per package"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Rice",
+          "items": [
+            "Start the rice first so it's ready when the fish is — cook ¾ cup white rice per the package directions and keep it covered."
+          ]
+        },
+        {
+          "section": "Build the sauce",
+          "items": [
+            "Warm the olive oil in a large skillet over medium heat. Add the onion with a pinch of salt and cook until soft and translucent, 5–6 minutes. Stir in the garlic for 30 seconds.",
+            "Add the tomatoes (crush them with a spoon if whole), olives, capers, pickled jalapeños, bay leaf, cinnamon, cloves, and oregano. Simmer 10 minutes until the sauce thickens slightly."
+          ]
+        },
+        {
+          "section": "Braise the fish",
+          "items": [
+            "Season the snapper with salt and pepper and nestle the fillets into the sauce. Spoon sauce over the top, cover, and simmer gently until the fish flakes easily, 8–10 minutes.",
+            "Discard the bay leaf. Finish with lime juice and cilantro. Serve the fillets and plenty of sauce over the rice."
+          ]
+        }
+      ],
+      "tips": [
+        "Green olives, capers, and pickled jalapeños are all salty — taste the sauce before adding any extra salt; you likely won't need it.",
+        "Keep the heat gentle once the fish is in — a hard boil breaks delicate fillets apart. A bare simmer keeps them intact.",
+        "The sauce is even better made ahead; simmer it a day early and reheat, then poach the fish just before serving."
+      ],
+      "extras": [
+        {
+          "label": "Swap the fish",
+          "note": "Veracruz sauce carries any firm-to-flaky white fish. *Cod, halibut, mahi-mahi, or grouper* are traditional — thicker fillets just need a couple more minutes under the lid. *Tilapia, sole, or flounder* are delicate: add them in the last 5 minutes and don't stir, or they'll fall apart. *Sea bass* is excellent. Avoid oily fish like salmon here — it fights the bright, briny sauce. Whatever you use, keep the sauce identical; only the poaching time changes with thickness."
+        },
+        {
+          "label": "From the garden",
+          "note": "Swap the pickled jalapeño for a fresh garden jalapeño or serrano (add it with the onion) for a greener, sharper heat, and finish with garden cilantro."
+        },
+        {
+          "label": "Make it a plate",
+          "note": "A side of black beans or warm corn tortillas turns this into a full spread. Leftover sauce is great over eggs the next morning."
+        }
+      ],
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "2 tbsp capers, drained",
+          "with": "1 tbsp capers, drained",
+          "note": "half the capers"
+        },
+        {
+          "for": [
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "¾ cup white rice, cooked per package",
+          "with": "½ cup white rice, cooked per package",
+          "note": "less rice"
+        },
+        {
+          "for": [
+            "lowcarb"
+          ],
+          "replace": "¾ cup white rice, cooked per package",
+          "with": "1 cup cauliflower rice, cooked",
+          "note": "cauliflower rice instead of white rice"
+        },
+        {
+          "for": [
+            "kidney"
+          ],
+          "replace": "2 red snapper fillets (about 6 oz each)",
+          "with": "2 red snapper fillets (about 3 oz each)",
+          "note": "smaller 3-oz fillets (renal portion)"
+        }
+      ],
+      "source": {
+        "name": "Adapted from Stephen's ChatGPT recipe notes",
+        "url": null
+      },
+      "created": "2026-09-15T00:00:00.000Z",
+      "updated": "2026-09-15T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "*Pescado a la veracruzana* is the classic — Spanish olives and capers meeting\nNew World tomato and chile. It's proof that \"fish night\" can be deeply savory\nand saucy, not just a fillet with a squeeze of lemon.",
+      "equipment": [],
+      "nutrition": {
+        "perServing": {
+          "kcal": 638,
+          "protein": 42.9,
+          "carb": 72.2,
+          "fat": 19.7,
+          "satfat": 2.8,
+          "fiber": 5.5,
+          "sugar": 7.1,
+          "sodium": 921
+        },
+        "confidence": "high",
+        "matched": 14,
+        "considered": 14,
+        "withSwaps": {
+          "0": {
+            "kcal": 637,
+            "protein": 42.8,
+            "carb": 72,
+            "fat": 19.7,
+            "satfat": 2.8,
+            "fiber": 5.4,
+            "sugar": 7.1,
+            "sodium": 802
+          },
+          "2": {
+            "kcal": 399,
+            "protein": 39.1,
+            "carb": 19.4,
+            "fat": 19.4,
+            "satfat": 2.7,
+            "fiber": 5.7,
+            "sugar": 8.1,
+            "sodium": 933
+          },
+          "0.1": {
+            "kcal": 553,
+            "protein": 41.2,
+            "carb": 53.5,
+            "fat": 19.5,
+            "satfat": 2.8,
+            "fiber": 5.1,
+            "sugar": 7.1,
+            "sodium": 801
+          },
+          "0.1.3": {
+            "kcal": 469,
+            "protein": 23.8,
+            "carb": 53.5,
+            "fat": 18.4,
+            "satfat": 2.5,
+            "fiber": 5.1,
+            "sugar": 7.1,
+            "sodium": 747
+          },
+          "0.2": {
+            "kcal": 398,
+            "protein": 39,
+            "carb": 19.2,
+            "fat": 19.4,
+            "satfat": 2.7,
+            "fiber": 5.5,
+            "sugar": 8.1,
+            "sodium": 814
           }
         }
       }
