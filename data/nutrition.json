@@ -82,6 +82,24 @@
       "whole wheat flour"
     ]
   },
+  "allspice": {
+    "unit": "tsp",
+    "g": 1.9,
+    "n": {
+      "kcal": 5,
+      "protein": 0.12,
+      "carb": 1.37,
+      "fat": 0.17,
+      "satfat": 0.05,
+      "fiber": 0.41,
+      "sugar": 0,
+      "sodium": 1
+    },
+    "aliases": [
+      "ground allspice",
+      "allspice berries"
+    ]
+  },
   "allulose": {
     "unit": "tsp",
     "g": 4,
@@ -3314,6 +3332,27 @@
     "aliases": [
       "pumpkin seeds",
       "hulled pumpkin seeds"
+    ]
+  },
+  "pickled jalapeños": {
+    "unit": "tbsp",
+    "g": 11,
+    "n": {
+      "kcal": 3,
+      "protein": 0.1,
+      "carb": 0.62,
+      "fat": 0.1,
+      "satfat": 0,
+      "fiber": 0.29,
+      "sugar": 0.35,
+      "sodium": 184
+    },
+    "aliases": [
+      "pickled jalapeño",
+      "pickled jalapeño slices",
+      "pickled jalapeños, sliced",
+      "sliced pickled jalapeños",
+      "jarred jalapeños"
     ]
   },
   "pine nuts": {
