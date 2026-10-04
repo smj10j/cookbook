@@ -853,7 +853,7 @@
       "fat": 0.3,
       "satfat": 0.07,
       "fiber": 2.1,
-      "sugar": 2.0,
+      "sugar": 2,
       "sodium": 32
     },
     "aliases": [
@@ -1669,7 +1669,7 @@
     "n": {
       "kcal": 19,
       "protein": 0.27,
-      "carb": 5.0,
+      "carb": 5,
       "fat": 0.04,
       "satfat": 0,
       "fiber": 0.6,
@@ -2390,7 +2390,11 @@
       "sugar": 0.2,
       "sodium": 15
     },
-    "aliases": ["harissa", "harissa seasoning", "harissa spice"]
+    "aliases": [
+      "harissa",
+      "harissa seasoning",
+      "harissa spice"
+    ]
   },
   "honey": {
     "unit": "tsp",
@@ -3450,8 +3454,8 @@
       "carb": 5.6,
       "fat": 0.2,
       "satfat": 0.03,
-      "fiber": 2.0,
-      "sugar": 3.0,
+      "fiber": 2,
+      "sugar": 3,
       "sodium": 4
     },
     "aliases": [
@@ -5046,6 +5050,63 @@
     "aliases": [
       "baby spinach",
       "fresh spinach"
+    ]
+  },
+  "cornmeal": {
+    "unit": "cup",
+    "g": 157,
+    "n": {
+      "kcal": 581,
+      "protein": 11.1,
+      "carb": 124.8,
+      "fat": 2.8,
+      "satfat": 0.4,
+      "fiber": 6.1,
+      "sugar": 1,
+      "sodium": 11
+    },
+    "aliases": [
+      "yellow cornmeal",
+      "fine yellow cornmeal",
+      "fine cornmeal"
+    ]
+  },
+  "yeast": {
+    "unit": "tsp",
+    "g": 3.1,
+    "n": {
+      "kcal": 10,
+      "protein": 1.25,
+      "carb": 1.28,
+      "fat": 0.24,
+      "satfat": 0.03,
+      "fiber": 0.83,
+      "sugar": 0,
+      "sodium": 2
+    },
+    "aliases": [
+      "instant yeast",
+      "active dry yeast",
+      "dry yeast"
+    ]
+  },
+  "giardiniera": {
+    "unit": "tbsp",
+    "g": 14,
+    "density": 0.93,
+    "n": {
+      "kcal": 60,
+      "protein": 0.1,
+      "carb": 1,
+      "fat": 6,
+      "satfat": 1,
+      "fiber": 0.3,
+      "sugar": 0.3,
+      "sodium": 120
+    },
+    "aliases": [
+      "hot giardiniera",
+      "mild giardiniera"
     ]
   }
 }
