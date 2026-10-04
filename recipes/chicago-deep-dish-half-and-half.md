@@ -45,7 +45,7 @@ ingredients:
       - ½ cup fine yellow cornmeal
       - 2¼ tsp instant yeast
       - 1 tbsp sugar
-      - 2 tsp kosher salt
+      - 1¼ tsp kosher salt
       - 1½ cups warm water (about 110°F)
       - 4 tbsp unsalted butter, melted
       - 6 tbsp unsalted butter, very soft (for laminating)
@@ -58,7 +58,7 @@ ingredients:
       - ½ tsp red pepper flakes
       - ½ tsp dried oregano
       - ½ tsp smoked paprika
-      - ¾ tsp kosher salt
+      - ½ tsp kosher salt
       - ½ tsp freshly ground black pepper
       - ½ cup hot giardiniera, drained and chopped
       - 10 oz low-moisture whole-milk mozzarella, sliced
@@ -70,18 +70,18 @@ ingredients:
       - 1 tbsp olive oil
       - 1 clove garlic, minced
       - 5 oz baby spinach
-      - ¼ tsp kosher salt
+      - Pinch of kosher salt
       - 10 oz low-moisture part-skim mozzarella, sliced
       - Handful fresh basil leaves, for finishing
   - section: Chunky sauce & finish
     items:
-      - 1 can (28 oz) crushed tomatoes
+      - 28 oz no-salt-added crushed tomatoes (1 large can)
       - 2 cloves garlic, grated
       - 1 tsp dried oregano
       - 1 tbsp extra-virgin olive oil
-      - ½ tsp kosher salt
       - ½ tsp sugar
-      - ½ cup grated Parmesan
+      - 1 tsp red wine vinegar
+      - ⅓ cup grated Parmesan
 steps:
   - section: Dough (start 3–4 hours ahead, or the day before)
     items:
@@ -93,9 +93,9 @@ steps:
     items:
       - Make the sausage. Toast the fennel seed in a dry pan until fragrant, then crush it. Work it into the beef with the garlic, pepper flakes, oregano, paprika, salt, and pepper, using your hands, until the mixture turns slightly tacky. Refrigerate it raw.
       - Char the bell pepper over a gas burner, on the grill, or under the broiler until it's black all over. Steam it in a covered bowl for 10 minutes, then peel, seed, and slice it into strips.
-      - Heat the olive oil in a cast iron pan over medium-high. Add the mushrooms in one layer and leave them alone until they're deeply browned and their liquid has cooked off. Add the onion and cook until soft and golden, 6–8 minutes, then add the garlic for 30 seconds and season with the salt. Scrape everything onto a plate.
+      - Heat the olive oil in a cast iron pan over medium-high. Add the mushrooms in one layer and leave them alone until they're deeply browned and their liquid has cooked off. Add the onion and cook until soft and golden, 6–8 minutes, then add the garlic for 30 seconds and season with a pinch of salt. Scrape everything onto a plate.
       - Wilt the spinach in the same pan, let it cool, then wring it bone-dry in a clean towel. Wet vegetables are what make deep dish soggy.
-      - Make the sauce. Drain the crushed tomatoes in a fine sieve for 15 minutes, then stir in the garlic, oregano, olive oil, salt, and sugar. Don't cook it; it reduces in the oven.
+      - Make the sauce. Drain the crushed tomatoes in a fine sieve for 15 minutes, then stir in the garlic, oregano, olive oil, sugar, and vinegar. Don't salt it; the Parmesan seasons it, and the vinegar brightens it without adding sodium. Don't cook it either; it reduces in the oven.
   - section: Build & bake
     items:
       - Put a rack in the lowest position and heat the oven to 425°F. Coat the 14-inch skillet with the olive oil, bottom and sides.
@@ -107,12 +107,12 @@ steps:
       - Let the pizza rest in the pan for 10 minutes so the cheese sets. Run a thin spatula around the edge and slide it onto a board, or cut it in the pan. Tear basil over the vegetable half and cut it into wedges.
 tips:
   - Short on time? Buy a 1-lb ball of fresh pizza dough from the bakery or deli case (Trader Joe's, Whole Foods, and most supermarket bakeries sell them) and use 1½ balls for the 14-inch pan. Laminate it with the soft butter the same way and chill it for 30 minutes. You lose the cornmeal crunch but keep most of the flakiness.
-  - The sausage goes in raw, as one flat patty, the way Chicago pizzerias do it. It cooks through in the bake and stays juicy. Cooked crumbles would dry out.
   - After baking, the sauce hides which half is which. Before it goes in, line up a few strips of red pepper along the seam on the vegetable side, or set the skillet handle at the meat side, so you can cut cleanly between the halves.
   - If the bottom crust is pale when you slide it out, slide it back into the skillet and set it over medium heat on the stovetop for 2–3 minutes to crisp the underside.
+  - If you use Diamond Crystal kosher salt instead of Morton, the salt amounts here contain about 40% less sodium, because its flakes are lighter. Either brand works; Diamond just tastes milder at the same measure.
 extras:
   - label: 10-inch pan (serves 3)
-    note: A 10-inch skillet is almost exactly half the area of a 14-inch, so halve everything. Use 2¼ cups flour, ¼ cup cornmeal, 1 tsp yeast, 1½ tsp sugar, 1 tsp salt, ¾ cup water, 2 tbsp melted butter, 3 tbsp laminating butter, and 1 tbsp oil for the pan. For the fillings, use 6 oz beef, 5 oz of each mozzarella, half of each vegetable, and a 14.5-oz can of crushed tomatoes. Roll the dough to about 13 inches and bake 25–30 minutes.
+    note: A 10-inch skillet is almost exactly half the area of a 14-inch, so halve everything. Use 2¼ cups flour, ¼ cup cornmeal, 1 tsp yeast, 1½ tsp sugar, a heaping ½ tsp salt, ¾ cup water, 2 tbsp melted butter, 3 tbsp laminating butter, and 1 tbsp oil for the pan. For the fillings, use 6 oz beef, 5 oz of each mozzarella, half of each vegetable, and a 14.5-oz can of no-salt-added crushed tomatoes. Roll the dough to about 13 inches and bake 25–30 minutes.
   - label: From the garden
     note: In tomato season, swap the can for about 2 lb garden tomatoes, peeled, chopped, and drained well. Tear plenty of garden basil over the vegetable half. Make your own giardiniera with sliced serrano or jalapeño, cauliflower, carrot, and celery pickled in vinegar and olive oil for a few days.
   - label: Make ahead
@@ -123,11 +123,6 @@ source:
   name: Developed with Claude for Stephen
   url: null
 created: 2026-10-04
-planSwaps:
-  - for: [lowsugar]
-    replace: "1 tbsp sugar"
-    with: "2 tsp sugar"
-    note: "2 tsp sugar in the dough (plenty to feed the yeast)"
 updated: 2026-10-04
 ---
 

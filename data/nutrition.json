@@ -685,13 +685,26 @@
       "sodium": 27
     },
     "aliases": [
-      "unsalted butter",
       "cold butter",
       "softened butter",
       "melted butter",
       "garlic-herb butter",
       "garlic herb butter"
     ]
+  },
+  "unsalted butter": {
+    "unit": "tsp",
+    "g": 4.7,
+    "n": {
+      "kcal": 34,
+      "protein": 0.04,
+      "carb": 0,
+      "fat": 3.8,
+      "satfat": 2.4,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 0.5
+    }
   },
   "butter lettuce": {
     "unit": "head",
@@ -775,6 +788,28 @@
       "whole tomatoes",
       "whole peeled tomatoes",
       "diced tomatoes"
+    ]
+  },
+  "no-salt-added canned tomatoes": {
+    "unit": "can",
+    "g": 411,
+    "density": 1,
+    "n": {
+      "kcal": 82,
+      "protein": 4.1,
+      "carb": 18.5,
+      "fat": 0.4,
+      "satfat": 0,
+      "fiber": 4.5,
+      "sugar": 11,
+      "sodium": 100
+    },
+    "aliases": [
+      "no-salt-added crushed tomatoes",
+      "no-salt-added diced tomatoes",
+      "no-salt-added whole tomatoes",
+      "no salt added crushed tomatoes",
+      "no salt added diced tomatoes"
     ]
   },
   "capers": {

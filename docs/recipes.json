@@ -1360,7 +1360,7 @@
           "satfat": 10.4,
           "fiber": 3.6,
           "sugar": 23.6,
-          "sodium": 307
+          "sodium": 243
         },
         "confidence": "high",
         "matched": 16,
@@ -1374,7 +1374,7 @@
             "satfat": 7.4,
             "fiber": 2.8,
             "sugar": 7.2,
-            "sodium": 286
+            "sodium": 239
           },
           "0.1": {
             "kcal": 330,
@@ -1384,7 +1384,7 @@
             "satfat": 7.4,
             "fiber": 2.8,
             "sugar": 21.8,
-            "sodium": 289
+            "sodium": 241
           },
           "2.3": {
             "kcal": 336,
@@ -1394,7 +1394,7 @@
             "satfat": 10.4,
             "fiber": 3.6,
             "sugar": 9,
-            "sodium": 304
+            "sodium": 241
           }
         }
       }
@@ -1511,7 +1511,7 @@
           "satfat": 4.9,
           "fiber": 0.3,
           "sugar": 10.6,
-          "sodium": 150
+          "sodium": 97
         },
         "confidence": "high",
         "matched": 8,
@@ -1525,7 +1525,7 @@
             "satfat": 4.9,
             "fiber": 0.3,
             "sugar": 0.1,
-            "sodium": 150
+            "sodium": 97
           }
         }
       }
@@ -1657,7 +1657,7 @@
           "satfat": 7.5,
           "fiber": 3,
           "sugar": 17.1,
-          "sodium": 226
+          "sodium": 166
         },
         "confidence": "high",
         "matched": 11,
@@ -1671,7 +1671,7 @@
             "satfat": 7.5,
             "fiber": 3,
             "sugar": 10.3,
-            "sodium": 224
+            "sodium": 165
           }
         }
       }
@@ -2336,7 +2336,7 @@
             "½ cup fine yellow cornmeal",
             "2¼ tsp instant yeast",
             "1 tbsp sugar",
-            "2 tsp kosher salt",
+            "1¼ tsp kosher salt",
             "1½ cups warm water (about 110°F)",
             "4 tbsp unsalted butter, melted",
             "6 tbsp unsalted butter, very soft (for laminating)",
@@ -2352,7 +2352,7 @@
             "½ tsp red pepper flakes",
             "½ tsp dried oregano",
             "½ tsp smoked paprika",
-            "¾ tsp kosher salt",
+            "½ tsp kosher salt",
             "½ tsp freshly ground black pepper",
             "½ cup hot giardiniera, drained and chopped",
             "10 oz low-moisture whole-milk mozzarella, sliced"
@@ -2367,7 +2367,7 @@
             "1 tbsp olive oil",
             "1 clove garlic, minced",
             "5 oz baby spinach",
-            "¼ tsp kosher salt",
+            "Pinch of kosher salt",
             "10 oz low-moisture part-skim mozzarella, sliced",
             "Handful fresh basil leaves, for finishing"
           ]
@@ -2375,13 +2375,13 @@
         {
           "section": "Chunky sauce & finish",
           "items": [
-            "1 can (28 oz) crushed tomatoes",
+            "28 oz no-salt-added crushed tomatoes (1 large can)",
             "2 cloves garlic, grated",
             "1 tsp dried oregano",
             "1 tbsp extra-virgin olive oil",
-            "½ tsp kosher salt",
             "½ tsp sugar",
-            "½ cup grated Parmesan"
+            "1 tsp red wine vinegar",
+            "⅓ cup grated Parmesan"
           ]
         }
       ],
@@ -2400,9 +2400,9 @@
           "items": [
             "Make the sausage. Toast the fennel seed in a dry pan until fragrant, then crush it. Work it into the beef with the garlic, pepper flakes, oregano, paprika, salt, and pepper, using your hands, until the mixture turns slightly tacky. Refrigerate it raw.",
             "Char the bell pepper over a gas burner, on the grill, or under the broiler until it's black all over. Steam it in a covered bowl for 10 minutes, then peel, seed, and slice it into strips.",
-            "Heat the olive oil in a cast iron pan over medium-high. Add the mushrooms in one layer and leave them alone until they're deeply browned and their liquid has cooked off. Add the onion and cook until soft and golden, 6–8 minutes, then add the garlic for 30 seconds and season with the salt. Scrape everything onto a plate.",
+            "Heat the olive oil in a cast iron pan over medium-high. Add the mushrooms in one layer and leave them alone until they're deeply browned and their liquid has cooked off. Add the onion and cook until soft and golden, 6–8 minutes, then add the garlic for 30 seconds and season with a pinch of salt. Scrape everything onto a plate.",
             "Wilt the spinach in the same pan, let it cool, then wring it bone-dry in a clean towel. Wet vegetables are what make deep dish soggy.",
-            "Make the sauce. Drain the crushed tomatoes in a fine sieve for 15 minutes, then stir in the garlic, oregano, olive oil, salt, and sugar. Don't cook it; it reduces in the oven."
+            "Make the sauce. Drain the crushed tomatoes in a fine sieve for 15 minutes, then stir in the garlic, oregano, olive oil, sugar, and vinegar. Don't salt it; the Parmesan seasons it, and the vinegar brightens it without adding sodium. Don't cook it either; it reduces in the oven."
           ]
         },
         {
@@ -2420,14 +2420,14 @@
       ],
       "tips": [
         "Short on time? Buy a 1-lb ball of fresh pizza dough from the bakery or deli case (Trader Joe's, Whole Foods, and most supermarket bakeries sell them) and use 1½ balls for the 14-inch pan. Laminate it with the soft butter the same way and chill it for 30 minutes. You lose the cornmeal crunch but keep most of the flakiness.",
-        "The sausage goes in raw, as one flat patty, the way Chicago pizzerias do it. It cooks through in the bake and stays juicy. Cooked crumbles would dry out.",
         "After baking, the sauce hides which half is which. Before it goes in, line up a few strips of red pepper along the seam on the vegetable side, or set the skillet handle at the meat side, so you can cut cleanly between the halves.",
-        "If the bottom crust is pale when you slide it out, slide it back into the skillet and set it over medium heat on the stovetop for 2–3 minutes to crisp the underside."
+        "If the bottom crust is pale when you slide it out, slide it back into the skillet and set it over medium heat on the stovetop for 2–3 minutes to crisp the underside.",
+        "If you use Diamond Crystal kosher salt instead of Morton, the salt amounts here contain about 40% less sodium, because its flakes are lighter. Either brand works; Diamond just tastes milder at the same measure."
       ],
       "extras": [
         {
           "label": "10-inch pan (serves 3)",
-          "note": "A 10-inch skillet is almost exactly half the area of a 14-inch, so halve everything. Use 2¼ cups flour, ¼ cup cornmeal, 1 tsp yeast, 1½ tsp sugar, 1 tsp salt, ¾ cup water, 2 tbsp melted butter, 3 tbsp laminating butter, and 1 tbsp oil for the pan. For the fillings, use 6 oz beef, 5 oz of each mozzarella, half of each vegetable, and a 14.5-oz can of crushed tomatoes. Roll the dough to about 13 inches and bake 25–30 minutes."
+          "note": "A 10-inch skillet is almost exactly half the area of a 14-inch, so halve everything. Use 2¼ cups flour, ¼ cup cornmeal, 1 tsp yeast, 1½ tsp sugar, a heaping ½ tsp salt, ¾ cup water, 2 tbsp melted butter, 3 tbsp laminating butter, and 1 tbsp oil for the pan. For the fillings, use 6 oz beef, 5 oz of each mozzarella, half of each vegetable, and a 14.5-oz can of no-salt-added crushed tomatoes. Roll the dough to about 13 inches and bake 25–30 minutes."
         },
         {
           "label": "From the garden",
@@ -2447,46 +2447,24 @@
         "url": null
       },
       "created": "2026-10-04T00:00:00.000Z",
-      "planSwaps": [
-        {
-          "for": [
-            "lowsugar"
-          ],
-          "replace": "1 tbsp sugar",
-          "with": "2 tsp sugar",
-          "note": "2 tsp sugar in the dough (plenty to feed the yeast)"
-        }
-      ],
       "updated": "2026-10-04T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Two pizzas in one skillet: a heavy Chicago-style beef sausage half for tradition and a\ngarden vegetable half for everyday eating. The butter-laminated cornmeal crust holds\nup under both. It's a weekend project, but the dough and fillings can all be made the\nday before.",
       "nutrition": {
         "perServing": {
-          "kcal": 1220,
-          "protein": 48,
-          "carb": 98.7,
-          "fat": 70.2,
-          "satfat": 31.7,
-          "fiber": 6.7,
-          "sugar": 8.1,
-          "sodium": 2138
+          "kcal": 1222,
+          "protein": 47.6,
+          "carb": 101.5,
+          "fat": 69.5,
+          "satfat": 31.3,
+          "fiber": 7.4,
+          "sugar": 9.8,
+          "sodium": 1399
         },
         "confidence": "high",
-        "matched": 34,
-        "considered": 34,
-        "withSwaps": {
-          "0": {
-            "kcal": 1217,
-            "protein": 48,
-            "carb": 98,
-            "fat": 70.2,
-            "satfat": 31.7,
-            "fiber": 6.7,
-            "sugar": 7.4,
-            "sodium": 2138
-          }
-        }
+        "matched": 33,
+        "considered": 33
       }
     },
     {
@@ -4322,7 +4300,7 @@
           "satfat": 14.6,
           "fiber": 1,
           "sugar": 29.9,
-          "sodium": 337
+          "sodium": 258
         },
         "confidence": "high",
         "matched": 17,
@@ -4336,7 +4314,7 @@
             "satfat": 7.5,
             "fiber": 1,
             "sugar": 5.7,
-            "sodium": 335
+            "sodium": 275
           },
           "0.1": {
             "kcal": 326,
@@ -4346,7 +4324,7 @@
             "satfat": 14.6,
             "fiber": 1,
             "sugar": 3.4,
-            "sodium": 333
+            "sodium": 253
           },
           "2.3": {
             "kcal": 336,
@@ -4356,7 +4334,7 @@
             "satfat": 7.5,
             "fiber": 1,
             "sugar": 32.2,
-            "sodium": 339
+            "sodium": 279
           }
         }
       }
@@ -4848,7 +4826,7 @@
           "satfat": 20.7,
           "fiber": 5.7,
           "sugar": 4.8,
-          "sodium": 471
+          "sodium": 312
         },
         "confidence": "high",
         "matched": 9,
@@ -4872,7 +4850,7 @@
             "satfat": 18.7,
             "fiber": 5.7,
             "sugar": 4.8,
-            "sodium": 439
+            "sodium": 280
           },
           "0.1": {
             "kcal": 492,
@@ -8200,7 +8178,7 @@
           "satfat": 13.6,
           "fiber": 9,
           "sugar": 4.9,
-          "sodium": 291
+          "sodium": 212
         },
         "confidence": "high",
         "matched": 9,
@@ -8224,7 +8202,7 @@
             "satfat": 11.9,
             "fiber": 9,
             "sugar": 4.9,
-            "sodium": 204
+            "sodium": 124
           },
           "0.1": {
             "kcal": 479,
@@ -11071,7 +11049,7 @@
           "satfat": 30.9,
           "fiber": 5.3,
           "sugar": 2.8,
-          "sodium": 2259
+          "sodium": 2100
         },
         "confidence": "high",
         "matched": 16,
@@ -11085,7 +11063,7 @@
             "satfat": 22.2,
             "fiber": 5.3,
             "sugar": 2.8,
-            "sodium": 2177
+            "sodium": 2057
           }
         }
       }
@@ -13358,7 +13336,7 @@
           "satfat": 22.6,
           "fiber": 10.7,
           "sugar": 13.7,
-          "sodium": 772
+          "sodium": 613
         },
         "confidence": "high",
         "matched": 14,
@@ -13372,7 +13350,7 @@
             "satfat": 22.5,
             "fiber": 8.6,
             "sugar": 13.7,
-            "sodium": 767
+            "sodium": 608
           },
           "2": {
             "kcal": 713,
@@ -13382,7 +13360,7 @@
             "satfat": 22.6,
             "fiber": 9.5,
             "sugar": 16.7,
-            "sodium": 811
+            "sodium": 652
           },
           "0.1": {
             "kcal": 733,
@@ -13392,7 +13370,7 @@
             "satfat": 15.3,
             "fiber": 8.6,
             "sugar": 13.7,
-            "sodium": 686
+            "sodium": 607
           },
           "2.3": {
             "kcal": 510,
@@ -13402,7 +13380,7 @@
             "satfat": 19.8,
             "fiber": 9.5,
             "sugar": 16.7,
-            "sodium": 766
+            "sodium": 607
           }
         }
       }
@@ -15208,7 +15186,7 @@
           "satfat": 14.3,
           "fiber": 10.6,
           "sugar": 8.2,
-          "sodium": 568
+          "sodium": 449
         },
         "confidence": "high",
         "matched": 13,
@@ -15222,7 +15200,7 @@
             "satfat": 14.2,
             "fiber": 10.8,
             "sugar": 13,
-            "sodium": 586
+            "sodium": 467
           },
           "0.1": {
             "kcal": 781,
@@ -15232,7 +15210,7 @@
             "satfat": 13.3,
             "fiber": 9.7,
             "sugar": 7.4,
-            "sodium": 566
+            "sodium": 447
           },
           "2.3": {
             "kcal": 899,
@@ -15242,7 +15220,7 @@
             "satfat": 8,
             "fiber": 10.6,
             "sugar": 8.2,
-            "sodium": 487
+            "sodium": 447
           },
           "4.5": {
             "kcal": 575,
@@ -15252,7 +15230,7 @@
             "satfat": 13.3,
             "fiber": 10.8,
             "sugar": 13,
-            "sodium": 523
+            "sodium": 404
           },
           "0.1.2.3": {
             "kcal": 739,
@@ -15262,7 +15240,7 @@
             "satfat": 7,
             "fiber": 9.7,
             "sugar": 7.4,
-            "sodium": 485
+            "sodium": 445
           },
           "2.3.4": {
             "kcal": 650,
@@ -15272,7 +15250,7 @@
             "satfat": 7.9,
             "fiber": 10.8,
             "sugar": 13,
-            "sodium": 505
+            "sodium": 465
           },
           "2.3.4.5": {
             "kcal": 533,
@@ -15282,7 +15260,7 @@
             "satfat": 7,
             "fiber": 10.8,
             "sugar": 13,
-            "sodium": 442
+            "sodium": 402
           }
         }
       }
