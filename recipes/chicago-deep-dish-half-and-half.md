@@ -37,7 +37,7 @@ tags:
   - make-ahead
   - garden
   - crowd-pleaser
-photo: "A 14-inch cast iron skillet of Chicago deep dish pizza with one wedge lifted out to show tall layers: golden, fried crust walls about 1½ inches high, a thick layer of melted mozzarella, then chunky red tomato sauce on top dusted with Parmesan. On one half, a slice of beef sausage patty and flecks of giardiniera peek through. On the other half, spinach, glazed mushrooms, caramelized onion, red and yellow roasted pepper and thin green chile slices peek through, with torn fresh basil on top."
+photo: "A 14-inch cast iron skillet of Chicago deep dish pizza with one wedge lifted out to show the layers: a golden, fried crust about 1½ inches high with a thinner, crisp base, a layer of melted mozzarella, then chunky red tomato sauce on top dusted with Parmesan. The pizza is two distinct halves. On the meat half, a thin layer of crumbly browned beef sausage patty and flecks of hot giardiniera peek through the sauce. On the vegetable half, dark balsamic-glazed mushrooms, golden caramelized onion, wilted spinach, red and yellow roasted pepper strips and thin green jalapeño slices peek through, with torn fresh basil on top. No utensils or cooking gear on the pizza."
 ingredients:
   - section: Buttery cornmeal crust
     items:
