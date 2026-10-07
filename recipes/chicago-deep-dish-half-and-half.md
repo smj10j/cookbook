@@ -10,13 +10,13 @@ pitch: >-
   in a well-oiled cast iron pan, the edge fries until it's crisp and almost flaky.
   A homemade fennel-and-chili beef sausage is pressed in raw as one thin patty
   across the whole pan. One half is finished with hot giardiniera, the other with
-  browned mushrooms and onions, squeezed-dry spinach, and two kinds of fire-roasted
-  peppers.
+  balsamic-glazed mushrooms, slow-caramelized onions, squeezed-dry spinach, two kinds
+  of fire-roasted peppers, and fresh chile from the garden.
   *The cheese layer is the trick: it seals the dough so neither half goes soggy,
   however much you pile on.*
 serves: 6
 times:
-  prep: 50
+  prep: 65
   cook: 35
   total: 210
 difficulty: advanced
@@ -38,7 +38,7 @@ tags:
   - make-ahead
   - garden
   - crowd-pleaser
-photo: "A 14-inch cast iron skillet of Chicago deep dish pizza with one wedge lifted out to show tall layers: golden, fried crust walls about 1½ inches high, a thick layer of melted mozzarella, then chunky red tomato sauce on top dusted with Parmesan. A thin layer of beef sausage patty runs under the sauce across the whole pizza. On one half, flecks of giardiniera peek through. On the other half, spinach, mushrooms and red and yellow roasted pepper peek through, with torn fresh basil on top."
+photo: "A 14-inch cast iron skillet of Chicago deep dish pizza with one wedge lifted out to show tall layers: golden, fried crust walls about 1½ inches high, a thick layer of melted mozzarella, then chunky red tomato sauce on top dusted with Parmesan. A thin layer of beef sausage patty runs under the sauce across the whole pizza. On one half, flecks of giardiniera peek through. On the other half, spinach, glazed mushrooms, caramelized onion, red and yellow roasted pepper and thin green chile slices peek through, with torn fresh basil on top."
 ingredients:
   - section: Buttery cornmeal crust
     items:
@@ -71,8 +71,11 @@ ingredients:
       - 1 yellow or orange bell pepper
       - 12 oz cremini mushrooms, sliced
       - 1 yellow onion, thinly sliced
-      - 1 tbsp olive oil
+      - 1½ tbsp olive oil
       - 2 cloves garlic, minced
+      - 1 tbsp fresh thyme leaves (or 2 tsp chopped fresh rosemary)
+      - 1 tbsp balsamic vinegar
+      - 1 jalapeño or serrano, very thinly sliced
       - 5 oz baby spinach
       - Pinch of kosher salt
       - Handful fresh basil leaves, for finishing
@@ -96,7 +99,8 @@ steps:
     items:
       - Make the sausage. Toast the fennel seed in a dry pan until fragrant, then crush it. Work it into the beef with the garlic, pepper flakes, oregano, paprika, salt, and pepper, using your hands, until the mixture turns slightly tacky. Refrigerate it raw.
       - Char both bell peppers over a gas burner, on the grill, or under the broiler until they're black all over. Steam them in a covered bowl for 10 minutes, then peel, seed, and slice them into strips.
-      - Heat the olive oil in a cast iron pan over medium-high. Add the mushrooms in one layer (in two batches if they crowd the pan) and leave them alone until they're deeply browned and their liquid has cooked off. Add the onion and cook until soft and golden, 6–8 minutes, then add the garlic for 30 seconds and season with a pinch of salt. Scrape everything onto a plate.
+      - Caramelize the onion. Warm ½ tbsp of the olive oil in a cast iron pan over medium-low, add the onion, and cook, stirring every few minutes, until it's soft, sticky, and deep amber, 20–25 minutes. Add a splash of water if it starts to catch. Scrape it onto a plate. *Slow-cooked onion brings a sweet, savory depth that does the job salt usually does.*
+      - Turn the heat to medium-high and add the remaining 1 tbsp oil. Add the mushrooms in one layer (in two batches if they crowd the pan) and leave them alone until they're deeply browned and their liquid has cooked off. Add the garlic and thyme for 30 seconds, then pour in the balsamic and stir until it cooks down to a glaze that coats the mushrooms, about 1 minute. Season with a pinch of salt and add them to the onions.
       - Wilt the spinach in the same pan, let it cool, then wring it bone-dry in a clean towel. Wet vegetables are what make deep dish soggy.
       - Make the sauce. Drain the crushed tomatoes in a fine sieve for 15 minutes, then stir in the garlic, oregano, olive oil, sugar, and vinegar. Don't salt it; the Parmesan seasons it, and the vinegar brightens it without adding sodium. Don't cook it either; it reduces in the oven.
   - section: Build & bake
@@ -104,7 +108,7 @@ steps:
       - Put a rack in the lowest position and heat the oven to 425°F. Coat the 14-inch skillet with the olive oil, bottom and sides.
       - Roll the cold dough into a thin round about 17 inches across. Drape it into the pan and press it into the corners and about 1½ inches up the sides. Trim any thick overhang.
       - Shingle the mozzarella over the entire bottom of the crust. Run the slices right up to the walls so they seal the dough.
-      - Press the raw sausage into one thin, even patty over the whole pizza, covering the cheese edge to edge. Scatter the giardiniera over one half. On the other half, layer the spinach, the mushrooms and onions, and the roasted peppers.
+      - Press the raw sausage into one thin, even patty over the whole pizza, covering the cheese edge to edge. Scatter the giardiniera over one half. On the other half, layer the spinach, the mushrooms and onions, and the roasted peppers, then scatter the sliced chile over the top.
       - Spoon the sauce over the whole pizza all the way to the crust walls, then shower it with Parmesan.
       - Bake 28–35 minutes, until the crust walls are deep golden and the sauce is bubbling at the edges. The sausage center should read 160°F. If the Parmesan browns too fast, tent the top loosely with foil.
       - Let the pizza rest in the pan for 10 minutes so the cheese sets. Run a thin spatula around the edge and slide it onto a board, or cut it in the pan. Tear basil over the vegetable half and cut it into wedges.
@@ -117,9 +121,9 @@ extras:
   - label: 10-inch pan (serves 3)
     note: A 10-inch skillet is almost exactly half the area of a 14-inch, so halve everything. Use 1¾ cups plus 2 tbsp flour, 2½ tbsp cornmeal, 1 tsp yeast, 1¼ tsp sugar, ½ tsp salt, ½ cup plus 2 tbsp water, 1½ tbsp melted butter, 2½ tbsp laminating butter, and 1 tbsp oil for the pan. For the fillings, use 12 oz beef with half the spices, 10 oz mozzarella, half of each vegetable, and a 14.5-oz can of no-salt-added crushed tomatoes. Roll the dough to about 13 inches and bake 25–30 minutes.
   - label: From the garden
-    note: In tomato season, swap the can for about 2 lb garden tomatoes, peeled, chopped, and drained well. Tear plenty of garden basil over the vegetable half. Make your own giardiniera with sliced serrano or jalapeño, cauliflower, carrot, and celery pickled in vinegar and olive oil for a few days.
+    note: In tomato season, swap the can for about 2 lb garden tomatoes, peeled, chopped, and drained well. Tear plenty of garden basil over the vegetable half, use your own thyme or rosemary for the mushrooms, and pick the jalapeño or serrano straight from the garden. Make your own giardiniera with sliced serrano or jalapeño, cauliflower, carrot, and celery pickled in vinegar and olive oil for a few days.
   - label: Make ahead
-    note: The laminated dough keeps in the fridge overnight and gets more flavorful. The sausage mix, roasted peppers, mushrooms, and squeezed spinach all keep a day ahead, so dinner is just assembly and baking.
+    note: The laminated dough keeps in the fridge overnight and gets more flavorful. The sausage mix, roasted peppers, caramelized onions, glazed mushrooms, and squeezed spinach all keep a day ahead, so dinner is just assembly and baking.
   - label: Pairs with
     note: A Chianti or Montepulciano d'Abruzzo, or a cold lager. Serve a lemony arugula salad from the garden on the side to cut the richness.
 source:
