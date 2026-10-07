@@ -415,6 +415,26 @@
       "beef short rib"
     ]
   },
+  "lean ground beef": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 43,
+      "protein": 5.9,
+      "carb": 0,
+      "fat": 2,
+      "satfat": 0.82,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 19
+    },
+    "aliases": [
+      "93% lean ground beef",
+      "ground beef (93% lean)",
+      "extra-lean ground beef",
+      "lean beef"
+    ]
+  },
   "beef broth": {
     "unit": "cup",
     "g": 240,
