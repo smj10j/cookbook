@@ -5163,5 +5163,72 @@
       "hot giardiniera",
       "mild giardiniera"
     ]
+  },
+  "rice noodles": {
+    "unit": "oz",
+    "g": 28,
+    "n": {
+      "kcal": 103,
+      "protein": 1.7,
+      "carb": 22.7,
+      "fat": 0.16,
+      "satfat": 0.04,
+      "fiber": 0.45,
+      "sugar": 0.03,
+      "sodium": 52
+    },
+    "aliases": [
+      "wide rice noodles",
+      "dry rice noodles",
+      "rice stick noodles",
+      "rice sticks",
+      "pad thai noodles",
+      "rice noodle",
+      "rice vermicelli",
+      "dry rice vermicelli"
+    ]
+  },
+  "peanuts": {
+    "unit": "tbsp",
+    "g": 9,
+    "density": 0.61,
+    "n": {
+      "kcal": 53,
+      "protein": 2.2,
+      "carb": 1.9,
+      "fat": 4.5,
+      "satfat": 0.62,
+      "fiber": 0.76,
+      "sugar": 0.44,
+      "sodium": 37
+    },
+    "aliases": [
+      "roasted peanuts",
+      "dry-roasted peanuts",
+      "salted peanuts",
+      "peanut",
+      "chopped peanuts"
+    ]
+  },
+  "chili crisp": {
+    "unit": "tsp",
+    "g": 5,
+    "density": 1,
+    "n": {
+      "kcal": 35,
+      "protein": 0.33,
+      "carb": 0.5,
+      "fat": 3.5,
+      "satfat": 0.33,
+      "fiber": 0.33,
+      "sugar": 0.17,
+      "sodium": 47
+    },
+    "aliases": [
+      "chili crunch",
+      "chile crisp",
+      "spicy chili crisp",
+      "chili oil"
+    ]
   }
 }

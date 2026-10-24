@@ -1,7 +1,7 @@
 {
-  "count": 120,
+  "count": 121,
   "counts": {
-    "food": 88,
+    "food": 89,
     "drink": 32
   },
   "vocab": {
@@ -379,6 +379,7 @@
       "comfort",
       "comfort-food",
       "cookout",
+      "copycat",
       "cozy",
       "creamy",
       "crowd-pleaser",
@@ -2461,6 +2462,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "Two pizzas in one skillet: a Chicago-style beef sausage half for tradition and a\ngarden vegetable half piled with peppers, glazed mushrooms, and caramelized onions. The butter-laminated cornmeal crust holds\nup under both. It's a weekend project, but the dough and fillings can all be made the\nday before.",
+      "hero": "images/chicago-deep-dish-half-and-half.webp",
       "nutrition": {
         "perServing": {
           "kcal": 1080,
@@ -7871,6 +7873,235 @@
       }
     },
     {
+      "title": "Grove-Style Spicy Ginger Noodles with Broccoli, Peanuts & Crispy Tofu",
+      "slug": "grove-spicy-ginger-noodles",
+      "tagline": "Wok-tossed rice noodles in a bright ginger-garlic tamari glaze, loaded with vegetables and peanut crunch.",
+      "pitch": "This is our take on the Spicy Ginger Noodles at The Grove in Lakeway — slippery rice noodles tossed over high heat until a ginger-garlic tamari sauce, sharpened with rice vinegar and rounded with toasted sesame oil, turns to a glossy glaze. Hard-seared mushrooms, shallot, broccoli, sweet pepper, and carrot ride along, and the whole bowl gets buried in chopped peanuts, sesame seeds, scallions, and cilantro. *Pull the noodles while they still have some bite — they finish drinking up the sauce in the pan, so they land chewy and glossy, never mushy.* Crispy tofu is the optional add-on, just like at the restaurant.",
+      "serves": 2,
+      "times": {
+        "prep": 20,
+        "cook": 15,
+        "total": 35
+      },
+      "difficulty": "easy",
+      "protein": "vegan",
+      "methods": [
+        "stove"
+      ],
+      "cuisine": "Asian",
+      "course": "main",
+      "heat": "mild",
+      "equipment": [
+        "cast iron"
+      ],
+      "tags": [
+        "copycat",
+        "weeknight",
+        "vegan",
+        "gluten-free",
+        "garden"
+      ],
+      "ingredients": [
+        {
+          "section": "Ginger-garlic tamari sauce",
+          "items": [
+            "3 tbsp tamari",
+            "1½ tbsp rice vinegar",
+            "1 tbsp toasted sesame oil",
+            "1 tbsp fresh ginger, finely grated",
+            "2 cloves garlic, grated",
+            "2 tsp maple syrup",
+            "1 tsp chili crisp, plus more to taste"
+          ]
+        },
+        {
+          "section": "Noodles & vegetables",
+          "items": [
+            "6 oz wide rice noodles",
+            "1 tbsp neutral oil",
+            "4 oz shiitake or cremini mushrooms, sliced",
+            "1 shallot, thinly sliced",
+            "1½ cups broccoli florets",
+            "½ red bell pepper, thinly sliced",
+            "1 carrot, julienned"
+          ]
+        },
+        {
+          "section": "Crispy tofu (optional add-on)",
+          "items": [
+            "7 oz extra-firm tofu, pressed and cubed",
+            "2 tsp cornstarch",
+            "2 tsp neutral oil"
+          ]
+        },
+        {
+          "section": "To finish",
+          "items": [
+            "3 tbsp roasted peanuts, chopped",
+            "1 tsp toasted sesame seeds",
+            "3 scallions, thinly sliced",
+            "Handful of cilantro leaves"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "section": "Prep",
+          "items": [
+            "If using tofu, press it 15 minutes, cube it, and toss with the cornstarch.",
+            "Whisk the sauce ingredients together. Soak or boil the noodles per the package, pulling them a minute early so they're pliable but still firm; rinse and drain."
+          ]
+        },
+        {
+          "section": "Cook",
+          "items": [
+            "Heat the cast iron (or a wok) over medium-high. If using tofu, crisp it in the 2 tsp oil, turning, 8–10 minutes until golden on all sides; set aside.",
+            "Add the 1 tbsp oil and the mushrooms in one layer; leave them alone 3 minutes to brown, then stir and add the shallot.",
+            "Add the broccoli and a splash of water, cover 2 minutes, then toss in the pepper and carrot for 1 minute — they should stay crisp.",
+            "Add the noodles and the sauce and toss over high heat 1–2 minutes, until the sauce is absorbed and the noodles are glossy."
+          ]
+        },
+        {
+          "section": "Serve",
+          "items": [
+            "Divide between bowls, top with the tofu, and finish with peanuts, sesame seeds, scallions, and cilantro. Pass more chili crisp at the table."
+          ]
+        }
+      ],
+      "tips": [
+        "Rice noodles keep cooking in the pan — if they're fully soft before they hit the sauce, they'll break and go gummy.",
+        "Sear the mushrooms alone and don't stir them early; crowded or fussed-over mushrooms steam instead of browning.",
+        "Add the tofu at the very end so it stays crisp instead of soaking up the sauce.",
+        "The Grove's version is only lightly spicy. For more heat, double the chili crisp in the sauce or slice a fresh serrano over the top."
+      ],
+      "extras": [
+        {
+          "label": "From the garden",
+          "note": "Pile on garden cilantro and a few torn mint or basil leaves, and slice a serrano or jalapeño over the top for real heat."
+        },
+        {
+          "label": "Protein swaps",
+          "note": "Instead of tofu, use sliced seared chicken thigh, or flaked roasted salmon set on top."
+        },
+        {
+          "label": "Leftovers",
+          "note": "It's good cold the next day — loosen it with a splash of rice vinegar and a few drops of sesame oil."
+        },
+        {
+          "label": "Pairs with",
+          "note": "An off-dry Riesling or Grüner Veltliner to cool the chili crisp."
+        }
+      ],
+      "source": {
+        "name": "Inspired by The Grove Wine Bar & Kitchen (Lakeway, TX)",
+        "url": null
+      },
+      "created": "2026-10-24T00:00:00.000Z",
+      "planSwaps": [
+        {
+          "for": [
+            "dash",
+            "tlc",
+            "heart",
+            "diabetes",
+            "kidney"
+          ],
+          "replace": "3 tbsp tamari",
+          "with": "3 tbsp coconut aminos",
+          "note": "coconut aminos for the tamari (check the label)"
+        },
+        {
+          "for": [
+            "heart"
+          ],
+          "replace": "2 tsp maple syrup",
+          "with": "1 tsp maple syrup",
+          "note": "half the maple, since the aminos run sweeter"
+        },
+        {
+          "for": [
+            "diabetes",
+            "lowcarb",
+            "balance"
+          ],
+          "replace": "6 oz wide rice noodles",
+          "with": "2 medium zucchini, spiralized",
+          "note": "zoodles for the rice noodles"
+        }
+      ],
+      "updated": "2026-10-24T00:00:00.000Z",
+      "kind": "food",
+      "category": "main",
+      "headnote": "A copycat of the Grove's Spicy Ginger Noodles, rebuilt from the menu card and a lot of\ntasting. The restaurant keeps it vegan and gluten-free, and so does this version —\ntamari, not soy, and rice noodles.",
+      "nutrition": {
+        "perServing": {
+          "kcal": 774,
+          "protein": 24.3,
+          "carb": 99.8,
+          "fat": 32.2,
+          "satfat": 4,
+          "fiber": 9.6,
+          "sugar": 12.8,
+          "sodium": 1629
+        },
+        "confidence": "high",
+        "matched": 20,
+        "considered": 20,
+        "withSwaps": {
+          "0": {
+            "kcal": 784,
+            "protein": 22.9,
+            "carb": 103.1,
+            "fat": 32.2,
+            "satfat": 4,
+            "fiber": 9.5,
+            "sugar": 15.7,
+            "sodium": 715
+          },
+          "2": {
+            "kcal": 498,
+            "protein": 21.7,
+            "carb": 37.9,
+            "fat": 32.4,
+            "satfat": 4,
+            "fiber": 10.2,
+            "sugar": 17.5,
+            "sodium": 1488
+          },
+          "0.1": {
+            "kcal": 776,
+            "protein": 22.9,
+            "carb": 100.8,
+            "fat": 32.2,
+            "satfat": 4,
+            "fiber": 9.5,
+            "sugar": 13.7,
+            "sodium": 715
+          },
+          "0.2": {
+            "kcal": 509,
+            "protein": 20.3,
+            "carb": 41.2,
+            "fat": 32.4,
+            "satfat": 4,
+            "fiber": 10,
+            "sugar": 20.4,
+            "sodium": 575
+          },
+          "0.1.2": {
+            "kcal": 500,
+            "protein": 20.3,
+            "carb": 38.9,
+            "fat": 32.4,
+            "satfat": 4,
+            "fiber": 10,
+            "sugar": 18.4,
+            "sodium": 574
+          }
+        }
+      }
+    },
+    {
       "title": "Hainanese Chicken Rice",
       "slug": "hainanese-chicken-rice",
       "tagline": "Gently poached silky chicken with fragrant schmaltz rice and a trio of bright sauces.",
@@ -8796,14 +9027,14 @@
       "hero": "images/lemongrass-chicken-noodle-bowls.webp",
       "nutrition": {
         "perServing": {
-          "kcal": 417,
-          "protein": 22.7,
+          "kcal": 416,
+          "protein": 22.3,
           "carb": 50.5,
-          "fat": 13.9,
+          "fat": 13.8,
           "satfat": 3.4,
-          "fiber": 2.8,
+          "fiber": 2.9,
           "sugar": 8.4,
-          "sodium": 588
+          "sodium": 664
         },
         "confidence": "high",
         "matched": 16,
@@ -8811,13 +9042,13 @@
         "withSwaps": {
           "0": {
             "kcal": 365,
-            "protein": 21.7,
+            "protein": 21.4,
             "carb": 39.2,
             "fat": 13.8,
             "satfat": 3.4,
-            "fiber": 2.6,
+            "fiber": 2.7,
             "sugar": 8.4,
-            "sodium": 588
+            "sodium": 638
           }
         }
       }
