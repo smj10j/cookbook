@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { readAllRecipes } from './lib/parse.mjs';
+import { IMAGE_MODEL } from './lib/image-model.mjs';
 
 // Recompress with cwebp (resize to 1280w, quality 80) if it's installed — turns the
 // ~1.8MB API output into ~70KB with no visible loss. Falls back to the raw file.
@@ -123,7 +124,7 @@ async function callApi(r, attempt = 1) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${KEY}` },
     body: JSON.stringify({
-      model: 'gpt-image-1',
+      model: IMAGE_MODEL,
       prompt: buildPrompt(r),
       n: 1,
       size: '1536x1024',
