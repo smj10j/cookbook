@@ -21,6 +21,7 @@ import { dirname, join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { PALETTE } from './lib/theme.mjs';
+import { IMAGE_MODEL as MODEL, isImageModel } from './lib/image-model.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const briefPath = join(root, 'branding', 'icon-brief.md');
@@ -29,18 +30,17 @@ const iconsDir = join(root, 'docs', 'icons');
 
 const force = process.argv.includes('--force');
 
-const MODEL = 'gpt-image-1';
-
 // ── brief + change detection ──
 const brief = readFileSync(briefPath, 'utf8');
 const hash = createHash('sha256').update(brief).digest('hex');
 const meta = existsSync(metaPath) ? JSON.parse(readFileSync(metaPath, 'utf8')) : null;
 const masterPath = join(iconsDir, 'icon-master.png');
 
-// meta.model must also match the real image model — a placeholder or hand-authored
+// meta.model must also name a real GPT Image model — a placeholder or hand-authored
 // meta.json (e.g. bootstrapped without an API key) must never be mistaken for a real
-// generation just because its hash happens to match the current brief.
-if (!force && meta?.hash === hash && meta?.model === MODEL && existsSync(masterPath)) {
+// generation just because its hash happens to match the current brief. Any gpt-image-*
+// model counts, so bumping the model id alone doesn't regenerate an unchanged icon.
+if (!force && meta?.hash === hash && isImageModel(meta?.model) && existsSync(masterPath)) {
   console.log('✓ Icon brief unchanged — skipping (use `npm run icon -- --force` to regenerate anyway).');
   process.exit(0);
 }
