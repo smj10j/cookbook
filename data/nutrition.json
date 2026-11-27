@@ -3760,6 +3760,23 @@
       "sodium": 1
     }
   },
+  "sherry vinegar": {
+    "unit": "tbsp",
+    "g": 15,
+    "n": {
+      "kcal": 3,
+      "protein": 0,
+      "carb": 0.1,
+      "fat": 0,
+      "satfat": 0,
+      "fiber": 0,
+      "sugar": 0.1,
+      "sodium": 1
+    },
+    "aliases": [
+      "vinagre de jerez"
+    ]
+  },
   "rice vinegar": {
     "unit": "tbsp",
     "g": 15,
