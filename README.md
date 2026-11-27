@@ -22,11 +22,16 @@ GitHub Pages so it works on any phone or laptop.
   vegetarian green…), plus a light "paper" theme behind the ☀ toggle.
 - Click any card to open the full recipe **spread** and flip left/right through the
   results with arrow keys, swipes, or the on-screen arrows.
-- A **shopping-list builder**: tap the **+** on any card (food or drink), hit the **List**
-  button in the toolbar, set how many servings you want (quantities scale automatically),
-  and copy the list to your clipboard — identical ingredients across recipes are merged into
-  one line (garlic by the bulb, citrus by the fruit, bitters by the bottle). Pantry staples
-  start unchecked; a ⚑ marks things you probably have but might want to double-check.
+- **This week + shopping list:** tap the **+** on any dish (food or drink) to add it to
+  **This week**. The panel lists the week's dishes with a servings stepper each, then the
+  shopping list **grouped by aisle** (produce, meat & fish, dairy, pantry, spices, bar…) —
+  identical ingredients merge across dishes (garlic by the bulb, citrus by the fruit, bitters
+  by the bottle). Pantry staples start unchecked; a ⚑ marks things you probably have. Copy it,
+  or on iPhone/iPad send it straight to Reminders.
+- **Shelves:** with no filter on, Food opens on *Just added* plus a shelf per protein
+  (and sides, desserts), each with "See all".
+- **Cook mode:** big type, tap-to-tick ingredients and steps, and the screen stays awake —
+  built for an iPad or phone on the counter.
 - Every recipe follows one **standard format**, so timings, ingredients, method,
   chef's tips, and extras are always in the same place.
 - **Shareable links with rich previews:** open a recipe and tap the **share** button to copy

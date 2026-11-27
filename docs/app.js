@@ -4,11 +4,11 @@
    =========================================================================== */
 import {
   esc, inlineMd, cap, fmtMin,
-  scaleDisplay, classify, clampServes,
-  buildShoppingList, formatShoppingList, recipeMatches, searchSuggestions, cuisineChipValues, proteinChipValues, shopSectionsForRecipe,
+  clampServes,
+  formatShoppingList, recipeMatches, searchSuggestions, cuisineChipValues, proteinChipValues, shopSectionsForRecipe,
   hashForKind, parseHash, nutritionPanelHtml, EATING_PLANS, buildPlanVerdicts,
   encodeRouteQuery, decodeRouteQuery, activeFilterEntries, SORTS, sortRecipes, laneFor,
-  FOOD_OCCASIONS, occasionLabel, splitCuisineChips,
+  FOOD_OCCASIONS, occasionLabel, splitCuisineChips, SHELVES, buildShelves, groupByAisle, buildAisleList,
   recipeVariants, applyVariantToSections, variantLabel, variantTitle, variantsConflict, combineVariants,
   isIOSSafari,
 } from './lib.js';
@@ -35,13 +35,20 @@ const state = {
   reader: { list: [], index: -1 },
   selected: new Set(),     // slugs picked for the shopping list (persisted)
   cartOnly: false,         // "In cart" view: show only selected recipes in the current section
-  shop: { items: [] },     // current overlay item rows
+  shop: { items: [], overrides: new Map() },  // overlay rows + the reader's own check/uncheck choices (row id -> bool)
+  servings: new Map(),     // slug -> servings to shop for (persisted; default = the recipe's own yield)
+  shopMode: 'aisle',       // 'aisle' (merged, store order) | 'recipe' (per-dish lines) — persisted
   suggest: { items: [], active: -1 },   // search autocomplete: current suggestions + highlighted row
   copyFormat: 'dash',      // 'dash' | 'checkbox' (persisted)
   variants: new Map(),     // slug -> SELECTED variant keys, in tap order (persisted)
   sort: 'newest',          // 'newest' | 'az' | 'quickest' (in the URL when not the default)
   view: 'list',            // 'list' (printed menu) | 'grid' (photo cards) — persisted per device
   cuisineMore: false,      // the long-tail cuisine chips are expanded
+  cook: { slug: null, pane: 'ing' },   // Cook mode: which recipe, which pane (phones show one)
+  cookProgress: new Map(), // slug -> { ing: Set<index>, steps: Set<index> } — ticks survive closing
+  wake: null,              // the Screen Wake Lock sentinel while Cook mode is open
+  showAll: false,          // Food: the flat "everything in one list" view instead of shelves
+  displayList: [],         // what's on screen, in screen order — the reader pages through this
 };
 
 // Curated flavor tags that become the Drinks "Flavor" filter (kept tight on purpose).
@@ -53,12 +60,16 @@ const VARIANT_KEY = 'tm-variant';
 const VIEW_KEY = 'tm-view';
 const THEME_KEY = 'tm-theme';
 const INTRO_KEY = 'tm-intro-seen';
+const SERVINGS_KEY = 'tm-servings';
+const SHOPMODE_KEY = 'tm-shopmode';
 function loadSelected() {
   try { JSON.parse(localStorage.getItem(SELECT_KEY) || '[]').forEach((s) => state.selected.add(s)); } catch {}
   try { const f = localStorage.getItem(FORMAT_KEY); if (f === 'dash' || f === 'checkbox') state.copyFormat = f; } catch {}
   // Selections are arrays of chip keys in tap order (older builds stored one string).
   try { Object.entries(JSON.parse(localStorage.getItem(VARIANT_KEY) || '{}')).forEach(([s, k]) => state.variants.set(s, Array.isArray(k) ? k : [k])); } catch {}
   try { const v = localStorage.getItem(VIEW_KEY); if (v === 'list' || v === 'grid') state.view = v; } catch {}
+  try { Object.entries(JSON.parse(localStorage.getItem(SERVINGS_KEY) || '{}')).forEach(([k, n]) => { const c = clampServes(n); if (c) state.servings.set(k, c); }); } catch {}
+  try { const m = localStorage.getItem(SHOPMODE_KEY); if (m === 'aisle' || m === 'recipe') state.shopMode = m; } catch {}
 }
 function saveSelected() {
   try { localStorage.setItem(SELECT_KEY, JSON.stringify([...state.selected])); } catch {}
@@ -145,9 +156,6 @@ function dismissIntro() {
 }
 
 function syncView() {
-  const menu = $('#menu');
-  menu.classList.toggle('is-list', state.view === 'list');
-  menu.classList.toggle('is-grid', state.view === 'grid');
   document.querySelectorAll('#view-toggle .view-btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === state.view)));
 }
 function setView(view) {
@@ -155,6 +163,7 @@ function setView(view) {
   state.view = view;
   try { localStorage.setItem(VIEW_KEY, view); } catch {}
   syncView();
+  renderMenu();
 }
 
 // ── filter sheet ─────────────────────────────────────────────────────────────
@@ -172,7 +181,7 @@ function closeFilters() {
 
 // The tab hash for the current section + its filters/search/sort.
 function currentHash() {
-  return hashForKind(state.kind, encodeRouteQuery({ filters: state.filters, q: state.q, sort: state.sort }));
+  return hashForKind(state.kind, encodeRouteQuery({ filters: state.filters, q: state.q, sort: state.sort, all: state.showAll }));
 }
 
 // Switch tabs: set the kind, reset search + filters (they differ per section), rebuild.
@@ -187,6 +196,7 @@ function setKind(kind, syncHash = true) {
   closeSuggest();
   Object.values(state.filters).forEach((s) => s.clear());
   state.cuisineMore = false;
+  state.showAll = false;
   document.querySelectorAll('#tabs .tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.kind === kind)));
   buildFilters();
   apply({ syncHash: false });
@@ -195,7 +205,8 @@ function setKind(kind, syncHash = true) {
 
 // Load filters/search/sort from a decoded '?…' route query (refresh, Back, shared link).
 function applyRouteQuery(query) {
-  const { filters, q, sort } = decodeRouteQuery(query);
+  const { filters, q, sort, all } = decodeRouteQuery(query);
+  state.showAll = !!all;
   Object.values(state.filters).forEach((s) => s.clear());
   for (const [key, vals] of Object.entries(filters)) {
     if (key === 'plan') vals.forEach(([id, mode]) => { if (PLAN_BY_ID[id]) state.filters.plan.set(id, mode); });
@@ -343,6 +354,7 @@ function bindEvents() {
     if (!pill) return;
     const { key, val } = pill.dataset;
     if (key === 'q') { state.q = ''; $('#search').value = ''; }
+    else if (key === 'all') state.showAll = false;
     else state.filters[key]?.delete(val);
     buildFilters();
     apply();
@@ -362,6 +374,11 @@ function bindEvents() {
   $('#clear-filters').addEventListener('click', clearFilters);
   $('#empty-clear').addEventListener('click', clearFilters);
   $('#menu').addEventListener('click', (e) => {
+    const more = e.target.closest('.shelf-all');
+    if (more) { seeShelf(more.dataset.shelf); return; }
+    if (e.target.closest('#show-all')) { state.showAll = true; apply(); return; }
+    const fresh = e.target.closest('.fresh-card');
+    if (fresh) { openReader(fresh.dataset.slug); return; }
     const sel = e.target.closest('.card-select');
     if (sel) { toggleSelect(sel.dataset.select); return; }
     const card = e.target.closest('.card');
@@ -372,7 +389,19 @@ function bindEvents() {
   $('#reader-cart').addEventListener('click', openShopList);
   $('#shoplist-close').addEventListener('click', closeShopList);
   $('#shoplist').addEventListener('click', (e) => { if (e.target === $('#shoplist')) closeShopList(); });
-  $('#shop-serves').addEventListener('input', updateQuantities);
+  $('#shop-mode').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-shopmode]');
+    if (!b) return;
+    state.shopMode = b.dataset.shopmode;
+    try { localStorage.setItem(SHOPMODE_KEY, state.shopMode); } catch {}
+    renderShopList();
+  });
+  $('#shop-help').addEventListener('click', () => {
+    const note = $('#shop-note');
+    note.hidden = !note.hidden;
+    $('#shop-help').setAttribute('aria-expanded', String(!note.hidden));
+  });
+  $('#week-list').addEventListener('click', onWeekClick);
   $('#shop-copy').addEventListener('click', copyShoppingList);
   if (isIOSSafari(navigator)) $('#ios-reminders').hidden = false;
   $('#shop-reminders').addEventListener('click', sendToReminders);
@@ -388,10 +417,18 @@ function bindEvents() {
     try { localStorage.setItem(FORMAT_KEY, state.copyFormat); } catch {}
     syncFormatToggle();
   });
-  $('#shoplist-body').addEventListener('change', updateSummary);
+  // One checkbox may stand for several recipes' lines (a merged aisle row): tick them all.
+  $('#shoplist-body').addEventListener('change', (e) => {
+    const cb = e.target.closest('input[type=checkbox][data-ids]');
+    if (!cb) return;
+    cb.dataset.ids.split(' ').forEach((id) => state.shop.overrides.set(id, cb.checked));
+    updateSummary();
+  });
   $('#reader-close').addEventListener('click', closeReader);
   $('#reader-share').addEventListener('click', shareCurrentRecipe);
   $('#spread').addEventListener('click', (e) => {
+    const tab = e.target.closest('.spread-tab');
+    if (tab) { jumpTo(tab.dataset.jump); return; }
     const vbtn = e.target.closest('.vchip');
     if (vbtn) {
       const r = state.reader.list[state.reader.index];
@@ -417,10 +454,19 @@ function bindEvents() {
     e.stopPropagation();
     toggleSelect(sel.dataset.select);
   });
+  // Cook mode
+  $('#cook-open').addEventListener('click', openCook);
+  $('#cook-close').addEventListener('click', closeCook);
+  $('#cook').addEventListener('click', onCookClick);
+  document.addEventListener('visibilitychange', () => {
+    // The OS drops a wake lock when the tab is hidden; take it back on return.
+    if (!$('#cook').hidden && document.visibilityState === 'visible') requestWake();
+  });
   $('#reader-prev').addEventListener('click', () => flip(-1));
   $('#reader-next').addEventListener('click', () => flip(1));
   $('#reader').addEventListener('click', (e) => { if (e.target === $('#reader')) closeReader(); });
   document.addEventListener('keydown', (e) => {
+    if (!$('#cook').hidden) { if (e.key === 'Escape') closeCook(); return; }
     if (!$('#shoplist').hidden) { if (e.key === 'Escape') closeShopList(); return; }
     if (!$('#filter-panel').hidden) { if (e.key === 'Escape') closeFilters(); return; }
     if ($('#reader').hidden) return;
@@ -437,9 +483,24 @@ function clearFilters() {
   closeSuggest();
   state.cartOnly = false;
   state.cuisineMore = false;
+  state.showAll = false;
   Object.values(state.filters).forEach((s) => s.clear());
   buildFilters();
   apply();
+}
+
+// "See all" on a shelf: replace the filters with that shelf's (sort and view stay).
+function seeShelf(key) {
+  const shelf = SHELVES.find((s) => s.key === key);
+  if (!shelf) return;
+  Object.values(state.filters).forEach((s) => s.clear());
+  state.q = '';
+  $('#search').value = '';
+  state.showAll = false;
+  Object.entries(shelf.filter).forEach(([k, vals]) => vals.forEach((v) => state.filters[k].add(v)));
+  buildFilters();
+  apply();
+  $('#filters').scrollIntoView?.({ block: 'start' });
 }
 
 // Re-filter + re-sort the menu, refresh the pills/badges, and (unless told not to)
@@ -471,6 +532,7 @@ function renderActiveFilters() {
     const label = filterLabel(key, val) + (mode === 'great' ? ' ✓' : '');
     return `<button class="pill" type="button" data-key="${key}" data-val="${esc(val)}" aria-label="Remove filter: ${esc(label)}">${esc(label)}<span class="pill-x" aria-hidden="true">×</span></button>`;
   });
+  if (state.showAll && !entries.length && !state.q) pills.push(`<button class="pill" type="button" data-key="all" aria-label="Back to the shelves">All in one list<span class="pill-x" aria-hidden="true">×</span></button>`);
   if (state.q) pills.unshift(`<button class="pill" type="button" data-key="q" aria-label="Clear search">“${esc(state.q)}”<span class="pill-x" aria-hidden="true">×</span></button>`);
   $('#active-filters').innerHTML = pills.join('');
   const badge = $('#filters-count');
@@ -575,11 +637,52 @@ function renderMenu() {
   const list = state.filtered;
   const total = state.all.filter((r) => (r.kind || 'food') === state.kind).length;
   const noun = state.kind === 'drink' ? 'drink' : 'recipe';
-  const active = state.q || state.cartOnly || Object.values(state.filters).some((s) => s.size);
-  $('#clear-filters').hidden = !active;
-  $('#result-count').textContent = active ? `${list.length} of ${total} ${noun}s` : `${total} ${noun}s`;
+  const filtering = state.q || state.cartOnly || Object.values(state.filters).some((s) => s.size);
+  $('#clear-filters').hidden = !(filtering || state.showAll);
+  $('#result-count').textContent = filtering ? `${list.length} of ${total} ${noun}s` : `${total} ${noun}s`;
   $('#empty-state').hidden = list.length > 0;
-  $('#menu').innerHTML = list.map((r) => cardHtml(r)).join('');
+  const menu = $('#menu');
+  if (state.kind === 'food' && !filtering && !state.showAll) {
+    // The unfiltered Food home: a "Just added" photo row, then lane shelves.
+    const { fresh, shelves } = buildShelves(list, { sort: state.sort });
+    state.displayList = shelves.flatMap((s) => s.members);
+    menu.className = 'menu is-shelves';
+    menu.innerHTML = freshHtml(fresh) + shelves.map(shelfHtml).join('')
+      + `<div class="show-all-wrap"><button class="show-all" id="show-all" type="button">Show all ${total} recipes as one list</button></div>`;
+    return;
+  }
+  state.displayList = list;
+  menu.className = `menu items is-${state.view}`;
+  menu.innerHTML = list.map((r) => cardHtml(r)).join('');
+}
+
+function freshHtml(fresh) {
+  if (!fresh.length) return '';
+  return `
+  <section class="fresh" aria-labelledby="fresh-h">
+    <div class="shelf-head"><h2 class="shelf-title" id="fresh-h">Just added</h2></div>
+    <div class="fresh-row">
+      ${fresh.map((r) => `
+      <button class="fresh-card lane-${laneFor(r)}" type="button" data-slug="${esc(r.slug)}">
+        <span class="fresh-img card-visual">${visualHtml(r)}</span>
+        <span class="card-lane"><span class="lane-dot" aria-hidden="true"></span>${esc(laneLabel(r))} · ${esc(fmtMin(r.times.total))}</span>
+        <span class="fresh-title">${esc(r.title)}</span>
+      </button>`).join('')}
+    </div>
+  </section>`;
+}
+
+function shelfHtml(s) {
+  return `
+  <section class="shelf lane-${s.key}" aria-labelledby="shelf-${s.key}">
+    <div class="shelf-head">
+      <span class="lane-dot" aria-hidden="true"></span>
+      <h2 class="shelf-title" id="shelf-${s.key}">${esc(s.title)}</h2>
+      <span class="shelf-count">${s.count}</span>
+      <button class="shelf-all" type="button" data-shelf="${s.key}">See all${s.count > s.items.length ? ` ${s.count}` : ''}</button>
+    </div>
+    <div class="shelf-items items is-${state.view}">${s.items.map((r) => cardHtml(r)).join('')}</div>
+  </section>`;
 }
 
 // When a "Good for" plan filter is active, each card also shows that plan's verdict
@@ -663,8 +766,8 @@ function openReader(slug, dir = 0) {
   // Arriving at a recipe from the other section (e.g. a shared drink link) flips the
   // tab — but keep syncHash off so we don't clobber the '#/<slug>' hash set below.
   if ((target.kind || 'food') !== state.kind) setKind(target.kind || 'food', false);
-  const kindList = state.all.filter((r) => (r.kind || 'food') === state.kind);
-  let list = state.filtered.length ? state.filtered : kindList;
+  const kindList = sortRecipes(state.all.filter((r) => (r.kind || 'food') === state.kind), state.sort);
+  let list = state.displayList.length ? state.displayList : kindList;
   let index = list.findIndex((r) => r.slug === slug);
   if (index === -1) { list = kindList; index = list.findIndex((r) => r.slug === slug); }
   if (index === -1) return;
@@ -706,7 +809,16 @@ function renderSpread(dir) {
   $('#reader-prev').disabled = index <= 0;
   $('#reader-next').disabled = index >= list.length - 1;
   const scroller = stage.querySelector('.spread-scroll');
-  if (scroller) scroller.scrollTop = 0;
+  if (scroller) {
+    scroller.scrollTop = 0;
+    let queued = false;
+    scroller.addEventListener('scroll', () => {
+      if (queued) return;
+      queued = true;
+      const run = () => { queued = false; spyTabs(scroller); };
+      if (typeof requestAnimationFrame === 'function') requestAnimationFrame(run); else run();
+    }, { passive: true });
+  }
   if (animate) turnPage(outgoing, dir, outgoingLane);
 }
 
@@ -807,9 +919,15 @@ function variantToggleHtml(r, variants, selKeys) {
         const conflict = !on && selected.some((s) => variantsConflict(s, v));
         return `<button class="vchip" type="button" data-variant="${esc(v.key)}" aria-pressed="${on}"${
           conflict ? ' disabled title="Conflicts with a selected variant — it swaps the same ingredient differently"'
-                   : ` title="${esc(variantTitle(v))}"`}>⇄ ${variantLabel(v)}</button>`;
+                   : ` title="${esc(variantTitle(v))}"`}>⇄ ${esc(variantLabel(v))}</button>`;
       }).join('')}
-    </div>`;
+    </div>${selected.length ? `<p class="variant-note">${esc(variantChanges(selected))}</p>` : ''}`;
+}
+
+// "What changes" for the selected chips — the swap notes, which are too long for a chip.
+function variantChanges(selected) {
+  const notes = [...new Set(selected.flatMap((v) => v.swaps.map((sw) => sw.note || sw.with)))];
+  return `What changes: ${notes.join('; ')}.`;
 }
 
 // The 5-cell spec block — kitchen timings for food, bar spec for a drink.
@@ -879,7 +997,10 @@ function spreadHtml(r) {
   return `
     <div class="spread-scroll">
     <div class="spread-hero">${heroInner}${selectBtn}</div>
-    <div class="spread-inner">
+    <nav class="spread-tabs" aria-label="Jump to">
+      ${SPREAD_TABS.map(([k, label], i) => `<button class="spread-tab" type="button" data-jump="${k}" aria-current="${i === 0}">${label}</button>`).join('')}
+    </nav>
+    <div class="spread-inner" data-sec="overview">
       <p class="spread-kicker">${subline(r)}</p>
       <h2 class="spread-title">${esc(r.title)}</h2>
       <p class="spread-tagline">${esc(r.tagline)}</p>
@@ -887,14 +1008,135 @@ function spreadHtml(r) {
       <div class="spread-chips">${chips}</div>
       <p class="spread-pitch">${inlineMd(r.pitch)}</p>
       <div class="spread-columns">
-        <div class="col-ingredients"><div class="section-h">Ingredients</div>${variantToggleHtml(r, variants, state.variants.get(r.slug) || [])}${ingredientsHtml(r, variant)}</div>
-        <div class="col-steps"><div class="section-h">Method</div>${sectionsHtml(r.steps, 'step')}${tips}${extras}</div>
+        <div class="col-ingredients" data-sec="ingredients"><div class="section-h">Ingredients</div>${variantToggleHtml(r, variants, state.variants.get(r.slug) || [])}${ingredientsHtml(r, variant)}</div>
+        <div class="col-steps" data-sec="method"><div class="section-h">Method</div>${sectionsHtml(r.steps, 'step')}${tips}${extras}</div>
       </div>
       ${headnote}
       ${source}
       ${nutritionPanelHtml(r, { variant })}
     </div>
     </div>`;
+}
+
+// ── in-recipe section tabs (jump + scroll-spy) ───────────────────────────────
+const SPREAD_TABS = [['overview', 'About'], ['ingredients', 'Ingredients'], ['method', 'Method'], ['nutrition', 'Nutrition']];
+
+// The element a tab jumps to (the nutrition panel is found by its own class).
+const secEl = (sc, k) => sc.querySelector(k === 'nutrition' ? '.nutrition' : `[data-sec="${k}"]`);
+
+function setActiveTab(sec) {
+  document.querySelectorAll('#spread .spread-tab').forEach((t) => t.setAttribute('aria-current', String(t.dataset.jump === sec)));
+}
+
+function jumpTo(sec) {
+  const sc = $('#spread .spread-scroll');
+  const el = sc && secEl(sc, sec);
+  if (!el) return;
+  const tabs = sc.querySelector('.spread-tabs');
+  const top = el.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop - (tabs ? tabs.offsetHeight : 0) - 8;
+  if (typeof sc.scrollTo === 'function') sc.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  else sc.scrollTop = Math.max(0, top);
+  setActiveTab(sec);
+}
+
+// Highlight the last section whose top has scrolled up under the tab bar.
+function spyTabs(sc) {
+  const tabs = sc.querySelector('.spread-tabs');
+  const line = sc.getBoundingClientRect().top + (tabs ? tabs.offsetHeight : 0) + 24;
+  let cur = 'overview';
+  for (const [k] of SPREAD_TABS) {
+    const el = secEl(sc, k);
+    if (el && el.getBoundingClientRect().top <= line) cur = k;
+  }
+  setActiveTab(cur);
+}
+
+// ── Cook mode ────────────────────────────────────────────────────────────────
+// A full-screen kitchen view of the open recipe: big type, ingredients and steps you
+// tap to tick off (the next undone step is highlighted), and the screen kept awake via
+// the Screen Wake Lock API where the browser supports it. It cooks the ACTIVE variant.
+function cookProgressFor(slug) {
+  if (!state.cookProgress.has(slug)) state.cookProgress.set(slug, { ing: new Set(), steps: new Set() });
+  return state.cookProgress.get(slug);
+}
+
+function openCook() {
+  const r = state.reader.list[state.reader.index];
+  if (!r) return;
+  const prog = cookProgressFor(r.slug);
+  state.cook = { slug: r.slug, pane: prog.ing.size || prog.steps.size ? 'steps' : 'ing' };
+  renderCook();
+  $('#cook').hidden = false;
+  requestWake();
+}
+
+function closeCook() {
+  $('#cook').hidden = true;
+  releaseWake();
+}
+
+async function requestWake() {
+  const wl = typeof navigator !== 'undefined' ? navigator.wakeLock : null;
+  if (!wl || typeof wl.request !== 'function') return;
+  try {
+    state.wake = await wl.request('screen');
+    $('#cook-awake').hidden = false;
+    state.wake.addEventListener?.('release', () => { $('#cook-awake').hidden = true; });
+  } catch { $('#cook-awake').hidden = true; }
+}
+
+function releaseWake() {
+  try { state.wake?.release?.(); } catch {}
+  state.wake = null;
+  $('#cook-awake').hidden = true;
+}
+
+function renderCook() {
+  const r = state.all.find((x) => x.slug === state.cook.slug);
+  if (!r) return;
+  const prog = cookProgressFor(r.slug);
+  const variant = activeVariant(r);
+  $('#cook').className = `cook lane-${laneFor(r)} pane-${state.cook.pane}`;
+  $('#cook-title').textContent = r.title;
+  const vline = $('#cook-variant');
+  vline.hidden = !variant;
+  vline.textContent = variant ? `Cooking the ⇄ ${variantLabel(variant)} version` : '';
+  document.querySelectorAll('#cook .cook-pane-btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pane === state.cook.pane)));
+
+  let i = 0;
+  $('#cook-ing').innerHTML = `<h3 class="cook-h">Ingredients</h3>` + applyVariantToSections(r.ingredients, variant).map((sec) =>
+    (sec.section ? `<h4 class="cook-sub">${esc(sec.section)}</h4>` : '')
+    + sec.items.map((it) => {
+      const n = i++;
+      return `<button class="cook-item${it.swapped ? ' is-swapped' : ''}" type="button" data-i="${n}" aria-pressed="${prog.ing.has(n)}"><span class="cook-tick" aria-hidden="true"></span><span>${esc(it.text)}</span></button>`;
+    }).join('')).join('')
+    + `<button class="primary-btn cook-start" type="button" data-pane-go="steps">Start cooking →</button>`;
+
+  const steps = (r.steps || []).flatMap((sec) => (sec.items || []).map((text, k) => ({ text, section: k === 0 ? sec.section : null })));
+  const current = steps.findIndex((_, j) => !prog.steps.has(j));
+  $('#cook-steps').innerHTML = `<h3 class="cook-h">Steps</h3>` + steps.map((st, j) =>
+    (st.section ? `<h4 class="cook-sub">${esc(st.section)}</h4>` : '')
+    + `<button class="cook-step${j === current ? ' is-current' : ''}" type="button" data-s="${j}" aria-pressed="${prog.steps.has(j)}"${j === current ? ' aria-current="step"' : ''}>
+        <span class="cook-step-n">${j + 1}</span><span class="cook-step-text">${inlineMd(st.text)}</span></button>`).join('')
+    + (current === -1 && steps.length ? `<p class="cook-done">All done — enjoy it.</p>` : '')
+    + `<button class="link-btn cook-reset" type="button" data-reset="1">Reset ticks</button>`;
+  $('#cook-progress').textContent = steps.length ? `${prog.steps.size}/${steps.length}` : '';
+}
+
+function onCookClick(e) {
+  const prog = state.cook.slug ? cookProgressFor(state.cook.slug) : null;
+  if (!prog) return;
+  const toggle = (set, n) => (set.has(n) ? set.delete(n) : set.add(n));
+  const item = e.target.closest('.cook-item');
+  const step = e.target.closest('.cook-step');
+  const pane = e.target.closest('[data-pane], [data-pane-go]');
+  if (item) toggle(prog.ing, +item.dataset.i);
+  else if (step) toggle(prog.steps, +step.dataset.s);
+  else if (e.target.closest('[data-reset]')) { prog.ing.clear(); prog.steps.clear(); state.cook.pane = 'ing'; }
+  else if (pane) state.cook.pane = pane.dataset.pane || pane.dataset.paneGo;
+  else return;
+  renderCook();
+  if (pane) $('#cook .cook-body')?.scrollTo?.(0, 0);
 }
 
 function routeFromHash() {
@@ -905,7 +1147,7 @@ function routeFromHash() {
   if (!$('#reader').hidden) closeReader();
   if (route.kind !== state.kind) setKind(route.kind, false);
   const want = route.query || '';
-  const have = encodeRouteQuery({ filters: state.filters, q: state.q, sort: state.sort });
+  const have = encodeRouteQuery({ filters: state.filters, q: state.q, sort: state.sort, all: state.showAll });
   if (want !== have) applyRouteQuery(want);
 }
 
@@ -998,7 +1240,9 @@ function clearSelection() {
   state.selected.clear();
   saveSelected();
   state.shop.items = [];
+  state.shop.overrides.clear();
   $('#shoplist-body').innerHTML = '';          // never leave a stale list behind
+  $('#week-list').innerHTML = '';
   document.querySelectorAll('.card-wrap.is-selected').forEach((w) => {
     w.classList.remove('is-selected');
     w.querySelector('.card-select')?.setAttribute('aria-pressed', 'false');
@@ -1012,72 +1256,148 @@ function clearSelection() {
   closeShopList();
 }
 
+// ── This week: picked dishes + the shopping list ─────────────────────────────
+const servingsFor = (r) => state.servings.get(r.slug) ?? r.serves ?? 2;
+function saveServings() {
+  try { localStorage.setItem(SERVINGS_KEY, JSON.stringify(Object.fromEntries(state.servings))); } catch {}
+}
+const weekRecipes = () => [...state.selected].map((slug) => state.all.find((r) => r.slug === slug)).filter(Boolean);
+
+// Every ingredient line of every picked dish, scaled to that dish's servings and with
+// its active variant applied. Ids are stable (slug|section|line) so a reader's own
+// check/uncheck choices survive re-renders, servings changes and view switches.
+function shopRows() {
+  const rows = [];
+  for (const r of weekRecipes()) {
+    const target = servingsFor(r);
+    shopSectionsForRecipe(r, target, activeVariant(r)).forEach((sec, si) => sec.items.forEach((it, ii) => {
+      rows.push({
+        ...it, id: `${r.slug}|${si}|${ii}`, slug: r.slug, section: sec.section,
+        qtyScaled: it.qty != null ? it.qty * (target / (it.serves || target)) : null,
+      });
+    }));
+  }
+  return rows;
+}
+// Default: buy fresh/specialty items; staples and optional bits start unchecked.
+const isChecked = (row) => (state.shop.overrides.has(row.id) ? state.shop.overrides.get(row.id) : row.cat === 'buy' && !row.optional);
+
+const PANTRY_FLAG = ` <span class="pantry-flag" title="You likely have this — double-check your pantry">⚑</span>`;
+const OPTIONAL_FLAG = ` <span class="pantry-flag" title="Optional — copied into its own section only if you check it">optional</span>`;
+
 function renderShopList() {
-  const target = clampServes($('#shop-serves').value) || 2;
-  const recipes = state.all.filter((r) => state.selected.has(r.slug));
-  const items = [];
-  let idx = 0;
-  const html = recipes.map((r) => {
-    const variant = activeVariant(r);
-    const body = shopSectionsForRecipe(r, target, variant).map((sec) => {
-      const head = sec.section ? `<div class="shop-section">${esc(sec.section)}</div>` : '';
-      const rows = sec.items.map((it) => {
-        const i = idx++;
-        items.push(it);
-        const checked = it.cat === 'buy' && !it.optional;
-        const flag = it.optional
-          ? ` <span class="pantry-flag" title="Optional — copied into its own section only if you check it">optional</span>`
-          : it.cat === 'pantry'
-          ? ` <span class="pantry-flag" title="You likely have this — double-check your pantry">⚑</span>` : '';
-        return `<label class="shop-item${it.cat !== 'buy' || it.optional ? ' is-staple' : ''}">
-          <input type="checkbox" data-idx="${i}"${checked ? ' checked' : ''} />
-          <span class="shop-qty" data-idx="${i}">${esc(it.display)}</span>${flag}
-        </label>`;
-      }).join('');
-      return head + rows;
-    }).join('');
-    const note = r.serves ? `<span class="shop-recipe-serves"> · scaled from ${r.serves}</span>` : '';
-    const vnote = variant ? ` <span class="shop-variant" title="${esc(variantTitle(variant))}">⇄ ${variantLabel(variant)} variant</span>` : '';
-    return `<div class="shop-recipe"><div class="shop-recipe-title">${esc(r.title)}${vnote}${note}</div>${body}</div>`;
+  const recipes = weekRecipes();
+  $('#week-list').innerHTML = recipes.map((r) => {
+    const v = activeVariant(r);
+    const n = servingsFor(r);
+    return `
+    <li class="week-item lane-${laneFor(r)}">
+      <button class="week-open" type="button" data-open="${esc(r.slug)}" title="Open the recipe">
+        <span class="week-thumb card-visual">${visualHtml(r)}</span>
+        <span class="week-text"><span class="week-title">${esc(r.title)}</span>
+          <span class="week-sub">${esc(laneLabel(r))} · ${esc(fmtMin(r.times.total))}${v ? ` · <span class="shop-variant" title="${esc(variantTitle(v))}">⇄ ${esc(variantLabel(v))}</span>` : ''}</span></span>
+      </button>
+      <div class="week-serves" role="group" aria-label="${esc(`Servings for ${r.title}`)}">
+        <button type="button" class="step-btn" data-serves="-1" data-slug="${esc(r.slug)}" aria-label="Fewer servings"${n <= 1 ? ' disabled' : ''}>−</button>
+        <span class="week-serves-n">${n}</span>
+        <button type="button" class="step-btn" data-serves="1" data-slug="${esc(r.slug)}" aria-label="More servings"${n >= 50 ? ' disabled' : ''}>+</button>
+      </div>
+      <button type="button" class="week-remove" data-remove="${esc(r.slug)}" aria-label="${esc(`Remove ${r.title} from this week`)}">×</button>
+    </li>`;
   }).join('');
-  $('#shoplist-body').innerHTML = html || '<p style="color:var(--stone)">No recipes selected.</p>';
-  state.shop.items = items;
+  document.querySelectorAll('#shop-mode [data-shopmode]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.shopmode === state.shopMode)));
+  const rows = shopRows();
+  state.shop.items = rows;
+  $('#shoplist-body').innerHTML = !rows.length ? '<p class="shop-empty">Nothing picked yet.</p>'
+    : state.shopMode === 'recipe' ? recipeViewHtml(recipes, rows) : aisleViewHtml(rows);
   updateSummary();
 }
 
-function updateQuantities() {
-  const target = clampServes($('#shop-serves').value);
-  if (target == null) return;
-  state.shop.items.forEach((item, i) => {
-    const span = document.querySelector(`.shop-qty[data-idx="${i}"]`);
-    if (span) span.textContent = scaleDisplay(item, target / (item.serves || target));
-  });
+// By recipe: each dish's own lines, as written (scaled), one checkbox per line.
+function recipeViewHtml(recipes, rows) {
+  return recipes.map((r) => {
+    const mine = rows.filter((row) => row.slug === r.slug);
+    let lastSection;
+    const body = mine.map((it) => {
+      const head = it.section && it.section !== lastSection ? `<div class="shop-section">${esc(it.section)}</div>` : '';
+      lastSection = it.section;
+      const flag = it.optional ? OPTIONAL_FLAG : it.cat === 'pantry' ? PANTRY_FLAG : '';
+      return `${head}<label class="shop-item${it.cat !== 'buy' || it.optional ? ' is-staple' : ''}">
+          <input type="checkbox" data-ids="${esc(it.id)}"${isChecked(it) ? ' checked' : ''} />
+          <span class="shop-qty">${esc(it.display)}</span>${flag}
+        </label>`;
+    }).join('');
+    const n = servingsFor(r);
+    const note = r.serves && r.serves !== n ? `<span class="shop-recipe-serves"> · scaled from ${r.serves} to ${n}</span>` : '';
+    const v = activeVariant(r);
+    const vnote = v ? ` <span class="shop-variant" title="${esc(variantTitle(v))}">⇄ ${esc(variantLabel(v))} variant</span>` : '';
+    return `<div class="shop-recipe lane-${laneFor(r)}"><div class="shop-recipe-title">${esc(r.title)}${vnote}${note}</div>${body}</div>`;
+  }).join('');
+}
+
+// By aisle: identical ingredients merged across dishes into what you actually buy,
+// grouped in store order. One checkbox covers every dish's line for that item.
+function aisleViewHtml(rows) {
+  const { aisles, optional } = groupByAisle(rows.map((r) => ({ id: r.id, qty: r.qtyScaled, rest: r.rest, optional: r.optional, cat: r.cat })));
+  const byId = new Map(rows.map((r) => [r.id, r]));
+  const line = (it, opt) => {
+    const checked = it.ids.some((id) => isChecked(byId.get(id)));
+    const cats = it.cats || [];
+    const staple = opt || !cats.includes('buy');
+    const flag = opt ? '' : !cats.includes('buy') && cats.includes('pantry') ? PANTRY_FLAG : '';
+    const dishes = new Set(it.ids.map((id) => id.split('|')[0])).size;   // ids are slug|section|line
+    const meta = dishes > 1 ? `<span class="shop-line-meta">${dishes} dishes</span>` : '';
+    return `<label class="shop-line${staple ? ' is-staple' : ''}">
+        <input type="checkbox" data-ids="${esc(it.ids.join(' '))}"${checked ? ' checked' : ''} />
+        <span class="shop-line-text">${esc(it.line)}</span>${flag}${meta}
+      </label>`;
+  };
+  return aisles.map((a) => `
+    <section class="aisle"><h3 class="aisle-h">${esc(a.aisle)} <span class="aisle-n">${a.items.length}</span></h3>
+      ${a.items.map((it) => line(it, false)).join('')}
+    </section>`).join('')
+    + (optional.length ? `<section class="aisle"><h3 class="aisle-h">Optional <span class="aisle-n">${optional.length}</span></h3>
+      ${optional.map((it) => line({ ...it, count: 1 }, true)).join('')}</section>` : '');
+}
+
+function onWeekClick(e) {
+  const step = e.target.closest('[data-serves]');
+  if (step) {
+    const r = state.all.find((x) => x.slug === step.dataset.slug);
+    if (!r) return;
+    state.servings.set(r.slug, clampServes(servingsFor(r) + Number(step.dataset.serves)) || 1);
+    saveServings();
+    renderShopList();
+    return;
+  }
+  const rm = e.target.closest('[data-remove]');
+  if (rm) {
+    toggleSelect(rm.dataset.remove);
+    if (!state.selected.size) closeShopList(); else renderShopList();
+    return;
+  }
+  const open = e.target.closest('[data-open]');
+  if (open) { closeShopList(); openReader(open.dataset.open); }
 }
 
 function updateSummary() {
-  const recipes = state.selected.size;
+  const n = state.selected.size;
   const checked = document.querySelectorAll('.shoplist-body input:checked').length;
   $('#shop-summary').textContent =
-    `${recipes} recipe${recipes !== 1 ? 's' : ''} · ${checked} item${checked !== 1 ? 's' : ''} checked`;
+    `${n} dish${n !== 1 ? 'es' : ''} · ${checked} item${checked !== 1 ? 's' : ''} checked`;
 }
 
-// Scaled { qty, rest } entries for every checked shopping-list row, or null if
-// nothing's checked — shared by the clipboard, Reminders, and Share actions.
+// Scaled { qty, rest } entries for every checked row, or null if nothing's checked —
+// shared by the clipboard, Reminders, and Share actions (independent of the view).
 function checkedEntries() {
-  const checks = [...document.querySelectorAll('.shoplist-body input[type=checkbox]:checked')];
-  if (!checks.length) return null;
-  const target = clampServes($('#shop-serves').value) || 2;
-  return checks.map((cb) => {
-    const item = state.shop.items[+cb.dataset.idx];
-    const qty = item.qty != null ? item.qty * (target / (item.serves || target)) : null;
-    return { qty, rest: item.rest };
-  });
+  const rows = state.shop.items.filter(isChecked);
+  return rows.length ? rows.map((r) => ({ qty: r.qtyScaled, rest: r.rest })) : null;
 }
 
 function copyShoppingList() {
   const entries = checkedEntries();
   if (!entries) { flashCopied('Nothing checked'); return; }
-  const text = formatShoppingList(buildShoppingList(entries), state.copyFormat);
+  const text = formatShoppingList(buildAisleList(entries), state.copyFormat);
   const done = (msg) => flashCopied(msg);
   if (navigator.clipboard?.writeText) {
     navigator.clipboard.writeText(text).then(() => done('Copied ✓')).catch(() => fallbackCopy(text, done));
@@ -1090,7 +1410,7 @@ function copyShoppingList() {
 function sendToReminders() {
   const entries = checkedEntries();
   if (!entries) { flashCopied('Nothing checked'); return; }
-  const text = formatShoppingList(buildShoppingList(entries), 'plain');
+  const text = formatShoppingList(buildAisleList(entries), 'plain');
   const url = `shortcuts://run-shortcut?name=${encodeURIComponent(REMINDERS_SHORTCUT_NAME)}&input=text&text=${encodeURIComponent(text)}`;
   flashCopied('Opening Shortcuts…');
   location.assign(url);
@@ -1102,7 +1422,7 @@ function sendToReminders() {
 function shareShoppingList() {
   const entries = checkedEntries();
   if (!entries) { flashCopied('Nothing checked'); return; }
-  const text = formatShoppingList(buildShoppingList(entries), 'plain');
+  const text = formatShoppingList(buildAisleList(entries), 'plain');
   if (navigator.share) { navigator.share({ title: 'Grocery list', text }).catch(() => {}); return; }
   const done = (msg) => flashCopied(msg);
   if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(() => done('Copied ✓')).catch(() => fallbackCopy(text, done));

@@ -354,6 +354,15 @@ Regression tests live in `test/lib.test.mjs` ("purchasable units: …" + the mer
 cases) and gate the build. When you add a recipe with a new kind of purchasable good and
 its list line looks wrong, add a `PURCHASE` row **and** a test line.
 
+**Aisles.** The list (and the copied/Reminders output) is in **store order**: `aisleFor(name)`
+in `docs/lib.js` files each normalized ingredient into one of `AISLES` (Produce · Meat &
+Fish · Dairy & Eggs · Bakery · Pantry · Spices · Frozen · Bar · Other) via the ordered
+`AISLE_RULES` table — first match wins, so specific forms (vinegar, fish sauce, coconut
+milk, oils) sit above generic ones (wine, fish, milk, avocado). `groupByAisle` drives the
+"By aisle" view (one merged row per item, remembering every dish's source line);
+`buildAisleList` orders the copied lines. A test fails if more than 3% of shipped
+ingredient lines land in "Other" — when a new ingredient does, add it to a rule.
+
 ## Drinks (cocktails)
 
 Drinks live in **`drinks/`** (one `.md` each) and use the same file format with a few
@@ -441,6 +450,26 @@ persisted as `tm-theme`), Instrument Serif for display and Instrument Sans for U
   `#food?protein=beef&tags=weeknight&plan=kidney!&sort=az` (`encodeRouteQuery` /
   `decodeRouteQuery`; `!` = a plan in great-only mode). Refresh, Back, and shared links
   restore the same menu; closing a recipe returns to it. A plain default view keeps a bare URL.
+- **Shelves (Food home):** with no search/filter, Food is a *Just added* photo row (8 newest)
+  then lane shelves — Fish & Shellfish · Chicken · Beef · Vegetarian & Vegan mains, Sides &
+  Sauces, Desserts — 4 dishes each with a count and **See all** (applies the shelf's filter).
+  `SHELVES` + `buildShelves` in `docs/lib.js`; a test proves every food recipe sits on
+  exactly one shelf and each shelf's filter selects exactly its members, so a recipe with a
+  new protein/category needs a lane *and* a shelf. "Show all N as one list" is `#food?all=1`.
+  Drinks (32) stay one flat list. The reader pages through the on-screen order.
+- **Reader:** sticky jump tabs (About · Ingredients · Method · Nutrition, scroll-spied),
+  one-line stats on phones, and a control bar under the page (prev · share · **Cook mode** ·
+  This week · next) so nothing floats over the text. Variant chips are labelled with the
+  plans they suit in words; the selected chips' swap notes show as "What changes: …".
+- **Cook mode** (`#cook`): full-screen, big type, tap to tick ingredients and steps (the next
+  undone step is highlighted; ticks persist for the session), screen kept awake via the
+  Screen Wake Lock API (re-acquired when the tab returns), ingredients beside steps on iPad.
+  It cooks the active variant. Built for an iPad or phone on the counter, never a laptop.
+- **This week** (`#shoplist`): the picked dishes (thumbnail, per-dish servings stepper —
+  `tm-servings`, default = the recipe's own yield — remove, tap to open) and the shopping
+  list **By aisle** (merged, default) or **By recipe** (`tm-shopmode`). Checks are kept per
+  source line (`slug|section|line`), so a merged row ticks every dish's line. The how-it-works
+  note sits behind ⓘ.
 
 ## Voice & standards (this is the whole point — keep it consistent)
 

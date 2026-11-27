@@ -627,7 +627,8 @@ test('recipeVariants groups plans that share an identical swap set', () => {
   assert.deepEqual(shared.plans.map((p) => p.id).sort(), ['heart', 'lowsugar']);
   assert.equal(shared.swaps.length, 1);
   assert.equal(shared.perServing.sugar, 8);
-  assert.match(variantLabel(shared), /❤️/);
+  assert.match(variantLabel(shared), /Heart/);
+  assert.doesNotMatch(variantLabel(shared), /❤️/, 'chips read in words, not emoji');
   assert.match(variantTitle(shared), /half the OJ/);
   assert.deepEqual(recipeVariants(sampleRecipe()), [], 'no swaps → no variants');
 });
@@ -957,7 +958,7 @@ test('decodeRouteQuery drops unknown keys and undecodable values instead of thro
   const d = decodeRouteQuery('evil=1&protein=%E0%A4%A,beef&cuisine=&=x&sort=quickest');
   assert.deepEqual(d.filters, { protein: ['beef'] });
   assert.equal(d.sort, 'quickest');
-  assert.deepEqual(decodeRouteQuery(''), { filters: {}, q: '', sort: null });
+  assert.deepEqual(decodeRouteQuery(''), { filters: {}, q: '', sort: null, all: false });
 });
 
 test('activeFilterEntries lists every active value in FILTER_KEYS order', () => {
@@ -1029,4 +1030,96 @@ test('palette: text, muted text and every lane colour stay readable (≥ 4.5:1) 
       }
     }
   }
+});
+
+
+// ── Round 2: shelves ──
+import { SHELVES, buildShelves } from '../docs/lib.js';
+
+test('buildShelves: every shipped food recipe lands on exactly one shelf, and each "See all" filter matches it', () => {
+  const data = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'docs', 'recipes.json'), 'utf8'));
+  const food = data.recipes.filter((r) => (r.kind || 'food') === 'food');
+  const { fresh, shelves } = buildShelves(food);
+  assert.equal(shelves.reduce((n, s) => n + s.count, 0), food.length, 'no recipe is lost or double-shelved');
+  for (const s of shelves) {
+    const filters = Object.fromEntries(Object.entries(s.filter).map(([k, v]) => [k, new Set(v)]));
+    const ctx = { q: '', filters, proteinGroups: data.proteinGroups || {}, cuisineGroups: data.cuisineGroups || {}, timeBuckets: data.timeBuckets };
+    const matched = food.filter((r) => recipeMatches(r, ctx)).map((r) => r.slug).sort();
+    assert.deepEqual(matched, s.members.map((r) => r.slug).sort(), `"${s.title}" See all shows exactly its shelf`);
+    assert.ok(s.items.length <= 4);
+  }
+  assert.equal(fresh.length, 8);
+  assert.ok(fresh.every((r, i) => i === 0 || String(fresh[i - 1].created) >= String(r.created)), 'Just added is newest first');
+});
+
+test('buildShelves: order follows the sort, empty shelves are dropped', () => {
+  const rs = [
+    { title: 'B', category: 'main', protein: 'beef', created: '2026-01-01', times: { total: 10 } },
+    { title: 'A', category: 'main', protein: 'beef', created: '2026-02-01', times: { total: 50 } },
+    { title: 'C', category: 'dessert', protein: 'vegetarian', created: '2026-03-01', times: { total: 5 } },
+  ];
+  const { shelves } = buildShelves(rs, { sort: 'quickest' });
+  assert.deepEqual(shelves.map((s) => s.key), ['beef', 'dessert']);
+  assert.deepEqual(shelves[0].members.map((r) => r.title), ['B', 'A']);
+  assert.deepEqual(SHELVES.map((s) => s.key), ['fish', 'chicken', 'beef', 'veg', 'sides', 'dessert']);
+});
+
+
+// ── Round 4: aisles ──
+import { AISLES, aisleFor, groupByAisle, buildAisleList } from '../docs/lib.js';
+
+test('aisleFor files ingredients the way a store is laid out (specific beats generic)', () => {
+  const cases = {
+    'bell pepper': 'Produce', 'black pepper': 'Spices', 'garlic': 'Produce', 'cilantro': 'Produce',
+    'butter lettuce': 'Produce', 'butter': 'Dairy & Eggs', 'peanut butter': 'Pantry',
+    'coconut milk': 'Pantry', 'milk': 'Dairy & Eggs', 'fish sauce': 'Pantry', 'salmon fillet': 'Meat & Fish',
+    'white wine vinegar': 'Pantry', 'dry white wine': 'Bar', 'bourbon': 'Bar', 'corn tortilla': 'Bakery',
+    'tortilla chips': 'Pantry', 'vanilla ice cream': 'Frozen', 'ice': 'Frozen', 'smoked paprika': 'Spices',
+    'kosher salt': 'Spices', 'linguine': 'Pantry', 'avocado oil': 'Pantry', 'olive oil': 'Pantry', 'egg': 'Dairy & Eggs', 'cedar grilling plank': 'Other',
+  };
+  for (const [name, aisle] of Object.entries(cases)) assert.equal(aisleFor(name), aisle, name);
+  assert.equal(AISLES.at(-1), 'Other');
+});
+
+test('aisle coverage: almost every shipped ingredient lands in a real aisle', () => {
+  const data = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'docs', 'recipes.json'), 'utf8'));
+  let total = 0; const other = [];
+  for (const r of data.recipes) for (const s of r.ingredients) for (const line of s.items) {
+    if (isOptional(line)) continue;
+    total++;
+    const name = normalizeIngredient(parseQty(line).rest).display;
+    if (aisleFor(name) === 'Other') other.push(name);
+  }
+  assert.ok(other.length / total < 0.03, `only ${other.length}/${total} in "Other": ${[...new Set(other)].join(', ')}`);
+});
+
+test('groupByAisle merges the same item across dishes and remembers every source row', () => {
+  const rows = [
+    { id: 'a|0|0', qty: 3, rest: 'cloves garlic, minced', cat: 'buy' },
+    { id: 'b|0|0', qty: 4, rest: 'cloves garlic, sliced', cat: 'buy' },
+    { id: 'a|0|1', qty: 1, rest: 'tsp smoked paprika', cat: 'pantry' },
+    { id: 'b|0|1', qty: 1, rest: 'lb sirloin steak', cat: 'buy' },
+    { id: 'b|0|2', qty: null, rest: 'Flaky salt, for serving (optional)', cat: 'core', optional: true },
+  ];
+  const { aisles, optional } = groupByAisle(rows);
+  assert.deepEqual(aisles.map((a) => a.aisle), ['Produce', 'Meat & Fish', 'Spices'], 'store order, empty aisles dropped');
+  const garlic = aisles[0].items[0];
+  assert.deepEqual(garlic.ids, ['a|0|0', 'b|0|0']);
+  assert.equal(garlic.count, 2);
+  assert.match(garlic.line, /bulb/, 'merged into what you buy');
+  assert.equal(optional.length, 1);
+});
+
+test('buildAisleList puts the copied lines in store order', () => {
+  const { lines } = buildAisleList([
+    { qty: 1, rest: 'tsp smoked paprika' }, { qty: 1, rest: 'lb sirloin steak' },
+    { qty: 1, rest: 'cup cherry tomatoes' }, { qty: 2, rest: 'oz bourbon' },
+  ]);
+  const idx = (re) => lines.findIndex((l) => re.test(l));
+  assert.ok(idx(/tomato/) < idx(/sirloin/) && idx(/sirloin/) < idx(/paprika/) && idx(/paprika/) < idx(/bourbon/), lines.join(' / '));
+});
+
+test('purchasable units: olive OIL is not sold by the jar (only olives are)', () => {
+  assert.deepEqual(buildShoppingList([{ qty: 1, rest: 'tbsp extra-virgin olive oil' }]).lines, ['extra-virgin olive oil']);
+  assert.match(buildShoppingList([{ qty: 2, rest: 'tbsp Kalamata olives, sliced' }]).lines[0], /^1 jar/);
 });

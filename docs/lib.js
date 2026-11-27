@@ -266,7 +266,7 @@ function scallionRule(g) {
 const PURCHASE = [
   [/\b(cauliflower|broccoli(?!ni)|cabbage|lettuce|romaine|radicchio|iceberg|endive)\b/, 'head'],
   [/\b(cherry|grape)\b.*\btomato|\btomato\w*\b.*\b(cherry|grape)\b|\b(blueberr|raspberr|strawberr|blackberr)\w+/, 'pint'],
-  [/\b(olive|caper|artichoke|sun-?dried tomato|roasted red pepper|pepperoncini|pickle)\w*/, 'jar'],
+  [/\b(olive(?!s? oil)|caper|artichoke|sun-?dried tomato|roasted red pepper|pepperoncini|pickle)\w*/, 'jar'],
   [/\b(coconut milk|chickpea|garbanzo|(black|kidney|cannellini|white|pinto|refried) bean|lentil|tomato (paste|puree|sauce)|(crushed|diced|whole|stewed|canned) tomato|adobo|pumpkin pur)\w*/, 'can'],
   [/\b(cheese|feta|mozzarella|cheddar|parmesan|parmigiano|gruy|swiss cheese|goat cheese|cotija|queso|ricotta|mascarpone|monterey|provolone|gouda|brie|manchego|pecorino|halloumi|paneer|burrata)\b/, 'package'],
   [/\b(tortilla|pita|naan|wrap|phyllo|filo|puff pastry|wonton|dumpling wrapper|tofu|tempeh|pasta|spaghetti|linguine|fettuccine|penne|noodle|orzo|couscous|\brice\b|quinoa|farro|barley|almond|walnut|pecan|cashew|peanut|pistachio|pine nut|hazelnut|macadamia|(sesame|sunflower|pumpkin) seed|raisin|date|dried (apricot|cranberr|cherr|fig)|cranberr|shredded coconut)\w*/, 'package'],
@@ -342,6 +342,74 @@ export function buildShoppingList(entries) {
     lines.push(rule ? rule(g) : genericLine(g));
   }
   return { lines, optional: [...new Set(optional)] };
+}
+
+// ── aisles: group the merged list the way a store is laid out ────────────────
+// aisleFor() files a normalized ingredient name into one store section. First match
+// wins, so the specific forms sit above the generic ones (vinegar/fish sauce/coconut
+// milk are Pantry before "wine"/"fish"/"milk" can claim them; "bell pepper" is Produce
+// but "black pepper" is Spices). To fix a mis-filed item, add or reorder a row here.
+export const AISLES = ['Produce', 'Meat & Fish', 'Dairy & Eggs', 'Bakery', 'Pantry', 'Spices', 'Frozen', 'Bar', 'Other'];
+const AISLE_RULES = [
+  ['Frozen', /ice cream|^frozen\b|^(crushed |cracked |pebble )?ice$/],
+  ['Pantry', /\boils?\b|cream (of )?coconut|giardiniera|horseradish|curry paste|doubanjiang|\bmirin\b|caramel sauce|\bcoffee\b|vinegar|fish sauce|oyster sauce|soy sauce|tamari|coconut (milk|cream|aminos)|(peanut|almond|nut) butter|tomato (paste|sauce|puree|purée)|(canned|crushed|diced|whole peeled|fire-roasted|stewed) tomato|sun-?dried|chil[ie] (sauce|crisp|oil)|hot sauce|sriracha|gochujang|harissa|\bmiso\b|tahini|hoisin|worcestershire|chipotles? in adobo|\badobo\b|broth|stock|bouillon|ketchup|mayo|mustard(?! seed| powder| green)|honey|maple syrup|molasses|agave|allulose|jam|preserves?|pickled|cooking spray/],
+  ['Spices', /\b(kosher |sea |flaky |smoked )?salt\b|peppercorns?|(black|white|ground|cracked) pepper|^pepper$|paprika|\bcumin\b|cayenne|chil[ie] (powder|flakes?)|red pepper flakes?|crushed red pepper|cinnamon|nutmeg|allspice|cardamom|ground (clove|ginger|coriander|mustard|turmeric|cinnamon)|coriander seed|\bturmeric\b(?! root)|garlic powder|onion powder|italian seasoning|old bay|curry powder|garam masala|five[- ]spice|za'?atar|\bsumac\b|bay lea(f|ves)|saffron|seasoning|achiote|annatto|chipotle (chile )?powder|ancho (chile )?powder|(fennel|mustard|cumin|caraway|celery|coriander|nigella) seeds?|star anise|cream of tartar|herbes de provence|dried (oregano|thyme|basil|rosemary|dill|parsley|sage|mint|tarragon|chives|chile|chili|chiles)|mustard powder|vanilla|extract|baking (soda|powder)|\byeast\b|cornstarch|corn ?starch|gelatin|cloves?$|^bay$|fenugreek|gochugaru|aleppo|taj[ií]n|taj n|^coriander$/],
+  ['Bar', /\b(rum|vodka|gin|tequila|mezcal|whiske?y|bourbon|scotch|rye whiskey|brandy|cognac|armagnac|vermouth|liqueur|amaro|aperol|campari|prosecco|champagne|cava|sparkling wine|wine|beer|lager|bitters|cointreau|triple sec|curacao|curaçao|chartreuse|absinthe|sherry|port|cachaca|cachaça|pisco|kahlua|kahlúa|creme de|crème de|club soda|soda water|tonic|ginger beer|ginger ale|orgeat|grenadine|falernum|simple syrup|demerara syrup|cola|espresso|sake|irish cream|baileys?|kahl|chambord|b[eé]n[eé]dictine|dictine|drambuie|frangelico|amaretto|limoncello|st[- ]germain|maraschino)\b/],
+  ['Meat & Fish', /\b(chicken|beef|steak|sirloin|ribeye|rib-eye|strip|tenderloin|flank|skirt|brisket|chuck|short rib|sausage|chorizo|bacon|pancetta|prosciutto|pork|salmon|cod|halibut|snapper|tuna|trout|sea bass|branzino|bass|tilapia|mahi|swordfish|haddock|white fish|whitefish|fish|shrimp|prawn|scallop|clam|mussel|crab|lobster|squid|calamari|octopus|anchov)\w*/],
+  ['Dairy & Eggs', /\b(milk|cream|half-and-half|half and half|butter(?! lettuce)|cheese|feta|parmesan|parmigiano|pecorino|mozzarella|burrata|ricotta|mascarpone|yogurt|yoghurt|crema|cr[eè]me fra[iî]che|buttermilk|ghee|cotija|queso|paneer|halloumi|gruy[eè]re|cheddar|gouda|manchego|eggs?|egg yolks?|egg whites?)\b/],
+  ['Bakery', /\b(bread|baguette|buns?|rolls?|pitas?|naan|tortillas?(?! chips?)|lavash|ciabatta|brioche|sourdough|croissants?|wraps?|english muffins?|pizza dough|puff pastry|phyllo|filo|pie crust)\b/],
+  ['Produce', /\b(lettuce|romaine|greens|mesclun|arugula|spinach|kale|chard|collards?|bok choy|cabbage|watercress|endive|radicchio|frisee|frisée|onions?|shallots?|leeks?|scallions?|green onions?|garlic|ginger|lemongrass|galangal|turmeric root|(bell|banana|chile|chili|hot|sweet|shishito|padron|fresno|thai|red|green|yellow|orange) peppers?|spring mix|herbs?\b|jalape|serrano|habanero|poblano|anaheim|chiles?|chilis?|tomato|tomatillo|cucumber|zucchini|squash|eggplant|aubergine|carrot|celery|potato|yam|beet|radish|turnip|parsnip|broccoli|broccolini|cauliflower|asparagus|green beans?|haricots?|snap peas?|snow peas?|peas|corn|mushroom|avocado|lemon|lime|orange|grapefruit|apple|pear|banana|mango|pineapple|peach|nectarine|plum|apricot|cherr|berr|grapes?|figs?|pomegranate|melon|watermelon|kiwi|papaya|cilantro|parsley|basil|mint|dill|thyme|rosemary|sage|tarragon|chives?|oregano|marjoram|herbs|fennel|sprouts|brussels|okra|jicama|plantain|pumpkin|edamame|microgreens|bean sprouts|lemon ?grass)\w*/],
+  ['Pantry', /\b(pasta|spaghetti|linguine|fettuccine|penne|rigatoni|orzo|noodles?|udon|soba|ramen|couscous|rice|quinoa|farro|barley|bulgur|lentils?|beans?|chickpeas?|garbanzo|flour|sugar|syrup|oil|olives?|capers?|artichoke|roasted red peppers?|pickles?|almonds?|walnuts?|pecans?|cashews?|peanuts?|pistachios?|pine nuts?|\bnuts?\b|pepitas?|hazelnuts?|macadamia|seeds?|raisins?|dates?|dried|cranberr|coconut|panko|bread ?crumbs|chocolate|cocoa|oats|cornmeal|polenta|grits|tortilla chips?|chips|crackers|tofu|tempeh|nutritional yeast|salsa|stock|wonton|rice paper|cornflakes|graham|marshmallow|pumpkin pur)\w*/],
+];
+export function aisleFor(name) {
+  const t = String(name || '').toLowerCase().trim();
+  const hit = AISLE_RULES.find(([, re]) => re.test(t));
+  return hit ? hit[0] : 'Other';
+}
+
+// The merged list grouped by aisle, keeping track of which source rows each merged line
+// came from (so one checkbox can tick every recipe's line for it).
+//   rows: [{ id, qty (scaled), rest, optional, cat }]
+//   → { aisles: [{ aisle, items: [{ key, line, ids, cats, count }] }], optional: [{ line, ids }] }
+export function groupByAisle(rows) {
+  const groups = new Map();
+  const optional = [];
+  for (const r of rows) {
+    if (r.optional) { optional.push({ line: cleanOptional(r.rest), ids: [r.id] }); continue; }
+    const n = normalizeIngredient(r.rest);
+    const key = n.key || n.display;
+    if (!groups.has(key)) groups.set(key, { key, display: n.display, rows: [] });
+    groups.get(key).rows.push(r);
+  }
+  const by = new Map(AISLES.map((a) => [a, []]));
+  for (const g of groups.values()) {
+    const { lines } = buildShoppingList(g.rows.map((r) => ({ qty: r.qty, rest: r.rest })));
+    by.get(aisleFor(g.display)).push({
+      key: g.key, display: g.display, line: lines[0] || g.display,
+      ids: g.rows.map((r) => r.id), cats: g.rows.map((r) => r.cat), count: g.rows.length,
+    });
+  }
+  const aisles = AISLES
+    .map((aisle) => ({ aisle, items: by.get(aisle).sort((a, b) => a.display.localeCompare(b.display)) }))
+    .filter((a) => a.items.length);
+  return { aisles, optional };
+}
+
+// Same as buildShoppingList, but the lines come out in store order (aisle by aisle) —
+// what the copied / Reminders / shared list uses. Bullets stay flat (no aisle headers),
+// so the Reminders Shortcut still makes exactly one reminder per item.
+export function buildAisleList(entries) {
+  const by = new Map(AISLES.map((a) => [a, []]));
+  const opt = [];
+  for (const e of entries) {
+    if (isOptional(e.rest)) { opt.push(e); continue; }
+    by.get(aisleFor(normalizeIngredient(e.rest).display)).push(e);
+  }
+  const lines = AISLES.flatMap((a) => {
+    const { lines: ls } = buildShoppingList(by.get(a));
+    return ls.sort((x, y) => x.replace(/^[\d\s½⅓⅔¼¾⅛.\/–-]+/, '').localeCompare(y.replace(/^[\d\s½⅓⅔¼¾⅛.\/–-]+/, '')));
+  });
+  return { lines, optional: buildShoppingList(opt).optional };
 }
 
 // Format the shopping list for the clipboard.
@@ -839,9 +907,10 @@ export function applyVariantToSections(sections, variant) {
   }));
 }
 
-// Short human label for a variant chip: its plans' icons (details go in title).
+// Short human label for a variant chip: the plans it suits, in words ("Heart · Low Sugar").
+// What actually changes (the swap notes) goes in variantTitle / the reader's note line.
 export function variantLabel(v) {
-  return v.plans.map((p) => p.icon).join('');
+  return v.plans.map((p) => p.short).join(' · ');
 }
 export function variantTitle(v) {
   const who = v.plans.map((p) => p.short).join(' · ');
@@ -1002,8 +1071,10 @@ export const FILTER_KEYS = ['category', 'protein', 'course', 'methods', 'time', 
 
 const safeDecode = (v) => { try { return decodeURIComponent(v); } catch { return null; } };
 
-export function encodeRouteQuery({ filters = {}, q = '', sort = 'newest' } = {}) {
+export function encodeRouteQuery({ filters = {}, q = '', sort = 'newest', all = false } = {}) {
   const parts = [];
+  // 'all=1' = the flat "everything in one list" view; only meaningful with nothing else active.
+  if (all && !q && !Object.values(filters).some((f) => f && f.size)) parts.push('all=1');
   for (const key of FILTER_KEYS) {
     const f = filters[key];
     if (!f || !f.size) continue;
@@ -1020,13 +1091,14 @@ export function encodeRouteQuery({ filters = {}, q = '', sort = 'newest' } = {})
 // Inverse of encodeRouteQuery. Unknown keys and undecodable values are dropped, never thrown.
 // Returns { filters: { key: [values] , plan: [[id, 'ok'|'great']] }, q, sort|null }.
 export function decodeRouteQuery(str) {
-  const out = { filters: {}, q: '', sort: null };
+  const out = { filters: {}, q: '', sort: null, all: false };
   for (const part of String(str || '').split('&')) {
     const i = part.indexOf('=');
     if (i <= 0) continue;
     const key = part.slice(0, i), raw = part.slice(i + 1);
     if (key === 'q') { out.q = safeDecode(raw) || ''; continue; }
     if (key === 'sort') { out.sort = safeDecode(raw); continue; }
+    if (key === 'all') { out.all = raw === '1'; continue; }
     if (!FILTER_KEYS.includes(key)) continue;
     const vals = raw.split(',').map(safeDecode).filter((v) => v);
     if (!vals.length) continue;
@@ -1084,6 +1156,31 @@ export function laneFor(r) {
     case 'vegetarian': case 'vegan': return 'veg';
     default: return 'sides';
   }
+}
+
+// ── shelves (the unfiltered Food home) ───────────────────────────────────────
+// With no search or filter active, the Food menu is grouped into lane-coloured shelves:
+// mains by protein, then sides, then desserts. Membership is laneFor(); each shelf's
+// `filter` is what its "See all" applies — a test keeps the two in agreement.
+export const SHELVES = [
+  { key: 'fish', title: 'Fish & Shellfish', filter: { category: ['main'], protein: ['Seafood'] } },
+  { key: 'chicken', title: 'Chicken', filter: { category: ['main'], protein: ['chicken'] } },
+  { key: 'beef', title: 'Beef', filter: { category: ['main'], protein: ['beef'] } },
+  { key: 'veg', title: 'Vegetarian & Vegan', filter: { category: ['main'], protein: ['vegetarian', 'vegan'] } },
+  { key: 'sides', title: 'Sides & Sauces', filter: { category: ['side'] } },
+  { key: 'dessert', title: 'Desserts', filter: { category: ['dessert'] } },
+];
+
+// → { fresh: newest `freshCount` recipes, shelves: [{ key, title, filter, count, members, items }] }
+// `members` is the whole shelf in `sort` order; `items` the first `limit` shown on the shelf.
+// Empty shelves are dropped.
+export function buildShelves(recipes, { sort = 'newest', limit = 4, freshCount = 8 } = {}) {
+  const sorted = sortRecipes(recipes, sort);
+  const shelves = SHELVES.map((s) => {
+    const members = sorted.filter((r) => laneFor(r) === s.key);
+    return { ...s, count: members.length, members, items: members.slice(0, limit) };
+  }).filter((s) => s.count);
+  return { fresh: sortRecipes(recipes, 'newest').slice(0, freshCount), shelves };
 }
 
 // ── curated chip sets ────────────────────────────────────────────────────────
