@@ -377,7 +377,6 @@
       "citrusy",
       "coconut-curry",
       "comfort",
-      "comfort-food",
       "cookout",
       "copycat",
       "cozy",
@@ -1559,7 +1558,7 @@
         "thanksgiving",
         "make-ahead",
         "vegetarian",
-        "comfort-food"
+        "comfort"
       ],
       "ingredients": [
         {
@@ -1645,7 +1644,7 @@
           "note": "half the brown sugar in filling and topping"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "headnote": "The sweet potato side Lauren remembered from past holidays, dialed in for Stephen's\nturkey-free Thanksgiving: a smooth, vanilla-scented base under a brown-sugar pecan\nstreusel that bakes into a candied, crunchy crown.",
       "hero": "images/sweet-potato-casserole.webp",
@@ -13891,6 +13890,7 @@
       "kind": "food",
       "category": "main",
       "headnote": "Two ways to cook the salmon. Use the bath for the silkiest fish, with crackling for crunch.\nOn a weeknight, pan-sear the fillets skin-on, and the crisp skin does the same job in one pan.\nEither way, the smoky romesco made from garden tomatoes ties the plate together.",
+      "hero": "images/sous-vide-salmon-romesco-blackened-brussels.webp",
       "nutrition": {
         "perServing": {
           "kcal": 1067,
@@ -16295,7 +16295,7 @@
       ],
       "tags": [
         "vegetarian",
-        "comfort-food",
+        "comfort",
         "make-ahead",
         "budget",
         "garden"
@@ -16406,7 +16406,7 @@
           "note": "a smaller bean pot"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "headnote": "Stephen's red beans skip the andouille and turkey entirely and lean on smoked\npaprika, a hard-browned trinity, and a long, low simmer for that signature Cajun\ndepth. Mashing some of the beans back into the pot gives you the creamy gravy with\nno cream — and an optional chicken-sausage version is right there if you want it.",
       "hero": "images/red-beans-and-rice.webp",

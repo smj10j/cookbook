@@ -111,8 +111,8 @@ function writeManifest() {
     short_name: "Tonight's Menu",
     start_url: '.',
     display: 'standalone',
-    background_color: PALETTE.cream,
-    theme_color: PALETTE.accent,
+    background_color: PALETTE.bg,
+    theme_color: PALETTE.bg,
     icons: [
       { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
       { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },

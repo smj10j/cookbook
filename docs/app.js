@@ -3,10 +3,12 @@
    Loaded as <script type="module">, so this runs after the DOM is parsed.
    =========================================================================== */
 import {
-  esc, inlineMd, cap, fmtMin, VEG,
+  esc, inlineMd, cap, fmtMin,
   scaleDisplay, classify, clampServes,
   buildShoppingList, formatShoppingList, recipeMatches, searchSuggestions, cuisineChipValues, proteinChipValues, shopSectionsForRecipe,
   hashForKind, parseHash, nutritionPanelHtml, EATING_PLANS, buildPlanVerdicts,
+  encodeRouteQuery, decodeRouteQuery, activeFilterEntries, SORTS, sortRecipes, laneFor,
+  FOOD_OCCASIONS, occasionLabel, splitCuisineChips,
   recipeVariants, applyVariantToSections, variantLabel, variantTitle, variantsConflict, combineVariants,
   isIOSSafari,
 } from './lib.js';
@@ -37,33 +39,26 @@ const state = {
   suggest: { items: [], active: -1 },   // search autocomplete: current suggestions + highlighted row
   copyFormat: 'dash',      // 'dash' | 'checkbox' (persisted)
   variants: new Map(),     // slug -> SELECTED variant keys, in tap order (persisted)
+  sort: 'newest',          // 'newest' | 'az' | 'quickest' (in the URL when not the default)
+  view: 'list',            // 'list' (printed menu) | 'grid' (photo cards) — persisted per device
+  cuisineMore: false,      // the long-tail cuisine chips are expanded
 };
 
 // Curated flavor tags that become the Drinks "Flavor" filter (kept tight on purpose).
 const DRINK_FLAVORS = ['citrusy', 'tropical', 'creamy', 'fruity', 'herbal', 'smoky', 'spicy', 'dessert', 'refreshing', 'boozy'];
 
-// Hero copy per section.
-const HERO = {
-  food: {
-    kicker: 'The dinner archive',
-    headline: 'Dinners we keep <em>coming&nbsp;back</em> to.',
-    lede: 'A living flipbook of the recipes worth repeating — pitched like a menu, filtered like a pantry. Pick a night’s craving and turn the page.',
-  },
-  drink: {
-    kicker: 'The home bar',
-    headline: 'Drinks worth <em>shaking</em> for.',
-    lede: 'A flipbook of the cocktails we keep coming back to — pitched like a bar menu, filtered like a liquor cabinet. Pick a mood and turn the page.',
-  },
-};
-
 const SELECT_KEY = 'tm-selected';
 const FORMAT_KEY = 'tm-copyformat';
 const VARIANT_KEY = 'tm-variant';
+const VIEW_KEY = 'tm-view';
+const THEME_KEY = 'tm-theme';
+const INTRO_KEY = 'tm-intro-seen';
 function loadSelected() {
   try { JSON.parse(localStorage.getItem(SELECT_KEY) || '[]').forEach((s) => state.selected.add(s)); } catch {}
   try { const f = localStorage.getItem(FORMAT_KEY); if (f === 'dash' || f === 'checkbox') state.copyFormat = f; } catch {}
   // Selections are arrays of chip keys in tap order (older builds stored one string).
   try { Object.entries(JSON.parse(localStorage.getItem(VARIANT_KEY) || '{}')).forEach(([s, k]) => state.variants.set(s, Array.isArray(k) ? k : [k])); } catch {}
+  try { const v = localStorage.getItem(VIEW_KEY); if (v === 'list' || v === 'grid') state.view = v; } catch {}
 }
 function saveSelected() {
   try { localStorage.setItem(SELECT_KEY, JSON.stringify([...state.selected])); } catch {}
@@ -101,23 +96,83 @@ export async function init() {
   // drop any persisted slugs that no longer exist
   const valid = new Set(state.all.map((r) => r.slug));
   [...state.selected].forEach((s) => valid.has(s) || state.selected.delete(s));
-  setHero();
+  const c = state.data.counts || { food: state.all.length, drink: 0 };
+  document.querySelectorAll('.tab-count').forEach((el) => { el.textContent = c[el.dataset.count] ?? ''; });
+  $('#colophon-meta').textContent = `${c.food} recipes · ${c.drink} drinks and counting`;
+  $('#sort').innerHTML = SORTS.map((o) => `<option value="${o.key}">${esc(o.label)}</option>`).join('');
+  syncView();
+  syncTheme();
+  initIntro();
   buildFilters();
   bindEvents();
-  apply();
+  apply({ syncHash: false });   // routeFromHash() below owns the URL on boot
   renderShopbar();
   syncFormatToggle();
-  const c = state.data.counts || { food: state.all.length, drink: 0 };
-  $('#colophon-meta').textContent = `${c.food} recipes · ${c.drink} drinks and counting`;
   routeFromHash();
 }
 
-// Swap the hero copy for the active section.
-function setHero() {
-  const h = HERO[state.kind] || HERO.food;
-  $('.hero-kicker').textContent = h.kicker;
-  $('.hero-headline').innerHTML = h.headline;
-  $('.hero-lede').textContent = h.lede;
+// ── chrome: theme, intro, layout ─────────────────────────────────────────────
+function syncTheme() {
+  const paper = document.documentElement.dataset.theme === 'paper';
+  const btn = $('#theme-toggle');
+  btn.setAttribute('aria-label', paper ? 'Switch to the dark theme' : 'Switch to the paper (light) theme');
+  const meta = document.querySelector('meta[name="theme-color"]');
+  // Match the browser chrome (iOS status bar, Android toolbar) to the page background.
+  const bg = typeof getComputedStyle === 'function'
+    ? getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() : '';
+  if (meta && bg) meta.setAttribute('content', bg);
+}
+function toggleTheme() {
+  const root = document.documentElement;
+  if (root.dataset.theme === 'paper') delete root.dataset.theme; else root.dataset.theme = 'paper';
+  try { localStorage.setItem(THEME_KEY, root.dataset.theme === 'paper' ? 'paper' : 'dark'); } catch {}
+  syncTheme();
+}
+
+// "How this works" shows on a first visit only; the ⓘ in the masthead brings it back.
+function initIntro() {
+  let seen = false;
+  try { seen = localStorage.getItem(INTRO_KEY) === '1'; } catch {}
+  showIntro(!seen);
+}
+function showIntro(show) {
+  $('#intro').hidden = !show;
+  $('#intro-toggle').setAttribute('aria-expanded', String(show));
+}
+function dismissIntro() {
+  showIntro(false);
+  try { localStorage.setItem(INTRO_KEY, '1'); } catch {}
+}
+
+function syncView() {
+  const menu = $('#menu');
+  menu.classList.toggle('is-list', state.view === 'list');
+  menu.classList.toggle('is-grid', state.view === 'grid');
+  document.querySelectorAll('#view-toggle .view-btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === state.view)));
+}
+function setView(view) {
+  if (view !== 'list' && view !== 'grid') return;
+  state.view = view;
+  try { localStorage.setItem(VIEW_KEY, view); } catch {}
+  syncView();
+}
+
+// ── filter sheet ─────────────────────────────────────────────────────────────
+function openFilters() {
+  closeSuggest();
+  $('#filter-panel').hidden = false;
+  $('#filter-scrim').hidden = false;
+  $('#filters-toggle').setAttribute('aria-expanded', 'true');
+}
+function closeFilters() {
+  $('#filter-panel').hidden = true;
+  $('#filter-scrim').hidden = true;
+  $('#filters-toggle').setAttribute('aria-expanded', 'false');
+}
+
+// The tab hash for the current section + its filters/search/sort.
+function currentHash() {
+  return hashForKind(state.kind, encodeRouteQuery({ filters: state.filters, q: state.q, sort: state.sort }));
 }
 
 // Switch tabs: set the kind, reset search + filters (they differ per section), rebuild.
@@ -131,11 +186,26 @@ function setKind(kind, syncHash = true) {
   $('#search').value = '';
   closeSuggest();
   Object.values(state.filters).forEach((s) => s.clear());
+  state.cuisineMore = false;
   document.querySelectorAll('#tabs .tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.kind === kind)));
-  setHero();
   buildFilters();
-  apply();
-  if (syncHash) writeHash(hashForKind(kind));
+  apply({ syncHash: false });
+  if (syncHash) writeHash(currentHash());
+}
+
+// Load filters/search/sort from a decoded '?…' route query (refresh, Back, shared link).
+function applyRouteQuery(query) {
+  const { filters, q, sort } = decodeRouteQuery(query);
+  Object.values(state.filters).forEach((s) => s.clear());
+  for (const [key, vals] of Object.entries(filters)) {
+    if (key === 'plan') vals.forEach(([id, mode]) => { if (PLAN_BY_ID[id]) state.filters.plan.set(id, mode); });
+    else vals.forEach((v) => state.filters[key].add(v));
+  }
+  state.q = (q || '').trim().toLowerCase();
+  $('#search').value = q || '';
+  state.sort = SORTS.some((o) => o.key === sort) ? sort : 'newest';
+  buildFilters();
+  apply({ syncHash: false });
 }
 
 // Reflect a route in the URL without firing hashchange (replaceState, like the reader).
@@ -148,6 +218,9 @@ function setDate() {
 }
 
 // ── filters ─────────────────────────────────────────────────────────────────
+// Lane colour for a Protein chip (umbrella "seafood" + both sea lanes share fish blue).
+const PROTEIN_LANE = { Seafood: 'fish', seafood: 'fish', fish: 'fish', chicken: 'chicken', beef: 'beef', vegetarian: 'veg', vegan: 'veg' };
+
 function buildFilters() {
   const { data } = state;
   const kindRecipes = state.all.filter((r) => (r.kind || 'food') === state.kind);
@@ -156,29 +229,35 @@ function buildFilters() {
     kindRecipes.forEach((r) => [].concat(pluck(r)).filter((v) => v != null).forEach((v) => found.add(v)));
     return vocab.filter((v) => found.has(v));
   };
-  const flavorsPresent = new Set(kindRecipes.flatMap((r) => r.tags || []));
+  const tagsPresent = new Set(kindRecipes.flatMap((r) => r.tags || []));
   // "Good for" (eating plans) applies to both kinds. Tap cycle per chip:
   // off -> great+okay -> great-only (✓) -> off. Selections AND together.
   const planGroup = { key: 'plan', label: 'Good for', values: EATING_PLANS.map((p) => p.id), labelFor: (id) => `${PLAN_BY_ID[id].icon} ${PLAN_BY_ID[id].short}` };
+  const cuisines = splitCuisineChips(cuisineChipValues(kindRecipes, data.cuisineGroups || {}), kindRecipes, data.cuisineGroups || {});
+  // Keep the long tail open while one of its cuisines is selected, so it stays visible.
+  const moreOpen = state.cuisineMore || cuisines.more.some((v) => state.filters.cuisine.has(v));
   const groups = state.kind === 'drink'
     ? [
         { key: 'base', label: 'Base', values: present(data.vocab.base, (r) => r.base), labelFor: (v) => data.meta.base[v]?.label || cap(v) },
         { key: 'family', label: 'Style', values: present(data.vocab.family, (r) => r.family), labelFor: (v) => data.meta.family[v]?.label || cap(v) },
         { key: 'strength', label: 'Strength', values: present(data.vocab.strength, (r) => r.strength), labelFor: (v) => data.meta.strength[v]?.label || cap(v) },
-        { key: 'tags', label: 'Flavor', values: DRINK_FLAVORS.filter((f) => flavorsPresent.has(f)), labelFor: cap },
+        { key: 'tags', label: 'Flavor', values: DRINK_FLAVORS.filter((f) => tagsPresent.has(f)), labelFor: cap },
         { key: 'heat', label: 'Heat', values: present(data.vocab.heat, (r) => r.heat).filter((h) => h !== 'none'), labelFor: cap },
         planGroup,
       ]
     : [
         { key: 'category', label: 'Course', values: present(data.vocab.category, (r) => r.category), labelFor: cap },
-        { key: 'protein', label: 'Protein', values: proteinChipValues(kindRecipes, data.vocab.protein, data.proteinGroups || {}), labelFor: (v) => data.meta.protein[v]?.label || cap(v) },
+        { key: 'protein', label: 'Protein', values: proteinChipValues(kindRecipes, data.vocab.protein, data.proteinGroups || {}), labelFor: (v) => data.meta.protein[v]?.label || cap(v), lane: (v) => PROTEIN_LANE[v] },
+        { key: 'time', label: 'Time', values: data.timeBuckets.map((b) => b.key), labelFor: (k) => data.timeBuckets.find((b) => b.key === k).label },
+        { key: 'tags', label: 'Occasion', values: FOOD_OCCASIONS.filter((t) => tagsPresent.has(t)), labelFor: occasionLabel },
         { key: 'course', label: 'Dish', values: present(data.vocab.course, (r) => r.course).filter((c) => !['main', 'side', 'dessert'].includes(c)), labelFor: cap },
         { key: 'methods', label: 'Method', values: present(data.vocab.methods, (r) => r.methods), labelFor: (v) => data.meta.method[v]?.label || cap(v) },
-        { key: 'time', label: 'Time', values: data.timeBuckets.map((b) => b.key), labelFor: (k) => data.timeBuckets.find((b) => b.key === k).label },
         { key: 'heat', label: 'Heat', values: present(data.vocab.heat, (r) => r.heat).filter((h) => h !== 'none'), labelFor: cap },
-        { key: 'cuisine', label: 'Cuisine', values: cuisineChipValues(kindRecipes, data.cuisineGroups || {}), labelFor: (v) => v },
+        { key: 'cuisine', label: 'Cuisine', values: moreOpen ? [...cuisines.primary, ...cuisines.more] : cuisines.primary,
+          labelFor: (v) => v, more: !moreOpen && cuisines.more.length ? cuisines.more.length : 0 },
         planGroup,
       ];
+  state.filterLabels = Object.fromEntries(groups.map((g) => [g.key, g.labelFor]));
   $('#filter-groups').innerHTML = groups
     .filter((g) => g.values.length > 1 || g.key === 'time')
     .map((g) => `
@@ -186,11 +265,21 @@ function buildFilters() {
       <span class="filter-group-label">${g.label}</span>
       <div class="chips">
         ${g.values.map((v) => {
-          const cls = g.key === 'protein' && VEG.has(v) ? 'chip chip-veg' : g.key === 'heat' ? 'chip chip-hot' : 'chip';
-          return `<button class="${cls}" type="button" aria-pressed="false" data-key="${g.key}" data-val="${esc(v)}">${esc(g.labelFor(v))}</button>`;
+          const on = g.key === 'plan' ? state.filters.plan.has(v) : state.filters[g.key].has(v);
+          const strict = g.key === 'plan' && state.filters.plan.get(v) === 'great';
+          const lane = g.lane?.(v);
+          const cls = `chip${lane ? ` lane-${lane}` : ''}${strict ? ' is-strict' : ''}`;
+          return `<button class="${cls}" type="button" aria-pressed="${on}" data-key="${g.key}" data-val="${esc(v)}">${lane ? '<span class="chip-dot" aria-hidden="true"></span>' : ''}${esc(g.labelFor(v))}</button>`;
         }).join('')}
+        ${g.more ? `<button class="chip chip-more" type="button" data-more="${g.key}">More (${g.more})…</button>` : ''}
       </div>
     </div>`).join('');
+}
+
+// Human label for an active filter value (the removable pills above the menu).
+function filterLabel(key, val) {
+  const f = state.filterLabels?.[key];
+  try { return f ? f(val) : val; } catch { return val; }
 }
 
 function bindEvents() {
@@ -200,6 +289,7 @@ function bindEvents() {
   });
   const search = $('#search');
   search.addEventListener('input', (e) => { state.q = e.target.value.trim().toLowerCase(); apply(); renderSuggest(); });
+  search.addEventListener('focus', closeFilters);
   search.addEventListener('keydown', onSearchKeydown);
   // Reopen suggestions when refocusing a box that still has a query.
   search.addEventListener('focus', () => { if (state.q) renderSuggest(); });
@@ -219,6 +309,11 @@ function bindEvents() {
   $('#filter-groups').addEventListener('click', (e) => {
     const btn = e.target.closest('.chip');
     if (!btn) return;
+    if (btn.dataset.more) {                      // "More (n)…" expands the long-tail cuisines
+      state.cuisineMore = true;
+      buildFilters();
+      return;
+    }
     const { key, val } = btn.dataset;
     if (key === 'plan') {
       // 3-tap cycle: off -> 'ok' (great + okay) -> 'great' (great only) -> off.
@@ -237,6 +332,29 @@ function bindEvents() {
     btn.setAttribute('aria-pressed', set.has(val));
     apply();
   });
+  // Filter sheet
+  $('#filters-toggle').addEventListener('click', () => ($('#filter-panel').hidden ? openFilters() : closeFilters()));
+  $('#filters-done').addEventListener('click', closeFilters);
+  $('#filter-scrim').addEventListener('click', closeFilters);
+  $('#filters-clear').addEventListener('click', clearFilters);
+  // Removable pills for each active filter
+  $('#active-filters').addEventListener('click', (e) => {
+    const pill = e.target.closest('.pill');
+    if (!pill) return;
+    const { key, val } = pill.dataset;
+    if (key === 'q') { state.q = ''; $('#search').value = ''; }
+    else state.filters[key]?.delete(val);
+    buildFilters();
+    apply();
+  });
+  $('#sort').addEventListener('change', (e) => { state.sort = e.target.value; apply(); });
+  $('#view-toggle').addEventListener('click', (e) => {
+    const b = e.target.closest('.view-btn');
+    if (b) setView(b.dataset.view);
+  });
+  $('#theme-toggle').addEventListener('click', toggleTheme);
+  $('#intro-toggle').addEventListener('click', () => ($('#intro').hidden ? showIntro(true) : dismissIntro()));
+  $('#intro-dismiss').addEventListener('click', dismissIntro);
   $('#cart-filter').addEventListener('click', () => {
     state.cartOnly = !state.cartOnly;
     apply();   // apply() re-syncs the toggle's pressed state and re-renders the grid
@@ -304,6 +422,7 @@ function bindEvents() {
   $('#reader').addEventListener('click', (e) => { if (e.target === $('#reader')) closeReader(); });
   document.addEventListener('keydown', (e) => {
     if (!$('#shoplist').hidden) { if (e.key === 'Escape') closeShopList(); return; }
+    if (!$('#filter-panel').hidden) { if (e.key === 'Escape') closeFilters(); return; }
     if ($('#reader').hidden) return;
     if (e.key === 'Escape') closeReader();
     else if (e.key === 'ArrowLeft') flip(-1);
@@ -317,13 +436,16 @@ function clearFilters() {
   $('#search').value = '';
   closeSuggest();
   state.cartOnly = false;
+  state.cuisineMore = false;
   Object.values(state.filters).forEach((s) => s.clear());
-  document.querySelectorAll('.chip[aria-pressed="true"]').forEach((c) => c.setAttribute('aria-pressed', 'false'));
-  document.querySelectorAll('.chip.is-strict').forEach((c) => c.classList.remove('is-strict'));
+  buildFilters();
   apply();
 }
 
-function apply() {
+// Re-filter + re-sort the menu, refresh the pills/badges, and (unless told not to)
+// mirror the filter state into the URL hash. The hash is left alone while a recipe is
+// open (it holds '#/<slug>'), and a plain default view keeps a bare URL.
+function apply({ syncHash = true } = {}) {
   syncCartFilter();   // may clear cartOnly if this section has no cart items (keeps the view honest)
   const ctx = {
     q: state.q, filters: state.filters, cuisineGroups: state.data.cuisineGroups || {},
@@ -331,8 +453,32 @@ function apply() {
     timeBuckets: state.data.timeBuckets || [], planVerdicts: state.planVerdicts,
     cartOnly: state.cartOnly, selected: state.selected,
   };
-  state.filtered = state.all.filter((r) => (r.kind || 'food') === state.kind && recipeMatches(r, ctx));
+  state.filtered = sortRecipes(
+    state.all.filter((r) => (r.kind || 'food') === state.kind && recipeMatches(r, ctx)), state.sort);
   renderMenu();
+  renderActiveFilters();
+  $('#sort').value = state.sort;
+  if (syncHash && $('#reader').hidden) {
+    const h = currentHash();
+    if (location.hash || h !== hashForKind('food')) writeHash(h);
+  }
+}
+
+// The removable pill row + the Filters (n) badge + the sheet's "Show N" button.
+function renderActiveFilters() {
+  const entries = activeFilterEntries(state.filters);
+  const pills = entries.map(({ key, val, mode }) => {
+    const label = filterLabel(key, val) + (mode === 'great' ? ' ✓' : '');
+    return `<button class="pill" type="button" data-key="${key}" data-val="${esc(val)}" aria-label="Remove filter: ${esc(label)}">${esc(label)}<span class="pill-x" aria-hidden="true">×</span></button>`;
+  });
+  if (state.q) pills.unshift(`<button class="pill" type="button" data-key="q" aria-label="Clear search">“${esc(state.q)}”<span class="pill-x" aria-hidden="true">×</span></button>`);
+  $('#active-filters').innerHTML = pills.join('');
+  const badge = $('#filters-count');
+  badge.hidden = entries.length === 0;
+  badge.textContent = entries.length;
+  const noun = state.kind === 'drink' ? 'drink' : 'recipe';
+  const n = state.filtered.length;
+  $('#filters-done').textContent = `Show ${n} ${noun}${n === 1 ? '' : 's'}`;
 }
 
 // The "In cart" toggle only makes sense when the current section (food/drink) has
@@ -424,7 +570,7 @@ function onSearchKeydown(e) {
   }
 }
 
-// ── menu (cards) ─────────────────────────────────────────────────────────────
+// ── menu (rows / cards) ──────────────────────────────────────────────────────
 function renderMenu() {
   const list = state.filtered;
   const total = state.all.filter((r) => (r.kind || 'food') === state.kind).length;
@@ -433,12 +579,11 @@ function renderMenu() {
   $('#clear-filters').hidden = !active;
   $('#result-count').textContent = active ? `${list.length} of ${total} ${noun}s` : `${total} ${noun}s`;
   $('#empty-state').hidden = list.length > 0;
-  $('#menu').innerHTML = list.map((r, i) => cardHtml(r, i)).join('');
+  $('#menu').innerHTML = list.map((r) => cardHtml(r)).join('');
 }
 
-// Card eyebrow tags — protein/method/heat for food; base/style/heat for a drink.
-// When a "Good for" plan filter is active, each card also shows that plan's
-// verdict (✓ great / ~ okay) — contextual only, so cards stay clean otherwise.
+// When a "Good for" plan filter is active, each card also shows that plan's verdict
+// (✓ great / ~ okay) — contextual only, so cards stay clean otherwise.
 function planBadges(r) {
   if (!state.filters.plan.size) return [];
   return [...state.filters.plan.keys()].map((id) => {
@@ -450,57 +595,50 @@ function planBadges(r) {
   });
 }
 
-function cardTags(r) {
+// "Mild heat" / "Medium heat" / "Hot" (never "Hot heat").
+const heatLabel = (h) => (h === 'hot' ? 'Hot' : `${cap(h)} heat`);
+
+// The coloured lane line: what it is (protein / side / dessert / base) + heat + plan badges.
+function laneLabel(r) {
   const M = state.data.meta;
-  if (r.kind === 'drink') {
-    return [
-      `<span class="tag tag-protein">${esc(M.base[r.base]?.label || r.base)}</span>`,
-      `<span class="tag">${esc(M.family[r.family]?.label || r.family)}</span>`,
-      r.heat !== 'none' ? `<span class="tag tag-hot">${esc(cap(r.heat))} heat</span>` : '',
-      ...planBadges(r),
-    ].filter(Boolean).join('');
-  }
-  return [
-    `<span class="tag tag-protein">${esc(M.protein[r.protein]?.label || r.protein)}</span>`,
-    ...(r.methods || []).slice(0, 2).map((m) => `<span class="tag">${esc(M.method[m]?.label || m)}</span>`),
-    r.heat !== 'none' ? `<span class="tag tag-hot">${esc(cap(r.heat))} heat</span>` : '',
-    ...planBadges(r),
-  ].filter(Boolean).join('');
+  if (r.kind === 'drink') return M.base[r.base]?.label || cap(r.base);
+  if (r.category === 'side') return 'Side';
+  if (r.category === 'dessert') return 'Dessert';
+  return M.protein[r.protein]?.label || cap(r.protein);
 }
 
-function cardHtml(r, i) {
-  const tags = cardTags(r);
-  const num = String(i + 1).padStart(2, '0');
+function cardHtml(r) {
   const picked = state.selected.has(r.slug);
+  const time = fmtMin(r.times.total);
+  const extras = [
+    r.heat && r.heat !== 'none' ? `<span class="tag tag-hot">· ${esc(heatLabel(r.heat))}</span>` : '',
+    ...planBadges(r),
+  ].join('');
   return `
-  <div class="card-wrap${picked ? ' is-selected' : ''}">
+  <div class="card-wrap lane-${laneFor(r)}${picked ? ' is-selected' : ''}">
+    <button class="card" type="button" data-slug="${esc(r.slug)}">
+      <div class="card-visual">${visualHtml(r)}</div>
+      <div class="card-body">
+        <div class="card-lane"><span class="lane-dot" aria-hidden="true"></span>${esc(laneLabel(r))}<span class="card-lane-time">· ${esc(time)}</span>${extras}</div>
+        <div class="card-line"><h3 class="card-title">${esc(r.title)}</h3><span class="leader" aria-hidden="true"></span><span class="card-time">${esc(time)}</span></div>
+        <p class="card-tagline">${esc(r.tagline)}</p>
+      </div>
+    </button>
     <button class="card-select" type="button" data-select="${esc(r.slug)}"
       aria-pressed="${picked}" aria-label="${picked ? 'Remove from' : 'Add to'} shopping list" title="Add to shopping list">
       <svg class="card-select-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
       <svg class="card-select-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
     </button>
-    <button class="card" data-slug="${esc(r.slug)}" style="animation-delay:${Math.min(i * 45, 540)}ms">
-      <div class="card-visual">${visualHtml(r, num)}</div>
-      <div class="card-body">
-        <div class="card-tags">${tags}</div>
-        <h3 class="card-title">${esc(r.title)}</h3>
-        <p class="card-tagline">${esc(r.tagline)}</p>
-        <div class="card-foot">
-          <span class="choose">Open this →</span>
-          <span class="time">≈ ${r.times.total} min</span>
-        </div>
-      </div>
-    </button>
   </div>`;
 }
 
-function visualHtml(r, num) {
+function visualHtml(r) {
   if (r.hero) {
-    return `<img src="${esc(r.hero)}" alt="${esc(r.title)}" loading="lazy"
+    return `<img src="${esc(r.hero)}" alt="" loading="lazy" decoding="async"
       onerror="this.closest('.card-visual').innerHTML = this.dataset.fallback"
-      data-fallback='${placeholderHtml(r, num).replace(/'/g, '&#39;')}' />`;
+      data-fallback='${placeholderHtml(r).replace(/'/g, '&#39;')}' />`;
   }
-  return placeholderHtml(r, num);
+  return placeholderHtml(r);
 }
 
 // "Cuisine · Dish" for food; "Base · Style" for a drink. Returns an escaped string.
@@ -511,9 +649,8 @@ function subline(r) {
     : `${esc(r.cuisine)} · ${esc(cap(r.course))}`;
 }
 
-function placeholderHtml(r, num) {
-  return `<span class="placeholder-num">${num}</span>
-    <div class="placeholder">
+function placeholderHtml(r) {
+  return `<div class="placeholder">
       <div class="placeholder-plate">${esc(r.title)}</div>
       <div class="placeholder-sub">${subline(r)}</div>
     </div>`;
@@ -532,6 +669,8 @@ function openReader(slug, dir = 0) {
   if (index === -1) { list = kindList; index = list.findIndex((r) => r.slug === slug); }
   if (index === -1) return;
   state.reader = { list, index };
+  closeFilters();
+  closeSuggest();
   $('#reader').hidden = false;
   document.body.style.overflow = 'hidden';
   renderSpread(dir);
@@ -551,7 +690,7 @@ function closeReader() {
   $('#reader').hidden = true;
   document.body.style.overflow = '';
   // Leaving a recipe drops back to its section, not a bare URL, so the tab persists.
-  if (location.hash.startsWith('#/')) writeHash(hashForKind(state.kind));
+  if (location.hash.startsWith('#/')) writeHash(currentHash());
 }
 
 function renderSpread(dir) {
@@ -561,12 +700,14 @@ function renderSpread(dir) {
   const animate = dir !== 0 && typeof matchMedia === 'function'
     && !matchMedia('(prefers-reduced-motion: reduce)').matches;
   const outgoing = animate ? stage.innerHTML : null;   // snapshot the page we're leaving
+  const outgoingLane = [...stage.classList].find((c) => c.startsWith('lane-')) || '';
+  stage.className = `spread lane-${laneFor(r)}`;      // the recipe's lane colour drives its accents
   stage.innerHTML = spreadHtml(r);
   $('#reader-prev').disabled = index <= 0;
   $('#reader-next').disabled = index >= list.length - 1;
   const scroller = stage.querySelector('.spread-scroll');
   if (scroller) scroller.scrollTop = 0;
-  if (animate) turnPage(outgoing, dir);
+  if (animate) turnPage(outgoing, dir, outgoingLane);
 }
 
 // A real page-turn: the page we just left is cloned into a throwaway "leaf" that flips away
@@ -575,7 +716,7 @@ function renderSpread(dir) {
 // turns (see CSS). The live #spread never animates — only this leaf does — so the old
 // mobile-WebKit "snap to final frame" bug (animating an overflow:auto layer) can't bite.
 const CURL_SEGMENTS = 16;
-function turnPage(outgoingHtml, dir) {
+function turnPage(outgoingHtml, dir, laneClass = '') {
   const stage = $('#spread');
   const book = stage.parentElement;                     // .reader-stage (perspective layer)
   book.querySelectorAll('.turn-leaf').forEach((l) => l.remove());   // never stack leaves
@@ -585,11 +726,11 @@ function turnPage(outgoingHtml, dir) {
   const leaf = document.createElement('div');
   leaf.setAttribute('aria-hidden', 'true');
   if (W > 40 && H > 40) {
-    leaf.className = `turn-leaf ${next ? 'turn-next' : 'turn-prev'}`;
+    leaf.className = `turn-leaf ${next ? 'turn-next' : 'turn-prev'} ${laneClass}`;
     leaf.appendChild(buildCurlSegments(outgoingHtml, next, W, H));
   } else {
     // No measurable layout (e.g. the jsdom test env) — fall back to a single-piece flip.
-    leaf.className = `spread turn-leaf ${next ? 'turn-next' : 'turn-prev'}`;
+    leaf.className = `spread turn-leaf ${next ? 'turn-next' : 'turn-prev'} ${laneClass}`;
     leaf.innerHTML = outgoingHtml;
   }
   book.appendChild(leaf);
@@ -686,7 +827,7 @@ function chipsHtml(r) {
   const M = state.data.meta;
   if (r.kind === 'drink') {
     return [
-      `<span class="schip">${esc(M.base[r.base]?.label || r.base)}</span>`,
+      `<span class="schip is-lane">${esc(M.base[r.base]?.label || r.base)}</span>`,
       `<span class="schip">${esc(M.family[r.family]?.label || r.family)}</span>`,
       ...(r.methods || []).map((m) => `<span class="schip">${esc(M.method[m]?.label || m)}</span>`),
       r.strength ? `<span class="schip">${esc(M.strength[r.strength]?.label || cap(r.strength))}</span>` : '',
@@ -695,7 +836,7 @@ function chipsHtml(r) {
     ].filter(Boolean).join('');
   }
   return [
-    `<span class="schip${VEG.has(r.protein) ? ' is-veg' : ''}">${esc(M.protein[r.protein]?.label || r.protein)}</span>`,
+    `<span class="schip is-lane">${esc(M.protein[r.protein]?.label || r.protein)}</span>`,
     ...(r.methods || []).map((m) => `<span class="schip">${esc(M.method[m]?.label || m)}</span>`),
     r.heat !== 'none' ? `<span class="schip is-hot">${esc(cap(r.heat))} heat</span>` : '',
     ...(r.tags || []).map((t) => `<span class="schip">${esc(t)}</span>`),
@@ -759,9 +900,13 @@ function spreadHtml(r) {
 function routeFromHash() {
   const route = parseHash(location.hash);
   if (route.type === 'recipe') { openReader(route.slug); return; }
-  // A tab/home hash: close any open reader, then select the section it names.
+  // A tab/home hash: close any open reader, then select the section it names and load
+  // any filters/search/sort it carries.
   if (!$('#reader').hidden) closeReader();
   if (route.kind !== state.kind) setKind(route.kind, false);
+  const want = route.query || '';
+  const have = encodeRouteQuery({ filters: state.filters, q: state.q, sort: state.sort });
+  if (want !== have) applyRouteQuery(want);
 }
 
 // Shareable, preview-friendly URL for a recipe: …/r/<slug>/ (a real path, unlike the

@@ -30,7 +30,7 @@ tags:
   - thanksgiving
   - make-ahead
   - vegetarian
-  - comfort-food
+  - comfort
 ingredients:
   - section: Sweet potato base
     items:
@@ -83,7 +83,7 @@ planSwaps:
     replace: "¼ cup brown sugar"
     with: "2 tbsp brown sugar"
     note: "half the brown sugar in filling and topping"
-updated: 2026-07-05
+updated: 2026-11-27
 ---
 
 The sweet potato side Lauren remembered from past holidays, dialed in for Stephen's

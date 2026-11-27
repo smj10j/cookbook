@@ -910,3 +910,123 @@ test('every shipped ingredient/step/tip is a string (no YAML-map artifacts)', ()
     for (const t of r.tips || []) assert.equal(typeof t, 'string', `${r.slug} tip must be a string`);
   }
 });
+
+// ── Round 1 presentation: routing state, sorting, lanes, curated chips, palette ──
+import {
+  fmtMin, encodeRouteQuery, decodeRouteQuery, activeFilterEntries, SORTS, sortRecipes,
+  laneFor, LANES, FOOD_OCCASIONS, occasionLabel, splitCuisineChips, FILTER_KEYS,
+} from '../docs/lib.js';
+import { PALETTE, PAPER, LANES as THEME_LANES, themeCss } from '../scripts/lib/theme.mjs';
+
+const shipped = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'docs', 'recipes.json'), 'utf8')).recipes;
+
+test('fmtMin reads as hours past 60 minutes (never "315 min")', () => {
+  assert.equal(fmtMin(25), '25 min');
+  assert.equal(fmtMin(60), '1 hr');
+  assert.equal(fmtMin(75), '1 hr 15 min');
+  assert.equal(fmtMin(315), '5 hr 15 min');
+  assert.equal(fmtMin(null), '—');
+});
+
+test('parseHash / hashForKind carry an optional filter query on tab routes', () => {
+  assert.equal(hashForKind('food', 'protein=beef'), '#food?protein=beef');
+  assert.equal(hashForKind('drink', ''), '#drinks');
+  assert.deepEqual(parseHash('#food?protein=beef&sort=az'), { type: 'tab', kind: 'food', query: 'protein=beef&sort=az' });
+  assert.deepEqual(parseHash('#drinks?q=gin'), { type: 'tab', kind: 'drink', query: 'q=gin' });
+  assert.deepEqual(parseHash('#food?'), { type: 'tab', kind: 'food' }, 'an empty query is no query');
+  assert.deepEqual(parseHash('#nonsense?protein=beef'), { type: 'home', kind: 'food' });
+});
+
+test('encodeRouteQuery / decodeRouteQuery round-trip filters, plans, search and sort', () => {
+  const filters = {
+    protein: new Set(['beef', 'fish']), cuisine: new Set(['Middle Eastern', 'Italian-American']),
+    time: new Set(['under-30']), plan: new Map([['kidney', 'ok'], ['heart', 'great']]), heat: new Set(),
+  };
+  const q = encodeRouteQuery({ filters, q: 'salmon, lemon & dill', sort: 'az' });
+  assert.match(q, /^protein=beef,fish&time=under-30&cuisine=Middle%20Eastern,Italian-American&plan=kidney,heart!&q=/);
+  const back = decodeRouteQuery(q);
+  assert.deepEqual(back.filters.protein, ['beef', 'fish']);
+  assert.deepEqual(back.filters.cuisine, ['Middle Eastern', 'Italian-American']);
+  assert.deepEqual(back.filters.plan, [['kidney', 'ok'], ['heart', 'great']]);
+  assert.equal(back.q, 'salmon, lemon & dill');
+  assert.equal(back.sort, 'az');
+  assert.equal(encodeRouteQuery({ filters: {}, q: '', sort: 'newest' }), '', 'defaults encode to nothing');
+});
+
+test('decodeRouteQuery drops unknown keys and undecodable values instead of throwing', () => {
+  const d = decodeRouteQuery('evil=1&protein=%E0%A4%A,beef&cuisine=&=x&sort=quickest');
+  assert.deepEqual(d.filters, { protein: ['beef'] });
+  assert.equal(d.sort, 'quickest');
+  assert.deepEqual(decodeRouteQuery(''), { filters: {}, q: '', sort: null });
+});
+
+test('activeFilterEntries lists every active value in FILTER_KEYS order', () => {
+  const e = activeFilterEntries({ heat: new Set(['hot']), protein: new Set(['beef']), plan: new Map([['dash', 'great']]) });
+  assert.deepEqual(e, [{ key: 'protein', val: 'beef' }, { key: 'heat', val: 'hot' }, { key: 'plan', val: 'dash', mode: 'great' }]);
+  assert.ok(FILTER_KEYS.includes('tags'), 'occasion/flavor tags are part of the URL state');
+});
+
+test('sortRecipes: newest / A–Z / quickest, stable by title, never mutating the input', () => {
+  const list = [
+    { title: 'B', created: '2026-07-01', times: { total: 40 } },
+    { title: 'A', created: '2026-09-01', times: { total: 40 } },
+    { title: 'C', created: '2026-07-01', times: { total: 10 } },
+  ];
+  const before = list.map((r) => r.title).join();
+  assert.deepEqual(sortRecipes(list, 'newest').map((r) => r.title), ['A', 'B', 'C']);
+  assert.deepEqual(sortRecipes(list, 'az').map((r) => r.title), ['A', 'B', 'C']);
+  assert.deepEqual(sortRecipes(list, 'quickest').map((r) => r.title), ['C', 'A', 'B']);
+  assert.equal(list.map((r) => r.title).join(), before, 'input order untouched');
+  assert.deepEqual(SORTS.map((s) => s.key), ['newest', 'az', 'quickest']);
+});
+
+test('laneFor: course beats protein; every shipped recipe lands in a real lane', () => {
+  assert.equal(laneFor({ protein: 'seafood', category: 'main' }), 'fish');
+  assert.equal(laneFor({ protein: 'vegan', category: 'side' }), 'sides');
+  assert.equal(laneFor({ protein: 'vegetarian', category: 'dessert' }), 'dessert');
+  assert.equal(laneFor({ kind: 'drink', base: 'gin' }), 'bar');
+  for (const r of shipped) assert.ok(LANES.includes(laneFor(r)), `${r.slug} has a lane`);
+});
+
+test('every food Occasion chip matches at least one shipped recipe (no dead filters)', () => {
+  const tags = new Set(shipped.filter((r) => (r.kind || 'food') === 'food').flatMap((r) => r.tags || []));
+  for (const t of FOOD_OCCASIONS) assert.ok(tags.has(t), `occasion "${t}" is used by some recipe`);
+  assert.equal(occasionLabel('date-night'), 'Date night');
+});
+
+test('splitCuisineChips keeps umbrellas + repeat cuisines up front, singletons behind More', () => {
+  const recipes = [{ cuisine: 'Thai' }, { cuisine: 'Thai' }, { cuisine: 'Burmese' }, { cuisine: 'Mexican' }, { cuisine: 'Mexican' }];
+  const { primary, more } = splitCuisineChips(['Asian', 'Burmese', 'Mexican', 'Thai'], recipes, { Asian: ['Thai', 'Burmese'] });
+  assert.deepEqual(primary, ['Asian', 'Mexican', 'Thai']);
+  assert.deepEqual(more, ['Burmese']);
+});
+
+// WCAG relative-luminance contrast, for the palette guards below.
+function contrast(a, b) {
+  const lum = (hex) => {
+    const c = hex.replace('#', '').match(/../g).map((x) => parseInt(x, 16) / 255)
+      .map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  };
+  const [hi, lo] = [lum(a), lum(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+}
+
+test('palette: both themes define the same tokens and every lane in LANES', () => {
+  assert.deepEqual(Object.keys(PALETTE).sort(), Object.keys(PAPER).sort());
+  for (const theme of ['dark', 'paper']) assert.deepEqual(Object.keys(THEME_LANES[theme]).sort(), [...LANES].sort());
+  const css = themeCss();
+  assert.match(css, /:root \{/);
+  assert.match(css, /:root\[data-theme="paper"\] \{/);
+  for (const lane of LANES) assert.match(css, new RegExp(`--lane-${lane}:`));
+});
+
+test('palette: text, muted text and every lane colour stay readable (≥ 4.5:1) in both themes', () => {
+  for (const [name, t, lanes] of [['dark', PALETTE, THEME_LANES.dark], ['paper', PAPER, THEME_LANES.paper]]) {
+    for (const bg of [t.bg, t.surface]) {
+      for (const [label, fg] of [['ink', t.ink], ['muted', t.muted], ['good', t.good], ['warn', t.warn], ['bad', t.bad], ...Object.entries(lanes)]) {
+        assert.ok(contrast(fg, bg) >= 4.5, `${name}: ${label} ${fg} on ${bg} is ${contrast(fg, bg).toFixed(2)}:1`);
+      }
+    }
+  }
+});

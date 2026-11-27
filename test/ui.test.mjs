@@ -664,3 +664,135 @@ test('search autocomplete: Escape closes the dropdown without opening a recipe',
   assert.equal($('#search-suggest').hidden, true, 'Escape hides the list');
   assert.equal($('#reader').hidden, true, 'and does not open a recipe');
 });
+
+// ── Round 1 presentation: menu list, sort, URL state, filter sheet, pills, chrome ──
+const byNewest = (list) => [...list].sort((a, b) => String(b.created || '').localeCompare(String(a.created || '')) || a.title.localeCompare(b.title));
+
+test('the menu opens as a printed list, newest first; the layout toggle switches to photos and persists', async () => {
+  const { $, $$, window } = await boot();
+  assert.ok($('#menu').classList.contains('is-list'), 'list view by default');
+  assert.deepEqual($$('.card').slice(0, 5).map((c) => c.dataset.slug), byNewest(foodRecipes).slice(0, 5).map((r) => r.slug));
+  assert.ok($$('.card .leader').length > 0, 'menu rows carry dotted leaders');
+  $$('#view-toggle .view-btn').find((b) => b.dataset.view === 'grid').click();
+  assert.ok($('#menu').classList.contains('is-grid') && !$('#menu').classList.contains('is-list'));
+  assert.equal(window.localStorage.getItem('tm-view'), 'grid');
+});
+
+test('every card and the open recipe carry their lane colour class', async () => {
+  const { $, $$ } = await boot();
+  assert.ok($$('.card-wrap').every((w) => /\blane-(fish|chicken|beef|veg|sides|dessert)\b/.test(w.className)));
+  $$('.card').find((c) => c.dataset.slug === 'blackened-steak-salad').click();
+  assert.ok($('#spread').classList.contains('lane-beef'), 'the spread picks up the beef lane');
+});
+
+test('sort: Quickest reorders by total time and the reader pages in that order', async () => {
+  const { $, $$, window } = await boot();
+  const sel = $('#sort');
+  sel.value = 'quickest';
+  sel.dispatchEvent(new window.Event('change', { bubbles: true }));
+  const totals = $$('.card').map((c) => foodRecipes.find((r) => r.slug === c.dataset.slug).times.total);
+  assert.deepEqual(totals, [...totals].sort((a, b) => a - b), 'cards ascend by total time');
+  assert.equal(window.location.hash, '#food?sort=quickest', 'a non-default sort is in the URL');
+  $$('.card')[0].click();
+  $('#reader-next').click();
+  assert.equal(window.location.hash, `#/${$$('.card')[1].dataset.slug}`, 'next follows the sorted menu');
+});
+
+test('filters live in the URL: chips write it, closing a recipe restores it, booting reads it', async () => {
+  const { $, $$, window } = await boot();
+  $$('.chip').find((c) => c.dataset.key === 'protein' && c.dataset.val === 'beef').click();
+  assert.equal(window.location.hash, '#food?protein=beef');
+  $$('.card')[0].click();
+  assert.match(window.location.hash, /^#\//);
+  $('#reader-close').click();
+  assert.equal(window.location.hash, '#food?protein=beef', 'closing returns to the filtered menu');
+
+  const b = await boot('https://example.com/#food?protein=beef&sort=az');
+  assert.ok(b.app.state.filters.protein.has('beef'));
+  assert.equal(b.app.state.sort, 'az');
+  assert.equal(b.$('#sort').value, 'az');
+  assert.ok(b.$$('.card').length > 0 && b.app.state.filtered.every((r) => r.protein === 'beef'));
+  assert.equal(b.$$('.chip').find((c) => c.dataset.key === 'protein' && c.dataset.val === 'beef').getAttribute('aria-pressed'), 'true');
+  const titles = b.app.state.filtered.map((r) => r.title);
+  assert.deepEqual(titles, [...titles].sort((x, y) => x.localeCompare(y)), 'A–Z order from the URL');
+});
+
+test('a shared link with a strict plan filter and a search restores both', async () => {
+  const { app, $ } = await boot('https://example.com/#food?plan=kidney!&q=salmon');
+  assert.equal(app.state.filters.plan.get('kidney'), 'great');
+  assert.equal(app.state.q, 'salmon');
+  assert.equal($('#search').value, 'salmon');
+  assert.ok(app.state.filtered.every((r) => app.state.planVerdicts.get(r.slug).kidney === 'optimal'));
+});
+
+test('active filters show as removable pills and a Filters badge', async () => {
+  const { $, $$, app } = await boot();
+  assert.equal($('#filters-count').hidden, true, 'no badge with nothing active');
+  $$('.chip').find((c) => c.dataset.key === 'protein' && c.dataset.val === 'chicken').click();
+  $$('.chip').find((c) => c.dataset.key === 'time' && c.dataset.val === 'under-30').click();
+  assert.equal($('#filters-count').hidden, false);
+  assert.equal($('#filters-count').textContent, '2');
+  const pills = $$('#active-filters .pill');
+  assert.deepEqual(pills.map((p) => p.dataset.val), ['chicken', 'under-30']);
+  assert.match(pills[1].textContent, /Under 30 min/, 'pills use human labels');
+  pills[0].click();
+  assert.equal(app.state.filters.protein.size, 0, 'tapping a pill removes that filter');
+  assert.equal($$('.chip').find((c) => c.dataset.val === 'chicken').getAttribute('aria-pressed'), 'false', 'and un-presses its chip');
+  assert.equal($$('#active-filters .pill').length, 1);
+});
+
+test('the filter sheet opens from the toolbar, shows a live count, and closes on Done / scrim / Escape', async () => {
+  const { $, $$, window } = await boot();
+  const toggle = $('#filters-toggle');
+  assert.equal($('#filter-panel').hidden, true, 'closed by default');
+  toggle.click();
+  assert.equal($('#filter-panel').hidden, false);
+  assert.equal(toggle.getAttribute('aria-expanded'), 'true');
+  $$('.chip').find((c) => c.dataset.key === 'protein' && c.dataset.val === 'beef').click();
+  const beef = foodRecipes.filter((r) => r.protein === 'beef').length;
+  assert.equal($('#filters-done').textContent, `Show ${beef} recipes`);
+  $('#filters-done').click();
+  assert.equal($('#filter-panel').hidden, true);
+  toggle.click();
+  $('#filter-scrim').click();
+  assert.equal($('#filter-panel').hidden, true, 'scrim closes it');
+  toggle.click();
+  window.document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  assert.equal($('#filter-panel').hidden, true, 'Escape closes it');
+});
+
+test('Occasion chips filter food by tag; one-off cuisines wait behind "More"', async () => {
+  const { $, $$, app } = await boot();
+  const occ = $$('.chip').find((c) => c.dataset.key === 'tags' && c.dataset.val === 'weeknight');
+  assert.ok(occ, 'a Weeknight occasion chip exists');
+  occ.click();
+  assert.ok(app.state.filtered.length > 0 && app.state.filtered.every((r) => r.tags.includes('weeknight')));
+  const more = $('.chip-more');
+  assert.ok(more, 'singleton cuisines are folded behind More');
+  const before = $$('.chip').filter((c) => c.dataset.key === 'cuisine').length;
+  more.click();
+  assert.ok($$('.chip').filter((c) => c.dataset.key === 'cuisine').length > before, 'More reveals the rest');
+  assert.equal($('.chip-more'), null);
+});
+
+test('first visit shows "How this works"; dismissing it sticks, the ⓘ brings it back', async () => {
+  const { $, window } = await boot();
+  assert.equal($('#intro').hidden, false, 'shown on a first visit');
+  $('#intro-dismiss').click();
+  assert.equal($('#intro').hidden, true);
+  assert.equal(window.localStorage.getItem('tm-intro-seen'), '1');
+  $('#intro-toggle').click();
+  assert.equal($('#intro').hidden, false, 'ⓘ reopens it');
+});
+
+test('the theme toggle flips to paper and back, and remembers the choice', async () => {
+  const { $, window } = await boot();
+  const root = window.document.documentElement;
+  assert.equal(root.dataset.theme, undefined, 'dark by default');
+  $('#theme-toggle').click();
+  assert.equal(root.dataset.theme, 'paper');
+  assert.equal(window.localStorage.getItem('tm-theme'), 'paper');
+  $('#theme-toggle').click();
+  assert.equal(root.dataset.theme, undefined);
+  assert.equal(window.localStorage.getItem('tm-theme'), 'dark');
+});

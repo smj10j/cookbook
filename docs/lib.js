@@ -9,7 +9,13 @@ export const esc = (s) =>
 // Minimal inline markdown: *italic* / _italic_ -> <em>. Everything else escaped.
 export const inlineMd = (s) => esc(s).replace(/(\*|_)(?=\S)([^*_]+?)\1/g, '<em>$2</em>');
 export const cap = (s) => (s ? s[0].toUpperCase() + s.slice(1) : s);
-export const fmtMin = (m) => (m == null ? '—' : `${m} min`);
+// Minutes -> "35 min" / "1 hr" / "1 hr 15 min" (never "315 min").
+export const fmtMin = (m) => {
+  if (m == null) return '—';
+  if (m < 60) return `${m} min`;
+  const h = Math.floor(m / 60), r = m % 60;
+  return r ? `${h} hr ${r} min` : `${h} hr`;
+};
 export const VEG = new Set(['vegetarian', 'vegan']);
 
 // ── quantity parsing & scaling ───────────────────────────────────────────────
@@ -964,23 +970,136 @@ export function nutritionPanelHtml(r, { variant = null } = {}) {
 // ── routing (hash <-> app route) ─────────────────────────────────────────────
 // Recipes are addressed as '#/<slug>'. The Food/Drinks tabs get their own hash
 // ('#food' / '#drinks') so a tab choice survives a refresh and is shareable.
-export function hashForKind(kind) {
-  return kind === 'drink' ? '#drinks' : '#food';
+export function hashForKind(kind, query = '') {
+  return (kind === 'drink' ? '#drinks' : '#food') + (query ? `?${query}` : '');
 }
 
 // Parse a location.hash into a route:
-//   { type: 'recipe', slug }          — '#/<slug>'
-//   { type: 'tab',    kind }          — '#food' | '#drinks'
-//   { type: 'home',   kind: 'food' }  — empty/unknown hash (the default section)
+//   { type: 'recipe', slug }            — '#/<slug>'
+//   { type: 'tab',    kind[, query] }   — '#food' | '#drinks', optionally '?protein=fish&sort=az'
+//   { type: 'home',   kind: 'food' }    — empty/unknown hash (the default section)
+// `query` (only present when non-empty) is the filter/sort/search state — see decodeRouteQuery.
 export function parseHash(hash) {
   const h = String(hash || '').replace(/^#/, '');
   if (h.startsWith('/')) {
-    const slug = decodeURIComponent(h.slice(1));
+    let slug;
+    try { slug = decodeURIComponent(h.slice(1)); } catch { slug = h.slice(1); }
     return slug ? { type: 'recipe', slug } : { type: 'home', kind: 'food' };
   }
-  if (h === 'drinks') return { type: 'tab', kind: 'drink' };
-  if (h === 'food') return { type: 'tab', kind: 'food' };
-  return { type: 'home', kind: 'food' };
+  const [base, query = ''] = h.split(/\?(.*)/s);
+  const kind = base === 'drinks' ? 'drink' : base === 'food' ? 'food' : null;
+  if (!kind) return { type: 'home', kind: 'food' };
+  return query ? { type: 'tab', kind, query } : { type: 'tab', kind };
+}
+
+// ── URL state: filters / search / sort live in the tab hash ──────────────────
+// '#food?protein=fish,beef&time=under-30&plan=kidney,heart!&q=salmon&sort=az' — so a
+// refresh, the Back button, or a shared link all land on the same filtered menu.
+// Values are comma-joined and individually percent-encoded; a plan in great-only
+// ("strict") mode carries a trailing '!'. The default sort (newest) is omitted.
+export const FILTER_KEYS = ['category', 'protein', 'course', 'methods', 'time', 'heat', 'cuisine', 'tags',
+  'base', 'family', 'strength', 'plan'];
+
+const safeDecode = (v) => { try { return decodeURIComponent(v); } catch { return null; } };
+
+export function encodeRouteQuery({ filters = {}, q = '', sort = 'newest' } = {}) {
+  const parts = [];
+  for (const key of FILTER_KEYS) {
+    const f = filters[key];
+    if (!f || !f.size) continue;
+    const vals = key === 'plan'
+      ? [...f].map(([id, mode]) => (mode === 'great' ? `${id}!` : id))
+      : [...f];
+    parts.push(`${key}=${vals.map((v) => encodeURIComponent(v)).join(',')}`);
+  }
+  if (q) parts.push(`q=${encodeURIComponent(q)}`);
+  if (sort && sort !== 'newest') parts.push(`sort=${encodeURIComponent(sort)}`);
+  return parts.join('&');
+}
+
+// Inverse of encodeRouteQuery. Unknown keys and undecodable values are dropped, never thrown.
+// Returns { filters: { key: [values] , plan: [[id, 'ok'|'great']] }, q, sort|null }.
+export function decodeRouteQuery(str) {
+  const out = { filters: {}, q: '', sort: null };
+  for (const part of String(str || '').split('&')) {
+    const i = part.indexOf('=');
+    if (i <= 0) continue;
+    const key = part.slice(0, i), raw = part.slice(i + 1);
+    if (key === 'q') { out.q = safeDecode(raw) || ''; continue; }
+    if (key === 'sort') { out.sort = safeDecode(raw); continue; }
+    if (!FILTER_KEYS.includes(key)) continue;
+    const vals = raw.split(',').map(safeDecode).filter((v) => v);
+    if (!vals.length) continue;
+    out.filters[key] = key === 'plan'
+      ? vals.map((v) => (v.endsWith('!') ? [v.slice(0, -1), 'great'] : [v, 'ok']))
+      : vals;
+  }
+  return out;
+}
+
+// Every active filter value, in FILTER_KEYS order — drives the removable pills and the
+// "Filters (n)" badge. Plan entries carry their mode.
+export function activeFilterEntries(filters = {}) {
+  const out = [];
+  for (const key of FILTER_KEYS) {
+    const f = filters[key];
+    if (!f || !f.size) continue;
+    if (key === 'plan') for (const [val, mode] of f) out.push({ key, val, mode });
+    else for (const val of f) out.push({ key, val });
+  }
+  return out;
+}
+
+// ── sorting ──────────────────────────────────────────────────────────────────
+export const SORTS = [
+  { key: 'newest', label: 'Newest' },
+  { key: 'az', label: 'A–Z' },
+  { key: 'quickest', label: 'Quickest' },
+];
+
+// Returns a NEW array. Ties always fall back to title so the order is stable.
+export function sortRecipes(list, key = 'newest') {
+  const byTitle = (a, b) => String(a.title).localeCompare(String(b.title));
+  const out = [...list];
+  if (key === 'az') return out.sort(byTitle);
+  if (key === 'quickest') {
+    const t = (r) => r.times?.total ?? Infinity;
+    return out.sort((a, b) => t(a) - t(b) || byTitle(a, b));
+  }
+  return out.sort((a, b) => String(b.created || '').localeCompare(String(a.created || '')) || byTitle(a, b));
+}
+
+// ── lanes (colour-coded menu sections) ───────────────────────────────────────
+// Every recipe belongs to one lane, which picks its colour (--lane-<key>, defined in
+// theme.css from scripts/lib/theme.mjs). Course beats protein: a vegan side is a side.
+export const LANES = ['fish', 'chicken', 'beef', 'veg', 'sides', 'dessert', 'bar'];
+export function laneFor(r) {
+  if ((r.kind || 'food') === 'drink') return 'bar';
+  if (r.category === 'dessert') return 'dessert';
+  if (r.category === 'side') return 'sides';
+  switch (r.protein) {
+    case 'fish': case 'seafood': return 'fish';
+    case 'chicken': return 'chicken';
+    case 'beef': return 'beef';
+    case 'vegetarian': case 'vegan': return 'veg';
+    default: return 'sides';
+  }
+}
+
+// ── curated chip sets ────────────────────────────────────────────────────────
+// Food "Occasion" filter — the free-form tags that answer "what kind of night is it?".
+// Kept tight on purpose (like the drinks' Flavor list); matches on r.tags.
+export const FOOD_OCCASIONS = ['weeknight', 'quick', 'one-pan', 'make-ahead', 'date-night', 'summer', 'comfort'];
+export const occasionLabel = (t) => cap(String(t).replace(/-/g, ' '));
+
+// Cuisine chips split into the ones worth showing up front (umbrella groups + any
+// cuisine with at least `min` recipes) and the long tail behind "More…".
+export function splitCuisineChips(values, recipes, cuisineGroups = {}, min = 2) {
+  const count = {};
+  recipes.forEach((r) => { count[r.cuisine] = (count[r.cuisine] || 0) + 1; });
+  const primary = [], more = [];
+  values.forEach((v) => ((cuisineGroups[v] || (count[v] || 0) >= min) ? primary : more).push(v));
+  return { primary, more };
 }
 
 // Cuisine chips: umbrella groups (e.g. "Asian") first, then the specific cuisines.

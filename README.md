@@ -13,13 +13,17 @@ GitHub Pages so it works on any phone or laptop.
 ## What's here
 
 - **Two sections behind tabs at the top — Food and Drinks.** Food filters by course
-  (main/side/dessert), protein, dish type, time, method, heat, and cuisine (the **Asian**
-  filter rolls up Vietnamese, Japanese, Chinese, Thai, Sichuan, etc.). Drinks filter by
-  base spirit, style, strength, flavor, and heat. Both have full-text search.
+  (main/side/dessert), protein, time, occasion (weeknight, date night, make-ahead…), dish
+  type, method, heat, and cuisine (the **Asian** filter rolls up Vietnamese, Japanese,
+  Chinese, Thai, Sichuan, etc.). Drinks filter by base spirit, style, strength, flavor, and
+  heat. Both have full-text search, sort (newest / A–Z / quickest), and a printed-menu
+  list or a photo grid. Filters live in the URL, so a refresh or a shared link keeps them.
+- **Dark bistro look with colour-coded lanes** (fish blue, chicken gold, beef red,
+  vegetarian green…), plus a light "paper" theme behind the ☀ toggle.
 - Click any card to open the full recipe **spread** and flip left/right through the
   results with arrow keys, swipes, or the on-screen arrows.
-- A **shopping-list builder**: tap the **+** on any card (food or drink), hit the floating
-  🛒 cart in the top-right, set how many servings you want (quantities scale automatically),
+- A **shopping-list builder**: tap the **+** on any card (food or drink), hit the **List**
+  button in the toolbar, set how many servings you want (quantities scale automatically),
   and copy the list to your clipboard — identical ingredients across recipes are merged into
   one line (garlic by the bulb, citrus by the fruit, bitters by the bottle). Pantry staples
   start unchecked; a ⚑ marks things you probably have but might want to double-check.
