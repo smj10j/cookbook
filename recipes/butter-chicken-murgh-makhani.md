@@ -26,7 +26,7 @@ equipment:
 tags:
   - make-ahead
   - comfort
-  - gluten-free
+  - gluten-free-option
 ingredients:
   - section: Chicken & marinade
     items:
@@ -87,6 +87,8 @@ extras:
     note: Warm naan and basmati rice, with a cucumber-yogurt raita to cool the spice.
   - label: Lighter swap
     note: Half-and-half stands in for the cream, or use coconut milk for a dairy-free version.
+  - label: Gluten-free
+    note: "Serve it with the basmati rice rather than naan and the meal is gluten-free."
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
@@ -108,7 +110,7 @@ planSwaps:
     replace: "1.5 lb boneless skinless chicken thighs, cut into chunks"
     with: "12 oz boneless skinless chicken thighs, cut into chunks"
     note: "a smaller portion of chicken, more sauce"
-updated: 2026-07-06
+updated: 2026-11-27
 ---
 
 Delhi's gift to the world: tandoori chicken reborn in a buttery tomato gravy. The two-step

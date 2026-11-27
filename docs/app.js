@@ -1273,7 +1273,8 @@ function shopRows() {
     shopSectionsForRecipe(r, target, activeVariant(r)).forEach((sec, si) => sec.items.forEach((it, ii) => {
       rows.push({
         ...it, id: `${r.slug}|${si}|${ii}`, slug: r.slug, section: sec.section,
-        qtyScaled: it.qty != null ? it.qty * (target / (it.serves || target)) : null,
+        // Shop for the top of a range ("1–1.25 lb" -> 1¼ lb) so you never come home short.
+        qtyScaled: it.qty != null ? (it.hi ?? it.qty) * (target / (it.serves || target)) : null,
       });
     }));
   }

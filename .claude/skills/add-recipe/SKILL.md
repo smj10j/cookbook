@@ -76,7 +76,10 @@ Key obligations (full spec in `CLAUDE.md`):
 - **pitch**: a 3–5 sentence editorial pitch (Bon Appétit voice) with exactly one
   *italic* money line. Lead with technique or the visual moment.
 - **Controlled vocab only** for `protein`, `methods`, `course`, `heat`, `difficulty`,
-  `category` (see `scripts/lib/schema.mjs`). `cuisine` and `tags` are free text.
+  `category` (see `scripts/lib/schema.mjs`). `cuisine` and `tags` are free text — but reuse
+  the **Occasion** tags when they fit (`weeknight`, `quick`, `one-pan`, `make-ahead`,
+  `date-night`, `summer`, `comfort`, spelled exactly) so the dish shows up under that filter.
+  A new `protein` or `category` also needs a lane + shelf (`laneFor` / `SHELVES` in `docs/lib.js`).
 - **`category`**: `main`, `side`, or `dessert`. Defaults to `main` (omit it for mains). Use
   `category: side` for accompaniments (sauces, salsas, dips, chips, casseroles, simple sides)
   and `category: dessert` (+ `course: dessert`) for sweets & baked goods. This drives the

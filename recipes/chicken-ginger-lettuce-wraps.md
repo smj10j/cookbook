@@ -49,7 +49,7 @@ ingredients:
 steps:
   - Whisk the drizzle ingredients together and set aside.
   - Heat the oil in a large skillet until shimmering. Add the chicken, press it flat, and leave it alone 2 minutes to brown.
-  - Break it into crumbles; add the ginger, garlic, and scallion whites and stir-fry 1 minute until fragrant.
+  - Break it into crumbles and cook until no pink remains; add the ginger, garlic, and scallion whites and stir-fry 1 minute until fragrant.
   - Add the celery and carrot and toss 2 minutes — they should stay bright and crunchy.
   - Off the heat, stir in half the drizzle. Serve the filling in the cold lettuce cups, topped with scallion greens, sesame seeds, and the rest of the drizzle.
 tips:
@@ -67,7 +67,7 @@ source:
   name: Original — developed for Tonight's Menu
   url: null
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-11-27
 ---
 
 One tablespoon of low-sodium soy is the entire salt budget, and it shows up in

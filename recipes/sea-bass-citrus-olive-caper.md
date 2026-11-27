@@ -44,7 +44,7 @@ ingredients:
 steps:
   - Position the broiler pan as close to the heating element as possible and heat it for 5 minutes.
   - Meanwhile, coat the fillets on both sides with about 1 tsp of the oil on a plate.
-  - Carefully pull the hot pan out and set it on the stovetop. Arrange the fillets skin-side down and season with half the salt and pepper. Broil for 6 minutes.
+  - Carefully pull the hot pan out and set it on the stovetop. Arrange the fillets skin-side down and season with half the salt and pepper. Broil for about 6 minutes, until the flesh is opaque and just flakes at its thickest point.
   - In a bowl, combine the lemon slices, lemon juice, oregano, capers, olives, the remaining oil, and the remaining salt and pepper.
   - Transfer the fish to a platter and spoon the citrus-olive-caper sauce over the top.
 tips:
@@ -65,7 +65,7 @@ planSwaps:
     replace: 2 sea bass fillets (about 5 oz each), skin on
     with: "2 sea bass fillets (about 4 oz each), skin on"
     note: two 4-oz fillets instead of 5-oz
-updated: 2026-07-06
+updated: 2026-11-27
 ---
 
 Liza Schoenfein's quick broiler method, scaled for two: preheat the pan blazing hot,

@@ -22,7 +22,7 @@ methods:
   - stove
 cuisine: American
 course: main
-heat: none
+heat: mild
 equipment:
   - cast iron
 tags:
@@ -89,7 +89,7 @@ planSwaps:
     with: "5 oz swordfish steaks (two 2.5-oz portions)"
     note: "renal-size fish portions"
 created: 2026-06-19
-updated: 2026-07-06
+updated: 2026-11-27
 ---
 
 Swordfish takes to a sear like a good steak, and a garden-herb compound butter

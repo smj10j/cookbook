@@ -993,3 +993,27 @@ test('the list explains itself behind ⓘ instead of a wall of text', async () =
   assert.equal($('#shop-note').hidden, false);
   assert.equal($('#shop-help').getAttribute('aria-expanded'), 'true');
 });
+
+// ── Content guard: the redesign must never drop authored content ──
+test('every recipe and drink renders all of its authored content in the reader', async () => {
+  const { $, $$, window } = await boot();
+  const lines = (secs) => (secs || []).reduce((n, s) => n + (s.items ? s.items.length : 1), 0);
+  const reEsc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  for (const r of recipes.recipes) {
+    window.location.hash = `#/${r.slug}`;
+    window.dispatchEvent(new window.Event('hashchange'));
+    const where = r.slug;
+    assert.equal($('#spread .spread-title').textContent, r.title, `${where}: title`);
+    assert.equal($('#spread .spread-tagline').textContent, r.tagline, `${where}: tagline`);
+    assert.ok($('#spread .spread-pitch').textContent.length > r.pitch.length * 0.8, `${where}: pitch`);
+    if (/\*[^*]+\*/.test(r.pitch)) assert.ok($('#spread .spread-pitch em'), `${where}: the italic money line`);
+    assert.equal($$('#spread .ing-list li').length, lines(r.ingredients), `${where}: every ingredient line`);
+    assert.equal($$('#spread .step-list li').length, lines(r.steps), `${where}: every step`);
+    assert.equal($$('#spread .tips-list li').length, (r.tips || []).length, `${where}: every tip`);
+    assert.equal($$('#spread .extras dt').length, (r.extras || []).length, `${where}: every extra`);
+    if (r.headnote) assert.ok($('#spread .spread-headnote'), `${where}: headnote`);
+    if (r.source?.name) assert.match($('#spread .spread-source').textContent, new RegExp(reEsc(r.source.name)), `${where}: source credit`);
+    if (r.photo) assert.ok(!$('#spread').textContent.includes(r.photo), `${where}: the photo: hint stays off the page`);
+    assert.ok(!/undefined|NaN|\[object Object\]/.test($('#spread').textContent), `${where}: no template junk`);
+  }
+});

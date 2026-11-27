@@ -104,12 +104,13 @@ const lines = (a) => buildShoppingList(a).lines;
 
 test('merge: same ingredient prepared differently becomes one clean line', () => {
   assert.deepEqual(lines([{ qty: 0.25, rest: 'small red onion, very thinly sliced' }]), ['1 red onion']);          // #1
-  assert.deepEqual(lines([{ qty: 0.25, rest: 'cup Kalamata olives, pitted and halved' }]), ['1 jar kalamata olive']); // #2
+  assert.deepEqual(lines([{ qty: 0.25, rest: 'cup Kalamata olives, pitted and halved' }]), ['1 jar kalamata olives']); // #2
   assert.deepEqual(lines([{ qty: 1, rest: 'large head broccoli, cut into bite-size florets' }]), ['1 head broccoli']); // #3
   assert.deepEqual(lines([{ qty: 2, rest: 'ears corn, husked' }]), ['2 ears corn']);                              // #8
-  assert.deepEqual(lines([{ qty: 1, rest: 'cup cherry or grape tomatoes' }, { qty: 2, rest: 'cups cherry tomatoes' }]), ['2 pints cherry tomato']); // #7
+  assert.deepEqual(lines([{ qty: 1, rest: 'cup cherry or grape tomatoes' }, { qty: 2, rest: 'cups cherry tomatoes' }]), ['2 pints cherry tomatoes']); // #7
   assert.deepEqual(lines([{ qty: 1, rest: 'cup feta' }, { qty: 1, rest: 'cup feta cheese' }]), ['1 package feta']);
-  assert.deepEqual(lines([{ qty: 2, rest: 'salmon fillets (6 oz each)' }, { qty: 1, rest: 'skin-on salmon filet' }]), ['3 salmon']);
+  // Counted fillets keep their noun (you ask the counter for fillets); sizes only when all agree.
+  assert.deepEqual(lines([{ qty: 2, rest: 'salmon fillets (6 oz each)' }, { qty: 1, rest: 'skin-on salmon filet' }]), ['3 salmon fillets']);
 });
 
 test('yield rules: garlic bulbs, lemon count, herb bunches', () => {
@@ -127,10 +128,10 @@ test('purchasable units: kitchen measures round up to the smallest thing you can
   assert.deepEqual(lines([{ qty: 1, rest: 'tbsp grated parmesan' }]), ['1 package parmesan']);
   assert.deepEqual(lines([{ qty: 2, rest: 'cup shredded cheddar cheese' }]), ['1 package cheddar cheese']);
   assert.deepEqual(lines([{ qty: 1, rest: 'tbsp grated ginger' }]), ['1 piece ginger']);
-  assert.deepEqual(lines([{ qty: 2, rest: 'tbsp capers, drained' }]), ['1 jar caper']);
-  assert.deepEqual(lines([{ qty: 0.5, rest: 'cup sliced almonds' }]), ['1 package almond']);
+  assert.deepEqual(lines([{ qty: 2, rest: 'tbsp capers, drained' }]), ['1 jar capers']);
+  assert.deepEqual(lines([{ qty: 0.5, rest: 'cup sliced almonds' }]), ['1 package almonds']);
   // Cherry tomatoes/berries come in pints (~2 cups); regular tomatoes are counted whole.
-  assert.deepEqual(lines([{ qty: 3, rest: 'cups cherry tomatoes' }]), ['2 pints cherry tomato']);
+  assert.deepEqual(lines([{ qty: 3, rest: 'cups cherry tomatoes' }]), ['2 pints cherry tomatoes']);
   assert.deepEqual(lines([{ qty: 0.5, rest: 'cup diced tomato' }]), ['1 tomato']);
   // Heads, cans, and scallion bunches (~7 stalks/bunch).
   assert.deepEqual(lines([{ qty: 1, rest: 'cup chopped cauliflower' }]), ['1 head cauliflower']);
@@ -1122,4 +1123,116 @@ test('buildAisleList puts the copied lines in store order', () => {
 test('purchasable units: olive OIL is not sold by the jar (only olives are)', () => {
   assert.deepEqual(buildShoppingList([{ qty: 1, rest: 'tbsp extra-virgin olive oil' }]).lines, ['extra-virgin olive oil']);
   assert.match(buildShoppingList([{ qty: 2, rest: 'tbsp Kalamata olives, sliced' }]).lines[0], /^1 jar/);
+});
+
+
+// ── Data standards (CLAUDE.md) — guards from the consistency audit ──
+{
+  const data = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'docs', 'recipes.json'), 'utf8'));
+  const ingText = (r) => r.ingredients.flatMap((s) => s.items).join(' | ');
+
+  test('a "gluten-free" tag never sits on a dish whose ingredients contain wheat (use gluten-free-option + a note)', () => {
+    const WHEAT = /\b(soy sauce|gochujang|oyster sauce|hoisin|couscous|naan|bread|panko|flour(?! tortilla)|pasta|spaghetti|linguine|orzo|udon|pita|lavash|beer|malt)\b/i;
+    const SAFE = /tamari|coconut aminos|gluten-free|rice flour|almond flour|chickpea flour|corn tortilla|cornstarch/gi;
+    for (const r of data.recipes) {
+      if (!(r.tags || []).includes('gluten-free')) continue;
+      const hit = ingText(r).replace(SAFE, '').match(WHEAT);
+      assert.ok(!hit, `${r.slug} is tagged gluten-free but lists "${hit?.[0]}"`);
+    }
+  });
+
+  test('every recipe has 2–4 chef tips and a tagline of a sensible length', () => {
+    for (const r of data.recipes) {
+      const n = (r.tips || []).length;
+      assert.ok(n >= 2 && n <= 4, `${r.slug} has ${n} tips`);
+      const w = r.tagline.trim().split(/\s+/).length;
+      assert.ok(w >= 6 && w <= 18, `${r.slug} tagline is ${w} words (CLAUDE.md: ~8–14)`);
+    }
+  });
+
+  test('no dish is built on pork, lamb, duck, or turkey (Stephen & Lauren don\'t eat them)', () => {
+    for (const r of data.recipes) {
+      const hit = ingText(r).match(/\b(pork|bacon|pancetta|prosciutto|ham|lamb|duck|turkey|veal|lard)\b/i);
+      assert.ok(!hit, `${r.slug} lists "${hit?.[0]}"`);
+    }
+  });
+}
+
+
+// ── Shopping list audit (Reminders output): every line is something you can buy ──
+test('purchasable units: counted fish fillets keep their noun and size', () => {
+  assert.deepEqual(buildShoppingList([{ qty: 2, rest: 'salmon fillets (about 6 oz each), skin-on' }]).lines, ['2 salmon fillets (about 6 oz each)']);
+  assert.deepEqual(buildShoppingList([{ qty: 1, rest: 'sea bass fillets (about 5 oz each), skin on' }]).lines, ['1 sea bass fillet (about 5 oz each)']);
+  assert.deepEqual(buildShoppingList([{ qty: 2, rest: 'filet mignon steaks (about 6 oz each)' }]).lines, ['2 filet mignon steaks (about 6 oz each)']);
+});
+
+test('purchasable units: spirits, liqueurs and mixers are bought by the bottle', () => {
+  assert.deepEqual(buildShoppingList([{ qty: 2, rest: 'oz white rum' }]).lines, ['1 bottle white rum']);
+  assert.deepEqual(buildShoppingList([{ qty: 30, rest: 'oz bourbon' }]).lines, ['2 bottles bourbon'], 'a 750 ml bottle is ~25 oz');
+  assert.deepEqual(buildShoppingList([{ qty: 0.5, rest: 'cup dry white wine' }]).lines, ['1 bottle dry white wine']);
+  assert.deepEqual(buildShoppingList([{ qty: 0.75, rest: 'oz Kahlúa' }]).lines, ['1 bottle kahlua'], 'accents fold, the name survives');
+  assert.deepEqual(buildShoppingList([{ qty: 1, rest: 'oz club soda' }]).lines, ['1 bottle club soda']);
+  assert.deepEqual(buildShoppingList([{ qty: 1, rest: 'tbsp rice wine vinegar' }]).lines, ['rice wine vinegar'], 'vinegar is not a bottle of wine');
+});
+
+test('purchasable units: pantry products named after produce are not the produce', () => {
+  for (const [rest, want] of [['tbsp apple cider vinegar', 'apple cider vinegar'], ['tbsp avocado oil', 'avocado oil'],
+    ['tsp onion powder', 'onion powder'], ['cup chickpea flour', 'chickpea flour']]) {
+    assert.deepEqual(buildShoppingList([{ qty: 1, rest }]).lines, [want], rest);
+  }
+});
+
+test('purchasable units: whole goods never print as fractions, and pieces pack sensibly', () => {
+  assert.deepEqual(buildShoppingList([{ qty: 0.5, rest: 'fennel bulb, diced' }]).lines, ['1 bulb fennel']);
+  assert.deepEqual(buildShoppingList([{ qty: 0.5, rest: 'bunch broccolini, trimmed' }]).lines, ['1 bunch broccolini']);
+  assert.deepEqual(buildShoppingList([{ qty: 0.5, rest: '(14.5 oz) can crushed or whole tomatoes' }]).lines, ['1 can crushed tomatoes']);
+  assert.deepEqual(buildShoppingList([{ qty: 8, rest: 'corn tortillas, warmed' }]).lines, ['1 package corn tortillas']);
+  assert.deepEqual(buildShoppingList([{ qty: 4, rest: 'pita breads' }]).lines, ['1 package pita bread']);
+  assert.deepEqual(buildShoppingList([{ qty: 6, rest: 'Kalamata olives, halved' }]).lines, ['1 jar kalamata olives']);
+  assert.deepEqual(buildShoppingList([{ qty: 3, rest: 'inch piece ginger, sliced' }]).lines, ['1 piece ginger']);
+  assert.deepEqual(buildShoppingList([{ qty: 0.5, rest: 'clove garlic, minced' }]).lines, ['1 bulb garlic (≈1 clove)'], 'never ≈0 cloves');
+  assert.deepEqual(buildShoppingList([{ qty: 4, rest: 'baby bok choy, halved' }]).lines, ['4 heads baby bok choy']);
+});
+
+test('purchasable units: alternatives, garnishes, eggs and units read like a grocery list', () => {
+  assert.deepEqual(buildShoppingList([{ qty: 2, rest: 'large or 4 medium fresh tomatoes, diced' }]).lines, ['2 tomatoes']);
+  assert.deepEqual(buildShoppingList([{ qty: 0.75, rest: 'cup fresh or frozen corn kernels' }]).lines, ['corn kernel']);
+  assert.deepEqual(buildShoppingList([{ qty: 1, rest: 'oz lime juice' }, { qty: 1, rest: 'Lime wheel, for garnish' }]).lines, ['2 limes']);
+  assert.deepEqual(buildShoppingList([{ qty: 1, rest: 'large egg plus 1 yolk' }, { qty: 2, rest: 'egg yolks' }]).lines, ['3 eggs']);
+  assert.deepEqual(buildShoppingList([{ qty: 1, rest: 'lbs boneless skinless chicken breasts' }]).lines, ['1 lb chicken breast']);
+  assert.deepEqual(buildShoppingList([{ qty: 2, rest: 'boneless skinless chicken breasts' }]).lines, ['2 chicken breasts']);
+  assert.deepEqual(buildShoppingList([{ qty: 1, rest: 'cup heavy cream' }]).lines, ['1 carton heavy cream']);
+  assert.deepEqual(buildShoppingList([{ qty: 2, rest: 'oz fresh grapefruit juice' }]).lines, ['1 grapefruit']);
+  assert.deepEqual(buildShoppingList([{ qty: 0.75, rest: 'oz simple syrup' }]).lines, ['simple syrup']);
+  assert.deepEqual(buildShoppingList([{ qty: 0.5, rest: 'tsp dried oregano' }]).lines, ['dried oregano'], 'not "1 bunch oregano"');
+  assert.deepEqual(buildShoppingList([{ qty: 2, rest: 'tbsp fresh oregano, chopped' }]).lines, ['1 bunch oregano']);
+});
+
+test('garden produce starts unchecked + flagged (they grow it) and merges with store-bought', () => {
+  assert.equal(classify('2 sprigs garden thyme'), 'pantry');
+  assert.equal(normalizeIngredient('sprigs garden thyme').display, 'thyme');
+  assert.equal(classify('Skin from both fillets'), 'core', 'nothing to buy');
+});
+
+test('every recipe\'s copied list is buyable at ½×, 1× and 2× servings', () => {
+  const data = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'docs', 'recipes.json'), 'utf8'));
+  const BAD = [
+    [/undefined|NaN|\[object|^0 |≈0 /, 'junk'],
+    [/(^|\s)(\d+\.\d+|[½⅓⅔¼¾⅛])\s+(bulb|bunch|can|jar|package|head|pint|bottle|carton|loaf|piece|egg|lemon|lime|onion|avocado)s?\b/i, 'fractional whole good'],
+    [/^[\d½⅓⅔¼¾⅛.\s]*(tsp|tbsp|teaspoons?|tablespoons?|cups?|pinch|dash|sprigs?)\b/i, 'kitchen measure'],
+    [/^\d+ (salmon|cod|halibut|snapper|tuna|tilapia|sea bass|trout|swordfish)$/i, 'bare fish count'],
+    [/^\d[\d½¼¾.]*\s*oz (rum|vodka|gin|tequila|mezcal|bourbon|whiske?y|brandy|cognac|liqueur|vermouth|club soda)\b/i, 'spirit by the ounce'],
+    [/\blbs\b/, 'unit spelling'],
+  ];
+  for (const r of data.recipes) {
+    for (const factor of [0.5, 1, 2]) {
+      const target = Math.max(1, Math.round((r.serves || 2) * factor));
+      const entries = shopSectionsForRecipe(r, target, null).flatMap((s) => s.items)
+        .filter((it) => it.cat === 'buy' && !it.optional)
+        .map((it) => ({ qty: it.qty != null ? (it.hi ?? it.qty) * (target / (it.serves || target)) : null, rest: it.rest }));
+      for (const line of formatShoppingList(buildAisleList(entries), 'plain').split('\n').filter(Boolean)) {
+        for (const [re, why] of BAD) assert.ok(!re.test(line), `${r.slug} ×${factor}: "${line}" (${why})`);
+      }
+    }
+  }
 });

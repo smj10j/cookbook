@@ -354,6 +354,23 @@ Regression tests live in `test/lib.test.mjs` ("purchasable units: …" + the mer
 cases) and gate the build. When you add a recipe with a new kind of purchasable good and
 its list line looks wrong, add a `PURCHASE` row **and** a test line.
 
+**More purchase rules** (all in `docs/lib.js`, all tested):
+- Counted fish/steak **fillets** keep their noun and size: `2 salmon fillets (about 6 oz each)`
+  (`isFilletGroup` / `filletLine`); the size only shows when every merged line agrees.
+- **Spirits, liqueurs, wine and mixers** are bought by the 750 ml bottle (`BOTTLE_RE` /
+  `bottleRule`, ~25 oz each) — never "2 oz rum". Vinegars are excluded.
+- **Pantry products named after produce** ("apple cider vinegar", "avocado oil", "onion
+  powder", "chickpea flour") skip the produce/can profiles (`PANTRY_PRODUCT`).
+- **Whole goods never print as fractions:** cans, bunches, bulbs and counts round up;
+  things counted by the piece pack sensibly (`PACK_SIZE`: ~10 tortillas, ~6 pita, ~30
+  olives per container); "3-inch piece ginger" is one piece.
+- **Garden** items ("garden thyme") classify as `pantry` — they grow it — and merge with
+  store-bought; lines that come *from* another ingredient ("skin from both fillets",
+  "reserved pasta water") are `core` (nothing to buy). Ranges shop for the top ("1–1¼ lb").
+- `test/lib.test.mjs` → "every recipe's copied list is buyable at ½×, 1× and 2× servings"
+  copies every recipe at three sizes and fails on fractional whole goods, kitchen measures,
+  bare fish counts, spirits by the ounce, or junk — run it after adding a recipe.
+
 **Aisles.** The list (and the copied/Reminders output) is in **store order**: `aisleFor(name)`
 in `docs/lib.js` files each normalized ingredient into one of `AISLES` (Produce · Meat &
 Fish · Dairy & Eggs · Bakery · Pantry · Spices · Frozen · Bar · Other) via the ordered
@@ -419,6 +436,9 @@ any cuisine with ≥2 recipes up front, one-offs behind "More…"), Good for, + 
 Drinks: Base, Style (`family`), Strength, Flavor (from `tags`), Heat, Good for, + search.
 Use the existing occasion tags when they fit a new recipe (spell them exactly — e.g.
 `comfort`, not `comfort-food`); a test fails if an Occasion chip matches nothing.
+**`gluten-free` means as written:** regular soy sauce, most gochujang, oyster/hoisin sauce,
+couscous, naan and bread contain wheat — tag those dishes `gluten-free-option` and add a
+"Gluten-free" extra saying what to swap (a test enforces this).
 
 ## Presentation layer (the menu page)
 

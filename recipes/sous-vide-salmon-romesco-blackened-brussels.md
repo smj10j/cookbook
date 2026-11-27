@@ -123,7 +123,6 @@ tips:
   - Frozen tomatoes are great for romesco. Freezing ruptures the cells, so the skins slip off in warm water, but it also releases a lot of water. Drain them and roast them down until jammy, or the sauce turns thin and pale.
   - Use lemon *zest* in the bag, not slices or juice. Over 45 minutes, sealed-in acid cures the surface and turns it chalky.
   - Don't sear the bath-cooked salmon, because a hard sear overcooks the outer layer and undoes the bath. If you want a crisp-skinned fillet, take the pan-seared route and cook it the whole way in the pan.
-  - "If something goes sideways: crackling still chewy? Give it 5 more minutes under the weight, since it needs longer, not hotter. Sprouts browning before the centers soften? Add a tablespoon of water and cover for 60 seconds, then uncover to dry the pan."
 extras:
   - label: From the garden
     note: Frozen garden cherry tomatoes go into the romesco, garden thyme into the bag and over the sprouts, serrano into the butter, and a sliver of habanero into the romesco if you want a slow burn.
@@ -135,6 +134,8 @@ extras:
     note: Swap the sourdough for an extra 2 tbsp of almonds. The sauce will be a little looser, so pulse in a few more almonds if it needs body.
   - label: Leftover romesco
     note: Spoon it over eggs, grilled chicken or charred eggplant, or use it as a dip for crudités.
+  - label: If something goes sideways
+    note: "Crackling still chewy? Give it 5 more minutes under the weight, since it needs longer, not hotter. Sprouts browning before the centers soften? Add a tablespoon of water and cover for 60 seconds, then uncover to dry the pan."
 source:
   name: Stephen's recipe notes
   url: null

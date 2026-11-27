@@ -25,7 +25,7 @@ equipment:
   - large pot
 tags:
   - comfort
-  - gluten-free
+  - gluten-free-option
   - batch
 ingredients:
   - section: Poached chicken
@@ -89,6 +89,8 @@ extras:
     note: A few bone-in chicken thighs poach faster than a whole bird and still make a rich broth.
   - label: Make it a spread
     note: A small bowl of the hot poaching broth with sliced scallion alongside is traditional.
+  - label: Gluten-free
+    note: "Drizzle with tamari, or a dark soy labeled gluten-free — regular soy sauce is brewed with wheat."
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
@@ -98,7 +100,7 @@ planSwaps:
     with: "3 cups cauliflower rice"
     note: "cauliflower rice for the chicken rice"
 created: 2026-06-20
-updated: 2026-07-06
+updated: 2026-11-27
 ---
 
 Deceptively simple and deeply technique-driven: the gentlest poach, the most fragrant rice,

@@ -86,8 +86,10 @@ export function classify(text) {
     /\bwater\b/.test(t) ||
     /\bflour\b/.test(t) ||
     (/\bice\b/.test(t) && !/ice cream/.test(t)) ||      // ice is a given; ice cream you buy
-    /cooking spray|non-?stick spray/.test(t)
+    /cooking spray|non-?stick spray/.test(t) ||
+    /\bfrom (both|the|those|these)\b|\breserved\b/.test(t)    // comes from another ingredient — nothing to buy
   ) return 'core';
+  if (/\bgarden\b/.test(t)) return 'pantry';           // from their own garden — probably have it
   if (EXOTIC.test(t)) return 'buy';
   if (!fresh && /paprika|\bcumin\b|cayenne|chil[ie] (powder|flakes?)|chili flakes?|crushed red pepper|red pepper flakes?|cinnamon|nutmeg|allspice|cardamom|ground clove|\bcoriander\b|turmeric|garlic powder|onion powder|ground ginger|italian seasoning|old bay|curry powder|chili powder|chipotle|ancho|bay (leaf|leaves)|ground mustard|mustard powder|five spice|herbes de provence|dried (oregano|thyme|basil|rosemary|dill|parsley|sage|mint|tarragon|chives)/.test(t)) return 'pantry';
   if (/soy sauce|tamari|balsamic|red wine vinegar|white wine vinegar|rice (wine )?vinegar|apple cider vinegar|sherry vinegar|white vinegar|\bvinegar\b|\bhoney\b|maple syrup|dijon|whole-?grain mustard|yellow mustard|\bmustard\b|ketchup|mayonnaise|\bmayo\b|worcestershire|sriracha|hot sauce|sesame oil|vanilla extract|almond extract|baking soda|baking powder|cornstarch|corn ?starch|\bpanko\b|bread ?crumbs|tomato paste|\bbroth\b|\bstock\b|brown sugar|powdered sugar/.test(t)) return 'pantry';
@@ -101,11 +103,13 @@ export function classify(text) {
 // NB: slice/wedge/round/fillet are NOT here — they're preparations, handled below.
 const MEASURE = new Set(['cup', 'cups', 'tbsp', 'tablespoon', 'tablespoons', 'tsp', 'teaspoon', 'teaspoons', 'oz', 'ounce', 'ounces', 'lb', 'lbs', 'pound', 'pounds', 'g', 'gram', 'grams', 'kg', 'ml', 'l', 'liter', 'liters', 'clove', 'cloves', 'can', 'cans', 'jar', 'jars', 'bottle', 'bottles', 'pinch', 'pinches', 'dash', 'dashes', 'handful', 'handfuls', 'sprig', 'sprigs', 'stalk', 'stalks', 'bunch', 'bunches', 'head', 'heads', 'ear', 'ears', 'bulb', 'bulbs', 'piece', 'pieces', 'strip', 'strips', 'stick', 'sticks', 'leaf', 'leaves', 'package', 'packages', 'pkg', 'quart', 'quarts', 'pint', 'pints', 'splash', 'splashes', 'barspoon', 'barspoons', 'part', 'parts']);
 // Descriptors + preparations removed anywhere. "baby" is intentionally NOT here (kept distinct).
-const DESC = new Set(['small', 'medium', 'large', 'jumbo', 'mini', 'extra', 'fresh', 'dried', 'canned', 'ground', 'whole', 'ripe', 'raw', 'cooked', 'skinless', 'boneless', 'skin-on', 'skin', 'peeled', 'seeded', 'deseeded', 'deveined', 'drained', 'rinsed', 'packed', 'toasted', 'softened', 'melted', 'divided', 'plus', 'minced', 'chopped', 'finely', 'coarsely', 'roughly', 'diced', 'sliced', 'thinly', 'thickly', 'halved', 'quartered', 'crumbled', 'grated', 'shredded', 'julienned', 'cubed', 'freshly', 'trimmed', 'torn', 'smashed', 'pitted', 'husked', 'shucked', 'cut', 'into', 'bite', 'size', 'bite-size', 'florets', 'floret', 'fillet', 'fillets', 'filet', 'filets', 'very', 'to', 'taste', 'for', 'garnish', 'serving', 'of', 'a', 'an', 'the', 'and', 'about', 'approximately', 'each', 'more', 'as', 'needed']);
+const DESC = new Set(['garden', 'steamed', 'thin', 'thick', 'good', 'best-quality', 'high-quality', 'good-quality', 'heaping', 'inch', 'thumb', 'small', 'medium', 'large', 'jumbo', 'mini', 'extra', 'fresh', 'dried', 'canned', 'ground', 'whole', 'ripe', 'raw', 'cooked', 'skinless', 'boneless', 'skin-on', 'skin', 'peeled', 'seeded', 'deseeded', 'deveined', 'drained', 'rinsed', 'packed', 'toasted', 'softened', 'melted', 'divided', 'plus', 'minced', 'chopped', 'finely', 'coarsely', 'roughly', 'diced', 'sliced', 'thinly', 'thickly', 'halved', 'quartered', 'crumbled', 'grated', 'shredded', 'julienned', 'cubed', 'freshly', 'trimmed', 'torn', 'smashed', 'pitted', 'husked', 'shucked', 'cut', 'into', 'bite', 'size', 'bite-size', 'florets', 'floret', 'fillet', 'fillets', 'filet', 'filets', 'very', 'to', 'taste', 'for', 'garnish', 'serving', 'of', 'a', 'an', 'the', 'and', 'about', 'approximately', 'each', 'more', 'as', 'needed']);
 // Preparations that imply a derived form: removed from the name; recorded as `prep`.
-const DERIVED = new Set(['juice', 'zest', 'peel', 'rind', 'slice', 'slices', 'wedge', 'wedges', 'round', 'rounds']);
-const GENERIC_TAIL = new Set(['cheese']);                  // "feta cheese" -> feta
-const KEEP_PLURAL = new Set(['greens', 'beans', 'peas', 'oats', 'grits', 'sprouts', 'noodles', 'asparagus', 'couscous', 'hummus', 'molasses', 'chives']);
+const DERIVED = new Set(['juice', 'zest', 'peel', 'rind', 'slice', 'slices', 'wedge', 'wedges', 'round', 'rounds', 'wheel', 'wheels', 'twist', 'twists']);
+const GENERIC_TAIL = new Set(['cheese']);
+// Words that can't stand alone as the thing you buy ("crushed or whole tomatoes").
+const ALT_ADJ = new Set(['crushed', 'stewed', 'frozen', 'red', 'green', 'yellow', 'orange', 'white', 'black', 'sweet', 'hot', 'plain', 'regular', 'smoked', 'light', 'dark']);                  // "feta cheese" -> feta
+const KEEP_PLURAL = new Set(['greens', 'beans', 'peas', 'oats', 'grits', 'sprouts', 'noodles', 'asparagus', 'couscous', 'hummus', 'molasses', 'chives', 'baileys', 'bitters']);
 const HERBS = new Set(['thyme', 'rosemary', 'sage', 'dill', 'parsley', 'cilantro', 'mint', 'basil', 'tarragon', 'chive', 'oregano', 'marjoram']);
 const SPELL = { filet: 'fillet', filets: 'fillet', fillets: 'fillet', yoghurt: 'yogurt' };
 
@@ -139,16 +143,23 @@ function nameTokens(seg) {
 // Two ingredients merge iff their `key` matches. `prep`/`count` feed the yield rules.
 export function normalizeIngredient(rest) {
   const raw = String(rest);
-  let t = raw.toLowerCase().replace(/\([^)]*\)/g, ' ');
+  // Fold accents first (Kahlúa -> kahlua, Bénédictine -> benedictine) so names survive tokenizing.
+  let t = raw.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\([^)]*\)/g, ' ');
   const prep = detectPrep(t);
   t = t.replace(/\b(zest|juice|peel|rind)\s+of\s+/g, ' ').split(',')[0]; // drop the prep clause
   const numTok = t.match(new RegExp(`(\\d+\\s+\\d+/\\d+|\\d+/\\d+|\\d+(?:\\.\\d+)?|[${FRAC_CLASS}])`));
   const count = numTok ? parseNum(numTok[0]) : null;
+  t = t.replace(/\bfresh or frozen\b/g, ' ').replace(/\b(eggs?) plus [\d½]+ (yolk|white)s?\b/g, '$1').replace(/\beggs? (yolk|white)s?\b/g, 'egg');
   const alts = t.split(/\s+or\s+|\s*\/\s*/);          // "A or B" -> first option (+ borrow noun)
   let { unit, name } = nameTokens(alts[0]);
   if (alts.length > 1) {
     const last = nameTokens(alts[alts.length - 1]);
-    if (name.length && last.name.length > name.length) {
+    // "2 large or 4 medium tomatoes", "1 can crushed or whole tomatoes": A has no noun of its own.
+    if (!name.length) name = last.name;
+    else if (name.every((w) => ALT_ADJ.has(w)) && last.name.length) {
+      const head = last.name[last.name.length - 1];
+      if (!name.includes(head)) name = name.concat(head);
+    } else if (last.name.length > name.length) {
       const head = last.name[last.name.length - 1];
       if (!name.includes(head)) name = name.concat(head);
     }
@@ -172,7 +183,8 @@ function cleanOptional(line) {
   return String(line).replace(/^\s*optional\s*:?\s*/i, '').replace(/\s*\(optional\)/i, '').trim();
 }
 
-const fmtUnit = (q, unit) => (fmtQty(q) + (unit ? ' ' + unit : '')).trim();
+const UNIT_ALIAS = { lbs: 'lb', pound: 'lb', pounds: 'lb', ounce: 'oz', ounces: 'oz', grams: 'g', gram: 'g' };
+const fmtUnit = (q, unit) => (fmtQty(q) + (unit ? ' ' + (UNIT_ALIAS[unit] || unit) : '')).trim();
 
 // ── purchasable units ────────────────────────────────────────────────────────
 // A shopping list says what to put in the cart, not how to measure it. You can't
@@ -202,8 +214,14 @@ function genericLine(g) {
     const u = byUnit.get(uk);
     if (e.qty != null) { u.qty += e.qty; u.hasQty = true; }
   }
-  const parts = [...byUnit.values()].filter((u) => u.hasQty).map((u) => fmtUnit(u.qty, u.unit));
-  return parts.length ? `${parts.join(' + ')} ${g.display}`.trim() : g.display;
+  // Weight can be fractional (¾ lb); a can, bunch, bulb, or bare count is bought whole.
+  const parts = [...byUnit.values()].filter((u) => u.hasQty)
+    .map((u) => fmtUnit(unitKind(u.unit) === 'weight' ? u.qty : Math.max(1, Math.ceil(u.qty - 1e-9)), u.unit));
+  // A plain count of a countable thing reads plural: "2 chicken breasts".
+  const only = [...byUnit.values()].filter((u) => u.hasQty);
+  const display = only.length === 1 && unitKind(only[0].unit) === 'count' && Math.ceil(only[0].qty - 1e-9) > 1
+    ? pluralize(g.display) : g.display;
+  return parts.length ? `${parts.join(' + ')} ${display}`.trim() : g.display;
 }
 
 // Garlic: collect cloves and express as bulbs (~10 cloves/bulb) — what you actually buy.
@@ -214,7 +232,7 @@ function garlicRule(g) {
     if (u === 'bulb' || u === 'head') cloves += (e.qty ?? 1) * 10;
     else cloves += e.qty ?? 1;                       // cloves, or a bare count
   }
-  cloves = Math.round(cloves);
+  cloves = Math.max(1, Math.round(cloves));             // never "(≈0 cloves)" at small servings
   const bulbs = Math.max(1, Math.ceil(cloves / 10));
   return `${bulbs} bulb${bulbs !== 1 ? 's' : ''} garlic (≈${cloves} clove${cloves !== 1 ? 's' : ''})`;
 }
@@ -247,6 +265,18 @@ function herbRule(g) {
 function bittersRule() {
   return 'bitters';
 }
+const BOTTLE_RE = /\b(rum|vodka|gin|tequila|mezcal|whiske?y|bourbon|scotch|rye|brandy|cognac|vermouth|liqueur|amaro|aperol|campari|prosecco|champagne|cava|wine|cointreau|triple sec|curacao|chartreuse|sherry|port|kahl|irish cream|sake|chambord|amaretto|limoncello|maraschino|cachaca|pisco|kahlua|benedictine|falernum|grenadine|drambuie|frangelico|galliano|grand marnier|club soda|soda water|tonic|ginger beer|ginger ale)\b|creme de/;
+const OZ_PER = { oz: 1, ounce: 1, cup: 8, tbsp: 0.5, tablespoon: 0.5, tsp: 1 / 6, teaspoon: 1 / 6, ml: 1 / 29.57, l: 33.8, liter: 33.8, splash: 0.25, dash: 1 / 32, barspoon: 1 / 6, part: 1 };
+function bottleRule(g) {
+  let oz = 0;
+  for (const e of g.entries) {
+    const u = String(e.unit || '').replace(/s$/, '');
+    if (u === 'bottle') oz += (e.qty ?? 1) * 25.4;
+    else oz += (e.qty ?? 0) * (OZ_PER[u] ?? 0);
+  }
+  const n = Math.max(1, Math.ceil(oz / 25.4 - 1e-9));
+  return `${n} bottle${n === 1 ? '' : 's'} ${g.display}`;
+}
 
 // Scallions/green onions are sold by the bunch (~7 stalks), like garlic's cloves→bulb.
 function scallionRule(g) {
@@ -264,6 +294,11 @@ function scallionRule(g) {
 // the FIRST match wins, so put the specific forms (cherry tomato, canned tomato)
 // before the generic one (tomato). To fix a mis-shopped item, add/adjust a row here.
 const PURCHASE = [
+  [/\bbaby bok choy\b/, 'head'],
+  [/\b(heavy cream|whipping cream|half-and-half|buttermilk)\b|^(whole |2% |skim )?milk$/, 'carton'],
+  [/\b(coconut cream|cream coconut|cream of coconut)\b/, 'can'],
+  [/^(?!.*\b(pita|naan|lavash|flat|tortilla|corn|crumb)).*\b(sourdough|baguette|ciabatta|bread)\b/, 'loaf'],
+  [/\bgrapefruit\b/, ''],
   [/\b(cauliflower|broccoli(?!ni)|cabbage|lettuce|romaine|radicchio|iceberg|endive)\b/, 'head'],
   [/\b(cherry|grape)\b.*\btomato|\btomato\w*\b.*\b(cherry|grape)\b|\b(blueberr|raspberr|strawberr|blackberr)\w+/, 'pint'],
   [/\b(olive(?!s? oil)|caper|artichoke|sun-?dried tomato|roasted red pepper|pepperoncini|pickle)\w*/, 'jar'],
@@ -278,12 +313,13 @@ const PURCHASE = [
 // Pluralize a container noun (bunch→bunches) or a count-noun phrase's last word
 // (red onion→red onions, cherry tomato→cherry tomatoes).
 function pluralNoun(n) {
+  if (n === 'loaf') return 'loaves';
   return /(s|sh|ch|x|z)$/.test(n) ? n + 'es' : n + 's';
 }
 function pluralize(phrase) {
   const parts = String(phrase).split(' ');
   const w = parts[parts.length - 1];
-  const irr = { tomato: 'tomatoes', potato: 'potatoes', leaf: 'leaves', loaf: 'loaves' };
+  const irr = { tomato: 'tomatoes', potato: 'potatoes', leaf: 'leaves', loaf: 'loaves', anise: 'anise', fish: 'fish' };
   parts[parts.length - 1] = irr[w]
     || (/(s|sh|ch|x|z)$/.test(w) ? w + 'es'
       : /[^aeiou]y$/.test(w) ? w.slice(0, -1) + 'ies'
@@ -294,6 +330,17 @@ function pluralize(phrase) {
 // Generic purchasable line for a profiled group: count whole units (bare counts +
 // real containers), while sub-measures (tsp/tbsp/cup…) are a fraction of one unit
 // and floor to a single item — you still have to buy one.
+// Small things sold many-to-a-container read plural ("1 jar capers"), unlike "1 head broccoli".
+const MANY_IN_CONTAINER = /^(olive|caper|tomato|seed|almond|walnut|pecan|cashew|peanut|pistachio|raisin|date|chickpea|bean|lentil|cranberry|blueberry|raspberry|strawberry|blackberry|berry|pepperoncini|pickle|artichoke|pepita|chip|noodle|tortilla)$/;
+const manyDisplay = (display) => {
+  const words = String(display).split(' ');
+  return MANY_IN_CONTAINER.test(words[words.length - 1]) ? pluralize(display) : display;
+};
+
+// Roughly how many pieces come in one package, for things recipes count by the piece.
+const PACK_SIZE = [[/tortilla/, 10], [/\b(pita|naan|flatbread|wrap)/, 6], [/wonton|dumpling wrapper|rice paper/, 40],
+  [/\bolive/, 30], [/\bcaper/, 100], [/\bdate/, 12]];
+
 function purchaseLine(noun) {
   return (g) => {
     let whole = 0, saw = false;
@@ -301,23 +348,47 @@ function purchaseLine(noun) {
       saw = true;
       const k = unitKind(e.unit);
       const u = String(e.unit || '').replace(/s$/, '');
-      if (k === 'count' || k === 'container' || u === noun) whole += e.qty ?? 1;
+      const perPack = noun && k === 'count' ? (PACK_SIZE.find(([re]) => re.test(g.display)) || [])[1] : null;
+      if (noun === 'piece' && (/\binch|\bthumb/.test(e.rest || '') || e.prep === 'slice')) whole += 1;   // "3-inch piece" / "6 slices" = 1 piece
+      else if (perPack) whole += (e.qty ?? 1) / perPack;    // 8 tortillas -> 1 package, not 8
+      else if (k === 'count' || k === 'container' || u === noun) whole += e.qty ?? 1;
       else if (noun === 'pint' && u === 'cup') whole += (e.qty ?? 0) / 2;   // ~2 cups per pint
       // else: a sub-measure — contributes nothing beyond the 1-unit floor below
     }
     let n = Math.ceil(whole - 1e-9);
     if (n < 1) n = saw ? 1 : 0;
     if (noun === '') return `${n} ${n === 1 ? g.display : pluralize(g.display)}`;
-    return `${n} ${n === 1 ? noun : pluralNoun(noun)} ${g.display}`;
+    return `${n} ${n === 1 ? noun : pluralNoun(noun)} ${manyDisplay(g.display)}`;
   };
 }
+
+// Fish (or chicken) bought as counted fillets at the counter.
+const FILLET_RE = /\bfill?ets?\b/i;
+const EACH_RE = /\(\s*(?:about\s+)?([\d½¼¾⅓⅔.]+(?:\s*[–-]\s*[\d½¼¾⅓⅔.]+)?\s*oz)\s+each\s*\)/i;
+function isFilletGroup(g) {
+  return g.entries.length > 0 && g.entries.every((e) => FILLET_RE.test(e.rest || '') && unitKind(e.unit) === 'count');
+}
+function filletLine(g) {
+  const n = Math.max(1, Math.ceil(g.entries.reduce((sum, e) => sum + (e.qty ?? 1), 0) - 1e-9));
+  // Only state a size when every merged line agrees on it.
+  const sizes = [...new Set(g.entries.map((e) => (String(e.rest).match(EACH_RE) || [])[1] || null))];
+  const size = sizes.length === 1 && sizes[0] ? ` (about ${sizes[0].replace(/\s*-\s*/, '–')} each)` : '';
+  // "filet mignon" is a cut, not a fillet of something: "2 filet mignon steaks".
+  if (g.entries.some((e) => /filet mignon/i.test(e.rest || ''))) return `${n} filet mignon steak${n === 1 ? '' : 's'}${size}`;
+  return `${n} ${g.display} fillet${n === 1 ? '' : 's'}${size}`;
+}
+
+const PANTRY_PRODUCT = /\b(vinegar|oil|powder|flour|salt|sauce|paste|extract|syrup|broth|stock|seasoning|spice|nectar|preserves?|jam|chips|water|juice concentrate)$/;
 
 function ruleFor(key, display) {
   if (key === 'garlic') return garlicRule;
   if (key === 'bitters') return bittersRule;
+  if (BOTTLE_RE.test(display) && !/vinegar|rice wine|cooking/.test(display)) return bottleRule;
+  if (/\bsyrup\b|caramel sauce|chocolate sauce|\bespresso\b|\bcoffee\b/.test(display)) return (g) => g.display;
   if (display === 'lemon' || display === 'lime') return citrusRule;
   if (HERBS.has(key)) return herbRule;
   if (/\b(scallion|green onion)\b/.test(display)) return scallionRule;
+  if (PANTRY_PRODUCT.test(display)) return null;          // generic: name (+ any weight/container)
   const hit = PURCHASE.find(([re]) => re.test(display));
   if (hit) return purchaseLine(hit[1]);
   return null;
@@ -334,10 +405,13 @@ export function buildShoppingList(entries) {
     const k = n.key || n.display;
     if (!groups.has(k)) groups.set(k, { display: n.display, entries: [] });
     const qty = e.qty != null ? e.qty : n.count;
-    groups.get(k).entries.push({ qty, unit: n.unit, prep: n.prep });
+    groups.get(k).entries.push({ qty, unit: n.unit, prep: n.prep, rest: e.rest });
   }
   const lines = [];
   for (const [k, g] of groups) {
+    if (isFilletGroup(g)) { lines.push(filletLine(g)); continue; }
+    // Dried herbs are a jar in the spice rack, not a fresh bunch.
+    if (HERBS.has(k) && g.entries.every((e) => /\bdried\b/i.test(e.rest || ''))) { lines.push(`dried ${g.display}`); continue; }
     const rule = ruleFor(k, g.display);
     lines.push(rule ? rule(g) : genericLine(g));
   }

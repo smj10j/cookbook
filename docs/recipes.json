@@ -692,7 +692,7 @@
       "tags": [
         "steakhouse",
         "summer",
-        "gluten-free",
+        "gluten-free-option",
         "date-night",
         "garden"
       ],
@@ -784,6 +784,10 @@
         {
           "label": "Pairs with",
           "note": "A bold red — Zinfandel or Syrah. Serve the warm steak over the cool salad for the temperature contrast."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Use tamari (or coconut aminos) for the teaspoon of soy sauce in the marinade and the whole dish is gluten-free."
         }
       ],
       "source": {
@@ -817,7 +821,7 @@
           "note": "a leaner dressing"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A house favorite that Stephen has dialed in over several rounds: the brown sugar in\nthe rub caramelizes against the cayenne for a sweet-hot crust, and blistering the\ntomatoes on the same grill turns this from a plain steak salad into something with\nreal restaurant contrast. The blue cheese is the upgrade from the original feta.",
@@ -1130,7 +1134,7 @@
           "items": [
             "Position the broiler pan as close to the heating element as possible and heat it for 5 minutes.",
             "Meanwhile, coat the fillets on both sides with about 1 tsp of the oil on a plate.",
-            "Carefully pull the hot pan out and set it on the stovetop. Arrange the fillets skin-side down and season with half the salt and pepper. Broil for 6 minutes.",
+            "Carefully pull the hot pan out and set it on the stovetop. Arrange the fillets skin-side down and season with half the salt and pepper. Broil for about 6 minutes, until the flesh is opaque and just flakes at its thickest point.",
             "In a bowl, combine the lemon slices, lemon juice, oregano, capers, olives, the remaining oil, and the remaining salt and pepper.",
             "Transfer the fish to a platter and spoon the citrus-olive-caper sauce over the top."
           ]
@@ -1166,7 +1170,7 @@
           "note": "two 4-oz fillets instead of 5-oz"
         }
       ],
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Liza Schoenfein's quick broiler method, scaled for two: preheat the pan blazing hot,\nbroil the fish six minutes, and finish with a raw sauce of lemon, oregano, capers, and\nKalamata. Bright, briny, and on the table in 25 minutes.",
@@ -1864,7 +1868,7 @@
       "tags": [
         "make-ahead",
         "comfort",
-        "gluten-free"
+        "gluten-free-option"
       ],
       "ingredients": [
         {
@@ -1955,6 +1959,10 @@
         {
           "label": "Lighter swap",
           "note": "Half-and-half stands in for the cream, or use coconut milk for a dairy-free version."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Serve it with the basmati rice rather than naan and the meal is gluten-free."
         }
       ],
       "source": {
@@ -2008,7 +2016,7 @@
           "note": "a smaller portion of chicken, more sauce"
         }
       ],
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Delhi's gift to the world: tandoori chicken reborn in a buttery tomato gravy. The two-step\nmethod — char, then simmer — is the whole secret to its depth.",
@@ -2083,7 +2091,7 @@
       "tags": [
         "spicy",
         "date-night",
-        "gluten-free"
+        "gluten-free-option"
       ],
       "ingredients": [
         {
@@ -2166,6 +2174,10 @@
         {
           "label": "Make it a swap for Stephen",
           "note": "This is finfish, so it's already Stephen-friendly — but if you ever build the coconut rice as a base for shrimp instead, keep a couple of snapper or mahi fillets going alongside so both of you are covered."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Use tamari or coconut aminos in place of the soy sauce in the jerk paste — everything else is naturally gluten-free."
         }
       ],
       "planSwaps": [
@@ -2211,7 +2223,7 @@
         "url": null
       },
       "created": "2026-09-15T00:00:00.000Z",
-      "updated": "2026-09-15T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Jerk is as much about the aromatics — allspice (Jamaicans call it pimento),\nthyme, and scallion — as it is about the heat. Cooking the rice in coconut milk\nis the cooling counterweight that makes the whole plate sing.",
@@ -2481,7 +2493,7 @@
     {
       "title": "Cedar Plank Brown Sugar Salmon Salad with Raspberry Vinaigrette",
       "slug": "cedar-plank-brown-sugar-salmon-salad",
-      "tagline": "Brown-sugar-and-ancho crusted salmon smoked on a cedar plank over mixed greens, orange, goat cheese, and almonds in raspberry vinaigrette.",
+      "tagline": "Brown-sugar-and-ancho salmon, plank-smoked, over greens, orange, goat cheese, and almonds with raspberry vinaigrette.",
       "pitch": "A love letter to the Brown Sugar Salmon Salad at Cafe Blue out in Bee Cave. Atlantic salmon gets a sweet-smoky crust of brown sugar and ancho chile, then roasts skin-side down on a soaked cedar plank until the sugars set into a burnished bark and the wood breathes gentle smoke up into the fish. It lands warm over a big cool tangle of mixed greens, shredded red cabbage and carrot, cucumber, and cherry tomatoes, finished with fresh orange segments, toasted almonds, and crumbled goat cheese. A bright raspberry vinaigrette ties the sweet crust to the tart-creamy toppings. *The cedar plank is the secret — it perfumes the salmon with campfire smoke while shielding it from direct flame, so the crust caramelizes without ever scorching.*",
       "serves": 2,
       "times": {
@@ -2665,7 +2677,7 @@
           "note": "less goat cheese"
         }
       ],
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen and Lauren's homage to a Cafe Blue favorite out on Lake Travis: the\nsweet-smoky ancho-and-brown-sugar salmon is the star, but the salad around it —\noranges, goat cheese, toasted almonds, and a raspberry vinaigrette — is what\nmakes it feel like a night out. The cedar plank does the heavy lifting on flavor.",
@@ -3033,7 +3045,7 @@
           "items": [
             "Whisk the drizzle ingredients together and set aside.",
             "Heat the oil in a large skillet until shimmering. Add the chicken, press it flat, and leave it alone 2 minutes to brown.",
-            "Break it into crumbles; add the ginger, garlic, and scallion whites and stir-fry 1 minute until fragrant.",
+            "Break it into crumbles and cook until no pink remains; add the ginger, garlic, and scallion whites and stir-fry 1 minute until fragrant.",
             "Add the celery and carrot and toss 2 minutes — they should stay bright and crunchy.",
             "Off the heat, stir in half the drizzle. Serve the filling in the cold lettuce cups, topped with scallion greens, sesame seeds, and the rest of the drizzle."
           ]
@@ -3063,7 +3075,7 @@
         "url": null
       },
       "created": "2026-07-05T00:00:00.000Z",
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "One tablespoon of low-sodium soy is the entire salt budget, and it shows up in\nthe plan table — this one lands friendly across nearly every column, including\nlow-carb.",
@@ -3811,7 +3823,7 @@
       "tags": [
         "batch",
         "date-night",
-        "gluten-free",
+        "gluten-free-option",
         "make-ahead"
       ],
       "ingredients": [
@@ -3891,6 +3903,10 @@
         {
           "label": "Pairs with",
           "note": "Lots of grilled, garlic-rubbed bread and a crisp white or rosé."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "The stew itself is gluten-free — just skip the grilled bread or use a gluten-free loaf."
         }
       ],
       "source": {
@@ -3932,7 +3948,7 @@
         }
       ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "San Francisco's great Italian-American fishermen's stew — built to use whatever came off\nthe boat. Here it's a choose-your-own pot: one broth, and everyone's bowl their own way.",
@@ -5173,7 +5189,7 @@
       "tags": [
         "make-ahead",
         "one-pan",
-        "gluten-free",
+        "gluten-free-option",
         "batch"
       ],
       "ingredients": [
@@ -5233,6 +5249,10 @@
         {
           "label": "Swap",
           "note": "Works just as well with drumsticks or a mix of bone-in chicken pieces."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Braise with tamari instead of soy sauce (same amount) for a fully gluten-free adobo."
         }
       ],
       "source": {
@@ -5262,7 +5282,7 @@
         }
       ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The unofficial national dish of the Philippines — and the rare braise that's genuinely\nhard to mess up. Soy, vinegar, garlic, bay: four things that turn into something far\ngreater than their sum.",
@@ -5308,7 +5328,7 @@
     {
       "title": "Flaked Salmon Panzanella Salad with Arugula, Heirloom Tomatoes & Crispy Skin",
       "slug": "crispy-salmon-panzanella",
-      "tagline": "Crispy salmon flaked through a bright Tuscan bread salad with peppery arugula, juicy tomatoes, and a crackle of shattered skin.",
+      "tagline": "Flaked crispy salmon tossed through Tuscan panzanella with arugula, tomatoes, and crackling skin.",
       "pitch": "This is panzanella that eats like a salad, not a fillet parked on tomatoes. You salt ripe heirlooms and let them weep, catch that rosy juice for the dressing, then toss it through olive-oil-toasted bread, cool cucumber, sharp red onion, and big handfuls of peppery garden arugula and basil. The salmon gets seared hard until the skin shatters, then it's flaked into craggy chunks and folded right into the bowl so every forkful has fish, greens, and juicy bread. *The move is the crispy skin — crumble it back over the top like savory bacon bits and lemon zest wakes the whole thing up.* Ten minutes to rest and the bread goes silky at the center, crunchy at the edges.",
       "serves": 2,
       "times": {
@@ -5501,7 +5521,7 @@
           "note": "renal-size 3-oz portions"
         }
       ],
-      "updated": "2026-08-08T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Panzanella earns its keep on exactly the kind of night when the tomatoes are too\ngood to cook and the bread is a day past its best. Here it grows up into a real\nsalad: peppery arugula, flakes of crispy salmon folded right through the juicy\nbread, and the shattered skin crumbled on top like savory bacon bits.",
@@ -7638,7 +7658,7 @@
             "Heat the grill to high and scrub the grate clean — a dirty grate is why fish sticks.",
             "Grill the pineapple planks 2–3 minutes a side until well charred; dice and toss with the jalapeño, onion, cilantro, lime, and the pinch of salt.",
             "Pat the fillets very dry; rub with the oil, cumin, salt, and pepper.",
-            "Oil the grate, lay the fish skin side down over direct heat, and leave it alone 3–4 minutes until the skin releases without a fight; flip for 1–2 minutes to finish.",
+            "Oil the grate, lay the fish skin side down over direct heat, and leave it alone 3–4 minutes until the skin releases without a fight; flip for 1–2 minutes to finish, until the flesh is opaque and just flakes.",
             "Plate skin side up and spoon the warm salsa over."
           ]
         }
@@ -7672,7 +7692,7 @@
         "url": null
       },
       "created": "2026-07-05T00:00:00.000Z",
-      "updated": "2026-07-19T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Lean fish in four-ounce portions, fruit doing the seasoning — this is the\ntemplate for eating toward the heart and kidney columns without giving up the\ngrill.",
@@ -8125,7 +8145,7 @@
       ],
       "tags": [
         "comfort",
-        "gluten-free",
+        "gluten-free-option",
         "batch"
       ],
       "ingredients": [
@@ -8225,6 +8245,10 @@
         {
           "label": "Make it a spread",
           "note": "A small bowl of the hot poaching broth with sliced scallion alongside is traditional."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Drizzle with tamari, or a dark soy labeled gluten-free — regular soy sauce is brewed with wheat."
         }
       ],
       "source": {
@@ -8242,7 +8266,7 @@
         }
       ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Deceptively simple and deeply technique-driven: the gentlest poach, the most fragrant rice,\nand three sauces that turn a plain plate into something you'll crave.",
@@ -8294,7 +8318,7 @@
       ],
       "cuisine": "American",
       "course": "main",
-      "heat": "none",
+      "heat": "mild",
       "equipment": [
         "cast iron"
       ],
@@ -8405,7 +8429,7 @@
         }
       ],
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Swordfish takes to a sear like a good steak, and a garden-herb compound butter\nspooned over the top in the last minute turns it into something restaurant-worthy.\nGarlicky roasted Brussels sprouts with lemon zest make it a complete, easy plate\nfor two.",
@@ -8611,7 +8635,7 @@
       ],
       "tags": [
         "weeknight",
-        "gluten-free",
+        "gluten-free-option",
         "spicy",
         "garden"
       ],
@@ -8688,6 +8712,10 @@
         {
           "label": "Swap",
           "note": "The glaze works on any firm fish — try it on cod or black cod."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Most gochujang and all regular soy sauce contain wheat; use a gochujang labeled gluten-free and tamari."
         }
       ],
       "source": {
@@ -8738,7 +8766,7 @@
           "note": "half the honey"
         }
       ],
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A fast, fiery weeknight salmon that leans on one great Korean pantry staple — and proves\nthe broiler is the most underused tool for a caramelized glaze.",
@@ -10059,7 +10087,7 @@
         "make-ahead",
         "one-pan",
         "batch",
-        "gluten-free"
+        "gluten-free-option"
       ],
       "ingredients": [
         {
@@ -10147,6 +10175,10 @@
         {
           "label": "Pairs with",
           "note": "Buttery couscous or warm flatbread and a chopped cucumber-tomato salad."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "The braise is gluten-free; serve it over rice, quinoa, or cauliflower rice instead of couscous."
         }
       ],
       "source": {
@@ -10188,7 +10220,7 @@
           "note": "five thighs"
         }
       ],
-      "updated": "2026-09-04T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The classic Moroccan pairing — salt-cured lemon and green olives against saffron and warm\nspice — does all the work here. Bone-in thighs stay juicy through the long braise and make\ntheir own rich sauce.",
@@ -10835,7 +10867,7 @@
       ],
       "tags": [
         "garden",
-        "gluten-free",
+        "gluten-free-option",
         "batch",
         "date-night"
       ],
@@ -10916,6 +10948,10 @@
         {
           "label": "Make it a grill night",
           "note": "Two-zone fire, skin-side up over indirect heat with the lid down, for real charcoal char."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Use tamari in the marinade instead of soy sauce and the bird is fully gluten-free."
         }
       ],
       "source": {
@@ -10957,7 +10993,7 @@
           "note": "the aminos carry the savor, so less added salt"
         }
       ],
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Lima's most famous dish: charcoal-blasted marinated chicken with a creamy, herby, gently\nfiery green sauce. The oven gets you most of the way there; the ají verde gets you all the\nway.",
@@ -13779,8 +13815,7 @@
         "The dry brine is what keeps sous-vide salmon from going mushy. It seasons the fish all the way through and firms the outer proteins so they don't push out white albumin. Use it for the pan-seared route too, because it also dries the skin for a better sear.",
         "Frozen tomatoes are great for romesco. Freezing ruptures the cells, so the skins slip off in warm water, but it also releases a lot of water. Drain them and roast them down until jammy, or the sauce turns thin and pale.",
         "Use lemon *zest* in the bag, not slices or juice. Over 45 minutes, sealed-in acid cures the surface and turns it chalky.",
-        "Don't sear the bath-cooked salmon, because a hard sear overcooks the outer layer and undoes the bath. If you want a crisp-skinned fillet, take the pan-seared route and cook it the whole way in the pan.",
-        "If something goes sideways: crackling still chewy? Give it 5 more minutes under the weight, since it needs longer, not hotter. Sprouts browning before the centers soften? Add a tablespoon of water and cover for 60 seconds, then uncover to dry the pan."
+        "Don't sear the bath-cooked salmon, because a hard sear overcooks the outer layer and undoes the bath. If you want a crisp-skinned fillet, take the pan-seared route and cook it the whole way in the pan."
       ],
       "extras": [
         {
@@ -13802,6 +13837,10 @@
         {
           "label": "Leftover romesco",
           "note": "Spoon it over eggs, grilled chicken or charred eggplant, or use it as a dip for crudités."
+        },
+        {
+          "label": "If something goes sideways",
+          "note": "Crackling still chewy? Give it 5 more minutes under the weight, since it needs longer, not hotter. Sprouts browning before the centers soften? Add a tablespoon of water and cover for 60 seconds, then uncover to dry the pan."
         }
       ],
       "source": {
@@ -15300,7 +15339,7 @@
       ],
       "tags": [
         "summer",
-        "gluten-free",
+        "gluten-free-option",
         "date-night",
         "garden",
         "spicy"
@@ -15383,6 +15422,10 @@
         {
           "label": "Make it a spread",
           "note": "Set out extra dressing as a \"jaew\" dipping sauce alongside the sliced beef."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Swap tamari for the soy sauce in the marinade; the dressing is already gluten-free."
         }
       ],
       "source": {
@@ -15390,7 +15433,7 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Nam tok means \"waterfall\" — for the juices that drip off the grilling beef. It's the\nlivelier, herb-packed cousin of a steak salad, and the toasted rice is what makes people\nask what's in it.",
@@ -15437,7 +15480,7 @@
         "vegan",
         "vegetarian",
         "garden",
-        "gluten-free"
+        "gluten-free-option"
       ],
       "ingredients": [
         {
@@ -15512,6 +15555,10 @@
         {
           "label": "Protein your way",
           "note": "Crispy tofu, poached chicken, or firm white fish all work in the same sauce (use fish sauce in place of soy if you're not keeping it vegan)."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Use tamari for the soy sauce and check the curry paste label — then it really is naturally gluten-free."
         }
       ],
       "source": {
@@ -15533,7 +15580,7 @@
         }
       ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "One coconut-curry base, endless variations. The crispy tofu is what makes the vegan version\nfeel like a treat — but the sauce is happy to carry chicken or fish just as well.",
@@ -16483,7 +16530,7 @@
       "tags": [
         "date-night",
         "quick",
-        "gluten-free",
+        "gluten-free-option",
         "stir-fry"
       ],
       "ingredients": [
@@ -16569,6 +16616,10 @@
         {
           "label": "Pairs with",
           "note": "A juicy red — Côtes du Rhône or a Loire Cabernet Franc — or an ice-cold lager to match the high-heat sear."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Use tamari for the soy sauce and a gluten-free oyster sauce (most contain wheat)."
         }
       ],
       "source": {
@@ -16635,7 +16686,7 @@
         }
       ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A Vietnamese steakhouse classic that comes together faster than the rice cooker:\nthe marinade does the flavor work, and the only real skill is heat management —\nget the pan hot enough that the beef sears instead of stews, and *shake* it like\nyou mean it.",

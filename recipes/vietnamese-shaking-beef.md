@@ -30,7 +30,7 @@ equipment:
 tags:
   - date-night
   - quick
-  - gluten-free
+  - gluten-free-option
   - stir-fry
 ingredients:
   - section: Beef & marinade
@@ -86,6 +86,8 @@ extras:
     note: Serve with a fried egg and rice for cơm bò lúc lắc, or pile into lettuce cups for a hand-held version.
   - label: Pairs with
     note: A juicy red — Côtes du Rhône or a Loire Cabernet Franc — or an ice-cold lager to match the high-heat sear.
+  - label: Gluten-free
+    note: "Use tamari for the soy sauce and a gluten-free oyster sauce (most contain wheat)."
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
@@ -111,7 +113,7 @@ planSwaps:
     with: "8 oz beef tenderloin (or top sirloin), cut into 1-inch cubes"
     note: "a leaner 8-oz portion of beef"
 created: 2026-06-20
-updated: 2026-07-06
+updated: 2026-11-27
 ---
 
 A Vietnamese steakhouse classic that comes together faster than the rice cooker:
