@@ -28,7 +28,7 @@ equipment:
   - Dutch oven
 tags:
   - vegetarian
-  - comfort-food
+  - comfort
   - make-ahead
   - budget
   - garden
@@ -100,7 +100,7 @@ planSwaps:
     replace: "½ lb dried red kidney beans, soaked overnight (or quick-soaked)"
     with: "6 oz dried red kidney beans, soaked overnight"
     note: "a smaller bean pot"
-updated: 2026-07-05
+updated: 2026-11-27
 ---
 
 Stephen's red beans skip the andouille and turkey entirely and lean on smoked

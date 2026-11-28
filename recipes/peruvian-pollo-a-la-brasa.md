@@ -26,7 +26,7 @@ equipment:
   - roasting rack
 tags:
   - garden
-  - gluten-free
+  - gluten-free-option
   - batch
   - date-night
 ingredients:
@@ -80,6 +80,8 @@ extras:
     note: Crispy potatoes or fries and a simple salad — the classic pollería plate.
   - label: Make it a grill night
     note: Two-zone fire, skin-side up over indirect heat with the lid down, for real charcoal char.
+  - label: Gluten-free
+    note: "Use tamari in the marinade instead of soy sauce and the bird is fully gluten-free."
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
@@ -101,7 +103,7 @@ planSwaps:
     replace: "1 tsp kosher salt"
     with: "¼ tsp kosher salt"
     note: "the aminos carry the savor, so less added salt"
-updated: 2026-07-06
+updated: 2026-11-27
 ---
 
 Lima's most famous dish: charcoal-blasted marinated chicken with a creamy, herby, gently

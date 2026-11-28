@@ -47,7 +47,7 @@ steps:
   - Heat the grill to high and scrub the grate clean — a dirty grate is why fish sticks.
   - Grill the pineapple planks 2–3 minutes a side until well charred; dice and toss with the jalapeño, onion, cilantro, lime, and the pinch of salt.
   - Pat the fillets very dry; rub with the oil, cumin, salt, and pepper.
-  - Oil the grate, lay the fish skin side down over direct heat, and leave it alone 3–4 minutes until the skin releases without a fight; flip for 1–2 minutes to finish.
+  - Oil the grate, lay the fish skin side down over direct heat, and leave it alone 3–4 minutes until the skin releases without a fight; flip for 1–2 minutes to finish, until the flesh is opaque and just flakes.
   - Plate skin side up and spoon the warm salsa over.
 tips:
   - If the fish resists the flip, it is not ready — give it 30 more seconds and it will let go.
@@ -79,7 +79,7 @@ source:
   name: Original — developed for Tonight's Menu
   url: null
 created: 2026-07-05
-updated: 2026-07-19
+updated: 2026-11-27
 ---
 
 Lean fish in four-ounce portions, fruit doing the seasoning — this is the

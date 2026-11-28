@@ -28,7 +28,7 @@ equipment:
 tags:
   - steakhouse
   - summer
-  - gluten-free
+  - gluten-free-option
   - date-night
   - garden
 ingredients:
@@ -90,6 +90,8 @@ extras:
     note: Toasted walnuts, pecans, or pepitas; sliced avocado for creaminess; or grilled corn for sweetness.
   - label: Pairs with
     note: A bold red — Zinfandel or Syrah. Serve the warm steak over the cool salad for the temperature contrast.
+  - label: Gluten-free
+    note: "Use tamari (or coconut aminos) for the teaspoon of soy sauce in the marinade and the whole dish is gluten-free."
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
@@ -107,7 +109,7 @@ planSwaps:
     replace: "¼ cup extra-virgin olive oil"
     with: "2 tbsp extra-virgin olive oil"
     note: "a leaner dressing"
-updated: 2026-07-05
+updated: 2026-11-27
 ---
 
 A house favorite that Stephen has dialed in over several rounds: the brown sugar in

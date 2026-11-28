@@ -1,7 +1,7 @@
 ---
 title: Cedar Plank Brown Sugar Salmon Salad with Raspberry Vinaigrette
 slug: cedar-plank-brown-sugar-salmon-salad
-tagline: Brown-sugar-and-ancho crusted salmon smoked on a cedar plank over mixed greens, orange, goat cheese, and almonds in raspberry vinaigrette.
+tagline: Brown-sugar-and-ancho salmon, plank-smoked, over greens, orange, goat cheese, and almonds with raspberry vinaigrette.
 pitch: >-
   A love letter to the Brown Sugar Salmon Salad at Cafe Blue out in Bee Cave.
   Atlantic salmon gets a sweet-smoky crust of brown sugar and ancho chile, then
@@ -34,6 +34,7 @@ tags:
   - gluten-free
   - date-night
   - garden
+photo: "two brown-sugar-crusted salmon fillets resting on the dressed salad of greens, orange segments, raspberries, goat cheese and sliced almonds on a wide plate; no cedar plank anywhere on the plate or table"
 ingredients:
   - section: Salmon & brown sugar-ancho crust
     items:
@@ -128,7 +129,7 @@ planSwaps:
     replace: "¼ cup crumbled goat cheese"
     with: "2 tbsp crumbled goat cheese"
     note: "less goat cheese"
-updated: 2026-07-06
+updated: 2026-11-27
 ---
 
 Stephen and Lauren's homage to a Cafe Blue favorite out on Lake Travis: the

@@ -1,7 +1,7 @@
 ---
 title: Flaked Salmon Panzanella Salad with Arugula, Heirloom Tomatoes & Crispy Skin
 slug: crispy-salmon-panzanella
-tagline: Crispy salmon flaked through a bright Tuscan bread salad with peppery arugula, juicy tomatoes, and a crackle of shattered skin.
+tagline: Flaked crispy salmon tossed through Tuscan panzanella with arugula, tomatoes, and crackling skin.
 pitch: >-
   This is panzanella that eats like a salad, not a fillet parked on tomatoes.
   You salt ripe heirlooms and let them weep, catch that rosy juice for the
@@ -120,7 +120,7 @@ planSwaps:
     replace: "2 salmon fillets (about 6 oz each), skin-on"
     with: "2 salmon fillets (about 3 oz each), skin-on"
     note: "renal-size 3-oz portions"
-updated: 2026-08-08
+updated: 2026-11-27
 ---
 
 Panzanella earns its keep on exactly the kind of night when the tomatoes are too

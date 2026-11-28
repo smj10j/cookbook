@@ -76,7 +76,7 @@ function buildPrompt(r) {
   const garnishLine = isDessert ? 'a light dusting of sugar or a simple sweet finish, and gorgeous color contrast.'
     : 'fresh herbs and garnishes, and gorgeous color contrast.';
   return [
-    `A mouth-watering, professionally food-styled photograph of "${r.title}", a ${r.cuisine} ${isDessert ? 'dessert' : r.course}.`,
+    `A mouth-watering, professionally food-styled photograph of "${r.title}", ${/^[aeiou]/i.test(r.cuisine || '') ? 'an' : 'a'} ${r.cuisine} ${isDessert ? 'dessert' : r.course}.`,
     r.tagline,
     firstItems ? `Featuring ${firstItems}.` : '',
     // Depict the dish AS COOKED AND SERVED: every component in the exact form the recipe

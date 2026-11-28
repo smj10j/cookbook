@@ -70,12 +70,23 @@ async function boot(url = 'https://example.com/') {
 }
 
 const foodRecipes = recipes.recipes.filter((r) => (r.kind || 'food') === 'food');
+// The Food home is grouped into shelves; '#food?all=1' is the flat "everything in one
+// list" view, for tests that need every recipe's card on screen.
+const FLAT = 'https://example.com/#food?all=1';
+// The list opens grouped by aisle; tests that inspect each dish's own lines switch to "By recipe".
+const byRecipe = ($) => $('#shop-mode [data-shopmode="recipe"]').click();
 const drinkRecipes = recipes.recipes.filter((r) => r.kind === 'drink');
 
-test('boots and renders one card per FOOD recipe (default tab)', async () => {
-  const { $$, app } = await boot();
-  assert.equal($$('.card').length, foodRecipes.length, 'one card per food recipe on the default tab');
+test('boots into Food shelves: every food recipe sits on exactly one shelf; show-all flattens', async () => {
+  const { $, $$, app } = await boot();
   assert.equal(app.state.all.length, recipes.count, 'state holds food + drinks');
+  assert.ok($('#menu').classList.contains('is-shelves'), 'the unfiltered Food home is shelves');
+  const counts = $$('.shelf .shelf-count').map((e) => +e.textContent);
+  assert.equal(counts.reduce((x, y) => x + y, 0), foodRecipes.length, 'shelf counts add up to every food recipe');
+  assert.ok($$('.fresh-card').length > 0, 'a Just added photo row leads the page');
+  $('#show-all').click();
+  assert.equal($$('.card').length, foodRecipes.length, 'one card per food recipe in the flat list');
+  assert.equal(app.state.showAll, true);
 });
 
 test('Drinks tab swaps the dataset, filters, and spec block', async () => {
@@ -144,7 +155,7 @@ test('selecting a card shows the shopbar and marks the card', async () => {
 });
 
 test('the "In cart" filter shows only selected recipes and prunes as you remove them', async () => {
-  const { $, $$, app } = await boot();
+  const { $, $$, app } = await boot(FLAT);
   // Hidden until something is in the cart.
   assert.equal($('#cart-filter').hidden, true, 'no cart toggle on an empty cart');
   // Select two specific recipes.
@@ -172,7 +183,7 @@ test('the "In cart" filter shows only selected recipes and prunes as you remove 
 });
 
 test('removing a cart item in the "In cart" view keeps the scroll position', async () => {
-  const { $, $$, app, setScrollY, getScrollCalls } = await boot();
+  const { $, $$, app, setScrollY, getScrollCalls } = await boot(FLAT);
   const slugs = foodRecipes.slice(0, 3).map((r) => r.slug);
   slugs.forEach((s) => $$('.card-select').find((b) => b.dataset.select === s).click());
   $('#cart-filter').click();
@@ -201,7 +212,7 @@ test('removing a cart item in the "In cart" view keeps the scroll position', asy
 });
 
 test('"In cart" toggle is per-section and clears with Clear filters', async () => {
-  const { $, $$, app } = await boot();
+  const { $, $$, app } = await boot(FLAT);
   $$('.card-select')[0].click();               // one food recipe in the cart
   $('#cart-filter').click();
   assert.equal(app.state.cartOnly, true);
@@ -217,15 +228,17 @@ test('"In cart" toggle is per-section and clears with Clear filters', async () =
   $('#clear-filters').click();
   assert.equal(app.state.cartOnly, false, 'Clear filters turns the cart view off');
   assert.equal($('#cart-filter').getAttribute('aria-pressed'), 'false');
-  assert.equal($$('.card').length, foodRecipes.length);
+  assert.ok($('#menu').classList.contains('is-shelves'), 'with nothing active, Food is back to its shelves');
 });
 
 test('REGRESSION: selecting EVERY visible card renders a non-empty list (no crash)', async () => {
-  const { $, $$, app } = await boot();
+  const { $, $$, app } = await boot(FLAT);
   $$('.card-select').forEach((b) => b.click());      // every FOOD card on the default tab
   assert.equal(app.state.selected.size, foodRecipes.length);
   $('#shopbar').click();                       // open the overlay
   assert.equal($('#shoplist').hidden, false);
+  assert.ok($$('.aisle').length > 3, 'the default view groups everything by aisle');
+  byRecipe($);
   const body = $('#shoplist-body').textContent;
   assert.ok(!/No recipes selected/.test(body), 'overlay must not be empty');
   assert.equal($$('.shop-recipe').length, foodRecipes.length, 'one block per selected recipe');
@@ -235,10 +248,11 @@ test('REGRESSION: selecting EVERY visible card renders a non-empty list (no cras
 });
 
 test('REGRESSION: Clear Selection truly clears (no stale items reappear)', async () => {
-  const { $, $$, app } = await boot();
+  const { $, $$, app } = await boot(FLAT);
   // select three, open, then clear
   $$('.card-select').slice(0, 3).forEach((b) => b.click());
   $('#shopbar').click();
+  byRecipe($);
   assert.ok($$('.shop-item').length > 0);
   $('#shop-clear').click();
   assert.equal(app.state.selected.size, 0, 'state cleared');
@@ -253,11 +267,12 @@ test('REGRESSION: Clear Selection truly clears (no stale items reappear)', async
 });
 
 test('staples default unchecked (core no flag, pantry flagged); produce checked', async () => {
-  const { $, $$ } = await boot();
+  const { $, $$ } = await boot(FLAT);
   // pick the blackened steak salad (known to contain salt/oil/paprika/balsamic + produce)
   const card = $$('.card-select').find((b) => b.dataset.select === 'blackened-steak-salad');
   card.click();
   $('#shopbar').click();
+  byRecipe($);
   const items = $$('.shop-item');
   const find = (txt) => items.find((el) => el.textContent.includes(txt));
   const salt = find('kosher salt');
@@ -273,21 +288,24 @@ test('staples default unchecked (core no flag, pantry flagged); produce checked'
   assert.ok(greens && greens.querySelector('input').checked, 'greens checked');
 });
 
-test('serves input rescales quantities', async () => {
-  const { $, $$ } = await boot();
+test('each dish has its own servings stepper that rescales its lines (and is remembered)', async () => {
+  const { $, $$, window } = await boot(FLAT);
   $$('.card-select').find((b) => b.dataset.select === 'blackened-steak-salad').click();
   $('#shopbar').click();
-  const steak = $$('.shop-item').find((el) => el.textContent.includes('sirloin'));
-  const base = steak.querySelector('.shop-qty').textContent;     // serves 2 -> "1 lb..."
-  assert.match(base, /^1 lb/);
-  const input = $('#shop-serves');
-  input.value = '4';
-  input.dispatchEvent(new (globalThis.window.Event)('input', { bubbles: true }));
-  assert.match(steak.querySelector('.shop-qty').textContent, /^2 lb/, 'doubled for 4 servings');
+  byRecipe($);
+  const qty = () => $$('.shop-item').find((el) => el.textContent.includes('sirloin')).querySelector('.shop-qty').textContent;
+  assert.match(qty(), /^1 lb/, 'defaults to the recipe\'s own 2 servings');
+  assert.equal($('.week-serves-n').textContent, '2');
+  $('.week-serves [data-serves="1"]').click();
+  $('.week-serves [data-serves="1"]').click();
+  assert.equal($('.week-serves-n').textContent, '4');
+  assert.match(qty(), /^2 lb/, 'doubled for 4 servings');
+  assert.match($('.shop-recipe-serves').textContent, /scaled from 2 to 4/);
+  assert.deepEqual(JSON.parse(window.localStorage.getItem('tm-servings')), { 'blackened-steak-salad': 4 });
 });
 
 test('copy: merges duplicates, excludes staples, formats as a dash list', async () => {
-  const { $, $$, getCopied } = await boot();
+  const { $, $$, getCopied } = await boot(FLAT);
   for (const slug of ['blackened-steak-salad', 'chicken-piccata']) {
     const b = $$('.card-select').find((x) => x.dataset.select === slug);
     if (b) b.click();
@@ -304,7 +322,7 @@ test('copy: merges duplicates, excludes staples, formats as a dash list', async 
 });
 
 test('copy: checklist format toggle produces "- [ ]" lines', async () => {
-  const { $, $$, getCopied } = await boot();
+  const { $, $$, getCopied } = await boot(FLAT);
   $$('.card-select')[0].click();
   $('#shopbar').click();
   $('#format-toggle .fmt-btn[data-format="checkbox"]').click();
@@ -320,7 +338,7 @@ test('iOS "Add to Reminders" controls stay hidden on a non-iOS UA (no clutter fo
 });
 
 test('Add to Reminders sends checked items to the Shortcut via shortcuts:// deep link', async () => {
-  const { $, $$, getNavigated } = await boot();
+  const { $, $$, getNavigated } = await boot(FLAT);
   $$('.card-select').find((b) => b.dataset.select === 'blackened-steak-salad').click();
   $('#shopbar').click();
   $('#ios-reminders').hidden = false;   // simulate iOS — visibility itself is covered by the UA test above
@@ -335,9 +353,10 @@ test('Add to Reminders sends checked items to the Shortcut via shortcuts:// deep
 });
 
 test('Add to Reminders flashes "Nothing checked" instead of navigating when nothing is checked', async () => {
-  const { $, $$, getNavigated } = await boot();
+  const { $, $$, getNavigated } = await boot(FLAT);
   $$('.card-select').find((b) => b.dataset.select === 'blackened-steak-salad').click();
   $('#shopbar').click();
+  byRecipe($);
   $$('.shop-item input[type=checkbox]').forEach((cb) => { if (cb.checked) cb.click(); });
   $('#ios-reminders').hidden = false;
   $('#shop-reminders').click();
@@ -346,7 +365,7 @@ test('Add to Reminders flashes "Nothing checked" instead of navigating when noth
 });
 
 test('Share… falls back to clipboard copy when the Web Share API is unavailable', async () => {
-  const { $, $$, getCopied } = await boot();
+  const { $, $$, getCopied } = await boot(FLAT);
   $$('.card-select').find((b) => b.dataset.select === 'blackened-steak-salad').click();
   $('#shopbar').click();
   $('#ios-reminders').hidden = false;
@@ -402,7 +421,7 @@ test('REGRESSION: flip animates a throwaway leaf, never the live scroll layer', 
 });
 
 test('in-recipe "Add to list" button toggles selection and syncs the grid card', async () => {
-  const { $, $$, app } = await boot();
+  const { $, $$, app } = await boot(FLAT);
   const card = $$('.card').find((c) => c.dataset.slug === 'blackened-steak-salad') || $$('.card')[0];
   const slug = card.dataset.slug;
   card.click();
@@ -507,7 +526,7 @@ test('plan filters AND together across two selected plans', async () => {
 });
 
 test('the 1C variant toggle swaps ingredients, nutrition, and verdicts in place', async () => {
-  const { $, $$ } = await boot('https://example.com/#/broiled-fish-citrus-herbs');
+  const { $, $$, window } = await boot('https://example.com/#/broiled-fish-citrus-herbs');
   const toggle = $('#spread .variant-toggle');
   assert.ok(toggle, 'a variant toggle renders for a recipe with planSwaps');
   const chips = $$('#spread .vchip');
@@ -529,7 +548,8 @@ test('the 1C variant toggle swaps ingredients, nutrition, and verdicts in place'
 
   // The choice persists across leaving and reopening the recipe.
   $('#reader-close').click();
-  $$('.card').find((c) => c.dataset.slug === 'broiled-fish-citrus-herbs').click();
+  window.location.hash = '#/broiled-fish-citrus-herbs';
+  window.dispatchEvent(new window.Event('hashchange'));
   assert.equal($$('#spread .vchip')[1].getAttribute('aria-pressed'), 'true', 'variant persisted');
 
   $$('#spread .vchip')[0].click();                   // back to as-written
@@ -566,6 +586,7 @@ test('the shopping list shops for the active variant', async () => {
   $('#reader-close').click();
   $('#shopbar').click();
   assert.ok($('#shoplist .shop-variant'), 'the overlay marks the variant');
+  byRecipe($);
   const rows = $$('#shoplist .shop-qty').map((e) => e.textContent);
   assert.ok(rows.some((t) => /¾ cup orange juice/.test(t)), 'the swapped line is what gets shopped');
   assert.ok(!rows.some((t) => /1½ cups orange juice/.test(t)), 'the as-written line is replaced');
@@ -663,4 +684,336 @@ test('search autocomplete: Escape closes the dropdown without opening a recipe',
   input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
   assert.equal($('#search-suggest').hidden, true, 'Escape hides the list');
   assert.equal($('#reader').hidden, true, 'and does not open a recipe');
+});
+
+// ── Round 1 presentation: menu list, sort, URL state, filter sheet, pills, chrome ──
+const byNewest = (list) => [...list].sort((a, b) => String(b.created || '').localeCompare(String(a.created || '')) || a.title.localeCompare(b.title));
+
+test('the menu opens as a printed list, newest first; the layout toggle switches to photos and persists', async () => {
+  const { $, $$, window } = await boot(FLAT);
+  assert.ok($('#menu').classList.contains('is-list'), 'list view by default');
+  assert.deepEqual($$('.card').slice(0, 5).map((c) => c.dataset.slug), byNewest(foodRecipes).slice(0, 5).map((r) => r.slug));
+  assert.ok($$('.card .leader').length > 0, 'menu rows carry dotted leaders');
+  $$('#view-toggle .view-btn').find((b) => b.dataset.view === 'grid').click();
+  assert.ok($('#menu').classList.contains('is-grid') && !$('#menu').classList.contains('is-list'));
+  assert.equal(window.localStorage.getItem('tm-view'), 'grid');
+});
+
+test('every card and the open recipe carry their lane colour class', async () => {
+  const { $, $$ } = await boot(FLAT);
+  assert.ok($$('.card-wrap').every((w) => /\blane-(fish|chicken|beef|veg|sides|dessert)\b/.test(w.className)));
+  $$('.card').find((c) => c.dataset.slug === 'blackened-steak-salad').click();
+  assert.ok($('#spread').classList.contains('lane-beef'), 'the spread picks up the beef lane');
+});
+
+test('sort: Quickest reorders by total time and the reader pages in that order', async () => {
+  const { $, $$, window } = await boot(FLAT);
+  const sel = $('#sort');
+  sel.value = 'quickest';
+  sel.dispatchEvent(new window.Event('change', { bubbles: true }));
+  const totals = $$('.card').map((c) => foodRecipes.find((r) => r.slug === c.dataset.slug).times.total);
+  assert.deepEqual(totals, [...totals].sort((a, b) => a - b), 'cards ascend by total time');
+  assert.equal(window.location.hash, '#food?all=1&sort=quickest', 'a non-default sort is in the URL');
+  $$('.card')[0].click();
+  $('#reader-next').click();
+  assert.equal(window.location.hash, `#/${$$('.card')[1].dataset.slug}`, 'next follows the sorted menu');
+});
+
+test('filters live in the URL: chips write it, closing a recipe restores it, booting reads it', async () => {
+  const { $, $$, window } = await boot();
+  $$('.chip').find((c) => c.dataset.key === 'protein' && c.dataset.val === 'beef').click();
+  assert.equal(window.location.hash, '#food?protein=beef');
+  $$('.card')[0].click();
+  assert.match(window.location.hash, /^#\//);
+  $('#reader-close').click();
+  assert.equal(window.location.hash, '#food?protein=beef', 'closing returns to the filtered menu');
+
+  const b = await boot('https://example.com/#food?protein=beef&sort=az');
+  assert.ok(b.app.state.filters.protein.has('beef'));
+  assert.equal(b.app.state.sort, 'az');
+  assert.equal(b.$('#sort').value, 'az');
+  assert.ok(b.$$('.card').length > 0 && b.app.state.filtered.every((r) => r.protein === 'beef'));
+  assert.equal(b.$$('.chip').find((c) => c.dataset.key === 'protein' && c.dataset.val === 'beef').getAttribute('aria-pressed'), 'true');
+  const titles = b.app.state.filtered.map((r) => r.title);
+  assert.deepEqual(titles, [...titles].sort((x, y) => x.localeCompare(y)), 'A–Z order from the URL');
+});
+
+test('a shared link with a strict plan filter and a search restores both', async () => {
+  const { app, $ } = await boot('https://example.com/#food?plan=kidney!&q=salmon');
+  assert.equal(app.state.filters.plan.get('kidney'), 'great');
+  assert.equal(app.state.q, 'salmon');
+  assert.equal($('#search').value, 'salmon');
+  assert.ok(app.state.filtered.every((r) => app.state.planVerdicts.get(r.slug).kidney === 'optimal'));
+});
+
+test('active filters show as removable pills and a Filters badge', async () => {
+  const { $, $$, app } = await boot();
+  assert.equal($('#filters-count').hidden, true, 'no badge with nothing active');
+  $$('.chip').find((c) => c.dataset.key === 'protein' && c.dataset.val === 'chicken').click();
+  $$('.chip').find((c) => c.dataset.key === 'time' && c.dataset.val === 'under-30').click();
+  assert.equal($('#filters-count').hidden, false);
+  assert.equal($('#filters-count').textContent, '2');
+  const pills = $$('#active-filters .pill');
+  assert.deepEqual(pills.map((p) => p.dataset.val), ['chicken', 'under-30']);
+  assert.match(pills[1].textContent, /Under 30 min/, 'pills use human labels');
+  pills[0].click();
+  assert.equal(app.state.filters.protein.size, 0, 'tapping a pill removes that filter');
+  assert.equal($$('.chip').find((c) => c.dataset.val === 'chicken').getAttribute('aria-pressed'), 'false', 'and un-presses its chip');
+  assert.equal($$('#active-filters .pill').length, 1);
+});
+
+test('the filter sheet opens from the toolbar, shows a live count, and closes on Done / scrim / Escape', async () => {
+  const { $, $$, window } = await boot();
+  const toggle = $('#filters-toggle');
+  assert.equal($('#filter-panel').hidden, true, 'closed by default');
+  toggle.click();
+  assert.equal($('#filter-panel').hidden, false);
+  assert.equal(toggle.getAttribute('aria-expanded'), 'true');
+  $$('.chip').find((c) => c.dataset.key === 'protein' && c.dataset.val === 'beef').click();
+  const beef = foodRecipes.filter((r) => r.protein === 'beef').length;
+  assert.equal($('#filters-done').textContent, `Show ${beef} recipes`);
+  $('#filters-done').click();
+  assert.equal($('#filter-panel').hidden, true);
+  toggle.click();
+  $('#filter-scrim').click();
+  assert.equal($('#filter-panel').hidden, true, 'scrim closes it');
+  toggle.click();
+  window.document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  assert.equal($('#filter-panel').hidden, true, 'Escape closes it');
+});
+
+test('Occasion chips filter food by tag; one-off cuisines wait behind "More"', async () => {
+  const { $, $$, app } = await boot();
+  const occ = $$('.chip').find((c) => c.dataset.key === 'tags' && c.dataset.val === 'weeknight');
+  assert.ok(occ, 'a Weeknight occasion chip exists');
+  occ.click();
+  assert.ok(app.state.filtered.length > 0 && app.state.filtered.every((r) => r.tags.includes('weeknight')));
+  const more = $('.chip-more');
+  assert.ok(more, 'singleton cuisines are folded behind More');
+  const before = $$('.chip').filter((c) => c.dataset.key === 'cuisine').length;
+  more.click();
+  assert.ok($$('.chip').filter((c) => c.dataset.key === 'cuisine').length > before, 'More reveals the rest');
+  assert.equal($('.chip-more'), null);
+});
+
+test('first visit shows "How this works"; dismissing it sticks, the ⓘ brings it back', async () => {
+  const { $, window } = await boot();
+  assert.equal($('#intro').hidden, false, 'shown on a first visit');
+  $('#intro-dismiss').click();
+  assert.equal($('#intro').hidden, true);
+  assert.equal(window.localStorage.getItem('tm-intro-seen'), '1');
+  $('#intro-toggle').click();
+  assert.equal($('#intro').hidden, false, 'ⓘ reopens it');
+});
+
+test('the theme toggle flips to paper and back, and remembers the choice', async () => {
+  const { $, window } = await boot();
+  const root = window.document.documentElement;
+  assert.equal(root.dataset.theme, undefined, 'dark by default');
+  $('#theme-toggle').click();
+  assert.equal(root.dataset.theme, 'paper');
+  assert.equal(window.localStorage.getItem('tm-theme'), 'paper');
+  $('#theme-toggle').click();
+  assert.equal(root.dataset.theme, undefined);
+  assert.equal(window.localStorage.getItem('tm-theme'), 'dark');
+});
+
+
+// ── Round 2: shelves ──
+test('a shelf "See all" applies its filter (and URL); clearing returns to the shelves', async () => {
+  const { $, $$, app, window } = await boot();
+  $$('.shelf-all').find((b) => b.dataset.shelf === 'beef').click();
+  const beefMains = foodRecipes.filter((r) => r.protein === 'beef' && r.category === 'main');
+  assert.equal($$('.card').length, beefMains.length, 'every beef main, as a flat list');
+  assert.ok(!$('#menu').classList.contains('is-shelves'));
+  assert.equal(window.location.hash, '#food?category=main&protein=beef');
+  $('#clear-filters').click();
+  assert.ok($('#menu').classList.contains('is-shelves'));
+  assert.equal(app.state.filters.protein.size, 0);
+});
+
+test('the reader pages through the shelves in on-screen order; Just added cards open recipes', async () => {
+  const { $, $$, app, window } = await boot();
+  const order = app.state.displayList.map((r) => r.slug);
+  const fish = $$('.shelf.lane-fish .card').map((c) => c.dataset.slug);
+  assert.deepEqual(order.slice(0, fish.length), fish, 'shelf order leads the reader list');
+  $$('.shelf.lane-fish .card')[0].click();
+  $('#reader-next').click();
+  assert.equal(window.location.hash, `#/${order[1]}`);
+  $('#reader-close').click();
+  const fresh = $$('.fresh-card')[0];
+  fresh.click();
+  assert.equal($('#reader').hidden, false);
+  assert.equal(window.location.hash, `#/${fresh.dataset.slug}`);
+});
+
+test('"All in one list" shows as a pill and returns to the shelves; Drinks never shelve', async () => {
+  const { $, $$ } = await boot(FLAT);
+  const pill = $$('#active-filters .pill').find((p) => p.dataset.key === 'all');
+  assert.ok(pill, 'the flat view is announced as a removable pill');
+  pill.click();
+  assert.ok($('#menu').classList.contains('is-shelves'));
+  $$('#tabs .tab').find((t) => t.dataset.kind === 'drink').click();
+  assert.ok(!$('#menu').classList.contains('is-shelves'), 'drinks stay one flat list');
+  assert.equal($$('.card').length, drinkRecipes.length);
+});
+
+
+// ── Round 3: the recipe as a cooking tool ──
+test('the reader has jump tabs, and its controls sit in a bar under the page (not over the text)', async () => {
+  const { $, $$ } = await boot('https://example.com/#/blackened-steak-salad');
+  const tabs = $$('#spread .spread-tab');
+  assert.deepEqual(tabs.map((t) => t.textContent), ['About', 'Ingredients', 'Method', 'Nutrition']);
+  assert.equal(tabs[0].getAttribute('aria-current'), 'true');
+  tabs[2].click();
+  assert.equal($$('#spread .spread-tab')[2].getAttribute('aria-current'), 'true', 'the tapped tab becomes current');
+  for (const id of ['#reader-prev', '#reader-next', '#reader-share', '#cook-open']) {
+    assert.ok($(id).closest('.reader-bar'), `${id} lives in the reader bar`);
+  }
+});
+
+test('variant chips read in words and explain what changes', async () => {
+  const { $, $$ } = await boot('https://example.com/#/blackened-steak-salad');
+  const chips = $$('#spread .vchip').filter((c) => c.dataset.variant);
+  assert.ok(chips.every((c) => !/\p{Extended_Pictographic}/u.test(c.textContent)), 'no emoji-only chips');
+  assert.ok(chips.some((c) => /Low Sugar/.test(c.textContent)));
+  assert.equal($('#spread .variant-note'), null, 'no note while As written');
+  chips.find((c) => /Low Sugar/.test(c.textContent)).click();
+  assert.match($('#spread .variant-note').textContent, /^What changes: .*honey/);
+});
+
+test('Cook mode: big-type checklist that ticks ingredients and walks the steps', async () => {
+  const { $, $$, window } = await boot('https://example.com/#/blackened-steak-salad');
+  let wakeRequested = 0;
+  const lock = { release() {}, addEventListener() {} };
+  try { Object.defineProperty(globalThis.navigator, 'wakeLock', { value: { request: async () => { wakeRequested++; return lock; } }, configurable: true }); } catch {}
+  $('#cook-open').click();
+  assert.equal($('#cook').hidden, false);
+  assert.match($('#cook-title').textContent, /Blackened Steak Salad/);
+  assert.ok($('#cook').classList.contains('lane-beef'));
+  assert.ok($('#cook').classList.contains('pane-ing'), 'a fresh recipe starts on the ingredients');
+  if (globalThis.navigator?.wakeLock) assert.equal(wakeRequested, 1, 'asks the screen to stay awake');
+  const items = $$('#cook .cook-item');
+  assert.ok(items.length > 10);
+  items[0].click();
+  assert.equal($$('#cook .cook-item')[0].getAttribute('aria-pressed'), 'true', 'tap ticks an ingredient');
+  $('#cook .cook-start').click();
+  assert.ok($('#cook').classList.contains('pane-steps'));
+  const firstCurrent = $('#cook .cook-step.is-current');
+  assert.equal(firstCurrent.dataset.s, '0', 'step 1 is highlighted first');
+  firstCurrent.click();
+  assert.equal($('#cook .cook-step.is-current').dataset.s, '1', 'ticking a step moves the highlight on');
+  assert.match($('#cook-progress').textContent, /^1\//);
+  // Escape leaves Cook mode but keeps the recipe open; ticks survive a reopen.
+  window.document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  assert.equal($('#cook').hidden, true);
+  assert.equal($('#reader').hidden, false, 'still on the recipe');
+  $('#cook-open').click();
+  assert.ok($('#cook').classList.contains('pane-steps'), 'resumes where you were');
+  assert.equal($('#cook .cook-step.is-current').dataset.s, '1');
+  $('#cook [data-reset]').click();
+  assert.equal($$('#cook .cook-step[aria-pressed="true"]').length, 0, 'reset clears the ticks');
+  try { delete globalThis.navigator.wakeLock; } catch {}
+});
+
+test('Cook mode cooks the active variant', async () => {
+  const { $, $$ } = await boot('https://example.com/#/broiled-fish-citrus-herbs');
+  $$('#spread .vchip')[1].click();
+  $('#cook-open').click();
+  assert.ok($$('#cook .cook-item.is-swapped').some((i) => /¾ cup orange juice/.test(i.textContent)));
+  assert.equal($('#cook-variant').hidden, false);
+});
+
+
+// ── Round 4: This week + aisle shopping ──
+test('This week lists the picked dishes; the aisle view merges shared items and ticks every source line', async () => {
+  const { $, $$ } = await boot(FLAT);
+  for (const slug of ['blackened-steak-salad', 'chicken-piccata']) $$('.card-select').find((b) => b.dataset.select === slug).click();
+  $('#shopbar').click();
+  assert.match($('#shopbar').textContent, /This week/);
+  assert.equal($$('#week-list .week-item').length, 2, 'one row per picked dish');
+  assert.equal($('#shop-mode [data-shopmode="aisle"]').getAttribute('aria-pressed'), 'true', 'aisle view by default');
+  const heads = $$('.aisle-h').map((h) => h.firstChild.textContent.trim());
+  assert.equal(heads[0], 'Produce', 'store order starts in produce');
+  const garlic = $$('.shop-line').find((l) => /garlic/i.test(l.textContent));
+  assert.ok(garlic, 'garlic appears once');
+  assert.match(garlic.textContent, /2 dishes/);
+  assert.equal($$('.shop-line').filter((l) => /garlic/i.test(l.textContent)).length, 1);
+  const cb = garlic.querySelector('input');
+  if (cb.checked) cb.click();                         // untick in the aisle view…
+  byRecipe($);                                        // …and both dishes' garlic lines follow
+  const garlicRows = $$('.shop-item').filter((el) => /garlic/i.test(el.textContent));
+  assert.ok(garlicRows.length >= 2);
+  assert.ok(garlicRows.every((el) => !el.querySelector('input').checked));
+});
+
+test('copying from This week lists items in store order', async () => {
+  const { $, $$, getCopied } = await boot(FLAT);
+  for (const slug of ['blackened-steak-salad', 'classic-daiquiri']) {
+    const b = $$('.card-select').find((x) => x.dataset.select === slug);
+    if (b) b.click();
+  }
+  $$('#tabs .tab').find((t) => t.dataset.kind === 'drink').click();
+  $$('.card-select').find((x) => x.dataset.select === 'classic-daiquiri').click();
+  $('#shopbar').click();
+  $('#shop-copy').click();
+  await Promise.resolve();
+  const lines = getCopied().split('\n');
+  const idx = (re) => lines.findIndex((l) => re.test(l));
+  assert.ok(idx(/greens|tomato/i) >= 0 && idx(/sirloin/i) > idx(/greens|tomato/i), 'produce before meat');
+  assert.ok(idx(/rum/i) > idx(/sirloin/i), 'the bar comes last');
+});
+
+test('the week list removes a dish, opens a dish, and remembers the grouping choice', async () => {
+  const { $, $$, app, window } = await boot(FLAT);
+  const slugs = foodRecipes.slice(0, 2).map((r) => r.slug);
+  slugs.forEach((s) => $$('.card-select').find((b) => b.dataset.select === s).click());
+  $('#shopbar').click();
+  byRecipe($);
+  assert.equal(window.localStorage.getItem('tm-shopmode'), 'recipe');
+  $(`.week-remove[data-remove="${slugs[0]}"]`).click();
+  assert.ok(!app.state.selected.has(slugs[0]), 'removed from the week');
+  assert.equal($$('#week-list .week-item').length, 1);
+  assert.equal($$('.shop-recipe').length, 1);
+  $(`.week-open[data-open="${slugs[1]}"]`).click();
+  assert.equal($('#shoplist').hidden, true, 'the list closes…');
+  assert.equal(window.location.hash, `#/${slugs[1]}`, '…and the dish opens');
+  $('#reader-cart').click();
+  $(`.week-remove[data-remove="${slugs[1]}"]`).click();
+  assert.equal($('#shoplist').hidden, true, 'removing the last dish closes the panel');
+  assert.equal(app.state.selected.size, 0);
+});
+
+test('the list explains itself behind ⓘ instead of a wall of text', async () => {
+  const { $, $$ } = await boot(FLAT);
+  $$('.card-select')[0].click();
+  $('#shopbar').click();
+  assert.equal($('#shop-note').hidden, true);
+  $('#shop-help').click();
+  assert.equal($('#shop-note').hidden, false);
+  assert.equal($('#shop-help').getAttribute('aria-expanded'), 'true');
+});
+
+// ── Content guard: the redesign must never drop authored content ──
+test('every recipe and drink renders all of its authored content in the reader', async () => {
+  const { $, $$, window } = await boot();
+  const lines = (secs) => (secs || []).reduce((n, s) => n + (s.items ? s.items.length : 1), 0);
+  const reEsc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  for (const r of recipes.recipes) {
+    window.location.hash = `#/${r.slug}`;
+    window.dispatchEvent(new window.Event('hashchange'));
+    const where = r.slug;
+    assert.equal($('#spread .spread-title').textContent, r.title, `${where}: title`);
+    assert.equal($('#spread .spread-tagline').textContent, r.tagline, `${where}: tagline`);
+    assert.ok($('#spread .spread-pitch').textContent.length > r.pitch.length * 0.8, `${where}: pitch`);
+    if (/\*[^*]+\*/.test(r.pitch)) assert.ok($('#spread .spread-pitch em'), `${where}: the italic money line`);
+    assert.equal($$('#spread .ing-list li').length, lines(r.ingredients), `${where}: every ingredient line`);
+    assert.equal($$('#spread .step-list li').length, lines(r.steps), `${where}: every step`);
+    assert.equal($$('#spread .tips-list li').length, (r.tips || []).length, `${where}: every tip`);
+    assert.equal($$('#spread .extras dt').length, (r.extras || []).length, `${where}: every extra`);
+    if (r.headnote) assert.ok($('#spread .spread-headnote'), `${where}: headnote`);
+    if (r.source?.name) assert.match($('#spread .spread-source').textContent, new RegExp(reEsc(r.source.name)), `${where}: source credit`);
+    if (r.photo) assert.ok(!$('#spread').textContent.includes(r.photo), `${where}: the photo: hint stays off the page`);
+    assert.ok(!/undefined|NaN|\[object Object\]/.test($('#spread').textContent), `${where}: no template junk`);
+  }
 });

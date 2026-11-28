@@ -44,14 +44,14 @@ export function recipeStubHtml(recipe, { site, ogImage }) {
 <meta name="twitter:description" content="${d}">
 <meta name="twitter:image" content="${img}">
 <style>
-  :root{color-scheme:light}
+  :root{color-scheme:dark}
   body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-    background:${PALETTE.cream};color:${PALETTE.ink};font-family:-apple-system,system-ui,sans-serif;padding:24px}
+    background:${PALETTE.bg};color:${PALETTE.ink};font-family:-apple-system,system-ui,sans-serif;padding:24px}
   .card{max-width:520px;text-align:center}
   .card img{width:100%;border-radius:6px;box-shadow:0 24px 60px -30px rgba(0,0,0,.5);display:block}
   h1{font-family:Georgia,serif;font-weight:500;font-size:26px;margin:22px 0 8px;line-height:1.15}
-  p{color:${PALETTE.stone};margin:0 0 18px}
-  a{display:inline-block;background:${PALETTE.ink};color:${PALETTE.cream};text-decoration:none;
+  p{color:${PALETTE.muted};margin:0 0 18px}
+  a{display:inline-block;background:${PALETTE.ink};color:${PALETTE.bg};text-decoration:none;
     padding:11px 20px;border-radius:100px;font-size:15px}
 </style>
 <script>

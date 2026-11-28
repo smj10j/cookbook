@@ -27,7 +27,7 @@ equipment:
   - instant-read thermometer
 tags:
   - summer
-  - gluten-free
+  - gluten-free-option
   - date-night
   - garden
   - spicy
@@ -83,11 +83,13 @@ extras:
     note: Warm sticky rice or jasmine rice to temper the heat and soak up the dressing.
   - label: Make it a spread
     note: Set out extra dressing as a "jaew" dipping sauce alongside the sliced beef.
+  - label: Gluten-free
+    note: "Swap tamari for the soy sauce in the marinade; the dressing is already gluten-free."
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-06-20
-updated: 2026-06-20
+updated: 2026-11-27
 ---
 
 Nam tok means "waterfall" — for the juices that drip off the grilling beef. It's the

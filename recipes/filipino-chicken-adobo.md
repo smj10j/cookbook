@@ -26,7 +26,7 @@ equipment:
 tags:
   - make-ahead
   - one-pan
-  - gluten-free
+  - gluten-free-option
   - batch
 ingredients:
   - section: Braise
@@ -65,6 +65,8 @@ extras:
     note: Steamed jasmine rice is non-negotiable for soaking up the salty-sour glaze.
   - label: Swap
     note: Works just as well with drumsticks or a mix of bone-in chicken pieces.
+  - label: Gluten-free
+    note: "Braise with tamari instead of soy sauce (same amount) for a fully gluten-free adobo."
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
@@ -78,7 +80,7 @@ planSwaps:
     with: "5 bone-in skin-on chicken thighs (about 1.6 lb)"
     note: "a smaller renal portion"
 created: 2026-06-20
-updated: 2026-07-06
+updated: 2026-11-27
 ---
 
 The unofficial national dish of the Philippines — and the rare braise that's genuinely

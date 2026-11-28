@@ -377,7 +377,6 @@
       "citrusy",
       "coconut-curry",
       "comfort",
-      "comfort-food",
       "cookout",
       "copycat",
       "cozy",
@@ -693,7 +692,7 @@
       "tags": [
         "steakhouse",
         "summer",
-        "gluten-free",
+        "gluten-free-option",
         "date-night",
         "garden"
       ],
@@ -785,6 +784,10 @@
         {
           "label": "Pairs with",
           "note": "A bold red — Zinfandel or Syrah. Serve the warm steak over the cool salad for the temperature contrast."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Use tamari (or coconut aminos) for the teaspoon of soy sauce in the marinade and the whole dish is gluten-free."
         }
       ],
       "source": {
@@ -818,7 +821,7 @@
           "note": "a leaner dressing"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A house favorite that Stephen has dialed in over several rounds: the brown sugar in\nthe rub caramelizes against the cayenne for a sweet-hot crust, and blistering the\ntomatoes on the same grill turns this from a plain steak salad into something with\nreal restaurant contrast. The blue cheese is the upgrade from the original feta.",
@@ -1131,7 +1134,7 @@
           "items": [
             "Position the broiler pan as close to the heating element as possible and heat it for 5 minutes.",
             "Meanwhile, coat the fillets on both sides with about 1 tsp of the oil on a plate.",
-            "Carefully pull the hot pan out and set it on the stovetop. Arrange the fillets skin-side down and season with half the salt and pepper. Broil for 6 minutes.",
+            "Carefully pull the hot pan out and set it on the stovetop. Arrange the fillets skin-side down and season with half the salt and pepper. Broil for about 6 minutes, until the flesh is opaque and just flakes at its thickest point.",
             "In a bowl, combine the lemon slices, lemon juice, oregano, capers, olives, the remaining oil, and the remaining salt and pepper.",
             "Transfer the fish to a platter and spoon the citrus-olive-caper sauce over the top."
           ]
@@ -1167,7 +1170,7 @@
           "note": "two 4-oz fillets instead of 5-oz"
         }
       ],
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Liza Schoenfein's quick broiler method, scaled for two: preheat the pan blazing hot,\nbroil the fish six minutes, and finish with a raw sauce of lemon, oregano, capers, and\nKalamata. Bright, briny, and on the table in 25 minutes.",
@@ -1559,7 +1562,7 @@
         "thanksgiving",
         "make-ahead",
         "vegetarian",
-        "comfort-food"
+        "comfort"
       ],
       "ingredients": [
         {
@@ -1645,7 +1648,7 @@
           "note": "half the brown sugar in filling and topping"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "headnote": "The sweet potato side Lauren remembered from past holidays, dialed in for Stephen's\nturkey-free Thanksgiving: a smooth, vanilla-scented base under a brown-sugar pecan\nstreusel that bakes into a candied, crunchy crown.",
       "hero": "images/sweet-potato-casserole.webp",
@@ -1865,7 +1868,7 @@
       "tags": [
         "make-ahead",
         "comfort",
-        "gluten-free"
+        "gluten-free-option"
       ],
       "ingredients": [
         {
@@ -1956,6 +1959,10 @@
         {
           "label": "Lighter swap",
           "note": "Half-and-half stands in for the cream, or use coconut milk for a dairy-free version."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Serve it with the basmati rice rather than naan and the meal is gluten-free."
         }
       ],
       "source": {
@@ -2009,7 +2016,7 @@
           "note": "a smaller portion of chicken, more sauce"
         }
       ],
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Delhi's gift to the world: tandoori chicken reborn in a buttery tomato gravy. The two-step\nmethod — char, then simmer — is the whole secret to its depth.",
@@ -2084,7 +2091,7 @@
       "tags": [
         "spicy",
         "date-night",
-        "gluten-free"
+        "gluten-free-option"
       ],
       "ingredients": [
         {
@@ -2167,6 +2174,10 @@
         {
           "label": "Make it a swap for Stephen",
           "note": "This is finfish, so it's already Stephen-friendly — but if you ever build the coconut rice as a base for shrimp instead, keep a couple of snapper or mahi fillets going alongside so both of you are covered."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Use tamari or coconut aminos in place of the soy sauce in the jerk paste — everything else is naturally gluten-free."
         }
       ],
       "planSwaps": [
@@ -2212,7 +2223,7 @@
         "url": null
       },
       "created": "2026-09-15T00:00:00.000Z",
-      "updated": "2026-09-15T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Jerk is as much about the aromatics — allspice (Jamaicans call it pimento),\nthyme, and scallion — as it is about the heat. Cooking the rice in coconut milk\nis the cooling counterweight that makes the whole plate sing.",
@@ -2482,7 +2493,7 @@
     {
       "title": "Cedar Plank Brown Sugar Salmon Salad with Raspberry Vinaigrette",
       "slug": "cedar-plank-brown-sugar-salmon-salad",
-      "tagline": "Brown-sugar-and-ancho crusted salmon smoked on a cedar plank over mixed greens, orange, goat cheese, and almonds in raspberry vinaigrette.",
+      "tagline": "Brown-sugar-and-ancho salmon, plank-smoked, over greens, orange, goat cheese, and almonds with raspberry vinaigrette.",
       "pitch": "A love letter to the Brown Sugar Salmon Salad at Cafe Blue out in Bee Cave. Atlantic salmon gets a sweet-smoky crust of brown sugar and ancho chile, then roasts skin-side down on a soaked cedar plank until the sugars set into a burnished bark and the wood breathes gentle smoke up into the fish. It lands warm over a big cool tangle of mixed greens, shredded red cabbage and carrot, cucumber, and cherry tomatoes, finished with fresh orange segments, toasted almonds, and crumbled goat cheese. A bright raspberry vinaigrette ties the sweet crust to the tart-creamy toppings. *The cedar plank is the secret — it perfumes the salmon with campfire smoke while shielding it from direct flame, so the crust caramelizes without ever scorching.*",
       "serves": 2,
       "times": {
@@ -2666,7 +2677,7 @@
           "note": "less goat cheese"
         }
       ],
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Stephen and Lauren's homage to a Cafe Blue favorite out on Lake Travis: the\nsweet-smoky ancho-and-brown-sugar salmon is the star, but the salad around it —\noranges, goat cheese, toasted almonds, and a raspberry vinaigrette — is what\nmakes it feel like a night out. The cedar plank does the heavy lifting on flavor.",
@@ -3034,7 +3045,7 @@
           "items": [
             "Whisk the drizzle ingredients together and set aside.",
             "Heat the oil in a large skillet until shimmering. Add the chicken, press it flat, and leave it alone 2 minutes to brown.",
-            "Break it into crumbles; add the ginger, garlic, and scallion whites and stir-fry 1 minute until fragrant.",
+            "Break it into crumbles and cook until no pink remains; add the ginger, garlic, and scallion whites and stir-fry 1 minute until fragrant.",
             "Add the celery and carrot and toss 2 minutes — they should stay bright and crunchy.",
             "Off the heat, stir in half the drizzle. Serve the filling in the cold lettuce cups, topped with scallion greens, sesame seeds, and the rest of the drizzle."
           ]
@@ -3064,7 +3075,7 @@
         "url": null
       },
       "created": "2026-07-05T00:00:00.000Z",
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "One tablespoon of low-sodium soy is the entire salt budget, and it shows up in\nthe plan table — this one lands friendly across nearly every column, including\nlow-carb.",
@@ -3812,7 +3823,7 @@
       "tags": [
         "batch",
         "date-night",
-        "gluten-free",
+        "gluten-free-option",
         "make-ahead"
       ],
       "ingredients": [
@@ -3892,6 +3903,10 @@
         {
           "label": "Pairs with",
           "note": "Lots of grilled, garlic-rubbed bread and a crisp white or rosé."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "The stew itself is gluten-free — just skip the grilled bread or use a gluten-free loaf."
         }
       ],
       "source": {
@@ -3933,7 +3948,7 @@
         }
       ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "San Francisco's great Italian-American fishermen's stew — built to use whatever came off\nthe boat. Here it's a choose-your-own pot: one broth, and everyone's bowl their own way.",
@@ -5174,7 +5189,7 @@
       "tags": [
         "make-ahead",
         "one-pan",
-        "gluten-free",
+        "gluten-free-option",
         "batch"
       ],
       "ingredients": [
@@ -5234,6 +5249,10 @@
         {
           "label": "Swap",
           "note": "Works just as well with drumsticks or a mix of bone-in chicken pieces."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Braise with tamari instead of soy sauce (same amount) for a fully gluten-free adobo."
         }
       ],
       "source": {
@@ -5263,7 +5282,7 @@
         }
       ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The unofficial national dish of the Philippines — and the rare braise that's genuinely\nhard to mess up. Soy, vinegar, garlic, bay: four things that turn into something far\ngreater than their sum.",
@@ -5309,7 +5328,7 @@
     {
       "title": "Flaked Salmon Panzanella Salad with Arugula, Heirloom Tomatoes & Crispy Skin",
       "slug": "crispy-salmon-panzanella",
-      "tagline": "Crispy salmon flaked through a bright Tuscan bread salad with peppery arugula, juicy tomatoes, and a crackle of shattered skin.",
+      "tagline": "Flaked crispy salmon tossed through Tuscan panzanella with arugula, tomatoes, and crackling skin.",
       "pitch": "This is panzanella that eats like a salad, not a fillet parked on tomatoes. You salt ripe heirlooms and let them weep, catch that rosy juice for the dressing, then toss it through olive-oil-toasted bread, cool cucumber, sharp red onion, and big handfuls of peppery garden arugula and basil. The salmon gets seared hard until the skin shatters, then it's flaked into craggy chunks and folded right into the bowl so every forkful has fish, greens, and juicy bread. *The move is the crispy skin — crumble it back over the top like savory bacon bits and lemon zest wakes the whole thing up.* Ten minutes to rest and the bread goes silky at the center, crunchy at the edges.",
       "serves": 2,
       "times": {
@@ -5502,7 +5521,7 @@
           "note": "renal-size 3-oz portions"
         }
       ],
-      "updated": "2026-08-08T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Panzanella earns its keep on exactly the kind of night when the tomatoes are too\ngood to cook and the bread is a day past its best. Here it grows up into a real\nsalad: peppery arugula, flakes of crispy salmon folded right through the juicy\nbread, and the shattered skin crumbled on top like savory bacon bits.",
@@ -7639,7 +7658,7 @@
             "Heat the grill to high and scrub the grate clean — a dirty grate is why fish sticks.",
             "Grill the pineapple planks 2–3 minutes a side until well charred; dice and toss with the jalapeño, onion, cilantro, lime, and the pinch of salt.",
             "Pat the fillets very dry; rub with the oil, cumin, salt, and pepper.",
-            "Oil the grate, lay the fish skin side down over direct heat, and leave it alone 3–4 minutes until the skin releases without a fight; flip for 1–2 minutes to finish.",
+            "Oil the grate, lay the fish skin side down over direct heat, and leave it alone 3–4 minutes until the skin releases without a fight; flip for 1–2 minutes to finish, until the flesh is opaque and just flakes.",
             "Plate skin side up and spoon the warm salsa over."
           ]
         }
@@ -7673,7 +7692,7 @@
         "url": null
       },
       "created": "2026-07-05T00:00:00.000Z",
-      "updated": "2026-07-19T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Lean fish in four-ounce portions, fruit doing the seasoning — this is the\ntemplate for eating toward the heart and kidney columns without giving up the\ngrill.",
@@ -8126,7 +8145,7 @@
       ],
       "tags": [
         "comfort",
-        "gluten-free",
+        "gluten-free-option",
         "batch"
       ],
       "ingredients": [
@@ -8226,6 +8245,10 @@
         {
           "label": "Make it a spread",
           "note": "A small bowl of the hot poaching broth with sliced scallion alongside is traditional."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Drizzle with tamari, or a dark soy labeled gluten-free — regular soy sauce is brewed with wheat."
         }
       ],
       "source": {
@@ -8243,7 +8266,7 @@
         }
       ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Deceptively simple and deeply technique-driven: the gentlest poach, the most fragrant rice,\nand three sauces that turn a plain plate into something you'll crave.",
@@ -8295,7 +8318,7 @@
       ],
       "cuisine": "American",
       "course": "main",
-      "heat": "none",
+      "heat": "mild",
       "equipment": [
         "cast iron"
       ],
@@ -8406,7 +8429,7 @@
         }
       ],
       "created": "2026-06-19T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Swordfish takes to a sear like a good steak, and a garden-herb compound butter\nspooned over the top in the last minute turns it into something restaurant-worthy.\nGarlicky roasted Brussels sprouts with lemon zest make it a complete, easy plate\nfor two.",
@@ -8612,7 +8635,7 @@
       ],
       "tags": [
         "weeknight",
-        "gluten-free",
+        "gluten-free-option",
         "spicy",
         "garden"
       ],
@@ -8689,6 +8712,10 @@
         {
           "label": "Swap",
           "note": "The glaze works on any firm fish — try it on cod or black cod."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Most gochujang and all regular soy sauce contain wheat; use a gochujang labeled gluten-free and tamari."
         }
       ],
       "source": {
@@ -8739,7 +8766,7 @@
           "note": "half the honey"
         }
       ],
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A fast, fiery weeknight salmon that leans on one great Korean pantry staple — and proves\nthe broiler is the most underused tool for a caramelized glaze.",
@@ -10060,7 +10087,7 @@
         "make-ahead",
         "one-pan",
         "batch",
-        "gluten-free"
+        "gluten-free-option"
       ],
       "ingredients": [
         {
@@ -10148,6 +10175,10 @@
         {
           "label": "Pairs with",
           "note": "Buttery couscous or warm flatbread and a chopped cucumber-tomato salad."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "The braise is gluten-free; serve it over rice, quinoa, or cauliflower rice instead of couscous."
         }
       ],
       "source": {
@@ -10189,7 +10220,7 @@
           "note": "five thighs"
         }
       ],
-      "updated": "2026-09-04T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "The classic Moroccan pairing — salt-cured lemon and green olives against saffron and warm\nspice — does all the work here. Bone-in thighs stay juicy through the long braise and make\ntheir own rich sauce.",
@@ -10836,7 +10867,7 @@
       ],
       "tags": [
         "garden",
-        "gluten-free",
+        "gluten-free-option",
         "batch",
         "date-night"
       ],
@@ -10917,6 +10948,10 @@
         {
           "label": "Make it a grill night",
           "note": "Two-zone fire, skin-side up over indirect heat with the lid down, for real charcoal char."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Use tamari in the marinade instead of soy sauce and the bird is fully gluten-free."
         }
       ],
       "source": {
@@ -10958,7 +10993,7 @@
           "note": "the aminos carry the savor, so less added salt"
         }
       ],
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Lima's most famous dish: charcoal-blasted marinated chicken with a creamy, herby, gently\nfiery green sauce. The oven gets you most of the way there; the ají verde gets you all the\nway.",
@@ -13631,7 +13666,7 @@
       "title": "Sous-Vide Salmon with Smoky Romesco, Salmon-Skin Crackling & Blackened Brussels Sprouts",
       "slug": "sous-vide-salmon-romesco-blackened-brussels",
       "tagline": "Silky 122°F salmon over fire-blistered pepper romesco, with glassy crackling and charred sprouts.",
-      "pitch": "Peppers go straight onto a screaming grill until the skins are black and blistered all over, then get pounded with toasted almonds, oil-crisped sourdough and pimentón into a rustic, smoky romesco. The salmon is skinned and dry-brined, then slips into a 122°F bath until it's translucent coral and barely holding a flake. The skin goes into the oven pressed flat between two sheet pans, so it comes out as one glassy sheet you snap into shards. *Don't sear the bath-cooked fish: the crunch comes from the crackling standing in it.* Cast-iron Brussels sprouts, blackened cut-side down and finished with brown butter, serrano and lemon, give the plate its bitter char. Want a weeknight version? Pan-sear the fillets skin-on instead of using the bath.",
+      "pitch": "The salmon spends 45 minutes in a 122°F bath and comes out translucent coral, so tender it barely holds a flake. Underneath goes a rustic romesco of grill-blackened pepper, roasted garden tomatoes, toasted almonds, and pimentón; alongside, cast-iron Brussels sprouts charred nearly black and finished in brown butter with serrano and lemon. The fish's own skin gets pressed flat between sheet pans and roasted into one glassy sheet. *Don't sear the bath-cooked fish — the crunch comes from shards of that crackling standing in the fillet.*",
       "serves": 2,
       "times": {
         "prep": 40,
@@ -13666,38 +13701,31 @@
       ],
       "ingredients": [
         {
-          "section": "Salmon",
+          "section": "Salmon & crackling",
           "items": [
-            "2 salmon fillets (about 5½ oz each), skin-on, center-cut, 1–1¼ in thick",
-            "1 tsp kosher salt (dry brine)",
-            "½ tsp sugar (dry brine)",
-            "2 strips lemon zest (peeled, no white pith)",
+            "2 salmon fillets (about 5½ oz each), skin-on, center-cut",
+            "1 tsp kosher salt",
+            "½ tsp sugar",
+            "2 strips lemon zest",
             "2 sprigs garden thyme",
             "2 tbsp olive oil",
+            "½ tsp neutral oil",
             "Flaky salt, to finish"
           ]
         },
         {
-          "section": "Salmon-skin crackling (sous-vide path)",
-          "items": [
-            "Skin from both fillets",
-            "½ tsp neutral oil",
-            "Pinch of kosher salt"
-          ]
-        },
-        {
-          "section": "Romesco (about ½ cup — double it for leftovers)",
+          "section": "Smoky romesco",
           "items": [
             "1 red bell pepper",
-            "½ cup frozen garden cherry tomatoes",
-            "3 tbsp almonds (skin-on is fine)",
-            "½ oz sourdough bread (½ thick slice, crust on, torn)",
-            "1 clove garlic, peeled",
-            "1½ tsp sherry vinegar (or red wine vinegar)",
+            "½ cup garden cherry tomatoes (frozen is fine)",
+            "3 tbsp almonds",
+            "½ oz sourdough (about half a slice), torn",
+            "1 clove garlic",
+            "1½ tsp sherry vinegar",
             "½ tsp smoked paprika (pimentón)",
             "3 tbsp olive oil",
-            "2 tsp olive oil (for the bread and tomatoes)",
-            "¼ tsp kosher salt, plus more to taste",
+            "2 tsp olive oil",
+            "¼ tsp kosher salt",
             "A sliver of habanero (optional)"
           ]
         },
@@ -13705,104 +13733,71 @@
           "section": "Blackened Brussels sprouts",
           "items": [
             "12 oz Brussels sprouts",
-            "2 tbsp avocado oil (or grapeseed)",
+            "2 tbsp avocado oil",
             "1 tbsp butter",
             "1 clove garlic, thinly sliced",
-            "1 serrano, thinly sliced into rings",
+            "1 serrano, thinly sliced",
             "½ lemon",
-            "Pinch of kosher salt",
-            "Thyme leaves, to finish"
+            "Pinch of kosher salt"
           ]
         }
       ],
       "steps": [
         {
-          "section": "Setup (T–90)",
+          "section": "Prep",
           "items": [
-            "Heat the water bath to *122°F / 50°C* for translucent, silky, just-set salmon (125°F / 52°C if you like it a little firmer and more opaque). Heat the grill to high and the oven to 400°F. Taking the pan-seared route? Skip the bath and **leave the skin on** the fillets.",
-            "Skin the salmon (sous-vide path only). Lay the fillet skin-side down with the tail toward you, cut a small tab between flesh and skin, grip the skin with a paper towel, and push the knife away from you, blade angled slightly *down*, while you wiggle the skin side to side. Then scrape any grey fat off the inside of the skin with the back of the knife. That fat is what makes crackling chewy.",
-            "Mix the salt and sugar, sprinkle it evenly over the flesh side of the fillets, and refrigerate uncovered on a rack for 30–40 minutes.",
-            "Tip the frozen cherry tomatoes into a bowl of warm water for a minute or two. The skins split and slip right off. Pinch them off, then drain the tomatoes in a strainer so the extra water runs away."
+            "Heat the water bath to 122°F for silky, just-set salmon (125°F if you like it firmer). Heat the grill to high and the oven to 400°F.",
+            "Skin the fillets and scrape any gray fat off the inside of the skin with the back of the knife. Mix the salt and sugar, sprinkle it over the flesh, and refrigerate uncovered for 30 minutes.",
+            "If the tomatoes are frozen, dunk them in warm water until the skins slip off, then drain well."
           ]
         },
         {
-          "section": "Fire & oven (T–80 → T–60)",
+          "section": "Romesco & crackling",
           "items": [
-            "Set the pepper directly over the hottest part of the grill and turn it every 2–3 minutes until *fully blackened and blistered*, 10–12 minutes. (No grill? Use a gas burner or the broiler.) Move it to a bowl, cover tightly with a plate, and steam 10 minutes to loosen the skin.",
-            "Toss the drained tomatoes with 1 tsp of the olive oil and spread them on a small sheet pan. Roast at 400°F for 15–20 minutes, until they've collapsed, the juices have cooked down, and the edges are caramelized.",
-            "For the crackling, pat the skin very dry, rub it with the neutral oil and salt it lightly. Lay it scaly-side down on parchment on a sheet pan, cover with a second sheet of parchment, and press it under another sheet pan or a small skillet. Roast 15–20 minutes, checking at 12, until rigid and glassy. Cool it on a rack, where it keeps crisping.",
-            "Toss the torn sourdough with the remaining 1 tsp olive oil and roast it with the almonds on the tomato tray (or a separate one) for 6–8 minutes, checking at 5, until the almonds are golden inside (snap one to check) and the bread is crunchy."
+            "Grill the pepper over the hottest part of the fire, turning every few minutes, until blackened all over, 10–12 minutes. Cover it in a bowl to steam for 10 minutes, then peel and seed it — don't rinse away the smoke.",
+            "Toss the tomatoes with 1 tsp of the olive oil and roast until collapsed and jammy, 15–20 minutes. For the last 6–8 minutes, add the almonds and the bread tossed with the remaining 1 tsp oil.",
+            "Pat the salmon skin dry, rub it with the neutral oil and a pinch of salt, and press it flat between parchment under a second sheet pan. Roast 15–20 minutes, until rigid and glassy (give it 5 more minutes if it's still chewy), then cool on a rack.",
+            "Pulse the almonds, bread, and garlic to coarse sand. Add the pepper, tomatoes, paprika, vinegar, and salt, then stream in the 3 tbsp olive oil. Stop while it still looks like a coarse pesto and season to taste, adding the habanero if you want a slow burn."
           ]
         },
         {
-          "section": "Romesco (T–60)",
+          "section": "Salmon",
           "items": [
-            "Peel, stem and seed the pepper. **Don't rinse them**, because that washes away the smoke, and a few black flecks are good.",
-            "Pulse the almonds, bread and raw garlic in a mini food processor (a full-size bowl is too big for a half batch) until they look like coarse sand. Add the pepper, roasted tomatoes, smoked paprika, vinegar and salt, and pulse. With the machine running, drizzle in the 3 tbsp olive oil.",
-            "Stop while it still has texture, like a coarse pesto rather than a purée. Taste, then add salt, a splash of vinegar if it tastes heavy, or a sliver of habanero for a slow burn. Leave it at room temperature so the flavors come together."
+            "Rinse off the brine, pat the fillets dry, and bag each one with 1 tbsp olive oil, a strip of zest, and a thyme sprig. Seal gently — full suction crushes salmon.",
+            "Cook 40–45 minutes for a 1-inch fillet (50–55 for 1½ inches). It holds for another 20 minutes without changing, which is your buffer for the sprouts."
           ]
         },
         {
-          "section": "Salmon, sous-vide path (T–50 → T–0)",
+          "section": "Sprouts & plate",
           "items": [
-            "Rinse off the brine quickly and pat the fillets *thoroughly* dry. Bag each one with 1 tbsp olive oil, a strip of lemon zest and a thyme sprig.",
-            "Seal on a gentle or moist setting, stopping as soon as the bag hugs the fish, because full suction crushes salmon. A zip-top bag with the water-displacement method works too.",
-            "Cook in the bath for 40–45 minutes for a 1-inch fillet straight from the fridge, or 50–55 minutes for 1½ inches. You then have about a 20-minute window with no change in texture, which is your timing buffer."
-          ]
-        },
-        {
-          "section": "Salmon, pan-seared option (T–12 → T–0)",
-          "items": [
-            "Skip the bath, the bag and the crackling. After the dry brine, rinse the skin-on fillets quickly and pat them *bone dry*, especially the skin. Let them sit out about 10 minutes while the sprouts start.",
-            "Heat a second heavy skillet (stainless, carbon steel or another cast iron) over medium-high with 1 tbsp of the olive oil until it shimmers. Lay the fillets in skin-side down, *away from you*, and press each one flat with a fish spatula for the first 20 seconds so the skin doesn't buckle.",
-            "Leave them alone for 4–5 minutes, lowering the heat to medium if it spits hard, until the skin is crisp and the flesh is opaque about two-thirds of the way up the sides.",
-            "Flip, add the thyme sprigs and lemon zest strips to the pan, and baste for 30–60 seconds, just until the center reads 120–125°F. Move the fillets skin-side up to a rack so the skin stays crisp."
-          ]
-        },
-        {
-          "section": "Blackened sprouts (T–30 → T–5)",
-          "items": [
-            "Pull the sprouts off the stalk, trim the woody bases, and peel off tired outer leaves. **Save the loose healthy leaves.** Halve each sprout through the core, leaving tiny ones whole and quartering any bigger than a walnut. Dry them completely, then slice the garlic and serrano and pick the thyme leaves.",
-            "Preheat the cast iron over medium-high for a full 5 minutes. Add the avocado oil and lay the sprouts cut-side down in one layer, not touching. Salt them and leave them alone for 4–5 minutes, until the cut faces are deep mahogany to black at the edges. Toss and cook another 2–3 minutes, until a knife slides into a core with slight resistance.",
-            "Turn the heat to medium. Add the butter, garlic, serrano and reserved leaves, and toss 60–90 seconds, until the butter foams nutty brown and the leaves crisp like chips. Take the pan off the heat, squeeze in the lemon, and scatter in thyme leaves."
-          ]
-        },
-        {
-          "section": "Plate (T–0)",
-          "items": [
-            "On warm plates, put a big spoonful of romesco off-center and drag the back of the spoon through it in one confident swoosh.",
-            "Slide a fish spatula under each fillet (bath salmon is fragile, so blot its underside on a paper towel). Set it on the romesco, brush the top with a little olive oil, and add flaky salt. Pan-seared fillets go on skin-side up.",
-            "Pile the sprouts alongside with the crispy leaves on top. For the sous-vide path, stand 1–2 shards of crackling in each fillet at an angle. Finish with a drizzle of olive oil over the romesco and a few thyme leaves."
+            "Halve the sprouts through the core and save any loose leaves. Heat the cast iron over medium-high for 5 minutes, add the avocado oil, and lay the sprouts cut-side down. Salt them and leave them alone 4–5 minutes, until blackened at the edges, then toss and cook 2–3 minutes more.",
+            "Lower the heat to medium, add the butter, garlic, serrano, and loose leaves, and toss until the butter browns and the leaves crisp, about 1 minute. Squeeze in the lemon.",
+            "Swoosh the romesco across warm plates, lift the salmon on with a fish spatula, and finish it with flaky salt. Pile the sprouts alongside and stand a shard of crackling in each fillet."
           ]
         }
       ],
       "tips": [
-        "The dry brine is what keeps sous-vide salmon from going mushy. It seasons the fish all the way through and firms the outer proteins so they don't push out white albumin. Use it for the pan-seared route too, because it also dries the skin for a better sear.",
-        "Frozen tomatoes are great for romesco. Freezing ruptures the cells, so the skins slip off in warm water, but it also releases a lot of water. Drain them and roast them down until jammy, or the sauce turns thin and pale.",
-        "Use lemon *zest* in the bag, not slices or juice. Over 45 minutes, sealed-in acid cures the surface and turns it chalky.",
-        "Don't sear the bath-cooked salmon, because a hard sear overcooks the outer layer and undoes the bath. If you want a crisp-skinned fillet, take the pan-seared route and cook it the whole way in the pan.",
-        "If something goes sideways: crackling still chewy? Give it 5 more minutes under the weight, since it needs longer, not hotter. Sprouts browning before the centers soften? Add a tablespoon of water and cover for 60 seconds, then uncover to dry the pan."
+        "The dry brine is what keeps sous-vide salmon from going mushy — it seasons the fish through and firms the surface so no white albumin weeps out.",
+        "Use lemon *zest* in the bag, not juice; over 45 minutes, sealed-in acid cures the surface and turns it chalky.",
+        "Frozen garden tomatoes make great romesco because the skins slip right off — just roast them down until jammy, or the sauce turns thin and pale.",
+        "122°F doesn't pasteurize the fish, so treat it like sushi-grade salmon — buy the freshest you can and keep it in the bath under 2 hours."
       ],
       "extras": [
         {
           "label": "From the garden",
-          "note": "Frozen garden cherry tomatoes go into the romesco, garden thyme into the bag and over the sprouts, serrano into the butter, and a sliver of habanero into the romesco if you want a slow burn."
+          "note": "Garden cherry tomatoes in the romesco, thyme in the bag and over the sprouts, serrano in the brown butter, and a sliver of habanero if you like heat."
+        },
+        {
+          "label": "Weeknight version",
+          "note": "Skip the bath and the crackling. Dry-brine the fillets skin-on, sear them skin-side down in a hot skillet for 4–5 minutes, flip, baste with the thyme and zest, and pull them at 120–125°F."
         },
         {
           "label": "Make ahead",
-          "note": "Double the romesco (2 peppers, 1 cup tomatoes, ⅓ cup almonds, 1 oz bread, 2 garlic cloves, 1 tbsp vinegar, 1 tsp pimentón, ⅓ cup oil) for a full-size food processor and a jar of leftovers. It keeps 5 days in the fridge and is better on day two. If you make it hours ahead, roast the garlic with the bread, because raw garlic gets sharper as it sits in acid. The crackling keeps a day in an airtight tin."
-        },
-        {
-          "label": "Food safety",
-          "note": "122°F doesn't pasteurize the fish, so treat it like rare or sushi-style salmon. Buy the freshest you can and keep the total bath time under about 2 hours."
+          "note": "Double the romesco — it keeps 5 days and is better on day two (roast the garlic if you make it hours ahead), and leftovers are great over eggs or grilled chicken. The crackling keeps a day in an airtight tin."
         },
         {
           "label": "Gluten-free",
-          "note": "Swap the sourdough for an extra 2 tbsp of almonds. The sauce will be a little looser, so pulse in a few more almonds if it needs body."
-        },
-        {
-          "label": "Leftover romesco",
-          "note": "Spoon it over eggs, grilled chicken or charred eggplant, or use it as a dip for crudités."
+          "note": "Swap the sourdough for an extra 2 tbsp of almonds; pulse in a few more if the sauce needs body."
         }
       ],
       "source": {
@@ -13818,8 +13813,8 @@
             "heart",
             "diabetes"
           ],
-          "replace": "1 tsp kosher salt (dry brine)",
-          "with": "½ tsp kosher salt (dry brine)",
+          "replace": "1 tsp kosher salt",
+          "with": "½ tsp kosher salt",
           "note": "half the brine salt"
         },
         {
@@ -13856,8 +13851,8 @@
             "heart",
             "balance"
           ],
-          "replace": "2 salmon fillets (about 5½ oz each), skin-on, center-cut, 1–1¼ in thick",
-          "with": "2 salmon fillets (about 4 oz each), skin-on, center-cut, 1–1¼ in thick",
+          "replace": "2 salmon fillets (about 5½ oz each), skin-on, center-cut",
+          "with": "2 salmon fillets (about 4 oz each), skin-on, center-cut",
           "note": "4-oz fillets"
         },
         {
@@ -13869,8 +13864,8 @@
             "heart",
             "balance"
           ],
-          "replace": "2 tbsp avocado oil (or grapeseed)",
-          "with": "1 tbsp avocado oil (or grapeseed)",
+          "replace": "2 tbsp avocado oil",
+          "with": "1 tbsp avocado oil",
           "note": "half the searing oil"
         },
         {
@@ -13890,7 +13885,8 @@
       "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
-      "headnote": "Two ways to cook the salmon. Use the bath for the silkiest fish, with crackling for crunch.\nOn a weeknight, pan-sear the fillets skin-on, and the crisp skin does the same job in one pan.\nEither way, the smoky romesco made from garden tomatoes ties the plate together.",
+      "headnote": "Stephen's showpiece for a night with time to play: the bath does the salmon while the\nromesco, crackling, and sprouts come together around it. Short on time? The weeknight\nversion below gets you crisp-skinned salmon in one pan.",
+      "hero": "images/sous-vide-salmon-romesco-blackened-brussels.webp",
       "nutrition": {
         "perServing": {
           "kcal": 1067,
@@ -15300,7 +15296,7 @@
       ],
       "tags": [
         "summer",
-        "gluten-free",
+        "gluten-free-option",
         "date-night",
         "garden",
         "spicy"
@@ -15383,6 +15379,10 @@
         {
           "label": "Make it a spread",
           "note": "Set out extra dressing as a \"jaew\" dipping sauce alongside the sliced beef."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Swap tamari for the soy sauce in the marinade; the dressing is already gluten-free."
         }
       ],
       "source": {
@@ -15390,7 +15390,7 @@
         "url": null
       },
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-06-20T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "Nam tok means \"waterfall\" — for the juices that drip off the grilling beef. It's the\nlivelier, herb-packed cousin of a steak salad, and the toasted rice is what makes people\nask what's in it.",
@@ -15437,7 +15437,7 @@
         "vegan",
         "vegetarian",
         "garden",
-        "gluten-free"
+        "gluten-free-option"
       ],
       "ingredients": [
         {
@@ -15512,6 +15512,10 @@
         {
           "label": "Protein your way",
           "note": "Crispy tofu, poached chicken, or firm white fish all work in the same sauce (use fish sauce in place of soy if you're not keeping it vegan)."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Use tamari for the soy sauce and check the curry paste label — then it really is naturally gluten-free."
         }
       ],
       "source": {
@@ -15533,7 +15537,7 @@
         }
       ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "One coconut-curry base, endless variations. The crispy tofu is what makes the vegan version\nfeel like a treat — but the sauce is happy to carry chicken or fish just as well.",
@@ -16295,7 +16299,7 @@
       ],
       "tags": [
         "vegetarian",
-        "comfort-food",
+        "comfort",
         "make-ahead",
         "budget",
         "garden"
@@ -16406,7 +16410,7 @@
           "note": "a smaller bean pot"
         }
       ],
-      "updated": "2026-07-05T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "headnote": "Stephen's red beans skip the andouille and turkey entirely and lean on smoked\npaprika, a hard-browned trinity, and a long, low simmer for that signature Cajun\ndepth. Mashing some of the beans back into the pot gives you the creamy gravy with\nno cream — and an optional chicken-sausage version is right there if you want it.",
       "hero": "images/red-beans-and-rice.webp",
@@ -16483,7 +16487,7 @@
       "tags": [
         "date-night",
         "quick",
-        "gluten-free",
+        "gluten-free-option",
         "stir-fry"
       ],
       "ingredients": [
@@ -16569,6 +16573,10 @@
         {
           "label": "Pairs with",
           "note": "A juicy red — Côtes du Rhône or a Loire Cabernet Franc — or an ice-cold lager to match the high-heat sear."
+        },
+        {
+          "label": "Gluten-free",
+          "note": "Use tamari for the soy sauce and a gluten-free oyster sauce (most contain wheat)."
         }
       ],
       "source": {
@@ -16635,7 +16643,7 @@
         }
       ],
       "created": "2026-06-20T00:00:00.000Z",
-      "updated": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-11-27T00:00:00.000Z",
       "kind": "food",
       "category": "main",
       "headnote": "A Vietnamese steakhouse classic that comes together faster than the rice cooker:\nthe marinade does the flavor work, and the only real skill is heat management —\nget the pan hot enough that the beef sears instead of stews, and *shake* it like\nyou mean it.",

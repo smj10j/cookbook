@@ -29,7 +29,7 @@ tags:
   - make-ahead
   - one-pan
   - batch
-  - gluten-free
+  - gluten-free-option
 ingredients:
   - section: Chicken & spice rub
     items:
@@ -99,6 +99,8 @@ extras:
     note: A forgiving braise — halve it for a dinner for two, or double it in a bigger pot for a crowd.
   - label: Pairs with
     note: Buttery couscous or warm flatbread and a chopped cucumber-tomato salad.
+  - label: Gluten-free
+    note: "The braise is gluten-free; serve it over rice, quinoa, or cauliflower rice instead of couscous."
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
@@ -116,7 +118,7 @@ planSwaps:
     replace: "6 bone-in skin-on chicken thighs (about 2 lb)"
     with: "5 bone-in skin-on chicken thighs"
     note: "five thighs"
-updated: 2026-09-04
+updated: 2026-11-27
 ---
 
 The classic Moroccan pairing — salt-cured lemon and green olives against saffron and warm

@@ -26,7 +26,7 @@ equipment:
 tags:
   - batch
   - date-night
-  - gluten-free
+  - gluten-free-option
   - make-ahead
 ingredients:
   - section: The seafood (white fish is the constant — add any mix of the rest)
@@ -79,6 +79,8 @@ extras:
     note: Double the broth and pile in a true mix — clams, mussels, crab, calamari, and two kinds of fish — for a crowd.
   - label: Pairs with
     note: Lots of grilled, garlic-rubbed bread and a crisp white or rosé.
+  - label: Gluten-free
+    note: "The stew itself is gluten-free — just skip the grilled bread or use a gluten-free loaf."
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
@@ -100,7 +102,7 @@ planSwaps:
     with: "2 oz lump crab or calamari"
     note: "less crab"
 created: 2026-06-20
-updated: 2026-07-06
+updated: 2026-11-27
 ---
 
 San Francisco's great Italian-American fishermen's stew — built to use whatever came off

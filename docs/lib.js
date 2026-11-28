@@ -9,7 +9,13 @@ export const esc = (s) =>
 // Minimal inline markdown: *italic* / _italic_ -> <em>. Everything else escaped.
 export const inlineMd = (s) => esc(s).replace(/(\*|_)(?=\S)([^*_]+?)\1/g, '<em>$2</em>');
 export const cap = (s) => (s ? s[0].toUpperCase() + s.slice(1) : s);
-export const fmtMin = (m) => (m == null ? '—' : `${m} min`);
+// Minutes -> "35 min" / "1 hr" / "1 hr 15 min" (never "315 min").
+export const fmtMin = (m) => {
+  if (m == null) return '—';
+  if (m < 60) return `${m} min`;
+  const h = Math.floor(m / 60), r = m % 60;
+  return r ? `${h} hr ${r} min` : `${h} hr`;
+};
 export const VEG = new Set(['vegetarian', 'vegan']);
 
 // ── quantity parsing & scaling ───────────────────────────────────────────────
@@ -80,8 +86,10 @@ export function classify(text) {
     /\bwater\b/.test(t) ||
     /\bflour\b/.test(t) ||
     (/\bice\b/.test(t) && !/ice cream/.test(t)) ||      // ice is a given; ice cream you buy
-    /cooking spray|non-?stick spray/.test(t)
+    /cooking spray|non-?stick spray/.test(t) ||
+    /\bfrom (both|the|those|these)\b|\breserved\b/.test(t)    // comes from another ingredient — nothing to buy
   ) return 'core';
+  if (/\bgarden\b/.test(t)) return 'pantry';           // from their own garden — probably have it
   if (EXOTIC.test(t)) return 'buy';
   if (!fresh && /paprika|\bcumin\b|cayenne|chil[ie] (powder|flakes?)|chili flakes?|crushed red pepper|red pepper flakes?|cinnamon|nutmeg|allspice|cardamom|ground clove|\bcoriander\b|turmeric|garlic powder|onion powder|ground ginger|italian seasoning|old bay|curry powder|chili powder|chipotle|ancho|bay (leaf|leaves)|ground mustard|mustard powder|five spice|herbes de provence|dried (oregano|thyme|basil|rosemary|dill|parsley|sage|mint|tarragon|chives)/.test(t)) return 'pantry';
   if (/soy sauce|tamari|balsamic|red wine vinegar|white wine vinegar|rice (wine )?vinegar|apple cider vinegar|sherry vinegar|white vinegar|\bvinegar\b|\bhoney\b|maple syrup|dijon|whole-?grain mustard|yellow mustard|\bmustard\b|ketchup|mayonnaise|\bmayo\b|worcestershire|sriracha|hot sauce|sesame oil|vanilla extract|almond extract|baking soda|baking powder|cornstarch|corn ?starch|\bpanko\b|bread ?crumbs|tomato paste|\bbroth\b|\bstock\b|brown sugar|powdered sugar/.test(t)) return 'pantry';
@@ -95,11 +103,13 @@ export function classify(text) {
 // NB: slice/wedge/round/fillet are NOT here — they're preparations, handled below.
 const MEASURE = new Set(['cup', 'cups', 'tbsp', 'tablespoon', 'tablespoons', 'tsp', 'teaspoon', 'teaspoons', 'oz', 'ounce', 'ounces', 'lb', 'lbs', 'pound', 'pounds', 'g', 'gram', 'grams', 'kg', 'ml', 'l', 'liter', 'liters', 'clove', 'cloves', 'can', 'cans', 'jar', 'jars', 'bottle', 'bottles', 'pinch', 'pinches', 'dash', 'dashes', 'handful', 'handfuls', 'sprig', 'sprigs', 'stalk', 'stalks', 'bunch', 'bunches', 'head', 'heads', 'ear', 'ears', 'bulb', 'bulbs', 'piece', 'pieces', 'strip', 'strips', 'stick', 'sticks', 'leaf', 'leaves', 'package', 'packages', 'pkg', 'quart', 'quarts', 'pint', 'pints', 'splash', 'splashes', 'barspoon', 'barspoons', 'part', 'parts']);
 // Descriptors + preparations removed anywhere. "baby" is intentionally NOT here (kept distinct).
-const DESC = new Set(['small', 'medium', 'large', 'jumbo', 'mini', 'extra', 'fresh', 'dried', 'canned', 'ground', 'whole', 'ripe', 'raw', 'cooked', 'skinless', 'boneless', 'skin-on', 'skin', 'peeled', 'seeded', 'deseeded', 'deveined', 'drained', 'rinsed', 'packed', 'toasted', 'softened', 'melted', 'divided', 'plus', 'minced', 'chopped', 'finely', 'coarsely', 'roughly', 'diced', 'sliced', 'thinly', 'thickly', 'halved', 'quartered', 'crumbled', 'grated', 'shredded', 'julienned', 'cubed', 'freshly', 'trimmed', 'torn', 'smashed', 'pitted', 'husked', 'shucked', 'cut', 'into', 'bite', 'size', 'bite-size', 'florets', 'floret', 'fillet', 'fillets', 'filet', 'filets', 'very', 'to', 'taste', 'for', 'garnish', 'serving', 'of', 'a', 'an', 'the', 'and', 'about', 'approximately', 'each', 'more', 'as', 'needed']);
+const DESC = new Set(['garden', 'steamed', 'thin', 'thick', 'good', 'best-quality', 'high-quality', 'good-quality', 'heaping', 'inch', 'thumb', 'small', 'medium', 'large', 'jumbo', 'mini', 'extra', 'fresh', 'dried', 'canned', 'ground', 'whole', 'ripe', 'raw', 'cooked', 'skinless', 'boneless', 'skin-on', 'skin', 'peeled', 'seeded', 'deseeded', 'deveined', 'drained', 'rinsed', 'packed', 'toasted', 'softened', 'melted', 'divided', 'plus', 'minced', 'chopped', 'finely', 'coarsely', 'roughly', 'diced', 'sliced', 'thinly', 'thickly', 'halved', 'quartered', 'crumbled', 'grated', 'shredded', 'julienned', 'cubed', 'freshly', 'trimmed', 'torn', 'smashed', 'pitted', 'husked', 'shucked', 'cut', 'into', 'bite', 'size', 'bite-size', 'florets', 'floret', 'fillet', 'fillets', 'filet', 'filets', 'very', 'to', 'taste', 'for', 'garnish', 'serving', 'of', 'a', 'an', 'the', 'and', 'about', 'approximately', 'each', 'more', 'as', 'needed']);
 // Preparations that imply a derived form: removed from the name; recorded as `prep`.
-const DERIVED = new Set(['juice', 'zest', 'peel', 'rind', 'slice', 'slices', 'wedge', 'wedges', 'round', 'rounds']);
-const GENERIC_TAIL = new Set(['cheese']);                  // "feta cheese" -> feta
-const KEEP_PLURAL = new Set(['greens', 'beans', 'peas', 'oats', 'grits', 'sprouts', 'noodles', 'asparagus', 'couscous', 'hummus', 'molasses', 'chives']);
+const DERIVED = new Set(['juice', 'zest', 'peel', 'rind', 'slice', 'slices', 'wedge', 'wedges', 'round', 'rounds', 'wheel', 'wheels', 'twist', 'twists']);
+const GENERIC_TAIL = new Set(['cheese']);
+// Words that can't stand alone as the thing you buy ("crushed or whole tomatoes").
+const ALT_ADJ = new Set(['crushed', 'stewed', 'frozen', 'red', 'green', 'yellow', 'orange', 'white', 'black', 'sweet', 'hot', 'plain', 'regular', 'smoked', 'light', 'dark']);                  // "feta cheese" -> feta
+const KEEP_PLURAL = new Set(['greens', 'beans', 'peas', 'oats', 'grits', 'sprouts', 'noodles', 'asparagus', 'couscous', 'hummus', 'molasses', 'chives', 'baileys', 'bitters']);
 const HERBS = new Set(['thyme', 'rosemary', 'sage', 'dill', 'parsley', 'cilantro', 'mint', 'basil', 'tarragon', 'chive', 'oregano', 'marjoram']);
 const SPELL = { filet: 'fillet', filets: 'fillet', fillets: 'fillet', yoghurt: 'yogurt' };
 
@@ -133,16 +143,23 @@ function nameTokens(seg) {
 // Two ingredients merge iff their `key` matches. `prep`/`count` feed the yield rules.
 export function normalizeIngredient(rest) {
   const raw = String(rest);
-  let t = raw.toLowerCase().replace(/\([^)]*\)/g, ' ');
+  // Fold accents first (Kahlúa -> kahlua, Bénédictine -> benedictine) so names survive tokenizing.
+  let t = raw.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\([^)]*\)/g, ' ');
   const prep = detectPrep(t);
   t = t.replace(/\b(zest|juice|peel|rind)\s+of\s+/g, ' ').split(',')[0]; // drop the prep clause
   const numTok = t.match(new RegExp(`(\\d+\\s+\\d+/\\d+|\\d+/\\d+|\\d+(?:\\.\\d+)?|[${FRAC_CLASS}])`));
   const count = numTok ? parseNum(numTok[0]) : null;
+  t = t.replace(/\bfresh or frozen\b/g, ' ').replace(/\b(eggs?) plus [\d½]+ (yolk|white)s?\b/g, '$1').replace(/\beggs? (yolk|white)s?\b/g, 'egg');
   const alts = t.split(/\s+or\s+|\s*\/\s*/);          // "A or B" -> first option (+ borrow noun)
   let { unit, name } = nameTokens(alts[0]);
   if (alts.length > 1) {
     const last = nameTokens(alts[alts.length - 1]);
-    if (name.length && last.name.length > name.length) {
+    // "2 large or 4 medium tomatoes", "1 can crushed or whole tomatoes": A has no noun of its own.
+    if (!name.length) name = last.name;
+    else if (name.every((w) => ALT_ADJ.has(w)) && last.name.length) {
+      const head = last.name[last.name.length - 1];
+      if (!name.includes(head)) name = name.concat(head);
+    } else if (last.name.length > name.length) {
       const head = last.name[last.name.length - 1];
       if (!name.includes(head)) name = name.concat(head);
     }
@@ -166,7 +183,8 @@ function cleanOptional(line) {
   return String(line).replace(/^\s*optional\s*:?\s*/i, '').replace(/\s*\(optional\)/i, '').trim();
 }
 
-const fmtUnit = (q, unit) => (fmtQty(q) + (unit ? ' ' + unit : '')).trim();
+const UNIT_ALIAS = { lbs: 'lb', pound: 'lb', pounds: 'lb', ounce: 'oz', ounces: 'oz', grams: 'g', gram: 'g' };
+const fmtUnit = (q, unit) => (fmtQty(q) + (unit ? ' ' + (UNIT_ALIAS[unit] || unit) : '')).trim();
 
 // ── purchasable units ────────────────────────────────────────────────────────
 // A shopping list says what to put in the cart, not how to measure it. You can't
@@ -196,8 +214,14 @@ function genericLine(g) {
     const u = byUnit.get(uk);
     if (e.qty != null) { u.qty += e.qty; u.hasQty = true; }
   }
-  const parts = [...byUnit.values()].filter((u) => u.hasQty).map((u) => fmtUnit(u.qty, u.unit));
-  return parts.length ? `${parts.join(' + ')} ${g.display}`.trim() : g.display;
+  // Weight can be fractional (¾ lb); a can, bunch, bulb, or bare count is bought whole.
+  const parts = [...byUnit.values()].filter((u) => u.hasQty)
+    .map((u) => fmtUnit(unitKind(u.unit) === 'weight' ? u.qty : Math.max(1, Math.ceil(u.qty - 1e-9)), u.unit));
+  // A plain count of a countable thing reads plural: "2 chicken breasts".
+  const only = [...byUnit.values()].filter((u) => u.hasQty);
+  const display = only.length === 1 && unitKind(only[0].unit) === 'count' && Math.ceil(only[0].qty - 1e-9) > 1
+    ? pluralize(g.display) : g.display;
+  return parts.length ? `${parts.join(' + ')} ${display}`.trim() : g.display;
 }
 
 // Garlic: collect cloves and express as bulbs (~10 cloves/bulb) — what you actually buy.
@@ -208,7 +232,7 @@ function garlicRule(g) {
     if (u === 'bulb' || u === 'head') cloves += (e.qty ?? 1) * 10;
     else cloves += e.qty ?? 1;                       // cloves, or a bare count
   }
-  cloves = Math.round(cloves);
+  cloves = Math.max(1, Math.round(cloves));             // never "(≈0 cloves)" at small servings
   const bulbs = Math.max(1, Math.ceil(cloves / 10));
   return `${bulbs} bulb${bulbs !== 1 ? 's' : ''} garlic (≈${cloves} clove${cloves !== 1 ? 's' : ''})`;
 }
@@ -241,6 +265,18 @@ function herbRule(g) {
 function bittersRule() {
   return 'bitters';
 }
+const BOTTLE_RE = /\b(rum|vodka|gin|tequila|mezcal|whiske?y|bourbon|scotch|rye|brandy|cognac|vermouth|liqueur|amaro|aperol|campari|prosecco|champagne|cava|wine|cointreau|triple sec|curacao|chartreuse|sherry|port|kahl|irish cream|sake|chambord|amaretto|limoncello|maraschino|cachaca|pisco|kahlua|benedictine|falernum|grenadine|drambuie|frangelico|galliano|grand marnier|club soda|soda water|tonic|ginger beer|ginger ale)\b|creme de/;
+const OZ_PER = { oz: 1, ounce: 1, cup: 8, tbsp: 0.5, tablespoon: 0.5, tsp: 1 / 6, teaspoon: 1 / 6, ml: 1 / 29.57, l: 33.8, liter: 33.8, splash: 0.25, dash: 1 / 32, barspoon: 1 / 6, part: 1 };
+function bottleRule(g) {
+  let oz = 0;
+  for (const e of g.entries) {
+    const u = String(e.unit || '').replace(/s$/, '');
+    if (u === 'bottle') oz += (e.qty ?? 1) * 25.4;
+    else oz += (e.qty ?? 0) * (OZ_PER[u] ?? 0);
+  }
+  const n = Math.max(1, Math.ceil(oz / 25.4 - 1e-9));
+  return `${n} bottle${n === 1 ? '' : 's'} ${g.display}`;
+}
 
 // Scallions/green onions are sold by the bunch (~7 stalks), like garlic's cloves→bulb.
 function scallionRule(g) {
@@ -258,9 +294,14 @@ function scallionRule(g) {
 // the FIRST match wins, so put the specific forms (cherry tomato, canned tomato)
 // before the generic one (tomato). To fix a mis-shopped item, add/adjust a row here.
 const PURCHASE = [
+  [/\bbaby bok choy\b/, 'head'],
+  [/\b(heavy cream|whipping cream|half-and-half|buttermilk)\b|^(whole |2% |skim )?milk$/, 'carton'],
+  [/\b(coconut cream|cream coconut|cream of coconut)\b/, 'can'],
+  [/^(?!.*\b(pita|naan|lavash|flat|tortilla|corn|crumb)).*\b(sourdough|baguette|ciabatta|bread)\b/, 'loaf'],
+  [/\bgrapefruit\b/, ''],
   [/\b(cauliflower|broccoli(?!ni)|cabbage|lettuce|romaine|radicchio|iceberg|endive)\b/, 'head'],
   [/\b(cherry|grape)\b.*\btomato|\btomato\w*\b.*\b(cherry|grape)\b|\b(blueberr|raspberr|strawberr|blackberr)\w+/, 'pint'],
-  [/\b(olive|caper|artichoke|sun-?dried tomato|roasted red pepper|pepperoncini|pickle)\w*/, 'jar'],
+  [/\b(olive(?!s? oil)|caper|artichoke|sun-?dried tomato|roasted red pepper|pepperoncini|pickle)\w*/, 'jar'],
   [/\b(coconut milk|chickpea|garbanzo|(black|kidney|cannellini|white|pinto|refried) bean|lentil|tomato (paste|puree|sauce)|(crushed|diced|whole|stewed|canned) tomato|adobo|pumpkin pur)\w*/, 'can'],
   [/\b(cheese|feta|mozzarella|cheddar|parmesan|parmigiano|gruy|swiss cheese|goat cheese|cotija|queso|ricotta|mascarpone|monterey|provolone|gouda|brie|manchego|pecorino|halloumi|paneer|burrata)\b/, 'package'],
   [/\b(tortilla|pita|naan|wrap|phyllo|filo|puff pastry|wonton|dumpling wrapper|tofu|tempeh|pasta|spaghetti|linguine|fettuccine|penne|noodle|orzo|couscous|\brice\b|quinoa|farro|barley|almond|walnut|pecan|cashew|peanut|pistachio|pine nut|hazelnut|macadamia|(sesame|sunflower|pumpkin) seed|raisin|date|dried (apricot|cranberr|cherr|fig)|cranberr|shredded coconut)\w*/, 'package'],
@@ -272,12 +313,13 @@ const PURCHASE = [
 // Pluralize a container noun (bunch→bunches) or a count-noun phrase's last word
 // (red onion→red onions, cherry tomato→cherry tomatoes).
 function pluralNoun(n) {
+  if (n === 'loaf') return 'loaves';
   return /(s|sh|ch|x|z)$/.test(n) ? n + 'es' : n + 's';
 }
 function pluralize(phrase) {
   const parts = String(phrase).split(' ');
   const w = parts[parts.length - 1];
-  const irr = { tomato: 'tomatoes', potato: 'potatoes', leaf: 'leaves', loaf: 'loaves' };
+  const irr = { tomato: 'tomatoes', potato: 'potatoes', leaf: 'leaves', loaf: 'loaves', anise: 'anise', fish: 'fish' };
   parts[parts.length - 1] = irr[w]
     || (/(s|sh|ch|x|z)$/.test(w) ? w + 'es'
       : /[^aeiou]y$/.test(w) ? w.slice(0, -1) + 'ies'
@@ -288,6 +330,17 @@ function pluralize(phrase) {
 // Generic purchasable line for a profiled group: count whole units (bare counts +
 // real containers), while sub-measures (tsp/tbsp/cup…) are a fraction of one unit
 // and floor to a single item — you still have to buy one.
+// Small things sold many-to-a-container read plural ("1 jar capers"), unlike "1 head broccoli".
+const MANY_IN_CONTAINER = /^(olive|caper|tomato|seed|almond|walnut|pecan|cashew|peanut|pistachio|raisin|date|chickpea|bean|lentil|cranberry|blueberry|raspberry|strawberry|blackberry|berry|pepperoncini|pickle|artichoke|pepita|chip|noodle|tortilla)$/;
+const manyDisplay = (display) => {
+  const words = String(display).split(' ');
+  return MANY_IN_CONTAINER.test(words[words.length - 1]) ? pluralize(display) : display;
+};
+
+// Roughly how many pieces come in one package, for things recipes count by the piece.
+const PACK_SIZE = [[/tortilla/, 10], [/\b(pita|naan|flatbread|wrap)/, 6], [/wonton|dumpling wrapper|rice paper/, 40],
+  [/\bolive/, 30], [/\bcaper/, 100], [/\bdate/, 12]];
+
 function purchaseLine(noun) {
   return (g) => {
     let whole = 0, saw = false;
@@ -295,23 +348,47 @@ function purchaseLine(noun) {
       saw = true;
       const k = unitKind(e.unit);
       const u = String(e.unit || '').replace(/s$/, '');
-      if (k === 'count' || k === 'container' || u === noun) whole += e.qty ?? 1;
+      const perPack = noun && k === 'count' ? (PACK_SIZE.find(([re]) => re.test(g.display)) || [])[1] : null;
+      if (noun === 'piece' && (/\binch|\bthumb/.test(e.rest || '') || e.prep === 'slice')) whole += 1;   // "3-inch piece" / "6 slices" = 1 piece
+      else if (perPack) whole += (e.qty ?? 1) / perPack;    // 8 tortillas -> 1 package, not 8
+      else if (k === 'count' || k === 'container' || u === noun) whole += e.qty ?? 1;
       else if (noun === 'pint' && u === 'cup') whole += (e.qty ?? 0) / 2;   // ~2 cups per pint
       // else: a sub-measure — contributes nothing beyond the 1-unit floor below
     }
     let n = Math.ceil(whole - 1e-9);
     if (n < 1) n = saw ? 1 : 0;
     if (noun === '') return `${n} ${n === 1 ? g.display : pluralize(g.display)}`;
-    return `${n} ${n === 1 ? noun : pluralNoun(noun)} ${g.display}`;
+    return `${n} ${n === 1 ? noun : pluralNoun(noun)} ${manyDisplay(g.display)}`;
   };
 }
+
+// Fish (or chicken) bought as counted fillets at the counter.
+const FILLET_RE = /\bfill?ets?\b/i;
+const EACH_RE = /\(\s*(?:about\s+)?([\d½¼¾⅓⅔.]+(?:\s*[–-]\s*[\d½¼¾⅓⅔.]+)?\s*oz)\s+each\s*\)/i;
+function isFilletGroup(g) {
+  return g.entries.length > 0 && g.entries.every((e) => FILLET_RE.test(e.rest || '') && unitKind(e.unit) === 'count');
+}
+function filletLine(g) {
+  const n = Math.max(1, Math.ceil(g.entries.reduce((sum, e) => sum + (e.qty ?? 1), 0) - 1e-9));
+  // Only state a size when every merged line agrees on it.
+  const sizes = [...new Set(g.entries.map((e) => (String(e.rest).match(EACH_RE) || [])[1] || null))];
+  const size = sizes.length === 1 && sizes[0] ? ` (about ${sizes[0].replace(/\s*-\s*/, '–')} each)` : '';
+  // "filet mignon" is a cut, not a fillet of something: "2 filet mignon steaks".
+  if (g.entries.some((e) => /filet mignon/i.test(e.rest || ''))) return `${n} filet mignon steak${n === 1 ? '' : 's'}${size}`;
+  return `${n} ${g.display} fillet${n === 1 ? '' : 's'}${size}`;
+}
+
+const PANTRY_PRODUCT = /\b(vinegar|oil|powder|flour|salt|sauce|paste|extract|syrup|broth|stock|seasoning|spice|nectar|preserves?|jam|chips|water|juice concentrate)$/;
 
 function ruleFor(key, display) {
   if (key === 'garlic') return garlicRule;
   if (key === 'bitters') return bittersRule;
+  if (BOTTLE_RE.test(display) && !/vinegar|rice wine|cooking/.test(display)) return bottleRule;
+  if (/\bsyrup\b|caramel sauce|chocolate sauce|\bespresso\b|\bcoffee\b/.test(display)) return (g) => g.display;
   if (display === 'lemon' || display === 'lime') return citrusRule;
   if (HERBS.has(key)) return herbRule;
   if (/\b(scallion|green onion)\b/.test(display)) return scallionRule;
+  if (PANTRY_PRODUCT.test(display)) return null;          // generic: name (+ any weight/container)
   const hit = PURCHASE.find(([re]) => re.test(display));
   if (hit) return purchaseLine(hit[1]);
   return null;
@@ -328,14 +405,85 @@ export function buildShoppingList(entries) {
     const k = n.key || n.display;
     if (!groups.has(k)) groups.set(k, { display: n.display, entries: [] });
     const qty = e.qty != null ? e.qty : n.count;
-    groups.get(k).entries.push({ qty, unit: n.unit, prep: n.prep });
+    groups.get(k).entries.push({ qty, unit: n.unit, prep: n.prep, rest: e.rest });
   }
   const lines = [];
   for (const [k, g] of groups) {
+    if (isFilletGroup(g)) { lines.push(filletLine(g)); continue; }
+    // Dried herbs are a jar in the spice rack, not a fresh bunch.
+    if (HERBS.has(k) && g.entries.every((e) => /\bdried\b/i.test(e.rest || ''))) { lines.push(`dried ${g.display}`); continue; }
     const rule = ruleFor(k, g.display);
     lines.push(rule ? rule(g) : genericLine(g));
   }
   return { lines, optional: [...new Set(optional)] };
+}
+
+// ── aisles: group the merged list the way a store is laid out ────────────────
+// aisleFor() files a normalized ingredient name into one store section. First match
+// wins, so the specific forms sit above the generic ones (vinegar/fish sauce/coconut
+// milk are Pantry before "wine"/"fish"/"milk" can claim them; "bell pepper" is Produce
+// but "black pepper" is Spices). To fix a mis-filed item, add or reorder a row here.
+export const AISLES = ['Produce', 'Meat & Fish', 'Dairy & Eggs', 'Bakery', 'Pantry', 'Spices', 'Frozen', 'Bar', 'Other'];
+const AISLE_RULES = [
+  ['Frozen', /ice cream|^frozen\b|^(crushed |cracked |pebble )?ice$/],
+  ['Pantry', /\boils?\b|cream (of )?coconut|giardiniera|horseradish|curry paste|doubanjiang|\bmirin\b|caramel sauce|\bcoffee\b|vinegar|fish sauce|oyster sauce|soy sauce|tamari|coconut (milk|cream|aminos)|(peanut|almond|nut) butter|tomato (paste|sauce|puree|purée)|(canned|crushed|diced|whole peeled|fire-roasted|stewed) tomato|sun-?dried|chil[ie] (sauce|crisp|oil)|hot sauce|sriracha|gochujang|harissa|\bmiso\b|tahini|hoisin|worcestershire|chipotles? in adobo|\badobo\b|broth|stock|bouillon|ketchup|mayo|mustard(?! seed| powder| green)|honey|maple syrup|molasses|agave|allulose|jam|preserves?|pickled|cooking spray/],
+  ['Spices', /\b(kosher |sea |flaky |smoked )?salt\b|peppercorns?|(black|white|ground|cracked) pepper|^pepper$|paprika|\bcumin\b|cayenne|chil[ie] (powder|flakes?)|red pepper flakes?|crushed red pepper|cinnamon|nutmeg|allspice|cardamom|ground (clove|ginger|coriander|mustard|turmeric|cinnamon)|coriander seed|\bturmeric\b(?! root)|garlic powder|onion powder|italian seasoning|old bay|curry powder|garam masala|five[- ]spice|za'?atar|\bsumac\b|bay lea(f|ves)|saffron|seasoning|achiote|annatto|chipotle (chile )?powder|ancho (chile )?powder|(fennel|mustard|cumin|caraway|celery|coriander|nigella) seeds?|star anise|cream of tartar|herbes de provence|dried (oregano|thyme|basil|rosemary|dill|parsley|sage|mint|tarragon|chives|chile|chili|chiles)|mustard powder|vanilla|extract|baking (soda|powder)|\byeast\b|cornstarch|corn ?starch|gelatin|cloves?$|^bay$|fenugreek|gochugaru|aleppo|taj[ií]n|taj n|^coriander$/],
+  ['Bar', /\b(rum|vodka|gin|tequila|mezcal|whiske?y|bourbon|scotch|rye whiskey|brandy|cognac|armagnac|vermouth|liqueur|amaro|aperol|campari|prosecco|champagne|cava|sparkling wine|wine|beer|lager|bitters|cointreau|triple sec|curacao|curaçao|chartreuse|absinthe|sherry|port|cachaca|cachaça|pisco|kahlua|kahlúa|creme de|crème de|club soda|soda water|tonic|ginger beer|ginger ale|orgeat|grenadine|falernum|simple syrup|demerara syrup|cola|espresso|sake|irish cream|baileys?|kahl|chambord|b[eé]n[eé]dictine|dictine|drambuie|frangelico|amaretto|limoncello|st[- ]germain|maraschino)\b/],
+  ['Meat & Fish', /\b(chicken|beef|steak|sirloin|ribeye|rib-eye|strip|tenderloin|flank|skirt|brisket|chuck|short rib|sausage|chorizo|bacon|pancetta|prosciutto|pork|salmon|cod|halibut|snapper|tuna|trout|sea bass|branzino|bass|tilapia|mahi|swordfish|haddock|white fish|whitefish|fish|shrimp|prawn|scallop|clam|mussel|crab|lobster|squid|calamari|octopus|anchov)\w*/],
+  ['Dairy & Eggs', /\b(milk|cream|half-and-half|half and half|butter(?! lettuce)|cheese|feta|parmesan|parmigiano|pecorino|mozzarella|burrata|ricotta|mascarpone|yogurt|yoghurt|crema|cr[eè]me fra[iî]che|buttermilk|ghee|cotija|queso|paneer|halloumi|gruy[eè]re|cheddar|gouda|manchego|eggs?|egg yolks?|egg whites?)\b/],
+  ['Bakery', /\b(bread|baguette|buns?|rolls?|pitas?|naan|tortillas?(?! chips?)|lavash|ciabatta|brioche|sourdough|croissants?|wraps?|english muffins?|pizza dough|puff pastry|phyllo|filo|pie crust)\b/],
+  ['Produce', /\b(lettuce|romaine|greens|mesclun|arugula|spinach|kale|chard|collards?|bok choy|cabbage|watercress|endive|radicchio|frisee|frisée|onions?|shallots?|leeks?|scallions?|green onions?|garlic|ginger|lemongrass|galangal|turmeric root|(bell|banana|chile|chili|hot|sweet|shishito|padron|fresno|thai|red|green|yellow|orange) peppers?|spring mix|herbs?\b|jalape|serrano|habanero|poblano|anaheim|chiles?|chilis?|tomato|tomatillo|cucumber|zucchini|squash|eggplant|aubergine|carrot|celery|potato|yam|beet|radish|turnip|parsnip|broccoli|broccolini|cauliflower|asparagus|green beans?|haricots?|snap peas?|snow peas?|peas|corn|mushroom|avocado|lemon|lime|orange|grapefruit|apple|pear|banana|mango|pineapple|peach|nectarine|plum|apricot|cherr|berr|grapes?|figs?|pomegranate|melon|watermelon|kiwi|papaya|cilantro|parsley|basil|mint|dill|thyme|rosemary|sage|tarragon|chives?|oregano|marjoram|herbs|fennel|sprouts|brussels|okra|jicama|plantain|pumpkin|edamame|microgreens|bean sprouts|lemon ?grass)\w*/],
+  ['Pantry', /\b(pasta|spaghetti|linguine|fettuccine|penne|rigatoni|orzo|noodles?|udon|soba|ramen|couscous|rice|quinoa|farro|barley|bulgur|lentils?|beans?|chickpeas?|garbanzo|flour|sugar|syrup|oil|olives?|capers?|artichoke|roasted red peppers?|pickles?|almonds?|walnuts?|pecans?|cashews?|peanuts?|pistachios?|pine nuts?|\bnuts?\b|pepitas?|hazelnuts?|macadamia|seeds?|raisins?|dates?|dried|cranberr|coconut|panko|bread ?crumbs|chocolate|cocoa|oats|cornmeal|polenta|grits|tortilla chips?|chips|crackers|tofu|tempeh|nutritional yeast|salsa|stock|wonton|rice paper|cornflakes|graham|marshmallow|pumpkin pur)\w*/],
+];
+export function aisleFor(name) {
+  const t = String(name || '').toLowerCase().trim();
+  const hit = AISLE_RULES.find(([, re]) => re.test(t));
+  return hit ? hit[0] : 'Other';
+}
+
+// The merged list grouped by aisle, keeping track of which source rows each merged line
+// came from (so one checkbox can tick every recipe's line for it).
+//   rows: [{ id, qty (scaled), rest, optional, cat }]
+//   → { aisles: [{ aisle, items: [{ key, line, ids, cats, count }] }], optional: [{ line, ids }] }
+export function groupByAisle(rows) {
+  const groups = new Map();
+  const optional = [];
+  for (const r of rows) {
+    if (r.optional) { optional.push({ line: cleanOptional(r.rest), ids: [r.id] }); continue; }
+    const n = normalizeIngredient(r.rest);
+    const key = n.key || n.display;
+    if (!groups.has(key)) groups.set(key, { key, display: n.display, rows: [] });
+    groups.get(key).rows.push(r);
+  }
+  const by = new Map(AISLES.map((a) => [a, []]));
+  for (const g of groups.values()) {
+    const { lines } = buildShoppingList(g.rows.map((r) => ({ qty: r.qty, rest: r.rest })));
+    by.get(aisleFor(g.display)).push({
+      key: g.key, display: g.display, line: lines[0] || g.display,
+      ids: g.rows.map((r) => r.id), cats: g.rows.map((r) => r.cat), count: g.rows.length,
+    });
+  }
+  const aisles = AISLES
+    .map((aisle) => ({ aisle, items: by.get(aisle).sort((a, b) => a.display.localeCompare(b.display)) }))
+    .filter((a) => a.items.length);
+  return { aisles, optional };
+}
+
+// Same as buildShoppingList, but the lines come out in store order (aisle by aisle) —
+// what the copied / Reminders / shared list uses. Bullets stay flat (no aisle headers),
+// so the Reminders Shortcut still makes exactly one reminder per item.
+export function buildAisleList(entries) {
+  const by = new Map(AISLES.map((a) => [a, []]));
+  const opt = [];
+  for (const e of entries) {
+    if (isOptional(e.rest)) { opt.push(e); continue; }
+    by.get(aisleFor(normalizeIngredient(e.rest).display)).push(e);
+  }
+  const lines = AISLES.flatMap((a) => {
+    const { lines: ls } = buildShoppingList(by.get(a));
+    return ls.sort((x, y) => x.replace(/^[\d\s½⅓⅔¼¾⅛.\/–-]+/, '').localeCompare(y.replace(/^[\d\s½⅓⅔¼¾⅛.\/–-]+/, '')));
+  });
+  return { lines, optional: buildShoppingList(opt).optional };
 }
 
 // Format the shopping list for the clipboard.
@@ -833,9 +981,10 @@ export function applyVariantToSections(sections, variant) {
   }));
 }
 
-// Short human label for a variant chip: its plans' icons (details go in title).
+// Short human label for a variant chip: the plans it suits, in words ("Heart · Low Sugar").
+// What actually changes (the swap notes) goes in variantTitle / the reader's note line.
 export function variantLabel(v) {
-  return v.plans.map((p) => p.icon).join('');
+  return v.plans.map((p) => p.short).join(' · ');
 }
 export function variantTitle(v) {
   const who = v.plans.map((p) => p.short).join(' · ');
@@ -964,23 +1113,164 @@ export function nutritionPanelHtml(r, { variant = null } = {}) {
 // ── routing (hash <-> app route) ─────────────────────────────────────────────
 // Recipes are addressed as '#/<slug>'. The Food/Drinks tabs get their own hash
 // ('#food' / '#drinks') so a tab choice survives a refresh and is shareable.
-export function hashForKind(kind) {
-  return kind === 'drink' ? '#drinks' : '#food';
+export function hashForKind(kind, query = '') {
+  return (kind === 'drink' ? '#drinks' : '#food') + (query ? `?${query}` : '');
 }
 
 // Parse a location.hash into a route:
-//   { type: 'recipe', slug }          — '#/<slug>'
-//   { type: 'tab',    kind }          — '#food' | '#drinks'
-//   { type: 'home',   kind: 'food' }  — empty/unknown hash (the default section)
+//   { type: 'recipe', slug }            — '#/<slug>'
+//   { type: 'tab',    kind[, query] }   — '#food' | '#drinks', optionally '?protein=fish&sort=az'
+//   { type: 'home',   kind: 'food' }    — empty/unknown hash (the default section)
+// `query` (only present when non-empty) is the filter/sort/search state — see decodeRouteQuery.
 export function parseHash(hash) {
   const h = String(hash || '').replace(/^#/, '');
   if (h.startsWith('/')) {
-    const slug = decodeURIComponent(h.slice(1));
+    let slug;
+    try { slug = decodeURIComponent(h.slice(1)); } catch { slug = h.slice(1); }
     return slug ? { type: 'recipe', slug } : { type: 'home', kind: 'food' };
   }
-  if (h === 'drinks') return { type: 'tab', kind: 'drink' };
-  if (h === 'food') return { type: 'tab', kind: 'food' };
-  return { type: 'home', kind: 'food' };
+  const [base, query = ''] = h.split(/\?(.*)/s);
+  const kind = base === 'drinks' ? 'drink' : base === 'food' ? 'food' : null;
+  if (!kind) return { type: 'home', kind: 'food' };
+  return query ? { type: 'tab', kind, query } : { type: 'tab', kind };
+}
+
+// ── URL state: filters / search / sort live in the tab hash ──────────────────
+// '#food?protein=fish,beef&time=under-30&plan=kidney,heart!&q=salmon&sort=az' — so a
+// refresh, the Back button, or a shared link all land on the same filtered menu.
+// Values are comma-joined and individually percent-encoded; a plan in great-only
+// ("strict") mode carries a trailing '!'. The default sort (newest) is omitted.
+export const FILTER_KEYS = ['category', 'protein', 'course', 'methods', 'time', 'heat', 'cuisine', 'tags',
+  'base', 'family', 'strength', 'plan'];
+
+const safeDecode = (v) => { try { return decodeURIComponent(v); } catch { return null; } };
+
+export function encodeRouteQuery({ filters = {}, q = '', sort = 'newest', all = false } = {}) {
+  const parts = [];
+  // 'all=1' = the flat "everything in one list" view; only meaningful with nothing else active.
+  if (all && !q && !Object.values(filters).some((f) => f && f.size)) parts.push('all=1');
+  for (const key of FILTER_KEYS) {
+    const f = filters[key];
+    if (!f || !f.size) continue;
+    const vals = key === 'plan'
+      ? [...f].map(([id, mode]) => (mode === 'great' ? `${id}!` : id))
+      : [...f];
+    parts.push(`${key}=${vals.map((v) => encodeURIComponent(v)).join(',')}`);
+  }
+  if (q) parts.push(`q=${encodeURIComponent(q)}`);
+  if (sort && sort !== 'newest') parts.push(`sort=${encodeURIComponent(sort)}`);
+  return parts.join('&');
+}
+
+// Inverse of encodeRouteQuery. Unknown keys and undecodable values are dropped, never thrown.
+// Returns { filters: { key: [values] , plan: [[id, 'ok'|'great']] }, q, sort|null }.
+export function decodeRouteQuery(str) {
+  const out = { filters: {}, q: '', sort: null, all: false };
+  for (const part of String(str || '').split('&')) {
+    const i = part.indexOf('=');
+    if (i <= 0) continue;
+    const key = part.slice(0, i), raw = part.slice(i + 1);
+    if (key === 'q') { out.q = safeDecode(raw) || ''; continue; }
+    if (key === 'sort') { out.sort = safeDecode(raw); continue; }
+    if (key === 'all') { out.all = raw === '1'; continue; }
+    if (!FILTER_KEYS.includes(key)) continue;
+    const vals = raw.split(',').map(safeDecode).filter((v) => v);
+    if (!vals.length) continue;
+    out.filters[key] = key === 'plan'
+      ? vals.map((v) => (v.endsWith('!') ? [v.slice(0, -1), 'great'] : [v, 'ok']))
+      : vals;
+  }
+  return out;
+}
+
+// Every active filter value, in FILTER_KEYS order — drives the removable pills and the
+// "Filters (n)" badge. Plan entries carry their mode.
+export function activeFilterEntries(filters = {}) {
+  const out = [];
+  for (const key of FILTER_KEYS) {
+    const f = filters[key];
+    if (!f || !f.size) continue;
+    if (key === 'plan') for (const [val, mode] of f) out.push({ key, val, mode });
+    else for (const val of f) out.push({ key, val });
+  }
+  return out;
+}
+
+// ── sorting ──────────────────────────────────────────────────────────────────
+export const SORTS = [
+  { key: 'newest', label: 'Newest' },
+  { key: 'az', label: 'A–Z' },
+  { key: 'quickest', label: 'Quickest' },
+];
+
+// Returns a NEW array. Ties always fall back to title so the order is stable.
+export function sortRecipes(list, key = 'newest') {
+  const byTitle = (a, b) => String(a.title).localeCompare(String(b.title));
+  const out = [...list];
+  if (key === 'az') return out.sort(byTitle);
+  if (key === 'quickest') {
+    const t = (r) => r.times?.total ?? Infinity;
+    return out.sort((a, b) => t(a) - t(b) || byTitle(a, b));
+  }
+  return out.sort((a, b) => String(b.created || '').localeCompare(String(a.created || '')) || byTitle(a, b));
+}
+
+// ── lanes (colour-coded menu sections) ───────────────────────────────────────
+// Every recipe belongs to one lane, which picks its colour (--lane-<key>, defined in
+// theme.css from scripts/lib/theme.mjs). Course beats protein: a vegan side is a side.
+export const LANES = ['fish', 'chicken', 'beef', 'veg', 'sides', 'dessert', 'bar'];
+export function laneFor(r) {
+  if ((r.kind || 'food') === 'drink') return 'bar';
+  if (r.category === 'dessert') return 'dessert';
+  if (r.category === 'side') return 'sides';
+  switch (r.protein) {
+    case 'fish': case 'seafood': return 'fish';
+    case 'chicken': return 'chicken';
+    case 'beef': return 'beef';
+    case 'vegetarian': case 'vegan': return 'veg';
+    default: return 'sides';
+  }
+}
+
+// ── shelves (the unfiltered Food home) ───────────────────────────────────────
+// With no search or filter active, the Food menu is grouped into lane-coloured shelves:
+// mains by protein, then sides, then desserts. Membership is laneFor(); each shelf's
+// `filter` is what its "See all" applies — a test keeps the two in agreement.
+export const SHELVES = [
+  { key: 'fish', title: 'Fish & Shellfish', filter: { category: ['main'], protein: ['Seafood'] } },
+  { key: 'chicken', title: 'Chicken', filter: { category: ['main'], protein: ['chicken'] } },
+  { key: 'beef', title: 'Beef', filter: { category: ['main'], protein: ['beef'] } },
+  { key: 'veg', title: 'Vegetarian & Vegan', filter: { category: ['main'], protein: ['vegetarian', 'vegan'] } },
+  { key: 'sides', title: 'Sides & Sauces', filter: { category: ['side'] } },
+  { key: 'dessert', title: 'Desserts', filter: { category: ['dessert'] } },
+];
+
+// → { fresh: newest `freshCount` recipes, shelves: [{ key, title, filter, count, members, items }] }
+// `members` is the whole shelf in `sort` order; `items` the first `limit` shown on the shelf.
+// Empty shelves are dropped.
+export function buildShelves(recipes, { sort = 'newest', limit = 4, freshCount = 8 } = {}) {
+  const sorted = sortRecipes(recipes, sort);
+  const shelves = SHELVES.map((s) => {
+    const members = sorted.filter((r) => laneFor(r) === s.key);
+    return { ...s, count: members.length, members, items: members.slice(0, limit) };
+  }).filter((s) => s.count);
+  return { fresh: sortRecipes(recipes, 'newest').slice(0, freshCount), shelves };
+}
+
+// ── curated chip sets ────────────────────────────────────────────────────────
+// Food "Occasion" filter — the free-form tags that answer "what kind of night is it?".
+// Kept tight on purpose (like the drinks' Flavor list); matches on r.tags.
+export const FOOD_OCCASIONS = ['weeknight', 'quick', 'one-pan', 'make-ahead', 'date-night', 'summer', 'comfort'];
+export const occasionLabel = (t) => cap(String(t).replace(/-/g, ' '));
+
+// Cuisine chips split into the ones worth showing up front (umbrella groups + any
+// cuisine with at least `min` recipes) and the long tail behind "More…".
+export function splitCuisineChips(values, recipes, cuisineGroups = {}, min = 2) {
+  const count = {};
+  recipes.forEach((r) => { count[r.cuisine] = (count[r.cuisine] || 0) + 1; });
+  const primary = [], more = [];
+  values.forEach((v) => ((cuisineGroups[v] || (count[v] || 0) >= min) ? primary : more).push(v));
+  return { primary, more };
 }
 
 // Cuisine chips: umbrella groups (e.g. "Asian") first, then the specific cuisines.

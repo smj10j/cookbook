@@ -25,7 +25,7 @@ heat: hot
 tags:
   - spicy
   - date-night
-  - gluten-free
+  - gluten-free-option
 photo: "two seared jerk-crusted snapper fillets, dark and spiced, over creamy coconut rice mixed with black beans, an avocado-cucumber salad and lime wedges alongside; fish plated cooked and flaked at the edge, not whole and raw"
 ingredients:
   - section: Jerk snapper
@@ -82,6 +82,8 @@ extras:
     note: A garden habanero or scotch-bonnet in the marinade is the real-deal jerk heat, and garden thyme is central to the paste — use both if you've got them.
   - label: Make it a swap for Stephen
     note: This is finfish, so it's already Stephen-friendly — but if you ever build the coconut rice as a base for shrimp instead, keep a couple of snapper or mahi fillets going alongside so both of you are covered.
+  - label: Gluten-free
+    note: "Use tamari or coconut aminos in place of the soy sauce in the jerk paste — everything else is naturally gluten-free."
 planSwaps:
   - for: [dash, tlc, heart, diabetes]
     replace: "1 tbsp soy sauce"
@@ -103,7 +105,7 @@ source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
 created: 2026-09-15
-updated: 2026-09-15
+updated: 2026-11-27
 ---
 
 Jerk is as much about the aromatics — allspice (Jamaicans call it pimento),

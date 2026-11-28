@@ -26,7 +26,7 @@ tags:
   - vegan
   - vegetarian
   - garden
-  - gluten-free
+  - gluten-free-option
 ingredients:
   - section: Crispy tofu
     items:
@@ -74,6 +74,8 @@ extras:
     note: A handful of spinach or a second vegetable bulks it up; serve with extra rice.
   - label: Protein your way
     note: Crispy tofu, poached chicken, or firm white fish all work in the same sauce (use fish sauce in place of soy if you're not keeping it vegan).
+  - label: Gluten-free
+    note: "Use tamari for the soy sauce and check the curry paste label — then it really is naturally gluten-free."
 source:
   name: Adapted from Stephen's ChatGPT recipe notes
   url: null
@@ -83,7 +85,7 @@ planSwaps:
     with: "1½ cups light coconut milk"
     note: "light coconut milk (thinner — reduce a touch harder)"
 created: 2026-06-20
-updated: 2026-07-06
+updated: 2026-11-27
 ---
 
 One coconut-curry base, endless variations. The crispy tofu is what makes the vegan version
